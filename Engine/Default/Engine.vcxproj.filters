@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="99.Wls">
+      <UniqueIdentifier>{28296053-26be-4045-8f33-11560a8c00b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Wls\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="98.Headers">
+      <UniqueIdentifier>{e5fe7f53-2f2c-417b-92bf-e22f5a7df445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Base">
+      <UniqueIdentifier>{15671e5b-2bc2-4020-acfb-91c83665bca1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager">
+      <UniqueIdentifier>{a50b67da-6d21-4cf6-9330-ac5803c91ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\00.Dx9DeviceManager">
+      <UniqueIdentifier>{6a75542f-c799-4907-953e-8d1bb3e34069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\01.TimeManager">
+      <UniqueIdentifier>{52de197a-c328-49e8-aa0f-14701234d13a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\02.InputManager">
+      <UniqueIdentifier>{596e0f71-75a4-4891-8972-ccfc71c293d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Structure">
+      <UniqueIdentifier>{e2c25aac-a613-406d-9401-d57a1de678dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Structure\State">
+      <UniqueIdentifier>{63fe55ad-c04e-4e22-8672-3ff0c041c85f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Headers\Define">
+      <UniqueIdentifier>{46a377ed-8439-4bb4-9a58-3a27f50f8dd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Headers\Enum">
+      <UniqueIdentifier>{ee2c32f3-2e4d-488d-b168-786b84f939d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Headers\Extern">
+      <UniqueIdentifier>{d3c31e27-fed9-4f69-84af-7a683aa51c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Headers\Struct">
+      <UniqueIdentifier>{0ac7187f-d001-466c-ae39-47096ae7b932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Structure\Cycle">
+      <UniqueIdentifier>{9e3d94e9-f621-4155-9e65-58a6a12434c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.GameObject">
+      <UniqueIdentifier>{36b8bc3d-733f-42d3-a335-d45a434ff9db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component">
+      <UniqueIdentifier>{6c1e316e-f0b5-4b81-91cc-6cd384009991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Scene">
+      <UniqueIdentifier>{015563c7-4824-4b2e-8f68-8f2a6df0a28f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Structure\Renderer">
+      <UniqueIdentifier>{13bea1fd-77da-4ace-8f2a-c28b2cd50638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\03.SceneManager">
+      <UniqueIdentifier>{cdd4bd81-c818-4778-b4c5-a885c3a32aed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\04.GameObjectManager">
+      <UniqueIdentifier>{2bbb208f-ac72-49d9-95b8-b26f7cf32e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\05.RenderManager">
+      <UniqueIdentifier>{7330d474-e3d5-438d-90e3-ec43564e9744}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Structure\Component">
+      <UniqueIdentifier>{7f627765-c84c-4a20-a524-0bcee41ce855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\00.Transform">
+      <UniqueIdentifier>{00c4e6c9-5435-4640-9ba3-344e02b6c54f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\01.Renderer">
+      <UniqueIdentifier>{92f712c6-f0ed-4fc1-bd8f-7069407a962e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\01.Renderer\VIBuffer">
+      <UniqueIdentifier>{4f6d56fa-9e5c-4226-a812-ac76cc1f65e7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Cpp\DeviceManager.cpp">
+      <Filter>01.Manager\00.Dx9DeviceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\TimeManager.cpp">
+      <Filter>01.Manager\01.TimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\State.cpp">
+      <Filter>02.Structure\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Cycle.cpp">
+      <Filter>02.Structure\Cycle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Base.cpp">
+      <Filter>00.Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Renderer.cpp">
+      <Filter>02.Structure\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\SceneManager.cpp">
+      <Filter>01.Manager\03.SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Scene.cpp">
+      <Filter>05.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\GameObject.cpp">
+      <Filter>03.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\GameObjectManager.cpp">
+      <Filter>01.Manager\04.GameObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\RenderManager.cpp">
+      <Filter>01.Manager\05.RenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\InputManager.cpp">
+      <Filter>01.Manager\02.InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Component.cpp">
+      <Filter>02.Structure\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp">
+      <Filter>04.Component\01.Renderer\VIBuffer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Header\DeviceManager.h">
+      <Filter>01.Manager\00.Dx9DeviceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\TimeManager.h">
+      <Filter>01.Manager\01.TimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Engine_Include.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Engine_Struct.h">
+      <Filter>98.Headers\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Engine_Extern.h">
+      <Filter>98.Headers\Extern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Engine_Enum.h">
+      <Filter>98.Headers\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\State.h">
+      <Filter>02.Structure\State</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Engine_Define.h">
+      <Filter>98.Headers\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Cycle.h">
+      <Filter>02.Structure\Cycle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Base.h">
+      <Filter>00.Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Renderer.h">
+      <Filter>02.Structure\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\SceneManager.h">
+      <Filter>01.Manager\03.SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Scene.h">
+      <Filter>05.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\GameObject.h">
+      <Filter>03.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\GameObjectManager.h">
+      <Filter>01.Manager\04.GameObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\RenderManager.h">
+      <Filter>01.Manager\05.RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\InputManager.h">
+      <Filter>01.Manager\02.InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Component.h">
+      <Filter>02.Structure\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\VIBuffer_Renderer.h">
+      <Filter>04.Component\01.Renderer\VIBuffer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

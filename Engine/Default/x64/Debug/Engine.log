@@ -1,0 +1,42 @@
+﻿  VIBuffer_Renderer.cpp
+  TimeManager.cpp
+  State.cpp
+  SceneManager.cpp
+  Scene.cpp
+  RenderManager.cpp
+  Renderer.cpp
+  InputManager.cpp
+  GameObjectManager.cpp
+  GameObject.cpp
+  DeviceManager.cpp
+  Cycle.cpp
+  Component.cpp
+  Base.cpp
+  코드를 생성하고 있습니다...
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+  Engine.vcxproj -> C:\Users\Administrator\Desktop\Johnson3D_210322월1450_백버퍼띄움\Engine\Default\../Bin/Engine.dll
+  Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.lib
+  1개 파일이 복사되었습니다.
+  ..\Header\Base.h
+  ..\Header\Component.h
+  ..\Header\Cycle.h
+  ..\Header\DeviceManager.h
+  ..\Header\Engine_Define.h
+  ..\Header\Engine_Enum.h
+  ..\Header\Engine_Extern.h
+  ..\Header\Engine_Include.h
+  ..\Header\Engine_Struct.h
+  ..\Header\GameObject.h
+  ..\Header\GameObjectManager.h
+  ..\Header\InputManager.h
+  ..\Header\Renderer.h
+  ..\Header\RenderManager.h
+  ..\Header\Scene.h
+  ..\Header\SceneManager.h
+  ..\Header\State.h
+  ..\Header\TimeManager.h
+  ..\Header\VIBuffer_Renderer.h
+  19개 파일이 복사되었습니다.

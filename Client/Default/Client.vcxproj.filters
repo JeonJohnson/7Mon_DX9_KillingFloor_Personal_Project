@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="99.Wls">
+      <UniqueIdentifier>{ad2335fd-048b-4fa4-a691-77eb4809ad24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Wls\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="00.WinAPI">
+      <UniqueIdentifier>{10cc24f6-370d-457c-a531-b1bec1e2ffce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header">
+      <UniqueIdentifier>{43227f49-dbae-42c9-a9cc-0a6c37dc249e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\Define">
+      <UniqueIdentifier>{4d3efc21-c034-4eec-9178-152533562cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\Enum">
+      <UniqueIdentifier>{d67671b2-477f-43ff-9adc-e7dba2959bb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\Extern">
+      <UniqueIdentifier>{bae49265-088e-47d2-83ce-7fefc4219b48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\Struct">
+      <UniqueIdentifier>{b7ee87de-8ebe-4781-9e06-4e2b68406c70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.MainGame">
+      <UniqueIdentifier>{67666196-220f-428e-b665-24722917ca9d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>99.Wls</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>00.WinAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Include.h">
+      <Filter>98.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Wls</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>99.Wls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Struct.h">
+      <Filter>98.Header\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Define.h">
+      <Filter>98.Header\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Enum.h">
+      <Filter>98.Header\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Extern.h">
+      <Filter>98.Header\Extern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\MainGame.h">
+      <Filter>01.MainGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Client.cpp">
+      <Filter>00.WinAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Wls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\MainGame.cpp">
+      <Filter>01.MainGame</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </Image>
+    <Image Include="Client.ico">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>99.Wls</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
