@@ -15,17 +15,24 @@ private:
 	~TimeManager();
 
 public:
-	void Initialize();
-	void Update();
+	void Time_Init();
+
+	void Time_Update();
 
 public:
-	float Get_DeltaTime() const;
+	float Get_Time()
+	{
+		return m_fDeltaTime;
+	};
 	
 
 private:
+	LARGE_INTEGER	m_CpuTick;
+	LARGE_INTEGER	m_BeginTime;
+	LARGE_INTEGER	m_EndTime;
 
+	float			m_fDeltaTime;
 	
-
 };
 
 #endif

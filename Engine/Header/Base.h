@@ -39,13 +39,15 @@ public:
 	void Process();
 	void Release();
 
-public:
+public: /* Device Manager */
+	LPDIRECT3DDEVICE9 Get_Dx9Device() const;
 
-public:
+public: /* Time Manager */
+	float Get_DeltaTime() const;
 
-public:
+public: /* Input Manager */
 
-public:
+public: /*  */
 
 public:
 		

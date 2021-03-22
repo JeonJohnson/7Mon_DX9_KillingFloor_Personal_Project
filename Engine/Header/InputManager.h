@@ -20,10 +20,16 @@ public:
 	void Release();
 
 public:
+	bool	GetKeyUp(const DWORD & _dwKey);
+	bool	GetKeyDown(const DWORD & _dwKey);
+	bool	GetKeyPress(const DWORD & _dwKey);
 
 public:
 	
 private:
+	DWORD m_dwKey;
+	DWORD m_dwKeyUp;
+	DWORD m_dwKeyDown;
 
 	
 };

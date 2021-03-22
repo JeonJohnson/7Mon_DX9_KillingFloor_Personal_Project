@@ -10,15 +10,34 @@ TimeManager::~TimeManager()
 {
 }
 
-void TimeManager::Initialize()
+void TimeManager::Time_Init()
 {
+	ZeroMemory(&m_CpuTick, sizeof(LARGE_INTEGER));
+	ZeroMemory(&m_BeginTime, sizeof(LARGE_INTEGER));
+	ZeroMemory(&m_EndTime, sizeof(LARGE_INTEGER));
+
+	m_fDeltaTime = 0.f;
+	//1. cpu클럭 측정
+	QueryPerformanceFrequency(&m_CpuTick);
+
+	//2. 시작시점 주파수 측정
+	QueryPerformanceCounter(&m_BeginTime);
+	QueryPerformanceCounter(&m_EndTime);
 }
 
-void TimeManager::Update()
+void TimeManager::Time_Update()
 {
+	//혹시 모르니 cpu 클럭 재측정
+	QueryPerformanceFrequency(&m_CpuTick);
+	//끝 시점 주파수 측정
+	QueryPerformanceCounter(&m_EndTime);
+
+	//계산하기
+	//(끝지점-시작지점)/씨퓨클럭
+	m_fDeltaTime = float(m_EndTime.QuadPart - m_BeginTime.QuadPart) / m_CpuTick.QuadPart;
+
+	//계산하고 나면 다시
+	m_BeginTime = m_EndTime;
+
 }
 
-float TimeManager::Get_DeltaTime() const
-{
-	return 0.0f;
-}

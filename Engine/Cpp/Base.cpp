@@ -39,7 +39,7 @@ Base::~Base()
 void Base::Initialize(Desc * _desc)
 {
 	m_pDeviceManager->Initialize(_desc->hWnd, _desc->wincx, _desc->wincy, _desc->window);
-	m_pTimeManager->Initialize();
+	m_pTimeManager->Time_Init();
 	m_pInputManager->Initialize();
 
 	m_pRenderManager->Initialize();
@@ -49,7 +49,7 @@ void Base::Initialize(Desc * _desc)
 
 void Base::Process()
 {
-	//TimeManager
+	m_pTimeManager->Time_Update();
 	//InputManager
 
 	m_pSceneManager->Update();
@@ -61,4 +61,17 @@ void Base::Process()
 
 void Base::Release()
 {
+
+
+	m_pDeviceManager->Destroy_Instance();
+}
+
+LPDIRECT3DDEVICE9 Base::Get_Dx9Device() const
+{
+	return m_pDeviceManager->Get_D3D9_Device();
+}
+
+float Base::Get_DeltaTime() const
+{
+	return m_pTimeManager->Get_Time();
 }

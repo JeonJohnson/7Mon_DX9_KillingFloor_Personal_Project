@@ -183,5 +183,8 @@
     <ClInclude Include="..\Header\VIBuffer_Renderer.h">
       <Filter>04.Component\01.Renderer\VIBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Engine_KeyDefine.h">
+      <Filter>98.Headers\Define</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -186,6 +186,7 @@
     <ClInclude Include="..\Header\Engine_Enum.h" />
     <ClInclude Include="..\Header\Engine_Extern.h" />
     <ClInclude Include="..\Header\Engine_Include.h" />
+    <ClInclude Include="..\Header\Engine_KeyDefine.h" />
     <ClInclude Include="..\Header\Engine_Struct.h" />
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
