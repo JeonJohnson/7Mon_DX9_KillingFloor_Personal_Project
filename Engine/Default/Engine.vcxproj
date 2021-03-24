@@ -181,6 +181,7 @@
     <ClInclude Include="..\Header\Base.h" />
     <ClInclude Include="..\Header\Component.h" />
     <ClInclude Include="..\Header\Cycle.h" />
+    <ClInclude Include="..\Header\DebugManager.h" />
     <ClInclude Include="..\Header\Engine_Define.h" />
     <ClInclude Include="..\Header\DeviceManager.h" />
     <ClInclude Include="..\Header\Engine_Enum.h" />
@@ -188,6 +189,7 @@
     <ClInclude Include="..\Header\Engine_Include.h" />
     <ClInclude Include="..\Header\Engine_KeyDefine.h" />
     <ClInclude Include="..\Header\Engine_Struct.h" />
+    <ClInclude Include="..\Header\Engine_TypeDef.h" />
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\InputManager.h" />
@@ -197,12 +199,14 @@
     <ClInclude Include="..\Header\SceneManager.h" />
     <ClInclude Include="..\Header\State.h" />
     <ClInclude Include="..\Header\TimeManager.h" />
+    <ClInclude Include="..\Header\Transform.h" />
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\Base.cpp" />
     <ClCompile Include="..\Cpp\Component.cpp" />
     <ClCompile Include="..\Cpp\Cycle.cpp" />
+    <ClCompile Include="..\Cpp\DebugManager.cpp" />
     <ClCompile Include="..\Cpp\DeviceManager.cpp" />
     <ClCompile Include="..\Cpp\GameObject.cpp" />
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
@@ -213,6 +217,7 @@
     <ClCompile Include="..\Cpp\SceneManager.cpp" />
     <ClCompile Include="..\Cpp\State.cpp" />
     <ClCompile Include="..\Cpp\TimeManager.cpp" />
+    <ClCompile Include="..\Cpp\Transform.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

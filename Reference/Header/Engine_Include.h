@@ -17,6 +17,7 @@ using namespace std;
 #include <string.h>
 #include <tchar.h>
 
+#include <math.h>
 
 /* MultiThread */
 

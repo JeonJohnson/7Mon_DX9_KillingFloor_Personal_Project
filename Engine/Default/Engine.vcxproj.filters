@@ -80,6 +80,12 @@
     <Filter Include="04.Component\01.Renderer\VIBuffer">
       <UniqueIdentifier>{4f6d56fa-9e5c-4226-a812-ac76cc1f65e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Manager\99.DebugManager">
+      <UniqueIdentifier>{9a0131cd-eea7-474c-8206-57716773da1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Headers\TypeDef">
+      <UniqueIdentifier>{6f713e96-446c-4f78-b4a9-85e28c6dacd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -123,6 +129,12 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp">
       <Filter>04.Component\01.Renderer\VIBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\DebugManager.cpp">
+      <Filter>01.Manager\99.DebugManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Transform.cpp">
+      <Filter>04.Component\00.Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +197,15 @@
     </ClInclude>
     <ClInclude Include="..\Header\Engine_KeyDefine.h">
       <Filter>98.Headers\Define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\DebugManager.h">
+      <Filter>01.Manager\99.DebugManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Engine_TypeDef.h">
+      <Filter>98.Headers\TypeDef</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Transform.h">
+      <Filter>04.Component\00.Transform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

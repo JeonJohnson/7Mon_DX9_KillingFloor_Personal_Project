@@ -50,7 +50,7 @@ void Base::Initialize(Desc * _desc)
 void Base::Process()
 {
 	m_pTimeManager->Time_Update();
-	//InputManager
+	m_pInputManager->Update();
 
 	m_pSceneManager->Update();
 	m_pSceneManager->LateUpdate();
@@ -62,6 +62,7 @@ void Base::Process()
 void Base::Release()
 {
 
+	m_pSceneManager->Destroy_Instance();
 
 	m_pDeviceManager->Destroy_Instance();
 }

@@ -29,6 +29,9 @@
     <Filter Include="01.MainGame">
       <UniqueIdentifier>{67666196-220f-428e-b665-24722917ca9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="98.Header\TypeDef">
+      <UniqueIdentifier>{d0d90b2b-cd13-46b4-9a0f-a9173503df42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -60,6 +63,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\MainGame.h">
       <Filter>01.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\TypeDef.h">
+      <Filter>98.Header\TypeDef</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,8 @@
 /* Default */
 #include <windows.h>
 
+#include <assert.h>
+
 #include <iostream>
 using namespace std;
 #include <ctime>
@@ -16,6 +18,9 @@ using namespace std;
 
 #include <string.h>
 #include <tchar.h>
+
+#include <math.h>
+
 
 
 /* MultiThread */
@@ -38,5 +43,6 @@ using namespace std;
 #include "Engine_Enum.h"
 #include "Engine_Extern.h"
 #include "Engine_Struct.h"
+#include "Engine_TypeDef.h"
 
 #endif
