@@ -24,7 +24,19 @@ void Component::LateUpdate()
 {
 }
 
+void Component::ReadyRender()
+{
+}
+
 void Component::Release()
+{
+}
+
+void Component::On_Active()
+{
+}
+
+void Component::Off_Active()
 {
 }
 

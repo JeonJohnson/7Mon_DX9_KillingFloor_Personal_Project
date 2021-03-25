@@ -200,6 +200,7 @@
     <ClInclude Include="..\Header\State.h" />
     <ClInclude Include="..\Header\TimeManager.h" />
     <ClInclude Include="..\Header\Transform.h" />
+    <ClInclude Include="..\Header\VIBuffer.h" />
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +219,7 @@
     <ClCompile Include="..\Cpp\State.cpp" />
     <ClCompile Include="..\Cpp\TimeManager.cpp" />
     <ClCompile Include="..\Cpp\Transform.cpp" />
+    <ClCompile Include="..\Cpp\VIBuffer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

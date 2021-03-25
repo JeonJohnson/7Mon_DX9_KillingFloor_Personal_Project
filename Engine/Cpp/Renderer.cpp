@@ -19,6 +19,11 @@ void Renderer::Update()
 
 void Renderer::LateUpdate()
 {
+	
+}
+
+void Renderer::ReadyRender()
+{
 	//여기서 RenderManager의 RenderList에 보냄.
 }
 

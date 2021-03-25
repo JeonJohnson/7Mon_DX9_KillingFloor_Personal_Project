@@ -26,7 +26,7 @@ public:
 public:
 
 private:
-	map<int, GameObject*>	m_mGameObjectList;
+	//map<int, GameObject*>	m_mapGameObjectList;
 	
 };
 

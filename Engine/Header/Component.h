@@ -19,10 +19,22 @@ public:
 	virtual ~Component() = default;
 
 protected:
+	/* Cycle */
 	virtual void Initialize() override = 0;
 	virtual void Update() override = 0;
 	virtual void LateUpdate() override = 0;
+	virtual void ReadyRender() override;
 	virtual void Release() override = 0;
+
+public:
+	//Active On/Off
+	virtual void On_Active() override;
+	virtual void Off_Active() override;
+
+public:
+	//collision
+
+
 
 #pragma region Template
 	//컴포넌트안에 컴포넌트 삽입 가능하게...?
@@ -75,7 +87,8 @@ public: /* Set */
 	void		Set_Scale(const Vector3& _vScale);
 	
 
-protected:
+protected: 
+	//프로텍티드로 할 이유 유?
 	GameObject*		m_GameObject = nullptr;
 	Transform*		m_Transform = nullptr;
 

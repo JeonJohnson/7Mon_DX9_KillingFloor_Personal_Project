@@ -109,9 +109,9 @@ void GameObject::Set_Rotation(float _x, float _y, float _z)
 {
 }
 
-void GameObject::Set_DontDestroy(bool _TrueIsDontDestroy)
+void GameObject::Set_DontDestroy(bool _FalseIsDestroyWhenChangeScene)
 {
-	m_bDontDestroy = _TrueIsDontDestroy;
+	m_bDontDestroy = _FalseIsDestroyWhenChangeScene;
 }
 
 void GameObject::Set_Active(bool _onoff)

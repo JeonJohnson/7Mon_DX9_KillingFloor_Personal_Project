@@ -1,0 +1,22 @@
+20:08 2021-03-25 목 
+ViBuffer
+ViBufferRenderer
+Renderer
+
+VIBuffer : Tri, Rect, Box등등 VIBufferObjs들의 어마이 클래스, 걍 공통적으로 가지고 있을거 가지고 있음. 리쏘스클래스 상속받음.
+	=> 일단 리쏘스 클래스를 잘 몰르니 Renderer클라쓰 정리 끝나고 ㄱㄱ
+
+Renderer : Component를 상속받음. 렌더 속성을 가지고 있는 Component라고 생각하믄됨. ReadyRender에서 RenderManager의 RenderingList로 본인을 넣어줌.,
+	-> ViBufferRenderer : Renderer을 상속받음. Desc에서 입력받은 wstring등 여러 값으로 VIBuffer을 상속받고 있는 VIBufferObjs들의 정보값을 들고 온 뒤
+		RenderManager로 보냄. 
+
+해야 할거
+일단 리소스 클래스 만들지 말고 
+	책이랑 태쌤거 보면서 리소스 상속 안받는 VIBuffer 클래스 그냥 만들고
+	일단 Triangle 까지 만들기.
+그리고 VIBufferRenderer -> TriangleBuffer값 가져오기 -> RenderManager::RedneringList -> Clinet::Render 까지해서 삼각형 출력해보기.
+문제 없이 출력 된다면 리소스클래스 만들고 카메라까지 만들면서 렌더링 파이프라인 쭉 다시 보면서 1인칭 카메라 까지.
+
+=> 이까지 다 되면 그래픽 디바이스 하나 더 만들어서 Debuging Window에 숫자 띄어보기
+	=> 이까지 다 되면 툴ㄱㄱㄱㄱ
+	

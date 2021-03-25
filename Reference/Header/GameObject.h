@@ -108,7 +108,7 @@ public: /* Set */
 	void		Set_Rotation(const Quaternion& _qRot);
 	void		Set_Rotation(float _x, float _y, float _z);
 
-	void		Set_DontDestroy(bool _TrueIsDontDestroy);
+	void		Set_DontDestroy(bool _FalseIsDestroyWhenChangeScene);
 	void		Set_Active(bool _onoff);
 	void		Set_Alive(bool _FalseIsDead);
 
