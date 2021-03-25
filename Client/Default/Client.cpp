@@ -9,7 +9,9 @@
 
 // 전역 변수:
 HWND	g_hWnd;
+#ifdef _DEBUG
 HWND	g_hWnd_Debug;
+#endif
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
@@ -110,7 +112,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	RECT rc = { 0, 0, WINCX, WINCY };
 	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
 	HWND hWnd = CreateWindowW(szWindowClass, L"Johnson3D", WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, 0, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
+		CW_USEDEFAULT, 0, 
+		rc.right - rc.left, 
+		rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
 
 	if (!hWnd)
 	{
@@ -123,6 +127,27 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
+
+#ifdef _DEBUG
+	RECT	DebugWindow_rect = { 0,0,WINCX_DEBUG,WINCY_DEBUG };
+	AdjustWindowRect(&DebugWindow_rect, WS_OVERLAPPEDWINDOW, FALSE);
+	HWND hWnd_DEBUG = CreateWindowW(szWindowClass, L"Debug Window", WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, 0,
+		DebugWindow_rect.right - DebugWindow_rect.left,
+		DebugWindow_rect.bottom - DebugWindow_rect.top, nullptr, nullptr, hInstance, nullptr);
+
+	if (!hWnd_DEBUG)
+	{
+		return FALSE;
+	}
+	
+	g_hWnd_Debug = hWnd_DEBUG;
+	
+	SetWindowPos(hWnd_DEBUG, nullptr, 1920-WINCX_DEBUG, 0, WINCX_DEBUG, WINCY_DEBUG, 0);
+	
+	ShowWindow(hWnd_DEBUG, nCmdShow);
+	UpdateWindow(hWnd_DEBUG);
+#endif
 
 	return TRUE;
 }

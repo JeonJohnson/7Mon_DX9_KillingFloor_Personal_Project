@@ -6,6 +6,9 @@
 #define WINCX 1280
 #define WINCY 720
 
+#define WINCX_DEBUG 425
+#define WINCY_DEBUG	WINCY
+
 #define	Declare_Singleton(Class)				\
 private:										\
 	static	Class*	m_Instance;					\
