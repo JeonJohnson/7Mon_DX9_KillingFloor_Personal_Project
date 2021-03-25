@@ -5,9 +5,11 @@
 
 #include "Engine_Define.h"
 
-#include "Component.h"
 #include "Cycle.h"
 
+#include "Component.h"
+
+//class Component;
 
 class _declspec(dllexport) Transform : /*public Cycle*/ public Component
 {

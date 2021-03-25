@@ -17,7 +17,8 @@
 
 class _declspec(dllexport) GameObject : public Cycle
 {
-private: /* 생성자/소멸자가 아니라 Instantiate랑 destroy로 겜 옵줵 생성/소멸 관리 할꺼임 */
+private:
+	/* 생성자/소멸자가 아니라 Instantiate랑 destroy로 겜 옵줵 생성/소멸 관리 할꺼임 */
 	explicit GameObject() = default;
 	virtual ~GameObject() = default;
 
@@ -107,13 +108,13 @@ public: /* Set */
 	void		Set_Rotation(const Quaternion& _qRot);
 	void		Set_Rotation(float _x, float _y, float _z);
 
-	void		Set_DontDestroy(bool _TrueIsDontDestory);
+	void		Set_DontDestroy(bool _TrueIsDontDestroy);
 	void		Set_Active(bool _onoff);
 	void		Set_Alive(bool _FalseIsDead);
 
 private:
-//	vector<Component*>		m_vecComponents;
-//	vector<Component*>		m_vecNewComponents;
+	vector<Component*>		m_vecComponents;
+	vector<Component*>		m_vecNewComponents;
 	//=> new 컴포넌트가 있는 이유?
 		//혹시 LateUdpate처럼 Update가 아닌 다른 순서에서 생성되서 바로 들어간다면
 		//그 컴포넌트도 그 Cycle의 순서부터 도는데

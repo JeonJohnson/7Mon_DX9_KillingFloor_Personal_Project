@@ -4,10 +4,13 @@
 #define _COMPONENT_H_
 
 #include "Engine_Include.h"
-#include "Cycle.h"
-#include "GameObject.h"
 
-//class Transform;
+#include "Cycle.h"
+
+//#include "GameObject.h"
+
+class GameObject;
+class Transform;
 
 class _declspec(dllexport) Component : public Cycle
 {

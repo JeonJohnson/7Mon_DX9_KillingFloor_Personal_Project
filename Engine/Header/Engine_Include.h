@@ -3,6 +3,10 @@
 #ifndef _ENGINE_INCUDE_H_
 #define _ENGINE_INCUDE_H_
 
+/* Fuck the warning*/
+#pragma warning(disable : 4251)
+
+
 /* Default */
 #include <windows.h>
 

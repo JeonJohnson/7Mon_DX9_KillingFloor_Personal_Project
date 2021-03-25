@@ -3,8 +3,14 @@
 #ifndef _ENGINE_INCUDE_H_
 #define _ENGINE_INCUDE_H_
 
+/* Fuck the warning*/
+#pragma warning(disable : 4251)
+
+
 /* Default */
 #include <windows.h>
+
+#include <assert.h>
 
 #include <iostream>
 using namespace std;
@@ -18,6 +24,8 @@ using namespace std;
 #include <tchar.h>
 
 #include <math.h>
+
+
 
 /* MultiThread */
 
@@ -39,5 +47,6 @@ using namespace std;
 #include "Engine_Enum.h"
 #include "Engine_Extern.h"
 #include "Engine_Struct.h"
+#include "Engine_TypeDef.h"
 
 #endif

@@ -1,59 +1,39 @@
-﻿  GameObjectManager.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(58): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(58): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(58): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(59): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(59): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(59): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(68): error C2061: 구문 오류: 식별자 'GameObject'
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(70): error C2061: 구문 오류: 식별자 'Transform'
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(76): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(76): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(76): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(77): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(77): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(77): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
+﻿  Component.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  GameObjectManager.cpp
   GameObject.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(58): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(58): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(58): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(59): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(59): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(59): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(68): error C2061: 구문 오류: 식별자 'GameObject'
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(70): error C2061: 구문 오류: 식별자 'Transform'
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(76): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(76): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(76): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(77): error C2143: 구문 오류: ';'이(가) '*' 앞에 없습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(77): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\component.h(77): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Base.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  VIBuffer_Renderer.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
-  SceneManager.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
-  Renderer.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
-  RenderManager.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
-  Component.cpp
-e:\학업\7mon_personal\7mon_personal_project\engine\header\gameobject.h(128): warning C4251: 'GameObject::m_wName': class 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'에서는 class 'GameObject'의 클라이언트에서 DLL 인터페이스를 사용하도록 지정해야 합니다.
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2635): note: 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>' 선언을 참조하십시오.
-  코드를 생성하고 있습니다...
-  건너뛰고 있습니다... (관련된 변경 내용 없음)
-  Transform.cpp
+c:\users\administrator\desktop\7mon_personal_project\engine\cpp\gameobject.cpp(56): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
+c:\users\administrator\desktop\7mon_personal_project\engine\cpp\gameobject.cpp(50): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+  Engine.vcxproj -> C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+  Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.lib
+  1개 파일이 복사되었습니다.
+  ..\Header\Base.h
+  ..\Header\Component.h
+  ..\Header\Cycle.h
+  ..\Header\DebugManager.h
+  ..\Header\DeviceManager.h
+  ..\Header\Engine_Define.h
+  ..\Header\Engine_Enum.h
+  ..\Header\Engine_Extern.h
+  ..\Header\Engine_Include.h
+  ..\Header\Engine_KeyDefine.h
+  ..\Header\Engine_Struct.h
+  ..\Header\Engine_TypeDef.h
+  ..\Header\GameObject.h
+  ..\Header\GameObjectManager.h
+  ..\Header\InputManager.h
+  ..\Header\Renderer.h
+  ..\Header\RenderManager.h
+  ..\Header\Scene.h
+  ..\Header\SceneManager.h
+  ..\Header\State.h
+  ..\Header\TimeManager.h
+  ..\Header\Transform.h
+  ..\Header\VIBuffer_Renderer.h
+  23개 파일이 복사되었습니다.

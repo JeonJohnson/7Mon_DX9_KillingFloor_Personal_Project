@@ -1,5 +1,7 @@
 #pragma once
 
+#ifndef _CYCLE_H_
+#define _CYCLE_H_
 
 
 class _declspec(dllexport) Cycle abstract
@@ -23,3 +25,4 @@ public:
 
 };
 
+#endif

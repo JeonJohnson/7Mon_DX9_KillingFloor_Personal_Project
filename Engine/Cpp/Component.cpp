@@ -1,5 +1,8 @@
 #include "..\Header\Component.h"
 
+#include "GameObject.h"
+#include "Transform.h"
+
 //Component::Component()
 //{
 //}

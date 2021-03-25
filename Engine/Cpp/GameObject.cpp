@@ -1,6 +1,7 @@
 #include "..\Header\GameObject.h"
 
 
+
 GameObject * GameObject::Instantiate(int _iTag, wstring _wName)
 {
 	GameObject* obj = nullptr;
@@ -36,4 +37,89 @@ void GameObject::LateUpdate()
 
 void GameObject::Release()
 {
+}
+
+Transform * GameObject::Get_Transform() const
+{
+	return m_Transform;
+}
+
+const Vector3 & GameObject::Get_Position() const
+{
+	Vector3 asdf;
+	return asdf;
+}
+
+const Vector3 & GameObject::Get_Scale() const
+{
+	Vector3 asdf;
+	return asdf;
+}
+
+const wstring GameObject::Get_Name() const
+{
+	return m_wName;
+}
+
+int GameObject::Get_Tag() const
+{
+	return m_iTag;
+}
+
+bool GameObject::Get_DontDestroy() const
+{
+	return m_bDontDestroy;
+}
+
+bool GameObject::Get_Active() const
+{
+	return m_bActive;
+}
+
+bool GameObject::Get_Alive() const
+{
+	return m_bAlive;
+}
+
+void GameObject::Set_Transform(Transform * _pTransform)
+{
+}
+
+void GameObject::Set_Position(const Vector3 & _vPos)
+{
+}
+
+void GameObject::Set_Position(float _x, float _y, float _z)
+{
+}
+
+void GameObject::Set_Scale(const Vector3 & _vScale)
+{
+}
+
+void GameObject::Set_Scale(float _x, float _y, float _z)
+{
+}
+
+void GameObject::Set_Rotation(const Quaternion & _qRot)
+{
+}
+
+void GameObject::Set_Rotation(float _x, float _y, float _z)
+{
+}
+
+void GameObject::Set_DontDestroy(bool _TrueIsDontDestroy)
+{
+	m_bDontDestroy = _TrueIsDontDestroy;
+}
+
+void GameObject::Set_Active(bool _onoff)
+{
+	m_bActive = _onoff;
+}
+
+void GameObject::Set_Alive(bool _FalseIsDead)
+{
+	m_bAlive = _FalseIsDead;
 }

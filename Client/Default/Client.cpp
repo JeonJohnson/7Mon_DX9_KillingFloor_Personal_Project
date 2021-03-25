@@ -8,7 +8,8 @@
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
-HWND g_hWnd;
+HWND	g_hWnd;
+HWND	g_hWnd_Debug;
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
@@ -117,6 +118,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	}
 
 	g_hWnd = hWnd;
+
+	SetWindowPos(hWnd, nullptr, 0, 0, WINCX, WINCY, 0);
 
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
