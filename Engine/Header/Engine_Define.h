@@ -30,17 +30,18 @@ void	Class::Destroy_Instance()				\
 	}											\
 }
 
-#define Safe_Delete(T)							\
-if(T)											\
-{ delete T; T = nullptr; }						
+#define Safe_Delete(Class)						\
+if(Class)										\
+{ delete Class; Class = nullptr; }
 
-#define Safe_Delete_Arr(T)						\
-if(T)											\
-{ delete[]T; T= nullptr; }
+#define Safe_Delete_Arr(Class)					\
+if(Class)										\
+{ delete[]Class; Class= nullptr; }
 
-#define Safe_Release(T)							\
-if(T)											\
-{ T->Release(); T = nullptr; }
+#define Safe_Release(Class)						\
+if(Class)										\
+{ Class->Release(); Class = nullptr; }
+
 
 
 

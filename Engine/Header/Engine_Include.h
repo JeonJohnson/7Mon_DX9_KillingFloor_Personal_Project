@@ -43,10 +43,11 @@ using namespace std;
 
 
 /* Custom */
+#include "Engine_TypeDef.h"
 #include "Engine_Define.h"
 #include "Engine_Enum.h"
 #include "Engine_Extern.h"
 #include "Engine_Struct.h"
-#include "Engine_TypeDef.h"
+
 
 #endif

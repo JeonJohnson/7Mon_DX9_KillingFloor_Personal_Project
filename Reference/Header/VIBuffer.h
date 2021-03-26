@@ -5,11 +5,14 @@
 
 #include "Engine_Include.h"
 
-class VIBuffer
+class _declspec(dllexport) VIBuffer abstract
 {
 //리쏘스 클래스를 상속받고
 	//VIBuffer Objs (Tri, Rect, Cube 등)들이
 	//가지고 있을거 가지고 있을 부모 클래스.
+	//Create 해주는건 각 도형 본인들
+	//Render은 VIBufferRenderer에서.
+	//VIBufferRenderer에서 각 도형들의 정보를 불러온다. 이거야.
 
 	/* 준니티 mk1 방식 
 	0. 얘가 리소스 상속 받음.
@@ -42,17 +45,39 @@ public:
 	virtual ~VIBuffer();
 
 public:
-	void Initialize();
+	virtual void Initialize() = 0;
 	void Release();
 
 public:
+	virtual void Create_VBuffer() = 0;
+	virtual void Create_IBuffer() = 0;
+	
+public:
+	/* Get */
+	const wstring&			Get_Name() const;
+
+	LPDIRECT3DVERTEXBUFFER9	Get_VBuffer_Com()	const;
+	const VBUFFER_INFO&		Get_VBuffer_Info()	const;
+
+	LPDIRECT3DINDEXBUFFER9	Get_IBuffer_Com()	const;
+	const IBUFFER_INFO&		Get_IBuffer_Info()	const;
 
 public:
+	/* Set */
+	void		Set_Name(const wstring& _name);
 
-private:
-	LPDIRECT3DDEVICE9	m_pDX9Device = nullptr;
-	wstring				m_wName = L"";
+	void		Set_VBufferInfo(const VBUFFER_INFO& _tVBuffer);
+	void		Set_IBufferInfo(const IBUFFER_INFO& _tIBuffer);
 
+protected:
+	LPDIRECT3DDEVICE9		m_pDX9Device = nullptr;
+	wstring					m_wName = L"";
+
+	LPDIRECT3DVERTEXBUFFER9	m_pVB = nullptr;
+	VBUFFER_INFO			m_tVBInfo;
+
+	LPDIRECT3DINDEXBUFFER9	m_pIB = nullptr;
+	IBUFFER_INFO			m_tIBInfo;
 
 
 };

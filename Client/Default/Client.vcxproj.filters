@@ -32,6 +32,9 @@
     <Filter Include="98.Header\TypeDef">
       <UniqueIdentifier>{d0d90b2b-cd13-46b4-9a0f-a9173503df42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Scene">
+      <UniqueIdentifier>{5f8c3610-1597-494a-97ab-2484dcc1a9f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
