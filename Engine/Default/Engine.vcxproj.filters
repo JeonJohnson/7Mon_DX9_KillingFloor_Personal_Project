@@ -157,6 +157,12 @@
     <ClCompile Include="..\Cpp\VIBuffer.cpp">
       <Filter>06.Resource\00.VIBuffer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\Triangle_VIBuffer_Color.cpp">
+      <Filter>06.Resource\00.VIBuffer\00.Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp">
+      <Filter>06.Resource\00.VIBuffer\01.Rect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\DeviceManager.h">
@@ -230,6 +236,12 @@
     </ClInclude>
     <ClInclude Include="..\Header\VIBuffer.h">
       <Filter>06.Resource\00.VIBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Triangle_VIBuffer_Color.h">
+      <Filter>06.Resource\00.VIBuffer\00.Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Rect_VIBuffer_Color.h">
+      <Filter>06.Resource\00.VIBuffer\01.Rect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -193,6 +193,7 @@
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\InputManager.h" />
+    <ClInclude Include="..\Header\Rect_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\Renderer.h" />
     <ClInclude Include="..\Header\RenderManager.h" />
     <ClInclude Include="..\Header\Scene.h" />
@@ -200,6 +201,7 @@
     <ClInclude Include="..\Header\State.h" />
     <ClInclude Include="..\Header\TimeManager.h" />
     <ClInclude Include="..\Header\Transform.h" />
+    <ClInclude Include="..\Header\Triangle_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\VIBuffer.h" />
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
   </ItemGroup>
@@ -212,6 +214,7 @@
     <ClCompile Include="..\Cpp\GameObject.cpp" />
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
+    <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\Renderer.cpp" />
     <ClCompile Include="..\Cpp\RenderManager.cpp" />
     <ClCompile Include="..\Cpp\Scene.cpp" />
@@ -219,6 +222,7 @@
     <ClCompile Include="..\Cpp\State.cpp" />
     <ClCompile Include="..\Cpp\TimeManager.cpp" />
     <ClCompile Include="..\Cpp\Transform.cpp" />
+    <ClCompile Include="..\Cpp\Triangle_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
   </ItemGroup>

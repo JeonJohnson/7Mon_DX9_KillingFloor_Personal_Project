@@ -9,7 +9,6 @@ VIBuffer : Tri, Rect, Box등등 VIBufferObjs들의 어마이 클래스, 걍 공�
 Renderer : Component를 상속받음. 렌더 속성을 가지고 있는 Component라고 생각하믄됨. ReadyRender에서 RenderManager의 RenderingList로 본인을 넣어줌.,
 	-> ViBufferRenderer : Renderer을 상속받음. Desc에서 입력받은 wstring등 여러 값으로 VIBuffer을 상속받고 있는 VIBufferObjs들의 정보값을 들고 온 뒤
 		RenderManager로 보냄. 
-
 해야 할거
 일단 리소스 클래스 만들지 말고 
 	책이랑 태쌤거 보면서 리소스 상속 안받는 VIBuffer 클래스 그냥 만들고
@@ -20,3 +19,4 @@ Renderer : Component를 상속받음. 렌더 속성을 가지고 있는 Componen
 => 이까지 다 되면 그래픽 디바이스 하나 더 만들어서 Debuging Window에 숫자 띄어보기
 	=> 이까지 다 되면 툴ㄱㄱㄱㄱ
 	
+

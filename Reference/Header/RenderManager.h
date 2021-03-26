@@ -29,7 +29,7 @@ public:
 	void Insert_RenderingList(Renderer * _renderer, int = 0);
 
 private:
-	LPDIRECT3DDEVICE9		m_pD3D9_Device = nullptr;
+	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
 
 	map<int, list<Renderer*>> m_RenderingList;
 

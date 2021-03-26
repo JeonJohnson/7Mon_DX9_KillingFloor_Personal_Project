@@ -15,16 +15,16 @@ RenderManager::~RenderManager()
 
 void RenderManager::Initialize()
 {
-	m_pD3D9_Device = DeviceManager::Get_Instance()->Get_D3D9_Device();
+	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
 }
 
 void RenderManager::Render()
 {
-	m_pD3D9_Device->Clear(
+	m_pDX9_Device->Clear(
 		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
 		D3DCOLOR_ARGB(255, 0, 0, 255), 1.f, 0);
 	
-	m_pD3D9_Device->BeginScene();
+	m_pDX9_Device->BeginScene();
 
 	Render_Priority();
 
@@ -35,9 +35,9 @@ void RenderManager::Render()
 	Render_UI();
 
 
-	m_pD3D9_Device->EndScene();
+	m_pDX9_Device->EndScene();
 
-	m_pD3D9_Device->Present(0, 0, 0, 0);
+	m_pDX9_Device->Present(0, 0, 0, 0);
 }
 
 void RenderManager::Release()

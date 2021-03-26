@@ -18,8 +18,8 @@ void DeviceManager::Initialize(HWND _hWnd, UINT _wincx, UINT _wincy, bool _windo
 
 void DeviceManager::Release()
 {
-	Safe_Release(m_pD3D9_Device);
-	Safe_Release(m_pD3D9_SDK);
+	Safe_Release(m_pDX9_Device);
+	Safe_Release(m_pDX9_SDK);
 }
 
 HRESULT DeviceManager::Ready_D3D9(HWND _hWnd, UINT _wincx, UINT _wincy, bool _windowMode)
@@ -29,9 +29,9 @@ HRESULT DeviceManager::Ready_D3D9(HWND _hWnd, UINT _wincx, UINT _wincy, bool _wi
 
 	ZeroMemory(&DeviceCap, sizeof(D3DCAPS9));
 
-	m_pD3D9_SDK = Direct3DCreate9(D3D_SDK_VERSION);
+	m_pDX9_SDK = Direct3DCreate9(D3D_SDK_VERSION);
 
-	if (FAILED(m_pD3D9_SDK->GetDeviceCaps(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, &DeviceCap)))
+	if (FAILED(m_pDX9_SDK->GetDeviceCaps(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, &DeviceCap)))
 	{
 		//MessageBox(nullptr, L"CapFailed", L"System_Error", MB_OK);
 		return E_FAIL;
@@ -75,13 +75,13 @@ HRESULT DeviceManager::Ready_D3D9(HWND _hWnd, UINT _wincx, UINT _wincy, bool _wi
 	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT; //시연간격 디폴트
 
 
-	if (FAILED(m_pD3D9_SDK->CreateDevice(
+	if (FAILED(m_pDX9_SDK->CreateDevice(
 		D3DADAPTER_DEFAULT,
 		D3DDEVTYPE_HAL,
 		_hWnd,
 		vp,
 		&d3dpp,
-		&m_pD3D9_Device
+		&m_pDX9_Device
 	)))
 	{
 		return E_FAIL;
@@ -91,9 +91,9 @@ HRESULT DeviceManager::Ready_D3D9(HWND _hWnd, UINT _wincx, UINT _wincy, bool _wi
 	return S_OK;
 }
 
-LPDIRECT3DDEVICE9 DeviceManager::Get_D3D9_Device() const
+LPDIRECT3DDEVICE9 DeviceManager::Get_DX9_Device() const
 {
-	return m_pD3D9_Device;
+	return m_pDX9_Device;
 }
 
 

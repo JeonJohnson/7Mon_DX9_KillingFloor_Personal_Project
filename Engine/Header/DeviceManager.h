@@ -22,11 +22,11 @@ public:
 	HRESULT	Ready_D3D9(HWND _hWnd, UINT _wincx, UINT _wincy, bool _windowMode);
 
 public:
-	LPDIRECT3DDEVICE9		Get_D3D9_Device() const;
+	LPDIRECT3DDEVICE9		Get_DX9_Device() const;
 
 private:
-	LPDIRECT3D9				m_pD3D9_SDK = nullptr;
-	LPDIRECT3DDEVICE9		m_pD3D9_Device = nullptr;
+	LPDIRECT3D9				m_pDX9_SDK = nullptr;
+	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
 
 
 	//LPD3DXLINE				m_pD3D9_Line = nullptr;

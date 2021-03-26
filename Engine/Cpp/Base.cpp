@@ -67,9 +67,9 @@ void Base::Release()
 	m_pDeviceManager->Destroy_Instance();
 }
 
-LPDIRECT3DDEVICE9 Base::Get_Dx9Device() const
+LPDIRECT3DDEVICE9 Base::Get_Dx9_Device() const
 {
-	return m_pDeviceManager->Get_D3D9_Device();
+	return m_pDeviceManager->Get_DX9_Device();
 }
 
 float Base::Get_DeltaTime() const

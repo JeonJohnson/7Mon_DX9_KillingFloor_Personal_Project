@@ -1,18 +1,4 @@
-﻿  VIBuffer_Renderer.cpp
-  VIBuffer.cpp
-  Transform.cpp
-  SceneManager.cpp
-  RenderManager.cpp
-  Renderer.cpp
-  GameObjectManager.cpp
-  GameObject.cpp
-  Cycle.cpp
-  Base.cpp
-  코드를 생성하고 있습니다...
-c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\engine\cpp\gameobject.cpp(50): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
-c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\engine\cpp\gameobject.cpp(56): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
-  건너뛰고 있습니다... (관련된 변경 내용 없음)
-  Component.cpp
+﻿  RenderManager.cpp
      ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
   Engine.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
@@ -35,6 +21,8 @@ c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingflo
   ..\Header\GameObject.h
   ..\Header\GameObjectManager.h
   ..\Header\InputManager.h
+  ..\Header\Rect.h
+  ..\Header\Rect_VIBuffer_Color.h
   ..\Header\Renderer.h
   ..\Header\RenderManager.h
   ..\Header\Scene.h
@@ -42,6 +30,7 @@ c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingflo
   ..\Header\State.h
   ..\Header\TimeManager.h
   ..\Header\Transform.h
+  ..\Header\Triangle_VIBuffer_Color.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  24개 파일이 복사되었습니다.
+  27개 파일이 복사되었습니다.

@@ -40,7 +40,7 @@ public:
 	void Release();
 
 public: /* Device Manager */
-	LPDIRECT3DDEVICE9 Get_Dx9Device() const;
+	LPDIRECT3DDEVICE9 Get_Dx9_Device() const;
 
 public: /* Time Manager */
 	float Get_DeltaTime() const;
