@@ -54,6 +54,7 @@ void Base::Process()
 
 	m_pSceneManager->Update();
 	m_pSceneManager->LateUpdate();
+	m_pSceneManager->ReadyRender();
 	//Collision
 	m_pSceneManager->Render();
 	

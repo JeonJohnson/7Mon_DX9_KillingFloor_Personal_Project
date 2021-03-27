@@ -5,10 +5,12 @@
 
 VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 {
-	
+	/* Test */
 	m_pVIBuffer = new Triangle_VIBuffer_Color;
 
 	m_pVIBuffer->Set_RenderLayer(_desc->iLayer);
+	//거 Renderer에 있는 iLayer를 세팅해주고.
+	//Rednerer에서 알아서 RenderManager로 보내줌 ^^~
 }
 
 VIBuffer_Renderer::~VIBuffer_Renderer()
@@ -37,10 +39,6 @@ void VIBuffer_Renderer::Render()
 		1);
 }
 
-void VIBuffer_Renderer::ReadyRender()
-{
-
-}
 
 void VIBuffer_Renderer::Release()
 {
@@ -52,7 +50,7 @@ void VIBuffer_Renderer::Binding_Stream_VIBuffer()
 		0,
 		m_pVIBuffer->Get_VBuffer_Com(),
 		0,
-		sizeof(m_pVIBuffer->Get_VBuffer_Info().m_iVertexMemSize));
+		m_pVIBuffer->Get_VBuffer_Info().m_iVertexMemSize);
 
 	m_pDX9Device->SetFVF(m_pVIBuffer->Get_VBuffer_Info().m_iFVF);
 

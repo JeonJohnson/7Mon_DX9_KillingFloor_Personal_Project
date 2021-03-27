@@ -25,7 +25,9 @@ void MainGame::Initialize()
 	base_desc.hWnd = g_hWnd;
 	Base::Get_Instance()->Initialize(&base_desc);
 
-	//GameObject* Test_Triangle = INSTANTIATE();
+	GameObject* Test_Triangle = INSTANTIATE(ObjectLayer_Default, L"Test_Triangle");
+	VIBuffer_Renderer::Desc Test_Desc;
+	Test_Triangle->Add_Component<VIBuffer_Renderer>(&Test_Desc);
 }
 
 void MainGame::Release()

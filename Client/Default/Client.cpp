@@ -109,6 +109,27 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
 	hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+#ifdef _DEBUG
+	RECT	DebugWindow_rect = { 0,0,WINCX_DEBUG,WINCY_DEBUG };
+	AdjustWindowRect(&DebugWindow_rect, WS_OVERLAPPEDWINDOW, FALSE);
+	HWND hWnd_DEBUG = CreateWindowW(szWindowClass, L"Debug Window", WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, 0,
+		DebugWindow_rect.right - DebugWindow_rect.left,
+		DebugWindow_rect.bottom - DebugWindow_rect.top, nullptr, nullptr, hInstance, nullptr);
+
+	if (!hWnd_DEBUG)
+	{
+		return FALSE;
+	}
+
+	g_hWnd_Debug = hWnd_DEBUG;
+
+	SetWindowPos(hWnd_DEBUG, nullptr, 1920 - WINCX_DEBUG, 0, WINCX_DEBUG, WINCY_DEBUG, 0);
+
+	ShowWindow(hWnd_DEBUG, nCmdShow);
+	UpdateWindow(hWnd_DEBUG);
+#endif
+
 	RECT rc = { 0, 0, WINCX, WINCY };
 	AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
 	HWND hWnd = CreateWindowW(szWindowClass, L"Johnson3D", WS_OVERLAPPEDWINDOW,
@@ -128,26 +149,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 
-#ifdef _DEBUG
-	RECT	DebugWindow_rect = { 0,0,WINCX_DEBUG,WINCY_DEBUG };
-	AdjustWindowRect(&DebugWindow_rect, WS_OVERLAPPEDWINDOW, FALSE);
-	HWND hWnd_DEBUG = CreateWindowW(szWindowClass, L"Debug Window", WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, 0,
-		DebugWindow_rect.right - DebugWindow_rect.left,
-		DebugWindow_rect.bottom - DebugWindow_rect.top, nullptr, nullptr, hInstance, nullptr);
 
-	if (!hWnd_DEBUG)
-	{
-		return FALSE;
-	}
-	
-	g_hWnd_Debug = hWnd_DEBUG;
-	
-	SetWindowPos(hWnd_DEBUG, nullptr, 1920-WINCX_DEBUG, 0, WINCX_DEBUG, WINCY_DEBUG, 0);
-	
-	ShowWindow(hWnd_DEBUG, nCmdShow);
-	UpdateWindow(hWnd_DEBUG);
-#endif
 
 	return TRUE;
 }

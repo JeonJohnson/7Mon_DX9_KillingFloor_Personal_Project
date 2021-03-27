@@ -5,21 +5,24 @@
 
 #include "Engine_Include.h"
 
-/* Managers */
+#pragma region Managers
 #include "DeviceManager.h"
 #include "TimeManager.h"
-#include "SceneManager.h"
 #include "InputManager.h"
+#include "SceneManager.h"
+#include "GameObjectManager.h"
 #include "RenderManager.h"
 
 #include "DebugManager.h"
+#pragma endregion
 
-/* Gameobj, Component */
+#pragma region Components
 #include "GameObject.h"
 #include "Component.h"
 
-/* Render */
 
+#include "VIBuffer_Renderer.h"
+#pragma endregion
 
 class _declspec(dllexport) Base
 {

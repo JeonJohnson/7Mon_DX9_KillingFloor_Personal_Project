@@ -31,6 +31,7 @@ public:
 	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void LateUpdate() override;
+	virtual void ReadyRender() override;
 	virtual void Release() override;
 
 #pragma region Template
@@ -43,8 +44,11 @@ public:
 		component = Component::Instantiate<T>(_desc);
 		assert(L"Add Component is failed" && component);
 
-		componet->Set_GameObject(this);
+		component->Set_GameObject(this);
 		//compoent->Set_Transform(m_Transform);
+
+		//Test
+		m_vecComponents.emplace_back(component);
 
 		return this;
 	}
@@ -59,6 +63,9 @@ public:
 		component->Set_GameObject(this);
 		//component->Set_Transform(m_Transform);
 		
+		//Test
+		m_vecComponents.emplace_back(component);
+
 		return this;
 	}
 
@@ -131,6 +138,10 @@ private:
 	bool		m_bActive = true; //
 	bool		m_bAlive = true; //false, 즉 Dead상태되면 다음 프레임에서 바로 삭제
 	bool		m_bDontDestroy = false; //씬 지나도 삭제 되지 않도록.
+
+
+										// Cycle을(를) 통해 상속됨
+	
 
 };
 

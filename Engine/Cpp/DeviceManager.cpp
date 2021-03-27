@@ -1,5 +1,6 @@
 #include "..\Header\DeviceManager.h"
 
+
 Implement_Singleton(DeviceManager)
 
 DeviceManager::DeviceManager()

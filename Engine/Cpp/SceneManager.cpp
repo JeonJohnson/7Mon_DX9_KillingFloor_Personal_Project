@@ -1,5 +1,6 @@
-#include "..\Header\SceneManager.h"
+#include "SceneManager.h"
 #include "RenderManager.h"
+#include "GameObjectManager.h"
 
 Implement_Singleton(SceneManager)
 
@@ -23,14 +24,18 @@ void SceneManager::Initialize()
 
 void SceneManager::Update()
 {
-	
-
+	GameObjectManager::Get_Instance()->Update();
 }
 
 void SceneManager::LateUpdate()
 {
+	GameObjectManager::Get_Instance()->LateUpdate();
 
+}
 
+void SceneManager::ReadyRender()
+{
+	GameObjectManager::Get_Instance()->ReadyRender();
 }
 
 void SceneManager::Render()

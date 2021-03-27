@@ -66,7 +66,7 @@ void RenderManager::Render_UI()
 
 void RenderManager::Insert_RenderingList(Renderer * _renderer, int _order)
 {
-	
+	m_RenderingList[_order].emplace_back(_renderer);
 }
 
 

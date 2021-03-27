@@ -49,8 +49,8 @@ public:
 	void Release();
 
 public:
-	virtual void Create_VBuffer() = 0;
-	virtual void Create_IBuffer() = 0;
+	virtual HRESULT Create_VBuffer() = 0;
+	virtual HRESULT Create_IBuffer() = 0;
 	
 public:
 	/* Get */

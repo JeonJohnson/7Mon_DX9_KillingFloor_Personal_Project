@@ -32,6 +32,7 @@ private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
 
 	map<int, list<Renderer*>> m_RenderingList;
+	//vector<Renderer*>			m_RenderingList;
 
 };
 

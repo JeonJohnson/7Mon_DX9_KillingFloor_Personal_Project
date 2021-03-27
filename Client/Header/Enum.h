@@ -12,5 +12,11 @@ enum eRenderLayer
 	RenderLayer_End
 };
 
+enum eGameObjectLayer
+{
+	ObjectLayer_Default,
+	ObjectLayer_End
+};
+
 
 #endif

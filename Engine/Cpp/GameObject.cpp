@@ -1,5 +1,7 @@
 #include "..\Header\GameObject.h"
 
+#include "GameObjectManager.h"
+
 
 
 GameObject * GameObject::Instantiate(int _iTag, wstring _wName)
@@ -13,11 +15,14 @@ GameObject * GameObject::Instantiate(int _iTag, wstring _wName)
 	obj->m_iTag = _iTag;
 	obj->m_wName = _wName;
 
-	return obj;
+	GameObjectManager::Get_Instance()->Insert_GameObject(obj);
+
+	return obj; 
 }
 
 void GameObject::Destory(GameObject * _pObj)
 {
+
 }
 
 void GameObject::Initialize()
@@ -29,10 +34,26 @@ void GameObject::Initialize()
 
 void GameObject::Update()
 {
+	for (auto& component : m_vecComponents)
+	{
+		component->Update();
+	}
 }
 
 void GameObject::LateUpdate()
 {
+	for (auto& component : m_vecComponents)
+	{
+		component->LateUpdate();
+	}
+}
+
+void GameObject::ReadyRender()
+{
+	for (auto& component : m_vecComponents)
+	{
+		component->ReadyRender();
+	}
 }
 
 void GameObject::Release()
@@ -123,3 +144,5 @@ void GameObject::Set_Alive(bool _FalseIsDead)
 {
 	m_bAlive = _FalseIsDead;
 }
+
+

@@ -18,12 +18,12 @@ public:
 	explicit Component() = default;
 	virtual ~Component() = default;
 
-protected:
+public:
 	/* Cycle */
 	virtual void Initialize() override = 0;
 	virtual void Update() override = 0;
 	virtual void LateUpdate() override = 0;
-	virtual void ReadyRender() override;
+	virtual void ReadyRender() override = 0;
 	virtual void Render() override;
 	virtual void Release() override = 0;
 

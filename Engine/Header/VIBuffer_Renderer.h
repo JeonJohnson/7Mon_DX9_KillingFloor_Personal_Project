@@ -19,8 +19,6 @@ public:
 	{
 		wstring		wBufferName = L"Tri_color";
 		int			iLayer = 0;
-
-
 	};
 
 public:
@@ -32,7 +30,8 @@ public:
 	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void LateUpdate() override;
-	virtual void ReadyRender() override;
+	//virtual void ReadyRender() override;
+	//함수 오버라이딩 때문에 ㅅㅂ Rednerer ReadyRender이 안불러와졌던거
 	virtual void Render() override;
 	virtual void Release() override;
 

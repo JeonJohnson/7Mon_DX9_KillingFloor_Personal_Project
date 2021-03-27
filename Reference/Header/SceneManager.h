@@ -19,6 +19,7 @@ public:
 	void Initialize();
 	void Update();
 	void LateUpdate();
+	void ReadyRender();
 	void Render();
 	void Release();
 

@@ -17,8 +17,8 @@ public:
 	virtual void Initialize() override;
 
 public:
-	virtual void Create_VBuffer() override;
-	virtual void Create_IBuffer() override;
+	virtual HRESULT Create_VBuffer() override;
+	virtual HRESULT	Create_IBuffer() override;
 
 public:
 

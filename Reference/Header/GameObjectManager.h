@@ -19,15 +19,19 @@ public:
 	void Initailize();
 	void Update();
 	void LateUpdate();
+	void ReadyRender();
 	void Release();
 
-public:
+public: /* functions */
 
-public:
+public: /* Get */
+
+public: /* Set */
+	void	Insert_GameObject(GameObject* _gameObject);
 
 private:
-	//map<int, GameObject*>	m_mapGameObjectList;
-	
+	vector<GameObject*>				m_vecGameObjectList;
+	//map<int, list<GameObject*>>	m_vecGameObjectList;	
 };
 
 #endif
