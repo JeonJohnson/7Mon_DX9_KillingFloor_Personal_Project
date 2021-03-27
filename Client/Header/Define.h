@@ -9,6 +9,8 @@
 #define WINCX_DEBUG 425
 #define WINCY_DEBUG	WINCY
 
+#define MsgBox(title, message) MessageBox(0, message, title, MB_OK)
+
 #define	Declare_Singleton(Class)				\
 private:										\
 	static	Class*	m_Instance;					\
@@ -36,5 +38,21 @@ void	Class::Destroy_Instance()				\
 	}											\
 }
 
+#define Safe_Delete(Class)						\
+if(Class)										\
+{ delete Class; Class = nullptr; }
+
+#define Safe_Delete_Arr(Class)					\
+if(Class)										\
+{ delete[]Class; Class= nullptr; }
+
+#define Safe_Release(Class)						\
+if(Class)										\
+{ Class->Release(); Class = nullptr; }
+
+
+
 
 #endif
+
+

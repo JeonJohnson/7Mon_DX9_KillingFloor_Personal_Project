@@ -5,11 +5,21 @@
 
 #include "Engine_Include.h"
 
+/* Managers */
 #include "DeviceManager.h"
 #include "TimeManager.h"
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "RenderManager.h"
+
+#include "DebugManager.h"
+
+/* Gameobj, Component */
+#include "GameObject.h"
+#include "Component.h"
+
+/* Render */
+
 
 class _declspec(dllexport) Base
 {

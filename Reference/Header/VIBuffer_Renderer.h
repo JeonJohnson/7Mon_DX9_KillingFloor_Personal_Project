@@ -6,9 +6,9 @@
 #include "Engine_Include.h"
 
 #include "Renderer.h"
+#include "VIBuffer.h"
 
-class _declspec(dllexport) VIBuffer_Renderer :
-	public Renderer
+class _declspec(dllexport) VIBuffer_Renderer : public Renderer
 {
 	//VIBuffer Obj친구들을 Component로 생성해서
 	//Desc로 받고 구분해서 알맞은 VIBuffer의 정보값을 가져와
@@ -17,6 +17,8 @@ class _declspec(dllexport) VIBuffer_Renderer :
 public:
 	struct Desc 
 	{
+		wstring		wBufferName = L"Tri_color";
+		int			iLayer = 0;
 
 
 	};
@@ -31,9 +33,26 @@ public:
 	virtual void Update() override;
 	virtual void LateUpdate() override;
 	virtual void ReadyRender() override;
+	virtual void Render() override;
 	virtual void Release() override;
 
+public: /* functions */
+	void Binding_Stream_VIBuffer();
 	
+
+public: /* Get */
+	VIBuffer*			Get_VIBuffer() const;
+
+public: /* Set */
+	void	Set_VIBuffer(const wstring& _wBufferName);
+
+
+
+private:
+	VIBuffer*		m_pVIBuffer = nullptr;
+
+	
+
 };
 
 #endif

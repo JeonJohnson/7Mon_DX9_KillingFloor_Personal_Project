@@ -24,6 +24,7 @@ protected:
 	virtual void Update() override = 0;
 	virtual void LateUpdate() override = 0;
 	virtual void ReadyRender() override;
+	virtual void Render() override;
 	virtual void Release() override = 0;
 
 public:

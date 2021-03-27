@@ -1,22 +1,40 @@
-﻿  Triangle_VIBuffer_Color.cpp
-c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\engine\cpp\triangle_vibuffer_color.cpp(33): error C2660: 'IDirect3DDevice9::CreateVertexBuffer': 함수는 0개의 매개 변수를 사용하지 않습니다.
-  DeviceManager.cpp
+﻿  Base.cpp
   코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  VIBuffer_Renderer.cpp
-  VIBuffer.cpp
-  Transform.cpp
-  TimeManager.cpp
-  SceneManager.cpp
-  Scene.cpp
-  Renderer.cpp
-  RenderManager.cpp
-  Rect_VIBuffer_Color.cpp
-  InputManager.cpp
-  GameObjectManager.cpp
-  GameObject.cpp
-  Component.cpp
-  Base.cpp
-  코드를 생성하고 있습니다...
-c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\engine\cpp\gameobject.cpp(50): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
-c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\engine\cpp\gameobject.cpp(56): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  State.cpp
+  DebugManager.cpp
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+  Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.lib
+  1개 파일이 복사되었습니다.
+  ..\Header\Base.h
+  ..\Header\Component.h
+  ..\Header\Cycle.h
+  ..\Header\DebugManager.h
+  ..\Header\DeviceManager.h
+  ..\Header\Engine_Define.h
+  ..\Header\Engine_Enum.h
+  ..\Header\Engine_Extern.h
+  ..\Header\Engine_Include.h
+  ..\Header\Engine_KeyDefine.h
+  ..\Header\Engine_Struct.h
+  ..\Header\Engine_TypeDef.h
+  ..\Header\GameObject.h
+  ..\Header\GameObjectManager.h
+  ..\Header\InputManager.h
+  ..\Header\Rect.h
+  ..\Header\Rect_VIBuffer_Color.h
+  ..\Header\Renderer.h
+  ..\Header\RenderManager.h
+  ..\Header\Scene.h
+  ..\Header\SceneManager.h
+  ..\Header\State.h
+  ..\Header\TimeManager.h
+  ..\Header\Transform.h
+  ..\Header\Triangle_VIBuffer_Color.h
+  ..\Header\VIBuffer.h
+  ..\Header\VIBuffer_Renderer.h
+  27개 파일이 복사되었습니다.

@@ -23,11 +23,14 @@ public:
 	virtual void Update() override = 0;
 	virtual void LateUpdate() override = 0;
 	virtual void ReadyRender() override = 0;
+	virtual void Render() override = 0;
 	virtual void Release() override = 0;
 
 public:
+	LPDIRECT3DDEVICE9	m_pDX9Device = nullptr;
 
-
+protected:
+	int m_iRenderLayer = 0;
 };
 
 #endif

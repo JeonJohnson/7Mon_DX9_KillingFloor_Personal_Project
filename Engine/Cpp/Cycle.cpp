@@ -11,7 +11,12 @@ Cycle::~Cycle()
 {
 }
 
+
 void Cycle::ReadyRender()
+{
+}
+
+void Cycle::Render()
 {
 }
 

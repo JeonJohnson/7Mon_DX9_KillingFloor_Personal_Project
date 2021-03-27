@@ -3,6 +3,8 @@
 #ifndef _ENGINE_DEFINE_H_
 #define _ENGINE_DEFINE_H_
 
+#define MsgBox(title, message) MessageBox(0, message, title, MB_OK)
+
 #define	Declare_Singleton(Class)				\
 private:										\
 	static	Class*	m_Instance;					\

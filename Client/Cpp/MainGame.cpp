@@ -24,6 +24,8 @@ void MainGame::Initialize()
 	base_desc.window = false;
 	base_desc.hWnd = g_hWnd;
 	Base::Get_Instance()->Initialize(&base_desc);
+
+	//GameObject* Test_Triangle = INSTANTIATE();
 }
 
 void MainGame::Release()

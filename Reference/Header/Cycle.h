@@ -15,6 +15,7 @@ public:
 	virtual void Update() = 0;
 	virtual void LateUpdate() = 0;
 	virtual void ReadyRender();
+	virtual void Render(); 
 	virtual void Release() = 0;
 
 public:

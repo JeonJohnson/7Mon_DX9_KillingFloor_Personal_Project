@@ -35,6 +35,18 @@
     <Filter Include="02.Scene">
       <UniqueIdentifier>{5f8c3610-1597-494a-97ab-2484dcc1a9f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Scene\00.Intro">
+      <UniqueIdentifier>{b02d307a-3bd2-4688-a6f7-80aa324267a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\01.MainMenu">
+      <UniqueIdentifier>{a93ee90a-2a2b-4d63-aafa-59bbfccf0de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.">
+      <UniqueIdentifier>{5c3e3501-d988-4164-b435-46a867012442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\99.TestScene">
+      <UniqueIdentifier>{5b358ecb-96f3-4421-9fba-1103ddf02972}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">

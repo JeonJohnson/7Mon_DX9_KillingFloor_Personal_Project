@@ -46,6 +46,10 @@ void RenderManager::Release()
 
 void RenderManager::Render_Priority()
 {
+	for (auto& renderer : m_RenderingList[0])
+	{
+		renderer->Render();
+	}
 }
 
 void RenderManager::Render_NonAlpha()

@@ -15,6 +15,10 @@ SceneManager::~SceneManager()
 void SceneManager::Initialize()
 {
 	//RenderManager::Get_Instance()->Initialize();
+
+	// Test
+
+
 }
 
 void SceneManager::Update()

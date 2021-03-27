@@ -22,8 +22,13 @@ public:
 
 public:
 
-private:
 
+public:
+
+
+
+private:
+	
 	
 };
 

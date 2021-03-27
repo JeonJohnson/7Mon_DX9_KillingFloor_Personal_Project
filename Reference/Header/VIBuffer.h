@@ -62,12 +62,16 @@ public:
 	LPDIRECT3DINDEXBUFFER9	Get_IBuffer_Com()	const;
 	const IBUFFER_INFO&		Get_IBuffer_Info()	const;
 
+	int						Get_RenderLayer()	const;
+
 public:
 	/* Set */
 	void		Set_Name(const wstring& _name);
 
 	void		Set_VBufferInfo(const VBUFFER_INFO& _tVBuffer);
 	void		Set_IBufferInfo(const IBUFFER_INFO& _tIBuffer);
+
+	void		Set_RenderLayer(int _iRenderLayer);
 
 protected:
 	LPDIRECT3DDEVICE9		m_pDX9Device = nullptr;
@@ -79,6 +83,7 @@ protected:
 	LPDIRECT3DINDEXBUFFER9	m_pIB = nullptr;
 	IBUFFER_INFO			m_tIBInfo;
 
+	int		m_iRenderLayer = 0;
 
 };
 

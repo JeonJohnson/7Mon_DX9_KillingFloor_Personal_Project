@@ -46,6 +46,11 @@ const IBUFFER_INFO & VIBuffer::Get_IBuffer_Info() const
 	return m_tIBInfo;
 }
 
+int VIBuffer::Get_RenderLayer() const
+{
+	return m_iRenderLayer;
+}
+
 void VIBuffer::Set_Name(const wstring & _name)
 {
 	m_wName = _name;
@@ -59,4 +64,9 @@ void VIBuffer::Set_VBufferInfo(const VBUFFER_INFO & _tVBuffer)
 void VIBuffer::Set_IBufferInfo(const IBUFFER_INFO & _tIBuffer)
 {
 	m_tIBInfo = _tIBuffer;
+}
+
+void VIBuffer::Set_RenderLayer(int _iRenderLayer)
+{
+	m_iRenderLayer = _iRenderLayer;
 }

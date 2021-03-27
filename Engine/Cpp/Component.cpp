@@ -28,6 +28,10 @@ void Component::ReadyRender()
 {
 }
 
+void Component::Render()
+{
+}
+
 void Component::Release()
 {
 }
