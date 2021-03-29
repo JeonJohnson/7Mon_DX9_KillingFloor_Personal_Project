@@ -31,4 +31,4 @@ protected:
 };
 
 
-#endif
+#endif //_SCENE_H_

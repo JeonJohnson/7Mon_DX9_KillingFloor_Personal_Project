@@ -29,5 +29,11 @@ Renderer : Component를 상속받음. 렌더 속성을 가지고 있는 Componen
 삼각형은 나오기 성공
 SceneManager 만들면서 ResourceManager만들고 구조 완성하기.
 -> 완성되면 그 Debuging Window창 설정 완료
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+03:07 2021-3-30 화
+GameObject, Component, GameOjbectManager 완성.
+Debuging window 창 출력 완료.
+=> 우선순위) transform넣고 Resource 넣고 인덱스버퍼까지 사용, 큐브띄우기 
+	후순위) Font객체 추가 해서 Debuging Window에 글자 띄우기
 
 

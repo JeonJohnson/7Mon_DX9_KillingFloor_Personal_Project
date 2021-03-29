@@ -5,4 +5,4 @@
 
 
 
-#endif
+#endif //_STRUCT_H_

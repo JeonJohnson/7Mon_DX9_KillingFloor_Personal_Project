@@ -87,5 +87,5 @@ protected:
 
 };
 
-#endif
+#endif //_VIBUFFER_H_
 

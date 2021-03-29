@@ -11,9 +11,6 @@
     <Filter Include="98.Headers">
       <UniqueIdentifier>{e5fe7f53-2f2c-417b-92bf-e22f5a7df445}</UniqueIdentifier>
     </Filter>
-    <Filter Include="00.Base">
-      <UniqueIdentifier>{15671e5b-2bc2-4020-acfb-91c83665bca1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Manager">
       <UniqueIdentifier>{a50b67da-6d21-4cf6-9330-ac5803c91ce4}</UniqueIdentifier>
     </Filter>
@@ -104,6 +101,9 @@
     <Filter Include="06.Resource\00.VIBuffer\02.Sphere">
       <UniqueIdentifier>{a270a619-3ff3-4299-a722-59a85c1c27dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="00.Mother">
+      <UniqueIdentifier>{15671e5b-2bc2-4020-acfb-91c83665bca1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -117,9 +117,6 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Cycle.cpp">
       <Filter>02.Structure\Cycle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Base.cpp">
-      <Filter>00.Base</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Renderer.cpp">
       <Filter>02.Structure\Renderer</Filter>
@@ -163,6 +160,9 @@
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp">
       <Filter>06.Resource\00.VIBuffer\01.Rect</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\Engine_Mother.cpp">
+      <Filter>00.Mother</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\DeviceManager.h">
@@ -191,9 +191,6 @@
     </ClInclude>
     <ClInclude Include="..\Header\Cycle.h">
       <Filter>02.Structure\Cycle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Base.h">
-      <Filter>00.Base</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Renderer.h">
       <Filter>02.Structure\Renderer</Filter>
@@ -242,6 +239,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h">
       <Filter>06.Resource\00.VIBuffer\01.Rect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Engine_Mother.h">
+      <Filter>00.Mother</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

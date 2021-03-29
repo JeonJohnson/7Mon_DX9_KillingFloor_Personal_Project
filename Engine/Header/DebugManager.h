@@ -14,4 +14,4 @@ public:
 	~DebugManager();
 };
 
-#endif
+#endif //_DEBUG_MANAGER_H_

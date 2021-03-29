@@ -43,4 +43,4 @@ private:
 
 };
 
-#endif
+#endif //_SCENE_MANAGER_H_

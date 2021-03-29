@@ -12,4 +12,4 @@ public:
 	~State();
 };
 
-#endif
+#endif //_STATE_H_

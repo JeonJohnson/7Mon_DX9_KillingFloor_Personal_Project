@@ -53,6 +53,6 @@ if(Class)										\
 
 
 
-#endif
+#endif //_DEFINE_H_
 
 

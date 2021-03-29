@@ -51,6 +51,11 @@ void SceneManager::Render()
 	CurrentSceneCheck();
 
 	RenderManager::Get_Instance()->Render();
+
+#ifdef _DEBUG
+	RenderManager::Get_Instance()->Render_DEBUG();
+#endif //_DEBUG
+
 }
 
 void SceneManager::Release()
@@ -83,14 +88,16 @@ void SceneManager::Set_FirstScene(const wstring & _wName)
 	if (m_pCurrentScene == nullptr)
 	{
 		m_pCurrentScene = m_mapSceneList[_wName];
+		m_pCurrentScene->Initialize();
 	}
+
 }
 
 void SceneManager::Load_Scene(const wstring & _wName)
 {
+	m_bNext = true;
 	m_pNextScene = m_mapSceneList[_wName];
 	assert(L"±×·± ÀÌ¸§ ¾À À¾´Âµ¥¿©¤»¤»;" && m_mapSceneList[_wName]);
-	m_bNext = true;
 }
 
 void SceneManager::SceneChangeCheck()

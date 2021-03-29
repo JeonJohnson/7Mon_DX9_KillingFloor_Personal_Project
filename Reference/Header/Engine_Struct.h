@@ -53,4 +53,4 @@ typedef struct tagIndexBufferInfo
 }IBUFFER_INFO;
 
 
-#endif
+#endif //_ENGINE_STRUCT_H_

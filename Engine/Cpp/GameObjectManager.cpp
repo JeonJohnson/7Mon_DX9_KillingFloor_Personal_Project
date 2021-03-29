@@ -7,20 +7,18 @@ GameObjectManager::GameObjectManager()
 {
 }
 
-
 GameObjectManager::~GameObjectManager()
 {
 }
 
-void GameObjectManager::Initailize()
+void GameObjectManager::Initailize(_object_Tag _maxCount)
 {
-
+	m_vecGameObjectList.assign(_maxCount, list<GameObject*>());
 }
 
 void GameObjectManager::Update()
 {
 	Merge_Gameobjects();
-
 	Delete_DeadGameObjects();
 	
 	for (auto& ObjectList : m_vecGameObjectList)
@@ -107,15 +105,25 @@ void GameObjectManager::ReleaseScene()
 
 void GameObjectManager::Merge_Gameobjects()
 {
+	if (m_newGameObjectList.size() == 0)
+	{
+		return;
+	}
+
 	for (auto& newObject : m_newGameObjectList)
 	{
 		int iTag = newObject->Get_Tag();
 
 		m_vecGameObjectList[iTag].emplace_back(newObject);
+		//터쳤던 이유
+		//어쨋거나 바깥 vector에 인덱스 접근하는건데
+		//씼팔아무것도 없는데 뭘 접근해 무친련,, 무친련,, 무친련,, 무친련,, 무친련,, 무친련,, 무친련,, 무친련,,
+
 	}
 	m_vecGameObjectList.shrink_to_fit();
 
 	m_newGameObjectList.clear();
+
 }
 
 void GameObjectManager::Delete_DeadGameObjects()

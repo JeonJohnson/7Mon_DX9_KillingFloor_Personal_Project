@@ -34,4 +34,4 @@ private:
 	
 };
 
-#endif 
+#endif //_INPUT_MANAGER_H_

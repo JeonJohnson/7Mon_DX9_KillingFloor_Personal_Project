@@ -17,4 +17,4 @@ public:
 	virtual void Initialize() override;
 };
 
-#endif
+#endif //_TEST_SCENE_H_

@@ -3,20 +3,23 @@
 #ifndef _ENUM_H_
 #define _ENUM_H_
 
-enum eRenderLayer
+typedef enum eRenderLayer
 {
-	RenderLayer_Priority,
-	RenderLayer_NonAlpha,
-	RenderLayer_Alpha,
-	RenderLayer_UI,
-	RenderLayer_End
-};
+	RENDER_LAYER_Priority,
+	RENDER_LAYER_NonAlpha,
+	RENDER_LAYER_Alpha,
+	RENDER_LAYER_UI,
+	RENDER_LAYER_End
 
-enum eGameObjectLayer
+}RENDER_LAYER;
+
+typedef enum eGameObjectTag
 {
-	ObjectLayer_Default,
-	ObjectLayer_End
-};
+	OBJECT_TAG_DEFAULT,
+	OBJECT_TAG_MAINCAM,
+	OBJECT_TAG_PLAYER,
+	OBJECT_TAG_END
+}OBJECT_TAG;
 
 
-#endif
+#endif //_ENUM_H_

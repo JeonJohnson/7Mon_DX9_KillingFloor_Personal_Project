@@ -54,4 +54,4 @@ private:
 
 };
 
-#endif
+#endif //_VIBUFFER_RENDERER_H_

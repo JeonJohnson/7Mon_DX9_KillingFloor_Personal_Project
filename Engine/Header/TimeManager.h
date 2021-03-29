@@ -35,4 +35,4 @@ private:
 	
 };
 
-#endif
+#endif //_TIME_MANAGER_H_

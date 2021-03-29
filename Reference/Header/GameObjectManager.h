@@ -16,7 +16,7 @@ private:
 	~GameObjectManager();
 	
 public:
-	void Initailize();
+	void Initailize(_object_Tag _maxCount);
 	void Update();
 	void LateUpdate();
 	void ReadyRender();
@@ -48,4 +48,4 @@ private:
 	//맵 삽입시[key] 의 값이 있는지 없는지 확인한 다음 없을떄 [key]삽입이 젤루 낫다고 하심.
 };
 
-#endif
+#endif //_GAMEOBJECT_MANAGER_H_

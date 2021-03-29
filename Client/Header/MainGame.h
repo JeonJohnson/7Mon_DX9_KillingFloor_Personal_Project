@@ -22,8 +22,8 @@ public:
 public:
 
 public:
-	Base*	m_pEngine;
+	Engine_Mother*	m_pEngine;
 
 };
 
-#endif
+#endif //_MAIN_GAME_H_

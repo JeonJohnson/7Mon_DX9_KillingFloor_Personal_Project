@@ -4,5 +4,6 @@
 #define _EXTERN_H_
 
 extern HWND g_hWnd;
+extern HWND g_hWnd_DEBUG;
 
-#endif
+#endif //_EXTERN_H_

@@ -12,4 +12,7 @@
 //	RenderLayer_End
 //};
 
-#endif
+
+
+
+#endif //_ENGINE_ENUM_H_

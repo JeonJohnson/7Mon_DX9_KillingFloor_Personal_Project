@@ -1,12 +1,10 @@
-﻿  Base.cpp
-     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
-  Engine.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+﻿  RenderManager.cpp
+  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.dll
   1개 파일이 복사되었습니다.
   ..\Bin\Engine.lib
   1개 파일이 복사되었습니다.
-  ..\Header\Base.h
   ..\Header\Component.h
   ..\Header\Cycle.h
   ..\Header\DebugManager.h
@@ -16,6 +14,7 @@
   ..\Header\Engine_Extern.h
   ..\Header\Engine_Include.h
   ..\Header\Engine_KeyDefine.h
+  ..\Header\Engine_Mother.h
   ..\Header\Engine_Struct.h
   ..\Header\Engine_TypeDef.h
   ..\Header\GameObject.h

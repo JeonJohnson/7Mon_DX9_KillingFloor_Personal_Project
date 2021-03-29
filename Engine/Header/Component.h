@@ -102,4 +102,4 @@ private:
 	//일단 난 보류. 디버깅용인거 같으니 그 외에꺼 다 성공하면 넣어주기.
 };
 
-#endif
+#endif //_COMPONENT_H_

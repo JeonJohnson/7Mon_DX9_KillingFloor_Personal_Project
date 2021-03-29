@@ -198,4 +198,4 @@ private:
 
 };
 
-#endif
+#endif //_GAMEOBJECT_H_

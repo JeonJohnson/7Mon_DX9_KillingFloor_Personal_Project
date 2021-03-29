@@ -1,17 +1,17 @@
-#include "..\Header\Base.h"
+#include "..\Header\Engine_Mother.h"
 
-Base*	Base::m_Instance = nullptr;
+Engine_Mother*	Engine_Mother::m_Instance = nullptr;
 
-Base * Base::Get_Instance()
+Engine_Mother * Engine_Mother::Get_Instance()
 {
 	if (!m_Instance)
 	{
-		m_Instance = new Base;
+		m_Instance = new Engine_Mother;
 	}
 	return m_Instance;
 }
 
-void Base::Destroy_Instance()
+void Engine_Mother::Destroy_Instance()
 {
 	if (m_Instance)
 	{
@@ -20,7 +20,7 @@ void Base::Destroy_Instance()
 	}
 }
 
-Base::Base()
+Engine_Mother::Engine_Mother()
 {
 	m_pDeviceManager	= DeviceManager::Get_Instance();
 	m_pTimeManager		= TimeManager::Get_Instance();
@@ -31,25 +31,31 @@ Base::Base()
 	m_pSceneManager		= SceneManager::Get_Instance();
 }
 
-Base::~Base()
+Engine_Mother::~Engine_Mother()
 {
 	
 }
 
 
-void Base::Initialize(Desc * _desc)
+void Engine_Mother::Initialize(Desc * _desc)
 {
 	m_pDeviceManager->Initialize(_desc->hWnd, _desc->wincx, _desc->wincy, _desc->window);
+#ifdef _DEBUG
+	m_pDeviceManager->Ready_DX9_Device_DEBUG(_desc->hWnd_DEBUG,
+		_desc->wincx_DEBUG, _desc->wincy_DEBUG);
+#endif //_DEBUG
 	m_pTimeManager->Time_Init();
 	m_pInputManager->Initialize();
 
-	m_pGameObjectManager->Initailize();
+	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
+
+
 	
 }
 
-void Base::Process()
+void Engine_Mother::Process()
 {
 	m_pTimeManager->Time_Update();
 	m_pInputManager->Update();
@@ -59,10 +65,11 @@ void Base::Process()
 	m_pSceneManager->ReadyRender();
 	//Collision
 	m_pSceneManager->Render();
+
 	
 }
 
-void Base::Release()
+void Engine_Mother::Release()
 {
 	m_pSceneManager->Destroy_Instance();
 	m_pRenderManager->Destroy_Instance();
@@ -73,27 +80,27 @@ void Base::Release()
 	m_pDeviceManager->Destroy_Instance();
 }
 
-LPDIRECT3DDEVICE9 Base::Get_Dx9_Device() const
+LPDIRECT3DDEVICE9 Engine_Mother::Get_Dx9_Device() const
 {
 	return m_pDeviceManager->Get_DX9_Device();
 }
 
-float Base::Get_DeltaTime() const
+float Engine_Mother::Get_DeltaTime() const
 {
 	return m_pTimeManager->Get_Time();
 }
 
-void Base::Add_Scene(const wstring & _wName, Scene * _pScene)
+void Engine_Mother::Add_Scene(const wstring & _wName, Scene * _pScene)
 {
 	m_pSceneManager->Insert_Scene(_wName, _pScene);
 }
 
-void Base::Load_Scene(const wstring & _wName)
+void Engine_Mother::Load_Scene(const wstring & _wName)
 {
 	m_pSceneManager->Load_Scene(_wName);
 }
 
-void Base::Init_Scene(const wstring & _wName)
+void Engine_Mother::Init_Scene(const wstring & _wName)
 {
 	m_pSceneManager->Set_FirstScene(_wName);
 }

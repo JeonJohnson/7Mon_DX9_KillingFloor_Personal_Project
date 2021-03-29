@@ -33,4 +33,4 @@ protected:
 	int m_iRenderLayer = 0;
 };
 
-#endif
+#endif //_RENDERER_H_

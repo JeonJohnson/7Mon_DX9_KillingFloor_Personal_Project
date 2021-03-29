@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _BASE_H_
-#define _BASE_H_
+#ifndef _ENGINE_MOTHER_H_
+#define _ENGINE_MOTHER_H_
 
 #include "Engine_Include.h"
 
@@ -24,14 +24,14 @@
 #include "VIBuffer_Renderer.h"
 #pragma endregion
 
-class DLL_STATE Base
+class DLL_STATE Engine_Mother
 {
 	
 private:
-	static Base*	m_Instance;
+	static Engine_Mother*	m_Instance;
 
 public:
-	static Base*	Get_Instance();
+	static Engine_Mother*	Get_Instance();
 	static void		Destroy_Instance();
 	
 public:
@@ -41,11 +41,21 @@ public:
 		UINT	wincx = 1280;
 		UINT	wincy = 720;
 		bool	window = false;
+
+		_object_Tag			Object_Tag_MaxCount = 1;
+		_render_Layer		Render_Layer_MaxCount = 1;
+		_collision_Layer	Collision_Layer_MaxCount = 1;
+
+#ifdef _DEBUG
+		HWND	hWnd_DEBUG = nullptr;
+		UINT	wincx_DEBUG = 425;
+		UINT	wincy_DEBUG = 720;
+#endif //_DEBUG
 	};
 
 private:
-	Base();
-	~Base();
+	Engine_Mother();
+	~Engine_Mother();
 
 public:
 	void Initialize(Desc* _desc);
@@ -82,4 +92,4 @@ private:
 	
 	
 };
-#endif
+#endif //_ENGINE_MOTHER_H_

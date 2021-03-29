@@ -9,7 +9,7 @@
 #define DLL_STATE _declspec(dllexport)
 #else
 #define DLL_STATE _declspec(dllimport)
-#endif
+#endif //DLL_EXPORT
 
 #define	Declare_Singleton(Class)				\
 private:										\
@@ -53,4 +53,4 @@ if(Class)										\
 
 
 
-#endif
+#endif //_ENGINE_DEFINE_H_

@@ -34,6 +34,14 @@ private:
 	map<int, list<Renderer*>> m_RenderingList;
 	//vector<Renderer*>			m_RenderingList;
 
+#ifdef _DEBUG
+public:
+
+	void Render_DEBUG();
+
+private:
+	LPDIRECT3DDEVICE9		m_pDX9_Device_DEBUG = nullptr;
+#endif//_DEBUG
 };
 
-#endif 
+#endif //_RENDER_MANAGER_H_
