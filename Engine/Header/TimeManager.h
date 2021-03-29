@@ -5,7 +5,7 @@
 
 #include "Engine_Include.h"
 
-class _declspec(dllexport) TimeManager
+class DLL_STATE TimeManager
 {
 
 	Declare_Singleton(TimeManager)

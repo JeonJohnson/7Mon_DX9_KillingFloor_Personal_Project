@@ -4,7 +4,7 @@
 #define _CYCLE_H_
 
 
-class _declspec(dllexport) Cycle abstract
+class DLL_STATE Cycle abstract
 {
 public:
 	Cycle();

@@ -3,7 +3,9 @@
 #ifndef _STATE_H_
 #define _STATE_H_
 
-class _declspec(dllexport) State
+#include "Engine_Include.h"
+
+class DLL_STATE State
 {
 public:
 	State();

@@ -24,7 +24,7 @@
 #include "VIBuffer_Renderer.h"
 #pragma endregion
 
-class _declspec(dllexport) Base
+class DLL_STATE Base
 {
 	
 private:

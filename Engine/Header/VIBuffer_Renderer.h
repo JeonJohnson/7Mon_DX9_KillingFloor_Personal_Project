@@ -8,7 +8,7 @@
 #include "Renderer.h"
 #include "VIBuffer.h"
 
-class _declspec(dllexport) VIBuffer_Renderer : public Renderer
+class DLL_STATE VIBuffer_Renderer : public Renderer
 {
 	//VIBuffer Obj친구들을 Component로 생성해서
 	//Desc로 받고 구분해서 알맞은 VIBuffer의 정보값을 가져와

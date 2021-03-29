@@ -11,7 +11,7 @@
 
 //class Component;
 
-class _declspec(dllexport) Transform : /*public Cycle*/ public Component
+class DLL_STATE Transform : /*public Cycle*/ public Component
 {
 public:
 	struct Desc

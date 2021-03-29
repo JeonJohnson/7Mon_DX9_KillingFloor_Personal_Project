@@ -15,7 +15,7 @@
 #define INSTANTIATE	GameObject::Instantiate
 #define DESTROY		GameObject::Destroy
 
-class _declspec(dllexport) GameObject : public Cycle
+class DLL_STATE GameObject : public Cycle
 {
 private:
 	/* 积己磊/家戈磊啊 酒聪扼 Instantiate尔 destroy肺 白 可 积己/家戈 包府 且波烙 */

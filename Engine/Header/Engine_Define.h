@@ -5,6 +5,12 @@
 
 #define MsgBox(title, script) MessageBox(0, script, title, MB_OK)
 
+#ifdef DLL_EXPORT
+#define DLL_STATE _declspec(dllexport)
+#else
+#define DLL_STATE _declspec(dllimport)
+#endif
+
 #define	Declare_Singleton(Class)				\
 private:										\
 	static	Class*	m_Instance;					\
