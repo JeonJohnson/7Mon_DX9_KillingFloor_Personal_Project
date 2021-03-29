@@ -65,7 +65,7 @@ public: /* Create */
 		return Instance;
 	}
 
-//public: /* Get */
+
 #pragma endregion 
 public: /* Function */
 

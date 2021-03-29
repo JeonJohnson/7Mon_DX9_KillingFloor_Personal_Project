@@ -1,8 +1,18 @@
 ﻿  stdafx.cpp
   Client.cpp
   MainGame.cpp
+c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(52): error C2440: '초기화 중': 'const char *'에서 'std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>'(으)로 변환할 수 없습니다.
+  c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(52): note: 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+  c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\client\cpp\maingame.cpp(30): note: 컴파일 중인 함수 템플릿 인스턴스화 'GameObject *GameObject::Add_Component<VIBuffer_Renderer>(VIBuffer_Renderer::Desc *)'에 대한 참조를 확인하십시오.
+c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(53): error C2923: 'std::pair': 'wName'은(는) '_Ty1' 매개 변수에 대한 올바른 템플릿 형식 인수가 아닙니다.
+  c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(52): note: 'wName' 선언을 참조하십시오.
+c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(53): error C2923: 'std::pair': 'component'은(는) '_Ty2' 매개 변수에 대한 올바른 템플릿 형식 인수가 아닙니다.
+  c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(43): note: 'component' 선언을 참조하십시오.
+c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(53): error C2955: 'std::pair': 클래스 템플릿을(를) 사용하려면 템플릿 인수 목록이 필요합니다.
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\utility(76): note: 'std::pair' 선언을 참조하십시오.
+c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\reference\header\gameobject.h(53): error C2672: 'std::vector<std::pair<std::wstring,Component *>,std::allocator<_Ty>>::emplace_back': 일치하는 오버로드된 함수가 없습니다.
+          with
+          [
+              _Ty=std::pair<std::wstring,Component *>
+          ]
   코드를 생성하고 있습니다...
-  LINK : ../Bin/Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-     ../Bin/Client.lib 라이브러리 및 ../Bin/Client.exp 개체를 생성하고 있습니다.
-  Client.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Client\Default\../Bin/Client.exe
-  Client.vcxproj -> ../Bin/Client.pdb (Full PDB)

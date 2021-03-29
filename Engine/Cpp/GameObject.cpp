@@ -34,9 +34,13 @@ void GameObject::Initialize()
 
 void GameObject::Update()
 {
+	//newCompo랑 그냥Compo랑 합치기
+	Merge_Components();
+	Delete_DeadComponents();
+
 	for (auto& component : m_vecComponents)
 	{
-		component->Update();
+		component.second->Update();
 	}
 }
 
@@ -44,7 +48,7 @@ void GameObject::LateUpdate()
 {
 	for (auto& component : m_vecComponents)
 	{
-		component->LateUpdate();
+		component.second->LateUpdate();
 	}
 }
 
@@ -52,12 +56,58 @@ void GameObject::ReadyRender()
 {
 	for (auto& component : m_vecComponents)
 	{
-		component->ReadyRender();
+		component.second->ReadyRender();
 	}
 }
 
 void GameObject::Release()
 {
+}
+
+void GameObject::Merge_Components()
+{
+	if (m_vecNewComponents.size() == 0)
+	{
+		return;
+	}
+
+	for (auto& newComponent : m_vecNewComponents)
+	{
+		m_vecComponents.emplace_back(newComponent);
+	}
+
+	m_vecNewComponents.clear();
+	m_vecNewComponents.shrink_to_fit();
+
+	m_vecComponents.shrink_to_fit();
+
+}
+
+void GameObject::Delete_DeadComponents()
+{
+	//for (auto& component : m_vecComponents)
+	//{
+	//	if (component.second->Get_Alive() == false)
+	//	{
+	//		component.second->Release();
+	//		delete component.second;
+	//
+	// 근히ㅡ야 벡터 삭제할때 이 ㅣㅈ랄 나면 좆되는거 ㅇㄹ잖아 무지성 코딩 금지
+	//	}
+	//}
+
+	for (auto iter = m_vecComponents.begin(); iter != m_vecComponents.end();)
+	{
+		if (iter->second->Get_Alive() == false)
+		{
+			iter->second->Release();
+			delete iter->second;
+			iter = m_vecComponents.erase(iter);
+		}
+		else { ++iter; }
+	}
+
+	m_vecComponents.shrink_to_fit();
 }
 
 Transform * GameObject::Get_Transform() const

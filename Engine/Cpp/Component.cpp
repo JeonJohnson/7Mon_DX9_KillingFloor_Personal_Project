@@ -34,6 +34,7 @@ void Component::Render()
 
 void Component::Release()
 {
+
 }
 
 void Component::On_Active()

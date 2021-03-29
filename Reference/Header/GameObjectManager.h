@@ -23,6 +23,7 @@ public:
 	void Release();
 
 public: /* functions */
+	void ReleaseScene();
 
 public: /* Get */
 

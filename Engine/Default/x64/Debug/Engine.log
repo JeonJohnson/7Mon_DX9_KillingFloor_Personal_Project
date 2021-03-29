@@ -1,9 +1,16 @@
-﻿  SceneManager.cpp
+﻿  GameObject.cpp
+  Component.cpp
+  코드를 생성하고 있습니다...
+c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\engine\cpp\gameobject.cpp(120): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
+c:\users\weidi\desktop\공부\쥬신\05)프로젝트\08)7mon_personal_killingfloor\7mon_personal_project\engine\cpp\gameobject.cpp(126): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
+  컴파일하고 있습니다...
+  SceneManager.cpp
+  GameObjectManager.cpp
+  Base.cpp
   코드를 생성하고 있습니다...
   건너뛰고 있습니다... (관련된 변경 내용 없음)
   State.cpp
   DebugManager.cpp
-  LINK : ../Bin/Engine.dll을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
      ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
   Engine.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
