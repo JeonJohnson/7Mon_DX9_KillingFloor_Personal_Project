@@ -82,6 +82,9 @@
     <ClInclude Include="..\Header\TypeDef.h">
       <Filter>98.Header\TypeDef</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\TestScene.h">
+      <Filter>02.Scene\99.TestScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -92,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\MainGame.cpp">
       <Filter>01.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\TestScene.cpp">
+      <Filter>02.Scene\99.TestScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

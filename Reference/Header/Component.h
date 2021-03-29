@@ -12,7 +12,7 @@
 class GameObject;
 class Transform;
 
-class _declspec(dllexport) Component : public Cycle
+class DLL_STATE Component : public Cycle
 {
 public:
 	explicit Component() = default;

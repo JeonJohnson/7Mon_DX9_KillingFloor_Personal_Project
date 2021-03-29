@@ -8,7 +8,6 @@
 
 class SceneManager
 {
-	
 	Declare_Singleton(SceneManager)
 
 private:
@@ -24,12 +23,12 @@ public:
 	void Release();
 
 public:
+	void CurrentSceneCheck();
 
 public:
-	void Insert_Scene(const wstring& _wName);
-
-	//void Load_NextScene();
-	void Load_Scene(const wstring& _wSceneName);
+	void Insert_Scene(const wstring& _wName, Scene* _pScene);
+	void Set_FirstScene(const wstring& _wName);
+	void Load_Scene(const wstring& _wName);
 	void SceneChangeCheck();
 
 

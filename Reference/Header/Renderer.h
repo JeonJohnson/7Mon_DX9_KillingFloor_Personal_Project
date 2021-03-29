@@ -6,7 +6,7 @@
 #include "Engine_Include.h"
 #include "Component.h"
 
-class _declspec(dllexport) Renderer : public Component
+class DLL_STATE Renderer : public Component
 {
 	//Renderer를 가지는 친구도 결국 Component라서
 	//Component의 Cycle 돌 때

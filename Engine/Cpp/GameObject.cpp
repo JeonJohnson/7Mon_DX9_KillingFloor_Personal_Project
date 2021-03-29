@@ -22,7 +22,7 @@ GameObject * GameObject::Instantiate(int _iTag, wstring _wName)
 
 void GameObject::Destory(GameObject * _pObj)
 {
-
+	_pObj->Set_Alive(false);
 }
 
 void GameObject::Initialize()
@@ -40,7 +40,10 @@ void GameObject::Update()
 
 	for (auto& component : m_vecComponents)
 	{
-		component.second->Update();
+		if (component.second->Get_Active())
+		{
+			component.second->Update();
+		}
 	}
 }
 
@@ -48,7 +51,10 @@ void GameObject::LateUpdate()
 {
 	for (auto& component : m_vecComponents)
 	{
-		component.second->LateUpdate();
+		if (component.second->Get_Active())
+		{
+			component.second->LateUpdate();
+		}
 	}
 }
 
@@ -56,7 +62,10 @@ void GameObject::ReadyRender()
 {
 	for (auto& component : m_vecComponents)
 	{
-		component.second->ReadyRender();
+		if (component.second->Get_Active())
+		{
+			component.second->ReadyRender();
+		}
 	}
 }
 
@@ -98,7 +107,7 @@ void GameObject::Delete_DeadComponents()
 
 	for (auto iter = m_vecComponents.begin(); iter != m_vecComponents.end();)
 	{
-		if (iter->second->Get_Alive() == false)
+		if ((*iter).second->Get_Alive() == false)
 		{
 			iter->second->Release();
 			delete iter->second;

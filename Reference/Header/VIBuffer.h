@@ -5,7 +5,7 @@
 
 #include "Engine_Include.h"
 
-class _declspec(dllexport) VIBuffer abstract
+class DLL_STATE VIBuffer abstract
 {
 //리쏘스 클래스를 상속받고
 	//VIBuffer Objs (Tri, Rect, Cube 등)들이

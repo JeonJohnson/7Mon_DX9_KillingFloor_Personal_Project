@@ -5,7 +5,7 @@
 
 #include "Engine_Include.h"
 
-class _declspec(dllexport) InputManager
+class DLL_STATE InputManager
 {
 
 	Declare_Singleton(InputManager)

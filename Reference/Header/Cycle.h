@@ -3,8 +3,9 @@
 #ifndef _CYCLE_H_
 #define _CYCLE_H_
 
+#include "Engine_Include.h"
 
-class _declspec(dllexport) Cycle abstract
+class DLL_STATE Cycle
 {
 public:
 	Cycle();

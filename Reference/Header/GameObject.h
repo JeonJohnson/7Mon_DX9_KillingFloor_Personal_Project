@@ -15,8 +15,11 @@
 #define INSTANTIATE	GameObject::Instantiate
 #define DESTROY		GameObject::Destroy
 
-class _declspec(dllexport) GameObject : public Cycle
+class DLL_STATE GameObject : public Cycle
 {
+	friend class GameObjectManager;
+	//겜옵줵 매니져에서 삭제할때 생성,소멸자가 private라 가지고 친구 선언.
+		//=>friend 박아버리면 public이고 private이고 다 쓸 수 있음 ㅋㅋ;
 private:
 	/* 생성자/소멸자가 아니라 Instantiate랑 destroy로 겜 옵줵 생성/소멸 관리 할꺼임 */
 	explicit GameObject() = default;
@@ -53,7 +56,7 @@ public:
 		wstring wName;
 		wName.assign(strName.begin(), strName.end());
 
-		m_vecNewComponents.emplace_back(pair<wName, component>);
+		m_vecNewComponents.emplace_back(pair<wstring, Component*>(wName,component));
 
 		return this;
 	}
@@ -74,7 +77,8 @@ public:
 		string strName = typeid(T).name(); //클래스 이름을 string형으로 바까줌
 		wstring wName;
 		wName.assign(strName.begin(), strName.end());
-		m_vecNewComponents.emplace_back(pair<wName, component>);
+
+		m_vecNewComponents.emplace_back(pair<wstring, Component*>(wName, component));
 
 		return this;
 	}
@@ -84,11 +88,13 @@ public:
 	T* Get_Component()
 	{
 		//시발 어쩃건 찾을라면 string값 필요하네
-		wstring temp =	typeid(T).name();
+		string strName = typeid(T).name(); //클래스 이름을 string형으로 바까줌
+		wstring wName;
+		wName.assign(strName.begin(), strName.end());
 
 		for (auto& component : m_vecComponents)
 		{
-			if (component->first == temp)
+			if (component->first == wName)
 			{
 				return (T*)component->second;
 			}
@@ -103,11 +109,13 @@ public:
 			return nullptr;
 		}
 		
-		wstring temp = typeid(T).name();
+		string strName = typeid(T).name(); //클래스 이름을 string형으로 바까줌
+		wstring wName;
+		wName.assign(strName.begin(), strName.end());
 
 		for (auto& newComponent : m_vecNewComponents)
 		{
-			if (newComponent->first == temp)
+			if (newComponent->first == wName)
 			{
 				return (T*)newComponent->second;
 			}
@@ -118,11 +126,13 @@ public:
 	template<class T>
 	void Delete_Component()
 	{
-		wstring temp = typeid(T).name();
+		string strName = typeid(T).name(); //클래스 이름을 string형으로 바까줌
+		wstring wName;
+		wName.assign(strName.begin(), strName.end());
 
 		for (auto& component : m_vecComponents)
 		{
-			if (component->first == temp)
+			if (component->first == wName)
 			{
 				component->second->Set_Alive(false);
 				//찐으로 삭제는 저 업데이트에서 해줍디다.
@@ -163,8 +173,8 @@ public: /* Set */
 	void		Set_Alive(bool _FalseIsDead);
 
 private:
+	vector<pair<wstring, Component*>>	 	m_vecNewComponents;
 	vector<pair<wstring, Component*>>		m_vecComponents;
-	vector<pair<wstring,Component*>>	 	m_vecNewComponents;
 	//=> new 컴포넌트가 있는 이유?
 		//혹시 LateUdpate처럼 Update가 아닌 다른 순서에서 생성되서 바로 들어간다면
 		//그 컴포넌트도 그 Cycle의 순서부터 도는데

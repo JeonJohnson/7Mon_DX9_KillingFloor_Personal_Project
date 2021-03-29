@@ -82,3 +82,18 @@ float Base::Get_DeltaTime() const
 {
 	return m_pTimeManager->Get_Time();
 }
+
+void Base::Add_Scene(const wstring & _wName, Scene * _pScene)
+{
+	m_pSceneManager->Insert_Scene(_wName, _pScene);
+}
+
+void Base::Load_Scene(const wstring & _wName)
+{
+	m_pSceneManager->Load_Scene(_wName);
+}
+
+void Base::Init_Scene(const wstring & _wName)
+{
+	m_pSceneManager->Set_FirstScene(_wName);
+}

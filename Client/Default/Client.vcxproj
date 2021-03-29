@@ -191,6 +191,7 @@
     <ClInclude Include="..\Header\Include.h" />
     <ClInclude Include="..\Header\MainGame.h" />
     <ClInclude Include="..\Header\Struct.h" />
+    <ClInclude Include="..\Header\TestScene.h" />
     <ClInclude Include="..\Header\TypeDef.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Resource.h" />
@@ -199,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\MainGame.cpp" />
+    <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -17,11 +17,12 @@ public:
 	void Release();
 
 public:
-
+	void Engine_Load();
+	void Scene_Setting();
 public:
 
 public:
-	
+	Base*	m_pEngine;
 
 };
 

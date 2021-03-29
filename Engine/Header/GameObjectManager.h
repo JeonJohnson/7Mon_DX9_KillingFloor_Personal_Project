@@ -35,9 +35,10 @@ public: /* Set */
 
 private:
 	list<GameObject*>					m_newGameObjectList;
-	map<int, list<GameObject*>>			m_mapGameObjectList;
-	//int -> Object Tag Value
-
+	vector<list<GameObject*>>			m_vecGameObjectList;
+	//map 쓸라니까 좀 tag값 지정해주기 귀찮넹 ㅎㅎ;
+	//어차피 tag값 enum으로 int값인디 vector로 해주자
+	
 	//new GameObjList는 어차피 따로 접근 할 일 없이 다음 프레임에 넘겨줄꺼니까
 	//추가에 비용이 얼마안드는 list해줄까..?
 

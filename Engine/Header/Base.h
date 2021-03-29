@@ -60,7 +60,14 @@ public: /* Time Manager */
 
 public: /* Input Manager */
 
-public: /*  */
+public: /* Gameobject Manager  */
+
+public: /* Render Manager */
+
+public: /* Scene Manager */
+	void Add_Scene(const wstring& _wName, Scene* _pScene);
+	void Load_Scene(const wstring& _wName);
+	void Init_Scene(const wstring& _wName);
 
 public:
 		
