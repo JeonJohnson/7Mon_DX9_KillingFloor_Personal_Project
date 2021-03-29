@@ -69,6 +69,7 @@ private:
 	TimeManager*			m_pTimeManager = nullptr;
 	InputManager*			m_pInputManager = nullptr;
 
+	GameObjectManager*		m_pGameObjectManager = nullptr;
 	RenderManager*			m_pRenderManager = nullptr;
 	SceneManager*			m_pSceneManager = nullptr;
 	

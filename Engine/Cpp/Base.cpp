@@ -26,6 +26,7 @@ Base::Base()
 	m_pTimeManager		= TimeManager::Get_Instance();
 	m_pInputManager		= InputManager::Get_Instance();
 
+	m_pGameObjectManager = GameObjectManager::Get_Instance();
 	m_pRenderManager	= RenderManager::Get_Instance();
 	m_pSceneManager		= SceneManager::Get_Instance();
 }
@@ -42,6 +43,7 @@ void Base::Initialize(Desc * _desc)
 	m_pTimeManager->Time_Init();
 	m_pInputManager->Initialize();
 
+	m_pGameObjectManager->Initailize();
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
 	
@@ -62,8 +64,11 @@ void Base::Process()
 
 void Base::Release()
 {
-
 	m_pSceneManager->Destroy_Instance();
+	m_pRenderManager->Destroy_Instance();
+	m_pGameObjectManager->Destroy_Instance();
+	m_pInputManager->Destroy_Instance();
+	m_pTimeManager->Destroy_Instance();
 
 	m_pDeviceManager->Destroy_Instance();
 }

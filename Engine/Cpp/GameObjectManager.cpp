@@ -46,6 +46,12 @@ void GameObjectManager::Release()
 
 }
 
+void GameObjectManager::ReleaseScene()
+{
+
+
+}
+
 void GameObjectManager::Insert_GameObject(GameObject * _gameObject)
 {
 	assert(L"GameObject is nullptr" && _gameObject);

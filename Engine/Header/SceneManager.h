@@ -26,10 +26,22 @@ public:
 public:
 
 public:
+	void Insert_Scene(const wstring& _wName);
+
+	//void Load_NextScene();
+	void Load_Scene(const wstring& _wSceneName);
+	void SceneChangeCheck();
+
 
 private:
 	Scene*	m_pCurrentScene = nullptr;
-	
+	Scene*	m_pNextScene = nullptr;
+	map<wstring, Scene*> m_mapSceneList;
+
+private:
+	bool	m_bNext = false;
+
+
 };
 
 #endif
