@@ -1,0 +1,65 @@
+﻿  Component.cpp
+  Cycle.cpp
+  DebugManager.cpp
+  DeviceManager.cpp
+  Engine_Mother.cpp
+  GameObject.cpp
+  GameObjectManager.cpp
+  InputManager.cpp
+  Rect_VIBuffer_Color.cpp
+  Renderer.cpp
+  RenderManager.cpp
+  Scene.cpp
+  SceneManager.cpp
+  State.cpp
+  TimeManager.cpp
+  Transform.cpp
+  Triangle_VIBuffer_Color.cpp
+  VIBuffer.cpp
+  VIBuffer_Renderer.cpp
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+  코드를 생성하고 있습니다.
+e:\학업\7mon_personal\7mon_personal_project\engine\cpp\gameobject.cpp(130): warning C4172: 
+e:\학업\7mon_personal\7mon_personal_project\engine\cpp\gameobject.cpp(136): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
+  All 1102 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+  Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.lib
+  1개 파일이 복사되었습니다.
+  ..\Header\Component.h
+  ..\Header\Cycle.h
+  ..\Header\DebugManager.h
+  ..\Header\DeviceManager.h
+  ..\Header\Engine_Define.h
+  ..\Header\Engine_Enum.h
+  ..\Header\Engine_Extern.h
+  ..\Header\Engine_Include.h
+  ..\Header\Engine_KeyDefine.h
+  ..\Header\Engine_Mother.h
+  ..\Header\Engine_Struct.h
+  ..\Header\Engine_TypeDef.h
+  ..\Header\GameObject.h
+  ..\Header\GameObjectManager.h
+  ..\Header\InputManager.h
+  ..\Header\Rect.h
+  ..\Header\Rect_VIBuffer_Color.h
+  ..\Header\Renderer.h
+  ..\Header\RenderManager.h
+  ..\Header\Scene.h
+  ..\Header\SceneManager.h
+  ..\Header\State.h
+  ..\Header\TimeManager.h
+  ..\Header\Transform.h
+  ..\Header\Triangle_VIBuffer_Color.h
+  ..\Header\VIBuffer.h
+  ..\Header\VIBuffer_Renderer.h
+  27개 파일이 복사되었습니다.

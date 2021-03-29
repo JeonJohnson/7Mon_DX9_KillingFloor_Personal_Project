@@ -35,5 +35,7 @@ GameObject, Component, GameOjbectManager 완성.
 Debuging window 창 출력 완료.
 => 우선순위) transform넣고 Resource 넣고 인덱스버퍼까지 사용, 큐브띄우기 
 	후순위) Font객체 추가 해서 Debuging Window에 글자 띄우기
+******** 릴리즈 빌드 안됨 *************
+	=> 클라이언트 릴리즈모드 실행할라면 엔진도 릴리즈모드 돌려야함.
 
 
