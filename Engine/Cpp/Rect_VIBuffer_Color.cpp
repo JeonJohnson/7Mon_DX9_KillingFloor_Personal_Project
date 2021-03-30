@@ -1,7 +1,6 @@
 #include "..\Header\Rect_VIBuffer_Color.h"
 
 
-
 Rect_VIBuffer_Color::Rect_VIBuffer_Color()
 {
 	Initialize();
@@ -44,7 +43,7 @@ void Rect_VIBuffer_Color::Initialize()
 		assert(0 && L"Rect_color Index Buffer Create Failed");
 	}
 
-
+	//ResourceManager::Get_Instance()->Insert_Resource<VIBuffer,Rect_VIBuffer_Color>()
 }
 
 HRESULT Rect_VIBuffer_Color::Create_VBuffer()

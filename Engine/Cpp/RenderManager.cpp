@@ -53,7 +53,7 @@ void RenderManager::Render_Priority()
 	//m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
 	//도형에 색깔이 안나온다? 조명을 "꺼"줘야함.
 	
-	//m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+	m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	//WrieFrame으로 그려주는것.
 
 	for (auto& renderer : m_RenderingList[0])

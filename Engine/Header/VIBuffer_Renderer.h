@@ -17,7 +17,7 @@ class DLL_STATE VIBuffer_Renderer : public Renderer
 public:
 	struct Desc 
 	{
-		wstring		wBufferName = L"Tri_color";
+		wstring		wBufferName = L"Tri_Color";
 		int			iLayer = 0;
 	};
 

@@ -5,7 +5,9 @@
 
 #include "Engine_Include.h"
 
-class DLL_STATE VIBuffer abstract
+#include "CResource.h"
+
+class DLL_STATE VIBuffer : public CResource
 {
 //리쏘스 클래스를 상속받고
 	//VIBuffer Objs (Tri, Rect, Cube 등)들이
@@ -46,7 +48,7 @@ public:
 
 public:
 	virtual void Initialize() = 0;
-	void Release();
+	virtual void Release();
 
 public:
 	virtual HRESULT Create_VBuffer() = 0;

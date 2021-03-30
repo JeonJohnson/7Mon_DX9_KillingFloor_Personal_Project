@@ -1,5 +1,8 @@
 ﻿  RenderManager.cpp
-  Engine.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+  코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  DebugManager.cpp
+  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.dll
   1개 파일이 복사되었습니다.
@@ -12,6 +15,7 @@
   ..\Bin\Engine.lib
   1개 파일이 복사되었습니다.
   ..\Header\Component.h
+  ..\Header\CResource.h
   ..\Header\Cycle.h
   ..\Header\DebugManager.h
   ..\Header\DeviceManager.h
@@ -23,6 +27,7 @@
   ..\Header\Engine_Mother.h
   ..\Header\Engine_Struct.h
   ..\Header\Engine_TypeDef.h
+  ..\Header\Function_String.h
   ..\Header\GameObject.h
   ..\Header\GameObjectManager.h
   ..\Header\InputManager.h
@@ -30,6 +35,7 @@
   ..\Header\Rect_VIBuffer_Color.h
   ..\Header\Renderer.h
   ..\Header\RenderManager.h
+  ..\Header\ResourceManager.h
   ..\Header\Scene.h
   ..\Header\SceneManager.h
   ..\Header\State.h
@@ -38,4 +44,4 @@
   ..\Header\Triangle_VIBuffer_Color.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  27개 파일이 복사되었습니다.
+  30개 파일이 복사되었습니다.

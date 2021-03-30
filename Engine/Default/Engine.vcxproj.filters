@@ -110,6 +110,12 @@
     <Filter Include="02.Structure\Resource">
       <UniqueIdentifier>{d34a8e07-e6c7-4167-9cf3-6723d9c5b946}</UniqueIdentifier>
     </Filter>
+    <Filter Include="97.Utility">
+      <UniqueIdentifier>{6c6ac9f5-1a30-4b3a-b754-b6e4d7ee62d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Utility\String/Char_Function">
+      <UniqueIdentifier>{d6bcb00d-7b84-4c74-a78b-f7420d37b020}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -175,8 +181,11 @@
     <ClCompile Include="..\Cpp\ResourceManager.cpp">
       <Filter>01.Manager\06.ResourceManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\Resource.cpp">
+    <ClCompile Include="..\Cpp\CResource.cpp">
       <Filter>02.Structure\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Function_String.cpp">
+      <Filter>97.Utility\String/Char_Function</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -264,8 +273,11 @@
     <ClInclude Include="..\Header\ResourceManager.h">
       <Filter>01.Manager\06.ResourceManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Resource.h">
+    <ClInclude Include="..\Header\CResource.h">
       <Filter>02.Structure\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Function_String.h">
+      <Filter>97.Utility\String/Char_Function</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

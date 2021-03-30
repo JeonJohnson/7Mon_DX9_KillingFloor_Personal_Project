@@ -11,6 +11,7 @@
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "GameObjectManager.h"
+#include "ResourceManager.h"
 #include "RenderManager.h"
 
 #include "DebugManager.h"
@@ -19,7 +20,6 @@
 #pragma region Components
 #include "GameObject.h"
 #include "Component.h"
-
 
 #include "VIBuffer_Renderer.h"
 #pragma endregion
@@ -32,7 +32,7 @@ private:
 
 public:
 	static Engine_Mother*	Get_Instance();
-	static void		Destroy_Instance();
+	static void				Destroy_Instance();
 	
 public:
 	struct Desc
@@ -85,7 +85,8 @@ private:
 	DeviceManager*			m_pDeviceManager = nullptr;
 	TimeManager*			m_pTimeManager = nullptr;
 	InputManager*			m_pInputManager = nullptr;
-
+	ResourceManager*		m_pResourceManager = nullptr;
+	
 	GameObjectManager*		m_pGameObjectManager = nullptr;
 	RenderManager*			m_pRenderManager = nullptr;
 	SceneManager*			m_pSceneManager = nullptr;

@@ -1,6 +1,7 @@
 #include "..\Header\VIBuffer_Renderer.h"
-#include "Triangle_VIBuffer_Color.h"
-#include "Rect_VIBuffer_Color.h"
+#include "ResourceManager.h"
+//#include "Triangle_VIBuffer_Color.h"
+//#include "Rect_VIBuffer_Color.h"
 
 
 
@@ -8,11 +9,14 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 {
 	/* Test */
 	//m_pVIBuffer = new Triangle_VIBuffer_Color;
-	m_pVIBuffer = new Rect_VIBuffer_Color;
-
+	//m_pVIBuffer = new Rect_VIBuffer_Color;
+	m_pVIBuffer = ResourceManager::Get_Instance()->Get_Resource<VIBuffer>(_desc->wBufferName);
+	assert(L"VIBufferRenderer is cant find Obj" && m_pVIBuffer);
 	m_pVIBuffer->Set_RenderLayer(_desc->iLayer);
 	//거 Renderer에 있는 iLayer를 세팅해주고.
 	//Rednerer에서 알아서 RenderManager로 보내줌 ^^~
+
+	
 }
 
 VIBuffer_Renderer::~VIBuffer_Renderer()

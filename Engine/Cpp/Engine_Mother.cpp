@@ -22,13 +22,14 @@ void Engine_Mother::Destroy_Instance()
 
 Engine_Mother::Engine_Mother()
 {
-	m_pDeviceManager	= DeviceManager::Get_Instance();
-	m_pTimeManager		= TimeManager::Get_Instance();
-	m_pInputManager		= InputManager::Get_Instance();
+	m_pDeviceManager		= DeviceManager::Get_Instance();
+	m_pTimeManager			= TimeManager::Get_Instance();
+	m_pInputManager			= InputManager::Get_Instance();
+	m_pResourceManager		= ResourceManager::Get_Instance();
 
-	m_pGameObjectManager = GameObjectManager::Get_Instance();
-	m_pRenderManager	= RenderManager::Get_Instance();
-	m_pSceneManager		= SceneManager::Get_Instance();
+	m_pGameObjectManager	= GameObjectManager::Get_Instance();
+	m_pRenderManager		= RenderManager::Get_Instance();
+	m_pSceneManager			= SceneManager::Get_Instance();
 }
 
 Engine_Mother::~Engine_Mother()
@@ -46,12 +47,13 @@ void Engine_Mother::Initialize(Desc * _desc)
 #endif //_DEBUG
 	m_pTimeManager->Time_Init();
 	m_pInputManager->Initialize();
+	m_pResourceManager->Initialize();
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
 
-
+	
 	
 }
 

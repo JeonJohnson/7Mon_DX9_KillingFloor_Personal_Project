@@ -3,7 +3,7 @@
 #ifndef _ENGINE_INCUDE_H_
 #define _ENGINE_INCUDE_H_
 
-/* Fuck the warning*/
+/* Fuck the warning */
 #pragma warning(disable : 4251)
 
 
@@ -33,6 +33,7 @@ using namespace std;
 
 /* STL */
 #include <map>
+#include <unordered_map>
 #include <vector>
 #include <list>
 

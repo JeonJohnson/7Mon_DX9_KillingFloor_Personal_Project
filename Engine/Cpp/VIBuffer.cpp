@@ -9,7 +9,6 @@ VIBuffer::VIBuffer()
 	assert(L"DX9Device is null at VIBuffer" && m_pDX9Device);
 }
 
-
 VIBuffer::~VIBuffer()
 {
 	Release();
