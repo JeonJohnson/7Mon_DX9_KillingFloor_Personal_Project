@@ -196,6 +196,8 @@
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\Renderer.h" />
     <ClInclude Include="..\Header\RenderManager.h" />
+    <ClInclude Include="..\Header\Resource.h" />
+    <ClInclude Include="..\Header\ResourceManager.h" />
     <ClInclude Include="..\Header\Scene.h" />
     <ClInclude Include="..\Header\SceneManager.h" />
     <ClInclude Include="..\Header\State.h" />
@@ -218,6 +220,8 @@
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\Renderer.cpp" />
     <ClCompile Include="..\Cpp\RenderManager.cpp" />
+    <ClCompile Include="..\Cpp\Resource.cpp" />
+    <ClCompile Include="..\Cpp\ResourceManager.cpp" />
     <ClCompile Include="..\Cpp\Scene.cpp" />
     <ClCompile Include="..\Cpp\SceneManager.cpp" />
     <ClCompile Include="..\Cpp\State.cpp" />

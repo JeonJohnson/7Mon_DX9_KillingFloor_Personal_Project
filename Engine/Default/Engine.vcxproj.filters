@@ -104,6 +104,12 @@
     <Filter Include="00.Mother">
       <UniqueIdentifier>{15671e5b-2bc2-4020-acfb-91c83665bca1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Manager\06.ResourceManager">
+      <UniqueIdentifier>{f68f540c-58a0-4de5-a489-9f25c0f2fe33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Structure\Resource">
+      <UniqueIdentifier>{d34a8e07-e6c7-4167-9cf3-6723d9c5b946}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -165,6 +171,12 @@
     </ClCompile>
     <ClCompile Include="Cube_VIBuffer_Texture.cpp">
       <Filter>06.Resource\00.VIBuffer\02.Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\ResourceManager.cpp">
+      <Filter>01.Manager\06.ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Resource.cpp">
+      <Filter>02.Structure\Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +260,12 @@
     </ClInclude>
     <ClInclude Include="Cube_VIBuffer_Texture.h">
       <Filter>06.Resource\00.VIBuffer\02.Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ResourceManager.h">
+      <Filter>01.Manager\06.ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Resource.h">
+      <Filter>02.Structure\Resource</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
