@@ -18,6 +18,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NeviMesh_Tool", "NeviMesh_Tool", "{D14F7B5B-AC17-42A4-9B54-8A6EF5C050EF}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Default\Client.vcxproj", "{BC07C87F-7947-446C-8731-A719DF312E00}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DE05BC9D-03FF-48D5-A7A1-A2B1BA6ED44C} = {DE05BC9D-03FF-48D5-A7A1-A2B1BA6ED44C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
