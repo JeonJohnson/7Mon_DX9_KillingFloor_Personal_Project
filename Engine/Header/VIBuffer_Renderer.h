@@ -36,7 +36,7 @@ public:
 	virtual void Release() override;
 
 public: /* functions */
-	void Binding_Stream_VIBuffer();
+	HRESULT Binding_Stream_VIBuffer();
 	
 
 public: /* Get */

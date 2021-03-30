@@ -50,6 +50,8 @@ void RenderManager::Release()
 
 void RenderManager::Render_Priority()
 {
+	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
+
 	for (auto& renderer : m_RenderingList[0])
 	{
 		renderer->Render();

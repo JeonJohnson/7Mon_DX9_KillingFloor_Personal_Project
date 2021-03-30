@@ -27,11 +27,9 @@ void Triangle_VIBuffer_Color::Initialize()
 
 	Set_VBufferInfo(Temp);
 
-	if (Create_VBuffer() == E_FAIL)
-	{
-		//MsgBox(L"Error", L"TriangleColor VertexBuffer Create Failed");
-	}
-	//
+	Create_VBuffer();
+
+
 }
 
 HRESULT Triangle_VIBuffer_Color::Create_VBuffer()
@@ -66,9 +64,16 @@ HRESULT Triangle_VIBuffer_Color::Create_VBuffer()
 	//Lock으로 접근을 하는거임. 잘못이해하지 말도록.
 	m_pVB->Lock(0, 0, (void**)&pVertices, 0);
 
+	//로컬 좌표 (2D로 봤을때)
+	//중앙 0,0
+	//좌상단 -1,1
+	//우상단 1,1
+	//좌하단 -1,-1
+	//우하단 1,-1
+	//시계 방향으루다가 그리자.
 	pVertices[0].vPos = Vector3(0.f, 1.f, 0.f);
 	pVertices[0].uiColor = D3DCOLOR_ARGB(255, 255, 0, 0);
-
+	
 	pVertices[1].vPos = Vector3(1.f, -1.f, 0.f);
 	pVertices[1].uiColor = D3DCOLOR_ARGB(255, 255, 0, 0);
 

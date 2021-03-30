@@ -204,6 +204,7 @@
     <ClInclude Include="..\Header\Triangle_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\VIBuffer.h" />
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
+    <ClInclude Include="Cube_VIBuffer_Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\Component.cpp" />
@@ -225,6 +226,7 @@
     <ClCompile Include="..\Cpp\Triangle_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
+    <ClCompile Include="Cube_VIBuffer_Texture.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

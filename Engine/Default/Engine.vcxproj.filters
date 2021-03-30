@@ -163,6 +163,9 @@
     <ClCompile Include="..\Cpp\Engine_Mother.cpp">
       <Filter>00.Mother</Filter>
     </ClCompile>
+    <ClCompile Include="Cube_VIBuffer_Texture.cpp">
+      <Filter>06.Resource\00.VIBuffer\02.Cube</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\DeviceManager.h">
@@ -242,6 +245,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Mother.h">
       <Filter>00.Mother</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube_VIBuffer_Texture.h">
+      <Filter>06.Resource\00.VIBuffer\02.Cube</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

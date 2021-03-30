@@ -13,6 +13,17 @@ class Rect_VIBuffer_Color :
 public:
 	Rect_VIBuffer_Color();
 	virtual ~Rect_VIBuffer_Color();
+
+public:
+	virtual void Initialize() override;
+
+public:
+
+	virtual HRESULT Create_VBuffer() override;
+	virtual HRESULT Create_IBuffer() override;
+
+private:
+
 };
 
 #endif //_RECT_VIBUFFER_COLOR_H_
