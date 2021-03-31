@@ -26,6 +26,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_ LPWSTR    lpCmdLine,
 	_In_ int       nCmdShow)
 {
+
+
+
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -47,7 +50,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	MSG msg;
 	msg.message = WM_NULL;
 
+#ifdef _DEBUG //동적할당 체크 하는 부분.
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+#endif // DEBUG
+
 	MainGame::Get_Instance()->Initialize();
+
+	int* temp = new int;
 
 	// 기본 메시지 루프입니다.
 	while (WM_QUIT != msg.message)

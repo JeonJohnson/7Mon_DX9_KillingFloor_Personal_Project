@@ -27,8 +27,12 @@ using namespace std;
 
 #include <algorithm>
 
-/* MultiThread */
+/* Memory Leak */
 
+
+
+/* MultiThread */
+#include <process.h>
 
 
 /* STL */
@@ -41,6 +45,7 @@ using namespace std;
 /* Direct 9 */
 #include <d3d9.h>
 #include <d3dx9.h>
+//#include <d3dx9math.h>
 
 
 /* Custom */

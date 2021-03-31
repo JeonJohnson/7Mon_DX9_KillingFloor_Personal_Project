@@ -99,6 +99,8 @@ public:
 				return (T*)component.second;
 			}
 		}
+
+		return nullptr;
 	}
 
 	template<class T>

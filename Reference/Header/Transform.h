@@ -59,7 +59,7 @@ public:
 
 private:
 	Matrix		m_matWorldMatrix;
-	Vector3		m_vPosition = { 10.f, 5.f, 0.f };
+	Vector3		m_vPosition = { 0.f, 0.f, 0.f };
 	Vector3		m_vScale = { 1.f, 1.f, 1.f };
 	Quaternion	m_qRotation = { 0.f, 0.f,0.f,1.f };
 	

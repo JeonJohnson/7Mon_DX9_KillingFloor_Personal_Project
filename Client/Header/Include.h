@@ -3,7 +3,6 @@
 #ifndef _INCLUDE_H_
 #define _INCLUDE_H_
 
-
 #include "TypeDef.h"
 #include "Define.h"
 #include "Enum.h"

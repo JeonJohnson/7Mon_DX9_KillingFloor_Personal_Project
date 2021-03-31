@@ -178,6 +178,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\Header\Camera.h" />
     <ClInclude Include="..\Header\Component.h" />
     <ClInclude Include="..\Header\Cycle.h" />
     <ClInclude Include="..\Header\DebugManager.h" />
@@ -210,6 +211,7 @@
     <ClInclude Include="Cube_VIBuffer_Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\Camera.cpp" />
     <ClCompile Include="..\Cpp\Component.cpp" />
     <ClCompile Include="..\Cpp\Cycle.cpp" />
     <ClCompile Include="..\Cpp\DebugManager.cpp" />
