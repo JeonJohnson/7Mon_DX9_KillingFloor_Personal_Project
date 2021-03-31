@@ -27,7 +27,7 @@ public:
 	virtual void Release() override;
 
 public: /* Matrix */
-	void Update_Matrix();
+	void Update_WorldMatrix();
 
 public: /* Scale */
 	

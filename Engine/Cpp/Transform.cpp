@@ -39,6 +39,8 @@ void Transform::Update_WorldMatrix()
 		D3DXMatrixScaling(&matScale, m_vScale.x, m_vScale.y, m_vScale.z);
 		D3DXMatrixRotationQuaternion(&matRot, &m_qRotation);
 		D3DXMatrixTranslation(&matTrans, m_vPosition.x, m_vPosition.y, m_vPosition.z);
+
+	
 	}
 
 	//{//직접 돌리기
