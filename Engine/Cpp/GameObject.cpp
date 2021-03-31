@@ -2,8 +2,6 @@
 
 #include "GameObjectManager.h"
 
-
-
 GameObject * GameObject::Instantiate(int _iTag, wstring _wName)
 {
 	GameObject* obj = nullptr;
@@ -30,6 +28,10 @@ void GameObject::Initialize()
 	m_bActive = true; 
 	m_bAlive = true; 
 	m_bDontDestroy = false; 
+	
+	this->Add_Component<Transform>();
+	Merge_Components();
+	m_Transform = Get_Component<Transform>();
 }
 
 void GameObject::Update()

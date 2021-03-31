@@ -50,8 +50,9 @@ public: /* Set */
 private:
 	VIBuffer*		m_pVIBuffer = nullptr;
 
-	
-
+	/*Test*/
+	Matrix m_matView;
+	Matrix m_matProj;
 };
 
 #endif //_VIBUFFER_RENDERER_H_

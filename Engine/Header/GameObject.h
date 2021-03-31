@@ -94,9 +94,9 @@ public:
 
 		for (auto& component : m_vecComponents)
 		{
-			if (component->first == wName)
+			if (component.first == wName)
 			{
-				return (T*)component->second;
+				return (T*)component.second;
 			}
 		}
 	}
@@ -115,9 +115,9 @@ public:
 
 		for (auto& newComponent : m_vecNewComponents)
 		{
-			if (newComponent->first == wName)
+			if (newComponent.first == wName)
 			{
-				return (T*)newComponent->second;
+				return (T*)newComponent.second;
 			}
 		}
 	}

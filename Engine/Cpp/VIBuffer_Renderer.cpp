@@ -1,5 +1,8 @@
 #include "..\Header\VIBuffer_Renderer.h"
 #include "ResourceManager.h"
+
+#include "GameObject.h"
+
 //#include "Triangle_VIBuffer_Color.h"
 //#include "Rect_VIBuffer_Color.h"
 
@@ -25,6 +28,9 @@ VIBuffer_Renderer::~VIBuffer_Renderer()
 
 void VIBuffer_Renderer::Initialize()
 {
+	/*Test*/
+	D3DXMatrixLookAtLH(&m_matView, &Vector3(0.f, 0.f, -10.f), &Vector3(0.f, 0.f, 1.f), &Vector3(0.f, 1.f, 0.f));
+	D3DXMatrixPerspectiveFovLH(&m_matProj, D3DXToRadian(60.f), float(1280) / 720, 0.1f, 1000.f);
 }
 
 void VIBuffer_Renderer::Update()
@@ -37,6 +43,12 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
+
+	m_pDX9Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
+/*Test*/
+	m_pDX9Device->SetTransform(D3DTS_VIEW, &m_matView);
+	m_pDX9Device->SetTransform(D3DTS_PROJECTION, &m_matProj);
+/*Test*/
 	if (FAILED(Binding_Stream_VIBuffer()))
 	{
 		assert(0 && L"VIBuffer Binding Stream is Failed");
@@ -47,6 +59,16 @@ void VIBuffer_Renderer::Render()
 	//	0, //버텍스 읽기를 시작할 버텍스 스트림 요소의 인덱스
 	//	1 //그릴 개수.
 	//); VBuffer만 이용해서 그리는거
+
+	//if (FAILED(m_pDX9Device->SetTransform(D3DTS_WORLD, 
+	//	&m_GameObject->Get_Transform()->Get_WorldMatrix())))
+	//{
+	//	assert(L"VIBufferRenderer SetTransform to Device is failed" && nullptr );
+	//}
+	
+	//Matrix temp = m_GameObject->Get_Transform()->Get_WorldMatrix();
+
+	
 
 	if (FAILED(m_pDX9Device->DrawIndexedPrimitive(
 		D3DPT_TRIANGLELIST, //그리고자하는 방식.

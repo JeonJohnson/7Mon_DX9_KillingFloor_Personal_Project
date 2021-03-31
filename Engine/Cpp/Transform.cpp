@@ -7,12 +7,22 @@ Transform::Transform(Desc * _desc)
 {
 }
 
+Transform::Transform()
+{
+}
+
 Transform::~Transform()
 {
 }
 
 void Transform::Initialize()
 {
+	m_vPosition = { 0.f, 0.f, 0.f };
+	m_vScale = { 1.f, 1.f, 1.f };
+	m_qRotation = { 0.f, 0.f,0.f,1.f };
+
+	D3DXMatrixIdentity(&m_matWorldMatrix);
+	Update_WorldMatrix();
 }
 
 void Transform::Update()
@@ -33,14 +43,20 @@ void Transform::Release()
 
 void Transform::Update_WorldMatrix()
 {
+	//월드 행렬을 장치로 넘겨주는건 각 객체 Renderer에서 그리기 전에 해주자.
+
 	{//다렉함수로 월드매트릭스 지정해주기
 		//크자이공부 순
 		Matrix matScale, matRot, matTrans;
 		D3DXMatrixScaling(&matScale, m_vScale.x, m_vScale.y, m_vScale.z);
 		D3DXMatrixRotationQuaternion(&matRot, &m_qRotation);
+		///*Test*/
+		//Vector3 tempPos = { 2.f, -2.f,0.f };
+		//D3DXMatrixTranslation(&matTrans, tempPos.x, tempPos.y, tempPos.z);
+		///*Test*/
 		D3DXMatrixTranslation(&matTrans, m_vPosition.x, m_vPosition.y, m_vPosition.z);
-
 	
+		m_matWorldMatrix = matScale * matRot * matTrans;
 	}
 
 	//{//직접 돌리기
@@ -150,6 +166,11 @@ void Transform::Get_RotationZ(Vector3 * _pOut, Vector3 _In)
 
 	_pOut->x = _In.x * cosf(radian) - _In.y * sinf(radian);
 	_pOut->y = _In.x * sinf(radian) + _In.y * cosf(radian);
+}
+
+const Matrix & Transform::Get_WorldMatrix() const
+{
+	return m_matWorldMatrix;
 }
 
 const Vector3 & Transform::Get_Position() const

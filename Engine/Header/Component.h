@@ -48,8 +48,9 @@ public: /* Create */
 	{
 		Component* Instance = nullptr;
 		Instance = new T(_desc);
-		
 		assert(L"Component Instance failed" && Instance);
+		Instance->Initialize();
+		
 		
 		return Instance;
 	}
@@ -59,8 +60,9 @@ public: /* Create */
 	{
 		Component* Instance = nullptr;
 		Instance = new T();
-		
 		assert(L"Component Instance failed" && Instance);
+		Instance->Initialize();
+		
 
 		return Instance;
 	}

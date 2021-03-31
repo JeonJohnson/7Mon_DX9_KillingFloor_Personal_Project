@@ -16,8 +16,9 @@ public:
 	};
 
 public:
-	Transform(Desc* _desc);
-	~Transform();
+	explicit Transform(Desc* _desc);
+	explicit Transform();
+	virtual ~Transform();
 
 public:
 	virtual void Initialize() override;
@@ -40,6 +41,7 @@ public: /* Rotation */
 public: /* Transform(position) */
 
 public: /* Get */
+	const Matrix&		Get_WorldMatrix() const;
 	const Vector3&		Get_Position() const;
 	const Vector3&		Get_Scale() const;
 	const Quaternion&	Get_Rotation() const;
@@ -53,14 +55,14 @@ public: /* Functions */
 
 
 public:
-	Vector3		m_vPosition	= { 0.f, 0.f, 0.f };
-	Vector3		m_vScale = { 1.f, 1.f, 1.f };
-	Quaternion	m_qRotation = { 0.f, 0.f,0.f,1.f };
+
 
 private:
 	Matrix		m_matWorldMatrix;
+	Vector3		m_vPosition = { 0.f, 0.f, 0.f };
+	Vector3		m_vScale = { 1.f, 1.f, 1.f };
+	Quaternion	m_qRotation = { 0.f, 0.f,0.f,1.f };
 	
-
 
 
 };
