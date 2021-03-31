@@ -31,7 +31,7 @@ void Transform::Release()
 {
 }
 
-void Transform::Update_Matrix()
+void Transform::Update_WorldMatrix()
 {
 	{//다렉함수로 월드매트릭스 지정해주기
 		//크자이공부 순
