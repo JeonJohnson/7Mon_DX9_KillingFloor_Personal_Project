@@ -21,7 +21,6 @@
 #include "GameObject.h"
 #include "Component.h"
 
-
 #include "VIBuffer_Renderer.h"
 #pragma endregion
 
@@ -33,7 +32,7 @@ private:
 
 public:
 	static Engine_Mother*	Get_Instance();
-	static void		Destroy_Instance();
+	static void				Destroy_Instance();
 	
 public:
 	struct Desc

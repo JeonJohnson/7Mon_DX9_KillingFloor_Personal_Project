@@ -64,14 +64,26 @@ void RenderManager::Render_Priority()
 
 void RenderManager::Render_NonAlpha()
 {
+	for (auto& renderer : m_RenderingList[1])
+	{
+		renderer->Render();
+	}
 }
 
 void RenderManager::Render_Alpha()
 {
+	for (auto& renderer : m_RenderingList[2])
+	{
+		renderer->Render();
+	}
 }
 
 void RenderManager::Render_UI()
 {
+	for (auto& renderer : m_RenderingList[3])
+	{
+		renderer->Render();
+	}
 }
 
 void RenderManager::Insert_RenderingList(Renderer * _renderer, int _order)
