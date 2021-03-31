@@ -31,7 +31,7 @@ void Transform::Release()
 {
 }
 
-void Transform::Update_Matrix()
+void Transform::Update_WorldMatrix()
 {
 	{//다렉함수로 월드매트릭스 지정해주기
 		//크자이공부 순
@@ -39,6 +39,8 @@ void Transform::Update_Matrix()
 		D3DXMatrixScaling(&matScale, m_vScale.x, m_vScale.y, m_vScale.z);
 		D3DXMatrixRotationQuaternion(&matRot, &m_qRotation);
 		D3DXMatrixTranslation(&matTrans, m_vPosition.x, m_vPosition.y, m_vPosition.z);
+
+	
 	}
 
 	//{//직접 돌리기
