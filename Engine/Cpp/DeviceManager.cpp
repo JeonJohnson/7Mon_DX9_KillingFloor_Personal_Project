@@ -14,6 +14,9 @@ DeviceManager::~DeviceManager()
 
 void DeviceManager::Initialize(HWND _hWnd, UINT _wincx, UINT _wincy, bool _windowMode)
 {
+	m_vWindowSize.x = (float)_wincx;
+	m_vWindowSize.y = (float)_wincy;
+
 	if (Ready_DX9_Device(_hWnd, _wincx, _wincy, _windowMode) == E_FAIL)
 	{
 		assert(0 && L"Device Setting is failed");
@@ -99,6 +102,11 @@ HRESULT DeviceManager::Ready_DX9_Device(HWND _hWnd, UINT _wincx, UINT _wincy, bo
 LPDIRECT3DDEVICE9 DeviceManager::Get_DX9_Device() const
 {
 	return m_pDX9_Device;
+}
+
+const Vector2 & DeviceManager::Get_WindowSize() const
+{
+	return m_vWindowSize;
 }
 
 #ifdef _DEBUG
