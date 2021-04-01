@@ -17,6 +17,11 @@ protected:
 	virtual void Initialize() = 0;
 	virtual void Release() = 0;
 	
+public:
+
+
+protected:
+	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
 	
 };
 

@@ -21,6 +21,14 @@ typedef struct tagVertexUV
 	Vector2 vUV;
 
 }VERTEX_TEXTURE;
+
+typedef struct tagVertexUV_DDS
+{
+	Vector3 vPos;
+	Vector3 vUV;
+
+}VERTEX_DDS;
+
 	
 	/* FVF */
 		//=> Flexible Vertex Format

@@ -3,9 +3,7 @@
   TestScene.cpp
   Client.cpp
   코드를 생성하고 있습니다.
-  268 of 268 functions (100.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  All 268 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   코드를 생성했습니다.
-  Client.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
+  Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
   Client.vcxproj -> ../Bin/x64\Release\Client.pdb (Full PDB)
