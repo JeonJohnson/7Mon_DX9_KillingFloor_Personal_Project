@@ -4,6 +4,7 @@
 Rect_VIBuffer_Color::Rect_VIBuffer_Color()
 {
 	Initialize();
+	//리쏘스 매니저에서 따로 불러올지 여기서 바로 실행시킬지 고민중.
 }
 
 

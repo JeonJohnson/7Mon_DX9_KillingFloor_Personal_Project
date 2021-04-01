@@ -1,6 +1,9 @@
 #include "..\Header\ResourceManager.h"
 #include "VIBuffer.h"
+
+//VIBuffers
 #include "Rect_VIBuffer_Color.h"
+#include "Cube_VIBuffer_Texture.h"
 
 
 Implement_Singleton(ResourceManager)
@@ -43,6 +46,7 @@ void ResourceManager::Delete_AllResource()
 
 void ResourceManager::Load_Fonts()
 {
+
 }
 
 void ResourceManager::Insert_VIBuffers()
@@ -50,4 +54,9 @@ void ResourceManager::Insert_VIBuffers()
 	{ //Rect_color
 		Insert_Resource<VIBuffer, Rect_VIBuffer_Color>(L"Rect_Color");
 	}
+
+	{ //Cube_Texture
+		Insert_Resource<VIBuffer, Cube_VIBuffer_Texture>(L"Cube_Texture");
+	}
+
 }

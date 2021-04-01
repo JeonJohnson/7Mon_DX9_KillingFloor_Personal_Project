@@ -180,6 +180,9 @@
   <ItemGroup>
     <ClInclude Include="..\Header\Camera.h" />
     <ClInclude Include="..\Header\Component.h" />
+    <ClInclude Include="..\Header\Cube_VIBuffer_Color.h" />
+    <ClInclude Include="..\Header\Cube_VIBuffer_DDS.h" />
+    <ClInclude Include="..\Header\Cube_VIBuffer_Texture.h" />
     <ClInclude Include="..\Header\Cycle.h" />
     <ClInclude Include="..\Header\DebugManager.h" />
     <ClInclude Include="..\Header\Engine_Define.h" />
@@ -196,23 +199,28 @@
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\InputManager.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h" />
+    <ClInclude Include="..\Header\Rect_VIBuffer_Texture.h" />
     <ClInclude Include="..\Header\Renderer.h" />
     <ClInclude Include="..\Header\RenderManager.h" />
     <ClInclude Include="..\Header\CResource.h" />
     <ClInclude Include="..\Header\ResourceManager.h" />
     <ClInclude Include="..\Header\Scene.h" />
     <ClInclude Include="..\Header\SceneManager.h" />
+    <ClInclude Include="..\Header\SkyBox_VIBuffer_DDS.h" />
     <ClInclude Include="..\Header\State.h" />
+    <ClInclude Include="..\Header\Texture.h" />
     <ClInclude Include="..\Header\TimeManager.h" />
     <ClInclude Include="..\Header\Transform.h" />
     <ClInclude Include="..\Header\Triangle_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\VIBuffer.h" />
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
-    <ClInclude Include="Cube_VIBuffer_Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\Camera.cpp" />
     <ClCompile Include="..\Cpp\Component.cpp" />
+    <ClCompile Include="..\Cpp\Cube_VIBuffer_Color.cpp" />
+    <ClCompile Include="..\Cpp\Cube_VIBuffer_DDS.cpp" />
+    <ClCompile Include="..\Cpp\Cube_VIBuffer_Texture.cpp" />
     <ClCompile Include="..\Cpp\Cycle.cpp" />
     <ClCompile Include="..\Cpp\DebugManager.cpp" />
     <ClCompile Include="..\Cpp\DeviceManager.cpp" />
@@ -222,19 +230,21 @@
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp" />
+    <ClCompile Include="..\Cpp\Rect_VIBuffer_Texture.cpp" />
     <ClCompile Include="..\Cpp\Renderer.cpp" />
     <ClCompile Include="..\Cpp\RenderManager.cpp" />
     <ClCompile Include="..\Cpp\CResource.cpp" />
     <ClCompile Include="..\Cpp\ResourceManager.cpp" />
     <ClCompile Include="..\Cpp\Scene.cpp" />
     <ClCompile Include="..\Cpp\SceneManager.cpp" />
+    <ClCompile Include="..\Cpp\SkyBox_VIBuffer_DDS.cpp" />
     <ClCompile Include="..\Cpp\State.cpp" />
+    <ClCompile Include="..\Cpp\Texture.cpp" />
     <ClCompile Include="..\Cpp\TimeManager.cpp" />
     <ClCompile Include="..\Cpp\Transform.cpp" />
     <ClCompile Include="..\Cpp\Triangle_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
-    <ClCompile Include="Cube_VIBuffer_Texture.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
