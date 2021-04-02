@@ -4,10 +4,10 @@
 #define _CAMERA_H_
 
 #include "Engine_Include.h"
+
 #include "Component.h"
 
-class Camera :
-	public Component
+class DLL_STATE Camera : public Component
 {
 public:
 	struct Desc
@@ -28,13 +28,21 @@ public:
 	virtual void ReadyRender() override;
 	virtual void Release() override;
 
-public:
+public: /* Functions */
+	void	Update_ViewSpaceMatrix();
+	void	Update_ProjSpaceMatrix();
 
-public:
+public: /* Get */
+	const Matrix&	Get_ViweSpaceMat() const;
+	const Matrix&	Get_ProjMat() const;
+	const Matrix&	Get_ViewPortMat() const;
 
-public:
+
+public: /* Set */
+
 
 private:
+	Matrix		m_matViewSpaceMatrix;
 	Matrix		m_matProjectionMatrix;	//투영행렬
 	Matrix		m_matViewPortMatirx;	//뷰포트 행렬
 
