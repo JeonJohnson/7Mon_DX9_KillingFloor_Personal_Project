@@ -16,9 +16,8 @@ class DLL_STATE Camera : public Component
 public:
 	struct Desc
 	{
-		float		fFov;
-		float		fAspect 
-			= (float)(DeviceManager::Get_Instance()->Get_WindowSize().x)/DeviceManager::Get_Instance()->Get_WindowSize().y;
+		float		fFov = 90.f;
+		float		fAspect = 0.f;
 		float		fzNear = 1.f;
 		float		fzFar = 1000.f;
 	};
@@ -52,6 +51,7 @@ public: /* Set */
 
 	
 private:
+	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
 	/* To ViewSpace */
 	Matrix		m_matViewSpaceMatrix;		//월드 -> 뷰 스페이스
 				//카메라의 역행렬 => 뷰행렬
@@ -65,8 +65,7 @@ private:
 	Matrix		m_matProjectionMatrix;		//뷰 스페이스 -> 투영 스페이스
 											
 	float		m_fFov = 90.f;			//시야각
-	float		m_fAspect 
-		 = (float)(DeviceManager::Get_Instance()->Get_WindowSize().x)/DeviceManager::Get_Instance()->Get_WindowSize().y;
+	float		m_fAspect = 0.f;
 	float		m_fzNear = 1.f;			//니어 평면 거리
 	float		m_fzFar = 1000.f;		//파 평면 거리
 	

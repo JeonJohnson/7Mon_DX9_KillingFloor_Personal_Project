@@ -48,7 +48,7 @@ public:
 		assert(L"Add Component is failed" && component);
 
 		component->Set_GameObject(this);
-		//compoent->Set_Transform(m_Transform)'
+		component->Set_Transform(m_Transform);
 
 		//Test
 		//m_vecComponents.emplace_back(component);
@@ -69,7 +69,7 @@ public:
 		assert(L"Add Component is failed" && component);
 
 		component->Set_GameObject(this);
-		//component->Set_Transform(m_Transform);
+		component->Set_Transform(m_Transform);
 		
 		//Test
 		//m_vecComponents.emplace_back(component);

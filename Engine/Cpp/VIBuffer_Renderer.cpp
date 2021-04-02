@@ -28,9 +28,9 @@ VIBuffer_Renderer::~VIBuffer_Renderer()
 
 void VIBuffer_Renderer::Initialize()
 {
-	/*Test*/
-	D3DXMatrixLookAtLH(&m_matView, &Vector3(0.f, 0.f, -10.f), &Vector3(0.f, 0.f, 1.f), &Vector3(0.f, 1.f, 0.f));
-	D3DXMatrixPerspectiveFovLH(&m_matProj, D3DXToRadian(60.f), float(1280) / 720, 0.1f, 1000.f);
+	///*Test*/
+	//D3DXMatrixLookAtLH(&m_matView, &Vector3(0.f, 0.f, -10.f), &Vector3(0.f, 0.f, 1.f), &Vector3(0.f, 1.f, 0.f));
+	//D3DXMatrixPerspectiveFovLH(&m_matProj, D3DXToRadian(60.f), float(1280) / 720, 0.1f, 1000.f);
 }
 
 void VIBuffer_Renderer::Update()
@@ -45,10 +45,10 @@ void VIBuffer_Renderer::Render()
 {
 
 	m_pDX9Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
-/*Test*/
-	m_pDX9Device->SetTransform(D3DTS_VIEW, &m_matView);
-	m_pDX9Device->SetTransform(D3DTS_PROJECTION, &m_matProj);
-/*Test*/
+///*Test*/
+//	m_pDX9Device->SetTransform(D3DTS_VIEW, &m_matView);
+//	m_pDX9Device->SetTransform(D3DTS_PROJECTION, &m_matProj);
+///*Test*/
 	if (FAILED(Binding_Stream_VIBuffer()))
 	{
 		assert(0 && L"VIBuffer Binding Stream is Failed");

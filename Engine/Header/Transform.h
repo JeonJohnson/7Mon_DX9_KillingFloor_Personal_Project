@@ -50,7 +50,7 @@ public: /* Get */
 	const Vector3&		Get_Rotation_Euler() const;
 
 public: /* Set */ 
-
+	virtual void Set_Transform(Transform* _pTransform) override;
 
 
 public: /* Functions */

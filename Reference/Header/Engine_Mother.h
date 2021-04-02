@@ -21,6 +21,8 @@
 #include "GameObject.h"
 #include "Component.h"
 
+#include "Camera.h"
+
 #include "VIBuffer_Renderer.h"
 #pragma endregion
 

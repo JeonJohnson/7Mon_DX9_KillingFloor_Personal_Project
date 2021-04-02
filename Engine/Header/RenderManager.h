@@ -7,7 +7,8 @@
 #include "Renderer.h"
 
 class RenderManager
-{
+{	
+	
 	Declare_Singleton(RenderManager)
 
 private:
@@ -25,7 +26,14 @@ private:
 	void Render_Alpha();
 	void Render_UI();
 
-public:
+public: /* Functions */
+	HRESULT Update_ViewPort();
+
+	
+public: /* Get */
+
+
+public: /* Set */
 	void Insert_RenderingList(Renderer * _renderer, int = 0);
 
 private:
@@ -33,6 +41,9 @@ private:
 
 	map<int, list<Renderer*>> m_RenderingList;
 	//vector<Renderer*>			m_RenderingList;
+
+
+
 
 #ifdef _DEBUG
 public:

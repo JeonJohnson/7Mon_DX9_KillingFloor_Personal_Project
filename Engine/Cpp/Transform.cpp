@@ -186,6 +186,19 @@ const Quaternion & Transform::Get_Rotation() const
 const Vector3 & Transform::Get_Rotation_Euler() const
 {
 	// TODO: 여기에 반환 구문을 삽입합니다.
+	return Vector3(0,0,0);
+}
+
+void Transform::Set_Transform(Transform * _pTransform)
+{
+	/*
+	Gameobject를 init하는 과정에서 m_Transform도 Component기 때문에 Add_Component를 하는데
+	Add Component안에서 Set_Transform을 함.
+	근디 아직 GameObject의 transform은 없지. 만드는 중인데...
+	그래서 자기 자신을 받을꺼임.
+	헌테 이게 Component(부모) 함수가 호출되는거니까 override 걸어주면 딱 되것다. 이거야.
+	*/
+	m_Transform = this;
 }
 
 

@@ -85,10 +85,20 @@ public: /* Set */
 
 	void		Set_GameObject(GameObject* _pGameObj);
 
-	void		Set_Transform(Transform* _pTransform);
+	virtual void	Set_Transform(Transform* _pTransform);
+	/* Set_Transform에 virtual건 이유
+	Gameobject를 init하는 과정에서 m_Transform도 Component기 때문에 Add_Component를 하는데
+	Add Component안에서 Set_Transform을 함.
+	근디 아직 GameObject의 transform은 없지. 만드는 중인데...
+	그래서 자기 자신을 받을꺼임.
+	헌테 이게 Component(부모) 함수가 호출되는거니까 override 걸어주면 딱 되것다. 이거야.
+	어차피 다른 component들한테는 이거 안 만들 꺼거든
+	*/
+
 	void		Set_Position(const Vector3& _vPos);
 	void		Set_Scale(const Vector3& _vScale);
 	
+
 
 protected: 
 	//프로텍티드로 할 이유 유?

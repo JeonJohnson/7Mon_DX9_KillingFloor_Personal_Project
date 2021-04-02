@@ -1,8 +1,22 @@
 #include "..\Header\Camera.h"
 #include "Transform.h"
+#include "DeviceManager.h"
 
 Camera::Camera(Desc * _desc)
 {
+	m_fFov = _desc->fFov;
+
+	if (m_fAspect == 0.f)
+	{
+		float x = (float)(DeviceManager::Get_Instance()->Get_WindowSize().x);
+		float y = (float)(DeviceManager::Get_Instance()->Get_WindowSize().y);
+		m_fAspect = x / y;
+	}
+	else { m_fAspect = _desc->fAspect; }
+
+
+	m_fzNear = _desc->fzNear;
+	m_fzFar = _desc->fzFar;
 }
 
 Camera::~Camera()
@@ -11,12 +25,25 @@ Camera::~Camera()
 
 void Camera::Initialize()
 {//Component라서 생성될때 불러와짐.
+	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
+	assert(L"Device Load Failed at Camera" && m_pDX9_Device);
 
+	//지금 Init이 컴포넌트 Instiate에서 불러와지는데
+	//그 다음 단계에서 m_Transform을 세팅해주기 때문에 다음 줄에서 무적권 막힘.
+
+	//일단 지금 이렇게 하는 방식이 아닌거같음. ViewSpcae 행렬을 여기서 처리하는게.
+	//아침에 인나서 다시 봐보자.
+
+	//assert(L"Camera Transform is nullptr" && m_Transform);
+
+	//SetUp_ViewSpaceMatrix();
+	//SetUp_ProjSpaceMatrix();
 }
 
 void Camera::Update()
 {
-
+	Update_ViewSpaceMatrix();
+	Update_ProjSpaceMatrix();
 }
 
 void Camera::LateUpdate()
@@ -83,6 +110,11 @@ void Camera::SetUp_ViewSpaceMatrix()
 
 HRESULT Camera::Update_ViewSpaceMatrix()
 {
+	if (FAILED(m_pDX9_Device->SetTransform(D3DTS_VIEW, &m_matViewSpaceMatrix)))
+	{
+		return E_FAIL;
+	}
+
 	return S_OK;
 }
 
@@ -98,6 +130,21 @@ void Camera::SetUp_ProjSpaceMatrix()
 
 HRESULT Camera::Update_ProjSpaceMatrix()
 {
+	if (FAILED(m_pDX9_Device->SetTransform(D3DTS_PROJECTION, &m_matProjectionMatrix)))
+	{
+		return E_FAIL;
+	}
+
 	return S_OK;
+}
+
+const Matrix & Camera::Get_ViweSpaceMat() const
+{
+	return m_matViewSpaceMatrix;
+}
+
+const Matrix & Camera::Get_ProjMat() const
+{
+	return m_matProjectionMatrix;
 }
 

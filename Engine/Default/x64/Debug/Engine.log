@@ -1,38 +1,4 @@
-﻿  VIBuffer_Renderer.cpp
-  VIBuffer.cpp
-  Triangle_VIBuffer_Color.cpp
-  Transform.cpp
-  TimeManager.cpp
-  Texture.cpp
-  State.cpp
-  SkyBox_VIBuffer_DDS.cpp
-  SceneManager.cpp
-  Scene.cpp
-  ResourceManager.cpp
-  CResource.cpp
-  RenderManager.cpp
-  Renderer.cpp
-  Rect_VIBuffer_Texture.cpp
-  Rect_VIBuffer_Color.cpp
-  InputManager.cpp
-  GameObjectManager.cpp
-  GameObject.cpp
-  Function_String.cpp
-  코드를 생성하고 있습니다...
-e:\학업\7mon_personal\7mon_personal_project\engine\cpp\gameobject.cpp(138): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\cpp\gameobject.cpp(132): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
-  컴파일하고 있습니다...
-  Engine_Mother.cpp
-  DeviceManager.cpp
-  DebugManager.cpp
-  Cycle.cpp
-  Cube_VIBuffer_Texture.cpp
-  Cube_VIBuffer_DDS.cpp
-  Cube_VIBuffer_Color.cpp
-  Component.cpp
-  Camera.cpp
-  코드를 생성하고 있습니다...
-     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+﻿  Camera.cpp
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.dll
