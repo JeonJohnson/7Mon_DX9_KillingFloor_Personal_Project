@@ -111,17 +111,16 @@ void Transform::Update_WorldMatrix()
 
 void Transform::Get_RotationX(Vector3 * _pOut, Vector3 _In)
 {
-	// roll (x-axis rotation)
-	double sinR_cosP = 2 * (m_qRotation.w * m_qRotation.x + m_qRotation.y * m_qRotation.z);
-	double cosR_cosP = 1 - 2 * (m_qRotation.x * m_qRotation.x + m_qRotation.y * m_qRotation.y);
-	float radian = (float)atan2(sinR_cosP, cosR_cosP);
-
+	//Roll
 	/*
 	1	0	0	0
 	0	c	s	0
 	0	-s	c	0
 	0	0	0	1
 	*/
+	double sinR_cosP = 2 * (m_qRotation.w * m_qRotation.x + m_qRotation.y * m_qRotation.z);
+	double cosR_cosP = 1 - 2 * (m_qRotation.x * m_qRotation.x + m_qRotation.y * m_qRotation.y);
+	float radian = (float)atan2(sinR_cosP, cosR_cosP);
 
 	_pOut->y = _In.y * cosf(radian) - _In.z * sinf(radian);
 	_pOut->z = _In.y * sinf(radian) + _In.z * cosf(radian);
@@ -129,7 +128,13 @@ void Transform::Get_RotationX(Vector3 * _pOut, Vector3 _In)
 
 void Transform::Get_RotationY(Vector3 * _pOut, Vector3 _In)
 {
-	// pitch (y-axis rotation)
+	//Pitch
+	/*
+	c	0	-s	0
+	0	1	0	0
+	s	0	c	0
+	0	0	0	1
+	*/
 	double sinP = 2 * (m_qRotation.w * m_qRotation.y - m_qRotation.z * m_qRotation.x);
 	float radian = 0.f;
 	if (std::abs(sinP) >= 1)
@@ -137,32 +142,22 @@ void Transform::Get_RotationY(Vector3 * _pOut, Vector3 _In)
 	else
 		radian = (float)asin(sinP);
 
-	/*
-	c	0	-s	0
-	0	1	0	0
-	s	0	c	0
-	0	0	0	1
-	*/
-
-
 	_pOut->x = _In.x * cosf(radian) + _In.z * sinf(radian);
 	_pOut->z = _In.x * -sinf(radian) + _In.z * cosf(radian);
 }
 
 void Transform::Get_RotationZ(Vector3 * _pOut, Vector3 _In)
 {
-	// yaw (z-axis rotation)
-	double sinY_cosP = 2 * (m_qRotation.w * m_qRotation.z + m_qRotation.x * m_qRotation.y);
-	double cosY_cosP = 1 - 2 * (m_qRotation.y * m_qRotation.y + m_qRotation.z * m_qRotation.z);
-	float radian = (float)atan2(sinY_cosP, cosY_cosP);
-
+	//Yaw 
 	/*
 	c	s	0	0
 	-s	c	0	0
 	0	0	1	0
 	0	0	0	1
 	*/
-
+	double sinY_cosP = 2 * (m_qRotation.w * m_qRotation.z + m_qRotation.x * m_qRotation.y);
+	double cosY_cosP = 1 - 2 * (m_qRotation.y * m_qRotation.y + m_qRotation.z * m_qRotation.z);
+	float radian = (float)atan2(sinY_cosP, cosY_cosP);
 
 	_pOut->x = _In.x * cosf(radian) - _In.y * sinf(radian);
 	_pOut->y = _In.x * sinf(radian) + _In.y * cosf(radian);
@@ -175,20 +170,22 @@ const Matrix & Transform::Get_WorldMatrix() const
 
 const Vector3 & Transform::Get_Position() const
 {
-	// TODO: 여기에 반환 구문을 삽입합니다.
 	return m_vPosition;
 }
 
 const Vector3 & Transform::Get_Scale() const
 {
-	// TODO: 여기에 반환 구문을 삽입합니다.
 	return m_vScale;
 }
 
 const Quaternion & Transform::Get_Rotation() const
 {
-	// TODO: 여기에 반환 구문을 삽입합니다.
 	return m_qRotation;
+}
+
+const Vector3 & Transform::Get_Rotation_Euler() const
+{
+	// TODO: 여기에 반환 구문을 삽입합니다.
 }
 
 

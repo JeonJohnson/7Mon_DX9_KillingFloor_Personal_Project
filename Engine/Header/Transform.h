@@ -12,7 +12,9 @@ class DLL_STATE Transform : public Component
 public:
 	struct Desc
 	{
-
+		Vector3		vPos = { 0.f,0.f,0.f };
+		Vector3		vScale = { 1.f, 1.f, 1.f };
+		Quaternion	qRotation = { 0.f,0.f,0.f,1.f };
 	};
 
 public:
@@ -45,13 +47,14 @@ public: /* Get */
 	const Vector3&		Get_Position() const;
 	const Vector3&		Get_Scale() const;
 	const Quaternion&	Get_Rotation() const;
-
+	const Vector3&		Get_Rotation_Euler() const;
 
 public: /* Set */ 
 
 
 
 public: /* Functions */
+	void QuaternionToEuler(Quaternion* qIn, Vector3* qOut);
 
 
 public:
@@ -62,6 +65,7 @@ private:
 	Vector3		m_vPosition = { 0.f, 0.f, 0.f };
 	Vector3		m_vScale = { 1.f, 1.f, 1.f };
 	Quaternion	m_qRotation = { 0.f, 0.f,0.f,1.f };
+	//Vector3		m_vRotation = { 0.f,0.f,0.f };
 	
 
 

@@ -32,7 +32,7 @@ public: /* Get */
 
 public: /* Set */
 	void	Insert_GameObject(GameObject* _gameObject);
-
+	
 private:
 	list<GameObject*>					m_newGameObjectList;
 	vector<list<GameObject*>>			m_vecGameObjectList;
