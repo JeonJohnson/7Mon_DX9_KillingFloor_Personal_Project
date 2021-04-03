@@ -27,6 +27,7 @@ void Transform::Initialize()
 
 void Transform::Update()
 {
+	Update_WorldMatrix();
 }
 
 void Transform::LateUpdate()
@@ -39,6 +40,18 @@ void Transform::ReadyRender()
 
 void Transform::Release()
 {
+}
+
+void Transform::Set_Transform(Transform * _pTransform)
+{
+	/*
+	Gameobject를 init하는 과정에서 m_Transform도 Component기 때문에 Add_Component를 하는데
+	Add Component안에서 Set_Transform을 함.
+	근디 아직 GameObject의 transform은 없지. 만드는 중인데...
+	그래서 자기 자신을 받을꺼임.
+	헌테 이게 Component(부모) 함수가 호출되는거니까 override 걸어주면 딱 되것다. 이거야.
+	*/
+	m_Transform = this;
 }
 
 void Transform::Update_WorldMatrix()
@@ -109,6 +122,50 @@ void Transform::Update_WorldMatrix()
 
 }
 
+const Matrix & Transform::Get_WorldMatrix() const
+{
+	return m_matWorldMatrix;
+}
+
+void Transform::Set_WorldMatrix() const
+{
+}
+
+const Vector3 & Transform::Get_Scale() const
+{
+	return m_vScale;
+}
+
+void Transform::Set_Scale(const Vector3 & _vScale)
+{
+	m_vScale = _vScale;
+}
+
+void Transform::Add_Scale(const Vector3 & _vScale)
+{
+	m_vScale += _vScale;
+}
+
+void Transform::Add_ScaleX(float _x)
+{
+	m_vScale.x += _x;
+}
+
+void Transform::Add_ScaleY(float _y)
+{
+	m_vScale.y += _y;
+}
+
+void Transform::Add_ScaleZ(float _z)
+{
+	m_vScale.y += _z;
+}
+
+const Quaternion & Transform::Get_Rotation() const
+{
+	return m_qRotation;
+}
+
 void Transform::Get_RotationX(Vector3 * _pOut, Vector3 _In)
 {
 	//Roll
@@ -163,42 +220,37 @@ void Transform::Get_RotationZ(Vector3 * _pOut, Vector3 _In)
 	_pOut->y = _In.x * sinf(radian) + _In.y * cosf(radian);
 }
 
-const Matrix & Transform::Get_WorldMatrix() const
-{
-	return m_matWorldMatrix;
-}
+
 
 const Vector3 & Transform::Get_Position() const
 {
 	return m_vPosition;
 }
 
-const Vector3 & Transform::Get_Scale() const
+void Transform::Set_Position(const Vector3 & _vPos)
 {
-	return m_vScale;
+	m_vPosition = _vPos;
 }
 
-const Quaternion & Transform::Get_Rotation() const
+void Transform::Add_Position(const Vector3 & _vPos)
 {
-	return m_qRotation;
+	m_vPosition += _vPos;
 }
 
-const Vector3 & Transform::Get_Rotation_Euler() const
+void Transform::Add_PosX(float _x)
 {
-	// TODO: 여기에 반환 구문을 삽입합니다.
-	return Vector3(0,0,0);
+	m_vPosition.x += _x;
 }
 
-void Transform::Set_Transform(Transform * _pTransform)
+void Transform::Add_PosY(float _y)
 {
-	/*
-	Gameobject를 init하는 과정에서 m_Transform도 Component기 때문에 Add_Component를 하는데
-	Add Component안에서 Set_Transform을 함.
-	근디 아직 GameObject의 transform은 없지. 만드는 중인데...
-	그래서 자기 자신을 받을꺼임.
-	헌테 이게 Component(부모) 함수가 호출되는거니까 override 걸어주면 딱 되것다. 이거야.
-	*/
-	m_Transform = this;
+	m_vPosition.y += _y;
 }
+
+void Transform::Add_PosZ(float _z)
+{
+	m_vPosition.z += _z;
+}
+
 
 

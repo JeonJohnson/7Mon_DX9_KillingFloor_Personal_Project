@@ -140,6 +140,9 @@
     <Filter Include="06.Resource\00.VIBuffer\01.Rect\00.Color">
       <UniqueIdentifier>{987b3ad2-e593-46e1-b831-fd0507e06e20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="97.Utility\Math">
+      <UniqueIdentifier>{c90ae67e-3072-44fa-b748-d33f7e99b3b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">

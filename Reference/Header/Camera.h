@@ -16,7 +16,7 @@ class DLL_STATE Camera : public Component
 public:
 	struct Desc
 	{
-		float		fFov = 90.f;
+		float		fFov_Degree = 90.f;
 		float		fAspect = 0.f;
 		float		fzNear = 1.f;
 		float		fzFar = 1000.f;
@@ -58,7 +58,7 @@ private:
 	
 	Vector3		m_vEye;					//카메라의 위치 Pos
 	Vector3		m_vAt;					//카메라가 바라볼 곳
-	Vector3		m_vUp;			//절대적 UpVector.(0,1,0)
+	Vector3		m_vUp = { 0.f, 1.f, 0.f };			//절대적 UpVector.(0,1,0)
 
 	/* To ProjectionSpace */
 	//최초 단 한번만 해주면 됨.

@@ -128,14 +128,17 @@ Transform * GameObject::Get_Transform() const
 
 const Vector3 & GameObject::Get_Position() const
 {
-	Vector3 asdf;
-	return asdf;
+	return m_Transform->Get_Position();
 }
 
 const Vector3 & GameObject::Get_Scale() const
 {
-	Vector3 asdf;
-	return asdf;
+	return m_Transform->Get_Scale();
+}
+
+const Quaternion & GameObject::Get_Rotation() const
+{
+	return m_Transform->Get_Rotation();
 }
 
 const wstring GameObject::Get_Name() const
@@ -165,26 +168,74 @@ bool GameObject::Get_Alive() const
 
 void GameObject::Set_Transform(Transform * _pTransform)
 {
+	m_Transform->Set_Transform(_pTransform);
 }
 
 void GameObject::Set_Position(const Vector3 & _vPos)
 {
+	m_Transform->Set_Position(_vPos);
 }
 
 void GameObject::Set_Position(float _x, float _y, float _z)
 {
+	Vector3 PosTemp = { _x, _y, _z };
+	m_Transform->Set_Position(PosTemp);
+}
+
+void GameObject::Add_Position(const Vector3 & _vPos)
+{
+	m_Transform->Add_Position(_vPos);
+}
+
+void GameObject::Add_PosX(float _x)
+{
+	m_Transform->Add_PosX(_x);
+}
+
+void GameObject::Add_PosY(float _y)
+{
+	m_Transform->Add_PosY(_y);
+}
+
+void GameObject::Add_PosZ(float _z)
+{
+	m_Transform->Add_PosZ(_z);
 }
 
 void GameObject::Set_Scale(const Vector3 & _vScale)
 {
+	m_Transform->Set_Scale(_vScale);
 }
 
 void GameObject::Set_Scale(float _x, float _y, float _z)
 {
+	Vector3 ScaleTemp = { _x, _y, _z };
+	m_Transform->Set_Scale(ScaleTemp);
+}
+
+void GameObject::Add_Scale(const Vector3 & _vScale)
+{
+	m_Transform->Add_Scale(_vScale);
+}
+
+void GameObject::Add_ScaleX(float _x)
+{
+	m_Transform->Add_ScaleX(_x);
+}
+
+void GameObject::Add_ScaleY(float _y)
+{
+	m_Transform->Add_ScaleY(_y);
+}
+
+void GameObject::Add_ScaleZ(float _z)
+{
+	m_Transform->Add_ScaleZ(_z);
 }
 
 void GameObject::Set_Rotation(const Quaternion & _qRot)
 {
+	
 }
 
 void GameObject::Set_Rotation(float _x, float _y, float _z)

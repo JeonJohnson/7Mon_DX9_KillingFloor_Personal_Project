@@ -150,9 +150,12 @@ public: /* functions */
 	void Delete_DeadComponents();
 
 public: /* Get */
+#pragma region Transform
 	Transform*		Get_Transform()		const;
 	const Vector3&	Get_Position()		const;
 	const Vector3&	Get_Scale()			const;
+	const Quaternion&	Get_Rotation()	const;
+#pragma endregion
 
 	const wstring	Get_Name()			const;
 	int				Get_Tag()			const;
@@ -162,13 +165,28 @@ public: /* Get */
 	bool			Get_Alive()			const;
 
 public: /* Set */
+#pragma region Transform
 	void		Set_Transform(Transform* _pTransform);
+
 	void		Set_Position(const Vector3& _vPos);
 	void		Set_Position(float _x, float _y, float _z);
+	void		Add_Position(const Vector3& _vPos);
+	void		Add_PosX(float _x);
+	void		Add_PosY(float _y);
+	void		Add_PosZ(float _z);
+
+
+
 	void		Set_Scale(const Vector3& _vScale);
 	void		Set_Scale(float _x, float _y, float _z);
+	void		Add_Scale(const Vector3& _vScale);
+	void		Add_ScaleX(float _x);
+	void		Add_ScaleY(float _y);
+	void		Add_ScaleZ(float _z);
+
 	void		Set_Rotation(const Quaternion& _qRot);
 	void		Set_Rotation(float _x, float _y, float _z);
+#pragma endregion
 
 	void		Set_DontDestroy(bool _FalseIsDestroyWhenChangeScene);
 	void		Set_Active(bool _onoff);

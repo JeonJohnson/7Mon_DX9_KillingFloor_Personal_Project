@@ -28,37 +28,69 @@ public:
 	virtual void LateUpdate() override;
 	virtual void ReadyRender() override;
 	virtual void Release() override;
-
-public: /* Matrix */
-	void Update_WorldMatrix();
-
-public: /* Scale */
 	
 
+public: /* General */
+	/* Function */
+	void QuaternionToEuler(Quaternion* qIn, Vector3* qOut);
+
+	/* Get */
+	const Vector3&		Get_Rotation_Euler() const;
+
+	/* Set */
+	virtual void Set_Transform(Transform* _pTransform) override;
+	
+
+
+public: /* Matrix */
+	/* Function */
+	void Update_WorldMatrix();
+
+	/* Get */
+	const Matrix&		Get_WorldMatrix() const;
+
+	/* Set */
+	void				Set_WorldMatrix() const;
+
+public: /* Scale */
+	/* Function */
+
+	/* Get */
+	const Vector3&		Get_Scale() const;
+
+	/* Set */
+	void				Set_Scale(const Vector3& _vScale); 
+	void				Add_Scale(const Vector3& _vScale);
+	void				Add_ScaleX(float _x);
+	void				Add_ScaleY(float _y);
+	void				Add_ScaleZ(float _z);
+
 public: /* Rotation */
+	/* Function */
+
+	/* Get */
+	const Quaternion&	Get_Rotation() const;
+
 	void Get_RotationX(Vector3* _pOut, Vector3 _In);
 	void Get_RotationY(Vector3* _pOut, Vector3 _In);
 	void Get_RotationZ(Vector3* _pOut, Vector3 _In);
+	
+	/* Set */
+
 
 public: /* Transform(position) */
+	/* Function */
 
-public: /* Get */
-	const Matrix&		Get_WorldMatrix() const;
+	/* Get */
 	const Vector3&		Get_Position() const;
-	const Vector3&		Get_Scale() const;
-	const Quaternion&	Get_Rotation() const;
-	const Vector3&		Get_Rotation_Euler() const;
-
-public: /* Set */ 
-	virtual void Set_Transform(Transform* _pTransform) override;
 
 
-public: /* Functions */
-	void QuaternionToEuler(Quaternion* qIn, Vector3* qOut);
-
-
-public:
-
+	/* Set */
+	void				Set_Position(const Vector3& _vPos);
+	void				Add_Position(const Vector3& _vPos);
+	void				Add_PosX(float _x);
+	void				Add_PosY(float _y);
+	void				Add_PosZ(float _z);
 
 private:
 	Matrix		m_matWorldMatrix;
