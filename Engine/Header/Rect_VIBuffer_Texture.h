@@ -6,6 +6,7 @@
 #include "Engine_Include.h"
 
 #include "VIBuffer.h"
+#include "Texture.h"
 
 class Rect_VIBuffer_Texture : public VIBuffer
 {
@@ -21,8 +22,14 @@ public:
 	virtual HRESULT Create_VBuffer() override;
 	virtual HRESULT Create_IBuffer() override;
 
-private:
 
+	virtual void	Set_Texture(Texture* _pTexture) override;
+	virtual HRESULT Render_Texture(int _iNum) override;
+
+private:
+	Texture*	m_pTexture = nullptr;
+	///*Test*/
+	//IDirect3DBaseTexture9* test = nullptr;
 };
 
 #endif //_RECT_VIBUFFER_TEXTURE_H_

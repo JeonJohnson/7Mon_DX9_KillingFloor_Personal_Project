@@ -3,7 +3,11 @@
 
 //VIBuffers
 #include "Rect_VIBuffer_Color.h"
+#include "Rect_VIBuffer_Texture.h"
+
+#include "Cube_VIBuffer_Color.h"
 #include "Cube_VIBuffer_Texture.h"
+#include "Cube_VIBuffer_DDS.h"
 
 
 Implement_Singleton(ResourceManager)
@@ -19,12 +23,17 @@ ResourceManager::~ResourceManager()
 
 void ResourceManager::Initialize()
 {
+	m_wFolderPath = L"../../Resource/";
 	Insert_VIBuffers();
 }
 
 void ResourceManager::Release()
 {
 	Delete_AllResource();
+}
+
+void ResourceManager::Load_AllResource()
+{
 }
 
 void ResourceManager::Delete_AllResource()
@@ -44,19 +53,45 @@ void ResourceManager::Delete_AllResource()
 	//font 객체 해제들
 }
 
-void ResourceManager::Load_Fonts()
+void ResourceManager::Load_Font()
 {
+
+}
+
+void ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _wName)
+{
+	Texture* TexTemp = Insert_Resource<Texture, Texture>(_wName);
+
+	wstring szFullPath = m_wFolderPath + _wPath;
+
+	
+
+	if (FAILED(TexTemp->Insert_Texture(szFullPath)))
+	{
+		MsgBox(L"Error", L"Texture Inserting is failed");
+		return;
+	}
 
 }
 
 void ResourceManager::Insert_VIBuffers()
 {
-	{ //Rect_color
+	{ //Rects
 		Insert_Resource<VIBuffer, Rect_VIBuffer_Color>(L"Rect_Color");
+		Insert_Resource<VIBuffer, Rect_VIBuffer_Texture>(L"Rect_Texture");
+
 	}
 
-	{ //Cube_Texture
+
+	{ //Cube
+		Insert_Resource<VIBuffer, Cube_VIBuffer_Color>(L"Cube_Color");
 		Insert_Resource<VIBuffer, Cube_VIBuffer_Texture>(L"Cube_Texture");
+		Insert_Resource<VIBuffer, Cube_VIBuffer_DDS>(L"Cube_DDS");
 	}
 
+}
+
+void ResourceManager::Set_ResourceFolderPath(const wstring & _wPath)
+{//상대경로로 폴더까지만 불러오자.
+	m_wFolderPath = _wPath;
 }

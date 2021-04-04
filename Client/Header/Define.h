@@ -11,6 +11,11 @@
 
 #define MsgBox(title, message) MessageBox(0, message, title, MB_OK)
 
+#define EngineFuction Engine_Mother::Get_Instance()
+
+#define dTime Engine_Mother::Get_Instance()->Get_DeltaTime()
+
+#pragma region Functions
 #define	Declare_Singleton(Class)				\
 private:										\
 	static	Class*	m_Instance;					\
@@ -49,7 +54,7 @@ if(Class)										\
 #define Safe_Release(Class)						\
 if(Class)										\
 { Class->Release(); Class = nullptr; }
-
+#pragma endregion
 
 
 

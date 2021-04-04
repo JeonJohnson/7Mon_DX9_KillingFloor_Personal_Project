@@ -5,8 +5,7 @@
 
 VIBuffer::VIBuffer()
 {
-	m_pDX9Device = DeviceManager::Get_Instance()->Get_DX9_Device();
-	assert(L"DX9Device is null at VIBuffer" && m_pDX9Device);
+
 }
 
 VIBuffer::~VIBuffer()
@@ -50,6 +49,11 @@ int VIBuffer::Get_RenderLayer() const
 	return m_iRenderLayer;
 }
 
+VIBUFFER_KIND VIBuffer::Get_Kind() const
+{
+	return m_eKind;
+}
+
 void VIBuffer::Set_Name(const wstring & _name)
 {
 	m_wName = _name;
@@ -69,3 +73,15 @@ void VIBuffer::Set_RenderLayer(int _iRenderLayer)
 {
 	m_iRenderLayer = _iRenderLayer;
 }
+
+void VIBuffer::Set_Texture(Texture * _pTexture)
+{
+	return;
+}
+
+HRESULT VIBuffer::Render_Texture(int _iNum)
+{
+	return S_OK;
+}
+
+

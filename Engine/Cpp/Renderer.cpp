@@ -5,9 +5,9 @@
 
 Renderer::Renderer()
 {
-	m_pDX9Device = DeviceManager::Get_Instance()->Get_DX9_Device();
+	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
 
-	assert(L"Rednerer's Dx9 device is nullptr" && m_pDX9Device);
+	assert(L"Rednerer's Dx9 device is nullptr" && m_pDX9_Device);
 }
 
 

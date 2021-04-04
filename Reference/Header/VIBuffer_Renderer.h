@@ -18,6 +18,7 @@ public:
 	struct Desc 
 	{
 		wstring		wBufferName = L"Tri_Color";
+		wstring		wTextureName = L"Default";
 		int			iLayer = 0;
 	};
 
@@ -45,14 +46,9 @@ public: /* Get */
 public: /* Set */
 	void	Set_VIBuffer(const wstring& _wBufferName);
 
-
-
 private:
 	VIBuffer*		m_pVIBuffer = nullptr;
 
-	///*Test*/
-	//Matrix m_matView;
-	//Matrix m_matProj;
 };
 
 #endif //_VIBUFFER_RENDERER_H_

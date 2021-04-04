@@ -44,7 +44,7 @@ HRESULT Triangle_VIBuffer_Color::Create_VBuffer()
 	);*/
 
 	//2. 지정해둔 변수들로 Vertex Buffer 세팅
-	if (FAILED(m_pDX9Device->CreateVertexBuffer(
+	if (FAILED(m_pDX9_Device->CreateVertexBuffer(
 		m_tVBInfo.m_iVertexCount * m_tVBInfo.m_iVertexMemSize, //배열의 총 메모리 사이즈
 		0,  //동적버퍼인 D3DUSAGE_DYNAMIC 외의 인수는 정적버퍼, 동적버퍼 = 파티클
 		m_tVBInfo.m_iFVF,

@@ -27,7 +27,7 @@ public:
 	virtual void Release() override = 0;
 
 public:
-	LPDIRECT3DDEVICE9	m_pDX9Device = nullptr;
+	LPDIRECT3DDEVICE9	m_pDX9_Device = nullptr;
 
 protected:
 	int m_iRenderLayer = 0;

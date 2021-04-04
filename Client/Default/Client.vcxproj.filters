@@ -47,6 +47,12 @@
     <Filter Include="02.Scene\99.TestScene">
       <UniqueIdentifier>{5b358ecb-96f3-4421-9fba-1103ddf02972}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Objects">
+      <UniqueIdentifier>{c6c4ea17-3674-4723-a3b2-4ff32199c3ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player">
+      <UniqueIdentifier>{441fd630-3198-4e91-8330-92e907c50c8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -85,6 +91,9 @@
     <ClInclude Include="..\Header\TestScene.h">
       <Filter>02.Scene\99.TestScene</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Player_Move.h">
+      <Filter>05.Objects\00.Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -98,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\TestScene.cpp">
       <Filter>02.Scene\99.TestScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Move.cpp">
+      <Filter>05.Objects\00.Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

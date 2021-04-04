@@ -93,8 +93,7 @@ transform + 카메라 + 렌더링 파이프라인 추가 하고
 20:36 2021-04-01 목
 1. 카메라 넣기전에 텍스쳐 넣기 위해서 Texture랑 리소스 쪽 정리중
 	=> 준엽이형은 material 쓰고 태쌤은 Client쪽 각 객체에서 SetTexture해주는디.
-		나는 1. Texture도 Component로 넣어서 m_GameObject에서 Renerer 컴포넌트 있으면 텍스쳐 넣어주고
-				없으면 Color로...?
+		나는 1. Texture도 Component로 넣어서 m_GameObject에서 Renerer 컴포넌트 있으면 텍스쳐 넣어주고 없으면 Color로...?
 				=>이렇게 할려면 지금 만들어놓은 _Color 객체들 다 그냥 도형으로 바꾸고 지123랄해야함.
 		2. 각각 ASDf_VIBufferRenderer 에서 텍스쳐이름을 인자값으로 받아가지고 그거에 맞춰 SetTexture 해주는 방식.
 			=> 아무래도 이게 더 효율적일듯.
@@ -133,6 +132,19 @@ transform + 카메라 + 렌더링 파이프라인 추가 하고
 		=> Cube 출력 => ImageTexture / dds Texture 들어간 Cube 출력해보기
 다 끝나면 킬플1 소스따기!
 
+08:50 2021-4-4 일
+Transform으로 이동하기 성공.
+	-> ImageTexture Rect출력해보기
+~~~_VIBufferRenderer 에서 텍스쳐이름을 Desc인자값으로 받아가지고 
+Resource에서 그 해당값을 찾아서 SetTexture 해주는 방식...?
+	=> 그럼 미리 Resource에서 불러놔야함.
 
+18:19 2021-4-4 일 
+Texture출력 성공 -> 더블포인터형인데 그냥 포인터로 받아부려서 안됬던거임
+	=> ResourceManager랑 같이해서 해보자!
 
-
+21:50 2021-4-4 일
+Resource Manager에서 Texture Load하고 출력까지 성공
+	=> 내일 큐브_Texture / _dds 까지 하고
+		=> 1인칭 카메라 완성...?
+*MFC툴 만들 준비 + 킬플 소스 뜯기*

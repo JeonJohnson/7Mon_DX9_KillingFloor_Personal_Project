@@ -65,7 +65,8 @@ public:
 	const IBUFFER_INFO&		Get_IBuffer_Info()	const;
 
 	int						Get_RenderLayer()	const;
-
+	
+	VIBUFFER_KIND			Get_Kind()			const;
 public:
 	/* Set */
 	void		Set_Name(const wstring& _name);
@@ -75,8 +76,13 @@ public:
 
 	void		Set_RenderLayer(int _iRenderLayer);
 
+	virtual void	Set_Texture(class Texture* _pTexture);
+	virtual HRESULT Render_Texture(int _iNum);
+
 protected:
-	LPDIRECT3DDEVICE9		m_pDX9Device = nullptr;
+	VIBUFFER_KIND			m_eKind;
+
+	//LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
 	wstring					m_wName = L"";
 
 	LPDIRECT3DVERTEXBUFFER9	m_pVB = nullptr;
@@ -86,6 +92,7 @@ protected:
 	IBUFFER_INFO			m_tIBInfo;
 
 	int		m_iRenderLayer = 0;
+
 
 };
 

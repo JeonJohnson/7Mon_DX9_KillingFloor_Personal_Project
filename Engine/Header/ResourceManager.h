@@ -22,7 +22,7 @@ public:
 #pragma region Template
 public:
 	template<class KIND, class INSTANCE>
-	void Insert_Resource(const wstring& _wName)
+	KIND* Insert_Resource(const wstring& _wName)
 	{
 		string strKind = typeid(KIND).name();
 		wstring wKind;
@@ -39,11 +39,15 @@ public:
 			KIND* resource = new INSTANCE();
 			//resource->Initialize();
 			m_umResourceList[wKind][_wName] = resource;
+
+			return resource;
 		}
 		else 
 		{
 			assert(0 && L"Resource is already created");
 			//MessageBox(NULL, (L"Resource is already created by '" + _wName + L"'").c_str(), NULL, MB_OK);
+			return nullptr;
+			
 		}
 	}
 
@@ -79,20 +83,35 @@ public:
 
 #pragma endregion
 public:
+	void Load_AllResource();
 	void Delete_AllResource();
-	void Load_Fonts();
+	
+	void Load_Font();
+	void Load_AllFonts();
+	
+	void Load_Texture(const wstring& _wPath, const wstring& _wName);
+	void Load_ALLTextures();
+	
+	void Load_DDS();
+	void Load_AllDDSs();
+	
+	void Load_Mesh();
+	void Load_AllMeshs();
 
 	void Insert_VIBuffers();
+	
 public: /* Get */
 
 public: /* Set */
+	void Set_ResourceFolderPath(const wstring& _wPath);
+
 	
 private:
 	typedef unordered_map<wstring, CResource*> RESOURCE_LIST;
-	//wstring : Name(Box, Rect, Triangle), Resource : 객체
+	//wstring : Name(Rect_Texture, Triangle_color), Resource : 객체
 
 	unordered_map<wstring, RESOURCE_LIST> m_umResourceList;
-	//wstring : 종류 (ex)mesh, VIBuffer, Material등등)
+	//wstring : 종류 (ex)Mesh, VIBuffer, Material, Texture, Font등등)
 
 private:
 	wstring		m_wFolderPath;

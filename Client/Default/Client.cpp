@@ -138,7 +138,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	g_hWnd_DEBUG = hWnd_DEBUG;
 
-	SetWindowPos(hWnd_DEBUG, nullptr, 1920 - WINCX_DEBUG, 0, WINCX_DEBUG, WINCY_DEBUG, 0);
+	SetWindowPos(hWnd_DEBUG, nullptr, (WINCX + 50), 0, WINCX_DEBUG, WINCY_DEBUG, 0);
 
 	ShowWindow(hWnd_DEBUG, nCmdShow);
 	UpdateWindow(hWnd_DEBUG);

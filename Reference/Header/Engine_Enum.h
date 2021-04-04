@@ -12,6 +12,12 @@
 //	RenderLayer_End
 //};
 
+typedef enum eVIBuffer_Kind
+{
+	VIBuffer_Color,
+	VIBuffer_Textrue,
+	VIBuffer_End
+}VIBUFFER_KIND;
 
 
 

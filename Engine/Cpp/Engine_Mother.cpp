@@ -106,3 +106,8 @@ void Engine_Mother::Init_Scene(const wstring & _wName)
 {
 	m_pSceneManager->Set_FirstScene(_wName);
 }
+
+void Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)
+{
+	m_pResourceManager->Load_Texture(_wPath, _wName);
+}

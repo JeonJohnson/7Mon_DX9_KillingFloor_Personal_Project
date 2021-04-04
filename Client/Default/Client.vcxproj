@@ -194,6 +194,7 @@
     <ClInclude Include="..\Header\Extern.h" />
     <ClInclude Include="..\Header\Include.h" />
     <ClInclude Include="..\Header\MainGame.h" />
+    <ClInclude Include="..\Header\Player_Move.h" />
     <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\TestScene.h" />
     <ClInclude Include="..\Header\TypeDef.h" />
@@ -204,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\MainGame.cpp" />
+    <ClCompile Include="..\Cpp\Player_Move.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">

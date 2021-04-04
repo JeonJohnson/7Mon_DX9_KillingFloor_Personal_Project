@@ -14,6 +14,8 @@ Rect_VIBuffer_Color::~Rect_VIBuffer_Color()
 
 void Rect_VIBuffer_Color::Initialize()
 {
+	m_eKind = VIBUFFER_KIND::VIBuffer_Color;
+
 	Set_Name(L"Rect_Color");
 
 //1. Vertex 관련 세팅
@@ -49,7 +51,7 @@ void Rect_VIBuffer_Color::Initialize()
 
 HRESULT Rect_VIBuffer_Color::Create_VBuffer()
 {
-	if (FAILED(m_pDX9Device->CreateVertexBuffer(
+	if (FAILED(m_pDX9_Device->CreateVertexBuffer(
 		m_tVBInfo.m_iVertexCount * m_tVBInfo.m_iVertexMemSize,
 		0,
 		m_tVBInfo.m_iFVF,
@@ -85,7 +87,7 @@ HRESULT Rect_VIBuffer_Color::Create_VBuffer()
 
 HRESULT Rect_VIBuffer_Color::Create_IBuffer()
 {
-	if(FAILED(m_pDX9Device->CreateIndexBuffer(
+	if(FAILED(m_pDX9_Device->CreateIndexBuffer(
 		m_tVBInfo.m_iPolyCount*m_tIBInfo.m_iIndexMemSize, /* 인덱스 배열의 총 메모리 사이즈 */
 		0,
 		m_tIBInfo.m_tIndexFMT, /* 어떤 포멧인지 */

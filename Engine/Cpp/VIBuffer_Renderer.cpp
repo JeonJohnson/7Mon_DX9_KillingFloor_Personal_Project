@@ -2,6 +2,7 @@
 #include "ResourceManager.h"
 
 #include "GameObject.h"
+#include "Texture.h"
 
 //#include "Triangle_VIBuffer_Color.h"
 //#include "Rect_VIBuffer_Color.h"
@@ -19,6 +20,11 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 	//거 Renderer에 있는 iLayer를 세팅해주고.
 	//Rednerer에서 알아서 RenderManager로 보내줌 ^^~
 
+	if (m_pVIBuffer->Get_Kind() == VIBUFFER_KIND::VIBuffer_Textrue)
+	{
+		Texture* TexTemp = ResourceManager::Get_Instance()->Get_Resource<Texture>(_desc->wTextureName);
+		m_pVIBuffer->Set_Texture(TexTemp);
+	}
 	
 }
 
@@ -43,8 +49,9 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
+	m_pVIBuffer->Render_Texture(0);
 
-	m_pDX9Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
+	m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
 ///*Test*/
 //	m_pDX9Device->SetTransform(D3DTS_VIEW, &m_matView);
 //	m_pDX9Device->SetTransform(D3DTS_PROJECTION, &m_matProj);
@@ -70,7 +77,7 @@ void VIBuffer_Renderer::Render()
 
 	
 
-	if (FAILED(m_pDX9Device->DrawIndexedPrimitive(
+	if (FAILED(m_pDX9_Device->DrawIndexedPrimitive(
 		D3DPT_TRIANGLELIST, //그리고자하는 방식.
 		0, 0,
 		m_pVIBuffer->Get_VBuffer_Info().m_iVertexCount, //정점의 개수
@@ -89,7 +96,7 @@ void VIBuffer_Renderer::Release()
 
 HRESULT VIBuffer_Renderer::Binding_Stream_VIBuffer()
 {
-	if (FAILED(m_pDX9Device->SetStreamSource(
+	if (FAILED(m_pDX9_Device->SetStreamSource(
 		0,
 		m_pVIBuffer->Get_VBuffer_Com(),
 		0,
@@ -98,12 +105,12 @@ HRESULT VIBuffer_Renderer::Binding_Stream_VIBuffer()
 		return E_FAIL;
 	}
 
-	if(FAILED(m_pDX9Device->SetFVF(m_pVIBuffer->Get_VBuffer_Info().m_iFVF)))
+	if(FAILED(m_pDX9_Device->SetFVF(m_pVIBuffer->Get_VBuffer_Info().m_iFVF)))
 	{
 		return E_FAIL;
 	}
 
-	if (FAILED(m_pDX9Device->SetIndices(m_pVIBuffer->Get_IBuffer_Com())))
+	if (FAILED(m_pDX9_Device->SetIndices(m_pVIBuffer->Get_IBuffer_Com())))
 	{
 		return E_FAIL;
 	}
