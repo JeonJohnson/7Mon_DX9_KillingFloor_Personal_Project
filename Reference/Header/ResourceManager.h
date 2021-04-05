@@ -64,7 +64,7 @@ public:
 
 		if (iter_find == m_umResourceList[wClass].end())
 		{
-			assert(0 && L"Resource Can't find");
+			//assert(0 && L"Resource Can't find");
 			return nullptr;
 		}
 		else 
@@ -104,7 +104,6 @@ public: /* Get */
 
 public: /* Set */
 	void Set_ResourceFolderPath(const wstring& _wPath);
-
 	
 private:
 	typedef unordered_map<wstring, CResource*> RESOURCE_LIST;

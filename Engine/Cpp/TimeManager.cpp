@@ -44,17 +44,22 @@ void TimeManager::Time_Update()
 
 void TimeManager::FPS_Update()
 {
-	if (m_fDeltaTime >= 1.f)
+	m_fFPS_Time += m_fDeltaTime;
+
+	++m_iFPS;
+
+	if (m_fFPS_Time >= 1.f)
 	{
+		m_iFPS_Render = m_iFPS;
+		m_fFPS_Time = 0.f;
 		m_iFPS = 0;
 		return;
 	}
 
-	++m_iFPS;
 }
 
 int TimeManager::Get_FPS() const
 {
-	return m_iFPS;
+	return m_iFPS_Render;
 }
 

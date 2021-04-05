@@ -143,11 +143,26 @@
     <Filter Include="97.Utility\Math">
       <UniqueIdentifier>{c90ae67e-3072-44fa-b748-d33f7e99b3b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Component\03.Text">
-      <UniqueIdentifier>{eee441eb-bb7a-4bee-8bc5-ebea371733a4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Manager\07.UiManager">
       <UniqueIdentifier>{57777b2c-7a59-4123-a81d-f33b66266076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\01.Renderer\UI">
+      <UniqueIdentifier>{c6d69e93-ac04-4573-a3ab-b7876877b535}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.System">
+      <UniqueIdentifier>{f74103e2-4792-4616-aa96-051ec1a5039a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.System\00.FPS">
+      <UniqueIdentifier>{c95c7d61-9574-4f3d-b36a-675f9a65cd7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.UI">
+      <UniqueIdentifier>{8d658703-8235-4c0f-ac07-1f8981c6a563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.UI\00.Sprite">
+      <UniqueIdentifier>{3b9b2d4a-7644-49e8-a878-a68aad4acf11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.UI\01.Text">
+      <UniqueIdentifier>{eee441eb-bb7a-4bee-8bc5-ebea371733a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -238,8 +253,20 @@
     <ClCompile Include="..\Cpp\Cube_VIBuffer_Color.cpp">
       <Filter>06.Resource\00.VIBuffer\02.Cube\00.Color</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\UI_Renderer.cpp">
+      <Filter>04.Component\01.Renderer\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Sprite.cpp">
+      <Filter>06.Resource\01.UI\00.Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\UIManager.cpp">
+      <Filter>01.Manager\07.UiManager</Filter>
+    </ClCompile>
     <ClCompile Include="..\Cpp\Text.cpp">
-      <Filter>04.Component\03.Text</Filter>
+      <Filter>06.Resource\01.UI\01.Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\UI.cpp">
+      <Filter>06.Resource\01.UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -351,8 +378,20 @@
     <ClInclude Include="..\Header\Cube_VIBuffer_Color.h">
       <Filter>06.Resource\00.VIBuffer\02.Cube\00.Color</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\UI_Renderer.h">
+      <Filter>04.Component\01.Renderer\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Sprite.h">
+      <Filter>06.Resource\01.UI\00.Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\UIManager.h">
+      <Filter>01.Manager\07.UiManager</Filter>
+    </ClInclude>
     <ClInclude Include="..\Header\Text.h">
-      <Filter>04.Component\03.Text</Filter>
+      <Filter>06.Resource\01.UI\01.Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\UI.h">
+      <Filter>06.Resource\01.UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

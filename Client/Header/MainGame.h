@@ -26,7 +26,7 @@ public:
 
 public:
 	Engine_Mother*	m_pEngine;
-	Text*			m_pFPS;
+	//Text*			m_pFPS;
 };
 
 #endif //_MAIN_GAME_H_

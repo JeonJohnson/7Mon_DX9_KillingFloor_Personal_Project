@@ -107,6 +107,8 @@ void ResourceManager::Insert_VIBuffers()
 		Insert_Resource<VIBuffer, Cube_VIBuffer_DDS>(L"Cube_DDS");
 	}
 
+
+
 }
 
 void ResourceManager::Set_ResourceFolderPath(const wstring & _wPath)

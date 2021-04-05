@@ -5,11 +5,15 @@
 
 #include "Engine_Include.h"
 
-#include "Component.h"
+#include "Cycle.h"
+
 
 //https://m.blog.naver.com/PostView.nhn?blogId=power2845&logNo=50147975350&proxyReferer=https:%2F%2Fwww.google.com%2F
-class DLL_STATE Text : public Component
+
+class DLL_STATE Text : public Cycle
 {
+	friend class UI_Renderer;
+
 public:
 	struct Desc
 	{
@@ -46,7 +50,7 @@ public:
 
 		int iHeight = 12;
 		int	iWidth = 0;
-		int	iWeight = 300;
+		int	iWeight = 400;
 		bool bItalic = false;
 		bool bHanGul = true;
 		wstring szFontName = L"default";
@@ -56,35 +60,37 @@ public:
 
 		DWORD	ulOption = DT_NOCLIP | DT_CENTER;
 
-		RECT	tRenderRect = { 0,0,425,720 };
+		RECT	tRenderRect = { 0,0,0,0 };
 	};
 public:
 	Text(Desc* _desc);
 	virtual ~Text();
 	
 public:
-	virtual void Initialize() override;
-	virtual void Update() override;
-	virtual void LateUpdate() override;
-	virtual void ReadyRender() override;
-	virtual void Render() override;
-	virtual void Release() override;
+
 
 public: /* Function */
 	void		Render_Text();
 
 public: /* Get */
-
+	wstring		Get_Script();
 
 public: /* Set */
 	void		Set_RenderRect(const RECT& _rect);
 	void		Set_Script(const wstring& _script);
+	void		Add_Script(const wstring& _script);
 	void		Set_Color(const D3DXCOLOR& _color);
 
 public:
+	virtual void Initialize() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void ReadyRender() override;
+	virtual void Release() override;
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
+	LPD3DXSPRITE			m_pDX9_Sprite = nullptr;
 
 	LPD3DXFONT				m_pDx9_Font = nullptr;
 	
@@ -95,6 +101,8 @@ private:
 	D3DXCOLOR				m_Color;
 
 	D3DXFONT_DESC			m_tFontDesc;
+
+	
 	//INT Height; => 높이 
 	//UINT Width; => 너비 : 높이에 맞춰서 잘 나옴. 가끔 안나오는 폰트는 높이 /2 로 수정해주삼
 	//UINT Weight; => 굵기 : Bold효과

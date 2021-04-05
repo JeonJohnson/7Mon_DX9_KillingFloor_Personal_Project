@@ -120,7 +120,7 @@ void GameObjectManager::Merge_Gameobjects()
 		//澤迫酒公巴档 绝绰单 够 立辟秦 公模访,, 公模访,, 公模访,, 公模访,, 公模访,, 公模访,, 公模访,, 公模访,,
 
 	}
-	m_vecGameObjectList.shrink_to_fit();
+	//m_vecGameObjectList.shrink_to_fit();
 
 	m_newGameObjectList.clear();
 

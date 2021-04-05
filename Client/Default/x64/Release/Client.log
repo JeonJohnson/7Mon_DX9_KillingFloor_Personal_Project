@@ -1,9 +1,13 @@
 ﻿  stdafx.cpp
+  IntroScene.cpp
   MainGame.cpp
+  Player_Move.cpp
   TestScene.cpp
   Client.cpp
   코드를 생성하고 있습니다.
-  All 268 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  40 of 286 functions (14.0%) were compiled, the rest were copied from previous compilation.
+    18 functions were new in current compilation
+    8 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
   Client.vcxproj -> ../Bin/x64\Release\Client.pdb (Full PDB)

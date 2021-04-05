@@ -37,7 +37,9 @@ private:
 
 	float			m_fDeltaTime;
 	
+	float			m_fFPS_Time = 0.f;
 	int				m_iFPS = 0;
+	int				m_iFPS_Render = 0;
 
 #pragma region ZedTime
 	bool			m_bZedTime = false;

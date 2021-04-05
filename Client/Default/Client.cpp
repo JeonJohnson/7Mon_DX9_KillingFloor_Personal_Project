@@ -61,7 +61,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	MainGame::Get_Instance()->Initialize();
 
-	int* temp = new int;
+	//int* temp = new int;
 
 	// 기본 메시지 루프입니다.
 	while (WM_QUIT != msg.message)

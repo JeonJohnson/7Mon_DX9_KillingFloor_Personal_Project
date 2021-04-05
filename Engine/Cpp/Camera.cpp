@@ -38,22 +38,26 @@ void Camera::Initialize()
 	//assert(L"Camera Transform is nullptr" && m_Transform);
 
 	//SetUp_ViewSpaceMatrix();
-	//SetUp_ProjSpaceMatrix();
+	SetUp_ProjSpaceMatrix();
+	if (FAILED(Update_ProjSpaceMatrix()))
+	{
+		MsgBox(L"Error", L"ProjSpace Matrix Update Failed");
+	}
 }
 
 void Camera::Update()
 {
 	SetUp_ViewSpaceMatrix();
-	SetUp_ProjSpaceMatrix();
+	//SetUp_ProjSpaceMatrix();
 
 	if (FAILED(Update_ViewSpaceMatrix()))
 	{
 		MsgBox(L"Error", L"ViewSpace Matrix Update Failed");
 	}
-	if (FAILED(Update_ProjSpaceMatrix()))
-	{
-		MsgBox(L"Error", L"ProjSpace Matrix Update Failed");
-	}
+	//if (FAILED(Update_ProjSpaceMatrix()))
+	//{
+	//	MsgBox(L"Error", L"ProjSpace Matrix Update Failed");
+	//}
 }
 
 void Camera::LateUpdate()

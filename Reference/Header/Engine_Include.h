@@ -21,7 +21,7 @@ using namespace std;
 #include <malloc.h>
 #include <memory.h>
 
-#include <string.h>
+#include <string>
 #include <tchar.h>
 
 #include <math.h>

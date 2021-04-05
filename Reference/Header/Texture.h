@@ -6,6 +6,7 @@
 #include "Engine_Include.h"
 
 #include "CResource.h"
+
 class Texture : public CResource
 {
 public:

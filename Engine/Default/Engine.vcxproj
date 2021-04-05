@@ -207,12 +207,16 @@
     <ClInclude Include="..\Header\Scene.h" />
     <ClInclude Include="..\Header\SceneManager.h" />
     <ClInclude Include="..\Header\SkyBox_VIBuffer_DDS.h" />
+    <ClInclude Include="..\Header\Sprite.h" />
     <ClInclude Include="..\Header\State.h" />
     <ClInclude Include="..\Header\Text.h" />
     <ClInclude Include="..\Header\Texture.h" />
     <ClInclude Include="..\Header\TimeManager.h" />
     <ClInclude Include="..\Header\Transform.h" />
     <ClInclude Include="..\Header\Triangle_VIBuffer_Color.h" />
+    <ClInclude Include="..\Header\UI.h" />
+    <ClInclude Include="..\Header\UIManager.h" />
+    <ClInclude Include="..\Header\UI_Renderer.h" />
     <ClInclude Include="..\Header\VIBuffer.h" />
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
   </ItemGroup>
@@ -239,12 +243,16 @@
     <ClCompile Include="..\Cpp\Scene.cpp" />
     <ClCompile Include="..\Cpp\SceneManager.cpp" />
     <ClCompile Include="..\Cpp\SkyBox_VIBuffer_DDS.cpp" />
+    <ClCompile Include="..\Cpp\Sprite.cpp" />
     <ClCompile Include="..\Cpp\State.cpp" />
     <ClCompile Include="..\Cpp\Text.cpp" />
     <ClCompile Include="..\Cpp\Texture.cpp" />
     <ClCompile Include="..\Cpp\TimeManager.cpp" />
     <ClCompile Include="..\Cpp\Transform.cpp" />
     <ClCompile Include="..\Cpp\Triangle_VIBuffer_Color.cpp" />
+    <ClCompile Include="..\Cpp\UI.cpp" />
+    <ClCompile Include="..\Cpp\UIManager.cpp" />
+    <ClCompile Include="..\Cpp\UI_Renderer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
   </ItemGroup>

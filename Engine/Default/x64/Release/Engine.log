@@ -4,7 +4,6 @@
   Cube_VIBuffer_DDS.cpp
   Cube_VIBuffer_Texture.cpp
   Cycle.cpp
-  DebugManager.cpp
   DeviceManager.cpp
   Engine_Mother.cpp
   Function_String.cpp
@@ -18,23 +17,26 @@
   CResource.cpp
   ResourceManager.cpp
   Scene.cpp
-  컴파일하고 있습니다...
   SceneManager.cpp
+  컴파일하고 있습니다...
   SkyBox_VIBuffer_DDS.cpp
+  Sprite.cpp
   State.cpp
+  Text.cpp
   Texture.cpp
   TimeManager.cpp
   Transform.cpp
   Triangle_VIBuffer_Color.cpp
+  UI.cpp
+  UIManager.cpp
+  UI_Renderer.cpp
   VIBuffer.cpp
   VIBuffer_Renderer.cpp
      ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
   코드를 생성하고 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\cpp\gameobject.cpp(138): warning C4172: 지역 변수 또는 임시: asdf의 주소를 반환하고 있습니다.
-e:\학업\7mon_personal\7mon_personal_project\engine\cpp\gameobject.cpp(132): warning C4172: 
-  1851 of 1851 functions (100.0%) were compiled, the rest were copied from previous compilation.
-    752 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  343 of 2049 functions (16.7%) were compiled, the rest were copied from previous compilation.
+    199 functions were new in current compilation
+    144 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
@@ -78,11 +80,16 @@ e:\학업\7mon_personal\7mon_personal_project\engine\cpp\gameobject.cpp(132): wa
   ..\Header\Scene.h
   ..\Header\SceneManager.h
   ..\Header\SkyBox_VIBuffer_DDS.h
+  ..\Header\Sprite.h
   ..\Header\State.h
+  ..\Header\Text.h
   ..\Header\Texture.h
   ..\Header\TimeManager.h
   ..\Header\Transform.h
   ..\Header\Triangle_VIBuffer_Color.h
+  ..\Header\UI.h
+  ..\Header\UIManager.h
+  ..\Header\UI_Renderer.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  37개 파일이 복사되었습니다.
+  42개 파일이 복사되었습니다.

@@ -177,4 +177,22 @@ DDS파일 로드 완료.
 20:49 2021-04-05 월
 Debuging window에 FPS Text 띄우는 중.
 	=> 너무 꼬였음. 차라리 CanvasRenderer 파악해서 만드는게 나을듯.
+---------------------------------------------------------
+05:00 2021-4-6 화
+Text출력 확인완료.
+프레임 드랍 원인 확인 완료. => VIBufferRenderer_Cube_DDS 임.
+=>내일 UI관련 계획해 놓은대로 완성해서 Font, Sprite 띄우기!
+	=> DInput, FpsCamera, MemoryLeak, Ready to MFC
+
+Cycle 상속받는 UI 클래스.
+UI를 상속받는 Text와 Sprite
+1. UI상속받는 Text와 Sprite는 Client에서 GameObject처럼 Instantiate로 생성
+2. Singleton인 UIManager에 tuple<wstring, Sprite, Text>이렇게 삽입.
+	=> 만약 Sprite나 Text중 하나라도 비면 그냥 빈 깡통 만들어 넣기(순서때문에) nullptr로 넣지말고
+3. UIManager에서 Update, LateUpdate 같은거 ㄱㄱ
+4. UIRenderer따로 만들지 말고 그냥 RenderManager->Render_UILayer 부분에서 UIManager의 Render을 불러오던지
+ 아니면 따로 Renderer만들던지(웬만하면 그냥 UiManager꺼 부르자)
+5. 씬지나면 리스트 다 지우기. -> 순서가 중요하니까 dont Destroyed 같은거 없이 그냥 가자.
+	=> 여러번 들락날락거리는 씬에서 나오는 UI들은 Prototype으로 한번 고려해보기.
+
 

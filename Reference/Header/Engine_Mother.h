@@ -65,17 +65,10 @@ public:
 	void Release();
 
 public: /* Device Manager */
-	LPDIRECT3DDEVICE9 Get_Dx9_Device() const;
+	LPDIRECT3DDEVICE9	Get_Dx9_Device() const;
+	LPD3DXSPRITE		Get_DX9_Sprite() const;
 #ifdef _DEBUG
-	LPDIRECT3DDEVICE9 Get_Dx9_Device_DEBUG() const;
-	void Set_FPSText(Text* _test)
-	{
-		m_pRenderManager->Set_FPSText(_test);
-	};
-	void Set_Script(const wstring& _script)
-	{	
-		m_pRenderManager->Set_Script(_script);
-	}
+	LPDIRECT3DDEVICE9	Get_Dx9_Device_DEBUG() const;
 #endif //_DEBUG
 
 public: /* Time Manager */
@@ -94,6 +87,7 @@ public: /* Gameobject Manager  */
 public: /* Render Manager */
 
 public: /* Resource Manager */
+	
 	void Load_Texture(const wstring & _wPath, const wstring& _wName);
 
 

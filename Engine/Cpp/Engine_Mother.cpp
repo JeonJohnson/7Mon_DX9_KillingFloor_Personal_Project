@@ -65,7 +65,7 @@ void Engine_Mother::Process()
 	m_pSceneManager->Update();
 	m_pSceneManager->LateUpdate();
 	m_pSceneManager->ReadyRender();
-	m_pRenderManager->Render_DEBUG();
+	//m_pRenderManager->Render_DEBUG();
 	//Collision
 	m_pSceneManager->Render();
 
@@ -88,12 +88,16 @@ LPDIRECT3DDEVICE9 Engine_Mother::Get_Dx9_Device() const
 	return m_pDeviceManager->Get_DX9_Device();
 }
 
+LPD3DXSPRITE Engine_Mother::Get_DX9_Sprite() const
+{
+	return m_pDeviceManager->Get_DX9_Sprite();
+}
+
 #ifdef _DEBUG
 LPDIRECT3DDEVICE9 Engine_Mother::Get_Dx9_Device_DEBUG() const
 {
 	return m_pDeviceManager->Get_DX9_Device_DEBUG();
 }
-
 #endif //_DEBUG
 
 float Engine_Mother::Get_DeltaTime() const

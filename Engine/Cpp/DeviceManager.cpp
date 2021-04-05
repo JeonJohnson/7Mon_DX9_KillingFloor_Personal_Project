@@ -22,10 +22,19 @@ void DeviceManager::Initialize(HWND _hWnd, UINT _wincx, UINT _wincy, bool _windo
 		assert(0 && L"Device Setting is failed");
 	}
 
+	if (FAILED(Ready_DX9_SpriteCom()))
+	{
+		assert(0 && L"Sprite Setting is Failed");
+	}
+
 }
 
 void DeviceManager::Release()
 {
+	Safe_Release(m_pDX9_Sprite)
+#ifdef _DEBUG
+		Safe_Release(m_pDX9_Device_DEBUG);
+#endif//_DEBUG
 	Safe_Release(m_pDX9_Device);
 	Safe_Release(m_pDX9_SDK);
 }
@@ -79,8 +88,11 @@ HRESULT DeviceManager::Ready_DX9_Device(HWND _hWnd, UINT _wincx, UINT _wincy, bo
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
 
 	//주사율 설정
-	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT; //디폴트->모니터
-	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT; //시연간격 디폴트
+	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT; //화면
+	//d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT; //프레임 레이트 기본 값으로 설정.
+											//=> DIRECT가 알아서 적정 프레임 골라서 정해줌.
+	//d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE; //모니터 주사율에 프레임 맞춤
+	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE; //프레임 레이트 제한 없음.
 
 
 	if (FAILED(m_pDX9_SDK->CreateDevice(
@@ -99,9 +111,24 @@ HRESULT DeviceManager::Ready_DX9_Device(HWND _hWnd, UINT _wincx, UINT _wincy, bo
 	return S_OK;
 }
 
+HRESULT DeviceManager::Ready_DX9_SpriteCom()
+{
+	if (FAILED(D3DXCreateSprite(m_pDX9_Device, &m_pDX9_Sprite)))
+	{
+		return E_FAIL;
+	}
+	
+	return S_OK;
+}
+
 LPDIRECT3DDEVICE9 DeviceManager::Get_DX9_Device() const
 {
 	return m_pDX9_Device;
+}
+
+LPD3DXSPRITE DeviceManager::Get_DX9_Sprite() const
+{
+	return m_pDX9_Sprite;
 }
 
 const Vector2 & DeviceManager::Get_WindowSize() const
@@ -159,8 +186,11 @@ HRESULT DeviceManager::Ready_DX9_Device_DEBUG(HWND _hWnd, UINT _wincx, UINT _win
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
 
 	//주사율 설정
-	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT; //디폴트->모니터
-	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT; //시연간격 디폴트
+	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT; //화면
+	//d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_DEFAULT; //프레임 레이트 기본 값으로 설정.
+														//=> DIRECT가 알아서 적정 프레임 골라서 정해줌.
+	//d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE; //모니터 주사율에 프레임 맞춤
+	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE; //프레임 레이트 제한 없음.
 
 
 	if (FAILED(m_pDX9_SDK->CreateDevice(

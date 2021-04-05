@@ -6,6 +6,8 @@ Text::Text(Desc * _desc)
 
 	m_pDX9_Device = _desc->Dx9Device;
 
+	ZeroMemory(&m_tFontDesc, sizeof(D3DXFONT_DESC));
+
 	m_tFontDesc.Height = (UINT)_desc->iHeight;
 	if (_desc->iWeight != 0)
 	{
@@ -14,6 +16,7 @@ Text::Text(Desc * _desc)
 	m_tFontDesc.Weight = (UINT)_desc->iWeight;
 
 	m_tFontDesc.Italic = (int)_desc->bItalic;
+
 	if (_desc->bHanGul)
 	{
 		m_tFontDesc.CharSet = HANGUL_CHARSET;
@@ -43,6 +46,15 @@ void Text::Initialize()
 	}
 }
 
+void Text::Release()
+{
+	if (m_pDx9_Font)
+	{
+		m_pDx9_Font->Release();
+		m_pDx9_Font = nullptr;
+	}
+}
+
 void Text::Update()
 {
 }
@@ -53,22 +65,6 @@ void Text::LateUpdate()
 
 void Text::ReadyRender()
 {
-
-}
-
-void Text::Render()
-{
-	Render_Text();
-}
-
-
-void Text::Release()
-{
-	if (m_pDx9_Font)
-	{
-		m_pDx9_Font->Release();
-		m_pDx9_Font = nullptr;
-	}
 }
 
 void Text::Render_Text()
@@ -82,6 +78,11 @@ void Text::Render_Text()
 		m_Color);
 }
 
+wstring Text::Get_Script()
+{
+	return m_szScript;
+}
+
 void Text::Set_RenderRect(const RECT & _rect)
 {
 	m_tRect = _rect;
@@ -92,7 +93,13 @@ void Text::Set_Script(const wstring & _script)
 	m_szScript = _script;
 }
 
+void Text::Add_Script(const wstring & _script)
+{
+	m_szScript += _script;
+}
+
 void Text::Set_Color(const D3DXCOLOR & _color)
 {
 	m_Color = _color;
 }
+

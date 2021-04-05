@@ -12,6 +12,7 @@ class DLL_STATE Renderer : public Component
 	//Component의 Cycle 돌 때
 	//ReayRender에서 RenderManager의 RenderingList로 보냄.
 	//그러면 자연스럽게 렌더를 하것지.
+	//-> 직접 넣는걸로 쇼부.
 
 
 public:

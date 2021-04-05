@@ -1,5 +1,6 @@
 #include "..\Header\RenderManager.h"
 #include "DeviceManager.h"
+#include "TimeManager.h"
 
 
 
@@ -17,6 +18,9 @@ RenderManager::~RenderManager()
 void RenderManager::Initialize()
 {
 	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
+	m_pDX9_Sprite = DeviceManager::Get_Instance()->Get_DX9_Sprite();
+
+	assert(L"RenderManager coms Failed" && (m_pDX9_Device || m_pDX9_Sprite));
 
 #ifdef _DEBUG
 	m_pDX9_Device_DEBUG = DeviceManager::Get_Instance()->Get_DX9_Device_DEBUG();
@@ -27,6 +31,21 @@ void RenderManager::Initialize()
 	{
 		MessageBox(0, L"ViewPort Setting Failed at RendererManager", L"Error", MB_OK);
 	}
+
+	{/*test*/
+		D3DXFONT_DESCW	tFontInfo;
+		ZeroMemory(&tFontInfo, sizeof(D3DXFONT_DESCW));
+
+		tFontInfo.Height = 20;
+		//tFontInfo.Width = 20;
+		tFontInfo.Weight = FW_REGULAR; // 두께
+									//tFontInfo.CharSet = HANGEUL_CHARSET; 한글폰트일때만
+		//lstrcpy(tFontInfo.FaceName, L"Ubuntu");
+
+		D3DXCreateFontIndirect(m_pDX9_Device, &tFontInfo, &m_pTempFont);
+	}
+
+
 }
 
 void RenderManager::Render()
@@ -74,26 +93,40 @@ void RenderManager::Render_Priority()
 
 void RenderManager::Render_NonAlpha()
 {
-	for (auto& renderer : m_RenderingList[1])
-	{
-		renderer->Render();
-	}
+	//for (auto& renderer : m_RenderingList[1])
+	//{
+	//	renderer->Render();
+	//}
 }
 
 void RenderManager::Render_Alpha()
 {
-	for (auto& renderer : m_RenderingList[2])
-	{
-		renderer->Render();
-	}
+	//for (auto& renderer : m_RenderingList[2])
+	//{
+	//	renderer->Render();
+	//}
 }
 
 void RenderManager::Render_UI()
 {
-	for (auto& renderer : m_RenderingList[3])
-	{
-		renderer->Render();
-	}
+	int iFps = TimeManager::Get_Instance()->Get_FPS();
+
+	wstring temp = L"FPS : " + to_wstring(iFps);
+	RECT	RectTemp = { 0,0,0,0 };
+
+	m_pDX9_Sprite->Begin(D3DXSPRITE_ALPHABLEND);
+
+	//for (auto& renderer : m_RenderingList[3])
+	//{
+	//	renderer->Render();
+	//}
+
+	m_pTempFont->DrawTextW(
+		nullptr,
+		temp.c_str(), -1,
+		&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
+
+	m_pDX9_Sprite->End();
 }
 
 HRESULT RenderManager::Update_ViewPort()
@@ -149,7 +182,6 @@ void RenderManager::Render_DEBUG()
 
 	/*	Debug Rendering	*/
 
-	m_pText->Render();
 
 
 

@@ -4,6 +4,7 @@
 #define _RENDER_MANAGER_H_
 
 #include "Engine_Include.h"
+
 #include "Renderer.h"
 #include "Text.h"
 
@@ -39,29 +40,22 @@ public: /* Set */
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
+	LPD3DXSPRITE			m_pDX9_Sprite = nullptr;
 
 	map<int, list<Renderer*>> m_RenderingList;
 	//vector<Renderer*>			m_RenderingList;
 
-	
+	/*test*/
+	LPD3DXFONT				m_pTempFont = nullptr;
 	
 
 
 #ifdef _DEBUG
 public:
 	void Render_DEBUG();
-	void Set_FPSText(Text* _text)
-	{
-		m_pText = _text;
-	};
-	void Set_Script(const wstring& _script)
-	{	
-		m_pText->Set_Script(_script);
-	};
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device_DEBUG = nullptr;
-	Text* m_pText = nullptr;
 #endif//_DEBUG
 };
 
