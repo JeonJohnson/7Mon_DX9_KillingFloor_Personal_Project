@@ -64,7 +64,9 @@ void ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _wName
 
 	wstring szFullPath = m_wFolderPath + _wPath;
 
-	
+	//뒤에 확장자만 빼서 dds면 CubeFromFile로 불러올라고 
+	wstring szExtension = szFullPath.substr(szFullPath.length() - 4, szFullPath.length());
+
 
 	if (FAILED(TexTemp->Insert_Texture(szFullPath)))
 	{
