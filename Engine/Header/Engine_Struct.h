@@ -35,6 +35,7 @@ typedef struct tagVertexUV_DDS
 		//=> a 버텍스의 속성
 const unsigned int FVF_COLOR = D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX0;
 const unsigned int FVF_TEXTURE = D3DFVF_XYZ | D3DFVF_TEX1 /*| D3DFVF_TEXCOORDSIZE2(0)*/;
+const unsigned int FVF_DDS	= D3DFVF_XYZ | D3DFVF_TEX1 | D3DFVF_TEXCOORDSIZE3(0);
 
 typedef struct tagVertexBufferInfo
 {

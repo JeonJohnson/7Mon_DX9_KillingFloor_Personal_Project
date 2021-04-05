@@ -14,6 +14,8 @@ Cube_VIBuffer_Texture::~Cube_VIBuffer_Texture()
 
 void Cube_VIBuffer_Texture::Initialize()
 {
+	m_eKind = VIBUFFER_KIND::VIBuffer_Textrue;
+
 	Set_Name(L"Cube_Texture");
 
 	//1. Vertex Setting
@@ -35,7 +37,7 @@ void Cube_VIBuffer_Texture::Initialize()
 	//2. VertexBuffer 만들기
 	if (FAILED(Create_VBuffer()))
 	{
-		assert(0 && L"Rect_color Vertex Buffer Create Failed");
+		assert(0 && L"Cube_Texture Vertex Buffer Create Failed");
 	}
 
 	//3.Index Setting
@@ -48,7 +50,7 @@ void Cube_VIBuffer_Texture::Initialize()
 	//4. InexBuffer만들기
 	if (FAILED(Create_IBuffer()))
 	{
-		assert(0 && L"Rect_color Index Buffer Create Failed");
+		assert(0 && L"Cube_Texture Index Buffer Create Failed");
 	}
 
 
@@ -78,6 +80,10 @@ HRESULT Cube_VIBuffer_Texture::Create_VBuffer()
 	//3차원 dds 텍스쳐 쓴다고해도 
 	//만약 정점의 길이가 1을 벗어나버릴 경우에는 nomalize해서 박아줘야함.
 	//나는 스카이박스 VIBuffer은 따로 만들꺼고 얘는 단순 이미지 텍스쳐 쓸꺼라서 제대로 UV입히자.
+
+	//이것도 되긴한데 위, 아래 면 텍스쳐 좌표를 맞추면
+	//옆쪽 UV좌표가 꼬임.
+	//옆쪽 UV좌표를 맞추면 위아래면이 꼬이고.
 
 	//가까운(내[카메라] 기준) 좌상단
 	pVertices[0].vPos = Vector3(-0.5f, 0.5f, -0.5f);
@@ -194,4 +200,21 @@ HRESULT Cube_VIBuffer_Texture::Create_IBuffer()
 
 	return S_OK;
 
+}
+
+void Cube_VIBuffer_Texture::Set_Texture(Texture * _pTexture)
+{
+	assert(L"Texture is nullptr" && _pTexture);
+
+	m_pTexture = _pTexture;
+}
+
+HRESULT Cube_VIBuffer_Texture::Render_Texture(int _iNum)
+{
+	if (FAILED(m_pDX9_Device->SetTexture(0, m_pTexture->Get_Texture(_iNum))))
+	{
+		return E_FAIL;
+	}
+
+	return S_OK;
 }

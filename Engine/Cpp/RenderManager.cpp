@@ -62,6 +62,9 @@ void RenderManager::Render_Priority()
 	//m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	//WrieFrame으로 그려주는것.
 
+	//m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+		
+
 	for (auto& renderer : m_RenderingList[0])
 	{
 		renderer->Render();

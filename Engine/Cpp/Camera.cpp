@@ -139,6 +139,7 @@ void Camera::SetUp_ProjSpaceMatrix()
 	//http://egloos.zum.com/EireneHue/v/985792
 
 	///* 직접 하기 */
+
 	//D3DXMatrixIdentity(&m_matProjectionMatrix);
 
 	//float h = 1 / tanf(m_fFov / 2.f);
@@ -152,8 +153,9 @@ void Camera::SetUp_ProjSpaceMatrix()
 	//m_matProjectionMatrix._34 = 1.f;
 	//m_matProjectionMatrix._44 = 0.f;
 
-
+	
 	/* 다렉함수 사용 */
+	D3DXMatrixIdentity(&m_matProjectionMatrix);
 	D3DXMatrixPerspectiveFovLH(
 		&m_matProjectionMatrix,
 		m_fFov,

@@ -14,6 +14,8 @@ Cube_VIBuffer_Color::~Cube_VIBuffer_Color()
 
 void Cube_VIBuffer_Color::Initialize()
 {
+	m_eKind = VIBUFFER_KIND::VIBuffer_Color;
+	
 	Set_Name(L"Cube_Color");
 
 	//1. Vertex Setting
@@ -35,7 +37,7 @@ void Cube_VIBuffer_Color::Initialize()
 	//2. VertexBuffer 만들기
 	if (FAILED(Create_VBuffer()))
 	{
-		assert(0 && L"Rect_color Vertex Buffer Create Failed");
+		assert(0 && L"Cube_color Vertex Buffer Create Failed");
 	}
 
 	//3.Index Setting
@@ -48,7 +50,7 @@ void Cube_VIBuffer_Color::Initialize()
 	//4. InexBuffer만들기
 	if (FAILED(Create_IBuffer()))
 	{
-		assert(0 && L"Rect_color Index Buffer Create Failed");
+		assert(0 && L"Cube_color Index Buffer Create Failed");
 	}
 
 
@@ -82,7 +84,6 @@ HRESULT Cube_VIBuffer_Color::Create_VBuffer()
 	//가까운(내[카메라] 기준) 좌상단
 	pVertices[0].vPos = Vector3(-0.5f, 0.5f, -0.5f);
 	pVertices[0].uiColor = D3DCOLOR_ARGB(255, 255, 0, 0);
-
 	//가까운쪽 우 상단
 	pVertices[1].vPos = Vector3(0.5f, 0.5f,-0.5f);
 	pVertices[1].uiColor = D3DCOLOR_ARGB(255, 255, 0, 0);
@@ -92,6 +93,7 @@ HRESULT Cube_VIBuffer_Color::Create_VBuffer()
 	//가까운쪽 좌 하단
 	pVertices[3].vPos = Vector3(-0.5f,-0.5f,-0.5f);
 	pVertices[3].uiColor = D3DCOLOR_ARGB(255, 255, 0, 0);
+
 	//먼쪽 좌 상단
 	pVertices[4].vPos = Vector3(-0.5f, 0.5f, 0.5f);
 	pVertices[4].uiColor = D3DCOLOR_ARGB(255, 255, 0, 0);

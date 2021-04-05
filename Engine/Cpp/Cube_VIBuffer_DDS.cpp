@@ -14,6 +14,8 @@ Cube_VIBuffer_DDS::~Cube_VIBuffer_DDS()
 
 void Cube_VIBuffer_DDS::Initialize()
 {
+	m_eKind = VIBUFFER_KIND::VIBuffer_Textrue;
+
 	Set_Name(L"Cube_Texture");
 
 	//1. Vertex Setting
@@ -21,8 +23,8 @@ void Cube_VIBuffer_DDS::Initialize()
 	ZeroMemory(&vTemp, sizeof(VBUFFER_INFO));
 	vTemp.m_iVertexCount = 8;
 	vTemp.m_iPolyCount = 12;
-	vTemp.m_iVertexMemSize = sizeof(VERTEX_TEXTURE);
-	vTemp.m_iFVF = FVF_TEXTURE;
+	vTemp.m_iVertexMemSize = sizeof(VERTEX_DDS);
+	vTemp.m_iFVF = FVF_DDS;
 	Set_VBufferInfo(vTemp);
 	//UV란? = 텍스쳐 좌표계
 	//U = x , V = x
@@ -68,7 +70,7 @@ HRESULT Cube_VIBuffer_DDS::Create_VBuffer()
 	}
 	//이건 VIBuffer에서 해주는게 나을거 같은뎅... ㅎㅎ; 몰르겠당 ㅎㅎ
 
-	VERTEX_TEXTURE* pVertices = nullptr;
+	VERTEX_DDS* pVertices = nullptr;
 
 	m_pVB->Lock(0, 0, (void**)&pVertices, 0);
 	
@@ -81,35 +83,35 @@ HRESULT Cube_VIBuffer_DDS::Create_VBuffer()
 
 	//가까운(내[카메라] 기준) 좌상단
 	pVertices[0].vPos = Vector3(-0.5f, 0.5f, -0.5f);
-	pVertices[0].vUV = Vector2(0.f, 0.f);
+	pVertices[0].vUV = pVertices[0].vPos;
 
 	//가까운쪽 우 상단
 	pVertices[1].vPos = Vector3(0.5f, 0.5f,-0.5f);
-	pVertices[1].vUV = Vector2(1.f, 0.f);
+	pVertices[1].vUV = pVertices[1].vPos;
 
 	//가까운쪽 우 하단
 	pVertices[2].vPos = Vector3(0.5f, -0.5f,-0.5f);
-	pVertices[2].vUV = Vector2(1.f, 1.f);
+	pVertices[2].vUV = pVertices[2].vPos;
 
 	//가까운쪽 좌 하단
 	pVertices[3].vPos = Vector3(-0.5f,-0.5f,-0.5f);
-	pVertices[3].vUV = Vector2(0.f, 1.f);
+	pVertices[3].vUV = pVertices[3].vPos;
 
 	//먼쪽 좌 상단
 	pVertices[4].vPos = Vector3(-0.5f, 0.5f, 0.5f);
-	pVertices[4].vUV = Vector2(1.f, 0.f);
+	pVertices[4].vUV = pVertices[4].vPos;
 
 	//먼쪽 우 상단
 	pVertices[5].vPos = Vector3(0.5f, 0.5f, 0.5f);
-	pVertices[5].vUV = Vector2(0.f, 0.f);
+	pVertices[5].vUV = pVertices[5].vPos;
 
 	//먼쪽 우 하단
 	pVertices[6].vPos = Vector3(0.5f,-0.5f, 0.5f);
-	pVertices[6].vUV = Vector2(0.f, 1.f);
+	pVertices[6].vUV = pVertices[6].vPos;
 
 	//먼쪽 좌 하단
 	pVertices[7].vPos = Vector3(-0.5f,-0.5f, 0.5f);
-	pVertices[7].vUV = Vector2(1.f, 1.f);
+	pVertices[7].vUV = pVertices[7].vPos;
 
 	m_pVB->Unlock();
 
@@ -195,3 +197,21 @@ HRESULT Cube_VIBuffer_DDS::Create_IBuffer()
 	return S_OK;
 
 }
+
+void Cube_VIBuffer_DDS::Set_Texture(Texture * _pTexture)
+{
+	assert(L"Texture is nullptr" && _pTexture);
+
+	m_pTexture = _pTexture;
+}
+
+HRESULT Cube_VIBuffer_DDS::Render_Texture(int _iNum)
+{
+	if (FAILED(m_pDX9_Device->SetTexture(0, m_pTexture->Get_Texture(_iNum))))
+	{
+		return E_FAIL;
+	}
+
+	return S_OK;
+}
+ 

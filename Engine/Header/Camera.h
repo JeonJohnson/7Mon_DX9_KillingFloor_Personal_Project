@@ -16,9 +16,9 @@ class DLL_STATE Camera : public Component
 public:
 	struct Desc
 	{
-		float		fFov_Degree = 90.f;
+		float		fFov_Degree = 45.f;
 		float		fAspect = 0.f;
-		float		fzNear = 1.f;
+		float		fzNear = 0.1f;
 		float		fzFar = 1000.f;
 	};
 
@@ -64,9 +64,9 @@ private:
 	//최초 단 한번만 해주면 됨.
 	Matrix		m_matProjectionMatrix;		//뷰 스페이스 -> 투영 스페이스
 											
-	float		m_fFov = 90.f;			//시야각
+	float		m_fFov= 45.f;			//시야각
 	float		m_fAspect = 0.f;
-	float		m_fzNear = 1.f;			//니어 평면 거리
+	float		m_fzNear = 0.1f;			//니어 평면 거리
 	float		m_fzFar = 1000.f;		//파 평면 거리
 	
 	
