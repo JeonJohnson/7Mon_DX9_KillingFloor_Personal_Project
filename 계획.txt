@@ -169,6 +169,7 @@ DDS파일 로드 완료.
 	=> 1인칭 카메라 만들기.
 	=> 릭 잡기.
 	=> FreeMove도 만들기.
+		* 지금 개별적인 SetRenderState를 RendererManager에서 해주는데 이거 각 VIBuffer에서 해주자. RenderSetting_On/RenderSetting_Off
 
 
 
