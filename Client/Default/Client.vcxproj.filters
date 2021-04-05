@@ -41,9 +41,6 @@
     <Filter Include="02.Scene\01.MainMenu">
       <UniqueIdentifier>{a93ee90a-2a2b-4d63-aafa-59bbfccf0de6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.Scene\02.">
-      <UniqueIdentifier>{5c3e3501-d988-4164-b435-46a867012442}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.Scene\99.TestScene">
       <UniqueIdentifier>{5b358ecb-96f3-4421-9fba-1103ddf02972}</UniqueIdentifier>
     </Filter>
@@ -52,6 +49,12 @@
     </Filter>
     <Filter Include="05.Objects\00.Player">
       <UniqueIdentifier>{441fd630-3198-4e91-8330-92e907c50c8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.StageSettingScene">
+      <UniqueIdentifier>{5c3e3501-d988-4164-b435-46a867012442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\03.Stage">
+      <UniqueIdentifier>{f9ce8cd3-1d80-4cb2-a36d-e20af87e79f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +97,9 @@
     <ClInclude Include="..\Header\Player_Move.h">
       <Filter>05.Objects\00.Player</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\IntroScene.h">
+      <Filter>02.Scene\00.Intro</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -110,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Move.cpp">
       <Filter>05.Objects\00.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\IntroScene.cpp">
+      <Filter>02.Scene\00.Intro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -39,7 +39,6 @@ void SceneManager::LateUpdate()
 
 void SceneManager::ReadyRender()
 {
-
 	CurrentSceneCheck();
 
 	GameObjectManager::Get_Instance()->ReadyRender();

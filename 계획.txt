@@ -150,6 +150,8 @@ Resource Manager에서 Texture Load하고 출력까지 성공
 *MFC툴 만들 준비 + 킬플 소스 뜯기*
 
 ---------------------------------------------------------
+4월 첫째주 -> 리소스 다 따기. 
+		-> 유쌤 오시기 전까지 툴 완성
 
 11:04 2021-04-05 월
 큐브 띄우기는 성공
@@ -170,6 +172,5 @@ DDS파일 로드 완료.
 	=> 릭 잡기.
 	=> FreeMove도 만들기.
 		* 지금 개별적인 SetRenderState를 RendererManager에서 해주는데 이거 각 VIBuffer에서 해주자. RenderSetting_On/RenderSetting_Off
-
-
+	->지금 움지이면 움직일수록 프레임 씹 123창남. font객체 넣고 FPS 출력해보기.
 

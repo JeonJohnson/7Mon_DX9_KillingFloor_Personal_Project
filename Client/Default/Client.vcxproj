@@ -193,6 +193,7 @@
     <ClInclude Include="..\Header\Enum.h" />
     <ClInclude Include="..\Header\Extern.h" />
     <ClInclude Include="..\Header\Include.h" />
+    <ClInclude Include="..\Header\IntroScene.h" />
     <ClInclude Include="..\Header\MainGame.h" />
     <ClInclude Include="..\Header\Player_Move.h" />
     <ClInclude Include="..\Header\Struct.h" />
@@ -204,6 +205,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\IntroScene.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />
     <ClCompile Include="..\Cpp\Player_Move.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
