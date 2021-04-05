@@ -62,13 +62,29 @@ void ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _wName
 {
 	Texture* TexTemp = Insert_Resource<Texture, Texture>(_wName);
 
-	wstring szFullPath = m_wFolderPath + _wPath;
-
 	//뒤에 확장자만 빼서 dds면 CubeFromFile로 불러올라고 
-	wstring szExtension = szFullPath.substr(szFullPath.length() - 4, szFullPath.length());
+	wstring szFullPath = m_wFolderPath + _wPath;
+		
+	size_t DotPos = szFullPath.rfind(L".", szFullPath.length()-1);
+	
+	//wstring sztemp;
+	//sztemp = szFullPath.at(DotPos);
+	
+	wstring szExtension = szFullPath.substr(DotPos, szFullPath.length());
+
+	TEXTURE_KIND textureKind;
+
+	if (szExtension == L".dds")
+	{
+		textureKind = TEXTURE_KIND::Texture_DDS;
+	}
+	else 
+	{
+		textureKind = TEXTURE_KIND::Texture_Image;
+	}
 
 
-	if (FAILED(TexTemp->Insert_Texture(szFullPath)))
+	if (FAILED(TexTemp->Insert_Texture(szFullPath, textureKind)))
 	{
 		MsgBox(L"Error", L"Texture Inserting is failed");
 		return;

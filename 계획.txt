@@ -1,4 +1,4 @@
-https://docs.google.com/spreadsheets/d/11OXWWqZ9wg08KfyWHV-ZKdAKtxUGwam73UWcPYPEY2I/edit#gid=0
+﻿https://docs.google.com/spreadsheets/d/11OXWWqZ9wg08KfyWHV-ZKdAKtxUGwam73UWcPYPEY2I/edit#gid=0
 시간표 링크
 
 20:08 2021-03-25 목 
@@ -161,5 +161,14 @@ Resource Manager에서 Texture Load하고 출력까지 성공
 	z축 길이 조따 길던거 -> fov를 90도 할려면 45로 해야함. 90으로하면 넓은 세상을 바라보고 있던게 되는거지.
 	텍스쳐 안뜨던거 -> 함수 오버라이딩 안했었음 ㅎㅎ;
 DDS파일 로드 만드는중.
+
+
+오후 3:31 2021-04-05 월
+DDS파일 로드 완료.
+	=> DInput 넣기.
+	=> 1인칭 카메라 만들기.
+	=> 릭 잡기.
+	=> FreeMove도 만들기.
+
 
 

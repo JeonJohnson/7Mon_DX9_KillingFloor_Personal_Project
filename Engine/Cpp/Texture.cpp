@@ -41,27 +41,36 @@ IDirect3DBaseTexture9 * Texture::Get_Texture(int _iNum = 0)
 	else { return nullptr; }
 }
 
-HRESULT Texture::Insert_Texture(const wstring & _szPath)
+HRESULT Texture::Insert_Texture(const wstring & _szPath, TEXTURE_KIND _kind)
 {
 	IDirect3DBaseTexture9*	TexTemp = nullptr;
-	
+
 	//TCHAR szFullPath[128] = L"../../Resource/Test/boss.png";
 
-	//Image 텍스쳐 불러올때
-	if(FAILED(D3DXCreateTextureFromFile(m_pDX9_Device, 
-		_szPath.c_str(),
-		(LPDIRECT3DTEXTURE9*)&TexTemp)))
+	if (_kind == TEXTURE_KIND::Texture_DDS)
 	{
-		return E_FAIL;
+		//DDS 파일 불러올때
+		if (FAILED(D3DXCreateCubeTextureFromFile(m_pDX9_Device,
+			_szPath.c_str(),
+			(LPDIRECT3DCUBETEXTURE9*)&TexTemp)))
+		{
+			return E_FAIL;
+		}
+
+	}
+	else
+	{
+		//Image 텍스쳐 불러올때
+		if (FAILED(D3DXCreateTextureFromFile(m_pDX9_Device,
+			_szPath.c_str(),
+			(LPDIRECT3DTEXTURE9*)&TexTemp)))
+		{
+			return E_FAIL;
+		}
+
 	}
 
-	////DDS 파일 불러올때
-	//if (FAILED(D3DXCreateCubeTextureFromFile(m_pDX9_Device,
-	//	_szPath.c_str(),
-	//	(LPDIRECT3DCUBETEXTURE9*)&TexTemp)))
-	//{
-	//	return E_FAIL;
-	//}
+
 
 	m_vecTextures.emplace_back(TexTemp);
 

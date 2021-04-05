@@ -23,7 +23,8 @@ public: /* Get */
 	IDirect3DBaseTexture9*			Get_Texture(int _iNum);
 	
 public: /* Set */
-	HRESULT Insert_Texture(const wstring& _szPath);
+	HRESULT Insert_Texture(const wstring& _szPath,
+		TEXTURE_KIND _kind = TEXTURE_KIND::Texture_Image);
 
 
 private:
