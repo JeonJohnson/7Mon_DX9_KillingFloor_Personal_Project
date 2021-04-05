@@ -93,7 +93,7 @@ HRESULT DeviceManager::Ready_DX9_Device(HWND _hWnd, UINT _wincx, UINT _wincy, bo
 											//=> DIRECT가 알아서 적정 프레임 골라서 정해줌.
 	//d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE; //모니터 주사율에 프레임 맞춤
 	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE; //프레임 레이트 제한 없음.
-
+	//=> Device가 2개이상이면 모두들 이 설정이 되어있어야 제한 해제됨. 하나라도 걸려있으면 그거 따라감.
 
 	if (FAILED(m_pDX9_SDK->CreateDevice(
 		D3DADAPTER_DEFAULT,
@@ -191,7 +191,7 @@ HRESULT DeviceManager::Ready_DX9_Device_DEBUG(HWND _hWnd, UINT _wincx, UINT _win
 														//=> DIRECT가 알아서 적정 프레임 골라서 정해줌.
 	//d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE; //모니터 주사율에 프레임 맞춤
 	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE; //프레임 레이트 제한 없음.
-
+	//=> Device가 2개이상이면 모두들 이 설정이 되어있어야 제한 해제됨. 하나라도 걸려있으면 그거 따라감.
 
 	if (FAILED(m_pDX9_SDK->CreateDevice(
 		D3DADAPTER_DEFAULT,
