@@ -5,6 +5,7 @@
 
 #include "Engine_Include.h"
 #include "Renderer.h"
+#include "Text.h"
 
 class RenderManager
 {	
@@ -42,16 +43,25 @@ private:
 	map<int, list<Renderer*>> m_RenderingList;
 	//vector<Renderer*>			m_RenderingList;
 
-
+	
+	
 
 
 #ifdef _DEBUG
 public:
-
 	void Render_DEBUG();
+	void Set_FPSText(Text* _text)
+	{
+		m_pText = _text;
+	};
+	void Set_Script(const wstring& _script)
+	{	
+		m_pText->Set_Script(_script);
+	};
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device_DEBUG = nullptr;
+	Text* m_pText = nullptr;
 #endif//_DEBUG
 };
 

@@ -22,9 +22,9 @@ void TestScene::Initialize()
 	Test_Cam->Set_Position(Vector3(0.f, 0.f, -10.f));
 
 
-	EngineFuction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
-	EngineFuction->Load_Texture(L"Test/boss.png", L"Image_Boss");
-	EngineFuction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
+	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
+	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
+	EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
 
 {
 	GameObject* Test_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");

@@ -11,7 +11,7 @@
 
 #define MsgBox(title, message) MessageBox(0, message, title, MB_OK)
 
-#define EngineFuction Engine_Mother::Get_Instance()
+#define EngineFunction Engine_Mother::Get_Instance()
 
 #define dTime Engine_Mother::Get_Instance()->Get_DeltaTime()
 

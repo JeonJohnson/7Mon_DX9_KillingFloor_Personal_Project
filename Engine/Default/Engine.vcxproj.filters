@@ -143,6 +143,12 @@
     <Filter Include="97.Utility\Math">
       <UniqueIdentifier>{c90ae67e-3072-44fa-b748-d33f7e99b3b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.Component\03.Text">
+      <UniqueIdentifier>{eee441eb-bb7a-4bee-8bc5-ebea371733a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\07.UiManager">
+      <UniqueIdentifier>{57777b2c-7a59-4123-a81d-f33b66266076}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -231,6 +237,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Cube_VIBuffer_Color.cpp">
       <Filter>06.Resource\00.VIBuffer\02.Cube\00.Color</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Text.cpp">
+      <Filter>04.Component\03.Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -341,6 +350,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\Cube_VIBuffer_Color.h">
       <Filter>06.Resource\00.VIBuffer\02.Cube\00.Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Text.h">
+      <Filter>04.Component\03.Text</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

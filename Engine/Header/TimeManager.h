@@ -18,12 +18,16 @@ public:
 	void Time_Init();
 
 	void Time_Update();
+	void FPS_Update();
 
 public:
-	float Get_Time()
+	float Get_Time() const
 	{
 		return m_fDeltaTime;
 	};
+	
+	int	Get_FPS() const;
+
 	
 
 private:
@@ -33,6 +37,8 @@ private:
 
 	float			m_fDeltaTime;
 	
+	int				m_iFPS = 0;
+
 #pragma region ZedTime
 	bool			m_bZedTime = false;
 	float			m_fZedTime_Spd = 1.f;

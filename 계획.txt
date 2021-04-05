@@ -174,3 +174,7 @@ DDS파일 로드 완료.
 		* 지금 개별적인 SetRenderState를 RendererManager에서 해주는데 이거 각 VIBuffer에서 해주자. RenderSetting_On/RenderSetting_Off
 	->지금 움지이면 움직일수록 프레임 씹 123창남. font객체 넣고 FPS 출력해보기.
 
+20:49 2021-04-05 월
+Debuging window에 FPS Text 띄우는 중.
+	=> 너무 꼬였음. 차라리 CanvasRenderer 파악해서 만드는게 나을듯.
+

@@ -2,6 +2,8 @@
 #include "..\Header\MainGame.h"
 #include "Engine_Mother.h"
 #include "TestScene.h"
+#include "Text.h"
+
 
 
 Implement_Singleton(MainGame)
@@ -33,6 +35,20 @@ void MainGame::Initialize()
 	//m_pEngine->Initialize(&base_desc);
 	//
 	//m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
+
+	GameObject* FPS_Renderer = INSTANTIATE(OJBECT_TAG_UI, L"FPS");
+	
+	Text::Desc FPS_Desc;
+#ifdef _DEBUG
+	FPS_Desc.Dx9Device = EngineFunction->Get_Dx9_Device_DEBUG();
+#else
+	FPS_Desc.Dx9Device = EngineFunction->Get_Dx9_Device();
+#endif //_DEBUG
+	FPS_Renderer->Add_Component<Text>(&FPS_Desc);
+	
+	m_pFPS = FPS_Renderer->Get_NewComponent<Text>();
+
+	EngineFunction->Set_FPSText(m_pFPS);
 
 }
 
@@ -68,6 +84,15 @@ void MainGame::Scene_Setting()
 {
 	m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
 	m_pEngine->Init_Scene(L"Test_Scene");
+}
+
+void MainGame::FPS_Update()
+{
+	wchar_t szFPS[255];
+	swprintf_s(szFPS, L"FPS : %d", EngineFunction->Get_FPS());
+	wstring wFPS(szFPS);
+
+	EngineFunction->Set_Script(wFPS);
 }
 
 void MainGame::Process()

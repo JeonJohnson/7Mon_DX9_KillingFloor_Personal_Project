@@ -65,6 +65,7 @@ void Engine_Mother::Process()
 	m_pSceneManager->Update();
 	m_pSceneManager->LateUpdate();
 	m_pSceneManager->ReadyRender();
+	m_pRenderManager->Render_DEBUG();
 	//Collision
 	m_pSceneManager->Render();
 
@@ -87,9 +88,22 @@ LPDIRECT3DDEVICE9 Engine_Mother::Get_Dx9_Device() const
 	return m_pDeviceManager->Get_DX9_Device();
 }
 
+#ifdef _DEBUG
+LPDIRECT3DDEVICE9 Engine_Mother::Get_Dx9_Device_DEBUG() const
+{
+	return m_pDeviceManager->Get_DX9_Device_DEBUG();
+}
+
+#endif //_DEBUG
+
 float Engine_Mother::Get_DeltaTime() const
 {
 	return m_pTimeManager->Get_Time();
+}
+
+int Engine_Mother::Get_FPS() const
+{
+	return m_pTimeManager->Get_FPS();
 }
 
 void Engine_Mother::Add_Scene(const wstring & _wName, Scene * _pScene)

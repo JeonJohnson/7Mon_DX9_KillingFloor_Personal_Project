@@ -66,9 +66,21 @@ public:
 
 public: /* Device Manager */
 	LPDIRECT3DDEVICE9 Get_Dx9_Device() const;
+#ifdef _DEBUG
+	LPDIRECT3DDEVICE9 Get_Dx9_Device_DEBUG() const;
+	void Set_FPSText(Text* _test)
+	{
+		m_pRenderManager->Set_FPSText(_test);
+	};
+	void Set_Script(const wstring& _script)
+	{	
+		m_pRenderManager->Set_Script(_script);
+	}
+#endif //_DEBUG
 
 public: /* Time Manager */
-	float Get_DeltaTime() const;
+	float	Get_DeltaTime() const;
+	int		Get_FPS() const;
 
 public: /* Input Manager */
 

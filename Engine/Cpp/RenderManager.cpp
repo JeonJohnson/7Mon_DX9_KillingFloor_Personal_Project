@@ -20,6 +20,7 @@ void RenderManager::Initialize()
 
 #ifdef _DEBUG
 	m_pDX9_Device_DEBUG = DeviceManager::Get_Instance()->Get_DX9_Device_DEBUG();
+	
 #endif //_DEBUG
 	
 	if (FAILED(Update_ViewPort()))
@@ -141,16 +142,14 @@ void RenderManager::Render_DEBUG()
 {
 	m_pDX9_Device_DEBUG->Clear(
 		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
-		D3DCOLOR_ARGB(255, 0, 0, 0), 1.f, 0);
+		D3DCOLOR_ARGB(255, 255, 0, 255), 1.f, 0);
 
 	m_pDX9_Device_DEBUG->BeginScene();
 
 
-	/*
-	
-	Debug Rendering
-	
-	*/
+	/*	Debug Rendering	*/
+
+	m_pText->Render();
 
 
 

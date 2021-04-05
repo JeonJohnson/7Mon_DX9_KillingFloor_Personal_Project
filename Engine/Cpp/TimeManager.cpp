@@ -39,5 +39,22 @@ void TimeManager::Time_Update()
 	//계산하고 나면 다시
 	m_BeginTime = m_EndTime;
 
+	FPS_Update();
+}
+
+void TimeManager::FPS_Update()
+{
+	if (m_fDeltaTime >= 1.f)
+	{
+		m_iFPS = 0;
+		return;
+	}
+
+	++m_iFPS;
+}
+
+int TimeManager::Get_FPS() const
+{
+	return m_iFPS;
 }
 
