@@ -12,6 +12,18 @@ void Sprite::Initialize()
 {
 }
 
+void Sprite::Update()
+{
+}
+
+void Sprite::LateUpdate()
+{
+}
+
+void Sprite::ReadyRender()
+{
+}
+
 void Sprite::Release()
 {
 }

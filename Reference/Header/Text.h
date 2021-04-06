@@ -5,14 +5,15 @@
 
 #include "Engine_Include.h"
 
-#include "Cycle.h"
+#include "UI.h"
 
 
 //https://m.blog.naver.com/PostView.nhn?blogId=power2845&logNo=50147975350&proxyReferer=https:%2F%2Fwww.google.com%2F
 
-class DLL_STATE Text : public Cycle
+class DLL_STATE Text : public UI
 {
-	friend class UI_Renderer;
+	
+	friend class UI;
 
 public:
 	struct Desc

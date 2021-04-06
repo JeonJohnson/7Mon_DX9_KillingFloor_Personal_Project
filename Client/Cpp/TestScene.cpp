@@ -42,26 +42,29 @@ void TestScene::Initialize()
 //	//Cube_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
 //	//Test_Obj->Add_Component<VIBuffer_Renderer>(&Cube_Desc);
 //
-	VIBuffer_Renderer::Desc Cube_dds_Desc;
-	Cube_dds_Desc.wBufferName = L"Cube_DDS";
-	Cube_dds_Desc.wTextureName = L"dds_Test";
-	Cube_dds_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
-	Test_Obj->Add_Component<VIBuffer_Renderer>(&Cube_dds_Desc);
-	//프레임드랍 이새끼때문임. ㅗㅗㅗㅗㅗ
+	//VIBuffer_Renderer::Desc Cube_dds_Desc;
+	//Cube_dds_Desc.wBufferName = L"Cube_DDS";
+	//Cube_dds_Desc.wTextureName = L"dds_Test";
+	//Cube_dds_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
+	//Test_Obj->Add_Component<VIBuffer_Renderer>(&Cube_dds_Desc);
+	////프레임드랍 이새끼때문임. ㅗㅗㅗㅗㅗ
 
 //
 //	Player_Move::Desc Test_Move;
 //	Test_Obj->Add_Component<Player_Move>(&Test_Move);
 //}
-//	GameObject* Test_BoxRect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
-//	Test_BoxRect->Set_Position(Vector3(0.f, 0.f, 0.f));
-//	Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
-//
-//	VIBuffer_Renderer::Desc Test_Desc;
-//	Test_Desc.wBufferName = L"Rect_Texture";
-//	Test_Desc.wTextureName = L"Image_Box";
-//	Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
-//	Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
+	GameObject* Test_BoxRect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
+	Test_BoxRect->Set_Position(Vector3(0.f, 0.f, 0.f));
+	Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
+
+	//VIBuffer_Renderer::Desc Test_Desc;
+	//Test_Desc.wBufferName = L"Rect_Texture";
+	//Test_Desc.wTextureName = L"Image_Box";
+	//Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
+	//Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
+	//얘도 이 범인 2 ㅗㅗㅗㅗㅗㅗ
+
+	
 //
 //	{
 //		//ResourceManager::Get_Instance()->Insert_Resource<Text, Text>(L"Test_Text");

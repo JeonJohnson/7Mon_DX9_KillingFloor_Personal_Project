@@ -1,5 +1,16 @@
-﻿  GameObjectManager.cpp
-  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+﻿  Engine_Mother.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  UI_Renderer.cpp
+  UI.cpp
+  Text.cpp
+  Sprite.cpp
+  SceneManager.cpp
+  Renderer.cpp
+  RenderManager.cpp
+  코드를 생성하고 있습니다...
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+  Engine.vcxproj -> C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.dll
   1개 파일이 복사되었습니다.

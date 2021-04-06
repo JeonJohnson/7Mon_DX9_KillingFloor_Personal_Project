@@ -3,12 +3,15 @@
 #ifndef _SPRITE_H_
 #define _SPRITE_H_
 
+
 #include "Engine_Include.h"
 
-#include "CResource.h"
+#include "UI.h"
 
-class DLL_STATE Sprite :public CResource
+class DLL_STATE Sprite :public UI
 {
+	friend class UI;
+
 public:
 	struct Desc 
 	{
@@ -19,6 +22,9 @@ public:
 
 public:
 	virtual void Initialize() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void ReadyRender() override;
 	virtual void Release() override;
 
 public: /* function */

@@ -180,7 +180,7 @@ Debuging window에 FPS Text 띄우는 중.
 ---------------------------------------------------------
 05:00 2021-4-6 화
 Text출력 확인완료.
-프레임 드랍 원인 확인 완료. => VIBufferRenderer_Cube_DDS 임.
+프레임 드랍 원인 확인 완료. => VIBufferRenderer_Cube_DDS같은 VIBufferRenderer 임.
 =>내일 UI관련 계획해 놓은대로 완성해서 Font, Sprite 띄우기!
 	=> DInput, FpsCamera, MemoryLeak, Ready to MFC
 
