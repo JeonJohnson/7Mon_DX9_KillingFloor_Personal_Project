@@ -1,25 +1,20 @@
 #pragma once
 
-#ifndef _SPRITE_H_
-#define _SPRITE_H_
-
+#ifndef _UI_COMPONENT_H_
+#define _UI_COMPONENT_H_
 
 #include "Engine_Include.h"
 
 #include "Cycle.h"
 
-class DLL_STATE Sprite :public Cycle
+class UI;
+class Transform;
+
+class UI_Component : public Cycle
 {
-	friend class UI;
-
 public:
-	struct Desc 
-	{
-
-	};
-public:
-	Sprite(Desc* _desc);
-	virtual ~Sprite();
+	explicit UI_Component() = default;
+	virtual ~UI_Component() = 0;
 
 public:
 	virtual void Initialize() override;
@@ -29,16 +24,21 @@ public:
 	virtual void Render() override;
 	virtual void Release() override;
 
-public: /* function */
-	void	Render_Sprite();
+#pragma region	Template
+public:
 
-public: /* Get */
 
-public: /* Set */
+
+#pragma endregion
+
+public:
+
+public:
+
+public:
 
 private:
-	RECT	m_tRect;
-
+	
 };
 
-#endif //_SPRITE_H_
+#endif //_UI_COMPONENT_H_

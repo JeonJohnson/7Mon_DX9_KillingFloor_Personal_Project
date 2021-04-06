@@ -67,6 +67,10 @@ void Text::ReadyRender()
 {
 }
 
+void Text::Render()
+{
+}
+
 void Text::Render_Text()
 {
 	m_pDx9_Font->DrawTextW(

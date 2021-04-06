@@ -24,11 +24,11 @@ void Sprite::ReadyRender()
 {
 }
 
+void Sprite::Render()
+{
+}
+
 void Sprite::Release()
 {
 }
 
-void Sprite::Render_Sprite()
-{
-	return;
-}

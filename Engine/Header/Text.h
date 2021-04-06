@@ -5,12 +5,10 @@
 
 #include "Engine_Include.h"
 
-#include "UI.h"
-
+#include "Cycle.h"
 
 //https://m.blog.naver.com/PostView.nhn?blogId=power2845&logNo=50147975350&proxyReferer=https:%2F%2Fwww.google.com%2F
-
-class DLL_STATE Text : public UI
+class DLL_STATE Text : public Cycle
 {
 	
 	friend class UI;
@@ -68,7 +66,12 @@ public:
 	virtual ~Text();
 	
 public:
-
+	virtual void Initialize() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void ReadyRender() override;
+	virtual void Render() override;
+	virtual void Release() override;
 
 public: /* Function */
 	void		Render_Text();
@@ -82,12 +85,7 @@ public: /* Set */
 	void		Add_Script(const wstring& _script);
 	void		Set_Color(const D3DXCOLOR& _color);
 
-public:
-	virtual void Initialize() override;
-	virtual void Update() override;
-	virtual void LateUpdate() override;
-	virtual void ReadyRender() override;
-	virtual void Release() override;
+
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;

@@ -216,6 +216,7 @@
     <ClInclude Include="..\Header\Triangle_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\UI.h" />
     <ClInclude Include="..\Header\UIManager.h" />
+    <ClInclude Include="..\Header\UI_Component.h" />
     <ClInclude Include="..\Header\UI_Renderer.h" />
     <ClInclude Include="..\Header\VIBuffer.h" />
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
@@ -252,6 +253,7 @@
     <ClCompile Include="..\Cpp\Triangle_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\UI.cpp" />
     <ClCompile Include="..\Cpp\UIManager.cpp" />
+    <ClCompile Include="..\Cpp\UI_Component.cpp" />
     <ClCompile Include="..\Cpp\UI_Renderer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer.cpp" />
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />

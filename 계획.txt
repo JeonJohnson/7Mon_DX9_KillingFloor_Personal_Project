@@ -195,4 +195,15 @@ UI를 상속받는 Text와 Sprite
 5. 씬지나면 리스트 다 지우기. -> 순서가 중요하니까 dont Destroyed 같은거 없이 그냥 가자.
 	=> 여러번 들락날락거리는 씬에서 나오는 UI들은 Prototype으로 한번 고려해보기.
 
+19:20 2021-04-06 화
+UI -> GameObject => 일단 생성.
+Text, Sprite -> Component 같은 느낌으로, => 생성한 UI에다가 Add_Text, Add_Sprite 같이 넣기.
+=> 이러면 상속관계가 되면 안되는디...? =>그럼 그냥 UI에다가 tuple<wstring, Text, Sprite>만들고 UIManager에서는 Vector<UI*>로?
+Text의 Rect는 Sprite의 사이즈 대로.
+UI_Component만들기
+
+20:48 2021-04-06 화
+UiManager만드는중
+	=> UI_Componenet만들기.(Text하고 Sprite가 상속받을 친구임.)
+		=> 여기에 sprite or Text enum값으로 타입정해놓고 UI에서 Add component해줄때 나눠서 저장해주기.
 

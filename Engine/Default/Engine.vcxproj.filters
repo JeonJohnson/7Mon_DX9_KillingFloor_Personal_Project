@@ -164,6 +164,9 @@
     <Filter Include="06.Resource\01.UI\01.Text">
       <UniqueIdentifier>{eee441eb-bb7a-4bee-8bc5-ebea371733a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Structure\Component\UI_Component">
+      <UniqueIdentifier>{301b6b8d-1ec9-448c-9d4c-2eb98f364685}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -267,6 +270,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\UI.cpp">
       <Filter>06.Resource\01.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\UI_Component.cpp">
+      <Filter>02.Structure\Component\UI_Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -392,6 +398,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\UI.h">
       <Filter>06.Resource\01.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\UI_Component.h">
+      <Filter>02.Structure\Component\UI_Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
