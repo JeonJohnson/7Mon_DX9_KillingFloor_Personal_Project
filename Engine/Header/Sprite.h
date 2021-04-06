@@ -6,15 +6,20 @@
 
 #include "Engine_Include.h"
 
-#include "Cycle.h"
+#include "UI_Component.h"
 
-class DLL_STATE Sprite :public Cycle
+
+class DLL_STATE Sprite :public UI_Component
 {
 	friend class UI;
 
 public:
 	struct Desc 
 	{
+		float	Width = 0;
+		float	Height = 0;
+		
+		wstring		TextureName;
 
 	};
 public:
@@ -30,14 +35,24 @@ public:
 	virtual void Release() override;
 
 public: /* function */
-	void	Render_Sprite();
 
 public: /* Get */
+	virtual UI_KIND Get_UIkind() const override;
 
 public: /* Set */
 
 private:
+	UI_KIND	m_eUiKind = UI_KIND::UI_SPRITE;
+
+	LPD3DXSPRITE		m_pDX9_Sprite = nullptr;
+
+	float	m_fWidth;
+	float	m_fHeight;
 	RECT	m_tRect;
+	
+
+
+	
 
 };
 

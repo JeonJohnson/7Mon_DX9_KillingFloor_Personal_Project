@@ -11,6 +11,7 @@
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "GameObjectManager.h"
+#include "UIManager.h"
 #include "ResourceManager.h"
 #include "RenderManager.h"
 
@@ -24,6 +25,9 @@
 #include "Camera.h"
 
 #include "VIBuffer_Renderer.h"
+
+#include "UI.h"
+#include "UI_Component.h"
 #pragma endregion
 
 class DLL_STATE Engine_Mother
@@ -84,12 +88,12 @@ public: /* Scene Manager */
 
 public: /* Gameobject Manager  */
 
+public: /* UI Manager */
+
 public: /* Render Manager */
 
 public: /* Resource Manager */
-	
 	void Load_Texture(const wstring & _wPath, const wstring& _wName);
-
 
 public:
 		
@@ -100,6 +104,7 @@ private:
 	ResourceManager*		m_pResourceManager = nullptr;
 	
 	GameObjectManager*		m_pGameObjectManager = nullptr;
+	UIManager*				m_pUiManager = nullptr;
 	RenderManager*			m_pRenderManager = nullptr;
 	SceneManager*			m_pSceneManager = nullptr;
 	

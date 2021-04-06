@@ -1,8 +1,7 @@
 #include "..\Header\RenderManager.h"
 #include "DeviceManager.h"
 #include "TimeManager.h"
-
-
+#include "UIManager.h"
 
 Implement_Singleton(RenderManager)
 
@@ -39,7 +38,7 @@ void RenderManager::Initialize()
 		tFontInfo.Height = 20;
 		//tFontInfo.Width = 20;
 		tFontInfo.Weight = FW_REGULAR; // 두께
-									//tFontInfo.CharSet = HANGEUL_CHARSET; 한글폰트일때만
+		//tFontInfo.CharSet = HANGEUL_CHARSET; //한글폰트일때만
 		//lstrcpy(tFontInfo.FaceName, L"Ubuntu");
 
 		D3DXCreateFontIndirect(m_pDX9_Device, &tFontInfo, &m_pTempFont);
@@ -52,7 +51,7 @@ void RenderManager::Render()
 {
 	m_pDX9_Device->Clear(
 		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
-		D3DCOLOR_ARGB(255, 255, 0, 255), 1.f, 0);
+		D3DCOLOR_ARGB(255, 255, 222, 222), 1.f, 0);
 	
 	m_pDX9_Device->BeginScene();
 
@@ -93,26 +92,26 @@ void RenderManager::Render_Priority()
 
 void RenderManager::Render_NonAlpha()
 {
-	//for (auto& renderer : m_RenderingList[1])
-	//{
-	//	renderer->Render();
-	//}
+	for (auto& renderer : m_RenderingList[1])
+	{
+		renderer->Render();
+	}
 }
 
 void RenderManager::Render_Alpha()
 {
-	//for (auto& renderer : m_RenderingList[2])
-	//{
-	//	renderer->Render();
-	//}
+	for (auto& renderer : m_RenderingList[2])
+	{
+		renderer->Render();
+	}
 }
 
 void RenderManager::Render_UI()
 {
-	int iFps = TimeManager::Get_Instance()->Get_FPS();
+	//int iFps = TimeManager::Get_Instance()->Get_FPS();
 
-	wstring temp = L"FPS : " + to_wstring(iFps);
-	RECT	RectTemp = { 0,0,0,0 };
+	//wstring temp = L"FPS : " + to_wstring(iFps);
+	//RECT	RectTemp = { 0,0,0,0 };
 
 	m_pDX9_Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 
@@ -121,10 +120,12 @@ void RenderManager::Render_UI()
 	//	renderer->Render();
 	//}
 
-	m_pTempFont->DrawTextW(
-		nullptr,
-		temp.c_str(), -1,
-		&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
+	UIManager::Get_Instance()->Render();
+
+	//m_pTempFont->DrawTextW(
+	//	nullptr,
+	//	temp.c_str(), -1,
+	//	&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
 
 	m_pDX9_Sprite->End();
 }
@@ -175,7 +176,7 @@ void RenderManager::Render_DEBUG()
 {
 	m_pDX9_Device_DEBUG->Clear(
 		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
-		D3DCOLOR_ARGB(255, 255, 0, 255), 1.f, 0);
+		D3DCOLOR_ARGB(255, 255, 222, 222), 1.f, 0);
 
 	m_pDX9_Device_DEBUG->BeginScene();
 

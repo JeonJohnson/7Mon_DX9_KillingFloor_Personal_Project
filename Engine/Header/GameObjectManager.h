@@ -23,7 +23,7 @@ public:
 	void Release();
 
 public: /* functions */
-	void ReleaseScene();
+	void Release_Scene();
 	
 	void Merge_Gameobjects();
 	void Delete_DeadGameObjects();

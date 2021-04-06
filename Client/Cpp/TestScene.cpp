@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Header\TestScene.h"
 #include "Player_Move.h"
+#include "Text.h"
 //#include "../../Reference/Header/Camera.h"
 
 TestScene::TestScene()
@@ -25,6 +26,8 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
 	EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
+	EngineFunction->Load_Texture(L"Test/PangDongE.png", L"PangDongE");
+	
 
 //{
 	GameObject* Test_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
@@ -57,11 +60,11 @@ void TestScene::Initialize()
 	Test_BoxRect->Set_Position(Vector3(0.f, 0.f, 0.f));
 	Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
-	//VIBuffer_Renderer::Desc Test_Desc;
-	//Test_Desc.wBufferName = L"Rect_Texture";
-	//Test_Desc.wTextureName = L"Image_Box";
-	//Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
-	//Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
+	VIBuffer_Renderer::Desc Test_Desc;
+	Test_Desc.wBufferName = L"Rect_Texture";
+	Test_Desc.wTextureName = L"PangDongE";
+	Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
+	Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
 	//¾êµµ ÀÌ ¹üÀÎ 2 ¤Ç¤Ç¤Ç¤Ç¤Ç¤Ç
 
 	
@@ -73,5 +76,17 @@ void TestScene::Initialize()
 //	}
 //
 //	
+
+	{
+		UI* Test_Text = INSTANTIATE_UI(L"Test_Text");
+
+		Text::Desc textInfo;
+		textInfo.iHeight = 56;
+		textInfo.iWeight = FW_HEAVY;
+		textInfo.szScript = L"Test Test Test Test";
+
+
+		Test_Text->Add_UIComponent<Text>(&textInfo);
+	}
 }
 

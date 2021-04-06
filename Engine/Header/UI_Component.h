@@ -10,11 +10,11 @@
 class UI;
 class Transform;
 
-class UI_Component : public Cycle
+class DLL_STATE UI_Component : public Cycle
 {
 public:
 	explicit UI_Component() = default;
-	virtual ~UI_Component() = 0;
+	virtual ~UI_Component() = default;
 
 public:
 	virtual void Initialize() override;
@@ -26,18 +26,51 @@ public:
 
 #pragma region	Template
 public:
+	template <class T>
+	static UI_Component* Instantiate(class T::Desc* _desc)
+	{
+		UI_Component* Instance = nullptr;
+		Instance = new T(_desc);
+		assert("UI_Component Instance Failed" && Instance);
+		Instance->Initialize();
 
+		return Instance;
+	}
 
+	//template <class T>
+	//static UI_Component* Instantiate(T::Desc* _desc)
+	//{
+	//	UI_Component* Instance = nullptr;
+	//	Instance = new T(_desc);
+	//	assert("UI_Component Instance Failed" && Instance);
+	//	Instance->Initialize();
+
+	//	return Instance;
+	//}
 
 #pragma endregion
 
-public:
+public: /* function */
 
-public:
+public: /* Get */
+	bool		Get_Active() const;
+	bool		Get_Alive()	const;
+	virtual		UI_KIND	Get_UIkind() const = 0;
+	
 
-public:
+public: /* Set */
+	void		Set_Active(bool _onoff);
+	void		Set_Alive(bool _FalseIsDead);
+
+	void		Set_Position(const Vector3& _vPos);
+	void		Set_Scale(const Vector3& _vScale);
 
 private:
+	Transform*		m_Transform = nullptr;
+
+private:
+	bool			m_bActive = true;
+	bool			m_bAlive = true;
 	
 };
 

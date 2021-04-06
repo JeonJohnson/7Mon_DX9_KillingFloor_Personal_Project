@@ -44,6 +44,7 @@ private:
 
 	map<int, list<Renderer*>> m_RenderingList;
 	//vector<Renderer*>			m_RenderingList;
+	
 
 	/*test*/
 	LPD3DXFONT				m_pTempFont = nullptr;

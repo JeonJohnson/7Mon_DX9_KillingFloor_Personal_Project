@@ -82,7 +82,7 @@ void GameObjectManager::Release()
 	m_vecGameObjectList.clear();
 }
 
-void GameObjectManager::ReleaseScene()
+void GameObjectManager::Release_Scene()
 {
 	for (auto& objectList : m_vecGameObjectList)
 	{

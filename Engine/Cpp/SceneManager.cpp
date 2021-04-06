@@ -46,11 +46,10 @@ void SceneManager::ReadyRender()
 
 void SceneManager::Render()
 {
-
 	CurrentSceneCheck();
 
+	
 	RenderManager::Get_Instance()->Render();
-
 #ifdef _DEBUG
 	RenderManager::Get_Instance()->Render_DEBUG();
 #endif //_DEBUG
@@ -108,7 +107,7 @@ void SceneManager::SceneChangeCheck()
 		m_bNext = false;
 
 		//겜옵줵메니저에서 옵줵트들 다 지워주기
-		GameObjectManager::Get_Instance()->ReleaseScene();
+		GameObjectManager::Get_Instance()->Release_Scene();
 
 		m_pCurrentScene = m_pNextScene;
 		m_pCurrentScene->Initialize();

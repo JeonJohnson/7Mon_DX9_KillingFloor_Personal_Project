@@ -17,6 +17,7 @@ typedef enum eVIBuffer_Kind
 	VIBuffer_Color,
 	VIBuffer_Textrue,
 	VIBuffer_End
+
 }VIBUFFER_KIND;
 
 typedef enum eTexture_Kind
@@ -25,8 +26,15 @@ typedef enum eTexture_Kind
 	Texture_DDS,
 	Texture_Kind_End
 
-
 }TEXTURE_KIND;
+
+typedef enum eUi_Kind
+{
+	UI_SPRITE,
+	UI_TEXT,
+	UI_END
+
+}UI_KIND;
 
 
 #endif //_ENGINE_ENUM_H_

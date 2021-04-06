@@ -6,15 +6,21 @@
 
 #include "Engine_Include.h"
 
-#include "UI.h"
+#include "UI_Component.h"
 
-class DLL_STATE Sprite :public UI
+
+class DLL_STATE Sprite :public UI_Component
 {
 	friend class UI;
 
 public:
 	struct Desc 
 	{
+		float	Width = 0;
+		float	Height = 0;
+		
+		wstring		TextureName;
+
 	};
 public:
 	Sprite(Desc* _desc);
@@ -25,16 +31,24 @@ public:
 	virtual void Update() override;
 	virtual void LateUpdate() override;
 	virtual void ReadyRender() override;
+	virtual void Render() override;
 	virtual void Release() override;
 
 public: /* function */
-	void	Render_Sprite();
 
-public:
+public: /* Get */
+	virtual UI_KIND Get_UIkind() const override;
 
-public:
+public: /* Set */
 
 private:
+	UI_KIND	m_eUiKind = UI_KIND::UI_SPRITE;
+
+	RECT	m_tRect;
+	
+
+
+	
 
 };
 

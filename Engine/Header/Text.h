@@ -5,10 +5,10 @@
 
 #include "Engine_Include.h"
 
-#include "Cycle.h"
+#include "UI_Component.h"
 
 //https://m.blog.naver.com/PostView.nhn?blogId=power2845&logNo=50147975350&proxyReferer=https:%2F%2Fwww.google.com%2F
-class DLL_STATE Text : public Cycle
+class DLL_STATE Text : public UI_Component
 {
 	
 	friend class UI;
@@ -45,21 +45,21 @@ public:
 				//->DT_SINGLELINE : 플래그가 지정되어 있을 경우에만 사용할 수 있습니다.
 			//DT_WORDBREAK : 텍스트가 사각 영역 끝을 넘을 경우 자동개행합니다.
 				//->이 플래그가 지정되지 않을 경우 모든 텍스트는 한 줄로 출력됩니다.
-		LPDIRECT3DDEVICE9		Dx9Device;
+		//LPDIRECT3DDEVICE9		Dx9Device;
 
 		int iHeight = 12;
 		int	iWidth = 0;
-		int	iWeight = 400;
+		UINT	iWeight = FW_REGULAR;
 		bool bItalic = false;
 		bool bHanGul = true;
-		wstring szFontName = L"default";
+		wstring szFontName = L"Default";
 		
 		wstring	szScript;
 		D3DXCOLOR tColor = D3DCOLOR_ARGB(255, 255, 255, 255);
 
-		DWORD	ulOption = DT_NOCLIP | DT_CENTER;
+		DWORD	ulOption = DT_NOCLIP;
 
-		RECT	tRenderRect = { 0,0,0,0 };
+		RECT	tRenderRect = { 0,0,1280,720 };
 	};
 public:
 	Text(Desc* _desc);
@@ -74,10 +74,12 @@ public:
 	virtual void Release() override;
 
 public: /* Function */
-	void		Render_Text();
 
 public: /* Get */
+	virtual UI_KIND Get_UIkind() const override;
+
 	wstring		Get_Script();
+	
 
 public: /* Set */
 	void		Set_RenderRect(const RECT& _rect);
@@ -89,19 +91,24 @@ public: /* Set */
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
-	LPD3DXSPRITE			m_pDX9_Sprite = nullptr;
+	//LPD3DXSPRITE			m_pDX9_Sprite = nullptr;
 
 	LPD3DXFONT				m_pDx9_Font = nullptr;
 	
 private:
+	UI_KIND					m_eUiKind = UI_KIND::UI_TEXT;
+
 	RECT					m_tRect;
 	wstring					m_szScript;
 	DWORD					m_Option;
 	D3DXCOLOR				m_Color;
 
-	D3DXFONT_DESC			m_tFontDesc;
+	D3DXFONT_DESCW			m_tFontDesc;
 
 	
+
+	
+
 	//INT Height; => 높이 
 	//UINT Width; => 너비 : 높이에 맞춰서 잘 나옴. 가끔 안나오는 폰트는 높이 /2 로 수정해주삼
 	//UINT Weight; => 굵기 : Bold효과

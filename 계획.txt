@@ -207,3 +207,8 @@ UiManager만드는중
 	=> UI_Componenet만들기.(Text하고 Sprite가 상속받을 친구임.)
 		=> 여기에 sprite or Text enum값으로 타입정해놓고 UI에서 Add component해줄때 나눠서 저장해주기.
 
+---------------------------------------------------------
+04:57 2021-4-7 수
+UIManager로 Font렌더링 성공.
+D2D꺼 보면서 Sprite도 출력하자.
+	=>다 하고나면... 릭 잡기...

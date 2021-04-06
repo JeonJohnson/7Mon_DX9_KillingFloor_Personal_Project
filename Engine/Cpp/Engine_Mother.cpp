@@ -28,6 +28,7 @@ Engine_Mother::Engine_Mother()
 	m_pResourceManager		= ResourceManager::Get_Instance();
 
 	m_pGameObjectManager	= GameObjectManager::Get_Instance();
+	m_pUiManager			= UIManager::Get_Instance();
 	m_pRenderManager		= RenderManager::Get_Instance();
 	m_pSceneManager			= SceneManager::Get_Instance();
 }
@@ -50,10 +51,9 @@ void Engine_Mother::Initialize(Desc * _desc)
 	m_pResourceManager->Initialize();
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
+	m_pUiManager->Initailize();
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
-
-	
 	
 }
 
@@ -68,14 +68,13 @@ void Engine_Mother::Process()
 	//m_pRenderManager->Render_DEBUG();
 	//Collision
 	m_pSceneManager->Render();
-
-	
 }
 
 void Engine_Mother::Release()
 {
 	m_pSceneManager->Destroy_Instance();
 	m_pRenderManager->Destroy_Instance();
+	m_pUiManager->Destroy_Instance();
 	m_pGameObjectManager->Destroy_Instance();
 	m_pInputManager->Destroy_Instance();
 	m_pTimeManager->Destroy_Instance();
