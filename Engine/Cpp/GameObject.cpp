@@ -15,7 +15,7 @@ GameObject * GameObject::Instantiate(int _iTag, wstring _wName)
 
 	GameObjectManager::Get_Instance()->Insert_GameObject(obj);
 
-	return obj; 
+	return obj;
 }
 
 void GameObject::Destory(GameObject * _pObj)

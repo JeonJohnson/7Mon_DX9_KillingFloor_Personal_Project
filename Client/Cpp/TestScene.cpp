@@ -27,6 +27,7 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
 	EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
 	EngineFunction->Load_Texture(L"Test/PangDongE.png", L"PangDongE");
+	EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
 	
 
 //{
@@ -56,26 +57,22 @@ void TestScene::Initialize()
 //	Player_Move::Desc Test_Move;
 //	Test_Obj->Add_Component<Player_Move>(&Test_Move);
 //}
-	GameObject* Test_BoxRect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
-	Test_BoxRect->Set_Position(Vector3(0.f, 0.f, 0.f));
-	Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
-	VIBuffer_Renderer::Desc Test_Desc;
-	Test_Desc.wBufferName = L"Rect_Texture";
-	Test_Desc.wTextureName = L"PangDongE";
-	Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
-	Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
-	//¾êµµ ÀÌ ¹üÀÎ 2 ¤Ç¤Ç¤Ç¤Ç¤Ç¤Ç
+	{
+		GameObject* Test_BoxRect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
+		Test_BoxRect->Set_Position(Vector3(0.f, 0.f, 0.f));
+		Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
-	
-//
-//	{
-//		//ResourceManager::Get_Instance()->Insert_Resource<Text, Text>(L"Test_Text");
-//
-//
-//	}
-//
-//	
+		VIBuffer_Renderer::Desc Test_Desc;
+		Test_Desc.wBufferName = L"Rect_Texture";
+		Test_Desc.wTextureName = L"PangDongE";
+		Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
+		Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
+		//¾êµµ ÀÌ ¹üÀÎ 2 ¤Ç¤Ç¤Ç¤Ç¤Ç¤Ç
+
+		Player_Move::Desc Test_Move;
+		Test_BoxRect->Add_Component<Player_Move>(&Test_Move);
+	}
 
 	{
 		UI* Test_Text = INSTANTIATE_UI(L"Test_Text");
@@ -86,7 +83,14 @@ void TestScene::Initialize()
 		textInfo.szScript = L"Test Test Test Test";
 
 
+		Sprite::Desc spriteInfo;
+		spriteInfo.TextureName = L"PangDongE_UI";
+	
+
 		Test_Text->Add_UIComponent<Text>(&textInfo);
+		Test_Text->Add_UIComponent<Sprite>(&spriteInfo);
+
 	}
 }
+
 

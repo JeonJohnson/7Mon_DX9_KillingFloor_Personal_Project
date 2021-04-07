@@ -53,12 +53,3 @@ void UI_Component::Set_Alive(bool _FalseIsDead)
 	m_bAlive = _FalseIsDead;
 }
 
-void UI_Component::Set_Position(const Vector3 & _vPos)
-{
-	m_Transform->Set_Position(_vPos);
-}
-
-void UI_Component::Set_Scale(const Vector3 & _vScale)
-{
-	m_Transform->Set_Scale(_vScale);
-}

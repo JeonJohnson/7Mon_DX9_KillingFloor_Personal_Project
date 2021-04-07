@@ -48,7 +48,7 @@ private:
 
 	/*test*/
 	LPD3DXFONT				m_pTempFont = nullptr;
-	
+	LPDIRECT3DTEXTURE9		m_pTexture = nullptr;
 
 
 #ifdef _DEBUG

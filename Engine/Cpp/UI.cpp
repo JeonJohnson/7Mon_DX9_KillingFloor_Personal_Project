@@ -90,3 +90,11 @@ UI_Component * UI::Get_Text()
 	return m_pText;
 }
 
+void UI::Set_Active(bool _onoff)
+{
+}
+
+void UI::Set_Alive(bool _FalseIsDead)
+{
+}
+

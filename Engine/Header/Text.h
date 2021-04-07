@@ -77,17 +77,13 @@ public: /* Function */
 
 public: /* Get */
 	virtual UI_KIND Get_UIkind() const override;
-
 	wstring		Get_Script();
-	
 
 public: /* Set */
 	void		Set_RenderRect(const RECT& _rect);
 	void		Set_Script(const wstring& _script);
 	void		Add_Script(const wstring& _script);
 	void		Set_Color(const D3DXCOLOR& _color);
-
-
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;

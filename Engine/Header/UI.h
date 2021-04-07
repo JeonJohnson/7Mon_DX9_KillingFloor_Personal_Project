@@ -78,22 +78,46 @@ public:
 public: /* function */
 	void Delete_UiComponents();
 
+
 public: /* Get */
 	const wstring&	Get_Name() const;
 	UI_Component*	Get_Sprite();
 	UI_Component*	Get_Text();
 
+	RECT			Get_Rect() const;
+	const Vector3&	Get_Position() const;
+	const Vector3&	Get_Scale()	const;
+	const Vector3&	Get_Rotation() const;
+
 
 public: /* Set */
+	void			Set_Active(bool _onoff);
+	void			Set_Alive(bool _FalseIsDead);
 
-	
+	void			Set_Position(const Vector3& _vPos);
+	void			Add_Position(const Vector3& _vPos);
+
+	void			Set_Scale(const Vector3& _vScale);
+	void			Add_Scale(const Vector3& _vScale);
+
+	void			Set_Rotate(const Vector3& _vRot);
+	void			Rotate(const Vector3& _vRot); //Add Rotation;
+	//void			Set_Rotation(const Vector3& _vRot);
+	//void			Add_Rotation()
 
 private:
 	//tuple<wstring, Sprite*, Text*>	m_tupUIComponents;
 	Transform* m_pTransform = nullptr;
 
+	Vector3				m_vPosition;
+	Vector3				m_vScale;
+	Vector3				m_vRotation;
+
+	RECT				m_tRect;
+
 	bool				m_bActive;
 	bool				m_bAlive;
+	bool				m_bDontDestroy;
 	
 	wstring				m_wName;
 	UI_Component*		m_pSprite = nullptr;

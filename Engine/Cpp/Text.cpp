@@ -48,8 +48,6 @@ Text::~Text()
 
 void Text::Initialize()
 {
-	
-
 	if (FAILED(D3DXCreateFontIndirect(m_pDX9_Device, &m_tFontDesc, &m_pDx9_Font)))
 	{
 		MsgBox(L"Error", L"Create Font Failed At Text");

@@ -20,8 +20,9 @@ public:
 public: /* Function */
 
 public: /* Get */
-	vector<IDirect3DBaseTexture9*>	Get_Textures();
-	IDirect3DBaseTexture9*			Get_Texture(int _iNum);
+	//vector<IDirect3DBaseTexture9*>	Get_AllTexturePair();
+	IDirect3DBaseTexture9*			Get_Texture(int _iNum = 0);
+	D3DXIMAGE_INFO*					Get_TextureInfo(int _iNum = 0);
 	
 public: /* Set */
 	HRESULT Insert_Texture(const wstring& _szPath,
@@ -30,7 +31,13 @@ public: /* Set */
 
 private:
 	LPDIRECT3DDEVICE9					m_pDX9_Device = nullptr;
-	vector<IDirect3DBaseTexture9*>		m_vecTextures;
+
+	typedef pair<IDirect3DBaseTexture9*, D3DXIMAGE_INFO*> TEXTURE_PAIR;
+
+	vector<TEXTURE_PAIR>				m_vecTexturePair;
+
+	//vector<IDirect3DBaseTexture9*>		m_vecTextures;
+	//vector<D3DXIMAGE_INFO*>				m_vecImageInfo;
 
 };
 

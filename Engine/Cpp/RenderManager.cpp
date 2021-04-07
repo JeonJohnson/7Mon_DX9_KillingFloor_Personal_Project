@@ -125,14 +125,27 @@ void RenderManager::Render_UI()
 
 	UIManager::Get_Instance()->Render();
 		
-	IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"PangDongE")->Get_Texture(0);
-	LPDIRECT3DTEXTURE9 temp2 = 
-	m_pDX9_Sprite->Draw(
-		(LPDIRECT3DCUBETEXTURE9)(*temp),
-		nullptr,
-		nullptr,
-		&Vector3(640.f,360.f, 1.f),
-		D3DCOLOR_ARGB(255, 255, 255, 255))
+	//IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"PangDongE")->Get_Texture(0);
+	//LPDIRECT3DTEXTURE9 temp2 = 
+	//m_pDX9_Sprite->Draw(
+	//	(LPDIRECT3DCUBETEXTURE9)(*temp),
+	//	nullptr,
+	//	nullptr,
+	//	&Vector3(640.f,360.f, 1.f),
+	//	D3DCOLOR_ARGB(255, 255, 255, 255))
+
+	//IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"PangDongE_UI")->Get_Texture(0);
+	//m_pTexture = (LPDIRECT3DTEXTURE9)temp;
+
+	//if (FAILED(m_pDX9_Sprite->Draw(
+	//	m_pTexture,
+	//	nullptr,
+	//	nullptr,
+	//	&Vector3(640.f, 360.f, 0.f), //1되면 옵젝들보다 뒤에 있음.
+	//	D3DCOLOR_ARGB(255, 255, 255, 255))))
+	//{
+	//	assert(0 && L"sprite draw failed");
+	//}
 
 	//m_pTempFont->DrawTextW(
 	//	nullptr,
