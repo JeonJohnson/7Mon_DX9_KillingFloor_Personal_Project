@@ -216,3 +216,28 @@ D2D꺼 보면서 Sprite도 출력하자.
 08:53 2021-4-8 목
  UIManager로 Resource의 Texture가지고 Sprite출력 성공.
 	=> Transform을 어떻게 할건지 생각하고 움직이는거, 회전 다 되면 넘어가자
+
+11:40 2021-04-08 목
+지금 프레임드랍 Renderer에서 ReadyRender에서 렌더 할거 매 프레임 넘겨주는거에서 생기는거 같음. 확인요망.
+Sprite
+sprite draw전에 Sprite 객체에게 SetTransform으로 Pos Scal Rot 값 계산한 월드행렬 넘겨주면 됌.
+	=> Text는 영향 안받음.
+Text
+Font는 무적권 지정해주는 Rect값에 따라서 위치가 정해짐.
+
+	*sprite생성시 센터 위치를 지정해주고 그거 기준으로?. or UIObject의 위치를 정해주고 그 기준으로...?
+=>UIObject의 위치 정해주는 방식으로.
+1. UIObject 생성할 때 위치 / 중점 / 크기 생성.
+2. Text, Sprite 생성하고 UIObject에 넣을 때  m_UIObject에다가 넣어주기.
+3_1. Sprite의 Texture가 있을 때, Image정보에서 가로 세로(* sclae)로 가져와서 중점이랑 Rect만들어주기.
+3_2. Sprite의 Texture가 없거나 안써도 그냥 너어주자. -> 없으면 중앙에다가 w*h 100*100으로
+4. UiObject에서는 여튼 위치 / 중점 / 크기 Sprite꺼 계산해서 만들고
+5. Text, Sprite는 그거 가지고 렌더 위치 정하기.
+
+14:52 2021-04-08 목
+sprite position값 개 좆같이 먹힘....
+
+
+
+
+

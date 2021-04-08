@@ -61,15 +61,20 @@ public: /* Get */
 	bool		Get_Active() const;
 	bool		Get_Alive()	const;
 
+	UI*			Get_UI();
+
 public: /* Set */
 	void		Set_Active(bool _onoff);
 	void		Set_Alive(bool _FalseIsDead);
 
+	void		Set_UiObject(UI* _uiobj);
 
-private:
-	Vector3				m_vPosition;
-	Vector3				m_vScale;
-	Vector3				m_vRotation;
+protected:
+	UI*					m_UiObject = nullptr;
+
+	//Vector3				m_vPosition;
+	//Vector3				m_vScale;
+	//Vector3				m_vRotation;
 
 	bool			m_bActive = true;
 	bool			m_bAlive = true;

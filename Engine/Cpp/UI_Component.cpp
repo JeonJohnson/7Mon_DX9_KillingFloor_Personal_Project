@@ -53,3 +53,8 @@ void UI_Component::Set_Alive(bool _FalseIsDead)
 	m_bAlive = _FalseIsDead;
 }
 
+void UI_Component::Set_UiObject(UI * _uiobj)
+{
+	m_UiObject = _uiobj;
+}
+

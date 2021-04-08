@@ -12,6 +12,9 @@ class Transform;
 
 class DLL_STATE UI_Component : public Cycle
 {
+
+	//ComponentÀÇ ¿ªÇÒ.
+
 public:
 	explicit UI_Component() = default;
 	virtual ~UI_Component() = default;
@@ -53,22 +56,26 @@ public:
 public: /* function */
 
 public: /* Get */
+	virtual		UI_KIND	Get_UIkind() const = 0;
+
 	bool		Get_Active() const;
 	bool		Get_Alive()	const;
-	virtual		UI_KIND	Get_UIkind() const = 0;
-	
+
+	UI*			Get_UI();
 
 public: /* Set */
 	void		Set_Active(bool _onoff);
 	void		Set_Alive(bool _FalseIsDead);
 
-	void		Set_Position(const Vector3& _vPos);
-	void		Set_Scale(const Vector3& _vScale);
+	void		Set_UiObject(UI* _uiobj);
 
-private:
-	Transform*		m_Transform = nullptr;
+protected:
+	UI*					m_UiObject = nullptr;
 
-private:
+	//Vector3				m_vPosition;
+	//Vector3				m_vScale;
+	//Vector3				m_vRotation;
+
 	bool			m_bActive = true;
 	bool			m_bAlive = true;
 	

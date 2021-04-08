@@ -49,6 +49,8 @@ public:
 		ui = UI_Component::Instantiate<T>(_desc);
 		assert(L"Ui Component create failed" && ui);
 
+		ui->Set_UiObject(this);
+
 		UI_KIND temp = ui->Get_UIkind();
 
 		switch (temp)
@@ -77,23 +79,53 @@ public:
 
 public: /* function */
 	void Delete_UiComponents();
+	void Update_UITransform();
+	
 
 public: /* Get */
 	const wstring&	Get_Name() const;
 	UI_Component*	Get_Sprite();
 	UI_Component*	Get_Text();
 
+	const RECT&			Get_Rect() const;
+	const Vector3&	Get_Position() const;
+	const Vector3&	Get_Scale()	const;
+	const Vector3&	Get_Rotation() const;
+	const Vector3&	Get_Center() const;
+
 
 public: /* Set */
+	void			Set_Active(bool _onoff);
+	void			Set_Alive(bool _FalseIsDead);
 
-	
+	void			Set_Position(const Vector3& _vPos);
+	void			Add_Position(const Vector3& _vPos);
+
+	void			Set_Scale(const Vector3& _vScale);
+	void			Add_Scale(const Vector3& _vScale);
+
+	void			Set_Rotate(const Vector3& _vRot);
+	void			Rotate(const Vector3& _vRot); //Add Rotation;
+	//void			Set_Rotation(const Vector3& _vRot);
+	//void			Add_Rotation()
 
 private:
 	//tuple<wstring, Sprite*, Text*>	m_tupUIComponents;
-	Transform* m_pTransform = nullptr;
+	//Transform* m_pTransform = nullptr;
+
+
+	Vector3				m_vPosition;
+	Vector3				m_vScale;
+	Vector3				m_vRotation;
+	
+	float				m_fWidth;
+	float				m_fHeight;
+	Vector3				m_vCenter;
+	RECT				m_tRect;
 
 	bool				m_bActive;
 	bool				m_bAlive;
+	bool				m_bDontDestroy;
 	
 	wstring				m_wName;
 	UI_Component*		m_pSprite = nullptr;

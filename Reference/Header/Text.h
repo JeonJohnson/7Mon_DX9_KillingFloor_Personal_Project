@@ -57,7 +57,7 @@ public:
 		wstring	szScript;
 		D3DXCOLOR tColor = D3DCOLOR_ARGB(255, 255, 255, 255);
 
-		DWORD	ulOption = DT_NOCLIP;
+		DWORD	ulOption = DT_NOCLIP | DT_CENTER | DT_VCENTER;
 
 		RECT	tRenderRect = { 0,0,1280,720 };
 	};
@@ -77,9 +77,7 @@ public: /* Function */
 
 public: /* Get */
 	virtual UI_KIND Get_UIkind() const override;
-
 	wstring		Get_Script();
-	
 
 public: /* Set */
 	void		Set_RenderRect(const RECT& _rect);
@@ -87,11 +85,9 @@ public: /* Set */
 	void		Add_Script(const wstring& _script);
 	void		Set_Color(const D3DXCOLOR& _color);
 
-
-
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
-	//LPD3DXSPRITE			m_pDX9_Sprite = nullptr;
+	LPD3DXSPRITE			m_pDX9_Sprite = nullptr;
 
 	LPD3DXFONT				m_pDx9_Font = nullptr;
 	

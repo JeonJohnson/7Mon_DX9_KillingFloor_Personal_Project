@@ -27,7 +27,9 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
 	EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
 	EngineFunction->Load_Texture(L"Test/PangDongE.png", L"PangDongE");
+
 	EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
+	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	
 
 //{
@@ -76,6 +78,8 @@ void TestScene::Initialize()
 
 	{
 		UI* Test_Text = INSTANTIATE_UI(L"Test_Text");
+		Test_Text->Set_Position(Vector3(720.f, 360.f, 0.f));
+		Test_Text->Set_Scale(Vector3(1.0f, 1.0f, 1.f));
 
 		Text::Desc textInfo;
 		textInfo.iHeight = 56;
@@ -84,11 +88,13 @@ void TestScene::Initialize()
 
 
 		Sprite::Desc spriteInfo;
-		spriteInfo.TextureName = L"PangDongE_UI";
+		spriteInfo.TextureName = L"UI_Test";
 	
 
 		Test_Text->Add_UIComponent<Text>(&textInfo);
 		Test_Text->Add_UIComponent<Sprite>(&spriteInfo);
+
+		
 
 	}
 }

@@ -39,6 +39,11 @@ public: /* function */
 public: /* Get */
 	virtual UI_KIND Get_UIkind() const override;
 
+	IDirect3DBaseTexture9*			Get_Texture(int _iNum = 0);
+	D3DXIMAGE_INFO*					Get_TextureInfo(int _iNum = 0);
+	
+	int				Get_TextureNum() const;
+
 public: /* Set */
 
 private:

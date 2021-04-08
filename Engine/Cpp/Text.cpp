@@ -1,5 +1,7 @@
 #include "..\Header\Text.h"
 
+#include "UI.h"
+
 #include "DeviceManager.h"
 
 Text::Text(Desc * _desc)
@@ -7,6 +9,9 @@ Text::Text(Desc * _desc)
 	//assert(L"Dx9Device is nullptr At TextFont" && _desc->Dx9Device);
 
 	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
+	m_pDX9_Sprite = DeviceManager::Get_Instance()->Get_DX9_Sprite();
+
+	
 
 	ZeroMemory(&m_tFontDesc, sizeof(D3DXFONT_DESC));
 
@@ -70,11 +75,30 @@ void Text::Render()
 {
 	if (m_pDx9_Font)
 	{
+
+
+		//Matrix matWorld, matScale, matRot, matTrans;
+		////D3DXMatrixScaling(&matScale, m_vScale.x, m_vScale.y, m_vScale.z);
+		////D3DXMatrixRotationQuaternion(&matRot, &m_qRotation);
+		/////*Test*/
+		////Vector3 tempPos = { 2.f, -2.f,0.f };
+		////D3DXMatrixTranslation(&matTrans, tempPos.x, tempPos.y, tempPos.z);
+		/////*Test*/
+		//D3DXMatrixTranslation(&matTrans, 100.f,50.f, 0.f);
+
+		//matWorld = /*matScale * matRot * */matTrans;
+
+		//m_pDX9_Sprite->SetTransform(&matWorld);
+
+		RECT	RectTemp = m_UiObject->Get_Rect();
+
 		m_pDx9_Font->DrawTextW(
+			/*m_pDX9_Sprite,*/
 			nullptr,
 			m_szScript.c_str(),
 			-1,
-			&m_tRect,
+			&RectTemp,
+			/*nullptr,*/
 			m_Option,
 			m_Color);
 	}
