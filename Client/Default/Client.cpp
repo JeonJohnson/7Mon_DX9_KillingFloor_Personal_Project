@@ -138,7 +138,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	g_hWnd_DEBUG = hWnd_DEBUG;
 
-	SetWindowPos(hWnd_DEBUG, nullptr, (WINCX + 50), 0, WINCX_DEBUG, WINCY_DEBUG, 0);
+	SetWindowPos(hWnd_DEBUG, nullptr, (WINCX + 50), 0, 
+		DebugWindow_rect.right - DebugWindow_rect.left,
+		DebugWindow_rect.bottom - DebugWindow_rect.top, 0);
 
 	ShowWindow(hWnd_DEBUG, nCmdShow);
 	UpdateWindow(hWnd_DEBUG);
@@ -158,8 +160,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	g_hWnd = hWnd;
 
-	SetWindowPos(hWnd, nullptr, 0, 0, WINCX, WINCY, 0);
-
+	SetWindowPos(hWnd, nullptr, 0,0, rc.right-rc.left, rc.bottom - rc.top,  0);
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 

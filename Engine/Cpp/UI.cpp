@@ -81,6 +81,7 @@ void UI::Delete_UiComponents()
 
 void UI::Update_UITransform()
 {
+
 	if (m_pSprite == nullptr)
 	{
 		m_fWidth = 100.f;

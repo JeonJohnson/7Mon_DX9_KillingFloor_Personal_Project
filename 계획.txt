@@ -239,6 +239,8 @@ sprite position값 개 좆같이 먹힘....
 ->카메라에 따라서... 이게 크기가.. 다른가...?
 	=> 카메라 이동 만들기
 
-
+20:04 2021-04-08 목 
+sprite 개 좆 같이 나오던거 해결완료. => Texture불러올때 D3DXCreateTextureFromFile로 불러오면 그 지123랄남. D3DXCreateTextureFromFileEx로 불러오자.
+=>프레임 드랍 잡기 & 릭잡기
 
 

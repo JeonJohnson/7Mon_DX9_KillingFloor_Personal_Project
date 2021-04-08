@@ -82,12 +82,33 @@ HRESULT Texture::Insert_Texture(const wstring & _szPath, TEXTURE_KIND _kind)
 			return E_FAIL;
 		}
 
-		if (FAILED(D3DXCreateTextureFromFile(m_pDX9_Device,
+		if (FAILED(D3DXCreateTextureFromFileEx(m_pDX9_Device,
 			_szPath.c_str(),
+			ImageInfoTemp->Width,
+			ImageInfoTemp->Height,
+			ImageInfoTemp->MipLevels,
+			0,
+			ImageInfoTemp->Format,
+			D3DPOOL_MANAGED,
+			D3DX_DEFAULT,
+			D3DX_DEFAULT,
+			0,
+			nullptr,
+			nullptr,
 			(LPDIRECT3DTEXTURE9*)&TexTemp)))
 		{
 			return E_FAIL;
 		}
+
+		//if (FAILED(D3DXCreateTextureFromFile(m_pDX9_Device,
+		//	_szPath.c_str(),
+		//	(LPDIRECT3DTEXTURE9*)&TexTemp)))
+		//{
+		//	return E_FAIL;
+		//}
+		//그냥 이걸로 텍스쳐 불러오면 사이즈 개 씹창남. ㅎㅎ;
+		//시발 진작에 이걸로 할껄
+
 
 
 	}

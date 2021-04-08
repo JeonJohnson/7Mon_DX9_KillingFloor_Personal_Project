@@ -125,6 +125,7 @@ void RenderManager::Render_UI()
 
 	UIManager::Get_Instance()->Render();
 		
+#pragma region Test
 	//IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"PangDongE")->Get_Texture(0);
 	//LPDIRECT3DTEXTURE9 temp2 = 
 	//m_pDX9_Sprite->Draw(
@@ -134,14 +135,25 @@ void RenderManager::Render_UI()
 	//	&Vector3(640.f,360.f, 1.f),
 	//	D3DCOLOR_ARGB(255, 255, 255, 255))
 
-	//IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"PangDongE_UI")->Get_Texture(0);
+	//IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"HitEffect")->Get_Texture(0);
 	//m_pTexture = (LPDIRECT3DTEXTURE9)temp;
 
+	//Matrix matTemp, matScale, matTrans;
+	//D3DXMatrixIdentity(&matTemp);
+
+	//D3DXMatrixTranslation(&matTrans, 100, 500, 0 );
+	//
+	//matTemp = matTrans;
+
+	//m_pDX9_Sprite->SetTransform(&matTemp);
+
+	//Vector3 vTest = { 0.5f, 0.5f, 1.f };
 	//if (FAILED(m_pDX9_Sprite->Draw(
 	//	m_pTexture,
 	//	nullptr,
+	//	&Vector3(640.f, 360.f,0.f),
 	//	nullptr,
-	//	&Vector3(640.f, 360.f, 0.f), //1되면 옵젝들보다 뒤에 있음.
+	//	//&Vector3(640.f, 360.f, 0.f), //1되면 옵젝들보다 뒤에 있음.
 	//	D3DCOLOR_ARGB(255, 255, 255, 255))))
 	//{
 	//	assert(0 && L"sprite draw failed");
@@ -151,7 +163,7 @@ void RenderManager::Render_UI()
 	//	nullptr,
 	//	temp.c_str(), -1,
 	//	&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
-
+#pragma endregion
 	m_pDX9_Sprite->End();
 }
 

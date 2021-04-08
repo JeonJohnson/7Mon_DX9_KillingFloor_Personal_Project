@@ -2,6 +2,7 @@
 #include "..\Header\TestScene.h"
 #include "Player_Move.h"
 #include "Text.h"
+#include "Camera_FreeMove.h"
 //#include "../../Reference/Header/Camera.h"
 
 TestScene::TestScene()
@@ -20,14 +21,18 @@ void TestScene::Initialize()
 	Camera::Desc Cam_desc;
 	Cam_desc.fFov_Degree = 45.f;
 	Test_Cam->Add_Component<Camera>(&Cam_desc);
-	Test_Cam->Set_Position(Vector3(0.f, 0.f, -50.f));
+	Test_Cam->Set_Position(Vector3(0.f, 0.f, -10.f));
+
+	Camera_FreeMove::Desc move_desc;
+	Test_Cam->Add_Component<Camera_FreeMove>(&move_desc);
 
 
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
 	EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
 	EngineFunction->Load_Texture(L"Test/PangDongE.png", L"PangDongE");
-
+	
+	EngineFunction->Load_Texture(L"Test/HitEffect_size.png", L"HitEffect");
 	EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
@@ -89,7 +94,7 @@ void TestScene::Initialize()
 
 
 		Sprite::Desc spriteInfo;
-		spriteInfo.TextureName = L"UI_Test2";
+		spriteInfo.TextureName = L"PangDongE_UI";
 	
 
 		Test_Text->Add_UIComponent<Sprite>(&spriteInfo);

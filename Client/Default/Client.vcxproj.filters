@@ -103,6 +103,9 @@
     <ClInclude Include="..\Header\IntroScene.h">
       <Filter>02.Scene\00.Intro</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Camera_FreeMove.h">
+      <Filter>05.Objects\00.Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -122,6 +125,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\IntroScene.cpp">
       <Filter>02.Scene\00.Intro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Camera_FreeMove.cpp">
+      <Filter>05.Objects\00.Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

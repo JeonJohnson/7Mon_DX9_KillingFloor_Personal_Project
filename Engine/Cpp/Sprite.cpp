@@ -40,10 +40,16 @@ void Sprite::Render()
 {
 	if (m_pDX9_Sprite)
 	{
+		//사이즈 지 좃대로 나오던 이유
+		//파일 불러올때 FromFileEx로 안하고 FromFile로 해서 그럼.
+
 		IDirect3DBaseTexture9*	TextureTemp = m_pTexture->Get_Texture(m_iTextureNum);
 		D3DXIMAGE_INFO*			TextureInfo = m_pTexture->Get_TextureInfo(m_iTextureNum);
 
 		Matrix matWorld, matScale, matTrans, matRot;
+
+		Vector3 scale = m_UiObject->Get_Scale();
+		Vector3 pos = m_UiObject->Get_Position();
 
 		D3DXMatrixScaling(&matScale,
 			m_UiObject->Get_Scale().x,
@@ -55,7 +61,7 @@ void Sprite::Render()
 			m_UiObject->Get_Position().y,
 			0.1f);
 
-		matWorld = matScale *matTrans;
+		matWorld = matScale * matTrans;
 
 		m_pDX9_Sprite->SetTransform(&matWorld);
 		
