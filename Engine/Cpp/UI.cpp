@@ -94,6 +94,8 @@ void UI::Update_UITransform()
 
 	m_vCenter = { m_fWidth / 2.f , m_fHeight / 2.f , 0.f };
 
+	Vector3 Pos = m_vPosition;
+
 	m_tRect.left = m_vPosition.x - m_vCenter.x;
 	m_tRect.top = m_vPosition.y - m_vCenter.y;
 	m_tRect.right = m_vPosition.x + m_vCenter.x;

@@ -56,6 +56,9 @@
     <Filter Include="02.Scene\03.Stage">
       <UniqueIdentifier>{f9ce8cd3-1d80-4cb2-a36d-e20af87e79f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Objects\00.Camera">
+      <UniqueIdentifier>{e768efbe-dcab-4fd3-ad9b-13786f31c029}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">

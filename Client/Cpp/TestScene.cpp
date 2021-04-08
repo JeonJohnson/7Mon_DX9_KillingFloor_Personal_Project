@@ -20,7 +20,7 @@ void TestScene::Initialize()
 	Camera::Desc Cam_desc;
 	Cam_desc.fFov_Degree = 45.f;
 	Test_Cam->Add_Component<Camera>(&Cam_desc);
-	Test_Cam->Set_Position(Vector3(0.f, 0.f, -10.f));
+	Test_Cam->Set_Position(Vector3(0.f, 0.f, -50.f));
 
 
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
@@ -30,6 +30,7 @@ void TestScene::Initialize()
 
 	EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
+	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
 	
 
 //{
@@ -78,8 +79,8 @@ void TestScene::Initialize()
 
 	{
 		UI* Test_Text = INSTANTIATE_UI(L"Test_Text");
-		Test_Text->Set_Position(Vector3(720.f, 360.f, 0.f));
-		Test_Text->Set_Scale(Vector3(1.0f, 1.0f, 1.f));
+		Test_Text->Set_Position(Vector3(640.f, 360.f, 0.f));
+		Test_Text->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
 		Text::Desc textInfo;
 		textInfo.iHeight = 56;
@@ -88,11 +89,11 @@ void TestScene::Initialize()
 
 
 		Sprite::Desc spriteInfo;
-		spriteInfo.TextureName = L"UI_Test";
+		spriteInfo.TextureName = L"UI_Test2";
 	
 
-		Test_Text->Add_UIComponent<Text>(&textInfo);
 		Test_Text->Add_UIComponent<Sprite>(&spriteInfo);
+		Test_Text->Add_UIComponent<Text>(&textInfo);
 
 		
 
