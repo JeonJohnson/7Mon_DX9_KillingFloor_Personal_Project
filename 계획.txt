@@ -241,6 +241,14 @@ sprite position값 개 좆같이 먹힘....
 
 20:04 2021-04-08 목 
 sprite 개 좆 같이 나오던거 해결완료. => Texture불러올때 D3DXCreateTextureFromFile로 불러오면 그 지123랄남. D3DXCreateTextureFromFileEx로 불러오자.
-=>프레임 드랍 잡기 & 릭잡기
+=>프레임 드랍 잡기 & 릭잡기 & DInput넣기
+
+20:46 2021-04-08 목
+프레임 드랍 컷 -> RenderManager에서 리스트 clear 안해줬었음
+	=>집가서 FPS표시 제대로 하고 그 텍스트 타자효과 + DInput알아보기.
+
+
+
+
 
 

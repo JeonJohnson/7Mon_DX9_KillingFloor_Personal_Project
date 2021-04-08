@@ -27,6 +27,7 @@ private:
 	void Render_NonAlpha();
 	void Render_Alpha();
 	void Render_UI();
+	void Clear_RenderingList();
 
 public: /* Functions */
 	HRESULT Update_ViewPort();

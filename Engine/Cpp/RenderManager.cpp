@@ -40,7 +40,7 @@ void RenderManager::Initialize()
 
 		tFontInfo.Height = 20;
 		//tFontInfo.Width = 20;
-		tFontInfo.Weight = FW_REGULAR; // 두께
+		tFontInfo.Weight = FW_SEMIBOLD; // 두께
 		//tFontInfo.CharSet = HANGEUL_CHARSET; //한글폰트일때만
 		//lstrcpy(tFontInfo.FaceName, L"Ubuntu");
 
@@ -70,10 +70,13 @@ void RenderManager::Render()
 	m_pDX9_Device->EndScene();
 
 	m_pDX9_Device->Present(0, 0, 0, 0);
+	
+	Clear_RenderingList();
 }
 
 void RenderManager::Release()
 {
+	Clear_RenderingList();
 }
 
 void RenderManager::Render_Priority()
@@ -111,10 +114,6 @@ void RenderManager::Render_Alpha()
 
 void RenderManager::Render_UI()
 {
-	//int iFps = TimeManager::Get_Instance()->Get_FPS();
-
-	//wstring temp = L"FPS : " + to_wstring(iFps);
-	//RECT	RectTemp = { 0,0,0,0 };
 
 	m_pDX9_Sprite->Begin(D3DXSPRITE_ALPHABLEND);
 
@@ -159,12 +158,22 @@ void RenderManager::Render_UI()
 	//	assert(0 && L"sprite draw failed");
 	//}
 
-	//m_pTempFont->DrawTextW(
-	//	nullptr,
-	//	temp.c_str(), -1,
-	//	&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
+	int iFps = TimeManager::Get_Instance()->Get_FPS();
+
+	wstring temp = L"FPS : " + to_wstring(iFps);
+	RECT	RectTemp = { 0,0,0,0 };
+
+	m_pTempFont->DrawTextW(
+		nullptr,
+		temp.c_str(), -1,
+		&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
 #pragma endregion
 	m_pDX9_Sprite->End();
+}
+
+void RenderManager::Clear_RenderingList()
+{
+	m_RenderingList.clear();
 }
 
 HRESULT RenderManager::Update_ViewPort()
