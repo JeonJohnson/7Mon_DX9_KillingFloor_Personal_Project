@@ -67,15 +67,17 @@ void TestScene::Initialize()
 //}
 
 	{
-		GameObject* Test_BoxRect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
-		Test_BoxRect->Set_Position(Vector3(0.f, 0.f, 0.f));
-		Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
+			GameObject* Test_BoxRect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
+			Test_BoxRect->Set_Position(Vector3(10.f, 1.f, 0.f));
+			//포지션값 개 지랄남 아 씨발 진짜
+			Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
-		VIBuffer_Renderer::Desc Test_Desc;
-		Test_Desc.wBufferName = L"Rect_Texture";
-		Test_Desc.wTextureName = L"PangDongE";
-		Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
-		Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
+			VIBuffer_Renderer::Desc Test_Desc;
+			Test_Desc.wBufferName = L"Rect_Texture";
+			Test_Desc.wTextureName = L"PangDongE";
+			Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
+			Test_BoxRect->Add_Component<VIBuffer_Renderer>(&Test_Desc);
+	
 		//얘도 이 범인 2 ㅗㅗㅗㅗㅗㅗ
 
 		Player_Move::Desc Test_Move;
@@ -83,22 +85,22 @@ void TestScene::Initialize()
 	}
 
 	{
-		UI* Test_Text = INSTANTIATE_UI(L"Test_Text");
-		Test_Text->Set_Position(Vector3(640.f, 360.f, 0.f));
-		Test_Text->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		//UI* Test_Text = INSTANTIATE_UI(L"Test_Text");
+		//Test_Text->Set_Position(Vector3(640.f, 360.f, 0.f));
+		//Test_Text->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
-		Text::Desc textInfo;
-		textInfo.iHeight = 56;
-		textInfo.iWeight = FW_HEAVY;
-		textInfo.szScript = L"Test Test Test Test";
+		//Text::Desc textInfo;
+		//textInfo.iHeight = 56;
+		//textInfo.iWeight = FW_HEAVY;
+		//textInfo.szScript = L"Test Test Test Test";
 
 
-		Sprite::Desc spriteInfo;
-		spriteInfo.TextureName = L"PangDongE_UI";
+		//Sprite::Desc spriteInfo;
+		//spriteInfo.TextureName = L"PangDongE_UI";
 	
 
-		Test_Text->Add_UIComponent<Sprite>(&spriteInfo);
-		Test_Text->Add_UIComponent<Text>(&textInfo);
+		//Test_Text->Add_UIComponent<Sprite>(&spriteInfo);
+		//Test_Text->Add_UIComponent<Text>(&textInfo);
 
 		
 

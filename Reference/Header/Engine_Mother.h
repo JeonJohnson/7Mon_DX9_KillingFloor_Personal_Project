@@ -43,10 +43,11 @@ public:
 public:
 	struct Desc
 	{
-		HWND	hWnd = nullptr;
-		UINT	wincx = 1280;
-		UINT	wincy = 720;
-		bool	window = false;
+		HINSTANCE	hInst = nullptr;
+		HWND		hWnd = nullptr;
+		UINT		wincx = 1280;
+		UINT		wincy = 720;
+		bool		window = false;
 
 		_object_Tag			Object_Tag_MaxCount = 1;
 		_render_Layer		Render_Layer_MaxCount = 1;

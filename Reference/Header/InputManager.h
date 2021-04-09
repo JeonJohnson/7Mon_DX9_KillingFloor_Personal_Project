@@ -5,9 +5,10 @@
 
 #include "Engine_Include.h"
 
+
+
 class DLL_STATE InputManager
 {
-
 	Declare_Singleton(InputManager)
 
 private:
@@ -15,21 +16,32 @@ private:
 	~InputManager();
 
 public:
-	void Initialize();
+	void Initialize(HINSTANCE hInst, HWND hWnd);
 	void Update();
 	void Release();
 
 public:
-	bool	GetKeyUp(const DWORD & _dwKey);
-	bool	GetKeyDown(const DWORD & _dwKey);
-	bool	GetKeyPress(const DWORD & _dwKey);
+	//bool	GetKeyUp(const DWORD & _dwKey);
+	//bool	GetKeyDown(const DWORD & _dwKey);
+	//bool	GetKeyPress(const DWORD & _dwKey);
 
 public:
+	HRESULT		Keyboard_Create(HWND hWnd);
+	HRESULT		Mouse_Create(HWND hWnd);
+
 	
 private:
-	DWORD m_dwKey;
-	DWORD m_dwKeyUp;
-	DWORD m_dwKeyDown;
+	LPDIRECTINPUT8				m_pDInput8_SDK	= nullptr;
+	
+	LPDIRECTINPUTDEVICE8		m_pDInput8_Keyboard = nullptr;
+	signed char					m_scKeyboard_State[256];
+
+	LPDIRECTINPUTDEVICE8		m_pDInput8_Mouse	= nullptr;
+	DIMOUSESTATE				m_tMouse_State;
+	
+	//DWORD m_dwKey;
+	//DWORD m_dwKeyUp;
+	//DWORD m_dwKeyDown;
 
 	
 };

@@ -97,10 +97,10 @@ void UI::Update_UITransform()
 
 	Vector3 Pos = m_vPosition;
 
-	m_tRect.left = m_vPosition.x - m_vCenter.x;
-	m_tRect.top = m_vPosition.y - m_vCenter.y;
-	m_tRect.right = m_vPosition.x + m_vCenter.x;
-	m_tRect.bottom= m_vPosition.y + m_vCenter.y;
+	m_tRect.left = (LONG)(m_vPosition.x - m_vCenter.x);
+	m_tRect.top = (LONG)(m_vPosition.y - m_vCenter.y);
+	m_tRect.right = (LONG)(m_vPosition.x + m_vCenter.x);
+	m_tRect.bottom= (LONG)(m_vPosition.y + m_vCenter.y);
 
 
 }

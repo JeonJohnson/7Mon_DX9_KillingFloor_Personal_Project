@@ -48,6 +48,10 @@ using namespace std;
 #include <d3dx9.h>
 //#include <d3dx9math.h>
 
+/* Direct Input 8 */
+#pragma comment(lib,"dinput8.lib")
+#include <dinput.h>
+
 
 /* Custom */
 #include "Engine_TypeDef.h"

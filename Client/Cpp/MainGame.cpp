@@ -72,6 +72,7 @@ void MainGame::Engine_Load()
 	Engine_desc.wincy = WINCY;
 	Engine_desc.window = true;
 	Engine_desc.hWnd = g_hWnd;
+	Engine_desc.hInst = hInst;
 
 #ifdef _DEBUG
 	Engine_desc.wincx_DEBUG = WINCX_DEBUG;
