@@ -81,19 +81,11 @@ void GameObjectManager::Release()
 
 		if (objectList.size() > 0)
 		{
-			assert(0 && L"test");
+			assert(0 && L"GameObjectList dont Release all");
 		}
 
 		objectList.clear();
 	}
-	//바꿔야함. 제일큰 벡터까지 깔끔하게 erase해서 개수 체크할려면
-	//list도 erase 해줘야해서 iter for문으로 바꿔야함.
-
-	//if (m_vecGameObjectList.size() > 0)
-	//{
-	//	assert(0 && L"GameOjbectList dont Release all");
-	//}
-
 
 	m_vecGameObjectList.clear();
 }

@@ -21,8 +21,11 @@ public:
 public:
 	void Engine_Load();
 	void Scene_Setting();
-	void FPS_Update();
+	
+
 public:
+	void FPS_RenderSetting();
+
 
 public:
 	Engine_Mother*	m_pEngine;

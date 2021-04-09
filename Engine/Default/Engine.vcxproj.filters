@@ -107,12 +107,6 @@
     <Filter Include="02.Structure\Resource">
       <UniqueIdentifier>{d34a8e07-e6c7-4167-9cf3-6723d9c5b946}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.Utility">
-      <UniqueIdentifier>{6c6ac9f5-1a30-4b3a-b754-b6e4d7ee62d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="97.Utility\String/Char_Function">
-      <UniqueIdentifier>{d6bcb00d-7b84-4c74-a78b-f7420d37b020}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.Component\02.Camera">
       <UniqueIdentifier>{51333a50-2a30-454c-a0f9-9846d2c74f15}</UniqueIdentifier>
     </Filter>
@@ -140,20 +134,11 @@
     <Filter Include="06.Resource\00.VIBuffer\01.Rect\00.Color">
       <UniqueIdentifier>{987b3ad2-e593-46e1-b831-fd0507e06e20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.Utility\Math">
-      <UniqueIdentifier>{c90ae67e-3072-44fa-b748-d33f7e99b3b2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Manager\07.UiManager">
       <UniqueIdentifier>{57777b2c-7a59-4123-a81d-f33b66266076}</UniqueIdentifier>
     </Filter>
     <Filter Include="04.Component\01.Renderer\UI">
       <UniqueIdentifier>{c6d69e93-ac04-4573-a3ab-b7876877b535}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="96.System">
-      <UniqueIdentifier>{f74103e2-4792-4616-aa96-051ec1a5039a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="96.System\00.FPS">
-      <UniqueIdentifier>{c95c7d61-9574-4f3d-b36a-675f9a65cd7a}</UniqueIdentifier>
     </Filter>
     <Filter Include="06.Resource\01.UI">
       <UniqueIdentifier>{8d658703-8235-4c0f-ac07-1f8981c6a563}</UniqueIdentifier>
@@ -166,6 +151,24 @@
     </Filter>
     <Filter Include="02.Structure\Component\UI_Component">
       <UniqueIdentifier>{301b6b8d-1ec9-448c-9d4c-2eb98f364685}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\98.SystemManager">
+      <UniqueIdentifier>{f74103e2-4792-4616-aa96-051ec1a5039a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System">
+      <UniqueIdentifier>{6db0610e-f6ed-45fb-9fc9-aea4be97514a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Utility">
+      <UniqueIdentifier>{6c6ac9f5-1a30-4b3a-b754-b6e4d7ee62d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Utility\String/Char_Function">
+      <UniqueIdentifier>{d6bcb00d-7b84-4c74-a78b-f7420d37b020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="96.Utility\Math">
+      <UniqueIdentifier>{c90ae67e-3072-44fa-b748-d33f7e99b3b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System\00.FPS">
+      <UniqueIdentifier>{c95c7d61-9574-4f3d-b36a-675f9a65cd7a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -230,7 +233,7 @@
       <Filter>02.Structure\Resource</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Function_String.cpp">
-      <Filter>97.Utility\String/Char_Function</Filter>
+      <Filter>96.Utility\String/Char_Function</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Camera.cpp">
       <Filter>04.Component\02.Camera</Filter>
@@ -273,6 +276,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\UI_Component.cpp">
       <Filter>02.Structure\Component\UI_Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\SystemManager.cpp">
+      <Filter>01.Manager\98.SystemManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -358,7 +364,7 @@
       <Filter>02.Structure\Resource</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Function_String.h">
-      <Filter>97.Utility\String/Char_Function</Filter>
+      <Filter>96.Utility\String/Char_Function</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Camera.h">
       <Filter>04.Component\02.Camera</Filter>
@@ -401,6 +407,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\UI_Component.h">
       <Filter>02.Structure\Component\UI_Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\SystemManager.h">
+      <Filter>01.Manager\98.SystemManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

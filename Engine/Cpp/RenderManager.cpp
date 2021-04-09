@@ -164,10 +164,10 @@ void RenderManager::Render_UI()
 	wstring temp = L"FPS : " + to_wstring(iFps);
 	RECT	RectTemp = { 0,0,0,0 };
 
-	m_pTempFont->DrawTextW(
-		nullptr,
-		temp.c_str(), -1,
-		&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
+	//m_pTempFont->DrawTextW(
+	//	nullptr,
+	//	temp.c_str(), -1,
+	//	&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
 #pragma endregion
 	m_pDX9_Sprite->End();
 }

@@ -79,6 +79,8 @@ void Engine_Mother::Release()
 	m_pInputManager->Destroy_Instance();
 	m_pTimeManager->Destroy_Instance();
 
+	m_pResourceManager->Destroy_Instance();
+
 	m_pDeviceManager->Destroy_Instance();
 }
 

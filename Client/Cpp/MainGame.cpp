@@ -21,8 +21,12 @@ MainGame::~MainGame()
 
 void MainGame::Initialize()
 {
+
+	//assert(0 && L"assert Test");
+
 	Engine_Load();
 	Scene_Setting();
+	FPS_RenderSetting();
 	//m_pEngine = Engine_Mother::Get_Instance();
 	//assert(L"Engine Load Failed" && m_pEngine);
 
@@ -88,17 +92,28 @@ void MainGame::Scene_Setting()
 	m_pEngine->Init_Scene(L"Test_Scene");
 }
 
-void MainGame::FPS_Update()
+void MainGame::FPS_RenderSetting()
 {
-	//wchar_t szFPS[255];
-	//swprintf_s(szFPS, L"FPS : %d", EngineFunction->Get_FPS());
-	//wstring wFPS(szFPS);
+	//GameObject* FPS_Renderer = INSTANTIATE(OJBECT_TAG_UI, L"FPS_Renderer");
 
-	//EngineFunction->Set_Script(wFPS);
+	UI*			FPS_Renderer = INSTANTIATE_UI(L"FPS_Renderer");
+	FPS_Renderer->Set_Position(Vector3(50,50,0));
+
+	Text::Desc fps_text;
+	fps_text.iHeight = 20;
+	fps_text.iWeight = FW_EXTRABOLD;
+	fps_text.ulOption = DT_LEFT;
+	fps_text.szScript = L"FPS : ";
+
+	FPS_Renderer->Add_UIComponent<Text>(&fps_text);
+
+	//Sprite::Desc sprite;
+	//FPS_Renderer->Add_UIComponent<Sprite>(&sprite);
 }
 
 void MainGame::Process()
 {
 	Engine_Mother::Get_Instance()->Process();
+	
 }
 

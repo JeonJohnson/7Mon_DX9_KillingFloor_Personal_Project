@@ -255,6 +255,10 @@ sprite 개 좆 같이 나오던거 해결완료. => Texture불러올때 D3DXCrea
 14:51 2021-04-09 금
 릭잡는중. GameOjbectManager 파트 하는중.
 
+19:38 2021-04-09 금
+~메모리 누수 컷!~
+FPSRender용으로 UI 실전 테스트 들어가보기.
+	=>sprite 없이 font만 쓸 경우 font의 rect로 출력하게.
 
 
 

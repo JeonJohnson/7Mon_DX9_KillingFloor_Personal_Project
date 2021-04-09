@@ -22,6 +22,21 @@ void Texture::Initialize()
 
 void Texture::Release()
 {
+	for (auto iter = m_vecTexturePair.begin(); iter != m_vecTexturePair.end();)
+	{
+		(*iter).first->Release();
+		(*iter).first = nullptr;
+
+		delete (*iter).second;
+		(*iter).second = nullptr;
+
+		iter = m_vecTexturePair.erase(iter);
+	}
+
+	if (m_vecTexturePair.size() > 0)
+	{
+		assert(0 && L"Texture List dont release all");
+	}
 }
 
 //vector<IDirect3DBaseTexture9*> Texture::Get_AllTexturePair()
