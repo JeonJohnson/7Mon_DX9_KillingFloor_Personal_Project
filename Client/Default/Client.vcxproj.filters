@@ -59,6 +59,12 @@
     <Filter Include="05.Objects\00.Camera">
       <UniqueIdentifier>{e768efbe-dcab-4fd3-ad9b-13786f31c029}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Scene\99.TestScene\01.test1">
+      <UniqueIdentifier>{c2d87962-e616-468c-9c25-e138bea10f4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\99.TestScene\02.test2">
+      <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">

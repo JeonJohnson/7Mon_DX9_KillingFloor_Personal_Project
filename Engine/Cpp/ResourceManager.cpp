@@ -19,6 +19,7 @@ ResourceManager::ResourceManager()
 
 ResourceManager::~ResourceManager()
 {
+	Release();
 }
 
 void ResourceManager::Initialize()

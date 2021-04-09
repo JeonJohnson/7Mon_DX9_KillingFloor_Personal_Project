@@ -8,6 +8,7 @@ TimeManager::TimeManager()
 
 TimeManager::~TimeManager()
 {
+	
 }
 
 void TimeManager::Time_Init()

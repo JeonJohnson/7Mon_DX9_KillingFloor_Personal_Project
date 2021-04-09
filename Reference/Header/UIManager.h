@@ -32,7 +32,7 @@ public: /* Get */
 
 public: /* Set */
 	HRESULT Insert_UI(UI* _pUi, const wstring& _name);
-
+	HRESULT Insert_StaticUI(UI* _pUi, const wstring& _name);
 	//bool nameFind(const wstring& _vecName, const wstring& _insertName)
 	//{
 	//	if (_vecName == _insertName)
@@ -42,11 +42,11 @@ public: /* Set */
 	//}
 	
 private:
+	vector<pair<wstring, UI*>>	m_vecUIList;
+	vector<pair<wstring, UI*>>	m_vecStaticUiList;
+
 	//LPDIRECT3DDEVICE9			m_pDX9_Device = nullptr;
 	//LPD3DXSPRITE				m_pDX9_Sprite = nullptr;
-
-	vector<pair<wstring, UI*>> m_vecUIList;
-
 	//vector<tuple<wstring, Sprite*, Text*>> m_vecUIList;
 
 };

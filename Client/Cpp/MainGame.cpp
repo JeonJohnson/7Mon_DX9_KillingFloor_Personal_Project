@@ -54,6 +54,8 @@ void MainGame::Initialize()
 
 void MainGame::Release()
 {
+	m_pEngine->Release();
+	m_pEngine->Destroy_Instance();
 }
 
 void MainGame::Engine_Load()

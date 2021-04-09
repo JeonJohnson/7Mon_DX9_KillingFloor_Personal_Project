@@ -58,8 +58,22 @@ void SceneManager::Render()
 
 void SceneManager::Release()
 {
-	GameObjectManager::Get_Instance()->Release();
-	RenderManager::Get_Instance()->Release();
+	//GameObjectManager::Get_Instance()->Release();
+	//RenderManager::Get_Instance()->Release();
+
+	for (auto iter = m_mapSceneList.begin(); iter != m_mapSceneList.end();)
+	{
+		delete (*iter).second;
+		(*iter).second = nullptr;
+		iter = m_mapSceneList.erase(iter);
+	}
+
+	if (m_mapSceneList.size() > 0)
+	{
+		assert(0 && L"scene Release");
+	}
+
+
 }
 
 void SceneManager::CurrentSceneCheck()

@@ -9,6 +9,7 @@ GameObjectManager::GameObjectManager()
 
 GameObjectManager::~GameObjectManager()
 {
+	Release();
 }
 
 void GameObjectManager::Initailize(_object_Tag _maxCount)
@@ -66,18 +67,33 @@ void GameObjectManager::ReadyRender()
 
 void GameObjectManager::Release()
 {
+	Merge_Gameobjects();
+
 	for (auto& objectList : m_vecGameObjectList)
 	{
 		for (auto iter = objectList.begin(); iter != objectList.end();)
 		{
-		
 			(*iter)->Release();
 
 			delete *iter;
 			iter = objectList.erase(iter);
-	
 		}
+
+		if (objectList.size() > 0)
+		{
+			assert(0 && L"test");
+		}
+
+		objectList.clear();
 	}
+	//바꿔야함. 제일큰 벡터까지 깔끔하게 erase해서 개수 체크할려면
+	//list도 erase 해줘야해서 iter for문으로 바꿔야함.
+
+	//if (m_vecGameObjectList.size() > 0)
+	//{
+	//	assert(0 && L"GameOjbectList dont Release all");
+	//}
+
 
 	m_vecGameObjectList.clear();
 }

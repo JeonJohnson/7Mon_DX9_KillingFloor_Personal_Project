@@ -39,9 +39,9 @@ void TestScene::Initialize()
 	
 
 //{
-	GameObject* Test_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
-	Test_Obj->Set_Position(Vector3(0.f, 0.f, 0.f));
-	Test_Obj->Set_Scale(Vector3(1.f, 1.f, 1.f));
+	//GameObject* Test_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
+	//Test_Obj->Set_Position(Vector3(0.f, 0.f, 0.f));
+	//Test_Obj->Set_Scale(Vector3(1.f, 1.f, 1.f));
 //
 //	//VIBuffer_Renderer::Desc Test_Desc;
 //	//Test_Desc.wBufferName = L"Rect_Color";

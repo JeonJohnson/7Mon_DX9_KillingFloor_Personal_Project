@@ -15,6 +15,7 @@ RenderManager::RenderManager()
 
 RenderManager::~RenderManager()
 {
+	Release();
 }
 
 void RenderManager::Initialize()

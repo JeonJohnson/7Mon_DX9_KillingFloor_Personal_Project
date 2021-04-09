@@ -1,5 +1,4 @@
-﻿     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
-DebugManager.obj : warning LNK4099: 'vc140.pdb' PDB를 'DebugManager.obj' 또는 'C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+﻿  GameObjectManager.cpp
   Engine.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.dll

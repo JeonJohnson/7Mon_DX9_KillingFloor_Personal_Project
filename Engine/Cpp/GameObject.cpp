@@ -73,6 +73,23 @@ void GameObject::ReadyRender()
 
 void GameObject::Release()
 {
+	Merge_Components();
+
+	for (auto iter = m_vecComponents.begin(); iter != m_vecComponents.end();)
+	{
+
+		(*iter).second->Release();
+		delete (*iter).second;
+		(*iter).second = nullptr;
+
+		iter = m_vecComponents.erase(iter);
+	}
+
+	if (m_vecComponents.size() > 0)
+	{
+		assert(0 && L"Components dont Release all");	
+	}
+
 }
 
 void GameObject::Merge_Components()

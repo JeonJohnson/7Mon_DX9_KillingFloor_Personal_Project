@@ -85,6 +85,7 @@ void Sprite::Render()
 
 void Sprite::Release()
 {
+	//Texture관련된거는 ResourceManager에서 지워줄꺼다. 이거야.
 }
 
 UI_KIND Sprite::Get_UIkind() const

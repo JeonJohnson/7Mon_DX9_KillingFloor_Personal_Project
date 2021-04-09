@@ -9,4 +9,5 @@ DebugManager::DebugManager()
 
 DebugManager::~DebugManager()
 {
+	
 }
