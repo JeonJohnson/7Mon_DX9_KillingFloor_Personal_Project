@@ -111,6 +111,21 @@ int Engine_Mother::Get_FPS() const
 	return m_pTimeManager->Get_FPS();
 }
 
+bool Engine_Mother::GetKeyUp(const BYTE & _keyValue)
+{
+	return m_pInputManager->Get_Instance()->GetKeyUp(_keyValue);
+}
+
+bool Engine_Mother::GetKeyDown(const BYTE & _keyValue)
+{
+	return m_pInputManager->Get_Instance()->GetKeyDown(_keyValue);
+}
+
+bool Engine_Mother::GetKeyPress(const BYTE & _keyValue)
+{
+	return m_pInputManager->Get_Instance()->GetKeyPress(_keyValue);
+}
+
 void Engine_Mother::Add_Scene(const wstring & _wName, Scene * _pScene)
 {
 	m_pSceneManager->Insert_Scene(_wName, _pScene);

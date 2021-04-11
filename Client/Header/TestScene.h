@@ -12,7 +12,7 @@ class TestScene :
 public:
 	TestScene();
 	virtual ~TestScene();
-
+	
 public:
 	virtual void Initialize() override;
 };

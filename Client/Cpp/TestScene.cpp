@@ -68,7 +68,7 @@ void TestScene::Initialize()
 
 	{
 			GameObject* Test_BoxRect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Rect");
-			Test_BoxRect->Set_Position(Vector3(10.f, 1.f, 0.f));
+			Test_BoxRect->Set_Position(Vector3(0.f, 0.f, 0.f));
 			//포지션값 개 지랄남 아 씨발 진짜
 			Test_BoxRect->Set_Scale(Vector3(1.f, 1.f, 1.f));
 

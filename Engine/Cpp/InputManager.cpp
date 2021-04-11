@@ -1,6 +1,5 @@
 #include "..\Header\InputManager.h"
 
-
 Implement_Singleton(InputManager)
 
 InputManager::InputManager() 
@@ -44,14 +43,60 @@ void InputManager::Initialize(HINSTANCE hInst, HWND hWnd)
 
 void InputManager::Update()
 {
+	unsigned char*	Keyboard_TempState = m_ucKeyboard_PreState;
+	m_ucKeyboard_PreState = m_ucKeyboard_CurState;
+	m_ucKeyboard_CurState = Keyboard_TempState;
 
+	//키보드의 입력 상태를 저장할 변수 넘겨줌
+	m_pDInput8_Keyboard->GetDeviceState(256, m_ucKeyboard_CurState);
+	//마우스의 입력 상태를 저장할 구조체
+	m_pDInput8_Mouse->GetDeviceState(sizeof(m_tMouse_State), &m_tMouse_State);
+	
 }
 
 void InputManager::Release()
 {
+	m_pDInput8_Keyboard->Unacquire();
 	Safe_Release(m_pDInput8_Keyboard);
+	
+	m_pDInput8_Mouse->Unacquire();
 	Safe_Release(m_pDInput8_Mouse);
+
 	Safe_Release(m_pDInput8_SDK);
+}
+
+bool InputManager::GetKeyUp(const BYTE & _KeyVal)
+{
+	//전 프레임에서는 눌려져 있었지만, 현 프레임에서 눌러져 있지 않은 상태.
+	if ((m_ucKeyboard_PreState[_KeyVal] & 0x80)
+		&& !(m_ucKeyboard_CurState[_KeyVal] & 0x80))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool InputManager::GetKeyDown(const BYTE & _KeyVal)
+{
+	//전 프레임에서는 안 눌러져있다가 현 프레임에서는 눌려진 상태
+	if (!(m_ucKeyboard_PreState[_KeyVal] & 0x80)
+		&& (m_ucKeyboard_CurState[_KeyVal] & 0x80))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool InputManager::GetKeyPress(const BYTE & _KeyVal)
+{
+	//걍 현 프레임에서만 눌려져 있으면 됨.
+	if (m_ucKeyboard_CurState[_KeyVal] & 0x80)
+	{
+		return true;
+	}
+	return false;
 }
 
 HRESULT InputManager::Keyboard_Create(HWND hWnd)
@@ -82,11 +127,11 @@ HRESULT InputManager::Keyboard_Create(HWND hWnd)
 		return E_FAIL;
 	}
 
-	//키보드의 입력 상태를 저장할 변수 넘겨줌
-	if (FAILED(m_pDInput8_Keyboard->GetDeviceState(256, m_scKeyboard_State)))
-	{
-		return E_FAIL;
-	}
+	m_ucKeyboard_CurState = new BYTE[256];
+	m_ucKeyboard_PreState = new BYTE[256];
+
+	ZeroMemory(m_ucKeyboard_PreState, 256);
+	ZeroMemory(m_ucKeyboard_CurState, 256);
 
 	return S_OK;
 }
@@ -118,11 +163,7 @@ HRESULT InputManager::Mouse_Create(HWND hWnd)
 		return E_FAIL;
 	}
 
-	//마우스의 입력 상태를 저장할 구조체
-	if (FAILED(m_pDInput8_Mouse->GetDeviceState(sizeof(m_tMouse_State), &m_tMouse_State)))
-	{
-		return E_FAIL;
-	}
+
 
 
 	return S_OK;

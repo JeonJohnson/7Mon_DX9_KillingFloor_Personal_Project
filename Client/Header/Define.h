@@ -15,6 +15,10 @@
 
 #define dTime Engine_Mother::Get_Instance()->Get_DeltaTime()
 
+#define KeyUp(KeyValue) Engine_Mother::Get_Instance()->GetKeyUp(KeyValue)
+#define KeyDown(KeyValue) Engine_Mother::Get_Instance()->GetKeyDown(KeyValue)
+#define KeyPress(KeyValue) Engine_Mother::Get_Instance()->GetKeyPress(KeyValue)
+
 #pragma region Functions
 #define	Declare_Singleton(Class)				\
 private:										\
