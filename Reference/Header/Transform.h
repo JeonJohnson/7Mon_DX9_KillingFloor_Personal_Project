@@ -32,7 +32,7 @@ public:
 
 public: /* General */
 	/* Function */
-	void QuaternionToEuler(Quaternion* qIn, Vector3* qOut);
+	Vector3 QuaternionToEuler(Quaternion _q);
 
 	/* Get */
 	const Vector3&		Get_Rotation_Euler() const;
@@ -67,6 +67,9 @@ public: /* Scale */
 
 public: /* Rotation */
 	/* Function */
+	void RotateX(float _eulerX);
+	void RotateY(float _eulerY);
+	void RotateZ(float _eulerZ);
 
 	/* Get */
 	const Quaternion&	Get_Rotation() const;
@@ -76,7 +79,10 @@ public: /* Rotation */
 	void Get_RotationZ(Vector3* _pOut, Vector3 _In);
 	
 	/* Set */
-
+	void Set_Rotation(float _eulerX, float _eulerY, float _eulerZ);
+	void Set_RotationX(float _eulerX);
+	void Set_RotationY(float _eulerY);
+	void Set_RotationZ(float _eulerZ);
 
 public: /* Transform(position) */
 	/* Function */
@@ -105,3 +111,4 @@ private:
 
 
 #endif //_TRANSFORM_H_
+

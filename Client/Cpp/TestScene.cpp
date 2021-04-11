@@ -41,6 +41,7 @@ void TestScene::Initialize()
 	{ //meshRender Test
 		GameObject* Test_Mesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Mesh");
 
+
 		MeshRenderer::Desc Mesh_desc;
 		Test_Mesh->Add_Component<MeshRenderer>(&Mesh_desc);
 	}
