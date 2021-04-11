@@ -198,6 +198,8 @@
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\InputManager.h" />
+    <ClInclude Include="..\Header\MeshRenderer.h" />
+    <ClInclude Include="..\Header\Rect_Grid.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Texture.h" />
     <ClInclude Include="..\Header\Renderer.h" />
@@ -209,6 +211,7 @@
     <ClInclude Include="..\Header\SkyBox_VIBuffer_DDS.h" />
     <ClInclude Include="..\Header\Sprite.h" />
     <ClInclude Include="..\Header\State.h" />
+    <ClInclude Include="..\Header\StaticMesh.h" />
     <ClInclude Include="..\Header\SystemManager.h" />
     <ClInclude Include="..\Header\Text.h" />
     <ClInclude Include="..\Header\Texture.h" />
@@ -236,6 +239,8 @@
     <ClCompile Include="..\Cpp\GameObject.cpp" />
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
+    <ClCompile Include="..\Cpp\MeshRenderer.cpp" />
+    <ClCompile Include="..\Cpp\Rect_Grid.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Texture.cpp" />
     <ClCompile Include="..\Cpp\Renderer.cpp" />
@@ -247,6 +252,7 @@
     <ClCompile Include="..\Cpp\SkyBox_VIBuffer_DDS.cpp" />
     <ClCompile Include="..\Cpp\Sprite.cpp" />
     <ClCompile Include="..\Cpp\State.cpp" />
+    <ClCompile Include="..\Cpp\StaticMesh.cpp" />
     <ClCompile Include="..\Cpp\SystemManager.cpp" />
     <ClCompile Include="..\Cpp\Text.cpp" />
     <ClCompile Include="..\Cpp\Texture.cpp" />

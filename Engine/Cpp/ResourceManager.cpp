@@ -8,6 +8,7 @@
 #include "Cube_VIBuffer_Color.h"
 #include "Cube_VIBuffer_Texture.h"
 #include "Cube_VIBuffer_DDS.h"
+#include "StaticMesh.h"
 
 
 Implement_Singleton(ResourceManager)
@@ -59,7 +60,7 @@ void ResourceManager::Load_Font()
 
 }
 
-void ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _wName)
+Texture* ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _wName)
 {
 	Texture* TexTemp = Insert_Resource<Texture, Texture>(_wName);
 
@@ -70,7 +71,6 @@ void ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _wName
 	
 	//wstring sztemp;
 	//sztemp = szFullPath.at(DotPos);
-	
 	wstring szExtension = szFullPath.substr(DotPos, szFullPath.length());
 
 	TEXTURE_KIND textureKind;
@@ -88,9 +88,28 @@ void ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _wName
 	if (FAILED(TexTemp->Insert_Texture(szFullPath, textureKind)))
 	{
 		MsgBox(L"Error", L"Texture Inserting is failed");
-		return;
+		return nullptr;
 	}
 
+	return TexTemp;
+}
+
+HRESULT ResourceManager::Add_Texture(Texture * _texture, const wstring & _wPath, const wstring & _wName)
+{
+	wstring szFullPath = m_wFolderPath + _wPath;
+
+	if (FAILED(_texture->Insert_Texture(szFullPath, TEXTURE_KIND::Texture_Image)))
+	{
+		return E_FAIL;
+	}
+
+	return S_OK;
+}
+
+void ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _szTexPath)
+{
+	//StaticMesh* pStaticMesh = nullptr;
+	
 }
 
 void ResourceManager::Insert_VIBuffers()

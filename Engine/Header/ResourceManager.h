@@ -7,6 +7,7 @@
 
 #include "CResource.h"
 
+class Texture;
 class DLL_STATE ResourceManager
 {
 	Declare_Singleton(ResourceManager)
@@ -89,16 +90,18 @@ public:
 	void Load_Font();
 	void Load_AllFonts();
 	
-	void Load_Texture(const wstring& _wPath, const wstring& _wName);
+	Texture*	Load_Texture(const wstring& _wPath, const wstring& _wName);
+	HRESULT		Add_Texture(Texture* _texture, const wstring& _wPath, const wstring& _wName);
 	void Load_ALLTextures();
 	
 	void Load_DDS();
 	void Load_AllDDSs();
 	
-	void Load_Mesh();
+	void Load_Mesh(const wstring& _szMeshPath, const wstring& _szTexPath);
 	void Load_AllMeshs();
 
 	void Insert_VIBuffers();
+	
 	
 public: /* Get */
 

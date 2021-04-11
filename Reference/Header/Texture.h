@@ -30,7 +30,7 @@ public: /* Set */
 
 
 private:
-	LPDIRECT3DDEVICE9					m_pDX9_Device = nullptr;
+	//LPDIRECT3DDEVICE9					m_pDX9_Device = nullptr;
 
 	typedef pair<IDirect3DBaseTexture9*, D3DXIMAGE_INFO*> TEXTURE_PAIR;
 
