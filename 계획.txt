@@ -287,6 +287,8 @@ DInput넣는중.
 08:34 2021-4-12 월
 카메라 freeMove 완성하기.
 	=>Transform rotation 부분 마저 만드는중.
+스태틱 매쉬 다른 부분 까지 도는거 확인되면
+	=> Resource 매니저랑 RenderManager부분 정리하기.(경로값같은거 정리 안되있음.)
 
 
 
