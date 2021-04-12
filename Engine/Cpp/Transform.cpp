@@ -42,25 +42,25 @@ void Transform::Release()
 {
 }
 
-Vector3 Transform::QuaternionToEuler(Quaternion _q)
+Vector3 Transform::QuaternionToEuler(Quaternion _quaternion)
 {
 	double roll, pitch, yaw;
 
 	// roll (x-axis rotation)
-	double sinR_cosP = 2 * (_q.w * _q.x + _q.y * _q.z);
-	double cosR_cosP = 1 - 2 * (_q.x * _q.x + _q.y * _q.y);
+	double sinR_cosP = 2 * (_quaternion.w * _quaternion.x + _quaternion.y * _quaternion.z);
+	double cosR_cosP = 1 - 2 * (_quaternion.x * _quaternion.x + _quaternion.y * _quaternion.y);
 	roll = atan2(sinR_cosP, cosR_cosP);
 
 	// pitch (y-axis rotation)
-	double sinP = 2 * (_q.w * _q.y - _q.z * _q.x);
+	double sinP = 2 * (_quaternion.w * _quaternion.y - _quaternion.z * _quaternion.x);
 	if (std::abs(sinP) >= 1)
 		pitch = copysign(D3DX_PI * 0.5f, sinP);	// use 90 degrees if out of range
 	else
 		pitch = asin(sinP);
 
 	// yaw (z-axis rotation)
-	double sinY_cosP = 2 * (_q.w * _q.z + _q.x * _q.y);
-	double cosY_cosP = 1 - 2 * (_q.y * _q.y + _q.z * _q.z);
+	double sinY_cosP = 2 * (_quaternion.w * _quaternion.z + _quaternion.x * _quaternion.y);
+	double cosY_cosP = 1 - 2 * (_quaternion.y * _quaternion.y + _quaternion.z * _quaternion.z);
 	yaw = atan2(sinY_cosP, cosY_cosP);
 
 	return Vector3(D3DXToDegree((float)roll), D3DXToDegree((float)pitch), D3DXToDegree((float)yaw));
@@ -153,9 +153,41 @@ const Matrix & Transform::Get_WorldMatrix() const
 	return m_matWorldMatrix;
 }
 
-void Transform::Set_WorldMatrix() const
+void Transform::Set_WorldMatrix(const Matrix& _world)
 {
+	m_matWorldMatrix = _world;
 }
+
+Vector3  Transform::Get_Right()
+{
+	//11, 12, 13 at WorldMatirx (1За)
+	Update_WorldMatrix();
+
+	Vector3 vRight = *((Vector3*)(&m_matWorldMatrix.m[0]));
+	D3DXVec3Normalize(&vRight, &vRight);
+	return vRight;
+}
+
+Vector3 Transform::Get_Up()
+{
+	//21, 22, 23 at WorldMatrix (2За)
+	Update_WorldMatrix();
+
+	Vector3 vUp = *((Vector3*)(&m_matWorldMatrix.m[1]));
+	D3DXVec3Normalize(&vUp, &vUp);
+	return vUp;
+
+}
+Vector3 Transform::Get_Forward()
+{
+	//31,32,33 at WorldMatrix (3За)
+	Update_WorldMatrix();
+
+	Vector3 vForward = *((Vector3*)(&m_matWorldMatrix.m[2]));
+	D3DXVec3Normalize(&vForward, &vForward);
+	return vForward;
+}
+
 
 const Vector3 & Transform::Get_Scale() const
 {
@@ -187,32 +219,6 @@ void Transform::Add_ScaleZ(float _z)
 	m_vScale.y += _z;
 }
 
-void Transform::RotateX(float _eulerX)
-{
-	Quaternion rot;
-	D3DXQuaternionIdentity(&rot);
-	D3DXQuaternionRotationAxis(&rot, &Vector3(1.f, 0.f, 0.f), D3DXToRadian(_eulerX));
-
-	m_qRotation *= rot;
-}
-
-void Transform::RotateY(float _eulerY)
-{
-	Quaternion rot;
-	D3DXQuaternionIdentity(&rot);
-	D3DXQuaternionRotationAxis(&rot, &Vector3(0.f, 1.f, 0.f), D3DXToRadian(_eulerY));
-
-	m_qRotation *= rot;
-}
-
-void Transform::RotateZ(float _eulerZ)
-{
-	Quaternion rot;
-	D3DXQuaternionIdentity(&rot);
-	D3DXQuaternionRotationAxis(&rot, &Vector3(0.f, 0.f, 1.f), D3DXToRadian(_eulerZ));
-
-	m_qRotation *= rot;
-}
 
 const Quaternion & Transform::Get_Rotation() const
 {
@@ -273,6 +279,11 @@ void Transform::Get_RotationZ(Vector3 * _pOut, Vector3 _In)
 	_pOut->y = _In.x * sinf(radian) + _In.y * cosf(radian);
 }
 
+void Transform::Set_Rotation(const Quaternion & _quaternion)
+{
+	m_qRotation = _quaternion;
+}
+
 void Transform::Set_Rotation(float _eulerX, float _eulerY, float _eulerZ)
 {
 	D3DXQuaternionRotationYawPitchRoll(&m_qRotation,
@@ -300,6 +311,49 @@ void Transform::Set_RotationZ(float _eulerZ)
 	RotateX(_eulerZ);
 }
 
+void Transform::RotateX(float _eulerX)
+{
+	Quaternion rot;
+	D3DXQuaternionIdentity(&rot);
+	D3DXQuaternionRotationAxis(&rot, &Vector3(1.f, 0.f, 0.f), D3DXToRadian(_eulerX));
+
+	m_qRotation *= rot;
+}
+
+void Transform::RotateY(float _eulerY)
+{
+	Quaternion rot;
+	D3DXQuaternionIdentity(&rot);
+	D3DXQuaternionRotationAxis(&rot, &Vector3(0.f, 1.f, 0.f), D3DXToRadian(_eulerY));
+
+	m_qRotation *= rot;
+}
+
+void Transform::RotateZ(float _eulerZ)
+{
+	Quaternion rot;
+	D3DXQuaternionIdentity(&rot);
+	D3DXQuaternionRotationAxis(&rot, &Vector3(0.f, 0.f, 1.f), D3DXToRadian(_eulerZ));
+
+	m_qRotation *= rot;
+}
+
+void Transform::RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOut)
+{
+	Quaternion rot;
+	D3DXQuaternionRotationAxis(&rot, &_axis, _radian);
+	
+	
+	*_pOut = rot;
+}
+
+void Transform::RotateAxis(const Vector3 & _axis, float _radian)
+{
+	Quaternion rot;
+	D3DXQuaternionRotationAxis(&rot, &_axis, _radian);
+
+	m_qRotation *= rot;
+}
 
 
 const Vector3 & Transform::Get_Position() const

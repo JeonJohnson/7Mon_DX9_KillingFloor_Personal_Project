@@ -9,7 +9,7 @@
 TestScene::TestScene()
 {
 }
-
+ 
 
 TestScene::~TestScene()
 {
@@ -40,7 +40,11 @@ void TestScene::Initialize()
 	
 	{ //meshRender Test
 		GameObject* Test_Mesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Mesh");
-
+		Test_Mesh->Set_Position(Vector3(0.f, 0.f, 0.f));
+		Test_Mesh->Set_Scale(Vector3(0.5f, 0.5f, 0.5f));
+		Test_Mesh->RotateY(45.f);
+		//Test_Mesh->RotateX(45.f);
+		//Test_Mesh->RotateZ(45.f);
 
 		MeshRenderer::Desc Mesh_desc;
 		Test_Mesh->Add_Component<MeshRenderer>(&Mesh_desc);

@@ -17,7 +17,7 @@ private:
 	virtual ~ResourceManager();
 
 public:
-	void Initialize(const wstring& _szResourceFolderPath);
+	void Initialize(const wstring& _szResourceFolderPath = L"../../Resource/");
 	void Release();
 
 #pragma region Template

@@ -17,7 +17,7 @@ private:
 	virtual ~ResourceManager();
 
 public:
-	void Initialize();
+	void Initialize(const wstring& _szResourceFolderPath = L"../../Resource/");
 	void Release();
 
 #pragma region Template
@@ -83,6 +83,7 @@ public:
 	}
 
 #pragma endregion
+
 public:
 	void Load_AllResource();
 	void Delete_AllResource();
@@ -104,6 +105,7 @@ public:
 	
 	
 public: /* Get */
+	const wstring&	Get_ResourceFolderPath() const;
 
 public: /* Set */
 	void Set_ResourceFolderPath(const wstring& _wPath);

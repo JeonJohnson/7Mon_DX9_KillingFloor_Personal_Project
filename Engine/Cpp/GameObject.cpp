@@ -80,7 +80,6 @@ void GameObject::Release()
 
 		(*iter).second->Release();
 		delete (*iter).second;
-		(*iter).second = nullptr;
 
 		iter = m_vecComponents.erase(iter);
 	}
@@ -252,12 +251,52 @@ void GameObject::Add_ScaleZ(float _z)
 
 void GameObject::Set_Rotation(const Quaternion & _qRot)
 {
-	
+	m_Transform->Set_Rotation(_qRot);
 }
 
-void GameObject::Set_Rotation(float _x, float _y, float _z)
+void GameObject::Set_Rotation(float _eulerX, float _eulerY, float _eulerZ)
 {
-	
+	m_Transform->Set_Rotation(_eulerX, _eulerY, _eulerZ);
+}
+
+void GameObject::Set_RotationX(float _eulerX)
+{
+	m_Transform->Set_RotationX(_eulerX);
+}
+
+void GameObject::Set_RotationY(float _eulerY)
+{
+	m_Transform->Set_RotationY(_eulerY);
+}
+
+void GameObject::Set_RotationZ(float _eulerZ)
+{
+	m_Transform->Set_RotationZ(_eulerZ);
+}
+
+void GameObject::RotateX(float _eulerX)
+{
+	m_Transform->RotateX(_eulerX);
+}
+
+void GameObject::RotateY(float _eulerY)
+{
+	m_Transform->RotateY(_eulerY);
+}
+
+void GameObject::RotateZ(float _eulerZ)
+{
+	m_Transform->RotateZ(_eulerZ);
+}
+
+void GameObject::RotateAxis(const Vector3 & _axis, float _radian, Quaternion * _pOut)
+{
+	m_Transform->RotateAxis(_axis, _radian, _pOut);
+}
+
+void GameObject::RotateAxis(const Vector3 & _axis, float _radian)
+{
+	m_Transform->RotateAxis(_axis, _radian);
 }
 
 void GameObject::Set_DontDestroy(bool _FalseIsDestroyWhenChangeScene)

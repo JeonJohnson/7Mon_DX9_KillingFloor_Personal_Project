@@ -151,9 +151,9 @@ public: /* functions */
 
 public: /* Get */
 #pragma region Transform
-	Transform*		Get_Transform()		const;
-	const Vector3&	Get_Position()		const;
-	const Vector3&	Get_Scale()			const;
+	Transform*			Get_Transform()		const;
+	const Vector3&		Get_Position()		const;
+	const Vector3&		Get_Scale()			const;
 	const Quaternion&	Get_Rotation()	const;
 #pragma endregion
 
@@ -186,7 +186,16 @@ public: /* Set */
 
 	//rotation
 	void		Set_Rotation(const Quaternion& _qRot);
-	void		Set_Rotation(float _x, float _y, float _z);
+	void		Set_Rotation(float _eulerX, float _eulerY, float _eulerZ);
+	void		Set_RotationX(float _eulerX);
+	void		Set_RotationY(float _eulerY);
+	void		Set_RotationZ(float _eulerZ);
+	void		RotateX(float _eulerX);
+	void		RotateY(float _eulerY);
+	void		RotateZ(float _eulerZ);
+	void		RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOut);
+	void		RotateAxis(const Vector3& _axis, float _radian);
+
 #pragma endregion
 
 	void		Set_DontDestroy(bool _FalseIsDestroyWhenChangeScene);

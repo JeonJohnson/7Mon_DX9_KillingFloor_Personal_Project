@@ -43,60 +43,37 @@ void InputManager::Initialize(HINSTANCE hInst, HWND hWnd)
 
 void InputManager::Update()
 {
+	//전 프레임이랑 비교하기 위해서 
 	unsigned char*	Keyboard_TempState = m_ucKeyboard_PreState;
 	m_ucKeyboard_PreState = m_ucKeyboard_CurState;
 	m_ucKeyboard_CurState = Keyboard_TempState;
 
-	//키보드의 입력 상태를 저장할 변수 넘겨줌
-	m_pDInput8_Keyboard->GetDeviceState(256, m_ucKeyboard_CurState);
-	//마우스의 입력 상태를 저장할 구조체
-	m_pDInput8_Mouse->GetDeviceState(sizeof(m_tMouse_State), &m_tMouse_State);
+	//BYTE* Mouse_TempState = m_tMouseButton_PreState;
+	//m_tMouse_State.rgbButtons = 
+
+	Check_WindowFocus();
+
+
+	////키보드의 입력 상태를 저장할 변수 넘겨줌
+	//m_pDInput8_Keyboard->GetDeviceState(256, m_ucKeyboard_CurState);
+	////마우스의 입력 상태를 저장할 구조체
+	//m_pDInput8_Mouse->GetDeviceState(sizeof(m_tMouse_State), &m_tMouse_State);
 	
 }
 
 void InputManager::Release()
 {
+	Safe_Delete(m_ucKeyboard_CurState);
+	Safe_Delete(m_ucKeyboard_PreState);
+
 	m_pDInput8_Keyboard->Unacquire();
 	Safe_Release(m_pDInput8_Keyboard);
 	
+	//Safe_Delete(m_tMouseButton_PreState);
 	m_pDInput8_Mouse->Unacquire();
 	Safe_Release(m_pDInput8_Mouse);
 
 	Safe_Release(m_pDInput8_SDK);
-}
-
-bool InputManager::GetKeyUp(const BYTE & _KeyVal)
-{
-	//전 프레임에서는 눌려져 있었지만, 현 프레임에서 눌러져 있지 않은 상태.
-	if ((m_ucKeyboard_PreState[_KeyVal] & 0x80)
-		&& !(m_ucKeyboard_CurState[_KeyVal] & 0x80))
-	{
-		return true;
-	}
-
-	return false;
-}
-
-bool InputManager::GetKeyDown(const BYTE & _KeyVal)
-{
-	//전 프레임에서는 안 눌러져있다가 현 프레임에서는 눌려진 상태
-	if (!(m_ucKeyboard_PreState[_KeyVal] & 0x80)
-		&& (m_ucKeyboard_CurState[_KeyVal] & 0x80))
-	{
-		return true;
-	}
-
-	return false;
-}
-
-bool InputManager::GetKeyPress(const BYTE & _KeyVal)
-{
-	//걍 현 프레임에서만 눌려져 있으면 됨.
-	if (m_ucKeyboard_CurState[_KeyVal] & 0x80)
-	{
-		return true;
-	}
-	return false;
 }
 
 HRESULT InputManager::Keyboard_Create(HWND hWnd)
@@ -115,7 +92,7 @@ HRESULT InputManager::Keyboard_Create(HWND hWnd)
 	}
 
 	//장치에 대한 독점권 설정.
-	if (FAILED(m_pDInput8_Keyboard->SetCooperativeLevel(hWnd, DISCL_BACKGROUND | DISCL_NONEXCLUSIVE)))
+	if (FAILED(m_pDInput8_Keyboard->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_EXCLUSIVE)))
 	{
 		//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
 		return E_FAIL;
@@ -163,12 +140,70 @@ HRESULT InputManager::Mouse_Create(HWND hWnd)
 		return E_FAIL;
 	}
 
+	//m_tMouseButton_PreState = new BYTE[3];
 
+	ZeroMemory(&m_tMouse_State, sizeof(DIMOUSESTATE));
+	//ZeroMemory(&m_tMouseButton_PreState, sizeof(3));
 
 
 	return S_OK;
 
 }
+
+void InputManager::Check_WindowFocus()
+{
+	//장치가 변수를 못받는다?
+	//여러 요인이 있지만 보통 윈도우 포커스가 다른곳에 가서 그럼.
+	//그래서 매프레임 장치 찾아옴
+
+	//키보드의 입력 상태를 저장할 변수 넘겨줌
+	if (FAILED(m_pDInput8_Keyboard->GetDeviceState(256, m_ucKeyboard_CurState)))
+	{
+		m_pDInput8_Keyboard->Acquire();
+	}
+
+	//마우스의 입력 상태를 저장할 구조체
+	if (FAILED(m_pDInput8_Mouse->GetDeviceState(sizeof(m_tMouse_State), &m_tMouse_State)))
+	{
+		m_pDInput8_Mouse->Acquire();
+	}
+}
+
+bool InputManager::GetKeyUp(const BYTE & _KeyVal)
+{
+	//전 프레임에서는 눌려져 있었지만, 현 프레임에서 눌러져 있지 않은 상태.
+	if ((m_ucKeyboard_PreState[_KeyVal] & 0x80)
+		&& !(m_ucKeyboard_CurState[_KeyVal] & 0x80))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool InputManager::GetKeyDown(const BYTE & _KeyVal)
+{
+	//전 프레임에서는 안 눌러져있다가 현 프레임에서는 눌려진 상태
+	if (!(m_ucKeyboard_PreState[_KeyVal] & 0x80)
+		&& (m_ucKeyboard_CurState[_KeyVal] & 0x80))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool InputManager::GetKeyPress(const BYTE & _KeyVal)
+{
+	//걍 현 프레임에서만 눌려져 있으면 됨.
+	if (m_ucKeyboard_CurState[_KeyVal] & 0x80)
+
+	{
+		return true;
+	}
+	return false;
+}
+
 
 //bool InputManager::GetKeyUp(const DWORD & _dwKey)
 //{

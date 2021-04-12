@@ -25,8 +25,8 @@ ResourceManager::~ResourceManager()
 
 void ResourceManager::Initialize(const wstring& _szResourceFolderPath)
 {
-	//m_wFolderPath = _szResourceFolderPath;
-	m_wFolderPath = L"../../Resource/";
+	m_wFolderPath = _szResourceFolderPath;
+	//m_wFolderPath = L"../../Resource/";
 	Insert_VIBuffers();
 }
 

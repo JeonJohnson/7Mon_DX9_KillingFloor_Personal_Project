@@ -33,6 +33,8 @@ public:
 	HRESULT		Keyboard_Create(HWND hWnd);
 	HRESULT		Mouse_Create(HWND hWnd);
 
+	void		Check_WindowFocus();
+
 	
 	
 private:
@@ -44,6 +46,14 @@ private:
 
 	LPDIRECTINPUTDEVICE8		m_pDInput8_Mouse	= nullptr;
 	DIMOUSESTATE				m_tMouse_State;
+	//LONG    lX; -> 마우스 x 좌표 변화량
+	//LONG    lY; -> 마우스 y 좌표 변화량
+	//LONG    lZ; -> 마우스 휠 변화량
+	//BYTE    rgbButtons[4]; 
+	//0->좌클릭 
+	//1->우클릭
+	//2->휠버튼
+	//3->확장버튼
 	
 	//DWORD m_dwKey;
 	//DWORD m_dwKeyUp;

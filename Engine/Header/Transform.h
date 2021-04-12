@@ -32,7 +32,7 @@ public:
 
 public: /* General */
 	/* Function */
-	Vector3 QuaternionToEuler(Quaternion _q);
+	Vector3 QuaternionToEuler(Quaternion _quaternion);
 
 	/* Get */
 	const Vector3&		Get_Rotation_Euler() const;
@@ -50,7 +50,17 @@ public: /* Matrix */
 	const Matrix&		Get_WorldMatrix() const;
 
 	/* Set */
-	void				Set_WorldMatrix() const;
+	void				Set_WorldMatrix(const Matrix& _world);
+
+public: /* Vector */
+	/* Function */
+
+	/* Get */
+	Vector3	Get_Right();
+	Vector3	Get_Up();
+	Vector3	Get_Forward();
+
+	/* Set */
 
 public: /* Scale */
 	/* Function */
@@ -67,9 +77,6 @@ public: /* Scale */
 
 public: /* Rotation */
 	/* Function */
-	void RotateX(float _eulerX);
-	void RotateY(float _eulerY);
-	void RotateZ(float _eulerZ);
 
 	/* Get */
 	const Quaternion&	Get_Rotation() const;
@@ -79,10 +86,18 @@ public: /* Rotation */
 	void Get_RotationZ(Vector3* _pOut, Vector3 _In);
 	
 	/* Set */
+	void Set_Rotation(const Quaternion& _quaternion);
 	void Set_Rotation(float _eulerX, float _eulerY, float _eulerZ);
 	void Set_RotationX(float _eulerX);
 	void Set_RotationY(float _eulerY);
 	void Set_RotationZ(float _eulerZ);
+	void RotateX(float _eulerX);
+	void RotateY(float _eulerY);
+	void RotateZ(float _eulerZ);
+	//void RotateRollPitchYaw(float _x, float _y, float _z);
+	void RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOut);
+	void RotateAxis(const Vector3& _axis, float _radian);
+
 
 public: /* Transform(position) */
 	/* Function */
