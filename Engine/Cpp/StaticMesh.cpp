@@ -33,7 +33,7 @@ HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring
 		MeshFullPath.c_str(), /* 메쉬 경로 */
 		D3DXMESH_MANAGED, /* 메모리 관리 방법 */
 		m_pDX9_Device, /* 다렉9 디바이스 */
-		&m_pAdjacency, /* 매쉬접근을 위한 정보 */
+		&m_pAdjacency, /* 인접 매쉬접근을 위한 정보 */
 		&m_pMaterials, /* 머테리얼  */
 		nullptr, /*  */
 		&m_ulMaterial_Count, /* 머테리얼 개수 */

@@ -167,7 +167,8 @@ public: /* Get */
 public: /* Set */
 #pragma region Transform
 	void		Set_Transform(Transform* _pTransform);
-
+	
+	//position
 	void		Set_Position(const Vector3& _vPos);
 	void		Set_Position(float _x, float _y, float _z);
 	void		Add_Position(const Vector3& _vPos);
@@ -175,8 +176,7 @@ public: /* Set */
 	void		Add_PosY(float _y);
 	void		Add_PosZ(float _z);
 
-
-
+	//scale
 	void		Set_Scale(const Vector3& _vScale);
 	void		Set_Scale(float _x, float _y, float _z);
 	void		Add_Scale(const Vector3& _vScale);
@@ -184,6 +184,7 @@ public: /* Set */
 	void		Add_ScaleY(float _y);
 	void		Add_ScaleZ(float _z);
 
+	//rotation
 	void		Set_Rotation(const Quaternion& _qRot);
 	void		Set_Rotation(float _x, float _y, float _z);
 #pragma endregion

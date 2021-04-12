@@ -23,8 +23,9 @@ ResourceManager::~ResourceManager()
 	Release();
 }
 
-void ResourceManager::Initialize()
+void ResourceManager::Initialize(const wstring& _szResourceFolderPath)
 {
+	//m_wFolderPath = _szResourceFolderPath;
 	m_wFolderPath = L"../../Resource/";
 	Insert_VIBuffers();
 }
@@ -36,6 +37,7 @@ void ResourceManager::Release()
 
 void ResourceManager::Load_AllResource()
 {
+
 }
 
 void ResourceManager::Delete_AllResource()
@@ -118,6 +120,8 @@ void ResourceManager::Insert_VIBuffers()
 		Insert_Resource<VIBuffer, Rect_VIBuffer_Color>(L"Rect_Color");
 		Insert_Resource<VIBuffer, Rect_VIBuffer_Texture>(L"Rect_Texture");
 
+		//Grid
+
 	}
 
 
@@ -129,6 +133,11 @@ void ResourceManager::Insert_VIBuffers()
 
 
 
+}
+
+const wstring & ResourceManager::Get_ResourceFolderPath() const
+{
+	return m_wFolderPath;
 }
 
 void ResourceManager::Set_ResourceFolderPath(const wstring & _wPath)
