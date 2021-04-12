@@ -34,6 +34,15 @@
 #pragma endregion
 
 #pragma region DinputDefine
+//Mouse
+#define KEY_STATE_LMouse	0
+#define KEY_STATE_RMouse	1
+#define KEY_STATE_WHEEL		2
+
+#define KEY_STATE_MouseX	0
+#define KEY_STATE_MouseY	1
+#define KEY_STATE_MouseZ	2
+
 //키보드 배열 순서대로 좌->우 left->Right
 //Upper F~ / 1열
 #define	KEY_STATE_ESC		DIK_ESCAPE

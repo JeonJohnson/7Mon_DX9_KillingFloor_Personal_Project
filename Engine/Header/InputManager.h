@@ -31,28 +31,26 @@ public:
 	//0x80 이랑 &으로 비트 연산을 했을때 결과값이
 	//0이면 키 때짐 = false
 	//1이면 눌림 = true
-	bool	GetKeyUp(const BYTE& _KeyVal);
-	bool	GetKeyDown(const BYTE& _KeyVal);
-	bool	GetKeyPress(const BYTE& _KeyVal);
+	bool	GetKeyUp(BYTE _KeyVal);
+	bool	GetKeyDown(BYTE _KeyVal);
+	bool	GetKeyPress(BYTE _KeyVal);
 	
-	bool	GetMouseUp();
-	bool	GetMouseDown();
-	bool	GetMousePress();
-
-
+	bool	GetMouseUp(int _MouseVal);
+	bool	GetMouseDown(int _MouseVal);
+	bool	GetMousePress(int _MouseVal);
+	int		GetMouseMove(int _MouseMove);
 	
 	
 private:
-	LPDIRECTINPUT8				m_pDInput8_SDK	= nullptr;
+	LPDIRECTINPUT8				m_pDInput8_SDK			= nullptr;
 	
-	LPDIRECTINPUTDEVICE8		m_pDInput8_Keyboard = nullptr;
+	LPDIRECTINPUTDEVICE8		m_pDInput8_Keyboard		= nullptr;
 	BYTE*						m_ucKeyboard_CurState;
 	BYTE*						m_ucKeyboard_PreState;
 
-	LPDIRECTINPUTDEVICE8		m_pDInput8_Mouse	= nullptr;
+	LPDIRECTINPUTDEVICE8		m_pDInput8_Mouse		= nullptr;
 	DIMOUSESTATE				m_tMouse_State;
-	//BYTE*						m_tMouseButton_PreState;
-
+	//BYTE*						m_tMouseButton_PreState = nullptr;
 	//LONG    lX; -> 마우스 x 좌표 변화량
 	//LONG    lY; -> 마우스 y 좌표 변화량
 	//LONG    lZ; -> 마우스 휠 변화량

@@ -18,6 +18,10 @@
 #define KeyUp(KeyValue) Engine_Mother::Get_Instance()->GetKeyUp(KeyValue)
 #define KeyDown(KeyValue) Engine_Mother::Get_Instance()->GetKeyDown(KeyValue)
 #define KeyPress(KeyValue) Engine_Mother::Get_Instance()->GetKeyPress(KeyValue)
+#define MouseUp(MouseValue) Engine_Mother::Get_Instance()->GetMouseUp(MouseValue)
+#define MouseDown(MouseValue) Engine_Mother::Get_Instance()->GetMouseDown(MouseValue)
+#define MousePress(MouseValue) Engine_Mother::Get_Instance()->GetMousePress(MouseValue)
+#define MouseMove(Mouse)		Engine_Mother::Get_Instance()->GetMouseMove(Mouse)
 
 #pragma region Functions
 #define	Declare_Singleton(Class)				\

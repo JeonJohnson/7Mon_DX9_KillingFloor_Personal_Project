@@ -24,6 +24,10 @@ public:
 	virtual void Release() override;
 
 public:
+	void Move();
+	void Look();
+
+public:
 };
 
 #endif //_CAMERA_FREEMOVE_H_

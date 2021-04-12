@@ -81,9 +81,16 @@ public: /* Time Manager */
 	int		Get_FPS() const;
 
 public: /* Input Manager */
-	bool GetKeyUp(const BYTE& _keyValue);
-	bool GetKeyDown(const BYTE& _keyValue);
-	bool GetKeyPress(const BYTE& _keyValue);
+	bool	GetKeyUp(const BYTE& _keyValue);
+	bool	GetKeyDown(const BYTE& _keyValue);
+	bool	GetKeyPress(const BYTE& _keyValue);
+	
+	bool	GetMouseUp(int _MouseVal);
+	bool	GetMouseDown(int _MouseVal);
+	bool	GetMousePress(int _MouseVal);
+	int		GetMouseMove(int _MouseMove);
+
+	
 
 public: /* Scene Manager */
 	void Add_Scene(const wstring& _wName, Scene* _pScene);

@@ -126,6 +126,26 @@ bool Engine_Mother::GetKeyPress(const BYTE & _keyValue)
 	return m_pInputManager->Get_Instance()->GetKeyPress(_keyValue);
 }
 
+bool Engine_Mother::GetMouseUp(int _MouseVal)
+{
+	return m_pInputManager->Get_Instance()->GetMouseUp(_MouseVal);
+}
+
+bool Engine_Mother::GetMouseDown(int _MouseVal)
+{
+	return m_pInputManager->Get_Instance()->GetMouseDown(_MouseVal);
+}
+
+bool Engine_Mother::GetMousePress(int _MouseVal)
+{
+	return m_pInputManager->Get_Instance()->GetMousePress(_MouseVal);
+}
+
+int Engine_Mother::GetMouseMove(int _MouseMove)
+{
+	return m_pInputManager->Get_Instance()->GetMouseMove(_MouseMove);
+}
+
 void Engine_Mother::Add_Scene(const wstring & _wName, Scene * _pScene)
 {
 	m_pSceneManager->Insert_Scene(_wName, _pScene);

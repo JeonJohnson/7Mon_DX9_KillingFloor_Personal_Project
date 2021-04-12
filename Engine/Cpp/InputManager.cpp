@@ -48,12 +48,14 @@ void InputManager::Update()
 	m_ucKeyboard_PreState = m_ucKeyboard_CurState;
 	m_ucKeyboard_CurState = Keyboard_TempState;
 
-	//BYTE* Mouse_TempState = m_tMouseButton_PreState;
-	//m_tMouse_State.rgbButtons = 
+	//BYTE* Mouse_TempState = new BYTE[4];
+	//memcpy(&Mouse_TempState, &m_tMouseButton_PreState, sizeof(4));
+	//memcpy(&m_tMouseButton_PreState, &m_tMouse_State.rgbButtons, sizeof(4));
+	//memcpy(&m_tMouse_State.rgbButtons, Mouse_TempState, sizeof(4));
+
+	//delete Mouse_TempState;
 
 	Check_WindowFocus();
-
-
 	////키보드의 입력 상태를 저장할 변수 넘겨줌
 	//m_pDInput8_Keyboard->GetDeviceState(256, m_ucKeyboard_CurState);
 	////마우스의 입력 상태를 저장할 구조체
@@ -65,7 +67,6 @@ void InputManager::Release()
 {
 	Safe_Delete(m_ucKeyboard_CurState);
 	Safe_Delete(m_ucKeyboard_PreState);
-
 	m_pDInput8_Keyboard->Unacquire();
 	Safe_Release(m_pDInput8_Keyboard);
 	
@@ -140,10 +141,12 @@ HRESULT InputManager::Mouse_Create(HWND hWnd)
 		return E_FAIL;
 	}
 
-	//m_tMouseButton_PreState = new BYTE[3];
+	//m_tMouseButton_PreState = new BYTE[4];
+	//int temp = sizeof(BYTE);
+	//ZeroMemory(&m_tMouseButton_PreState, sizeof(4));
 
 	ZeroMemory(&m_tMouse_State, sizeof(DIMOUSESTATE));
-	//ZeroMemory(&m_tMouseButton_PreState, sizeof(3));
+	
 
 
 	return S_OK;
@@ -169,7 +172,7 @@ void InputManager::Check_WindowFocus()
 	}
 }
 
-bool InputManager::GetKeyUp(const BYTE & _KeyVal)
+bool InputManager::GetKeyUp(BYTE _KeyVal)
 {
 	//전 프레임에서는 눌려져 있었지만, 현 프레임에서 눌러져 있지 않은 상태.
 	if ((m_ucKeyboard_PreState[_KeyVal] & 0x80)
@@ -181,7 +184,7 @@ bool InputManager::GetKeyUp(const BYTE & _KeyVal)
 	return false;
 }
 
-bool InputManager::GetKeyDown(const BYTE & _KeyVal)
+bool InputManager::GetKeyDown(BYTE _KeyVal)
 {
 	//전 프레임에서는 안 눌러져있다가 현 프레임에서는 눌려진 상태
 	if (!(m_ucKeyboard_PreState[_KeyVal] & 0x80)
@@ -193,15 +196,71 @@ bool InputManager::GetKeyDown(const BYTE & _KeyVal)
 	return false;
 }
 
-bool InputManager::GetKeyPress(const BYTE & _KeyVal)
+bool InputManager::GetKeyPress(BYTE  _KeyVal)
 {
 	//걍 현 프레임에서만 눌려져 있으면 됨.
 	if (m_ucKeyboard_CurState[_KeyVal] & 0x80)
-
 	{
 		return true;
 	}
 	return false;
+}
+
+bool InputManager::GetMouseUp(int _MouseVal)
+{
+	//전 프레임에서는 눌려져 있었지만, 현 프레임에서 눌러져 있지 않은 상태.
+	//if ((m_tMouseButton_PreState[_MouseVal] & 0x80)
+	//	&& !(m_tMouse_State.rgbButtons[_MouseVal] & 0x80))
+	//{
+	//	return true;
+	//}
+
+	return false;
+}
+
+bool InputManager::GetMouseDown(int _MouseVal)
+{
+	//전 프레임에서는 안 눌러져있다가 현 프레임에서는 눌려진 상태
+	//if (!(m_tMouseButton_PreState[_MouseVal] & 0x80)
+	//	&& (m_tMouse_State.rgbButtons[_MouseVal] & 0x80))
+	//{
+	//	return true;
+	//}
+
+	return false;
+}
+
+bool InputManager::GetMousePress(int _MouseVal)
+{
+	if (m_tMouse_State.rgbButtons[_MouseVal] & 0x80)
+	{
+		return true;
+	}
+	return false;
+}
+
+int InputManager::GetMouseMove(int _MouseMove)
+{
+	switch (_MouseMove)
+	{
+	case 0:
+	{
+		return m_tMouse_State.lX;
+	}
+	break;
+
+	case 1:
+	{
+		return m_tMouse_State.lY;
+	}
+	break;
+
+	case 2:
+	{
+		return m_tMouse_State.lZ;
+	}
+	break;
+	}
 }
 
 
