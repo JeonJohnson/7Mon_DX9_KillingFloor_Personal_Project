@@ -20,6 +20,8 @@ void Camera_FreeMove::Update()
 	Move();
 	Look();
 
+	
+
 	//if (GetAsyncKeyState(VK_UP) & 0x8000)
 	//{
 	//	m_Transform->Add_PosY(5.f * dTime);
@@ -48,6 +50,8 @@ void Camera_FreeMove::Update()
 	//{
 	//	m_GameObject->Get_Component<Camera>()->Get_Transform()->Add_PosZ(-5.f* dTime);
 	//}
+
+
 }
 
 void Camera_FreeMove::LateUpdate()
@@ -100,6 +104,6 @@ void Camera_FreeMove::Look()
 	m_Transform->RotateY(fMouseMoveX * dTime);
 	m_Transform->RotateX(fMouseMoveY * dTime);
 
-	//Áü¹ú¶ô ³ª¿È
+	//Áü¹ú¶ô ³ª¿È -> 
 }
 

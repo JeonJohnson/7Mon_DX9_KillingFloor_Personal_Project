@@ -18,8 +18,13 @@ void Player_Move::Update()
 {
 	Move_Test();
 
-
 	
+	m_Transform->Add_PosY(MouseMove(KEY_STATE_WHEEL) * dTime);
+
+	if(MouseDown(KEY_STATE_LMouse))
+	{
+		m_Transform->Add_PosY(10.f * dTime);
+	}
 }
 
 void Player_Move::LateUpdate()
@@ -36,7 +41,7 @@ void Player_Move::Release()
 
 void Player_Move::Move_Test()
 {
-
+	/* Test */
 
 	//if (KeyPress(DIK_W))
 	//{

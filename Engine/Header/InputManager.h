@@ -50,7 +50,7 @@ private:
 
 	LPDIRECTINPUTDEVICE8		m_pDInput8_Mouse		= nullptr;
 	DIMOUSESTATE				m_tMouse_State;
-	//BYTE*						m_tMouseButton_PreState = nullptr;
+	BYTE*						m_tMouseButton_PreState = nullptr;
 	//LONG    lX; -> 마우스 x 좌표 변화량
 	//LONG    lY; -> 마우스 y 좌표 변화량
 	//LONG    lZ; -> 마우스 휠 변화량
