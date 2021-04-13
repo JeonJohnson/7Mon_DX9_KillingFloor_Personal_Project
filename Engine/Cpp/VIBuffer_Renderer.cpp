@@ -52,41 +52,39 @@ void VIBuffer_Renderer::Render()
 	m_pVIBuffer->Render_Texture(0);
 
 	m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
-///*Test*/
-//	m_pDX9Device->SetTransform(D3DTS_VIEW, &m_matView);
-//	m_pDX9Device->SetTransform(D3DTS_PROJECTION, &m_matProj);
-///*Test*/
+
 	if (FAILED(Binding_Stream_VIBuffer()))
 	{
 		assert(0 && L"VIBuffer Binding Stream is Failed");
 	}
 
-	//m_pDX9Device->DrawPrimitive(
-	//	D3DPT_TRIANGLELIST //그리고자하는 방식, 시계방향으로 삼각형을 그리겠다.
+	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
+
+	m_pDX9_Device->DrawPrimitive(
+		D3DPT_LINELIST, //그리고자하는 방식, 시계방향으로 삼각형을 그리겠다.
+		0, //버텍스 읽기를 시작할 버텍스 스트림 요소의 인덱스
+		1 //그릴 개수.
+	); //VBuffer만 이용해서 그리는거
+
+
+	//m_pDX9_Device->DrawPrimitive(
+	//	D3DPT_TRIANGLELIST, //그리고자하는 방식, 시계방향으로 삼각형을 그리겠다.
 	//	0, //버텍스 읽기를 시작할 버텍스 스트림 요소의 인덱스
 	//	1 //그릴 개수.
-	//); VBuffer만 이용해서 그리는거
+	//); //VBuffer만 이용해서 그리는거
 
-	//if (FAILED(m_pDX9Device->SetTransform(D3DTS_WORLD, 
-	//	&m_GameObject->Get_Transform()->Get_WorldMatrix())))
+	
+
+	//if (FAILED(m_pDX9_Device->DrawIndexedPrimitive(
+	//	D3DPT_TRIANGLELIST, //그리고자하는 방식.
+	//	0, 0,
+	//	m_pVIBuffer->Get_VBuffer_Info().m_iVertexCount, //정점의 개수
+	//	0,
+	//	m_pVIBuffer->Get_VBuffer_Info().m_iPolyCount //그릴 기본형의 개수.
+	//)))
 	//{
-	//	assert(L"VIBufferRenderer SetTransform to Device is failed" && nullptr );
+	//	assert(0 && L"VIBuffer Object Draw Failed");
 	//}
-	
-	//Matrix temp = m_GameObject->Get_Transform()->Get_WorldMatrix();
-
-	
-
-	if (FAILED(m_pDX9_Device->DrawIndexedPrimitive(
-		D3DPT_TRIANGLELIST, //그리고자하는 방식.
-		0, 0,
-		m_pVIBuffer->Get_VBuffer_Info().m_iVertexCount, //정점의 개수
-		0,
-		m_pVIBuffer->Get_VBuffer_Info().m_iPolyCount //그릴 기본형의 개수.
-	)))
-	{
-		assert(0 && L"VIBuffer Object Draw Failed");
-	}
 }
 
 

@@ -71,7 +71,7 @@ void InputManager::Release()
 	m_pDInput8_Keyboard->Unacquire();
 	Safe_Release(m_pDInput8_Keyboard);
 	
-	Safe_Delete(m_tMouseButton_PreState);
+	Safe_Delete_Arr(m_tMouseButton_PreState);
 	m_pDInput8_Mouse->Unacquire();
 	Safe_Release(m_pDInput8_Mouse);
 

@@ -44,6 +44,11 @@ const IBUFFER_INFO & VIBuffer::Get_IBuffer_Info() const
 	return m_tIBInfo;
 }
 
+D3DPRIMITIVETYPE VIBuffer::Get_DrawType() const
+{
+	return m_eDrawType;
+}
+
 int VIBuffer::Get_RenderLayer() const
 {
 	return m_iRenderLayer;
@@ -67,6 +72,11 @@ void VIBuffer::Set_VBufferInfo(const VBUFFER_INFO & _tVBuffer)
 void VIBuffer::Set_IBufferInfo(const IBUFFER_INFO & _tIBuffer)
 {
 	m_tIBInfo = _tIBuffer;
+}
+
+void VIBuffer::Set_DrawType(D3DPRIMITIVETYPE _type)
+{
+	m_eDrawType = _type;
 }
 
 void VIBuffer::Set_RenderLayer(int _iRenderLayer)

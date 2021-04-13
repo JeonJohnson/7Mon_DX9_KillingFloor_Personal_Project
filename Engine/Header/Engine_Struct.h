@@ -86,6 +86,12 @@ typedef struct tagIndex32
 	DWORD	_1, _2, _3;
 	//그릴때 최소 단위가 삼각형임으로 3개씩.
 }INDEX_32;
+
+typedef struct tagIndex32_Line
+{
+	DWORD	_1, _2;
+}INDEX_32_LINE;
+
 typedef struct tagIndexBufferInfo
 {
 	D3DFORMAT		m_tIndexFMT;

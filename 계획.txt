@@ -320,3 +320,15 @@ DInput넣는중.
 카메라 프리무브 술취한느낌인데 일단 걍 냅두고 난중에
 스태틱 매쉬랑 리쏘스 매니저 정리 끝남.
 
+20:41 2021-04-13 화
+=> VIBuffer로 Grid랑 Gizmo 만들자.
+    D3DPT_POINTLIST             = 1,
+    D3DPT_LINELIST              = 2,
+    D3DPT_LINESTRIP             = 3,
+    D3DPT_TRIANGLELIST          = 4,
+    D3DPT_TRIANGLESTRIP         = 5,
+    D3DPT_TRIANGLEFAN           = 6,
+렌더 세팅(불 키고 끄고), 그리고자 하는 방식 다 각각 옵션값으로 가지고 Renderer에서 해주기.
+오늘 꼭 시발 이거 두개는 하고 자야함. 그래야 진짜 내일부터 MFC하지..
+
+

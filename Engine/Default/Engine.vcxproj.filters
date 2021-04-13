@@ -89,15 +89,6 @@
     <Filter Include="06.Resource\00.VIBuffer">
       <UniqueIdentifier>{0693cd42-8855-44be-b523-cc54e6dcf699}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\00.Triangle">
-      <UniqueIdentifier>{1584bd63-fbc3-4d33-b3ce-bb2c791451c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\01.Rect">
-      <UniqueIdentifier>{84ec73d5-6fcf-4794-99db-3122b294e5fb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\02.Cube">
-      <UniqueIdentifier>{51fd29e1-39c0-47af-8dfe-5b4ec157786d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="00.Mother">
       <UniqueIdentifier>{15671e5b-2bc2-4020-acfb-91c83665bca1}</UniqueIdentifier>
     </Filter>
@@ -109,27 +100,6 @@
     </Filter>
     <Filter Include="04.Component\02.Camera">
       <UniqueIdentifier>{51333a50-2a30-454c-a0f9-9846d2c74f15}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\03.SkyBox">
-      <UniqueIdentifier>{d49760c5-d5ab-4e5d-862d-e26e2cfa6aed}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\04.Sphere">
-      <UniqueIdentifier>{a270a619-3ff3-4299-a722-59a85c1c27dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\02.Cube\00.Color">
-      <UniqueIdentifier>{9391b299-58c9-41b8-b579-b1c89e0e7f7f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\02.Cube\01.Texture_Imgae">
-      <UniqueIdentifier>{fe9c70e3-1ca4-477a-9f81-210f609eea0d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\02.Cube\02.DDS">
-      <UniqueIdentifier>{bc8587de-2385-4e83-9c49-519b06c0a84c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\01.Rect\01.Texture_Image">
-      <UniqueIdentifier>{2dcb53dd-8626-4818-9073-0f14aa213f11}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\01.Rect\00.Color">
-      <UniqueIdentifier>{987b3ad2-e593-46e1-b831-fd0507e06e20}</UniqueIdentifier>
     </Filter>
     <Filter Include="01.Manager\07.UiManager">
       <UniqueIdentifier>{57777b2c-7a59-4123-a81d-f33b66266076}</UniqueIdentifier>
@@ -158,9 +128,6 @@
     <Filter Include="97.System\00.FPS">
       <UniqueIdentifier>{c95c7d61-9574-4f3d-b36a-675f9a65cd7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\01.Rect\02.Grid">
-      <UniqueIdentifier>{cf306630-7c60-4bcb-8746-bfdb7bd2ec2c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="06.Resource\02.Texture">
       <UniqueIdentifier>{930bd6be-7d46-4f4a-b929-428219d8df01}</UniqueIdentifier>
     </Filter>
@@ -184,6 +151,48 @@
     </Filter>
     <Filter Include="04.Component\01.Renderer\Mesh">
       <UniqueIdentifier>{66f99d37-a6e5-4a95-a0b6-2e0b80d594ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\00.Line">
+      <UniqueIdentifier>{e48dbcc0-3293-42e3-9e8f-e5c8c86ce763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\00.Line\Grid">
+      <UniqueIdentifier>{5438ed5b-2b60-4de7-bf15-e20c728078db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\00.Line\Gizmo">
+      <UniqueIdentifier>{f570a6e7-d073-47b0-adcb-e500c9b3964d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\01.Triangle">
+      <UniqueIdentifier>{1584bd63-fbc3-4d33-b3ce-bb2c791451c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\02.Rect">
+      <UniqueIdentifier>{84ec73d5-6fcf-4794-99db-3122b294e5fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\02.Rect\01.Texture_Image">
+      <UniqueIdentifier>{2dcb53dd-8626-4818-9073-0f14aa213f11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\02.Rect\00.Color">
+      <UniqueIdentifier>{987b3ad2-e593-46e1-b831-fd0507e06e20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\02.Rect\02.Grid">
+      <UniqueIdentifier>{cf306630-7c60-4bcb-8746-bfdb7bd2ec2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\03.Cube">
+      <UniqueIdentifier>{51fd29e1-39c0-47af-8dfe-5b4ec157786d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\03.Cube\00.Color">
+      <UniqueIdentifier>{9391b299-58c9-41b8-b579-b1c89e0e7f7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\03.Cube\01.Texture_Imgae">
+      <UniqueIdentifier>{fe9c70e3-1ca4-477a-9f81-210f609eea0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\03.Cube\02.DDS">
+      <UniqueIdentifier>{bc8587de-2385-4e83-9c49-519b06c0a84c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\04.SkyBox">
+      <UniqueIdentifier>{d49760c5-d5ab-4e5d-862d-e26e2cfa6aed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\05.Sphere">
+      <UniqueIdentifier>{a270a619-3ff3-4299-a722-59a85c1c27dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -236,7 +245,7 @@
       <Filter>06.Resource\00.VIBuffer</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Triangle_VIBuffer_Color.cpp">
-      <Filter>06.Resource\00.VIBuffer\00.Triangle</Filter>
+      <Filter>06.Resource\00.VIBuffer\01.Triangle</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Engine_Mother.cpp">
       <Filter>00.Mother</Filter>
@@ -254,25 +263,25 @@
       <Filter>04.Component\02.Camera</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\SkyBox_VIBuffer_DDS.cpp">
-      <Filter>06.Resource\00.VIBuffer\03.SkyBox</Filter>
+      <Filter>06.Resource\00.VIBuffer\04.SkyBox</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp">
-      <Filter>06.Resource\00.VIBuffer\01.Rect\00.Color</Filter>
+      <Filter>06.Resource\00.VIBuffer\02.Rect\00.Color</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Cube_VIBuffer_Texture.cpp">
-      <Filter>06.Resource\00.VIBuffer\02.Cube\01.Texture_Imgae</Filter>
+      <Filter>06.Resource\00.VIBuffer\03.Cube\01.Texture_Imgae</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Texture.cpp">
-      <Filter>06.Resource\00.VIBuffer\01.Rect\01.Texture_Image</Filter>
+      <Filter>06.Resource\00.VIBuffer\02.Rect\01.Texture_Image</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Cube_VIBuffer_DDS.cpp">
-      <Filter>06.Resource\00.VIBuffer\02.Cube\02.DDS</Filter>
+      <Filter>06.Resource\00.VIBuffer\03.Cube\02.DDS</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Texture.cpp">
       <Filter>06.Resource\02.Texture</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Cube_VIBuffer_Color.cpp">
-      <Filter>06.Resource\00.VIBuffer\02.Cube\00.Color</Filter>
+      <Filter>06.Resource\00.VIBuffer\03.Cube\00.Color</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\UI_Renderer.cpp">
       <Filter>04.Component\01.Renderer\UI</Filter>
@@ -296,7 +305,7 @@
       <Filter>01.Manager\98.SystemManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Rect_Grid.cpp">
-      <Filter>06.Resource\00.VIBuffer\01.Rect\02.Grid</Filter>
+      <Filter>06.Resource\00.VIBuffer\02.Rect\02.Grid</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\StaticMesh.cpp">
       <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>
@@ -309,6 +318,12 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Mesh_Renderer.cpp">
       <Filter>04.Component\01.Renderer\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Line_VIBuffer_Gizmo.cpp">
+      <Filter>06.Resource\00.VIBuffer\00.Line\Gizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp">
+      <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -382,7 +397,7 @@
       <Filter>06.Resource\00.VIBuffer</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Triangle_VIBuffer_Color.h">
-      <Filter>06.Resource\00.VIBuffer\00.Triangle</Filter>
+      <Filter>06.Resource\00.VIBuffer\01.Triangle</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Mother.h">
       <Filter>00.Mother</Filter>
@@ -400,25 +415,25 @@
       <Filter>04.Component\02.Camera</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\SkyBox_VIBuffer_DDS.h">
-      <Filter>06.Resource\00.VIBuffer\03.SkyBox</Filter>
+      <Filter>06.Resource\00.VIBuffer\04.SkyBox</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h">
-      <Filter>06.Resource\00.VIBuffer\01.Rect\00.Color</Filter>
+      <Filter>06.Resource\00.VIBuffer\02.Rect\00.Color</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Cube_VIBuffer_Texture.h">
-      <Filter>06.Resource\00.VIBuffer\02.Cube\01.Texture_Imgae</Filter>
+      <Filter>06.Resource\00.VIBuffer\03.Cube\01.Texture_Imgae</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Rect_VIBuffer_Texture.h">
-      <Filter>06.Resource\00.VIBuffer\01.Rect\01.Texture_Image</Filter>
+      <Filter>06.Resource\00.VIBuffer\02.Rect\01.Texture_Image</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Cube_VIBuffer_DDS.h">
-      <Filter>06.Resource\00.VIBuffer\02.Cube\02.DDS</Filter>
+      <Filter>06.Resource\00.VIBuffer\03.Cube\02.DDS</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Texture.h">
       <Filter>06.Resource\02.Texture</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Cube_VIBuffer_Color.h">
-      <Filter>06.Resource\00.VIBuffer\02.Cube\00.Color</Filter>
+      <Filter>06.Resource\00.VIBuffer\03.Cube\00.Color</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\UI_Renderer.h">
       <Filter>04.Component\01.Renderer\UI</Filter>
@@ -442,7 +457,7 @@
       <Filter>01.Manager\98.SystemManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Rect_Grid.h">
-      <Filter>06.Resource\00.VIBuffer\01.Rect\02.Grid</Filter>
+      <Filter>06.Resource\00.VIBuffer\02.Rect\02.Grid</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\StaticMesh.h">
       <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>
@@ -455,6 +470,12 @@
     </ClInclude>
     <ClInclude Include="..\Header\Mesh_Renderer.h">
       <Filter>04.Component\01.Renderer\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Line_VIBuffer_Gizmo.h">
+      <Filter>06.Resource\00.VIBuffer\00.Line\Gizmo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Line_VIBuffer_Grid.h">
+      <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

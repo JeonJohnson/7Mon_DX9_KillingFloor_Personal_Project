@@ -133,16 +133,21 @@ void ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _sz
 
 void ResourceManager::Insert_VIBuffers()
 {
-	{ //Rects
-		Insert_Resource<VIBuffer, Rect_VIBuffer_Color>(L"Rect_Color");
-		Insert_Resource<VIBuffer, Rect_VIBuffer_Texture>(L"Rect_Texture");
 
-		//Grid
+	{ //Lines
+	
 
 	}
 
 
-	{ //Cube
+	{ //Rects
+		Insert_Resource<VIBuffer, Rect_VIBuffer_Color>(L"Rect_Color");
+		Insert_Resource<VIBuffer, Rect_VIBuffer_Texture>(L"Rect_Texture");
+
+	}
+
+
+	{ //Cubes
 		Insert_Resource<VIBuffer, Cube_VIBuffer_Color>(L"Cube_Color");
 		Insert_Resource<VIBuffer, Cube_VIBuffer_Texture>(L"Cube_Texture");
 		Insert_Resource<VIBuffer, Cube_VIBuffer_DDS>(L"Cube_DDS");

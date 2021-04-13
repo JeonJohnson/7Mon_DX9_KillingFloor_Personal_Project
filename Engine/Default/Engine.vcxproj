@@ -199,6 +199,8 @@
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\InputManager.h" />
+    <ClInclude Include="..\Header\Line_VIBuffer_Gizmo.h" />
+    <ClInclude Include="..\Header\Line_VIBuffer_Grid.h" />
     <ClInclude Include="..\Header\Mesh.h" />
     <ClInclude Include="..\Header\Mesh_Renderer.h" />
     <ClInclude Include="..\Header\Rect_Grid.h" />
@@ -242,6 +244,8 @@
     <ClCompile Include="..\Cpp\GameObject.cpp" />
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
+    <ClCompile Include="..\Cpp\Line_VIBuffer_Gizmo.cpp" />
+    <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp" />
     <ClCompile Include="..\Cpp\Mesh.cpp" />
     <ClCompile Include="..\Cpp\Mesh_Renderer.cpp" />
     <ClCompile Include="..\Cpp\Rect_Grid.cpp" />
