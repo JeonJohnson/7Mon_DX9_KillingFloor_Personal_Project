@@ -178,6 +178,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\Header\AnimMesh.h" />
     <ClInclude Include="..\Header\Camera.h" />
     <ClInclude Include="..\Header\Component.h" />
     <ClInclude Include="..\Header\Cube_VIBuffer_Color.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\InputManager.h" />
+    <ClInclude Include="..\Header\Mesh.h" />
     <ClInclude Include="..\Header\MeshRenderer.h" />
     <ClInclude Include="..\Header\Rect_Grid.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h" />
@@ -226,6 +228,7 @@
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\AnimMesh.cpp" />
     <ClCompile Include="..\Cpp\Camera.cpp" />
     <ClCompile Include="..\Cpp\Component.cpp" />
     <ClCompile Include="..\Cpp\Cube_VIBuffer_Color.cpp" />
@@ -239,6 +242,7 @@
     <ClCompile Include="..\Cpp\GameObject.cpp" />
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
+    <ClCompile Include="..\Cpp\Mesh.cpp" />
     <ClCompile Include="..\Cpp\MeshRenderer.cpp" />
     <ClCompile Include="..\Cpp\Rect_Grid.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp" />
