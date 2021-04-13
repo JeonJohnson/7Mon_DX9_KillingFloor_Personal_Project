@@ -165,3 +165,8 @@ void Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)
 {
 	m_pResourceManager->Load_Texture(_wPath, _wName);
 }
+
+void Engine_Mother::Load_StaticMesh(const wstring & _szMeshPath, const wstring & _szTexPath, const wstring & _szMeshName)
+{
+	m_pResourceManager->Load_StaticMesh(_szMeshPath, _szTexPath, _szMeshName);
+}

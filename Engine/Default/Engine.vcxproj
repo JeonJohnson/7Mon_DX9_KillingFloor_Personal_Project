@@ -200,7 +200,7 @@
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\InputManager.h" />
     <ClInclude Include="..\Header\Mesh.h" />
-    <ClInclude Include="..\Header\MeshRenderer.h" />
+    <ClInclude Include="..\Header\Mesh_Renderer.h" />
     <ClInclude Include="..\Header\Rect_Grid.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Texture.h" />
@@ -243,7 +243,7 @@
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
     <ClCompile Include="..\Cpp\Mesh.cpp" />
-    <ClCompile Include="..\Cpp\MeshRenderer.cpp" />
+    <ClCompile Include="..\Cpp\Mesh_Renderer.cpp" />
     <ClCompile Include="..\Cpp\Rect_Grid.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Texture.cpp" />

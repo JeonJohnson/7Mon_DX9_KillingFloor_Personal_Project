@@ -8,6 +8,9 @@
 #include "CResource.h"
 
 class Texture;
+class StaticMesh;
+class AnimMesh;
+
 class DLL_STATE ResourceManager
 {
 	Declare_Singleton(ResourceManager)
@@ -98,14 +101,18 @@ public:
 	void Load_DDS();
 	void Load_AllDDSs();
 	
+	
+	StaticMesh* Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName = L"");
+	AnimMesh*	Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szTexPath);
 	void Load_Mesh(const wstring& _szMeshPath, const wstring& _szTexPath);
 	void Load_AllMeshs();
 
 	void Insert_VIBuffers();
 	
-	
+	wstring			EraseFolderPath(wstring _FullPath);
 public: /* Get */
 	const wstring&	Get_ResourceFolderPath() const;
+	
 
 public: /* Set */
 	void Set_ResourceFolderPath(const wstring& _wPath);

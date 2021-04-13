@@ -20,7 +20,7 @@ public:
 
 
 public:
-	HRESULT Insert_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath);
+	HRESULT Insert_StaticMesh(const wstring& _szMeshFullPath, const wstring& _szTexFullPath);
 	HRESULT Render_Texture(int _iNum);
 
 public: /* Get */
@@ -39,8 +39,9 @@ private:
 	LPD3DXBUFFER			m_pAdjacency = nullptr;
 	LPD3DXBUFFER			m_pMaterials = nullptr;
 	DWORD					m_ulMaterial_Count = 0;
-	Texture*				m_pTexture = nullptr;
 	LPD3DXMESH				m_pMesh = nullptr;
+	                                       
+	Texture*				m_pTexture = nullptr;
 };
 
 

@@ -8,6 +8,8 @@ Camera_FreeMove::Camera_FreeMove(Desc * _desc)
 	m_fMouseY_Sen = _desc->fMouseYSen;
 
 	m_fMoveSpd = _desc->fMoveSpd;
+	m_fSprintSpd = _desc->fSprintSpd;
+	m_fOriginSpd = m_fMoveSpd;
 }
 
 Camera_FreeMove::~Camera_FreeMove()
@@ -41,6 +43,15 @@ void Camera_FreeMove::Release()
 
 void Camera_FreeMove::Move()
 {
+	if (KeyDown(KEY_STATE_Lshift))
+	{
+		m_fMoveSpd *= m_fSprintSpd;
+	}
+	if (KeyUp(KEY_STATE_Lshift))
+	{
+		m_fMoveSpd = m_fOriginSpd;
+	}
+
 	if (KeyPress(KEY_STATE_W))
 	{
 		Vector3 vDir = m_Transform->Get_Forward() * dTime * m_fMoveSpd;

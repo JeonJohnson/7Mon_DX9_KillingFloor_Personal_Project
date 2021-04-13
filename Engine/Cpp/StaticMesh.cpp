@@ -22,15 +22,23 @@ void StaticMesh::Initialize()
 
 void StaticMesh::Release()
 {
+	//텍스쳐는 어차피 RenderManager에서 각자 알아서 릴리즈할꺼임 ㅅㄱ
+	Safe_Release(m_pAdjacency);
+	Safe_Release(m_pMaterials);
+	Safe_Release(m_pMesh);
 }
 
 HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring & _szTexPath)
 {
-	wstring MeshFullPath = L"../../Resource/" + _szMeshPath;
-	wstring TextureFullPath = L"../../Resource/" + _szTexPath;
+	//wstring MeshFullPath = L"../../Resource/" + _szMeshPath;
+	//wstring TextureFullPath = L"../../Resource/" + _szTexPath;
+
+	
+	
+	wstring TextureSimplePath = ResourceManager::Get_Instance()->EraseFolderPath(_szTexPath);
 
 	if (FAILED(D3DXLoadMeshFromX(
-		MeshFullPath.c_str(), /* 메쉬 경로 */
+		_szMeshPath.c_str(), /* 메쉬 경로 */
 		D3DXMESH_MANAGED, /* 메모리 관리 방법 */
 		m_pDX9_Device, /* 다렉9 디바이스 */
 		&m_pAdjacency, /* 인접 매쉬접근을 위한 정보 */
@@ -42,7 +50,7 @@ HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring
 		return E_FAIL;
 	}
 
-	m_pTexture = ResourceManager::Get_Instance()->Load_Texture(_szTexPath, L"Test_StaticMesh_Texture");
+	m_pTexture = ResourceManager::Get_Instance()->Load_Texture(TextureSimplePath, L"Test_StaticMesh_Texture");
 	assert(L"Texture Load Failed at static mesh" && m_pTexture);
 
 	for (DWORD i = 0; i < m_ulMaterial_Count; ++i)
@@ -52,7 +60,7 @@ HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring
 		wstring temp = L"Test_StaticMesh_Texture";
 		temp += L"_" + to_wstring(i);
 
-		if (FAILED(ResourceManager::Get_Instance()->Add_Texture(m_pTexture, _szTexPath, temp)))
+		if (FAILED(ResourceManager::Get_Instance()->Add_Texture(m_pTexture, TextureSimplePath, temp)))
 		{
 			return E_FAIL;
 		}

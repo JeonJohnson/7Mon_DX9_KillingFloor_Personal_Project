@@ -4,6 +4,9 @@
 
 #include "Engine_Include.h"
 
+
+//#define DIRECTINPUT_VERSION 0x0800
+
 class DLL_STATE InputManager
 {
 	Declare_Singleton(InputManager)

@@ -3,7 +3,7 @@
 #include "Player_Move.h"
 #include "Text.h"
 #include "Camera_FreeMove.h"
-#include "..\..\Engine\Header\MeshRenderer.h"
+#include "..\..\Engine\Header\Mesh_Renderer.h"
 //#include "../../Reference/Header/Camera.h"
 
 TestScene::TestScene()
@@ -37,6 +37,10 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
+
+	EngineFunction->Load_StaticMesh(L"Test/StaticMesh/Truck.X",
+		L"Test/StaticMesh/TruckOneCanvasDiffuseTGA.png", L"truck");
+	
 	
 	{ //meshRender Test
 		GameObject* Test_Mesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Mesh");
@@ -46,8 +50,9 @@ void TestScene::Initialize()
 		//Test_Mesh->RotateX(45.f);
 		//Test_Mesh->RotateZ(45.f);
 
-		MeshRenderer::Desc Mesh_desc;
-		Test_Mesh->Add_Component<MeshRenderer>(&Mesh_desc);
+		Mesh_Renderer::Desc Mesh_desc;
+		Mesh_desc.szMeshName = L"truck";
+		Test_Mesh->Add_Component<Mesh_Renderer>(&Mesh_desc);
 	}
 
 { //RectColor & Cube Test

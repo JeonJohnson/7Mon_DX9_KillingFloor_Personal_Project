@@ -298,9 +298,6 @@
     <ClCompile Include="..\Cpp\Rect_Grid.cpp">
       <Filter>06.Resource\00.VIBuffer\01.Rect\02.Grid</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\MeshRenderer.cpp">
-      <Filter>04.Component\01.Renderer\Mesh</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\StaticMesh.cpp">
       <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>
     </ClCompile>
@@ -309,6 +306,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Mesh.cpp">
       <Filter>06.Resource\01.Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Mesh_Renderer.cpp">
+      <Filter>04.Component\01.Renderer\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -444,9 +444,6 @@
     <ClInclude Include="..\Header\Rect_Grid.h">
       <Filter>06.Resource\00.VIBuffer\01.Rect\02.Grid</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\MeshRenderer.h">
-      <Filter>04.Component\01.Renderer\Mesh</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\StaticMesh.h">
       <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>
     </ClInclude>
@@ -455,6 +452,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\Mesh.h">
       <Filter>06.Resource\01.Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Mesh_Renderer.h">
+      <Filter>04.Component\01.Renderer\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

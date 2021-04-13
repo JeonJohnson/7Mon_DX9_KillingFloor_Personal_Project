@@ -108,9 +108,26 @@ HRESULT ResourceManager::Add_Texture(Texture * _texture, const wstring & _wPath,
 	return S_OK;
 }
 
+StaticMesh * ResourceManager::Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName)
+{
+	StaticMesh* StaticMeshTemp = Insert_Resource<StaticMesh, StaticMesh>(_szMeshName);
+
+	wstring szMeshFullPath = m_wFolderPath + _szMeshPath;
+	wstring szTextureFullPath = m_wFolderPath + _szTexPath;
+	
+	StaticMeshTemp->Insert_StaticMesh(szMeshFullPath, szTextureFullPath);
+	
+	return StaticMeshTemp;
+}
+
+AnimMesh * ResourceManager::Load_AnimMesh(const wstring & _szMeshPath, const wstring & _szTexPath)
+{
+	return nullptr;
+}
+
 void ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _szTexPath)
 {
-	//StaticMesh* pStaticMesh = nullptr;
+	
 	
 }
 
@@ -133,6 +150,13 @@ void ResourceManager::Insert_VIBuffers()
 
 
 
+}
+
+wstring ResourceManager::EraseFolderPath(wstring _FullPath)
+{
+	size_t folderPathLen = m_wFolderPath.length();
+	wstring Temp = _FullPath.erase(0, folderPathLen);
+	return Temp;
 }
 
 const wstring & ResourceManager::Get_ResourceFolderPath() const

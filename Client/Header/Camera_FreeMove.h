@@ -13,7 +13,7 @@ public:
 		float fMouseYSen = 40.f;
 
 		float fMoveSpd = 10.f;
-
+		float fSprintSpd = 10.f;
 	};
 public:
 	Camera_FreeMove(Desc* _desc);
@@ -38,6 +38,8 @@ private:
 
 	float m_fMoveSpd;
 
+	float	m_fOriginSpd;
+	float	m_fSprintSpd;
 };
 
 #endif //_CAMERA_FREEMOVE_H_
