@@ -49,7 +49,7 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
-	m_pVIBuffer->Render_Texture(0);
+	
 
 	m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
 
@@ -57,34 +57,36 @@ void VIBuffer_Renderer::Render()
 	{
 		assert(0 && L"VIBuffer Binding Stream is Failed");
 	}
+		
+	m_pVIBuffer->Render_Texture(0);
+
+	if (m_pVIBuffer->Get_IBuffer_Com() == nullptr)
+	{
+		if (FAILED(m_pDX9_Device->DrawPrimitive(
+			m_pVIBuffer->Get_DrawType(), //그리고자하는 방식, 시계방향으로 삼각형을 그리겠다.
+			0, //버텍스 읽기를 시작할 버텍스 스트림 요소의 인덱스
+			m_pVIBuffer->Get_VBuffer_Info().m_iPolyCount //그릴 개수.
+		)))
+		{
+			assert(0 && L"Vertex Buffer Object Draw Failed");
+		}//VBuffer만 이용해서 그리는거
+	}
+	else 
+	{
+		if (FAILED(m_pDX9_Device->DrawIndexedPrimitive(
+			m_pVIBuffer->Get_DrawType(), //그리고자하는 방식.
+			0, 0,
+			m_pVIBuffer->Get_VBuffer_Info().m_iVertexCount, //정점의 개수
+			0,
+			m_pVIBuffer->Get_VBuffer_Info().m_iPolyCount //그릴 기본형의 개수.
+		)))
+		{
+			assert(0 && L"Index Buffer Object Draw Failed");
+		}
+	}
 
 	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
-
-	m_pDX9_Device->DrawPrimitive(
-		D3DPT_LINELIST, //그리고자하는 방식, 시계방향으로 삼각형을 그리겠다.
-		0, //버텍스 읽기를 시작할 버텍스 스트림 요소의 인덱스
-		1 //그릴 개수.
-	); //VBuffer만 이용해서 그리는거
-
-
-	//m_pDX9_Device->DrawPrimitive(
-	//	D3DPT_TRIANGLELIST, //그리고자하는 방식, 시계방향으로 삼각형을 그리겠다.
-	//	0, //버텍스 읽기를 시작할 버텍스 스트림 요소의 인덱스
-	//	1 //그릴 개수.
-	//); //VBuffer만 이용해서 그리는거
-
 	
-
-	//if (FAILED(m_pDX9_Device->DrawIndexedPrimitive(
-	//	D3DPT_TRIANGLELIST, //그리고자하는 방식.
-	//	0, 0,
-	//	m_pVIBuffer->Get_VBuffer_Info().m_iVertexCount, //정점의 개수
-	//	0,
-	//	m_pVIBuffer->Get_VBuffer_Info().m_iPolyCount //그릴 기본형의 개수.
-	//)))
-	//{
-	//	assert(0 && L"VIBuffer Object Draw Failed");
-	//}
 }
 
 
@@ -108,9 +110,12 @@ HRESULT VIBuffer_Renderer::Binding_Stream_VIBuffer()
 		return E_FAIL;
 	}
 
-	if (FAILED(m_pDX9_Device->SetIndices(m_pVIBuffer->Get_IBuffer_Com())))
+	if (m_pVIBuffer->Get_IBuffer_Com() != nullptr)
 	{
-		return E_FAIL;
+		if (FAILED(m_pDX9_Device->SetIndices(m_pVIBuffer->Get_IBuffer_Com())))
+		{
+			return E_FAIL;
+		}
 	}
 
 	return S_OK;

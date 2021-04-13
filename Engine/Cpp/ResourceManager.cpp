@@ -9,6 +9,7 @@
 #include "Cube_VIBuffer_Texture.h"
 #include "Cube_VIBuffer_DDS.h"
 #include "StaticMesh.h"
+#include "Line_VIBuffer_Grid.h"
 
 
 Implement_Singleton(ResourceManager)
@@ -135,7 +136,7 @@ void ResourceManager::Insert_VIBuffers()
 {
 
 	{ //Lines
-	
+		Insert_Resource<VIBuffer, Line_VIBuffer_Grid>(L"Line_Grid");
 
 	}
 

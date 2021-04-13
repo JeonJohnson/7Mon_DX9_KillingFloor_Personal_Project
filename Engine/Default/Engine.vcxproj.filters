@@ -173,9 +173,6 @@
     <Filter Include="06.Resource\00.VIBuffer\02.Rect\00.Color">
       <UniqueIdentifier>{987b3ad2-e593-46e1-b831-fd0507e06e20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\02.Rect\02.Grid">
-      <UniqueIdentifier>{cf306630-7c60-4bcb-8746-bfdb7bd2ec2c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="06.Resource\00.VIBuffer\03.Cube">
       <UniqueIdentifier>{51fd29e1-39c0-47af-8dfe-5b4ec157786d}</UniqueIdentifier>
     </Filter>
@@ -303,9 +300,6 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\SystemManager.cpp">
       <Filter>01.Manager\98.SystemManager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Rect_Grid.cpp">
-      <Filter>06.Resource\00.VIBuffer\02.Rect\02.Grid</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\StaticMesh.cpp">
       <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>
@@ -455,9 +449,6 @@
     </ClInclude>
     <ClInclude Include="..\Header\SystemManager.h">
       <Filter>01.Manager\98.SystemManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Rect_Grid.h">
-      <Filter>06.Resource\00.VIBuffer\02.Rect\02.Grid</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\StaticMesh.h">
       <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>

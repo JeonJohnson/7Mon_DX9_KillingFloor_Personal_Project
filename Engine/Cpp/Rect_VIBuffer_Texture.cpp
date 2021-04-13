@@ -15,6 +15,7 @@ Rect_VIBuffer_Texture::~Rect_VIBuffer_Texture()
 void Rect_VIBuffer_Texture::Initialize()
 {
 	m_eKind = VIBUFFER_KIND::VIBuffer_Textrue;
+	m_eDrawType = D3DPT_TRIANGLELIST;
 
 	Set_Name(L"Rect_Texture");
 

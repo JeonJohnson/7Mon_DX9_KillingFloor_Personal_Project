@@ -74,6 +74,25 @@ public:
 		return this;
 	}
 
+	template<class T>
+	T* Get_UIComponent()
+	{
+		//시발 어쩃건 찾을라면 string값 필요하네
+		string strName = typeid(T).name(); //클래스 이름을 string형으로 바까줌
+		
+		if (strName == "class Text")
+		{
+			return (T*)m_pText;
+		}
+		
+		if (strName == "class Sprite")
+		{
+			return (T*)m_pSprite;
+		}
+
+		return nullptr;
+	}
+
 
 #pragma endregion
 

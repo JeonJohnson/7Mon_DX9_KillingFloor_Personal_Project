@@ -19,4 +19,4 @@ public:
 	virtual HRESULT Create_IBuffer() override;
 };
 
-#endif _LINE_VIBUFFER_GRID_H_
+#endif //_LINE_VIBUFFER_GRID_H_

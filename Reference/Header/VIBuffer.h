@@ -63,18 +63,19 @@ public:
 
 	LPDIRECT3DINDEXBUFFER9	Get_IBuffer_Com()	const;
 	const IBUFFER_INFO&		Get_IBuffer_Info()	const;
-
+	D3DPRIMITIVETYPE		Get_DrawType()		const;
 	int						Get_RenderLayer()	const;
 	
 	VIBUFFER_KIND			Get_Kind()			const;
 public:
 	/* Set */
 	void		Set_Name(const wstring& _name);
-
+	
 	void		Set_VBufferInfo(const VBUFFER_INFO& _tVBuffer);
 	void		Set_IBufferInfo(const IBUFFER_INFO& _tIBuffer);
-
+	void		Set_DrawType(D3DPRIMITIVETYPE _type);
 	void		Set_RenderLayer(int _iRenderLayer);
+
 
 	virtual void	Set_Texture(class Texture* _pTexture);
 	virtual HRESULT Render_Texture(int _iNum);
@@ -91,9 +92,11 @@ protected:
 	LPDIRECT3DINDEXBUFFER9	m_pIB = nullptr;
 	IBUFFER_INFO			m_tIBInfo;
 
+	D3DPRIMITIVETYPE		m_eDrawType = D3DPT_TRIANGLELIST;
+
 	int		m_iRenderLayer = 0;
-
-
+	
+	
 };
 
 #endif //_VIBUFFER_H_

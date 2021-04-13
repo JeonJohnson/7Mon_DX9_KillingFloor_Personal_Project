@@ -25,11 +25,11 @@ public:
 
 public:
 	void FPS_RenderSetting();
-
+	void FPS_Update();
 
 public:
 	Engine_Mother*	m_pEngine;
-	//Text*			m_pFPS;
+	Text*			m_pFPS;
 };
 
 #endif //_MAIN_GAME_H_

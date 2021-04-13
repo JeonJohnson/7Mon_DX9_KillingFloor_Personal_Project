@@ -203,7 +203,6 @@
     <ClInclude Include="..\Header\Line_VIBuffer_Grid.h" />
     <ClInclude Include="..\Header\Mesh.h" />
     <ClInclude Include="..\Header\Mesh_Renderer.h" />
-    <ClInclude Include="..\Header\Rect_Grid.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\Rect_VIBuffer_Texture.h" />
     <ClInclude Include="..\Header\Renderer.h" />
@@ -248,7 +247,6 @@
     <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp" />
     <ClCompile Include="..\Cpp\Mesh.cpp" />
     <ClCompile Include="..\Cpp\Mesh_Renderer.cpp" />
-    <ClCompile Include="..\Cpp\Rect_Grid.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\Rect_VIBuffer_Texture.cpp" />
     <ClCompile Include="..\Cpp\Renderer.cpp" />

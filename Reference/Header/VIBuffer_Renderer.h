@@ -44,7 +44,7 @@ public: /* Get */
 	VIBuffer*			Get_VIBuffer() const;
 
 public: /* Set */
-	void	Set_VIBuffer(const wstring& _wBufferName);
+	void				Set_VIBuffer(const wstring& _wBufferName);
 
 private:
 	VIBuffer*		m_pVIBuffer = nullptr;

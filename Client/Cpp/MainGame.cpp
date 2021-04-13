@@ -22,37 +22,9 @@ MainGame::~MainGame()
 void MainGame::Initialize()
 {
 
-	//assert(0 && L"assert Test");
-
 	Engine_Load();
 	Scene_Setting();
 	FPS_RenderSetting();
-	//m_pEngine = Engine_Mother::Get_Instance();
-	//assert(L"Engine Load Failed" && m_pEngine);
-
-	//Engine_Mother::Desc base_desc;
-	//base_desc.wincx = WINCX;
-	//base_desc.wincy = WINCY;
-	//base_desc.window = false;
-	//base_desc.hWnd = g_hWnd;
-
-	//m_pEngine->Initialize(&base_desc);
-	//
-	//m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
-
-//	GameObject* FPS_Renderer = INSTANTIATE(OJBECT_TAG_UI, L"FPS");
-//	
-//	Text::Desc FPS_Desc;
-//#ifdef _DEBUG
-//	FPS_Desc.Dx9Device = EngineFunction->Get_Dx9_Device_DEBUG();
-//#else
-//	FPS_Desc.Dx9Device = EngineFunction->Get_Dx9_Device();
-//#endif //_DEBUG
-//	FPS_Renderer->Add_Component<Text>(&FPS_Desc);
-//	
-//	m_pFPS = FPS_Renderer->Get_NewComponent<Text>();
-//
-//	EngineFunction->Set_FPSText(m_pFPS);
 
 }
 
@@ -102,19 +74,34 @@ void MainGame::FPS_RenderSetting()
 
 	Text::Desc fps_text;
 	fps_text.iHeight = 20;
-	fps_text.iWeight = FW_EXTRABOLD;
-	fps_text.ulOption = DT_LEFT;
+	fps_text.iWeight = FW_HEAVY;
+	fps_text.ulOption = DT_LEFT|DT_NOCLIP;
 	fps_text.szScript = L"FPS : ";
+	fps_text.tColor = D3DCOLOR_ARGB(255, 0, 0, 0);
 
 	FPS_Renderer->Add_UIComponent<Text>(&fps_text);
+	
+	
+	m_pFPS = FPS_Renderer->Get_UIComponent<Text>();
+
+	//string strName = typeid(Text).name();
+
 
 	//Sprite::Desc sprite;
 	//FPS_Renderer->Add_UIComponent<Sprite>(&sprite);
 }
 
+void MainGame::FPS_Update()
+{
+	wstring szFPS = L"FPS : " + to_wstring(EngineFunction->Get_FPS());
+	
+	m_pFPS->Set_Script(szFPS);
+}
+
 void MainGame::Process()
 {
+	FPS_Update();
 	Engine_Mother::Get_Instance()->Process();
-	
+
 }
 
