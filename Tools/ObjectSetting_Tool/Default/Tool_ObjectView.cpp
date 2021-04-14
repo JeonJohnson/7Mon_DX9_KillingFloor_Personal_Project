@@ -53,6 +53,7 @@ BOOL CTool_ObjectView::PreCreateWindow(CREATESTRUCT& cs)
 void CTool_ObjectView::OnDraw(CDC* /*pDC*/)
 {
 	CTool_ObjectDoc* pDoc = GetDocument();
+	
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;

@@ -20,6 +20,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="98.Header">
+      <UniqueIdentifier>{d245cd45-4d1d-4942-b0a0-c12c1ecf4eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\01.Define">
+      <UniqueIdentifier>{13758fa5-3a8e-4aa5-8099-b3fed0d15908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\02.Enum">
+      <UniqueIdentifier>{c8954767-681b-4a9a-b233-454dbeb2cb5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\03.Extern">
+      <UniqueIdentifier>{6ea87306-5549-4f27-9d56-80337cbc11b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header\04.Struct">
+      <UniqueIdentifier>{c551c03b-6403-4a71-9e25-8b85f9dca998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.FormView">
+      <UniqueIdentifier>{1de62733-25c6-42d0-ab0a-845ae02ea61d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.FormView\Spec">
+      <UniqueIdentifier>{43a9d0ea-ddb9-42d4-9ff4-fcf7f2832543}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -31,17 +52,35 @@
     <ClInclude Include="targetver.h">
       <Filter>99.Wls</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>99.Wls</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>99.Wls</Filter>
     </ClInclude>
-    <ClInclude Include="Tool_ObjectView.h">
-      <Filter>03.View</Filter>
-    </ClInclude>
     <ClInclude Include="Tool_Object.h">
       <Filter>00.App</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>98.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ObjectTool_Include.h">
+      <Filter>98.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ObjectTool_Define.h">
+      <Filter>98.Header\01.Define</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ObjectTool_Enum.h">
+      <Filter>98.Header\02.Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ObjectTool_Extern.h">
+      <Filter>98.Header\03.Extern</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ObjectTool_Struct.h">
+      <Filter>98.Header\04.Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Spec_FormView.h">
+      <Filter>04.FormView\Spec</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool_ObjectView.h">
+      <Filter>03.View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -54,11 +93,14 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>99.Wls</Filter>
     </ClCompile>
-    <ClCompile Include="Tool_ObjectView.cpp">
-      <Filter>03.View</Filter>
-    </ClCompile>
     <ClCompile Include="Tool_Object.cpp">
       <Filter>00.App</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Spec_FormView.cpp">
+      <Filter>04.FormView\Spec</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool_ObjectView.cpp">
+      <Filter>03.View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

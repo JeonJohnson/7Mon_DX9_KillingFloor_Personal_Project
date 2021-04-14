@@ -13,7 +13,7 @@ protected: // serialization에서만 만들어집니다.
 
 // 특성입니다.
 public:
-	CTool_ObjectDoc* GetDocument() const;
+	class CTool_ObjectDoc* GetDocument() const;
 
 // 작업입니다.
 public:

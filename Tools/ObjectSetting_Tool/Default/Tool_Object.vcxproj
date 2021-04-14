@@ -209,6 +209,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Header\ObjectTool_Define.h" />
+    <ClInclude Include="..\Header\ObjectTool_Enum.h" />
+    <ClInclude Include="..\Header\ObjectTool_Extern.h" />
+    <ClInclude Include="..\Header\ObjectTool_Include.h" />
+    <ClInclude Include="..\Header\ObjectTool_Struct.h" />
+    <ClInclude Include="..\Header\Spec_FormView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -218,6 +224,7 @@
     <ClInclude Include="Tool_ObjectView.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\Spec_FormView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -243,4 +250,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Tool_Object.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
