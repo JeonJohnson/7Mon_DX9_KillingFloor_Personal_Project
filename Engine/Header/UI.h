@@ -13,7 +13,7 @@
 #include "UI_Component.h"
 #include "Transform.h"
 
-/* define */
+/* Define */
 #define INSTANTIATE_UI	UI::Instantiate_UI
 #define DESTROY_UI		UI::Destory_UI
 
@@ -131,7 +131,6 @@ public: /* Set */
 private:
 	//tuple<wstring, Sprite*, Text*>	m_tupUIComponents;
 	//Transform* m_pTransform = nullptr;
-
 
 	Vector3				m_vPosition;
 	Vector3				m_vScale;

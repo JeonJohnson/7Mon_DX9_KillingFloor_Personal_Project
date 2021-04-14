@@ -15,6 +15,7 @@ public:
 
 protected:
 	virtual void Initialize() = 0;
+	virtual void Update();
 	virtual void Release() = 0;
 	
 public:

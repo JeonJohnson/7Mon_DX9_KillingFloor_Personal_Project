@@ -101,6 +101,7 @@ LPDIRECT3DDEVICE9 Engine_Mother::Get_Dx9_Device_DEBUG() const
 }
 #endif //_DEBUG
 
+
 float Engine_Mother::Get_DeltaTime() const
 {
 	return m_pTimeManager->Get_Time();

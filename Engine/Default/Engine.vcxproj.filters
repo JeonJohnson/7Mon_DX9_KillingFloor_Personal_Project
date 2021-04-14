@@ -191,6 +191,9 @@
     <Filter Include="06.Resource\00.VIBuffer\05.Sphere">
       <UniqueIdentifier>{a270a619-3ff3-4299-a722-59a85c1c27dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.Resource\01.Mesh\01.AnimMesh\Hierarchy_Loader">
+      <UniqueIdentifier>{d4abe9f0-659c-4f31-96ee-88de662c83e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -318,6 +321,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp">
       <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Hierachy_Loader.cpp">
+      <Filter>06.Resource\01.Mesh\01.AnimMesh\Hierarchy_Loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -467,6 +473,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\Line_VIBuffer_Grid.h">
       <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Hierachy_Loader.h">
+      <Filter>06.Resource\01.Mesh\01.AnimMesh\Hierarchy_Loader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

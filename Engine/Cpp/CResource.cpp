@@ -11,3 +11,7 @@ CResource::CResource()
 CResource::~CResource()
 {
 }
+
+void CResource::Update()
+{
+}
