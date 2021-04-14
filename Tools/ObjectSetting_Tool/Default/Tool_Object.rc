@@ -190,6 +190,7 @@ FONT 9, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     SCROLLBAR       IDC_SCROLLBAR1,7,7,10,319,SBS_VERT
     CONTROL         "",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,39,82,100,15
+    LTEXT           "asdfsadfsadfsdafasdfasdfasdfasbgdgfhfdfj",IDC_STATIC,7,37,139,18,WS_BORDER
 END
 
 
