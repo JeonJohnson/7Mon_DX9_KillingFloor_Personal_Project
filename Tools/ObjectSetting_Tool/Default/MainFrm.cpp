@@ -114,7 +114,8 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 
 	
 
-	return CFrameWnd::OnCreateClient(lpcs, pContext);
+	//return CFrameWnd::OnCreateClient(lpcs, pContext);
+	return TRUE;
 }
 
 
