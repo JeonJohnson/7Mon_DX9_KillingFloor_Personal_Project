@@ -339,5 +339,6 @@ Grid그려지는거 확인완료. + Vibuffer에서 IndexBuffer있어야만 Index
 =>근데 굵기 조절 안되서 이거 Line객체로 그려야할듯
 FPS설정도 완료.
 
-
+11:11 2021-04-14 수 
+ObjectTool 시작. MFC 폴더 정리 끝
 
