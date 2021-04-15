@@ -30,10 +30,10 @@ void RenderManager::Initialize()
 	
 #endif //_DEBUG
 	
-	if (FAILED(Update_ViewPort()))
-	{
-		MessageBox(0, L"ViewPort Setting Failed at RendererManager", L"Error", MB_OK);
-	}
+	//if (FAILED(Update_ViewPort()))
+	//{
+	//	MessageBox(0, L"ViewPort Setting Failed at RendererManager", L"Error", MB_OK);
+	//}
 
 	{/*test*/
 		D3DXFONT_DESCW	tFontInfo;

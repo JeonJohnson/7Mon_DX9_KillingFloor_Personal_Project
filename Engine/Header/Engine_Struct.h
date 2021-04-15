@@ -125,7 +125,7 @@ typedef struct D3DXMESHCONTAINER_DERIVED : public D3DXMESHCONTAINER
 						//=> 본 스페이스에 있음.
 	Matrix*				pRenderingMatrix; //최종적으로 모든 변환이 끝나고 렌더링에 쓸 행렬.
 						//=> pFrameOffsetMatrix * CombinedTransformMatrix
-};
+}MeshContainer_Ex;
  
 
 

@@ -36,7 +36,7 @@ public:
 
 private:
 	StaticMesh*		m_pStaticMesh = nullptr;
-	AnimMesh*		m_pAnimMesh = nullptr;
+//	AnimMesh*		m_pAnimMesh = nullptr;
 };
 
 #endif//_MESH_RENDERER_H_

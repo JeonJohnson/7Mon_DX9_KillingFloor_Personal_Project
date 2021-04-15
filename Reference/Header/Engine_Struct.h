@@ -3,6 +3,8 @@
 #ifndef _ENGINE_STRUCT_H_
 #define _ENGINE_STRUCT_H_
 
+
+#pragma region VIBuffer Structs
 /* vertex Buffer */
 	/* Vertex Property */
 		//=> a 그릴 도형의 속성
@@ -98,6 +100,34 @@ typedef struct tagIndexBufferInfo
 	unsigned int	m_iIndexMemSize = 0;
 
 }IBUFFER_INFO;
+#pragma endregion
+
+#pragma region MeshRender Strcuts
+/* Mesh Render Derived Struct */
+typedef struct D3DXMESHCONTAINER_DERIVED : public D3DXMESHCONTAINER
+{
+	/* Default Variables */
+	//LPSTR                   Name;
+	//D3DXMESHDATA            MeshData;
+	//LPD3DXMATERIAL          pMaterials;
+	//LPD3DXEFFECTINSTANCE    pEffects;
+	//DWORD                   NumMaterials;
+	//DWORD                  *pAdjacency;
+	//LPD3DXSKININFO          pSkinInfo;
+	//struct _D3DXMESHCONTAINER *pNextMeshContainer;
+
+	/* Derived Variables */
+	LPD3DXMESH			pOriginMesh;
+	int					iBoneCount;
+
+	Matrix*				pFrameOffsetMatrix; //자신의 본래 행렬.
+	Matrix*				pCombinedTrasnformMatrix; //자신 행렬에 부모행렬 곱해서 나올 최종 행렬.
+						//=> 본 스페이스에 있음.
+	Matrix*				pRenderingMatrix; //최종적으로 모든 변환이 끝나고 렌더링에 쓸 행렬.
+						//=> pFrameOffsetMatrix * CombinedTransformMatrix
+}MeshContainer_Ex;
+ 
 
 
+#pragma endregion
 #endif //_ENGINE_STRUCT_H_
