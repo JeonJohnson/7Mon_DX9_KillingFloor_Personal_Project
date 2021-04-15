@@ -192,6 +192,9 @@ BEGIN
     LTEXT           "객체 선택 목록",IDC_STATIC_Title1,7,7,168,12,WS_BORDER
     GROUPBOX        "변형시키다",IDC_STATIC_Title3,7,113,168,83,0,WS_EX_STATICEDGE
     GROUPBOX        "미리 보기 / 개체 정보",IDC_STATIC_title2,7,34,168,71,0,WS_EX_STATICEDGE
+    LTEXT           "위치",IDC_STATIC,15,127,25,11,WS_BORDER
+    LTEXT           "크기",IDC_STATIC,15,146,25,11,WS_BORDER
+    LTEXT           "회전",IDC_STATIC,14,165,25,11,WS_BORDER
 END
 
 

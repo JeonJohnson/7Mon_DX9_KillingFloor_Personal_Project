@@ -213,6 +213,7 @@
     <ClInclude Include="..\Header\ObjectTool_Enum.h" />
     <ClInclude Include="..\Header\ObjectTool_Extern.h" />
     <ClInclude Include="..\Header\ObjectTool_Include.h" />
+    <ClInclude Include="..\Header\ObjectTool_Scene.h" />
     <ClInclude Include="..\Header\ObjectTool_Struct.h" />
     <ClInclude Include="..\Header\Spec_FormView.h" />
     <ClInclude Include="MainFrm.h" />
@@ -224,6 +225,7 @@
     <ClInclude Include="Tool_ObjectView.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\ObjectTool_Scene.cpp" />
     <ClCompile Include="..\Cpp\Spec_FormView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">

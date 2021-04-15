@@ -19,6 +19,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	ON_WM_GETMINMAXINFO()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -83,11 +84,18 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 
 	cs.style &= ~FWS_ADDTOTITLE ;//타이틀에 "제목없음" 없애기
 	//cs.style &= ~(WS_THICKFRAME | WS_MAXIMIZEBOX);//mainFrame창 조절 기능 없애기
-	//cs.cx = 1880;
-	//cs.cy = 720;
+	
+
+	m_tClientRect = { 0,0,1600,720 };
+	AdjustWindowRect(&m_tClientRect, WS_OVERLAPPEDWINDOW, FALSE);
+
+	cs.cx = m_tClientRect.right- m_tClientRect.left;
+	cs.cy = m_tClientRect.bottom - m_tClientRect.top;
+	
+	
+		
 
 	SetTitle(L"Johnson3D_ObjectTool"); //타이틀 바꾸기
-	
 
 	return TRUE;
 }
@@ -104,16 +112,17 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_wndSplitter.CreateStatic(this, 1, 2);
 
 	m_wndSplitter.CreateView(0, 0,
-		RUNTIME_CLASS(Spec_FormView), CSize(600, 720), pContext);
+		RUNTIME_CLASS(Spec_FormView), CSize(320, 720), pContext);
 	g_pSpec_FormView = (Spec_FormView*)(m_wndSplitter.GetPane(0, 0));
 
 	m_wndSplitter.CreateView(0, 1, 
-		RUNTIME_CLASS(CTool_ObjectView), CSize(600, 720), pContext);
+		RUNTIME_CLASS(CTool_ObjectView), CSize(1280, 720), pContext);
 	g_pDefaultView = (CTool_ObjectView*)(m_wndSplitter.GetPane(0, 1));
 
 
+	CRect temp;
+	GetClientRect(&temp);
 	
-
 	//return CFrameWnd::OnCreateClient(lpcs, pContext);
 	return TRUE;
 }
@@ -137,5 +146,14 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 // CMainFrame 메시지 처리기
 
+void CMainFrame::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
 
+	//lpMMI->ptMinTrackSize.x = 1600;
+	//lpMMI->ptMinTrackSize.y = 720;
+	//lpMMI->ptMaxTrackSize.x = 1600;
+	//lpMMI->ptMaxTrackSize.y = 720;
 
+	CFrameWnd::OnGetMinMaxInfo(lpMMI);
+}

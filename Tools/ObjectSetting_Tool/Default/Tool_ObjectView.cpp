@@ -26,6 +26,7 @@ BEGIN_MESSAGE_MAP(CTool_ObjectView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_WM_GETMINMAXINFO()
 END_MESSAGE_MAP()
 
 // CTool_ObjectView 생성/소멸
@@ -44,7 +45,7 @@ BOOL CTool_ObjectView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: CREATESTRUCT cs를 수정하여 여기에서
 	//  Window 클래스 또는 스타일을 수정합니다.
-	cs.cx = 400;
+	cs.cx = 1280;
 	cs.cy = 720;
 	return CView::PreCreateWindow(cs);
 }
@@ -104,3 +105,4 @@ CTool_ObjectDoc* CTool_ObjectView::GetDocument() const // 디버그되지 않은 버전은
 
 
 // CTool_ObjectView 메시지 처리기
+

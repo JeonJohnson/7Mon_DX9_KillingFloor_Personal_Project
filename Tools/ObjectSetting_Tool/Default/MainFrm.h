@@ -44,6 +44,9 @@ protected:
 public:
 	//내가만든겁니다.
 	CSplitterWnd		m_wndSplitter;
+
+	afx_msg void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
+	CRect				m_tClientRect;
 	
 };
 

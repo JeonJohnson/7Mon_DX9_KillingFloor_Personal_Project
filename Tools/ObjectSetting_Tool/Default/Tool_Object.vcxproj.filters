@@ -41,6 +41,9 @@
     <Filter Include="04.FormView\Spec">
       <UniqueIdentifier>{43a9d0ea-ddb9-42d4-9ff4-fcf7f2832543}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Scene">
+      <UniqueIdentifier>{1bc85515-f838-4c29-aef6-b2690cd42ca0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -82,6 +85,9 @@
     <ClInclude Include="Tool_ObjectView.h">
       <Filter>03.View</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\ObjectTool_Scene.h">
+      <Filter>05.Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp">
@@ -101,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="Tool_ObjectView.cpp">
       <Filter>03.View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\ObjectTool_Scene.cpp">
+      <Filter>05.Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

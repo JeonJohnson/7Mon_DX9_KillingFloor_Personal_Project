@@ -26,6 +26,7 @@ void Spec_FormView::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(Spec_FormView, CFormView)
+	ON_WM_GETMINMAXINFO()
 END_MESSAGE_MAP()
 
 
@@ -48,10 +49,11 @@ void Spec_FormView::Dump(CDumpContext& dc) const
 BOOL Spec_FormView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
-	cs.cx = 400;
+	cs.cx = 320;
 	cs.cy = 720;
 	return CFormView::PreCreateWindow(cs);
 }
+
 
 
 

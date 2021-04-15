@@ -11,6 +11,7 @@
 #include "Tool_ObjectDoc.h"
 #include "Tool_ObjectView.h"
 #include "Engine_Mother.h"
+#include "ObjectTool_Scene.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -130,6 +131,25 @@ BOOL CTool_ObjectApp::InitInstance()
 	// 창 하나만 초기화되었으므로 이를 표시하고 업데이트합니다.
 	m_pMainWnd->ShowWindow(SW_SHOW);
 	m_pMainWnd->UpdateWindow();
+
+	//엔진 세팅/로드
+	m_pEngine = Engine_Mother::Get_Instance();
+
+	Engine_Mother::Desc Engine_desc;
+	Engine_desc.wincx = 1280;
+	Engine_desc.wincy = 720; 
+	Engine_desc.window = true;
+	Engine_desc.hWnd = g_pDefaultView->GetSafeHwnd();
+	//Engine_desc.hInst = AfxGetInstanceHandle();
+	Engine_desc.hInst = GetModuleHandle(NULL);
+	Engine_desc.Object_Tag_MaxCount = 4;
+	Engine_desc.Render_Layer_MaxCount = 4;
+
+	m_pEngine->Initialize(&Engine_desc);
+
+	m_pEngine->Add_Scene(L"ObjectTool_Scene", Scene::Instantiate<ObjectTool_Scene>());
+	m_pEngine->Init_Scene(L"ObjectTool_Scene");
+
 	return TRUE;
 }
 
@@ -199,7 +219,7 @@ BOOL CTool_ObjectApp::OnIdle(LONG lCount)
 	}
 	else 
 	{
-		// Engine_Mother::Get_Instance()->Process();
+		Engine_Mother::Get_Instance()->Process();
 	}
 
 
