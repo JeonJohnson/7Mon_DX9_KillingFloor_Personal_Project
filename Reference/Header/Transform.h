@@ -35,7 +35,7 @@ public: /* General */
 	Vector3 QuaternionToEuler(Quaternion _quaternion);
 
 	/* Get */
-	const Vector3&		Get_Rotation_Euler() const;
+
 
 	/* Set */
 	virtual void Set_Transform(Transform* _pTransform) override;
@@ -80,7 +80,7 @@ public: /* Rotation */
 
 	/* Get */
 	const Quaternion&	Get_Rotation() const;
-
+	Vector3		Get_Rotation_Euler();
 	void Get_RotationX(Vector3* _pOut, Vector3 _In);
 	void Get_RotationY(Vector3* _pOut, Vector3 _In);
 	void Get_RotationZ(Vector3* _pOut, Vector3 _In);

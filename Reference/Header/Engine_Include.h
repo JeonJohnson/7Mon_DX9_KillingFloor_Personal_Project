@@ -23,6 +23,9 @@ using namespace std;
 
 #include <string>
 #include <tchar.h>
+//Directory, file path's functions
+#include <Shlwapi.h>
+#pragma comment(lib, "shlwapi")
 
 #include <math.h>
 

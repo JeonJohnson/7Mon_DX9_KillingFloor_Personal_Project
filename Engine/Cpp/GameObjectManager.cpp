@@ -154,6 +154,58 @@ void GameObjectManager::Delete_DeadGameObjects()
 	m_vecGameObjectList.shrink_to_fit();
 }
 
+GameObject * GameObjectManager::Get_GameObject(int _tag, const wstring & _name)
+{
+	if (m_vecGameObjectList[_tag].size() <= 0)
+	{
+		return nullptr;
+	}
+	else
+	{
+		for (auto& gameobject : m_vecGameObjectList[_tag])
+		{
+			if (gameobject->Get_Name() == _name)
+			{
+				return gameobject;
+			}
+		}
+		
+		
+	}
+	return nullptr;
+}
+
+GameObject * GameObjectManager::Get_GameObjectbyName(const wstring & _name)
+{
+	//Return First Object
+	for (auto& objectList : m_vecGameObjectList)
+	{
+		for (auto& object : objectList)
+		{
+			if (object->Get_Name() == _name)
+			{
+				return object;
+			}
+		}
+	}
+
+	return nullptr;
+}
+
+GameObject * GameObjectManager::Get_GameObjectbyTag(int _tag)
+{
+	//Return First Object
+	if (m_vecGameObjectList[_tag].size() > 0)
+	{
+		return m_vecGameObjectList[_tag].front();
+	}
+	else 
+	{
+		return nullptr;
+	}
+	
+}
+
 void GameObjectManager::Insert_GameObject(GameObject * _gameObject)
 {
 	assert(L"GameObject is nullptr" && _gameObject);

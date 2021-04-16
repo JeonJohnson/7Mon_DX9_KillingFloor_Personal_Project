@@ -12,7 +12,7 @@ GameObject * GameObject::Instantiate(int _iTag, wstring _wName)
 	obj->Initialize();
 	obj->m_iTag = _iTag;
 	obj->m_wName = _wName;
-
+	 
 	GameObjectManager::Get_Instance()->Insert_GameObject(obj);
 
 	return obj;
@@ -155,6 +155,11 @@ const Vector3 & GameObject::Get_Scale() const
 const Quaternion & GameObject::Get_Rotation() const
 {
 	return m_Transform->Get_Rotation();
+}
+
+Vector3 GameObject::Get_Rotation_Euler() const
+{
+	return m_Transform->Get_Rotation_Euler();
 }
 
 const wstring GameObject::Get_Name() const

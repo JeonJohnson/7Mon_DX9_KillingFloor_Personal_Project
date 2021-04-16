@@ -95,7 +95,7 @@ HRESULT InputManager::Keyboard_Create(HWND hWnd)
 
 	//장치에 대한 독점권 설정.
 	//DISCL_FOREGROUND | DISCL_EXCLUSIVE : 화면 안에서 마우스 안보이고 활성화 상태일때만 작동
-	if (FAILED(m_pDInput8_Keyboard->SetCooperativeLevel(hWnd, DISCL_BACKGROUND | DISCL_NONEXCLUSIVE)))
+	if (FAILED(m_pDInput8_Keyboard->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE)))
 	{
 		//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
 		return E_FAIL;
@@ -133,7 +133,7 @@ HRESULT InputManager::Mouse_Create(HWND hWnd)
 	//장치에 대한 독점권 설정.
 	//DISCL_FOREGROUND | DISCL_EXCLUSIVE : 화면 안에서 마우스 안보이고 활성화 상태일때만 작동
 	//DISCL_BACKGROUND | DISCL_NONEXCLUSIVE : 반대
-	if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_BACKGROUND | DISCL_NONEXCLUSIVE)))
+	if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE)))
 	{
 		//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
 		return E_FAIL;

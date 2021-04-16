@@ -160,6 +160,7 @@ void ResourceManager::Insert_VIBuffers()
 
 wstring ResourceManager::EraseFolderPath(wstring _FullPath)
 {
+	//../../Resource/  지워주는거
 	size_t folderPathLen = m_wFolderPath.length();
 	wstring Temp = _FullPath.erase(0, folderPathLen);
 	return Temp;

@@ -220,6 +220,7 @@ BOOL CToolApp::OnIdle(LONG lCount)
 	}
 	else
 	{
+		g_pSpec_FormView->Update_Info();
 		m_pEngine->Process();
 	}
 

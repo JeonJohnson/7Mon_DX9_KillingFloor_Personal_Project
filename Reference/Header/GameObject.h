@@ -148,13 +148,14 @@ public:
 public: /* functions */
 	void Merge_Components();
 	void Delete_DeadComponents();
-
+	
 public: /* Get */
 #pragma region Transform
 	Transform*			Get_Transform()		const;
 	const Vector3&		Get_Position()		const;
 	const Vector3&		Get_Scale()			const;
-	const Quaternion&	Get_Rotation()	const;
+	const Quaternion&	Get_Rotation()		const;
+	Vector3		Get_Rotation_Euler() const;
 #pragma endregion
 
 	const wstring	Get_Name()			const;

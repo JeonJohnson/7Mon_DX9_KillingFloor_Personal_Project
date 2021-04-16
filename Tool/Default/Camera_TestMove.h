@@ -11,8 +11,8 @@ class Camera_TestMove : public Component
 public:
 	struct Desc
 	{
-		float fMouseXSen = 40.f;
-		float fMouseYSen = 40.f;
+		float fMouseXSen = 60.f;
+		float fMouseYSen = 60.f;
 
 		float fMoveSpd = 10.f;
 		float fSprintSpd = 10.f;

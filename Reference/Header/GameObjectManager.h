@@ -29,9 +29,15 @@ public: /* functions */
 	void Delete_DeadGameObjects();
 
 public: /* Get */
+	GameObject*		Get_GameObject(int _tag, const wstring& _name);
+	GameObject*		Get_GameObjectbyName(const wstring& _name); //Return First Object
+	GameObject*		Get_GameObjectbyTag(int _tag); //Return First Object
+
+	
 
 public: /* Set */
 	void	Insert_GameObject(GameObject* _gameObject);
+	
 	
 private:
 	list<GameObject*>					m_newGameObjectList;

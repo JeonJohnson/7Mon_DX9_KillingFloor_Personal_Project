@@ -81,16 +81,19 @@ void Camera_TestMove::Move()
 
 void Camera_TestMove::Look()
 {
-	float fMouseMoveX = MouseMove(KEY_STATE_MouseX) * dTime * m_fMouseX_Sen;
-	float fMouseMoveY = MouseMove(KEY_STATE_MouseY)* dTime * m_fMouseX_Sen;
+	if (MousePress(KEY_STATE_RMouse))
+	{
+		float fMouseMoveX = MouseMove(KEY_STATE_MouseX) * dTime * m_fMouseX_Sen;
+		float fMouseMoveY = MouseMove(KEY_STATE_MouseY)* dTime * m_fMouseX_Sen;
 
-	//m_Transform->RotateY(fMouseMoveX * dTime);
-	//m_Transform->RotateX(fMouseMoveY * dTime);
+		//m_Transform->RotateY(fMouseMoveX * dTime);
+		//m_Transform->RotateX(fMouseMoveY * dTime);
 
-	Vector3 vUp = m_Transform->Get_Up();
-	Vector3 vRight = m_Transform->Get_Right();
+		Vector3 vUp = m_Transform->Get_Up();
+		Vector3 vRight = m_Transform->Get_Right();
 
-	m_Transform->RotateAxis(vUp, D3DXToRadian(fMouseMoveX));
-	m_Transform->RotateAxis(vRight, D3DXToRadian( fMouseMoveY));
+		m_Transform->RotateAxis(vUp, D3DXToRadian(fMouseMoveX));
+		m_Transform->RotateAxis(vRight, D3DXToRadian(fMouseMoveY));
+	}
 }
 

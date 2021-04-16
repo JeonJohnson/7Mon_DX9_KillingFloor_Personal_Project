@@ -66,6 +66,11 @@ Vector3 Transform::QuaternionToEuler(Quaternion _quaternion)
 	return Vector3(D3DXToDegree((float)roll), D3DXToDegree((float)pitch), D3DXToDegree((float)yaw));
 }
 
+Vector3 Transform::Get_Rotation_Euler()
+{
+	return QuaternionToEuler(m_qRotation);
+}
+
 
 
 void Transform::Set_Transform(Transform * _pTransform)
@@ -300,15 +305,15 @@ void Transform::Set_RotationX(float _eulerX)
 void Transform::Set_RotationY(float _eulerY)
 {
 	Vector3 CurrentAngle = QuaternionToEuler(m_qRotation);
-	RotateX(-CurrentAngle.y);
-	RotateX(_eulerY);
+	RotateY(-CurrentAngle.y);
+	RotateY(_eulerY);
 }
 
 void Transform::Set_RotationZ(float _eulerZ)
 {
 	Vector3 CurrentAngle = QuaternionToEuler(m_qRotation);
-	RotateX(-CurrentAngle.z);
-	RotateX(_eulerZ);
+	RotateZ(-CurrentAngle.z);
+	RotateZ(_eulerZ);
 }
 
 void Transform::RotateX(float _eulerX)

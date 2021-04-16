@@ -114,7 +114,11 @@ public: /* Scene Manager */
 	void Load_Scene(const wstring& _wName);
 	void Init_Scene(const wstring& _wName);
 
-public: /* Gameobject Manager  */
+public: /* Gameobject Manager */
+	GameObject*		Get_GameObject(int _tag, const wstring& _name);
+	GameObject*		Get_GameObjectbyName(const wstring& _name); //Return First Object
+	GameObject*		Get_GameObjectbyTag(int _tag); //Return First Object
+
 
 public: /* UI Manager */
 
@@ -123,6 +127,7 @@ public: /* Render Manager */
 public: /* Resource Manager */
 	void Load_Texture(const wstring & _wPath, const wstring& _wName);
 	void Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName= L"");
+
 public:
 		
 private:

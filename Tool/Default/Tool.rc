@@ -208,6 +208,8 @@ BEGIN
     CONTROL         "표현 끄기",IDC_RADIO_Render,"Button",BS_AUTORADIOBUTTON,23,285,41,10,WS_EX_CLIENTEDGE
     CONTROL         "수정 하기",IDC_RADIO_Modify,"Button",BS_AUTORADIOBUTTON,23,300,45,12,WS_EX_CLIENTEDGE
     PUSHBUTTON      "형세 저장",IDC_BUTTON_LayoutSave,7,339,50,14
+    CTEXT           "현재 곱표파일이랑 텍스쳐파일이랑\n이름이 같은것만 로드가 됩니다.",IDC_STATIC,55,321,98,21,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "영사기 제자리",IDC_BUTTON_CameraReset,23,246,50,14
 END
 
 

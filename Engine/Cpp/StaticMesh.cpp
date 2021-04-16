@@ -49,15 +49,16 @@ HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring
 	{
 		return E_FAIL;
 	}
+	wstring TextureName = PathFindFileName(TextureSimplePath.c_str());
 
-	m_pTexture = ResourceManager::Get_Instance()->Load_Texture(TextureSimplePath, L"Test_StaticMesh_Texture");
+	m_pTexture = ResourceManager::Get_Instance()->Load_Texture(TextureSimplePath, TextureName);
 	assert(L"Texture Load Failed at static mesh" && m_pTexture);
 
 	for (DWORD i = 0; i < m_ulMaterial_Count; ++i)
 	{
 		D3DXMATERIAL*	pMaterial = (D3DXMATERIAL*)m_pMaterials->GetBufferPointer();
 
-		wstring temp = L"Test_StaticMesh_Texture";
+		wstring temp = TextureName;
 		temp += L"_" + to_wstring(i);
 
 		if (FAILED(ResourceManager::Get_Instance()->Add_Texture(m_pTexture, TextureSimplePath, temp)))
