@@ -41,8 +41,14 @@
     <Filter Include="04.FormView\Spec">
       <UniqueIdentifier>{43a9d0ea-ddb9-42d4-9ff4-fcf7f2832543}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Scene">
+    <Filter Include="05.Dialog">
+      <UniqueIdentifier>{0ae63ee1-502b-427f-93b2-45952d4e044d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Scene">
       <UniqueIdentifier>{1bc85515-f838-4c29-aef6-b2690cd42ca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Dialog\ObjectLoad">
+      <UniqueIdentifier>{b31fd628-7184-46f4-b83a-be852fa7c925}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,14 +85,14 @@
     <ClInclude Include="..\Header\ObjectTool_Struct.h">
       <Filter>98.Header\04.Struct</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Spec_FormView.h">
-      <Filter>04.FormView\Spec</Filter>
-    </ClInclude>
     <ClInclude Include="Tool_ObjectView.h">
       <Filter>03.View</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\ObjectTool_Scene.h">
-      <Filter>05.Scene</Filter>
+      <Filter>06.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ObjectSetting_DialogEx.h">
+      <Filter>05.Dialog\ObjectLoad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -102,14 +108,14 @@
     <ClCompile Include="Tool_Object.cpp">
       <Filter>00.App</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\Spec_FormView.cpp">
-      <Filter>04.FormView\Spec</Filter>
-    </ClCompile>
     <ClCompile Include="Tool_ObjectView.cpp">
       <Filter>03.View</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\ObjectTool_Scene.cpp">
-      <Filter>05.Scene</Filter>
+      <Filter>06.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\ObjectSetting_DialogEx.cpp">
+      <Filter>05.Dialog\ObjectLoad</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

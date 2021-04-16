@@ -2,6 +2,7 @@
 
 
 
+
 // Spec_FormView Æû ºäÀÔ´Ï´Ù.
 
 class Spec_FormView : public CFormView
@@ -29,7 +30,12 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 public:
+	void Update_Info();
 
+
+	afx_msg void OnBnClickedButtonObjload();
+
+	class GameObject*	m_pTest;
 };
 
 

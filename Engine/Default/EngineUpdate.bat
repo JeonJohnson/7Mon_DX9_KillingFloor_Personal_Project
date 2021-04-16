@@ -9,10 +9,10 @@ xcopy /y ..\Bin\*.dll ..\..\Client\Bin\x64\Debug\
 xcopy /y ..\Bin\*.dll ..\..\Client\Bin\x64\Release\
 
 ::For ObjectTool
-xcopy /y ..\Bin\*.dll ..\..\Tools\ObjectSetting_Tool\Bin\Win32\Debug\
-xcopy /y ..\Bin\*.dll ..\..\Tools\ObjectSetting_Tool\Bin\Win32\Release\
-xcopy /y ..\Bin\*.dll ..\..\Tools\ObjectSetting_Tool\Bin\x64\Debug\
-xcopy /y ..\Bin\*.dll ..\..\Tools\ObjectSetting_Tool\Bin\x64\Release\
+xcopy /y ..\Bin\*.dll ..\..\Tool\Bin\Win32\Debug\
+xcopy /y ..\Bin\*.dll ..\..\Tool\Bin\Win32\Release\
+xcopy /y ..\Bin\*.dll ..\..\Tool\Bin\x64\Debug\
+xcopy /y ..\Bin\*.dll ..\..\Tool\Bin\x64\Release\
 
 ::For NeviMeshTool
 ::xcopy /y ..\Bin\*.dll ..\..\Tools\NaviMesh_Tool\Bin\Win32\Debug\

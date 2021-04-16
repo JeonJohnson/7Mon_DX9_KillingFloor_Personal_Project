@@ -135,11 +135,12 @@ BOOL CTool_ObjectApp::InitInstance()
 	//엔진 세팅/로드
 	m_pEngine = Engine_Mother::Get_Instance();
 
-	Engine_Mother::Desc Engine_desc;
+	Engine_Mother::Desc_Tool Engine_desc;
 	Engine_desc.wincx = 1280;
 	Engine_desc.wincy = 720; 
-	Engine_desc.window = true;
-	Engine_desc.hWnd = g_pDefaultView->GetSafeHwnd();
+	//Engine_desc.hWnd_forDevice = g_pDefaultView->GetSafeHwnd();
+	Engine_desc.hWnd_forDevice = g_pDefaultView->m_hWnd;
+	Engine_desc.hWnd_forDInput = AfxGetMainWnd()->m_hWnd;
 	//Engine_desc.hInst = AfxGetInstanceHandle();
 	Engine_desc.hInst = GetModuleHandle(NULL);
 	Engine_desc.Object_Tag_MaxCount = 4;

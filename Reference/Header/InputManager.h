@@ -17,6 +17,7 @@ private:
 
 public:
 	void Initialize(HINSTANCE hInst, HWND hWnd);
+	//void Initialize(HINSTANCE hInst, HWND hWnd);
 	void Update();
 	void Release();
 

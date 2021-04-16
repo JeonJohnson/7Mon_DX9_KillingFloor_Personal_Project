@@ -57,6 +57,19 @@ void Engine_Mother::Initialize(Desc * _desc)
 	
 }
 
+void Engine_Mother::Initialize(Desc_Tool * _desc)
+{
+	m_pDeviceManager->Initialize(_desc->hWnd_forDevice, _desc->wincx, _desc->wincy, true);
+	m_pTimeManager->Time_Init();
+	m_pInputManager->Initialize(_desc->hInst, _desc->hWnd_forDInput);
+	m_pResourceManager->Initialize();
+
+	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
+	m_pUiManager->Initailize();
+	m_pRenderManager->Initialize();
+	m_pSceneManager->Initialize();
+}
+
 void Engine_Mother::Process()
 {
 	m_pTimeManager->Time_Update();

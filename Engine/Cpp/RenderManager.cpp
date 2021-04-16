@@ -221,21 +221,24 @@ void RenderManager::Insert_RenderingList(Renderer * _renderer, int _order)
 #ifdef _DEBUG
 void RenderManager::Render_DEBUG()
 {
-	m_pDX9_Device_DEBUG->Clear(
-		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
-		D3DCOLOR_ARGB(255, 255, 222, 222), 1.f, 0);
+	if (m_pDX9_Device_DEBUG != nullptr)
+	{
+		m_pDX9_Device_DEBUG->Clear(
+			0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
+			D3DCOLOR_ARGB(255, 255, 222, 222), 1.f, 0);
 
-	m_pDX9_Device_DEBUG->BeginScene();
-
-
-	/*	Debug Rendering	*/
-
+		m_pDX9_Device_DEBUG->BeginScene();
 
 
+		/*	Debug Rendering	*/
 
-	m_pDX9_Device_DEBUG->EndScene();
 
-	m_pDX9_Device_DEBUG->Present(0, 0, 0, 0);
+
+
+		m_pDX9_Device_DEBUG->EndScene();
+
+		m_pDX9_Device_DEBUG->Present(0, 0, 0, 0);
+	}
 
 }
 #endif //_DEBUG

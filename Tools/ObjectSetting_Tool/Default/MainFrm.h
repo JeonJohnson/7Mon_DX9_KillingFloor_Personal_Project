@@ -4,6 +4,12 @@
 
 #pragma once
 
+class MY_CSplitterWnd : public CSplitterWnd
+{
+
+
+};
+
 class CMainFrame : public CFrameWnd
 {
 	

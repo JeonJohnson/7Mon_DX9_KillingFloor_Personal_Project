@@ -60,12 +60,29 @@ public:
 #endif //_DEBUG
 	};
 
+public:
+	struct Desc_Tool
+	{
+		HINSTANCE	hInst = nullptr;
+		HWND		hWnd_forDevice = nullptr;
+		HWND		hWnd_forDInput = nullptr;
+		//MFC에서 다이렉트 인풋을 사용할려면 최상위 계층의 핸들이 필요함.
+		//MainVeiw의 hwnd가 아니라 AfxGetMainWnd()->m_hWnd 를 넣어 줘야함.
+		UINT		wincx = 1280;
+		UINT		wincy = 720;
+
+		_object_Tag			Object_Tag_MaxCount = 1;
+		_render_Layer		Render_Layer_MaxCount = 1;
+		_collision_Layer	Collision_Layer_MaxCount = 1;
+	};
+
 private:
 	Engine_Mother();
 	~Engine_Mother();
 
 public:
 	void Initialize(Desc* _desc);
+	void Initialize(Desc_Tool* _desc);
 	void Process();
 	void Release();
 

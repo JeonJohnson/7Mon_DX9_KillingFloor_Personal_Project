@@ -32,7 +32,7 @@ void TestScene::Initialize()
 	Camera_FreeMove::Desc move_desc;
 	Test_Cam->Add_Component<Camera_FreeMove>(&move_desc);
 
-
+		
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
 	EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");

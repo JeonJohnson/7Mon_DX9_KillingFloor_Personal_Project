@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="00.App">
+      <UniqueIdentifier>{9cfd26a8-02a3-4cd5-9ba1-556044e0d463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.MainFrame">
+      <UniqueIdentifier>{c05428e4-325e-46bd-ae2c-4572d61cbe20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Document">
+      <UniqueIdentifier>{cf82bb0a-7a36-47a9-8f7e-4ed94962864a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.View">
+      <UniqueIdentifier>{7b875899-3ac2-4c0b-81fb-2380adbf955f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.FormView">
+      <UniqueIdentifier>{b4cfa026-8237-436d-93eb-1d60ffe4ed26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Dialog">
+      <UniqueIdentifier>{0ae24fa6-890b-43ac-8f79-2e68212488e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Scene">
+      <UniqueIdentifier>{7a7d76ee-5f75-4ba0-a9e3-d87528088be9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Header">
+      <UniqueIdentifier>{c0834dc9-5e44-48b6-9477-ed80a5fe91e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Wls">
+      <UniqueIdentifier>{5ece2a6d-35c4-42d1-a208-241eca0c1886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Wls\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="98.Header\Includes">
+      <UniqueIdentifier>{a7e274e9-c325-4955-82a2-cb45cbea07ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Scene\00.Camera">
+      <UniqueIdentifier>{2d22caf3-7334-48fa-a487-4ea5be1aa9a0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>99.Wls</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>98.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Wls</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>01.MainFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool.h">
+      <Filter>00.App</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolDoc.h">
+      <Filter>02.Document</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolView.h">
+      <Filter>03.View</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool_Define.h">
+      <Filter>98.Header\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool_Enum.h">
+      <Filter>98.Header\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool_Extern.h">
+      <Filter>98.Header\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool_Struct.h">
+      <Filter>98.Header\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool_Include.h">
+      <Filter>98.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Spec_FormView.h">
+      <Filter>04.FormView</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool_Scene.h">
+      <Filter>06.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera_TestMove.h">
+      <Filter>06.Scene\00.Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Wls</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>01.MainFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool.cpp">
+      <Filter>00.App</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolDoc.cpp">
+      <Filter>02.Document</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolView.cpp">
+      <Filter>03.View</Filter>
+    </ClCompile>
+    <ClCompile Include="Spec_FormView.cpp">
+      <Filter>04.FormView</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool_Scene.cpp">
+      <Filter>06.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera_TestMove.cpp">
+      <Filter>06.Scene\00.Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tool.rc">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Tool.rc2">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\ToolDoc.ico">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </Image>
+    <Image Include="res\Tool.ico">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>99.Wls\리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>99.Wls</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
