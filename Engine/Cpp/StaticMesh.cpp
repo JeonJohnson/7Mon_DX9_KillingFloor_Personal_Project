@@ -29,7 +29,7 @@ void StaticMesh::Release()
 }
 
 HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring & _szTexPath)
-{
+{ 
 	//wstring MeshFullPath = L"../../Resource/" + _szMeshPath;
 	//wstring TextureFullPath = L"../../Resource/" + _szTexPath;
 

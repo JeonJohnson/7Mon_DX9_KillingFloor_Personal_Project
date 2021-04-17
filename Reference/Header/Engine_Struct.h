@@ -103,6 +103,18 @@ typedef struct tagIndexBufferInfo
 #pragma endregion
 
 #pragma region MeshRender Strcuts
+typedef struct D3DXFRAME_DERIVED : public D3DXFRAME
+{
+	/* Default Variables */
+	//LPSTR                   Name;					//뼈이름, 잘안씀.
+	//D3DXMATRIX              TransformationMatrix; //
+	//LPD3DXMESHCONTAINER     pMeshContainer;		//
+	//struct _D3DXFRAME       *pFrameSibling;		//형제 bone
+	//struct _D3DXFRAME       *pFrameFirstChild;	//자식 bone
+
+	Matrix		CombinedTransformMatrix; //부모 뼈 매트릭스 * 내 뼈
+}D3DXFrame_Derived;
+
 /* Mesh Render Derived Struct */
 typedef struct D3DXMESHCONTAINER_DERIVED : public D3DXMESHCONTAINER
 {
@@ -117,15 +129,16 @@ typedef struct D3DXMESHCONTAINER_DERIVED : public D3DXMESHCONTAINER
 	//struct _D3DXMESHCONTAINER *pNextMeshContainer;
 
 	/* Derived Variables */
+	LPDIRECT3DTEXTURE9*	ppTexture;
 	LPD3DXMESH			pOriginMesh;
 	int					iBoneCount;
 
 	Matrix*				pFrameOffsetMatrix; //자신의 본래 행렬.
-	Matrix*				pCombinedTrasnformMatrix; //자신 행렬에 부모행렬 곱해서 나올 최종 행렬.
+	Matrix**			ppCombinedTrasnformMatrix; //자신 행렬에 부모행렬 곱해서 나올 최종 행렬.
 						//=> 본 스페이스에 있음.
 	Matrix*				pRenderingMatrix; //최종적으로 모든 변환이 끝나고 렌더링에 쓸 행렬.
 						//=> pFrameOffsetMatrix * CombinedTransformMatrix
-}MeshContainer_Ex;
+}MeshContainer_Derived;
  
 
 

@@ -178,6 +178,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\Header\AnimationController.h" />
     <ClInclude Include="..\Header\AnimMesh.h" />
     <ClInclude Include="..\Header\Camera.h" />
     <ClInclude Include="..\Header\Component.h" />
@@ -230,6 +231,7 @@
     <ClInclude Include="..\Header\VIBuffer_Renderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\AnimationController.cpp" />
     <ClCompile Include="..\Cpp\AnimMesh.cpp" />
     <ClCompile Include="..\Cpp\Camera.cpp" />
     <ClCompile Include="..\Cpp\Component.cpp" />

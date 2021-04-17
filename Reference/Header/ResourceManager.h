@@ -103,7 +103,7 @@ public:
 	
 	
 	StaticMesh* Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName = L"");
-	AnimMesh*	Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szTexPath);
+	AnimMesh*	Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName = L"");
 	void Load_Mesh(const wstring& _szMeshPath, const wstring& _szTexPath);
 	void Load_AllMeshs();
 

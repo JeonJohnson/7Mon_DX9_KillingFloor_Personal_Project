@@ -8,6 +8,7 @@
 #include "Renderer.h"
 
 class StaticMesh;
+class AnimMesh;
 class DLL_STATE Mesh_Renderer : public Renderer
 {
 public:
@@ -27,7 +28,7 @@ public:
 	virtual void LateUpdate() override;
 	virtual void Render() override;
 	virtual void Release() override;
-
+	
 public:
 
 public:
@@ -36,7 +37,7 @@ public:
 
 private:
 	StaticMesh*		m_pStaticMesh = nullptr;
-//	AnimMesh*		m_pAnimMesh = nullptr;
+	AnimMesh*		m_pAnimMesh = nullptr;
 };
 
 #endif//_MESH_RENDERER_H_

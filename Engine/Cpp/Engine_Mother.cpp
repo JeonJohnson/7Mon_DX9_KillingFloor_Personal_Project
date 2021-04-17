@@ -199,3 +199,8 @@ void Engine_Mother::Load_StaticMesh(const wstring & _szMeshPath, const wstring &
 {
 	m_pResourceManager->Load_StaticMesh(_szMeshPath, _szTexPath, _szMeshName);
 }
+
+void Engine_Mother::Load_AnimMesh(const wstring & _szMeshPath, const wstring & _szMeshName)
+{
+	m_pResourceManager->Load_AnimMesh(_szMeshName, _szMeshName);
+}

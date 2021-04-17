@@ -6,6 +6,8 @@
 #include "Engine_Include.h"
 
 #include "CResource.h"
+#include "Hierachy_Loader.h"
+#include "AnimationController.h"
 
 class AnimMesh :public CResource
 {
@@ -16,16 +18,26 @@ public:
 public:
 	virtual void Initialize() override;
 	virtual void Update() override;
+	//void		 Render();
 	virtual void Release() override;
 
-public:
+public: /* Function */
+	HRESULT		Insert_AnimationMesh(
+		const wstring& szFullFilePath, const wstring& szMeshName = L"");
+	
+	void		Update_BoneMatrix(D3DXFrame_Derived* pBone, Matrix* pParentMatrix);
+	void		Setup_MeshContainerForEachBones(D3DXFrame_Derived* pFrame);
 
-public:
+	void		Set_AnimationSet(int _animIndex);
+	void		Playe_AnimationSet();
 
-public:
+public: /* Get */
+
+
+public: /* Set */
 
 private:
-	D3DXFRAME*		m_pRootFrame; 
+	D3DXFRAME*							m_pRootFrame = nullptr; 
 	//Frame => DirectX에서 말하는 Bone
 	//애니메이션에서 모든 뼈 정보를 형제, 자식 관계로 가지고 있을꺼고
 	//그 관계를 쭉 돌면서 모든 뼈들을 순회 할껀데
@@ -40,6 +52,16 @@ private:
 	//	struct _D3DXFRAME       *pFrameSibling; //형제 뼈. 같은 부모를 가지고 있음.
 	//	struct _D3DXFRAME       *pFrameFirstChild; //현재 뼈가 부모가 될 자식 뼈.
 	//} D3DXFRAME, *LPD3DXFRAME;
+
+	list<MeshContainer_Derived*>	m_MeshContainerList;
+
+
+
+	Hierachy_Loader*					m_pHierachyLoader = nullptr;
+	//다이나믹 매쉬를 생성 할 떄 필수적으로 필요한 콜백함수들을 
+	//우리 입맛에 맞게 사용하기위해 Dx에서 제공하는 클래스를 상속받아 만든 클래스.
+
+	AnimationController*				m_pAnimationCtroller = nullptr;
 
 								
 

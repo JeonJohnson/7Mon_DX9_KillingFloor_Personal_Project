@@ -8,8 +8,11 @@
 #include "Cube_VIBuffer_Color.h"
 #include "Cube_VIBuffer_Texture.h"
 #include "Cube_VIBuffer_DDS.h"
-#include "StaticMesh.h"
 #include "Line_VIBuffer_Grid.h"
+
+//Meshes
+#include "StaticMesh.h"
+#include "AnimMesh.h"
 
 
 Implement_Singleton(ResourceManager)
@@ -121,10 +124,18 @@ StaticMesh * ResourceManager::Load_StaticMesh(const wstring& _szMeshPath, const 
 	return StaticMeshTemp;
 }
 
-AnimMesh * ResourceManager::Load_AnimMesh(const wstring & _szMeshPath, const wstring & _szTexPath)
+AnimMesh * ResourceManager::Load_AnimMesh(const wstring & _szMeshPath, const wstring & _szMeshName)
 {
+	AnimMesh* AnimMeshTemp = Insert_Resource<AnimMesh, AnimMesh>(_szMeshName);
+	
+	wstring szMeshFullPath = m_wFolderPath + _szMeshPath;
+
+	AnimMeshTemp->Insert_AnimationMesh(szMeshFullPath, L"Test_AnimMesh");
+	
 	return nullptr;
 }
+
+
 
 void ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _szTexPath)
 {
@@ -160,7 +171,7 @@ void ResourceManager::Insert_VIBuffers()
 
 wstring ResourceManager::EraseFolderPath(wstring _FullPath)
 {
-	//../../Resource/  지워주는거
+	//L"../../Resource/"  지워주는거
 	size_t folderPathLen = m_wFolderPath.length();
 	wstring Temp = _FullPath.erase(0, folderPathLen);
 	return Temp;

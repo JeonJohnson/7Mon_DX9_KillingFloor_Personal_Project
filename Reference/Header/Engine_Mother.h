@@ -127,6 +127,7 @@ public: /* Render Manager */
 public: /* Resource Manager */
 	void Load_Texture(const wstring & _wPath, const wstring& _wName);
 	void Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName= L"");
+	void Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 
 public:
 		
