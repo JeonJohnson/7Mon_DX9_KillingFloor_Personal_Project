@@ -93,30 +93,44 @@ void TestScene::Initialize()
 	}
 
 	{//Cube DDs Test
-		GameObject* CubeDDs_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"CubeDDs_Test");
-		CubeDDs_Test->Set_Position(Vector3(0.f, 0.f, 0.f));
-		CubeDDs_Test->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		//GameObject* CubeDDs_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"CubeDDs_Test");
+		//CubeDDs_Test->Set_Position(Vector3(0.f, 0.f, 0.f));
+		//CubeDDs_Test->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
-		VIBuffer_Renderer::Desc Cube_dds_Desc;
-		Cube_dds_Desc.wBufferName = L"Cube_DDS";
-		Cube_dds_Desc.wTextureName = L"dds_Test";
-		Cube_dds_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
-		CubeDDs_Test->Add_Component<VIBuffer_Renderer>(&Cube_dds_Desc);
+		//VIBuffer_Renderer::Desc Cube_dds_Desc;
+		//Cube_dds_Desc.wBufferName = L"Cube_DDS";
+		//Cube_dds_Desc.wTextureName = L"dds_Test";
+		//Cube_dds_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Priority;
+		//CubeDDs_Test->Add_Component<VIBuffer_Renderer>(&Cube_dds_Desc);
 	}
 
 	{//Static Mesh Test 
-	 GameObject* Test_Mesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Mesh");
-	 Test_Mesh->Set_Position(Vector3(0.f, 0.f, 0.f));
-	 Test_Mesh->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-	 Test_Mesh->RotateY(45.f);
-	 //Test_Mesh->RotateX(45.f);
-	 //Test_Mesh->RotateZ(45.f);
+	 //GameObject* Test_Mesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Mesh");
+	 //Test_Mesh->Set_Position(Vector3(0.f, 0.f, 0.f));
+	 //Test_Mesh->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+	 //Test_Mesh->RotateY(45.f);
+	 ////Test_Mesh->RotateX(45.f);
+	 ////Test_Mesh->RotateZ(45.f);
 
-	 Mesh_Renderer::Desc Mesh_desc;
-	 Mesh_desc.szMeshName = L"truck";
-	 Test_Mesh->Add_Component<Mesh_Renderer>(&Mesh_desc);
+	 //Mesh_Renderer::Desc Mesh_desc;
+	 //Mesh_desc.szMeshName = L"truck";
+	 //Test_Mesh->Add_Component<Mesh_Renderer>(&Mesh_desc);
 	}
+	
+	
+	{//Dynamic Mesh Test
+		EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/Reference/Player.X", L"reference");
+		GameObject* Test_AnimMesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_AnimMesh");
+		Test_AnimMesh->Set_Scale(0.01f, 0.01f, 0.01f);
 
+		Mesh_Renderer::Desc dynamic_desc;
+		dynamic_desc.szMeshName = L"reference";
+
+		Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
+
+		//Mesh_Renderer* temp = Test_AnimMesh->Get_NewComponent<Mesh_Renderer>();
+
+	}
 
 
 

@@ -34,6 +34,25 @@ void ResourceManager::Initialize(const wstring& _szResourceFolderPath)
 	Insert_VIBuffers();
 }
 
+void ResourceManager::Update()
+{
+	for (auto& resources : m_umResourceList)
+	{
+		for (auto& resource : resources.second)
+		{
+			resource.second->Update();
+		}
+	}
+}
+
+void ResourceManager::LateUpdate()
+{
+}
+
+void ResourceManager::ReadyRender()
+{
+}
+
 void ResourceManager::Release()
 {
 	Delete_AllResource();

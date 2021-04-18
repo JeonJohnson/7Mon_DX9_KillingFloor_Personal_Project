@@ -18,7 +18,7 @@ void AnimMesh::Initialize()
 
 void AnimMesh::Update()
 {
-	//Update_BoneMatrix();
+	Play_AnimationSet();
 }
 
 void AnimMesh::Release()
@@ -35,7 +35,7 @@ HRESULT AnimMesh::Insert_AnimationMesh(const wstring & szFullFilePath, const wst
 	m_pHierachyLoader = new Hierachy_Loader(&hierachy_desc);
 	assert(L"HierachyLoader load failed lol" && m_pHierachyLoader);
 	
-	LPD3DXANIMATIONCONTROLLER	pAnimContoller = nullptr;
+	LPD3DXANIMATIONCONTROLLER	pAnimController = nullptr;
 
 	if (FAILED(
 		D3DXLoadMeshHierarchyFromX(szFullFilePath.c_str(),
@@ -44,15 +44,16 @@ HRESULT AnimMesh::Insert_AnimationMesh(const wstring & szFullFilePath, const wst
 			m_pHierachyLoader,
 			NULL,
 			&m_pRootFrame,
-			&pAnimContoller)))
+			&pAnimController)))
 	{
 		//이 과정에서 HieracyLoader의 함수를 호출해서
-		//기본 Frame과 Mesh을 지정해 줄꺼임.
+		//기본 Frame과 Mesh을 지정1해 줄꺼임.
 		return E_FAIL;
 	}
 	
-	
+	m_pAnimationController = new AnimationController(pAnimController);
 
+	//m_pAnimationController->Set_AnimContoller(pAnimController);
 
 	//뼈들의 CombineMatrix 초기화 해주기.
 	//밑에 MeshContainer 초기화를 위해서.
@@ -66,6 +67,10 @@ HRESULT AnimMesh::Insert_AnimationMesh(const wstring & szFullFilePath, const wst
 
 void AnimMesh::Update_BoneMatrix(D3DXFrame_Derived * pFrame, Matrix * pParentMatrix)
 {
+	if (pFrame == nullptr)
+	{
+		return;
+	}
 	//얘는 첫뼈에서부터 마지막 뼈에 도달할 때 까지 재귀 함수 처럼 돌릴꺼임.
 	//D3DXFrame보면 자식뼈와 형제뼈를 가지고 있는데
 	//형제 뼈 가서 그 형제뼈의 형제뼈 쭉 돌리고 다 돌았으면 자식뼈 돌리고
@@ -155,4 +160,28 @@ void AnimMesh::Setup_MeshContainerForEachBones(D3DXFrame_Derived * pFrame)
 	}
 
 
+}
+
+void AnimMesh::Set_AnimationSet(int _animIndex)
+{
+	m_pAnimationController->Set_AnimationSet(_animIndex);
+}
+
+void AnimMesh::Play_AnimationSet()
+{
+	m_pAnimationController->Play_AnimationSet();
+
+	Matrix matTemp;
+	D3DXMatrixIdentity(&matTemp);
+	Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &matTemp);
+}
+
+list<MeshContainer_Derived*> AnimMesh::Get_MeshContainerList()
+{
+	return m_MeshContainerList;
+}
+
+AnimationController * AnimMesh::Get_AnimationController()
+{
+	return m_pAnimationController;
 }

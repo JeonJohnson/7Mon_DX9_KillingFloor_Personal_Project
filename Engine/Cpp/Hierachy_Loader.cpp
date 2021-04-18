@@ -1,8 +1,11 @@
 #include "..\Header\Hierachy_Loader.h"
+#include "DeviceManager.h"
 
 
 Hierachy_Loader::Hierachy_Loader(Desc * _desc)
 {
+	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
+
 	m_szFolderPath = _desc->szPath;
 	
 	size_t temp = m_szFolderPath.rfind(L"/");
@@ -20,8 +23,11 @@ HRESULT Hierachy_Loader::CreateFrame(LPCSTR Name, LPD3DXFRAME * ppNewFrame)
 	ZeroMemory(pDerivedBone, sizeof(D3DXFrame_Derived));
 
 		//이름 설정
-	pDerivedBone->Name = new char[strlen(Name) + 1];
-	strcpy_s(pDerivedBone->Name, strlen(Name) + 1, Name);
+	if (Name != nullptr)
+	{
+		pDerivedBone->Name = new char[strlen(Name) + 1];
+		strcpy_s(pDerivedBone->Name, strlen(Name) + 1, Name);
+	}
 
 		//CombinedTransformMatirx 초기화
 	pDerivedBone->CombinedTransformMatrix = *(D3DXMatrixIdentity(&pDerivedBone->TransformationMatrix));
@@ -87,7 +93,7 @@ HRESULT Hierachy_Loader::CreateMeshContainer(LPCSTR Name,
 	//머테리얼 설정
 	if (NumMaterials != 0)
 	{
-		pDerivedMeshContainer->NumMaterials = 1;
+		pDerivedMeshContainer->NumMaterials = NumMaterials;
 
 		pDerivedMeshContainer->pMaterials = new D3DXMATERIAL[pDerivedMeshContainer->NumMaterials];
 		ZeroMemory(pDerivedMeshContainer->pMaterials, sizeof(D3DXMATERIAL) * pDerivedMeshContainer->NumMaterials);
@@ -100,16 +106,20 @@ HRESULT Hierachy_Loader::CreateMeshContainer(LPCSTR Name,
 		//XFile내부에 있는 텍스쳐 파일루다가 부를꺼다 이거야
 		for (DWORD i = 0; i < pDerivedMeshContainer->NumMaterials; ++i)
 		{
-			wstring szFullTexturePath;
+			wstring szFullTexturePath = L"../../Resource/Test/DynamicMesh/Reference/";
 			//LPSTR
 			LPSTR temp = pDerivedMeshContainer->pMaterials[i].pTextureFilename;
 			string tempDest = temp;
 
-			szFullTexturePath.assign(tempDest.begin(), tempDest.end());
+			wstring szTemp;
+			szFullTexturePath += szTemp.assign(tempDest.begin(), tempDest.end());
+			//여기서 파일 이름만 넘겨줌 지금.
 
 
-			if (FAILED(D3DXCreateTextureFromFile(m_pDX9_Device, szFullTexturePath.c_str(), &pDerivedMeshContainer->ppTexture[i])))
-				return E_FAIL;
+ 			if (FAILED(D3DXCreateTextureFromFile(m_pDX9_Device, szFullTexturePath.c_str(), &pDerivedMeshContainer->ppTexture[i])))
+			{		
+				return E_FAIL;	
+			}
 		}
 
 	}

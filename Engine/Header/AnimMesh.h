@@ -29,10 +29,11 @@ public: /* Function */
 	void		Setup_MeshContainerForEachBones(D3DXFrame_Derived* pFrame);
 
 	void		Set_AnimationSet(int _animIndex);
-	void		Playe_AnimationSet();
+	void		Play_AnimationSet();
 
 public: /* Get */
-
+	list<MeshContainer_Derived*>	Get_MeshContainerList();
+	AnimationController*			Get_AnimationController();
 
 public: /* Set */
 

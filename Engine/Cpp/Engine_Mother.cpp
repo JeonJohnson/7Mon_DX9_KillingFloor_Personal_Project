@@ -202,5 +202,5 @@ void Engine_Mother::Load_StaticMesh(const wstring & _szMeshPath, const wstring &
 
 void Engine_Mother::Load_AnimMesh(const wstring & _szMeshPath, const wstring & _szMeshName)
 {
-	m_pResourceManager->Load_AnimMesh(_szMeshName, _szMeshName);
+	m_pResourceManager->Load_AnimMesh(_szMeshPath, _szMeshName);
 }

@@ -15,6 +15,7 @@ public:
 	struct Desc
 	{
 		wstring szMeshName = L"";
+		int		iAnimIndex = 30;
 		//wstring szTexturePath = L"";
 
 	};
@@ -31,12 +32,13 @@ public:
 	
 public:
 
-public:
+public: /* Get */
+	AnimMesh*		Get_AnimMesh();
 
-public:
+public: /* Set */
 
 private:
-	StaticMesh*		m_pStaticMesh = nullptr;
+	//StaticMesh*		m_pStaticMesh = nullptr;
 	AnimMesh*		m_pAnimMesh = nullptr;
 };
 

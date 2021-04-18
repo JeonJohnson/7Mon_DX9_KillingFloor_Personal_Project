@@ -29,10 +29,11 @@ public: /* Function */
 	void		Setup_MeshContainerForEachBones(D3DXFrame_Derived* pFrame);
 
 	void		Set_AnimationSet(int _animIndex);
-	void		Playe_AnimationSet();
+	void		Play_AnimationSet();
 
 public: /* Get */
-
+	list<MeshContainer_Derived*>	Get_MeshContainerList();
+	AnimationController*			Get_AnimationController();
 
 public: /* Set */
 
@@ -61,7 +62,7 @@ private:
 	//다이나믹 매쉬를 생성 할 떄 필수적으로 필요한 콜백함수들을 
 	//우리 입맛에 맞게 사용하기위해 Dx에서 제공하는 클래스를 상속받아 만든 클래스.
 
-	AnimationController*				m_pAnimationCtroller = nullptr;
+	AnimationController*				m_pAnimationController = nullptr;
 
 								
 

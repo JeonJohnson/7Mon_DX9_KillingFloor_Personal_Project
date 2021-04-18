@@ -1,6 +1,7 @@
 #include "SceneManager.h"
 #include "RenderManager.h"
 #include "GameObjectManager.h"
+#include "ResourceManager.h"
 
 
 
@@ -28,6 +29,7 @@ void SceneManager::Update()
 	CurrentSceneCheck();
 
 	GameObjectManager::Get_Instance()->Update();
+	ResourceManager::Get_Instance()->Update();
 }
 
 void SceneManager::LateUpdate()

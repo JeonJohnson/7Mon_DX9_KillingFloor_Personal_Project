@@ -21,6 +21,9 @@ private:
 
 public:
 	void Initialize(const wstring& _szResourceFolderPath = L"../../Resource/");
+	void Update();
+	void LateUpdate();
+	void ReadyRender();
 	void Release();
 
 #pragma region Template
