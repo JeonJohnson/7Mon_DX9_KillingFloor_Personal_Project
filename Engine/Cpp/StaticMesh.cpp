@@ -32,8 +32,6 @@ HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring
 { 
 	//wstring MeshFullPath = L"../../Resource/" + _szMeshPath;
 	//wstring TextureFullPath = L"../../Resource/" + _szTexPath;
-
-	
 	
 	wstring TextureSimplePath = ResourceManager::Get_Instance()->EraseFolderPath(_szTexPath);
 

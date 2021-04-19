@@ -121,8 +121,8 @@ void TestScene::Initialize()
 	
 	{//Dynamic Mesh Test
 		//EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/Reference/Player.X", L"reference");
-		EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/FPPOV_Revoloer.X", L"reference");
-		GameObject* Test_AnimMesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_AnimMesh");
+		EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/ArmyTruck.X", L"reference");
+ 		GameObject* Test_AnimMesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_AnimMesh");
 		//Test_AnimMesh->Set_Scale(0.01f, 0.01f, 0.01f);
 		Test_AnimMesh->Set_Scale(1.f, 1.f, 1.f);
 		//Test_AnimMesh->Set_RotationY(270.f);

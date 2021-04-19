@@ -51,6 +51,7 @@ HRESULT AnimMesh::Insert_AnimationMesh(const wstring & szFullFilePath, const wst
 		return E_FAIL;
 	}
 	
+	assert(L"AnimController create failed"&& pAnimController);
 	m_pAnimationController = new AnimationController(pAnimController);
 
 	//m_pAnimationController->Set_AnimContoller(pAnimController);
