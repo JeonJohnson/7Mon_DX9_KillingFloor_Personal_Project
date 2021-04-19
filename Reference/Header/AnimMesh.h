@@ -9,7 +9,7 @@
 #include "Hierachy_Loader.h"
 #include "AnimationController.h"
 
-class AnimMesh :public CResource
+class DLL_STATE AnimMesh :public CResource
 {
 public:
 	AnimMesh();

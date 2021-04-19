@@ -4,6 +4,7 @@
 #include "Text.h"
 #include "Camera_FreeMove.h"
 #include "..\..\Engine\Header\Mesh_Renderer.h"
+#include "AnimationTest.h"
 //#include "../../Reference/Header/Camera.h"
  
 TestScene::TestScene()
@@ -129,10 +130,12 @@ void TestScene::Initialize()
 		Mesh_Renderer::Desc dynamic_desc;
 		dynamic_desc.szMeshName = L"reference";
 
-		//Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
-		Test_Cam->Add_Component<Mesh_Renderer>(&dynamic_desc);
+		Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
+		//Test_Cam->Add_Component<Mesh_Renderer>(&dynamic_desc);
 		//Mesh_Renderer* temp = Test_AnimMesh->Get_NewComponent<Mesh_Renderer>();
+		AnimationTest::Desc asdf;
 
+		Test_AnimMesh->Add_Component<AnimationTest>(&asdf);
 	}
 
 

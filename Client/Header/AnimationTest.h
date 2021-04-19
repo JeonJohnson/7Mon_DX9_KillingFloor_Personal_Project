@@ -15,7 +15,7 @@ public:
 	};
 
 public:
-	AnimationTest();
+	AnimationTest(Desc* _desc);
 	virtual ~AnimationTest();
 
 public:
