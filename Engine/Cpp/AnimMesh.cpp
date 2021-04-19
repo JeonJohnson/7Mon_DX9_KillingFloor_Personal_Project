@@ -59,6 +59,7 @@ HRESULT AnimMesh::Insert_AnimationMesh(const wstring & szFullFilePath, const wst
 	//밑에 MeshContainer 초기화를 위해서.
 	Matrix temp;
 	D3DXMatrixIdentity(&temp);
+	//D3DXMatrixRotationY(&temp, D3DXToRadian(90.f));
 	Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &temp);
 
 	Setup_MeshContainerForEachBones((D3DXFrame_Derived*)m_pRootFrame);

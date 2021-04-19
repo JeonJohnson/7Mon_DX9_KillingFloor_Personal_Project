@@ -119,15 +119,18 @@ void TestScene::Initialize()
 	
 	
 	{//Dynamic Mesh Test
-		EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/Reference/Player.X", L"reference");
+		//EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/Reference/Player.X", L"reference");
+		EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/FPPOV_Revoloer.X", L"reference");
 		GameObject* Test_AnimMesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_AnimMesh");
-		Test_AnimMesh->Set_Scale(0.01f, 0.01f, 0.01f);
+		//Test_AnimMesh->Set_Scale(0.01f, 0.01f, 0.01f);
+		Test_AnimMesh->Set_Scale(1.f, 1.f, 1.f);
+		//Test_AnimMesh->Set_RotationY(270.f);
 
 		Mesh_Renderer::Desc dynamic_desc;
 		dynamic_desc.szMeshName = L"reference";
 
-		Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
-
+		//Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
+		Test_Cam->Add_Component<Mesh_Renderer>(&dynamic_desc);
 		//Mesh_Renderer* temp = Test_AnimMesh->Get_NewComponent<Mesh_Renderer>();
 
 	}

@@ -106,7 +106,8 @@ HRESULT Hierachy_Loader::CreateMeshContainer(LPCSTR Name,
 		//XFile내부에 있는 텍스쳐 파일루다가 부를꺼다 이거야
 		for (DWORD i = 0; i < pDerivedMeshContainer->NumMaterials; ++i)
 		{
-			wstring szFullTexturePath = L"../../Resource/Test/DynamicMesh/Reference/";
+			//wstring szFullTexturePath = L"../../Resource/Test/DynamicMesh/Reference/";
+			wstring szFullTexturePath = L"../../Resource/Test/DynamicMesh/";
 			//LPSTR
 			LPSTR temp = pDerivedMeshContainer->pMaterials[i].pTextureFilename;
 			string tempDest = temp;

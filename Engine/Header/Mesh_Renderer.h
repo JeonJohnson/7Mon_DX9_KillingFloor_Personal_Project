@@ -15,7 +15,7 @@ public:
 	struct Desc
 	{
 		wstring szMeshName = L"";
-		int		iAnimIndex = 30;
+		int		iAnimIndex = 1;
 		//wstring szTexturePath = L"";
 
 	};
