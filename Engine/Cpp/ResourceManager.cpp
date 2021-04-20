@@ -130,35 +130,40 @@ HRESULT ResourceManager::Add_Texture(Texture * _texture, const wstring & _wPath,
 	return S_OK;
 }
 
-StaticMesh * ResourceManager::Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName)
+//StaticMesh * ResourceManager::Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName)
+//{
+//	StaticMesh* StaticMeshTemp = Insert_Resource<StaticMesh, StaticMesh>(_szMeshName);
+//
+//	wstring szMeshFullPath = m_wFolderPath + _szMeshPath;
+//	wstring szTextureFullPath = m_wFolderPath + _szTexPath;
+//	
+//	StaticMeshTemp->Insert_StaticMesh(szMeshFullPath, szTextureFullPath);
+//	
+//	return StaticMeshTemp;
+//}
+//
+//AnimMesh * ResourceManager::Load_AnimMesh(const wstring & _szMeshPath, const wstring & _szMeshName)
+//{
+//	AnimMesh* AnimMeshTemp = Insert_Resource<AnimMesh, AnimMesh>(_szMeshName);
+//	
+//	wstring szMeshFullPath = m_wFolderPath + _szMeshPath;
+//
+//	AnimMeshTemp->Insert_AnimationMesh(szMeshFullPath, L"Test_AnimMesh");
+//	
+//	return nullptr;
+//}
+
+
+
+Mesh* ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _szMeshName)
 {
-	StaticMesh* StaticMeshTemp = Insert_Resource<StaticMesh, StaticMesh>(_szMeshName);
+	Mesh* MeshTemp = Insert_Resource<Mesh, Mesh>(_szMeshName);
 
 	wstring szMeshFullPath = m_wFolderPath + _szMeshPath;
-	wstring szTextureFullPath = m_wFolderPath + _szTexPath;
 	
-	StaticMeshTemp->Insert_StaticMesh(szMeshFullPath, szTextureFullPath);
+	MeshTemp->Insert_Mesh(szMeshFullPath, _szMeshName);
 	
-	return StaticMeshTemp;
-}
-
-AnimMesh * ResourceManager::Load_AnimMesh(const wstring & _szMeshPath, const wstring & _szMeshName)
-{
-	AnimMesh* AnimMeshTemp = Insert_Resource<AnimMesh, AnimMesh>(_szMeshName);
-	
-	wstring szMeshFullPath = m_wFolderPath + _szMeshPath;
-
-	AnimMeshTemp->Insert_AnimationMesh(szMeshFullPath, L"Test_AnimMesh");
-	
-	return nullptr;
-}
-
-
-
-void ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _szTexPath)
-{
-	
-	
+	return MeshTemp;
 }
 
 void ResourceManager::Insert_VIBuffers()

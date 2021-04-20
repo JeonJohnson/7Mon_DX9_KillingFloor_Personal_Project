@@ -64,8 +64,6 @@ HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring
 			return E_FAIL;
 		}
 	}
-
-	
 	return S_OK;
 }
 
@@ -77,7 +75,6 @@ HRESULT StaticMesh::Render_Texture(int _iNum)
 	}
 
 	return S_OK;
-	
 }
 
 Texture * StaticMesh::Get_Texture()

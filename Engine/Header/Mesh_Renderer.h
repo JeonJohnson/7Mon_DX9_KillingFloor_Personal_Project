@@ -35,14 +35,11 @@ public:
 public:
 
 public: /* Get */
-	AnimMesh*		Get_AnimMesh();
+	Mesh*		Get_Mesh();
 
 public: /* Set */
 
 private:
-	//StaticMesh*		m_pStaticMesh = nullptr;
-	AnimMesh*		m_pAnimMesh = nullptr;
-
 	Mesh*			m_pMesh = nullptr;
 };
 

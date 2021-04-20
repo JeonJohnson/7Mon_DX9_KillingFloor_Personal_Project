@@ -189,7 +189,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Header\AnimationTest.h" />
     <ClInclude Include="..\Header\Camera_FreeMove.h" />
     <ClInclude Include="..\Header\Define.h" />
     <ClInclude Include="..\Header\Enum.h" />
@@ -207,7 +206,6 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Cpp\AnimationTest.cpp" />
     <ClCompile Include="..\Cpp\Camera_FreeMove.cpp" />
     <ClCompile Include="..\Cpp\IntroScene.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />

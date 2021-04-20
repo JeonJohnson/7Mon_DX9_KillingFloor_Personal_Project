@@ -4,7 +4,6 @@
 #include "Text.h"
 #include "Camera_FreeMove.h"
 #include "..\..\Engine\Header\Mesh_Renderer.h"
-#include "AnimationTest.h"
 //#include "../../Reference/Header/Camera.h"
  
 TestScene::TestScene()
@@ -43,9 +42,6 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
-
-	EngineFunction->Load_StaticMesh(L"Test/StaticMesh/Truck.X",
-		L"Test/StaticMesh/TruckOneCanvasDiffuseTGA.png", L"truck");
 
 	{//Rect Color Test
 		//GameObject* RectColor_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_RectColor");
@@ -120,24 +116,43 @@ void TestScene::Initialize()
 	
 	
 	{//Dynamic Mesh Test
-		//EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/Reference/Player.X", L"reference");
-		EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/ArmyTruck.X", L"reference");
- 		GameObject* Test_AnimMesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_AnimMesh");
-		//Test_AnimMesh->Set_Scale(0.01f, 0.01f, 0.01f);
-		Test_AnimMesh->Set_Scale(1.f, 1.f, 1.f);
-		//Test_AnimMesh->Set_RotationY(270.f);
+		////EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/Reference/Player.X", L"reference");
+		//EngineFunction->Load_AnimMesh(L"Test/DynamicMesh/ArmyTruck.X", L"reference");
+ 	//	GameObject* Test_AnimMesh = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_AnimMesh");
+		////Test_AnimMesh->Set_Scale(0.01f, 0.01f, 0.01f);
+		//Test_AnimMesh->Set_Scale(1.f, 1.f, 1.f);
+		////Test_AnimMesh->Set_RotationY(270.f);
 
-		Mesh_Renderer::Desc dynamic_desc;
-		dynamic_desc.szMeshName = L"reference";
+		//Mesh_Renderer::Desc dynamic_desc;
+		//dynamic_desc.szMeshName = L"reference";
 
-		Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
-		//Test_Cam->Add_Component<Mesh_Renderer>(&dynamic_desc);
-		//Mesh_Renderer* temp = Test_AnimMesh->Get_NewComponent<Mesh_Renderer>();
-		//AnimationTest::Desc asdf;
+		//Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
+		////Test_Cam->Add_Component<Mesh_Renderer>(&dynamic_desc);
+		////Mesh_Renderer* temp = Test_AnimMesh->Get_NewComponent<Mesh_Renderer>();
+		////AnimationTest::Desc asdf;
 
-		//Test_AnimMesh->Add_Component<AnimationTest>(&asdf);
+		////Test_AnimMesh->Add_Component<AnimationTest>(&asdf);
 	}
 
+	{//StaticMesh Merge Test	
+		//EngineFunction->Load_Mesh(L"Test/DynamicMesh/ArmyTruck.X", L"ArmyTruck_Static");
+		//GameObject*		Test_Merge = INSTANTIATE(OBJECT_TAG_DEFAULT, L"ArmyTruck_Static");
+
+		//Mesh_Renderer::Desc Merge_Desc;
+		//Merge_Desc.szMeshName = L"ArmyTruck_Static";
+
+		//Test_Merge->Add_Component<Mesh_Renderer>(&Merge_Desc);
+	}
+
+	{//DynamicMesh Merge Test
+		EngineFunction->Load_Mesh(L"Test/DynamicMesh/FPPOV_Revolver.X", L"Revolver_Test");
+		GameObject*		Test_Merge = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Revolver_Test");
+
+		Mesh_Renderer::Desc Merge_Desc;
+		Merge_Desc.szMeshName = L"Revolver_Test";
+		Merge_Desc.iAnimIndex = 1;
+		Test_Merge->Add_Component<Mesh_Renderer>(&Merge_Desc);	
+	}
 
 
 	{//Uis Test

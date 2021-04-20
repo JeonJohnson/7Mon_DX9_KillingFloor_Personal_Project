@@ -42,6 +42,7 @@ private:
 	LPD3DXMESH				m_pMesh = nullptr;
 	                                       
 	Texture*				m_pTexture = nullptr;
+
 };
 
 

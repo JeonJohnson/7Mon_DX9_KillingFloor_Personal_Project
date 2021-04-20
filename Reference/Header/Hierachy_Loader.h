@@ -25,7 +25,6 @@ public:
 	
 public:
 
-
 public:
 	// ID3DXAllocateHierarchy을(를) 통해 상속됨
 	virtual HRESULT CreateFrame(LPCSTR Name, LPD3DXFRAME * ppNewFrame) override;

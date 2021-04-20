@@ -200,7 +200,7 @@
     <ClInclude Include="..\Header\Function_String.h" />
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
-    <ClInclude Include="..\Header\Hierachy_Loader.h" />
+    <ClInclude Include="..\Header\Hierarchy_Loader.h" />
     <ClInclude Include="..\Header\InputManager.h" />
     <ClInclude Include="..\Header\Line_VIBuffer_Gizmo.h" />
     <ClInclude Include="..\Header\Line_VIBuffer_Grid.h" />
@@ -247,7 +247,7 @@
     <ClCompile Include="..\Cpp\Function_String.cpp" />
     <ClCompile Include="..\Cpp\GameObject.cpp" />
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
-    <ClCompile Include="..\Cpp\Hierachy_Loader.cpp" />
+    <ClCompile Include="..\Cpp\Hierarchy_Loader.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
     <ClCompile Include="..\Cpp\Line_VIBuffer_Gizmo.cpp" />
     <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp" />

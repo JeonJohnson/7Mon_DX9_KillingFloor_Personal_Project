@@ -8,8 +8,10 @@
 #include "CResource.h"
 
 class Texture;
+
 class StaticMesh;
 class AnimMesh;
+class Mesh;
 
 class DLL_STATE ResourceManager
 {
@@ -107,9 +109,9 @@ public:
 	void Load_AllDDSs();
 	
 	
-	StaticMesh* Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName = L"");
-	AnimMesh*	Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName = L"");
-	void Load_Mesh(const wstring& _szMeshPath, const wstring& _szTexPath);
+	//StaticMesh* Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName = L"");
+	//AnimMesh*	Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName = L"");
+	Mesh*		Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	void Load_AllMeshs();
 
 	void Insert_VIBuffers();

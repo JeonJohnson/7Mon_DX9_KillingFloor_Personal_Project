@@ -7,7 +7,7 @@
 
 #include "CResource.h"
 
-class Hierachy_Loader;
+class Hierarchy_Loader;
 class AnimationController;
 
 class DLL_STATE  Mesh : public CResource
@@ -16,7 +16,7 @@ class DLL_STATE  Mesh : public CResource
 	//스태틱매쉬랑, 애니메이션 매쉬 합칠 클래스.
 
 public:
-	Mesh();
+	explicit Mesh();
 	virtual ~Mesh();
 
 public:
@@ -25,11 +25,21 @@ public:
 	virtual void Release() override;
 
 public:
-	HRESULT		Insert_AnimationMesh(const wstring& szFullFilePath, const wstring& szMeshName = L"");
+	HRESULT		Insert_Mesh(const wstring& szFullFilePath, const wstring& szMeshName = L"");
 	
-public:
+	void		Setup_MeshContainerForEachBones(D3DXFrame_Derived* pFrame);
+	void		Update_BoneMatrix(D3DXFrame_Derived* pBone, Matrix* pParentMatrix);
 
-public:
+	void		Set_AnimationSet(int _AnimIndex);
+	void		Play_AnimationSet();
+
+public: /* Get */
+	list<MeshContainer_Derived*>		Get_MeshContainerList();
+	AnimationController*				Get_AnimationController();
+	D3DXFRAME*							Get_RootFrame();
+	MeshContainer_Derived*				Get_RootFrame_MeshContainer();
+
+public: /* Set */
 
 public:
 
@@ -37,7 +47,7 @@ private:
 	list<MeshContainer_Derived*>		m_MeshContainerList;
 
 	D3DXFRAME*							m_pRootFrame = nullptr;
-	Hierachy_Loader*					m_pHierachyLoader = nullptr;
+	Hierarchy_Loader*					m_pHierarchyLoader = nullptr;
 	AnimationController*				m_pAnimationController = nullptr;
 
 };

@@ -112,7 +112,6 @@
     <ClInclude Include="..\Header\Camera_FreeMove.h">
       <Filter>05.Objects\00.Camera</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\AnimationTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -136,7 +135,6 @@
     <ClCompile Include="..\Cpp\Camera_FreeMove.cpp">
       <Filter>05.Objects\00.Camera</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\AnimationTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">

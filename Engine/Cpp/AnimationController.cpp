@@ -1,8 +1,6 @@
 #include "..\Header\AnimationController.h"
 #include "..\..\Reference\Header\TimeManager.h"
 
-
-
 AnimationController::AnimationController()
 {
 }
