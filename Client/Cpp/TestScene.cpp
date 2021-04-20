@@ -133,9 +133,9 @@ void TestScene::Initialize()
 		Test_AnimMesh->Add_Component<Mesh_Renderer>(&dynamic_desc);
 		//Test_Cam->Add_Component<Mesh_Renderer>(&dynamic_desc);
 		//Mesh_Renderer* temp = Test_AnimMesh->Get_NewComponent<Mesh_Renderer>();
-		AnimationTest::Desc asdf;
+		//AnimationTest::Desc asdf;
 
-		Test_AnimMesh->Add_Component<AnimationTest>(&asdf);
+		//Test_AnimMesh->Add_Component<AnimationTest>(&asdf);
 	}
 
 

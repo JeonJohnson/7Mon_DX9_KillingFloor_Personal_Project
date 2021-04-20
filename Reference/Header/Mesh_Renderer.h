@@ -9,6 +9,8 @@
 
 class StaticMesh;
 class AnimMesh;
+class Mesh;
+
 class DLL_STATE Mesh_Renderer : public Renderer
 {
 public:
@@ -40,6 +42,8 @@ public: /* Set */
 private:
 	//StaticMesh*		m_pStaticMesh = nullptr;
 	AnimMesh*		m_pAnimMesh = nullptr;
+
+	Mesh*			m_pMesh = nullptr;
 };
 
 #endif//_MESH_RENDERER_H_

@@ -34,6 +34,9 @@ public: /* Function */
 public: /* Get */
 	list<MeshContainer_Derived*>	Get_MeshContainerList();
 	AnimationController*			Get_AnimationController();
+	D3DXFRAME*						Get_RootFrameArr();
+	MeshContainer_Derived*			Get_MeshContainer_forStatic();
+	
 
 public: /* Set */
 
@@ -53,7 +56,6 @@ private:
 	//	struct _D3DXFRAME       *pFrameSibling; //형제 뼈. 같은 부모를 가지고 있음.
 	//	struct _D3DXFRAME       *pFrameFirstChild; //현재 뼈가 부모가 될 자식 뼈.
 	//} D3DXFRAME, *LPD3DXFRAME;
-
 	list<MeshContainer_Derived*>	m_MeshContainerList;
 
 

@@ -334,7 +334,7 @@ void Spec_FormView::OnEnChangeEditScalez()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr)
 	{
-		m_vScale.z = atof((CStringA)m_ScaleZ_Edit);
+		m_vScale.z = (float)atof((CStringA)m_ScaleZ_Edit);
 
 		m_pSelectObject->Set_Scale(m_vScale);
 	}

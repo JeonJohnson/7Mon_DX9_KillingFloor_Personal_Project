@@ -15,7 +15,7 @@ class Hierachy_Loader : public ID3DXAllocateHierarchy
 public:
 	struct Desc
 	{
-		wstring szPath = L"";
+		wstring szMiddlePath = L"";
 
 	};
 
@@ -43,7 +43,7 @@ public:
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
 
-	wstring				m_szFolderPath;
+	wstring				m_szMiddleFolderPath;
 };
 
 #endif //_HIERACHY_LOADER_H_

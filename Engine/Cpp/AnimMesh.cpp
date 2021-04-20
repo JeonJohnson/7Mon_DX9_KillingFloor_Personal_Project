@@ -18,7 +18,7 @@ void AnimMesh::Initialize()
 
 void AnimMesh::Update()
 {
-	Play_AnimationSet();
+	//Play_AnimationSet();
 }
 
 void AnimMesh::Release()
@@ -31,7 +31,7 @@ HRESULT AnimMesh::Insert_AnimationMesh(const wstring & szFullFilePath, const wst
 	//XFile 내에 있음...;;;
 
 	Hierachy_Loader::Desc hierachy_desc;
-	hierachy_desc.szPath = szFullFilePath;
+	hierachy_desc.szMiddlePath = szFullFilePath;
 	m_pHierachyLoader = new Hierachy_Loader(&hierachy_desc);
 	assert(L"HierachyLoader load failed lol" && m_pHierachyLoader);
 	
@@ -51,19 +51,34 @@ HRESULT AnimMesh::Insert_AnimationMesh(const wstring & szFullFilePath, const wst
 		return E_FAIL;
 	}
 	
-	assert(L"AnimController create failed"&& pAnimController);
-	m_pAnimationController = new AnimationController(pAnimController);
+	if (pAnimController == nullptr)
+	{//static mesh
+		//D3DXFRAME안의 메시컨테이너 안에 매쉬정보들 있음.
 
-	//m_pAnimationController->Set_AnimContoller(pAnimController);
+		//for (int i = 0; i < (int)m_pRootFrame->pMeshContainer->NumMaterials; ++i)
+		//{
+		//	m_pRootFrame->pMeshContainer->pMaterials->
+		//}
 
-	//뼈들의 CombineMatrix 초기화 해주기.
-	//밑에 MeshContainer 초기화를 위해서.
-	Matrix temp;
-	D3DXMatrixIdentity(&temp);
-	//D3DXMatrixRotationY(&temp, D3DXToRadian(90.f));
-	Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &temp);
+		//Setup_MeshContainerForEachBones((D3DXFrame_Derived*)m_pRootFrame);
+	}
+	else 
+	{ // dynamic mesh
+		assert(L"AnimController create failed"&& pAnimController);
+		m_pAnimationController = new AnimationController(pAnimController);
 
-	Setup_MeshContainerForEachBones((D3DXFrame_Derived*)m_pRootFrame);
+		//m_pAnimationController->Set_AnimContoller(pAnimController);
+
+		//뼈들의 CombineMatrix 초기화 해주기.
+		//밑에 MeshContainer 초기화를 위해서.
+		Matrix temp;
+		D3DXMatrixIdentity(&temp);
+		//D3DXMatrixRotationY(&temp, D3DXToRadian(90.f));
+		Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &temp);
+
+		Setup_MeshContainerForEachBones((D3DXFrame_Derived*)m_pRootFrame);
+	}
+
 	return S_OK;
 }
 
@@ -186,4 +201,14 @@ list<MeshContainer_Derived*> AnimMesh::Get_MeshContainerList()
 AnimationController * AnimMesh::Get_AnimationController()
 {
 	return m_pAnimationController;
+}
+
+D3DXFRAME * AnimMesh::Get_RootFrameArr()
+{
+	return m_pRootFrame;
+}
+
+MeshContainer_Derived * AnimMesh::Get_MeshContainer_forStatic()
+{
+	return (MeshContainer_Derived*)m_pRootFrame->pMeshContainer;
 }

@@ -71,9 +71,7 @@ HRESULT Texture::Insert_Texture(const wstring & _szPath, TEXTURE_KIND _kind)
 	IDirect3DBaseTexture9*	TexTemp = nullptr;
 	D3DXIMAGE_INFO* ImageInfoTemp = nullptr;
 
-
 	//TCHAR szFullPath[128] = L"../../Resource/Test/boss.png";
-
 	if (_kind == TEXTURE_KIND::Texture_DDS)
 	{
 		//DDS 파일 불러올때

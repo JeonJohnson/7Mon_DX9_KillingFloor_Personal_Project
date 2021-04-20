@@ -13,6 +13,7 @@
 //Meshes
 #include "StaticMesh.h"
 #include "AnimMesh.h"
+#include "Mesh.h"
 
 
 Implement_Singleton(ResourceManager)
@@ -93,9 +94,7 @@ Texture* ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _w
 	wstring szFullPath = m_wFolderPath + _wPath;
 		
 	size_t DotPos = szFullPath.rfind(L".", szFullPath.length()-1);
-	
-	//wstring sztemp;
-	//sztemp = szFullPath.at(DotPos);
+
 	wstring szExtension = szFullPath.substr(DotPos, szFullPath.length());
 
 	TEXTURE_KIND textureKind;
@@ -194,6 +193,16 @@ wstring ResourceManager::EraseFolderPath(wstring _FullPath)
 	size_t folderPathLen = m_wFolderPath.length();
 	wstring Temp = _FullPath.erase(0, folderPathLen);
 	return Temp;
+}
+
+wstring ResourceManager::EraseFileExtension(wstring _FileName)
+{
+
+	size_t DotPos = _FileName.rfind(L".", _FileName.length() - 1);
+	wstring szTemp = _FileName.erase(DotPos);
+	//wstring szExtension = _FileName.substr(DotPos, _FileName.length());
+	
+	return szTemp;
 }
 
 const wstring & ResourceManager::Get_ResourceFolderPath() const

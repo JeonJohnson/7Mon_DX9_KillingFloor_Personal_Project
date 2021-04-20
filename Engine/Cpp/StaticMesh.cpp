@@ -63,7 +63,6 @@ HRESULT StaticMesh::Insert_StaticMesh(const wstring & _szMeshPath, const wstring
 		{
 			return E_FAIL;
 		}
-
 	}
 
 	

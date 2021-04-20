@@ -130,6 +130,8 @@ typedef struct D3DXMESHCONTAINER_DERIVED : public D3DXMESHCONTAINER
 
 	/* Derived Variables */
 	LPDIRECT3DTEXTURE9*	ppTexture;
+	class Texture*		pTexture;
+
 	LPD3DXMESH			pOriginMesh;
 	int					iBoneCount;
 

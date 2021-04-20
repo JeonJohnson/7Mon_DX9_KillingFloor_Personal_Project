@@ -98,7 +98,9 @@ public:
 	void Load_AllFonts();
 	
 	Texture*	Load_Texture(const wstring& _wPath, const wstring& _wName);
-	HRESULT		Add_Texture(Texture* _texture, const wstring& _wPath, const wstring& _wName);
+	HRESULT		Add_Texture(Texture* _texture, 
+		const wstring& _wPath, const wstring& _wName = L"");
+
 	void Load_ALLTextures();
 	
 	void Load_DDS();
@@ -113,6 +115,7 @@ public:
 	void Insert_VIBuffers();
 	
 	wstring			EraseFolderPath(wstring _FullPath);
+	wstring			EraseFileExtension(wstring _FileName);
 public: /* Get */
 	const wstring&	Get_ResourceFolderPath() const;
 	
