@@ -40,6 +40,16 @@ void Camera_FPS::Look()
 	m_fRotX += fMouseMoveX * m_fSensitive * dTime;
 	m_fRotY += fMouseMoveY * m_fSensitive * dTime;
 
+	if (m_fRotY >= 70.f)
+	{
+		m_fRotY = 70.f;
+	}
+
+	if (m_fRotY <= -70.f)
+	{
+		m_fRotY = -70.f;
+	}
+
 	m_Transform->Set_Rotation(Vector3(m_fRotY, m_fRotX,0.f));
 
 	//if(fMouseMoveX != 0)

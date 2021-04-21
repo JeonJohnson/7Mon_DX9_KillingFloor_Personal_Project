@@ -46,9 +46,11 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
 
 	EngineFunction->Load_Mesh(L"Mesh/DynamicMesh/FPPOV_Revolver.X", L"Hand_Revolver");
-	EngineFunction->Load_Mesh(L"Test/StaticMesh/ArmyTruck.X", L"ArmyTruck");
+	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
+		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
+
 
 		Camera::Desc Cam_desc;
 		Cam_desc.fFov_Degree = 45.f;
@@ -73,6 +75,12 @@ void TestScene::Initialize()
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 
+
+		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
+		PoliceCar->Set_Position(Vector3(0, 0, 50.f));
+		Mesh_Renderer::Desc car_desc;
+		car_desc.szMeshName = L"PoliceCar";
+		PoliceCar->Add_Component<Mesh_Renderer>(&car_desc);
 	}
 
 
