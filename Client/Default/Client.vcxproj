@@ -197,6 +197,7 @@
     <ClInclude Include="..\Header\Include.h" />
     <ClInclude Include="..\Header\IntroScene.h" />
     <ClInclude Include="..\Header\MainGame.h" />
+    <ClInclude Include="..\Header\Player_Attack.h" />
     <ClInclude Include="..\Header\Player_Move.h" />
     <ClInclude Include="..\Header\Player_TestMove.h" />
     <ClInclude Include="..\Header\Struct.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="..\Cpp\Camera_FreeMove.cpp" />
     <ClCompile Include="..\Cpp\IntroScene.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />
+    <ClCompile Include="..\Cpp\Player_Attack.cpp" />
     <ClCompile Include="..\Cpp\Player_Move.cpp" />
     <ClCompile Include="..\Cpp\Player_TestMove.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />

@@ -1,3 +1,6 @@
-﻿  Camera_FPS.cpp
+﻿cl : 명령줄 warning D9028: 최소 다시 빌드에 실패했습니다. 정상 빌드로 되돌립니다.
+  Player_Attack.cpp
+  TestScene.cpp
+  코드를 생성하고 있습니다...
   Client.vcxproj -> C:\Users\Administrator\Desktop\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
   Client.vcxproj -> ../Bin/x64\Debug\Client.pdb (Full PDB)

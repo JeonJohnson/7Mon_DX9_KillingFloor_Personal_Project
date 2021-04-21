@@ -5,6 +5,7 @@
 #include "Camera_FreeMove.h"
 #include "..\..\Engine\Header\Mesh_Renderer.h"
 #include "Camera_FPS.h"
+#include "Player_Attack.h"
 //#include "../../Reference/Header/Camera.h"
  
 TestScene::TestScene()
@@ -59,15 +60,19 @@ void TestScene::Initialize()
 
 
 		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 100.f;
-		player_Desc.fSprintSpd = 150.f;
+		player_Desc.fWalkSpd = 10.f;
+		player_Desc.fSprintSpd = 15.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 		
+		Player_Attack::Desc Att_Desc;
+		Player->Add_Component<Player_Attack>(&Att_Desc);
 
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"Hand_Revolver";
 		Hand_Desc.iAnimIndex = 5;
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
+
+
 	}
 
 

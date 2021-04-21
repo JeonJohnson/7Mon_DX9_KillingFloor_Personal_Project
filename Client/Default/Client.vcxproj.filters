@@ -74,6 +74,12 @@
     <Filter Include="05.Objects\00.Player\99.Test">
       <UniqueIdentifier>{42b4af10-35c9-4a45-9861-192fa0b9cd37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Objects\00.Player\00.Move">
+      <UniqueIdentifier>{0ac47022-593f-4dcb-b07c-4dda6c06ef7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\01.Att">
+      <UniqueIdentifier>{84357764-7194-47c4-8df0-b0f01c431224}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -121,11 +127,14 @@
     <ClInclude Include="..\Header\Player_TestMove.h">
       <Filter>05.Objects\00.Player\99.Test</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Player_Move.h">
-      <Filter>05.Objects\00.Player</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\Camera_FPS.h">
       <Filter>05.Objects\00.Camera\01.FPSCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Move.h">
+      <Filter>05.Objects\00.Player\00.Move</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Attack.h">
+      <Filter>05.Objects\00.Player\01.Att</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -150,11 +159,14 @@
     <ClCompile Include="..\Cpp\Player_TestMove.cpp">
       <Filter>05.Objects\00.Player\99.Test</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\Player_Move.cpp">
-      <Filter>05.Objects\00.Player</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\Camera_FPS.cpp">
       <Filter>05.Objects\00.Camera\01.FPSCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Move.cpp">
+      <Filter>05.Objects\00.Player\00.Move</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Attack.cpp">
+      <Filter>05.Objects\00.Player\01.Att</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

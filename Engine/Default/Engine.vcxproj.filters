@@ -143,12 +143,6 @@
     <Filter Include="06.Resource\03.UI\01.Text">
       <UniqueIdentifier>{eee441eb-bb7a-4bee-8bc5-ebea371733a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\01.Mesh\00.StaticMesh">
-      <UniqueIdentifier>{7972b6a8-f062-4648-8b2d-b7217b1dbd13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\01.Mesh\01.AnimMesh">
-      <UniqueIdentifier>{7eeb7c01-0280-4fd4-903d-970a459b4d61}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.Component\01.Renderer\Mesh">
       <UniqueIdentifier>{66f99d37-a6e5-4a95-a0b6-2e0b80d594ea}</UniqueIdentifier>
     </Filter>
@@ -194,11 +188,20 @@
     <Filter Include="06.Resource\01.Mesh\Hierarchy_Loader">
       <UniqueIdentifier>{d4abe9f0-659c-4f31-96ee-88de662c83e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\01.Mesh\03.AnimationController">
-      <UniqueIdentifier>{848b00bf-9598-4740-86a3-fbcdb3fc50d5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.Component\03.Animation_Controller">
       <UniqueIdentifier>{493ae1c6-e5d4-4fe3-bcb3-8e51b994977d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.Mesh\99.Olds">
+      <UniqueIdentifier>{0ba1e5b5-3db7-4629-9e0f-ffa1a3fa117f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.Mesh\99.Olds\01.AnimMesh">
+      <UniqueIdentifier>{7eeb7c01-0280-4fd4-903d-970a459b4d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.Mesh\99.Olds\00.StaticMesh">
+      <UniqueIdentifier>{7972b6a8-f062-4648-8b2d-b7217b1dbd13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.Mesh\AnimationController">
+      <UniqueIdentifier>{848b00bf-9598-4740-86a3-fbcdb3fc50d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -311,10 +314,10 @@
       <Filter>01.Manager\98.SystemManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\StaticMesh.cpp">
-      <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>
+      <Filter>06.Resource\01.Mesh\99.Olds\00.StaticMesh</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\AnimMesh.cpp">
-      <Filter>06.Resource\01.Mesh\01.AnimMesh</Filter>
+      <Filter>06.Resource\01.Mesh\99.Olds\01.AnimMesh</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Mesh.cpp">
       <Filter>06.Resource\01.Mesh</Filter>
@@ -329,7 +332,7 @@
       <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\AnimationController.cpp">
-      <Filter>06.Resource\01.Mesh\03.AnimationController</Filter>
+      <Filter>06.Resource\01.Mesh\AnimationController</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Anim_Controller.cpp">
       <Filter>04.Component\03.Animation_Controller</Filter>
@@ -469,10 +472,10 @@
       <Filter>01.Manager\98.SystemManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\StaticMesh.h">
-      <Filter>06.Resource\01.Mesh\00.StaticMesh</Filter>
+      <Filter>06.Resource\01.Mesh\99.Olds\00.StaticMesh</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\AnimMesh.h">
-      <Filter>06.Resource\01.Mesh\01.AnimMesh</Filter>
+      <Filter>06.Resource\01.Mesh\99.Olds\01.AnimMesh</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Mesh.h">
       <Filter>06.Resource\01.Mesh</Filter>
@@ -487,7 +490,7 @@
       <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\AnimationController.h">
-      <Filter>06.Resource\01.Mesh\03.AnimationController</Filter>
+      <Filter>06.Resource\01.Mesh\AnimationController</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Anim_Controller.h">
       <Filter>04.Component\03.Animation_Controller</Filter>
