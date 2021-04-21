@@ -48,7 +48,7 @@ private:
 
 	double	m_dPeriod = 0.0; //현재 애니메이션의 전체 재생 시간(키 프레임?)
 
-
+	float	m_fAnimSpd = 1.f;
 };
 
 #endif //_ANIMATION_CONTROLLER_H_

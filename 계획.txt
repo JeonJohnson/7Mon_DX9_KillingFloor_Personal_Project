@@ -464,7 +464,16 @@ FPS카메라 완성. 애니메이션 관리해보기
 오브젝트 크기 기준 = 폴리스카 정사이즈랑 하면 될듯?!
 몬스터 스펙은 킬플2꺼 기준으로 하기.
 
-
+18:20 2021-04-21 수
+애니메이션 컨트롤러 계획
+	=>컴포넌트화 시킬 예정.
+		1. Mesh 생성할떄 그냥 LPD3DXANIMATIONCONTROLLER만 만들어두고
+		2. Animation Controller 컴포넌트 안넣으면 그냥 정지된채로 있고
+		3. 컴포넌트 넣으면 걔가 직접 MeshRenderer컴포넌트 찾아서 Mesh를 찾아가지고 AnimController 찾아서 복사생성.
+		4. 새로운 AnimController에서 필요한거. 
+		{Play/Stop=>PlayerAnimationSet안 돌면 정지함.} {애니메이션 반복O/반복 X} {플레이 중인지?/끝났는지?} {애니메이션 재생 속도=>AdvancedTime 시간 줄여주면 됨.} {}
+일단 애니메이션에서 Idle이라고 있는건 walk임 정조준하면 스피드 느리게하고.
+	-> 실제 Idle 애니메이션은 없는듯.
 
 
 

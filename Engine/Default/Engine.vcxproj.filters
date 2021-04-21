@@ -203,6 +203,9 @@
     <Filter Include="06.Resource\01.Mesh\AnimationController">
       <UniqueIdentifier>{848b00bf-9598-4740-86a3-fbcdb3fc50d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\06.Terrain">
+      <UniqueIdentifier>{ae07a05e-20d5-417b-8b6d-c649648a7b5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">

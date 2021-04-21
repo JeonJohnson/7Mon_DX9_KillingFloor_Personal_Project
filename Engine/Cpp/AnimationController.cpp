@@ -13,6 +13,12 @@ AnimationController::AnimationController(LPD3DXANIMATIONCONTROLLER pAniCtrl)
 	, m_fAccTime(0.f)
 	, m_dPeriod(0.0)
 {
+	pAniCtrl->CloneAnimationController(
+		pAniCtrl->GetMaxNumAnimationOutputs(),
+		pAniCtrl->GetMaxNumAnimationSets(),
+		pAniCtrl->GetMaxNumTracks(),
+		pAniCtrl->GetMaxNumEvents(),
+		&m_pAnimationController);
 }
 
 
