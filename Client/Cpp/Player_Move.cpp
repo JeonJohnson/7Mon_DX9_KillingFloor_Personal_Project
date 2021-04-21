@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "..\Header\Player_Move.h"
 
-
 Player_Move::Player_Move(Desc * _desc)
 {
+	m_fWalkSpd = _desc->fWalkSpd;
+	m_fSprintSpd = _desc->fSprintSpd;
 }
 
 Player_Move::~Player_Move()
@@ -16,15 +17,7 @@ void Player_Move::Initialize()
 
 void Player_Move::Update()
 {
-	Move_Test();
-
-	
-	m_Transform->Add_PosY(MouseMove(KEY_STATE_WHEEL) * dTime);
-
-	if(MouseDown(KEY_STATE_LMouse))
-	{
-		m_Transform->Add_PosY(10.f * dTime);
-	}
+	Move();
 }
 
 void Player_Move::LateUpdate()
@@ -39,39 +32,36 @@ void Player_Move::Release()
 {
 }
 
-void Player_Move::Move_Test()
+void Player_Move::Move()
 {
-	/* Test */
+	m_fCurSpd = m_fWalkSpd;
 
-	//if (KeyPress(DIK_W))
-	//{
-	//	m_Transform->Add_PosY(5.f * dTime);
-	//}
+	if (KeyPress(KEY_STATE_Lshift))
+	{
+		m_fCurSpd = m_fSprintSpd;
+	}
 
-	//if (KeyPress(DIK_S))
-	//{
-	//	m_Transform->Add_PosY(-5.f* dTime);
-	//}
+	Vector3 vForward = m_Transform->Get_Forward();
+	vForward.y = 0.f;
+	Vector3 vRight = m_Transform->Get_Right();
+	vRight.y = 0.f;
 
-	//if (KeyPress(DIK_D))
-	//{
-	//	m_Transform->Add_PosX(5.f* dTime);
-	//}
-
-	//if (KeyPress(DIK_A))
-	//{
-	//	m_Transform->Add_PosX(-5.f* dTime);
-	//}
-
-	//if (KeyPress(DIK_Q))
-	//{
-	//	m_Transform->Add_PosZ(5.f* dTime);
-	//}
-
-	//if (KeyPress(DIK_E))
-	//{
-	//	m_Transform->Add_PosZ(-5.f* dTime);
-	//}
-
+	if (KeyPress(KEY_STATE_W))
+	{
+		m_Transform->Add_Position(vForward * m_fCurSpd * dTime);
+	}
+	if (KeyPress(KEY_STATE_S))
+	{
+		m_Transform->Add_Position(vForward * m_fCurSpd * dTime * -1.f);
+	}
+	if (KeyPress(KEY_STATE_D))
+	{
+		m_Transform->Add_Position(vRight* m_fCurSpd * dTime);
+	}
+	if (KeyPress(KEY_STATE_A))
+	{
+		m_Transform->Add_Position(vRight* m_fCurSpd * dTime * -1.f);
+	}
+	
 
 }

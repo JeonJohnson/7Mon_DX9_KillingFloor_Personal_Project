@@ -20,6 +20,10 @@ public:
 		int		iAnimIndex = 1;
 		//wstring szTexturePath = L"";
 
+		//Vector3		vPos = { 0.f,0.f,0.f };
+		//Vector3		vRot = { 0.f, 0.f, 0.f };
+		//Vector3		vScale = { 1.f,1.f,1.f };
+
 	};
 public:
 	Mesh_Renderer(Desc* _desc);
@@ -41,6 +45,10 @@ public: /* Set */
 
 private:
 	Mesh*			m_pMesh = nullptr;
+	//Vector3			m_vPosition;
+	//Vector3			m_vRoation;
+	//Vector3			m_vScale;
+	//Matrix			m_matWorld;
 };
 
 #endif//_MESH_RENDERER_H_

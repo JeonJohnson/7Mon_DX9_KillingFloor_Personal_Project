@@ -189,6 +189,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Header\Camera_FPS.h" />
     <ClInclude Include="..\Header\Camera_FreeMove.h" />
     <ClInclude Include="..\Header\Define.h" />
     <ClInclude Include="..\Header\Enum.h" />
@@ -197,6 +198,7 @@
     <ClInclude Include="..\Header\IntroScene.h" />
     <ClInclude Include="..\Header\MainGame.h" />
     <ClInclude Include="..\Header\Player_Move.h" />
+    <ClInclude Include="..\Header\Player_TestMove.h" />
     <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\TestScene.h" />
     <ClInclude Include="..\Header\TypeDef.h" />
@@ -206,10 +208,12 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\Camera_FPS.cpp" />
     <ClCompile Include="..\Cpp\Camera_FreeMove.cpp" />
     <ClCompile Include="..\Cpp\IntroScene.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />
     <ClCompile Include="..\Cpp\Player_Move.cpp" />
+    <ClCompile Include="..\Cpp\Player_TestMove.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">

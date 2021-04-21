@@ -16,14 +16,14 @@ private:
 	~InputManager();
 
 public:
-	void Initialize(HINSTANCE hInst, HWND hWnd);
+	void Initialize(HINSTANCE hInst, HWND hWnd, bool _IsEngine = false);
 	//void Initialize(HINSTANCE hInst, HWND hWnd);
 	void Update();
 	void Release();
 
 public:
-	HRESULT		Keyboard_Create(HWND hWnd);
-	HRESULT		Mouse_Create(HWND hWnd);
+	HRESULT		Keyboard_Create(HWND hWnd, bool _IsEngine = false);
+	HRESULT		Mouse_Create(HWND hWnd, bool _IsEngine= false);
 
 	void		Check_WindowFocus();
 

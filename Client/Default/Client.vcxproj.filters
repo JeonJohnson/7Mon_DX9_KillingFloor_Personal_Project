@@ -65,6 +65,15 @@
     <Filter Include="02.Scene\99.TestScene\02.test2">
       <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Objects\00.Camera\FreeMove">
+      <UniqueIdentifier>{e0acfa35-b7a1-4b6d-b984-5cb6a40293bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Camera\01.FPSCamera">
+      <UniqueIdentifier>{dd892190-7e80-447d-82c0-28b281818c00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\99.Test">
+      <UniqueIdentifier>{42b4af10-35c9-4a45-9861-192fa0b9cd37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -103,14 +112,20 @@
     <ClInclude Include="..\Header\TestScene.h">
       <Filter>02.Scene\99.TestScene</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Player_Move.h">
-      <Filter>05.Objects\00.Player</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\IntroScene.h">
       <Filter>02.Scene\00.Intro</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Camera_FreeMove.h">
-      <Filter>05.Objects\00.Camera</Filter>
+      <Filter>05.Objects\00.Camera\FreeMove</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_TestMove.h">
+      <Filter>05.Objects\00.Player\99.Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Move.h">
+      <Filter>05.Objects\00.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Camera_FPS.h">
+      <Filter>05.Objects\00.Camera\01.FPSCamera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -126,14 +141,20 @@
     <ClCompile Include="..\Cpp\TestScene.cpp">
       <Filter>02.Scene\99.TestScene</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\Player_Move.cpp">
-      <Filter>05.Objects\00.Player</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\IntroScene.cpp">
       <Filter>02.Scene\00.Intro</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Camera_FreeMove.cpp">
-      <Filter>05.Objects\00.Camera</Filter>
+      <Filter>05.Objects\00.Camera\FreeMove</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_TestMove.cpp">
+      <Filter>05.Objects\00.Player\99.Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Move.cpp">
+      <Filter>05.Objects\00.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Camera_FPS.cpp">
+      <Filter>05.Objects\00.Camera\01.FPSCamera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

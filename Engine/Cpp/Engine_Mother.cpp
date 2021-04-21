@@ -47,7 +47,7 @@ void Engine_Mother::Initialize(Desc * _desc)
 		_desc->wincx_DEBUG, _desc->wincy_DEBUG);
 #endif //_DEBUG
 	m_pTimeManager->Time_Init();
-	m_pInputManager->Initialize(_desc->hInst, _desc->hWnd);
+	m_pInputManager->Initialize(_desc->hInst, _desc->hWnd, false);
 	m_pResourceManager->Initialize();
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
@@ -61,7 +61,7 @@ void Engine_Mother::Initialize(Desc_Tool * _desc)
 {
 	m_pDeviceManager->Initialize(_desc->hWnd_forDevice, _desc->wincx, _desc->wincy, true);
 	m_pTimeManager->Time_Init();
-	m_pInputManager->Initialize(_desc->hInst, _desc->hWnd_forDInput);
+	m_pInputManager->Initialize(_desc->hInst, _desc->hWnd_forDInput, true);
 	m_pResourceManager->Initialize();
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);

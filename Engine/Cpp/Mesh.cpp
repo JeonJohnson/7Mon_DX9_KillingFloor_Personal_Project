@@ -53,6 +53,7 @@ HRESULT Mesh::Insert_Mesh(const wstring & szFullFilePath, const wstring & szMesh
 
 		Matrix temp;
 		D3DXMatrixIdentity(&temp);
+		D3DXMatrixRotationY(&temp, D3DXToRadian(-90.f));
 		Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &temp);
 
 		Setup_MeshContainerForEachBones((D3DXFrame_Derived*)m_pRootFrame);
@@ -139,6 +140,7 @@ void Mesh::Play_AnimationSet()
 
 		Matrix matTemp;
 		D3DXMatrixIdentity(&matTemp);
+		D3DXMatrixRotationY(&matTemp, D3DXToRadian(-90.f));
 		Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &matTemp);
 	}
 }

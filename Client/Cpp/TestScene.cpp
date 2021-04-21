@@ -4,6 +4,7 @@
 #include "Text.h"
 #include "Camera_FreeMove.h"
 #include "..\..\Engine\Header\Mesh_Renderer.h"
+#include "Camera_FPS.h"
 //#include "../../Reference/Header/Camera.h"
  
 TestScene::TestScene()
@@ -23,14 +24,14 @@ void TestScene::Initialize()
 	Grid_Desc.wBufferName = L"Line_Grid";
 	Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	GameObject*	Test_Cam = INSTANTIATE(OBJECT_TAG_MAINCAM, L"Test_Cam");
-	Camera::Desc Cam_desc;
-	Cam_desc.fFov_Degree = 45.f;
-	Test_Cam->Add_Component<Camera>(&Cam_desc);
-	Test_Cam->Set_Position(Vector3(0.f, 0.f, -100.f));
+	//GameObject*	Test_Cam = INSTANTIATE(OBJECT_TAG_MAINCAM, L"Test_Cam");
+	//Camera::Desc Cam_desc;
+	//Cam_desc.fFov_Degree = 45.f;
+	//Test_Cam->Add_Component<Camera>(&Cam_desc);
+	//Test_Cam->Set_Position(Vector3(0.f, 0.f, -100.f));
 
-	Camera_FreeMove::Desc move_desc;
-	Test_Cam->Add_Component<Camera_FreeMove>(&move_desc);
+	//Camera_FreeMove::Desc move_desc;
+	//Test_Cam->Add_Component<Camera_FreeMove>(&move_desc);
 
 		
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
@@ -43,6 +44,34 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
 
+	EngineFunction->Load_Mesh(L"Mesh/DynamicMesh/FPPOV_Revolver.X", L"Hand_Revolver");
+	EngineFunction->Load_Mesh(L"Test/StaticMesh/ArmyTruck.X", L"ArmyTruck");
+	{
+		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
+
+		Camera::Desc Cam_desc;
+		Cam_desc.fFov_Degree = 45.f;
+		Player->Add_Component<Camera>(&Cam_desc);
+
+		Camera_FPS::Desc Fps_Desc;
+		Fps_Desc.fSensitive = 50.f;
+		Player->Add_Component<Camera_FPS>(&Fps_Desc);
+
+
+		Player_Move::Desc player_Desc;
+		player_Desc.fWalkSpd = 100.f;
+		player_Desc.fSprintSpd = 150.f;
+		Player->Add_Component<Player_Move>(&player_Desc);
+		
+
+		Mesh_Renderer::Desc	Hand_Desc;
+		Hand_Desc.szMeshName = L"Hand_Revolver";
+		Hand_Desc.iAnimIndex = 5;
+		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
+	}
+
+
+#pragma region Test
 	{//Rect Color Test
 		//GameObject* RectColor_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_RectColor");
 		//RectColor_Test->Set_Position(Vector3(0.f, 0.f, 80.f));
@@ -145,15 +174,14 @@ void TestScene::Initialize()
 	}
 
 	{//DynamicMesh Merge Test
-		EngineFunction->Load_Mesh(L"Test/DynamicMesh/FPPOV_Revolver.X", L"Revolver_Test");
-		GameObject*		Test_Merge = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Revolver_Test");
+		//EngineFunction->Load_Mesh(L"Test/DynamicMesh/FPPOV_Revolver.X", L"Revolver_Test");
+		//GameObject*		Test_Merge = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Revolver_Test");
 
-		Mesh_Renderer::Desc Merge_Desc;
-		Merge_Desc.szMeshName = L"Revolver_Test";
-		Merge_Desc.iAnimIndex = 1;
-		Test_Merge->Add_Component<Mesh_Renderer>(&Merge_Desc);	
+		//Mesh_Renderer::Desc Merge_Desc;
+		//Merge_Desc.szMeshName = L"Revolver_Test";
+		//Merge_Desc.iAnimIndex = 1;
+		//Test_Merge->Add_Component<Mesh_Renderer>(&Merge_Desc);	
 	}
-
 
 	{//Uis Test
 		//UI* Test_Text = INSTANTIATE_UI(L"Test_Text");
@@ -173,6 +201,8 @@ void TestScene::Initialize()
 		//Test_Text->Add_UIComponent<Sprite>(&spriteInfo);
 		//Test_Text->Add_UIComponent<Text>(&textInfo);
 	}
+#pragma endregion
 }
+
 
 

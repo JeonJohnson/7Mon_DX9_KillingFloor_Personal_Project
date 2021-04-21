@@ -18,6 +18,8 @@ Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 		m_pMesh->Set_AnimationSet(_desc->iAnimIndex);
 	}
 
+
+
 }
 
 Mesh_Renderer::~Mesh_Renderer()
@@ -30,6 +32,8 @@ void Mesh_Renderer::Initialize()
 
 void Mesh_Renderer::Update()
 {
+	
+
 }
 
 void Mesh_Renderer::LateUpdate()

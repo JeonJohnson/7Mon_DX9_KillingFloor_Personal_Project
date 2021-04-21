@@ -13,7 +13,7 @@ InputManager::~InputManager()
 	Release();
 }
 
-void InputManager::Initialize(HINSTANCE hInst, HWND hWnd)
+void InputManager::Initialize(HINSTANCE hInst, HWND hWnd, bool _IsEngine)
 {
 
 	//DInput8 Device Create
@@ -78,7 +78,7 @@ void InputManager::Release()
 	Safe_Release(m_pDInput8_SDK);
 }
 
-HRESULT InputManager::Keyboard_Create(HWND hWnd)
+HRESULT InputManager::Keyboard_Create(HWND hWnd, bool _IsEngine)
 {
 	//키보드 객체 생성
 	if (FAILED(m_pDInput8_SDK->CreateDevice(GUID_SysKeyboard,
@@ -116,7 +116,7 @@ HRESULT InputManager::Keyboard_Create(HWND hWnd)
 	return S_OK;
 }
 
-HRESULT InputManager::Mouse_Create(HWND hWnd)
+HRESULT InputManager::Mouse_Create(HWND hWnd, bool _IsEngine)
 {
 	if (FAILED(m_pDInput8_SDK->CreateDevice(GUID_SysMouse,
 		&m_pDInput8_Mouse, nullptr)))
@@ -133,11 +133,23 @@ HRESULT InputManager::Mouse_Create(HWND hWnd)
 	//장치에 대한 독점권 설정.
 	//DISCL_FOREGROUND | DISCL_EXCLUSIVE : 화면 안에서 마우스 안보이고 활성화 상태일때만 작동
 	//DISCL_BACKGROUND | DISCL_NONEXCLUSIVE : 반대
-	if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE)))
+	if (!_IsEngine)
 	{
-		//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
-		return E_FAIL;
+		if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_EXCLUSIVE)))
+		{
+			//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
+			return E_FAIL;
+		}
 	}
+	else 
+	{
+		if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE)))
+		{
+			//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
+			return E_FAIL;
+		}
+	}
+	
 
 	//장치에 대한 access 버전을 받아옴.
 	if (FAILED(m_pDInput8_Mouse->Acquire()))

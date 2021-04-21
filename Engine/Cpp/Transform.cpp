@@ -66,10 +66,11 @@ Vector3 Transform::QuaternionToEuler(Quaternion _quaternion)
 	return Vector3(D3DXToDegree((float)roll), D3DXToDegree((float)pitch), D3DXToDegree((float)yaw));
 }
 
-Vector3 Transform::Get_Rotation_Euler()
+Quaternion Transform::EulerToQuternion(Vector3 _eulerVector)
 {
-	return QuaternionToEuler(m_qRotation);
+	return Quaternion();
 }
+
 
 
 
@@ -230,6 +231,12 @@ const Quaternion & Transform::Get_Rotation() const
 	return m_qRotation;
 }
 
+Vector3 Transform::Get_Rotation_Euler()
+{
+	return QuaternionToEuler(m_qRotation);
+}
+
+
 void Transform::Get_RotationX(Vector3 * _pOut, Vector3 _In)
 {
 	//Roll
@@ -289,6 +296,15 @@ void Transform::Set_Rotation(const Quaternion & _quaternion)
 	m_qRotation = _quaternion;
 }
 
+void Transform::Set_Rotation(const Vector3 & _eulerVector)
+{
+	D3DXQuaternionRotationYawPitchRoll(
+		&m_qRotation,
+		D3DXToRadian(_eulerVector.y), 
+		D3DXToRadian(_eulerVector.x), 
+		D3DXToRadian(_eulerVector.z));
+}
+
 void Transform::Set_Rotation(float _eulerX, float _eulerY, float _eulerZ)
 {
 	D3DXQuaternionRotationYawPitchRoll(&m_qRotation,
@@ -314,6 +330,10 @@ void Transform::Set_RotationZ(float _eulerZ)
 	Vector3 CurrentAngle = QuaternionToEuler(m_qRotation);
 	RotateZ(-CurrentAngle.z);
 	RotateZ(_eulerZ);
+}
+
+void Transform::Rotate(const Vector3 & _eulerVector)
+{
 }
 
 void Transform::RotateX(float _eulerX)
@@ -347,7 +367,6 @@ void Transform::RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOu
 {
 	Quaternion rot;
 	D3DXQuaternionRotationAxis(&rot, &_axis, _radian);
-	
 	
 	*_pOut = rot;
 }

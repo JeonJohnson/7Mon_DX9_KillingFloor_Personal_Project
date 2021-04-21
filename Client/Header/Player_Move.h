@@ -1,21 +1,20 @@
 #pragma once
 
-#ifndef _PLAYER_MOVE_H_
-#define _PLAYER_MOVE_H_
-
-#include "Include.h"
+#ifndef _PLYAER_MOVE_H_
+#define _PLYAER_MOVE_H_
 
 #include "Component.h"
-class Player_Move :
-	public Component
+class Player_Move :	public Component
 {
 public:
 	struct Desc
 	{
-		
+		float	fWalkSpd = 10.f;
+		float	fSprintSpd = 15.f;
 	};
+
 public:
-	Player_Move(Desc* _desc);
+	explicit Player_Move(Desc* _desc);
 	virtual ~Player_Move();
 
 public:
@@ -25,17 +24,19 @@ public:
 	virtual void ReadyRender() override;
 	virtual void Release() override;
 
-public: /* functions */
-	void Move_Test();
-
-public: /* Get */ 
-
-public: /* Set */
-
+public:
+	void Move();
+public:
 
 public:
-	float	m_fWalkSpd;
-	float	m_fSprintSpd;
+
+private:
+	float	m_fCurSpd = 0.f;
+	float	m_fWalkSpd = 0.f;
+	float	m_fSprintSpd = 0.f;
+
+
+
 };
 
-#endif //_PLAYER_MOVE_H_
+#endif //_PLYAER_MOVE_H_
