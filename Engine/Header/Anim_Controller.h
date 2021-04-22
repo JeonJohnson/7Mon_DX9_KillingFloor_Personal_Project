@@ -7,10 +7,18 @@
 
 #include "Component.h"
 
-class Anim_Controller :	public Component
+class DLL_STATE Anim_Controller :	public Component
 {
 public:
-	Anim_Controller();
+	struct Desc
+	{
+		
+
+
+	};
+
+public:
+	explicit Anim_Controller(Desc* _desc);
 	virtual ~Anim_Controller();
 
 public:
@@ -22,11 +30,15 @@ public:
 
 public:
 
-public:
+public: /* Get */
 
-public:
+public: /* Set */
 
 private:
+	LPD3DXANIMATIONCONTROLLER		m_pDX9_AnimController = nullptr;
+
+
 };
+
 
 #endif //_ANIM_CONTROLLER_H_

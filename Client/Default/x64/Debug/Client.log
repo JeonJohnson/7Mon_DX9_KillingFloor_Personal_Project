@@ -1,2 +1,14 @@
-﻿  Client.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
+﻿  stdafx.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Client.cpp
+  TestScene.cpp
+  Player_TestMove.cpp
+  Player_Move.cpp
+  Player_Attack.cpp
+  MainGame.cpp
+  IntroScene.cpp
+  Camera_FreeMove.cpp
+  Camera_FPS.cpp
+  코드를 생성하고 있습니다...
+  Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
   Client.vcxproj -> ../Bin/x64\Debug\Client.pdb (Full PDB)
