@@ -49,6 +49,7 @@ public:
 
 		component->Set_GameObject(this);
 		component->Set_Transform(m_Transform);
+		//이거 지금 컴포넌트생성자랑 이니셜라이즈 만들고나서 실행이되서 이래되네.
 
 		//Test
 		//m_vecComponents.emplace_back(component);
@@ -122,6 +123,8 @@ public:
 				return (T*)newComponent.second;
 			}
 		}
+
+		return nullptr;
 	}
 
 	/* Delete */

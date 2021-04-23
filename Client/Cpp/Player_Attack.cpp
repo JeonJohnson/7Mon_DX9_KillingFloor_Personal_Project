@@ -46,11 +46,11 @@ void Player_Attack::Shoot()
 {
 	if (MousePress(KEY_STATE_LMouse))
 	{
-		Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(4);
+		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(4);
 	}
 	if (MouseUp(KEY_STATE_LMouse))
 	{
-		Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(5);
+		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(5);
 	}
 
 }
@@ -59,6 +59,6 @@ void Player_Attack::Reload()
 {
 	if (KeyPress(KEY_STATE_R))
 	{
-		Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(1);
+		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(1);
 	}
 }

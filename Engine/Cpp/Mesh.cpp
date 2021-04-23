@@ -13,15 +13,21 @@ Mesh::~Mesh()
 
 void Mesh::Initialize()
 {
+	D3DXMatrixIdentity(&m_matMeshTransform);
 }
 
 void Mesh::Update()
 {
-	Play_AnimationSet();
+	//Play_AnimationSet();
+
+	D3DXMatrixRotationY(&m_matMeshTransform, D3DXToRadian(-90.f));
+	Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &m_matMeshTransform);
 }
 
 void Mesh::Release()
 {
+	Safe_Delete(m_pHierarchyLoader);
+
 }
 
 HRESULT Mesh::Insert_Mesh(const wstring & szFullFilePath, const wstring & szMeshName)
@@ -32,7 +38,7 @@ HRESULT Mesh::Insert_Mesh(const wstring & szFullFilePath, const wstring & szMesh
 
 	assert(L"HierachyLoader load failed lol" && m_pHierarchyLoader);
 
-	LPD3DXANIMATIONCONTROLLER	pAnimController = nullptr;
+	//LPD3DXANIMATIONCONTROLLER	pAnimController = nullptr;
 
 	if (FAILED(
 		D3DXLoadMeshHierarchyFromX(szFullFilePath.c_str(),
@@ -41,19 +47,19 @@ HRESULT Mesh::Insert_Mesh(const wstring & szFullFilePath, const wstring & szMesh
 			m_pHierarchyLoader,
 			NULL,
 			&m_pRootFrame,
-			&pAnimController)))
+			&m_pAnimationController)))
 	{
 		return E_FAIL;
 	}
 
-	if (pAnimController != nullptr)
+	if (m_pAnimationController != nullptr)
 	{//Dynamic Mesh
-		assert(L"AnimController create failed"&& pAnimController);
-		m_pAnimationController = new AnimationController(pAnimController);
+		//assert(L"AnimController create failed"&& pAnimController);
+		//m_pAnimationController = new AnimationController(pAnimController);
 
 		Matrix temp;
 		D3DXMatrixIdentity(&temp);
-		D3DXMatrixRotationY(&temp, D3DXToRadian(-90.f));
+		//D3DXMatrixRotationY(&temp, D3DXToRadian(-90.f));
 		Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &temp);
 
 		Setup_MeshContainerForEachBones((D3DXFrame_Derived*)m_pRootFrame);
@@ -124,33 +130,38 @@ void Mesh::Update_BoneMatrix(D3DXFrame_Derived * pBone, Matrix * pParentMatrix)
 	}
 }
 
-void Mesh::Set_AnimationSet(int _AnimIndex)
-{
-	if (m_pAnimationController != nullptr)
-	{
-		m_pAnimationController->Set_AnimationSet(_AnimIndex);
-	}
-}
+//void Mesh::Set_AnimationSet(int _AnimIndex)
+//{
+//	if (m_pAnimationController != nullptr)
+//	{
+//		m_pAnimationController->Set_AnimationSet(_AnimIndex);
+//	}
+//}
 
-void Mesh::Play_AnimationSet()
-{
-	if (m_pAnimationController != nullptr)
-	{
-		m_pAnimationController->Play_AnimationSet();
-
-		Matrix matTemp;
-		D3DXMatrixIdentity(&matTemp);
-		D3DXMatrixRotationY(&matTemp, D3DXToRadian(-90.f));
-		Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &matTemp);
-	}
-}
+//void Mesh::Play_AnimationSet()
+//{
+//	if (m_pAnimationController != nullptr)
+//	{
+//		m_pAnimationController->Play_AnimationSet();
+//
+//		Matrix matTemp;
+//		D3DXMatrixIdentity(&matTemp);
+//		D3DXMatrixRotationY(&matTemp, D3DXToRadian(-90.f));
+//		Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &matTemp);
+//	}
+//}
 
 list<MeshContainer_Derived*> Mesh::Get_MeshContainerList()
 {
 	return m_MeshContainerList;
 }
 
-AnimationController * Mesh::Get_AnimationController()
+//AnimationController * Mesh::Get_AnimationController()
+//{
+//	return m_pAnimationController;
+//}
+
+LPD3DXANIMATIONCONTROLLER Mesh::Get_AnimController()
 {
 	return m_pAnimationController;
 }
@@ -163,4 +174,14 @@ D3DXFRAME * Mesh::Get_RootFrame()
 MeshContainer_Derived * Mesh::Get_RootFrame_MeshContainer()
 {
 	return (MeshContainer_Derived*)m_pRootFrame->pMeshContainer;
+}
+
+const Matrix & Mesh::Get_MeshTransformMatrix() const
+{
+	return m_matMeshTransform;
+}
+
+void Mesh::Set_MeshTransformMatrix(const Matrix& _mat)
+{
+	m_matMeshTransform = _mat;
 }

@@ -32,7 +32,7 @@ public:
 public:
 
 private:
-	Mesh_Renderer*		Weapon_Mesh = nullptr;
+	//Mesh_Renderer*		Weapon_Mesh = nullptr;
 
 };
 

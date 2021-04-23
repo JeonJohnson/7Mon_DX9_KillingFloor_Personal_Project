@@ -43,10 +43,10 @@ private:
 	int		m_iCurrentTrack = 0; 
 	int		m_iNewTrack = 1; //
 
-	float	m_fAccTime = 0.f; //누적시간, 키 프레임이라고 보면 될듯
+	float	m_fAccTime = 0.f; //누적시간, (current 키 프레임이라고 보면 될듯)
 	int		m_iOldIndex = 999; //재생중인 인덱스 
 
-	double	m_dPeriod = 0.0; //현재 애니메이션의 전체 재생 시간(키 프레임?)
+	double	m_dPeriod = 0.0; //현재 애니메이션의 전체 재생 시간(FullKeyFrame)
 
 	float	m_fAnimSpd = 1.f;
 };

@@ -3,9 +3,10 @@
 #include "Player_Move.h"
 #include "Text.h"
 #include "Camera_FreeMove.h"
-#include "..\..\Engine\Header\Mesh_Renderer.h"
+#include "Mesh_Renderer.h"
 #include "Camera_FPS.h"
 #include "Player_Attack.h"
+#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
 TestScene::TestScene()
@@ -62,8 +63,8 @@ void TestScene::Initialize()
 
 
 		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 10.f;
-		player_Desc.fSprintSpd = 15.f;
+		player_Desc.fWalkSpd = 20.f;
+		player_Desc.fSprintSpd = 35.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 		
 		Player_Attack::Desc Att_Desc;
@@ -71,16 +72,20 @@ void TestScene::Initialize()
 
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"Hand_Revolver";
-		Hand_Desc.iAnimIndex = 5;
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
+		Anim_Controller::Desc Anim_Desc;
+		Anim_Desc.fAnimSpd = 1.f;
+		Anim_Desc.iInitIndex = 5;
+		Anim_Desc.pGameObject = Player;
+		Player->Add_Component<Anim_Controller>(&Anim_Desc);
 
 
-		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
-		PoliceCar->Set_Position(Vector3(0, 0, 50.f));
-		Mesh_Renderer::Desc car_desc;
-		car_desc.szMeshName = L"PoliceCar";
-		PoliceCar->Add_Component<Mesh_Renderer>(&car_desc);
+		//GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
+		//PoliceCar->Set_Position(Vector3(0, 0, 50.f));
+		//Mesh_Renderer::Desc car_desc;
+		//car_desc.szMeshName = L"PoliceCar";
+		//PoliceCar->Add_Component<Mesh_Renderer>(&car_desc);
 	}
 
 

@@ -13,10 +13,10 @@ Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 	m_pMesh = ResourceManager::Get_Instance()->Get_Resource<Mesh>(_desc->szMeshName);
 	assert(L"AnimMesh Loading Failed" && m_pMesh);
 
-	if (m_pMesh->Get_AnimationController() != nullptr)
-	{
-		m_pMesh->Set_AnimationSet(_desc->iAnimIndex);
-	}
+	//if (m_pMesh->Get_AnimationController() != nullptr)
+	//{
+	//	m_pMesh->Set_AnimationSet(_desc->iAnimIndex);
+	//}
 
 
 
@@ -32,8 +32,6 @@ void Mesh_Renderer::Initialize()
 
 void Mesh_Renderer::Update()
 {
-	
-
 }
 
 void Mesh_Renderer::LateUpdate()
@@ -45,7 +43,7 @@ void Mesh_Renderer::Render()
 	m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
 
 
-	if (m_pMesh->Get_AnimationController() == nullptr)
+	if (m_pMesh->Get_AnimController() == nullptr)
 	{//StaticMesh Rendering
 
 	 //D3DXFRAME안의 메시컨테이너 안에 매쉬정보들 있음.
@@ -106,6 +104,7 @@ void Mesh_Renderer::Render()
 
 void Mesh_Renderer::Release()
 {
+
 }
 
 Mesh * Mesh_Renderer::Get_Mesh()

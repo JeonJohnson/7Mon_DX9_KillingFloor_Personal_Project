@@ -17,7 +17,7 @@ public:
 	struct Desc
 	{
 		wstring szMeshName = L"";
-		int		iAnimIndex = 1;
+		//int		iAnimIndex = 1;
 		//wstring szTexturePath = L"";
 
 		//Vector3		vPos = { 0.f,0.f,0.f };
