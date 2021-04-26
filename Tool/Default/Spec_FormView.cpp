@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(Spec_FormView, CFormView)
 	ON_EN_CHANGE(IDC_EDIT_RotZ, &Spec_FormView::OnEnChangeEditRotz)
 	ON_BN_CLICKED(IDC_BUTTON_TransReset, &Spec_FormView::OnBnClickedButtonTransreset)
 	ON_BN_CLICKED(IDC_BUTTON_CameraReset, &Spec_FormView::OnBnClickedButtonCamerareset)
+
 END_MESSAGE_MAP()
 
 
@@ -182,7 +183,19 @@ void Spec_FormView::OnBnClickedButtonMeshload()
 		//PathRemoveExtensionW((LPWSTR)szObjName.c_str());
 		//지금 이거 .자리에 \0을 넣는거지 그 뒤에걸 erase해주지는 않네... ㅁㅊ새기
 
-		//로드할때는 리소스밑에 있는 폴더명으로 넣어줘야함.
+		//주소값 '\\'을 '/'로 바꾸기
+		int iPos = -1;
+		while (true)
+		{
+			iPos = szMeshRelativePath.find(L"\\");
+			if (iPos == string::npos)
+			{
+				break;
+			}
+
+			szMeshRelativePath.replace(iPos, 1, L"/");		
+		}
+		//로드할때는 리소스밑에 있는 폴더명으로 넣 어줘야함.
 		Engine_Mother::Get_Instance()->Load_Mesh(szMeshRelativePath,szObjName);
 		GameObject* pTempObject = INSTANTIATE(0, szObjName);
 
@@ -437,3 +450,5 @@ void Spec_FormView::OnBnClickedButtonCamerareset()
 
 	UpdateData(FALSE);
 }
+
+

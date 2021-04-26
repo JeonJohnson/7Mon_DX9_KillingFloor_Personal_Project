@@ -35,11 +35,13 @@ public:
 public:
 
 private:
-	float m_fMouseX_Sen;
-	float m_fMouseY_Sen;
+	float	m_fMouseX_Sen;
+	float	m_fMouseY_Sen;
+	float	m_fRotX = 0.f;
+	float	m_fRotY = 0.f;
 
-	float m_fMoveSpd;
 
+	float	m_fMoveSpd;
 	float	m_fOriginSpd;
 	float	m_fSprintSpd;
 };
