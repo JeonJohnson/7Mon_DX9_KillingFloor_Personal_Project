@@ -184,7 +184,7 @@ void Spec_FormView::OnBnClickedButtonMeshload()
 		//지금 이거 .자리에 \0을 넣는거지 그 뒤에걸 erase해주지는 않네... ㅁㅊ새기
 
 		//주소값 '\\'을 '/'로 바꾸기
-		int iPos = -1;
+		size_t iPos = -1;
 		while (true)
 		{
 			iPos = szMeshRelativePath.find(L"\\");
@@ -252,7 +252,7 @@ void Spec_FormView::OnEnChangeEditPosx()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr) 
 	{
-		m_vPos.x = atof((CStringA)m_PosX_Edit);
+		m_vPos.x = (float)atof((CStringA)m_PosX_Edit);
 
 		m_pSelectObject->Set_Position(m_vPos);
 	}
@@ -271,7 +271,7 @@ void Spec_FormView::OnEnChangeEditPosy()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr)
 	{
-		m_vPos.y = atof((CStringA)m_PosY_Edit);
+		m_vPos.y = (float)atof((CStringA)m_PosY_Edit);
 
 		m_pSelectObject->Set_Position(m_vPos);
 	}
@@ -291,7 +291,7 @@ void Spec_FormView::OnEnChangeEditPosz()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr)
 	{
-		m_vPos.z = atof((CStringA)m_PosZ_Edit);
+		m_vPos.z = (float)atof((CStringA)m_PosZ_Edit);
 
 		m_pSelectObject->Set_Position(m_vPos);
 	}
@@ -311,7 +311,7 @@ void Spec_FormView::OnEnChangeEditScalex()
 
 	if (m_pSelectObject != nullptr)
 	{
-		m_vScale.x = atof((CStringA)m_ScaleX_Edit);
+		m_vScale.x = (float)atof((CStringA)m_ScaleX_Edit);
 
 		m_pSelectObject->Set_Scale(m_vScale);
 	}
@@ -330,7 +330,7 @@ void Spec_FormView::OnEnChangeEditScaley()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr)
 	{
-		m_vScale.y = atof((CStringA)m_ScaleY_Edit);
+		m_vScale.y = (float)atof((CStringA)m_ScaleY_Edit);
 
 		m_pSelectObject->Set_Scale(m_vScale);
 	}
@@ -369,7 +369,7 @@ void Spec_FormView::OnEnChangeEditRotx()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr)
 	{
-		m_vRot.x = atof((CStringA)m_RotX_Edit);
+		m_vRot.x = (float)atof((CStringA)m_RotX_Edit);
 
 		m_pSelectObject->Set_RotationX(m_vRot.x);
 	}
@@ -390,7 +390,7 @@ void Spec_FormView::OnEnChangeEditRoty()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr)
 	{
-		m_vRot.y = atof((CStringA)m_RotY_Edit);
+		m_vRot.y = (float)atof((CStringA)m_RotY_Edit);
 
 		m_pSelectObject->Set_RotationY(m_vRot.y);
 	}
@@ -410,7 +410,7 @@ void Spec_FormView::OnEnChangeEditRotz()
 	UpdateData(TRUE);
 	if (m_pSelectObject != nullptr)
 	{
-		m_vRot.z = atof((CStringA)m_RotZ_Edit);
+		m_vRot.z = (float)atof((CStringA)m_RotZ_Edit);
 
 		m_pSelectObject->Set_RotationZ(m_vRot.z);
 	}
