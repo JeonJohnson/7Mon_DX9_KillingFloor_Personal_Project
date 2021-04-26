@@ -137,7 +137,7 @@ void Spec_FormView::OnBnClickedButtonMeshload()
 
 
 	//1. 매쉬 로드 
-	//리소스 폴더 찾기.
+	//리소스 폴더 찾아서 Modal 기본 폴더로 해주기.
 	TCHAR	szDlg_First[256] = L"";
 	GetCurrentDirectory(256, szDlg_First);
 	PathRemoveFileSpec(szDlg_First);
@@ -156,9 +156,10 @@ void Spec_FormView::OnBnClickedButtonMeshload()
 	//wstring szRelativePath; //그 
 
 	wstring szMeshPath;
+	wstring szMeshRelativePath;
 	wstring szMeshName;
-	wstring szTexturePath;
-	wstring szTextureName;
+	//wstring szTexturePath;
+	//wstring szTextureName;
 	wstring szObjName;
 
 	wstring temp = L"../../Resource/";
@@ -166,22 +167,23 @@ void Spec_FormView::OnBnClickedButtonMeshload()
 
 	if (Dlg.DoModal() == IDOK)
 	{
-		szMeshPath = Dlg.GetPathName();
+		szMeshPath = Dlg.GetPathName(); //절대경로로 받아옴.
 		szMeshName = Dlg.GetFileName();
 
-		szTextureName = szMeshName;
-		szTextureName.replace(szMeshName.find(L".X"), 2, L".png");
+		szMeshRelativePath = szMeshPath;
+		//int findpos = szMeshRelativePath.find(L"Resource\\");
+		szMeshRelativePath.erase(0, szMeshRelativePath.find(L"Resource\\")+9);
+		//이제 텍스쳐는 매쉬 내부에서 XFile에 있는 걸로 알아서 불러올 꺼임.  
+		//szTextureName = szMeshName;
+		//szTextureName.replace(szMeshName.find(L".X"), 2, L".png");
 
 		szObjName = szMeshName;
 		szObjName.erase(szObjName.find(L".X"), szObjName.length());
 		//PathRemoveExtensionW((LPWSTR)szObjName.c_str());
 		//지금 이거 .자리에 \0을 넣는거지 그 뒤에걸 erase해주지는 않네... ㅁㅊ새기
 
-		wstring path = L"Test/StaticMesh/";
-
-		Engine_Mother::Get_Instance()->Load_StaticMesh(path+szMeshName,
-			path+szTextureName, szObjName);
-
+		//로드할때는 리소스밑에 있는 폴더명으로 넣어줘야함.
+		Engine_Mother::Get_Instance()->Load_Mesh(szMeshRelativePath,szObjName);
 		GameObject* pTempObject = INSTANTIATE(0, szObjName);
 
 		Mesh_Renderer::Desc Mesh_desc;

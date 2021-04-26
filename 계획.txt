@@ -32,6 +32,8 @@ Renderer : Component를 상속받음. 렌더 속성을 가지고 있는 Componen
 삼각형은 나오기 성공
 SceneManager 만들면서 ResourceManager만들고 구조 완성하기.
 -> 완성되면 그 Debuging Window창 설정 완료
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 03:07 2021-3-30 화
 GameObject, Component, GameOjbectManager 완성.
@@ -489,6 +491,14 @@ Mesh 내에서는 그냥 생성만하고 돌리는건 AnimationController에서 
 한 숨자고 일어나서 리소스뽑기 ㄱㄱㄱ
 
 
+----------------------------------------------------------------------
 
+11:16 2021-04-26 월 
+*주말동안 맵 리소스 꽤 뽑음 => 눈 나으면 맵 리소스 마저 뽑기
+	1. 건물 리소스들 몇개는 직접 다 맞춰야함. 씼팔
+	2. 스태틱 리소스중에서 HeavyGate랑  ClosePhoneBooth처럼 알파 들어가야하는거 다시 뽑기.
+*오브젝트 배치둘 로드부분 다시 건들여서 로드하기.
+*레이아웃 세이브까지 해보기.
+L"C:\\Users\\weidi\\Desktop\\공부\\쥬신\\05)프로젝트\\08)7mon_Personal_KillingFloor\\7Mon_Personal_Project\\Resource\\ Mesh\\Map\\Objs\\Statics\\Taxi.X"
 
 

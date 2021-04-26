@@ -27,12 +27,12 @@ void InputManager::Initialize(HINSTANCE hInst, HWND hWnd, bool _IsEngine)
 	}
 
 
-	if (FAILED(Keyboard_Create(hWnd)))
+	if (FAILED(Keyboard_Create(hWnd, _IsEngine)))
 	{
 		assert(0 && L"Keyboard Create is failed");
 	}
 
-	if (FAILED(Mouse_Create(hWnd)))
+	if (FAILED(Mouse_Create(hWnd, _IsEngine)))
 	{
 		assert(0 && L"Mouse Create is failed");
 	}
