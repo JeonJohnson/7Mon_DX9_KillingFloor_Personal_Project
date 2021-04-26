@@ -48,6 +48,8 @@ void TestScene::Initialize()
 
 	EngineFunction->Load_Mesh(L"Mesh/DynamicMesh/FPPOV_Revolver.X", L"Hand_Revolver");
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
+	EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
+
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
 		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
@@ -86,6 +88,13 @@ void TestScene::Initialize()
 		//Mesh_Renderer::Desc car_desc;
 		//car_desc.szMeshName = L"PoliceCar";
 		//PoliceCar->Add_Component<Mesh_Renderer>(&car_desc);
+
+		GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
+		Taxi->Set_Position(Vector3(0, 0, 50.f));
+		Mesh_Renderer::Desc car_desc;
+		car_desc.szMeshName = L"Taxi";
+		Taxi->Add_Component<Mesh_Renderer>(&car_desc);
+		
 	}
 
 
