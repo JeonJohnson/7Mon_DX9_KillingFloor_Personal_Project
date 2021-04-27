@@ -518,5 +518,11 @@ L"C:\\Users\\weidi\\Desktop\\공부\\쥬신\\05)프로젝트\\08)7mon_Personal_K
 	=>중복 리소스 문제 해결.
 매쉬 피킹 하기.
 
+오후 1:23 2021-04-27 화
+라인객체 만들어서 Transform gizmo만들기
+	position 화살표
+	rotation 구체
+	Scale 	큐브
+맵 리소스 다 뽑기. 무적권! 무적권!
 
 
