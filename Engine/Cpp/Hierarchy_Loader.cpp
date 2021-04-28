@@ -72,6 +72,7 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 	//우리가 일일이 만들었던거 다 여기 안에 들어 있음.
 		MeshContainer_Derived*	pTempMesh;
 		pTempMesh = new MeshContainer_Derived;
+		ZeroMemory(pTempMesh, sizeof(MeshContainer_Derived));
 
 		//이름 세팅.
 		pTempMesh->Name = new char[strlen(Name) + 1];

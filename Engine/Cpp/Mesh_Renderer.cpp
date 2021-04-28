@@ -54,6 +54,8 @@ void Mesh_Renderer::Render()
 		//	m_pStaticMesh->Get_Mesh()->DrawSubset(i);
 		//}
 		MeshContainer_Derived* temp = m_pMesh->Get_RootFrame_MeshContainer();
+			 
+		assert(L"MeshContainer_Derived is nullptr" && temp);
 
 		Texture* tempTexture = temp->pTexture;
 
