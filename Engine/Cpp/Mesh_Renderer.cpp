@@ -42,8 +42,9 @@ void Mesh_Renderer::Render()
 {
 	m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
 
+	
 
-	if (m_pMesh->Get_AnimController() == nullptr)
+		if (m_pMesh->Get_AnimController() == nullptr)
 	{//StaticMesh Rendering
 
 	 //D3DXFRAME안의 메시컨테이너 안에 매쉬정보들 있음.
@@ -130,4 +131,9 @@ void Mesh_Renderer::Release()
 Mesh * Mesh_Renderer::Get_Mesh()
 {
 	return m_pMesh;
+}
+
+void Mesh_Renderer::Set_Mesh(Mesh * _pMesh)
+{
+	m_pMesh = _pMesh;
 }

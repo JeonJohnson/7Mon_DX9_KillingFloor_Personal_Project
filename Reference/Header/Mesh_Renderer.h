@@ -42,6 +42,8 @@ public: /* Get */
 	Mesh*		Get_Mesh();
 
 public: /* Set */
+	void		Set_Mesh(Mesh* _pMesh);
+
 
 private:
 	Mesh*			m_pMesh = nullptr;

@@ -57,6 +57,8 @@ void RenderManager::Render()
 		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
 		D3DCOLOR_ARGB(255, 255, 222, 222), 1.f, 0);
 	
+	
+
 	m_pDX9_Device->BeginScene();
 
 	Render_Priority();
@@ -90,6 +92,8 @@ void RenderManager::Render_Priority()
 
 	//m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 		
+	m_pDX9_Device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+	//m_pDX9_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 
 	for (auto& renderer : m_RenderingList[0])
 	{

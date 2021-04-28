@@ -46,9 +46,19 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
 
-	EngineFunction->Load_Mesh(L"Mesh/DynamicMesh/FPPOV_Revolver.X", L"Hand_Revolver");
+	//EngineFunction->Load_Mesh(L"Mesh/DynamicMesh/FPPOV_Revolver.X", L"Hand_Revolver");
+	
+
+	EngineFunction->Load_Mesh(L"Mesh/Weapon/Rifle/M4.X", L"M4");
+	EngineFunction->Load_Mesh(L"Mesh/Weapon/Secondary/BerettaM9.X", L"BerettaM9");
+	EngineFunction->Load_Mesh(L"Mesh/Weapon/Melee/Knife_M9.X", L"Knife_M9");
+
+
+	EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
+
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
 	EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
+
 
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
@@ -65,34 +75,35 @@ void TestScene::Initialize()
 
 
 		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 20.f;
-		player_Desc.fSprintSpd = 35.f;
+		player_Desc.fWalkSpd = 40.f;
+		player_Desc.fSprintSpd = 55.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 		
 		Player_Attack::Desc Att_Desc;
 		Player->Add_Component<Player_Attack>(&Att_Desc);
 
 		Mesh_Renderer::Desc	Hand_Desc;
-		Hand_Desc.szMeshName = L"Hand_Revolver";
+		Hand_Desc.szMeshName = L"M4";
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 		Anim_Controller::Desc Anim_Desc;
 		Anim_Desc.fAnimSpd = 1.f;
-		Anim_Desc.iInitIndex = 5;
+		Anim_Desc.iInitIndex = 6;
 		Anim_Desc.pGameObject = Player;
 		Player->Add_Component<Anim_Controller>(&Anim_Desc);
 
 
-		//GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
-		//PoliceCar->Set_Position(Vector3(0, 0, 50.f));
-		//Mesh_Renderer::Desc car_desc;
-		//car_desc.szMeshName = L"PoliceCar";
-		//PoliceCar->Add_Component<Mesh_Renderer>(&car_desc);
+		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
+		PoliceCar->Set_Position(Vector3(0, 0, 50.f));
+		Mesh_Renderer::Desc Policecar_desc;
+		Policecar_desc.szMeshName = L"PoliceCar";
+		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
 
 		GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
-		Taxi->Set_Position(Vector3(0, 0, 50.f));
+		Taxi->Set_Position(Vector3(0, 0, 0.f));
+		Taxi->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
 		Mesh_Renderer::Desc car_desc;
-		car_desc.szMeshName = L"Taxi";
+		car_desc.szMeshName = L"Map";
 		Taxi->Add_Component<Mesh_Renderer>(&car_desc);
 		
 	}
