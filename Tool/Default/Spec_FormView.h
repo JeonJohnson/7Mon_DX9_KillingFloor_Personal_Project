@@ -49,6 +49,7 @@ public:
 
 public:
 	class GameObject*	m_pSelectObject;
+	
 
 	//transformation
 	Vector3				m_vPos;
@@ -75,6 +76,9 @@ public:
 	CString m_RotZ_Edit;
 	afx_msg void OnBnClickedButtonTransreset();
 	afx_msg void OnBnClickedButtonCamerareset();
+	afx_msg void OnBnClickedButtonDeletelist();
+	afx_msg void OnBnClickedButtonLayoutsave();
+	afx_msg void OnBnClickedButtonLayoutload();
 };
 
 

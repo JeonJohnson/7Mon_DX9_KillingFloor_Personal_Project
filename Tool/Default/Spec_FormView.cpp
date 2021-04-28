@@ -66,6 +66,9 @@ BEGIN_MESSAGE_MAP(Spec_FormView, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON_TransReset, &Spec_FormView::OnBnClickedButtonTransreset)
 	ON_BN_CLICKED(IDC_BUTTON_CameraReset, &Spec_FormView::OnBnClickedButtonCamerareset)
 
+	ON_BN_CLICKED(IDC_BUTTON_DeleteList, &Spec_FormView::OnBnClickedButtonDeletelist)
+	ON_BN_CLICKED(IDC_BUTTON_LayoutSave, &Spec_FormView::OnBnClickedButtonLayoutsave)
+	ON_BN_CLICKED(IDC_BUTTON_LayoutLoad, &Spec_FormView::OnBnClickedButtonLayoutload)
 END_MESSAGE_MAP()
 
 
@@ -99,6 +102,8 @@ void Spec_FormView::Update_Info()
 
 	if (m_pSelectObject != nullptr)
 	{
+		m_MeshList_Combo.GetLBText(m_iMeshList_Index, m_csSelMeshName);
+
 		m_vPos = m_pSelectObject->Get_Position();
 		m_vScale = m_pSelectObject->Get_Scale();
 		m_vRot = m_pSelectObject->Get_Transform()->Get_Rotation_Euler();
@@ -114,6 +119,20 @@ void Spec_FormView::Update_Info()
 		m_RotX_Edit.Format(L"%.2f", m_vRot.x);
 		m_RotY_Edit.Format(L"%.2f", m_vRot.y);
 		m_RotZ_Edit.Format(L"%.2f", m_vRot.z);
+	}
+	else
+	{
+		m_PosY_Edit = L"객체를 선택해 주십시오.";
+		m_PosX_Edit = L"객체를 선택해 주십시오.";
+		m_PosZ_Edit = L"객체를 선택해 주십시오.";
+
+		m_ScaleX_Edit = L"객체를 선택해 주십시오.";
+		m_ScaleY_Edit = L"객체를 선택해 주십시오.";
+		m_ScaleZ_Edit = L"객체를 선택해 주십시오.";
+
+		m_RotX_Edit = L"객체를 선택해 주십시오.";
+		m_RotY_Edit = L"객체를 선택해 주십시오.";
+		m_RotZ_Edit = L"객체를 선택해 주십시오.";
 	
 	}
 	
@@ -448,7 +467,63 @@ void Spec_FormView::OnBnClickedButtonCamerareset()
 	UpdateData(TRUE);
 
 
+
 	UpdateData(FALSE);
 }
 
 
+
+
+void Spec_FormView::OnBnClickedButtonDeletelist()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+	
+	if (m_pSelectObject == nullptr)
+	{
+		AfxMessageBox(L"삭제할거 선택하삼", MB_OK | MB_ICONQUESTION);
+	}
+	else 
+	{
+		if (IDYES == AfxMessageBox(L"ㄹㅇ루다가 해당 오브젝트 삭제 허쉴?", MB_YESNO | MB_ICONQUESTION))
+		{
+			m_MeshList_Combo.DeleteString(m_iMeshList_Index);
+			m_iMeshList_Index = -1;
+			m_csSelMeshName = L"";
+
+			GameObject::Destory(m_pSelectObject);
+			m_pSelectObject = nullptr;
+
+			AfxMessageBox(L"삭제 됬음. ㅅㄱ", MB_OK | MB_ICONQUESTION);
+		}
+	}
+
+
+
+	UpdateData(FALSE);
+}
+
+
+void Spec_FormView::OnBnClickedButtonLayoutsave()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+
+
+
+
+	UpdateData(FALSE);
+}
+
+
+void Spec_FormView::OnBnClickedButtonLayoutload()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+
+
+
+
+
+	UpdateData(FALSE);
+}

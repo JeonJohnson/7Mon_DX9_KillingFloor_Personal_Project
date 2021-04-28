@@ -19,7 +19,7 @@ public:
 		float		fFov_Degree = 45.f;
 		float		fAspect = 0.f;
 		float		fzNear = 0.1f;
-		float		fzFar = 5000.f;
+		float		fzFar = 1000.f;
 	};
 
 public:

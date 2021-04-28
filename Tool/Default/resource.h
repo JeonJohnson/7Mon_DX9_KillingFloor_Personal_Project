@@ -26,6 +26,8 @@
 #define IDC_BUTTON_TransReset2          1024
 #define IDC_BUTTON_CameraReset          1024
 #define IDC_RADIO_CamMove               1025
+#define IDC_BUTTON_LayoutSave2          1027
+#define IDC_BUTTON_LayoutLoad           1027
 #define IDC_STATIC_                     1028
 
 // Next default values for new objects
