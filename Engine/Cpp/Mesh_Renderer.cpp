@@ -53,23 +53,41 @@ void Mesh_Renderer::Render()
 					//=> m_pDX9_Device->SetTexture(0, m_pTexture->Get_Texture(_iNum))
 		//	m_pStaticMesh->Get_Mesh()->DrawSubset(i);
 		//}
-		MeshContainer_Derived* temp = m_pMesh->Get_RootFrame_MeshContainer();
-			 
-		assert(L"MeshContainer_Derived is nullptr" && temp);
+		//MeshContainer_Derived* temp = m_pMesh->Get_RootFrame_MeshContainer();
+		//	 
+		//assert(L"MeshContainer_Derived is nullptr" && temp);
 
-		Texture* tempTexture = temp->pTexture;
+		//Texture* tempTexture = temp->pTexture;
 
-		for (int i = 0; i < (int)m_pMesh->Get_RootFrame()->pMeshContainer->NumMaterials; ++i)
+		//for (int i = 0; i < (int)m_pMesh->Get_RootFrame()->pMeshContainer->NumMaterials; ++i)
+		//{
+		//	//왜 pMesh 접근을 못할까 이 씹새끼는...?
+		//	//왜 되지?
+		//	if (FAILED(m_pDX9_Device->SetTexture(0, tempTexture->Get_Texture(i))))
+		//	{
+		//		assert(0 && L"SetTexture Faild at Static Mesh Renderring");
+		//	}
+		//	if (FAILED(temp->MeshData.pMesh->DrawSubset(i)))
+		//	{
+		//		assert(0 && L"DrawSubSet Failed at Static Mesh Renderring");
+		//	}
+		//}
+
+		for (auto& iter : m_pMesh->Get_MeshContainerList())
 		{
-			//왜 pMesh 접근을 못할까 이 씹새끼는...?
-			//왜 되지?
-			if (FAILED(m_pDX9_Device->SetTexture(0, tempTexture->Get_Texture(i))))
+			D3DXMESHCONTAINER_DERIVED* pMeshContainer = iter;
+			Texture*	tempTexture = pMeshContainer->pTexture;
+
+			for (int i = 0; i < (int)pMeshContainer->NumMaterials; ++i)
 			{
-				assert(0 && L"SetTexture Faild at Static Mesh Renderring");
-			}
-			if (FAILED(temp->MeshData.pMesh->DrawSubset(i)))
-			{
-				assert(0 && L"DrawSubSet Failed at Static Mesh Renderring");
+				if (FAILED(m_pDX9_Device->SetTexture(0, tempTexture->Get_Texture(i))))
+				{
+					assert(0 && L"SetTexture Faild at Static Mesh Renderring");
+				}
+				if (FAILED(iter->MeshData.pMesh->DrawSubset(i)))
+				{
+					assert(0 && L"DrawSubSet Failed at Static Mesh Renderring");
+				}
 			}
 		}
 	}
