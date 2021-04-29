@@ -214,6 +214,7 @@
     <ClInclude Include="..\Header\ResourceManager.h" />
     <ClInclude Include="..\Header\Scene.h" />
     <ClInclude Include="..\Header\SceneManager.h" />
+    <ClInclude Include="..\Header\Shader.h" />
     <ClInclude Include="..\Header\SkyBox_VIBuffer_DDS.h" />
     <ClInclude Include="..\Header\Sprite.h" />
     <ClInclude Include="..\Header\State.h" />
@@ -261,6 +262,7 @@
     <ClCompile Include="..\Cpp\ResourceManager.cpp" />
     <ClCompile Include="..\Cpp\Scene.cpp" />
     <ClCompile Include="..\Cpp\SceneManager.cpp" />
+    <ClCompile Include="..\Cpp\Shader.cpp" />
     <ClCompile Include="..\Cpp\SkyBox_VIBuffer_DDS.cpp" />
     <ClCompile Include="..\Cpp\Sprite.cpp" />
     <ClCompile Include="..\Cpp\State.cpp" />
