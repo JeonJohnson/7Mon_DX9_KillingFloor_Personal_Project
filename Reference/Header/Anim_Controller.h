@@ -14,6 +14,9 @@ public:
 	{
 		int		iInitIndex = 0;
 		float	fAnimSpd = 1.f;
+		
+		bool	bLoop = false;
+
 
 		GameObject*		pGameObject;
 	};
@@ -45,6 +48,7 @@ public: /* Set */
 	void							Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl);
 	void							Set_AnimIndex(int _iNewIndex);
 	void							Set_AnimSpd(float _fAnimSpd);
+	void							Set_CurFrame(float _fFrame);
 
 private:
 	LPD3DXANIMATIONCONTROLLER		m_pAnimController = nullptr;
@@ -65,7 +69,7 @@ private:
 	float	m_fAnimSpd = 1.f;
 
 	bool	m_bPlay = true;	//Play상태인지 Stop상태인지(현재 재생중인거랑 무관.)
-	bool	m_bLoop = true;	//
+	bool	m_bLoop = false;	//
 	//일단 얘들은 나머지 잘 되고 나서 해주기.
 
 	//{Play / Stop = > PlayAnimationSet안 돌면 정지함.}

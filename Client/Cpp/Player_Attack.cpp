@@ -154,18 +154,21 @@ bool Player_Attack::Swap()
 		{
 		case 0:
 		{
+			m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(0);
 		}
 		break;
 
 		case 1:
 		{
+			m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(2);
 		}
 		break;
 
 		case 2:
 		{
+			m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(0);
 		}
 		break;

@@ -17,7 +17,7 @@ Anim_Controller::Anim_Controller(Desc * _desc)
 	m_fAnimSpd = _desc->fAnimSpd;
 	m_iCurIndex = _desc->iInitIndex;
 
-
+	m_bLoop = _desc->bLoop;
 
 }
 
@@ -94,10 +94,12 @@ HRESULT Anim_Controller::Setup_AnimController(GameObject* _pGameObject)
 
 void Anim_Controller::Play_Animation()
 {
-	
-	m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
+	if (m_bPlay)
+	{
+		m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
 
-	m_fCurKeyFrame += m_fdTime;
+		m_fCurKeyFrame += m_fdTime;
+	}
 }
 
 void Anim_Controller::Stop_Animation()
@@ -192,12 +194,13 @@ void Anim_Controller::Set_AnimIndex(int _iNewIndex)
 	//해당 트랙이 시작되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
 	m_pAnimController->KeyTrackWeight(m_iNewTrack, 0.9f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 
+	
 	//AdvanceTime 호출 시 증가하던 시간 값을 초기화
-	m_pAnimController->ResetTime();
-	m_fCurKeyFrame = 0.f;
+		m_pAnimController->ResetTime();
+		m_fCurKeyFrame = 0.f;
 
+		m_pAnimController->SetTrackPosition(m_iNewTrack, 0.0);
 
-	m_pAnimController->SetTrackPosition(m_iNewTrack, 0.0);
 	m_iCurIndex = _iNewIndex;
 
 	m_iCurTrack = m_iNewTrack;
@@ -206,4 +209,9 @@ void Anim_Controller::Set_AnimIndex(int _iNewIndex)
 void Anim_Controller::Set_AnimSpd(float _fAnimSpd)
 {
 	m_fAnimSpd = _fAnimSpd;
+}
+
+void Anim_Controller::Set_CurFrame(float _fFrame)
+{
+	m_fCurKeyFrame = _fFrame;
 }
