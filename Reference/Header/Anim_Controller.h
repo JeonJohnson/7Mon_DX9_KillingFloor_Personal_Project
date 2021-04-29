@@ -15,8 +15,8 @@ public:
 		int		iInitIndex = 0;
 		float	fAnimSpd = 1.f;
 		
-		bool	bLoop = false;
-
+		bool	bLoop = true;
+		bool	bPlay = true;
 
 		GameObject*		pGameObject;
 	};
@@ -49,12 +49,13 @@ public: /* Set */
 	void							Set_AnimIndex(int _iNewIndex);
 	void							Set_AnimSpd(float _fAnimSpd);
 	void							Set_CurFrame(float _fFrame);
+	void							Set_Loop(bool _bLoop);
 
-private:
+ private:
 	LPD3DXANIMATIONCONTROLLER		m_pAnimController = nullptr;
 	int		m_iCurIndex = 9999; //재생중인 애니메이션 번호
 	int		m_iMaxIndex; // = Animation Count
-
+	LPD3DXTRACK_DESC				m_tCurTrackInfo = nullptr;
 
 	//트랙 = 애니메이션을 재생할 틀. 
 		//=> 블랜딩 : 2개의 틀을 만들어서 섞는 식으로 사용함.

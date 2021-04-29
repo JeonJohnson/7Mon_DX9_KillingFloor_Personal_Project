@@ -34,13 +34,26 @@ void Player_Attack::Initialize()
 
 void Player_Attack::Update()
 {
-	Swap();
-	Reload();
-	Shoot();
+	//Swap();
+	//Reload();
+	//Shoot();
 
-	if (!(Swap() && Reload() && Shoot()))
-	{
-	}
+	//if (!Swap() && !Reload()) 
+	//{
+	//	//아무것도 안 눌렸을때 => 둘 다 false
+	//	if (m_iCurWeaponIndex == 1)
+	//	{
+	//		if (m_pWeaponAnim->Get_CurIndex() != 4)
+	//		{
+	//			m_pWeaponAnim->Set_AnimIndex(4);
+	//		}
+	//	}
+	//	else 
+	//	{
+	//		if (m_pWeaponAnim->Get_CurIndex() != 2)
+	//		{		m_pWeaponAnim->Set_AnimIndex(2);		}
+	//	}
+	//}
 }
 
 void Player_Attack::LateUpdate()
@@ -154,21 +167,21 @@ bool Player_Attack::Swap()
 		{
 		case 0:
 		{
-			m_pWeaponAnim->Set_CurFrame(0.f);
+			//m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(0);
 		}
 		break;
 
 		case 1:
 		{
-			m_pWeaponAnim->Set_CurFrame(0.f);
+			//m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(2);
 		}
 		break;
 
 		case 2:
 		{
-			m_pWeaponAnim->Set_CurFrame(0.f);
+			//m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(0);
 		}
 		break;

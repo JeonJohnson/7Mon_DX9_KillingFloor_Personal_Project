@@ -93,7 +93,7 @@ void RenderManager::Render_Priority()
 	//m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 		
 	m_pDX9_Device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
-	//m_pDX9_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	m_pDX9_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 
 	for (auto& renderer : m_RenderingList[0])
 	{
