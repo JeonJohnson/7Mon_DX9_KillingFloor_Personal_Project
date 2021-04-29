@@ -209,6 +209,12 @@
     <Filter Include="04.Component\04.Shader">
       <UniqueIdentifier>{ca5e4240-cfbe-4302-a54a-f735f497682d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.Component\04.Shader\Sample">
+      <UniqueIdentifier>{47cae730-5b63-413a-905c-88a25a81e506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\08.ShaderManager">
+      <UniqueIdentifier>{601f95ca-5078-4987-83e0-f6ba267c04ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -510,5 +516,10 @@
     <ClInclude Include="..\Header\Shader.h">
       <Filter>04.Component\04.Shader</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\Header\Shader_Sample.fx">
+      <Filter>04.Component\04.Shader\Sample</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

@@ -15,7 +15,7 @@ public:
 		int		iInitIndex = 0;
 		float	fAnimSpd = 1.f;
 		
-		bool	bLoop = true;
+		bool	bLoop = false;
 		bool	bPlay = true;
 
 		GameObject*		pGameObject;

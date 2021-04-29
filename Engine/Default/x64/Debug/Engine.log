@@ -1,6 +1,5 @@
-﻿  Anim_Controller.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Engine.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+﻿  compilation object save succeeded; see E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Bin\Shader_Sample.cso
+  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
   1개 파일이 복사되었습니다.
@@ -41,6 +40,7 @@
   ..\Header\ResourceManager.h
   ..\Header\Scene.h
   ..\Header\SceneManager.h
+  ..\Header\Shader.h
   ..\Header\SkyBox_VIBuffer_DDS.h
   ..\Header\Sprite.h
   ..\Header\State.h
@@ -57,7 +57,7 @@
   ..\Header\UI_Renderer.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  53개 파일이 복사되었습니다.
+  54개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
   1개 파일이 복사되었습니다.
   ..\Bin\Engine.dll

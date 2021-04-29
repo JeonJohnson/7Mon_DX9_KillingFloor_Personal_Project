@@ -34,9 +34,9 @@ void Player_Attack::Initialize()
 
 void Player_Attack::Update()
 {
-	//Swap();
-	//Reload();
-	//Shoot();
+	Swap();
+	Reload();
+	Shoot();
 
 	//if (!Swap() && !Reload()) 
 	//{

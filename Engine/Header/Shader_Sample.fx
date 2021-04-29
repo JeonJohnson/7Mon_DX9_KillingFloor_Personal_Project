@@ -66,7 +66,7 @@ struct VS_OUT
 	//다시 클라or엔진에게 넘겨줄 값들을 들고 있을 구조체.
 
 	vector		vPosition : POSITION;
-	float2		vTexUv : TEXCOORD0;
+	float2		vTexUV : TEXCOORD0;
 	//여기서의 vector는 Dx의 Vector4임.
 	//float2는 Dx의 Vector2고...
 
@@ -79,7 +79,7 @@ VS_OUT		VS_MAIN(VS_IN _In)
 
 	VS_OUT	tOut = (VS_OUT)0; //초기화 하는거
 
-	matrix		matWV, matWVp;
+	matrix		matWV, matWVP;
 	//'절차지향언어'이다 보니 앵간하면 한 변수를 쭉 쓰기보다
 	//계산 단계마다 하나 씩 만들어주는게 좋다고 하심.
 
@@ -117,24 +117,28 @@ PS_OUT		PS_MAIN(PS_IN _In)
 					
 	//여기에 색깔 변할거 적어주면 됨.
 
-	return Out;
+	return tOut;
 }
 
 technique Default_Device
 {//현재 결정된 버텍스 쉐이딩과 픽셀 쉐이딩을 구분해서
 	//구동되게할 진입점.
 	//수업 쉐이딩 파일 구조는 한 기능씩으로 나눌꺼라서]
-	//1파일 = 1 techniqu로 나눠질꺼다.
+	//1파일 = 1 techniqu로 있을 확률이 높다고 하심.
 	
 	pass	
-	{//기능의 캡슐화, 
-	//PASS는 이름과 상관없이 선언된 순서대로 위부터 인덱스 값이 0이 지정되고 자동적으로 하나씩 증가함
+	{
+	//기능의 캡슐화(기능 나누는 것.) 
+	//PASS는 이름과 상관없이 선언된 순서대로 위부터 인덱스 값이 지정되고 
+	//자동적으로 하나씩 증가함
 	//Dx9 디바이스한테 SetRenderState 처럼 렌더 관련 세팅해주는것
-		alphablendenable = true;
-		srcblend = srcalpha;
-		destblend = invsrcalpha;
+		alphablendenable = true;	//알파 블랜딩 하겠다.
+		srcblend = srcalpha;		//
+		destblend = invsrcalpha;	//
 
-		vertexshader = compile vs_3_0 VS_MAIN();	// 진입점 함수 명시
+		//A = Compile oo_3_0 함수();
+		//컴파일해라. Shader3.0버젼으로, VSMain함수를 이용해서
+		vertexshader = compile vs_3_0 VS_MAIN();
 		pixelshader = compile ps_3_0 PS_MAIN();
 	}
 

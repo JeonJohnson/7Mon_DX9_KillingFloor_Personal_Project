@@ -9,7 +9,13 @@
 class DLL_STATE Shader : public Component
 {
 public:
-	Shader();
+	struct Desc
+	{
+		wstring pFilePath = L"";
+	};
+
+public:
+	explicit Shader(Desc* _desc);
 	virtual ~Shader();
 
 public:
@@ -20,13 +26,19 @@ public:
 	virtual void Release() override;
 
 public:
+	HRESULT					Ready_Shader(const wstring& _szShaderFilePath);
 
-public:
+public: /* Get */
+	LPD3DXEFFECT			Get_ComEffect() const;
 
-public:
+public: /* Set */
 
 private:
-		
+	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
+
+	LPD3DXEFFECT			m_pEffect = nullptr; //쉐이더용 컴객체
+	LPD3DXBUFFER			m_pErrMsg = nullptr; //쉐이더 에러메시지 받아올 메모리
+
 };
 
 #endif //_SHADER_H_
