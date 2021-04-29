@@ -74,14 +74,6 @@ void TestScene::Initialize()
 		Player->Add_Component<Camera_FPS>(&Fps_Desc);
 
 
-		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 40.f;
-		player_Desc.fSprintSpd = 55.f;
-		Player->Add_Component<Player_Move>(&player_Desc);
-		
-		Player_Attack::Desc Att_Desc;
-		Player->Add_Component<Player_Attack>(&Att_Desc);
-
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"M4";
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
@@ -93,18 +85,32 @@ void TestScene::Initialize()
 		Player->Add_Component<Anim_Controller>(&Anim_Desc);
 
 
+		Player_Move::Desc player_Desc;
+		player_Desc.fWalkSpd = 40.f;
+		player_Desc.fSprintSpd = 55.f;
+		Player->Add_Component<Player_Move>(&player_Desc);
+
+		Player_Attack::Desc Att_Desc;
+		Att_Desc.pAnimCtrl = Player->Get_NewComponent<Anim_Controller>();
+		Att_Desc.pMeshRenderer = Player->Get_NewComponent<Mesh_Renderer>();
+		Att_Desc.szPrimary = L"M4";
+		Att_Desc.szSecondary = L"BerettaM9";
+		Att_Desc.szMelee = L"Knife_M9";
+		Player->Add_Component<Player_Attack>(&Att_Desc);
+
+
 		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
 		PoliceCar->Set_Position(Vector3(0, 0, 50.f));
 		Mesh_Renderer::Desc Policecar_desc;
 		Policecar_desc.szMeshName = L"PoliceCar";
 		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
 
-		GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
-		Taxi->Set_Position(Vector3(0, 0, 0.f));
-		Taxi->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		Mesh_Renderer::Desc car_desc;
-		car_desc.szMeshName = L"Map";
-		Taxi->Add_Component<Mesh_Renderer>(&car_desc);
+		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+		Map->Set_Position(Vector3(0, 0, 0.f));
+		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		Mesh_Renderer::Desc Map_desc;
+		Map_desc.szMeshName = L"Map";
+		Map->Add_Component<Mesh_Renderer>(&Map_desc);
 		
 	}
 

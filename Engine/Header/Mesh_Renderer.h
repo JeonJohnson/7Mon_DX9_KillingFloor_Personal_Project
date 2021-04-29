@@ -43,6 +43,7 @@ public: /* Get */
 
 public: /* Set */
 	void		Set_Mesh(Mesh* _pMesh);
+	void		Set_Mesh(const wstring& _pMeshName);
 
 
 private:

@@ -94,6 +94,7 @@ HRESULT Anim_Controller::Setup_AnimController(GameObject* _pGameObject)
 
 void Anim_Controller::Play_Animation()
 {
+	
 	m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
 
 	m_fCurKeyFrame += m_fdTime;

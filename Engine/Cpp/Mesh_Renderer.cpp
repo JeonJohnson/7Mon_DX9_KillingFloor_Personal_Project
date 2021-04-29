@@ -135,5 +135,12 @@ Mesh * Mesh_Renderer::Get_Mesh()
 
 void Mesh_Renderer::Set_Mesh(Mesh * _pMesh)
 {
+	assert(L"pMesh is nullptr" && _pMesh);
+
 	m_pMesh = _pMesh;
+}
+
+void Mesh_Renderer::Set_Mesh(const wstring & _pMeshName)
+{
+	m_pMesh = ResourceManager::Get_Instance()->Get_Resource<Mesh>(_pMeshName);
 }
