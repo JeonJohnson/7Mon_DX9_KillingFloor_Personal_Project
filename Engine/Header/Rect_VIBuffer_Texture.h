@@ -25,6 +25,8 @@ public:
 
 	virtual void	Set_Texture(Texture* _pTexture) override;
 	virtual HRESULT Render_Texture(int _iNum) override;
+	virtual HRESULT Render_Texture(LPD3DXEFFECT _pEffect, const char* _ShaderTexName, int _iTexNum) override;
+	//virtual HRESULT	Redner_Texture()
 
 private:
 	Texture*	m_pTexture = nullptr;

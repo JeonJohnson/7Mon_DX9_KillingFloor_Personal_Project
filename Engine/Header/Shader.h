@@ -6,32 +6,34 @@
 
 #include "Component.h"
 
-class DLL_STATE Shader : public Component
+class DLL_STATE Shader /*: public Component*/
 {
+//public:
+//	struct Desc
+//	{
+//		wstring pFilePath = L"";
+//	};
+	
 public:
-	struct Desc
-	{
-		wstring pFilePath = L"";
-	};
-
-public:
-	explicit Shader(Desc* _desc);
+	//explicit Shader(Desc* _desc);
+	explicit Shader();
 	virtual ~Shader();
 
 public:
-	virtual void Initialize() override;
-	virtual void Update() override;
-	virtual void LateUpdate() override;
-	virtual void ReadyRender() override;
-	virtual void Release() override;
+	//virtual void Initialize() override;
+	//virtual void Update() override;
+	//virtual void LateUpdate() override;
+	//virtual void ReadyRender() override;
+	//virtual void Release() override;
 
 public:
 	HRESULT					Ready_Shader(const wstring& _szShaderFilePath);
 
 public: /* Get */
-	LPD3DXEFFECT			Get_ComEffect() const;
+	LPD3DXEFFECT			Get_EffectCom() const;
 
 public: /* Set */
+
 
 private:
 	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;

@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "Texture.h"
+#include "DeviceManager.h"
 
 //#include "Triangle_VIBuffer_Color.h"
 //#include "Rect_VIBuffer_Color.h"
@@ -11,6 +12,10 @@
 
 VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 {
+	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
+	assert(L"VIBuffer_Renderer is null" && m_pDX9_Device);
+	
+	
 	/* Test */
 	//m_pVIBuffer = new Triangle_VIBuffer_Color;
 	//m_pVIBuffer = new Rect_VIBuffer_Color;
@@ -26,6 +31,11 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 		m_pVIBuffer->Set_Texture(TexTemp);
 	}
 	
+	m_pShaderCom = new Shader;
+	m_pShaderCom->Ready_Shader(L"../../Reference/Header/Shader_Sample.fx");
+	m_pEffectCom = m_pShaderCom->Get_EffectCom();
+	assert(L"EffectCom is Nullptr" && m_pEffectCom);
+
 }
 
 VIBuffer_Renderer::~VIBuffer_Renderer()
@@ -49,16 +59,24 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
-	
+	Setup_ShaderTable();
 
-	m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
+	//m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
+	//m_pVIBuffer->Render_Texture(0); //저기 Setup_ShaderTable에서 해줌.
+	//쉐이더 사용하면서 이걸 이제 쉐이더장치(m_pEffect에 맡길꺼임.)
 
+
+	UINT	uiMaxPass = 0;
+	m_pEffectCom->Begin(&uiMaxPass, 0);
+	//Begine 첫번째 인자 -> 현재 쉐이더 파일이 지닌 최대 패스의 개수반환
+	//		두번째 인자 -> 시작하는 방식을 묻는 인자, 0 = default
+	m_pEffectCom->BeginPass(0);
+
+	//렌더링 부분
 	if (FAILED(Binding_Stream_VIBuffer()))
 	{
 		assert(0 && L"VIBuffer Binding Stream is Failed");
 	}
-		
-	m_pVIBuffer->Render_Texture(0);
 
 	if (m_pVIBuffer->Get_IBuffer_Com() == nullptr)
 	{
@@ -84,6 +102,9 @@ void VIBuffer_Renderer::Render()
 			assert(0 && L"Index Buffer Object Draw Failed");
 		}
 	}
+
+	m_pEffectCom->EndPass();
+	m_pEffectCom->End();
 
 	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
 	
@@ -117,6 +138,23 @@ HRESULT VIBuffer_Renderer::Binding_Stream_VIBuffer()
 			return E_FAIL;
 		}
 	}
+
+	return S_OK;
+}
+
+HRESULT VIBuffer_Renderer::Setup_ShaderTable()
+{
+	Matrix		matWorld, matView, matProj;
+
+	matWorld = m_Transform->Get_WorldMatrix();
+	m_pDX9_Device->GetTransform(D3DTS_VIEW, &matView);
+	m_pDX9_Device->GetTransform(D3DTS_PROJECTION, &matProj);
+
+	m_pEffectCom->SetMatrix("g_matWorld", &matWorld);
+	m_pEffectCom->SetMatrix("g_matView", &matView);
+	m_pEffectCom->SetMatrix("g_matProjection", &matProj);
+
+	m_pVIBuffer->Render_Texture(m_pEffectCom, "g_texBaseTexture", 0);
 
 	return S_OK;
 }

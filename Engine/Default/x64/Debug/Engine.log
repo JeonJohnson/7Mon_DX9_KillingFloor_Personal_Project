@@ -58,6 +58,8 @@
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
   54개 파일이 복사되었습니다.
+  ..\Header\Shader_Sample.fx
+  1개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
   1개 파일이 복사되었습니다.
   ..\Bin\Engine.dll

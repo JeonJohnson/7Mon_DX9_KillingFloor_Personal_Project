@@ -94,4 +94,9 @@ HRESULT VIBuffer::Render_Texture(int _iNum)
 	return S_OK;
 }
 
+HRESULT VIBuffer::Render_Texture(LPD3DXEFFECT _pEffect, const char* _ShaderTexName, int _iTexNum)
+{
+	return S_OK;
+}
+
 

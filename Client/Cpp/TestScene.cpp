@@ -129,11 +129,12 @@ void TestScene::Initialize()
 
 	{//Rect Textrue Test
 		GameObject* RectTexture_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_RectTexture");
-		RectTexture_Test->Set_Position(Vector3(0.f, 0.f,0.f));
-		RectTexture_Test->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		RectTexture_Test->Set_Position(Vector3(0.f, 50.f,0.f));
+		RectTexture_Test->Set_Scale(Vector3(50.f, 50.f, 50.f));
 
 		VIBuffer_Renderer::Desc Test_Desc;
-		Test_Desc.wBufferName = L"Rect_Color";
+		Test_Desc.wBufferName = L"Rect_Texture";
+		Test_Desc.wTextureName = L"PangDongE"; 
 		Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_NonAlpha;
 		RectTexture_Test->Add_Component<VIBuffer_Renderer>(&Test_Desc);
 	}

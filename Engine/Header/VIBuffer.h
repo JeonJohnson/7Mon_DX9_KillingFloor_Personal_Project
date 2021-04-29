@@ -79,6 +79,7 @@ public:
 
 	virtual void	Set_Texture(class Texture* _pTexture);
 	virtual HRESULT Render_Texture(int _iNum);
+	virtual HRESULT Render_Texture(LPD3DXEFFECT _pEffect, const char* _ShaderTexName, int _iTexNum);
 
 protected:
 	VIBUFFER_KIND			m_eKind;

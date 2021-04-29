@@ -6,27 +6,40 @@
 
 #include "Component.h"
 
-class DLL_STATE Shader : public Component
+class DLL_STATE Shader /*: public Component*/
 {
+//public:
+//	struct Desc
+//	{
+//		wstring pFilePath = L"";
+//	};
+	
 public:
-	Shader();
+	//explicit Shader(Desc* _desc);
+	explicit Shader();
 	virtual ~Shader();
 
 public:
-	virtual void Initialize() override;
-	virtual void Update() override;
-	virtual void LateUpdate() override;
-	virtual void ReadyRender() override;
-	virtual void Release() override;
+	//virtual void Initialize() override;
+	//virtual void Update() override;
+	//virtual void LateUpdate() override;
+	//virtual void ReadyRender() override;
+	//virtual void Release() override;
 
 public:
+	HRESULT					Ready_Shader(const wstring& _szShaderFilePath);
 
-public:
+public: /* Get */
+	LPD3DXEFFECT			Get_EffectCom() const;
 
-public:
+public: /* Set */
+
 
 private:
-	//LPDIRECT3DDEVICE9	m_pDx
+	LPDIRECT3DDEVICE9		m_pDX9_Device = nullptr;
+
+	LPD3DXEFFECT			m_pEffect = nullptr; //쉐이더용 컴객체
+	LPD3DXBUFFER			m_pErrMsg = nullptr; //쉐이더 에러메시지 받아올 메모리
 
 };
 

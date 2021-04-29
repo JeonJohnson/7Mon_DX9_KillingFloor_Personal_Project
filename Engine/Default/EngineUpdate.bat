@@ -1,6 +1,7 @@
 ::For General
 xcopy /y ..\Bin\*.lib ..\..\Reference\Lib\
 xcopy /y ..\Header\*.h ..\..\Reference\Header\
+xcopy /y ..\Header\*.fx ..\..\Reference\Header\
 
 ::For Engine
 xcopy /y ..\Bin\*.dll ..\..\Client\Bin\Win32\Debug\

@@ -7,6 +7,7 @@
 
 #include "Renderer.h"
 #include "VIBuffer.h"
+#include "Shader.h"
 
 class DLL_STATE VIBuffer_Renderer : public Renderer
 {
@@ -37,8 +38,8 @@ public:
 	virtual void Release() override;
 
 public: /* functions */
-	HRESULT Binding_Stream_VIBuffer();
-	
+	HRESULT				Binding_Stream_VIBuffer();
+	HRESULT				Setup_ShaderTable();
 
 public: /* Get */
 	VIBuffer*			Get_VIBuffer() const;
@@ -48,6 +49,8 @@ public: /* Set */
 
 private:
 	VIBuffer*		m_pVIBuffer = nullptr;
+	Shader*			m_pShaderCom = nullptr;
+	LPD3DXEFFECT	m_pEffectCom = nullptr;
 
 };
 
