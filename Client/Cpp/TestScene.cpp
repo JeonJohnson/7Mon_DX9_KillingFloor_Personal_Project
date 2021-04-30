@@ -35,6 +35,7 @@ void TestScene::Initialize()
 	//Camera_FreeMove::Desc move_desc;
 	//Test_Cam->Add_Component<Camera_FreeMove>(&move_desc);
 
+	EngineFunction->Load_TerrainLayout(L"Data/temp.bin");
 		
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
@@ -54,7 +55,7 @@ void TestScene::Initialize()
 	EngineFunction->Load_Mesh(L"Mesh/Weapon/Melee/Knife_M9.X", L"Knife_M9");
 
 
-	EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
+	//EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
 
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
 	EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
@@ -105,12 +106,12 @@ void TestScene::Initialize()
 		Policecar_desc.szMeshName = L"PoliceCar";
 		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
 
-		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-		Map->Set_Position(Vector3(0, 0, 0.f));
-		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		Mesh_Renderer::Desc Map_desc;
-		Map_desc.szMeshName = L"Map";
-		Map->Add_Component<Mesh_Renderer>(&Map_desc);
+		//GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+		//Map->Set_Position(Vector3(0, 0, 0.f));
+		//Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		//Mesh_Renderer::Desc Map_desc;
+		//Map_desc.szMeshName = L"Map";
+		//Map->Add_Component<Mesh_Renderer>(&Map_desc);
 		
 	}
 

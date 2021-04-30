@@ -149,6 +149,10 @@ public:
 	Mesh*		Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	void		Load_AllMeshs();
 
+	//void		Load_TerrainLayout(const wstring& _szDataPath);
+
+
+
 	void Insert_VIBuffers();
 	
 	wstring			EraseFolderPath(wstring _FullPath);

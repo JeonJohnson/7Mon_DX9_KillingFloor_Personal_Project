@@ -285,6 +285,7 @@
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="..\Shader\Shader_Mesh.fx" />
     <FxCompile Include="..\Shader\Shader_Sample.fx">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VS_MAIN</EntryPointName>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VS_MAIN</EntryPointName>

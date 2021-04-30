@@ -214,3 +214,61 @@ void Engine_Mother::Load_Mesh(const wstring & _szMeshPath, const wstring & _szMe
 {
 	m_pResourceManager->Load_Mesh(_szMeshPath, _szMeshName);
 }
+
+void Engine_Mother::Load_TerrainLayout(const wstring & _szDataPath)
+{
+	wstring szDataFullpath = ResourceManager::Get_Instance()->Get_ResourceFolderPath() + _szDataPath;
+
+	//m_pResourceManager->Load_TerrainLayout(_szDataPath);
+	HANDLE	hFile = CreateFile(szDataFullpath.c_str(),
+		GENERIC_READ,
+		0,
+		nullptr,
+		OPEN_EXISTING,
+		FILE_ATTRIBUTE_NORMAL,nullptr);
+
+	if (hFile == INVALID_HANDLE_VALUE)
+	{
+		assert(0 && L"handle has error at TerrainLayout Load");
+	}
+
+	DWORD	dwByte = 0;
+
+	while (true)
+	{
+		Save_TerrainLayout LoadTemp;
+
+		ReadFile(hFile, &LoadTemp, sizeof(Save_TerrainLayout), &dwByte, nullptr);
+
+		if (dwByte == 0)
+		{
+#ifdef _DEBUG
+			MsgBox(L"Don't Worried! :)", L"Terrain Layout Load is Succeed!");
+
+#endif //_DEBUG
+			break;
+		}
+
+		wstring MeshPath;
+		wstring ObjName;
+
+		Function_String::TCHAR2wstring(LoadTemp.szMeshPath, MeshPath);
+		Function_String::TCHAR2wstring(LoadTemp.szObjName, ObjName);
+
+		Engine_Mother::Get_Instance()->Load_Mesh(MeshPath, ObjName);
+
+		GameObject* pGameObject = INSTANTIATE(1, ObjName);
+		pGameObject->Set_Position(LoadTemp.vPosition);
+		pGameObject->Set_Scale(LoadTemp.vScale);
+		pGameObject->Set_Rotation(LoadTemp.vRotation);
+
+		Mesh_Renderer::Desc Mesh_desc;
+		Mesh_desc.szMeshName = ObjName;
+		pGameObject->Add_Component<Mesh_Renderer>(&Mesh_desc);
+
+	}
+
+
+	CloseHandle(hFile);
+
+}

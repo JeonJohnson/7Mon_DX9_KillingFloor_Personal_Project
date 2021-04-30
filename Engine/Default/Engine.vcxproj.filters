@@ -191,9 +191,6 @@
     <Filter Include="04.Component\04.Shader">
       <UniqueIdentifier>{ca5e4240-cfbe-4302-a54a-f735f497682d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Component\04.Shader\Sample">
-      <UniqueIdentifier>{47cae730-5b63-413a-905c-88a25a81e506}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Manager\08.ShaderManager">
       <UniqueIdentifier>{601f95ca-5078-4987-83e0-f6ba267c04ec}</UniqueIdentifier>
     </Filter>
@@ -217,6 +214,9 @@
     </Filter>
     <Filter Include="97.System\98.Headers\TypeDef">
       <UniqueIdentifier>{6f713e96-446c-4f78-b4a9-85e28c6dacd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\04.Shader\Fx">
+      <UniqueIdentifier>{47cae730-5b63-413a-905c-88a25a81e506}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -534,7 +534,10 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\Shader\Shader_Sample.fx">
-      <Filter>04.Component\04.Shader\Sample</Filter>
+      <Filter>04.Component\04.Shader\Fx</Filter>
+    </FxCompile>
+    <FxCompile Include="..\Shader\Shader_Mesh.fx">
+      <Filter>04.Component\04.Shader\Fx</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

@@ -166,6 +166,11 @@ Mesh* ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _s
 	return MeshTemp;
 }
 
+//void ResourceManager::Load_TerrainLayout(const wstring & _szDataPath)
+//{
+//
+//}
+
 void ResourceManager::Insert_VIBuffers()
 {
 

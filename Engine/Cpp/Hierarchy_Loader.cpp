@@ -24,8 +24,7 @@ Hierarchy_Loader::~Hierarchy_Loader()
 
 void Hierarchy_Loader::Release()
 {
-	//객체들 릴리즈도 쭉 돌아가면서 함.
-	//보닌 삭제 하면 될 듯.
+
 }
 
 HRESULT Hierarchy_Loader::CreateFrame(LPCSTR Name, LPD3DXFRAME * ppNewFrame)
@@ -212,8 +211,8 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 			pDerivedMeshContainer->pMaterials = new D3DXMATERIAL[pDerivedMeshContainer->NumMaterials];
 			ZeroMemory(pDerivedMeshContainer->pMaterials, sizeof(D3DXMATERIAL) * pDerivedMeshContainer->NumMaterials);
 
-			pDerivedMeshContainer->ppTexture = new LPDIRECT3DTEXTURE9[pDerivedMeshContainer->NumMaterials];
-			ZeroMemory(pDerivedMeshContainer->ppTexture, sizeof(LPDIRECT3DTEXTURE9) * pDerivedMeshContainer->NumMaterials);
+			//pDerivedMeshContainer->ppTexture = new LPDIRECT3DTEXTURE9[pDerivedMeshContainer->NumMaterials];
+			//ZeroMemory(pDerivedMeshContainer->ppTexture, sizeof(LPDIRECT3DTEXTURE9) * pDerivedMeshContainer->NumMaterials);
 
 			memcpy(pDerivedMeshContainer->pMaterials, pMaterials, sizeof(D3DXMATERIAL) * pDerivedMeshContainer->NumMaterials);
 			
@@ -317,14 +316,14 @@ HRESULT Hierarchy_Loader::DestroyFrame(LPD3DXFRAME pFrameToFree)
 
 HRESULT Hierarchy_Loader::DestroyMeshContainer(LPD3DXMESHCONTAINER pMeshContainerToFree)
 {
-	D3DXMESHCONTAINER_DERIVED*	pDerivedMeshContainer = (D3DXMESHCONTAINER_DERIVED*)pMeshContainerToFree;
+ 	D3DXMESHCONTAINER_DERIVED*	pDerivedMeshContainer = (D3DXMESHCONTAINER_DERIVED*)pMeshContainerToFree;
 
-	for (DWORD i = 0; i < pDerivedMeshContainer->NumMaterials; ++i)
-	{
-		Safe_Release(pDerivedMeshContainer->ppTexture[i]);	
-	}
+	//for (DWORD i = 0; i < pDerivedMeshContainer->NumMaterials; ++i)
+	//{
+	//	Safe_Release(pDerivedMeshContainer->ppTexture[i]);	
+	//}
 
-	Safe_Delete_Arr(pDerivedMeshContainer->ppTexture);
+	//Safe_Delete_Arr(pDerivedMeshContainer->ppTexture);
 
 	Safe_Delete_Arr(pDerivedMeshContainer->pMaterials);
 	Safe_Delete_Arr(pDerivedMeshContainer->pAdjacency);

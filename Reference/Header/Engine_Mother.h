@@ -25,9 +25,16 @@
 #include "Camera.h"
 
 #include "VIBuffer_Renderer.h"
+#include "Mesh_Renderer.h"
 
 #include "UI.h"
 #include "UI_Component.h"
+#pragma endregion
+
+#pragma region UtilityFuncs
+#include "Function_String.h"
+#include "Function_Math.h"
+
 #pragma endregion
 
 class DLL_STATE Engine_Mother
@@ -129,6 +136,7 @@ public: /* Resource Manager */
 	//void Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName= L"");
 	//void Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	void Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
+	void Load_TerrainLayout(const wstring& _szDataPath);
 
 public:
 		
