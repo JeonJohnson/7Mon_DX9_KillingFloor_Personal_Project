@@ -191,6 +191,7 @@ public: /* Set */
 	//rotation
 	void		Set_Rotation(const Quaternion& _qRot);
 	void		Set_Rotation(float _eulerX, float _eulerY, float _eulerZ);
+	void		Set_Rotation(const Vector3 & _euluerVector);
 	void		Set_RotationX(float _eulerX);
 	void		Set_RotationY(float _eulerY);
 	void		Set_RotationZ(float _eulerZ);

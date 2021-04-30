@@ -264,6 +264,11 @@ void GameObject::Set_Rotation(float _eulerX, float _eulerY, float _eulerZ)
 	m_Transform->Set_Rotation(_eulerX, _eulerY, _eulerZ);
 }
 
+void GameObject::Set_Rotation(const Vector3& _euluerVector)
+{
+	m_Transform->Set_Rotation(_euluerVector);
+}
+
 void GameObject::Set_RotationX(float _eulerX)
 {
 	m_Transform->Set_RotationX(_eulerX);

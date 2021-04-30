@@ -153,7 +153,7 @@ typedef struct tSaveInfo_TerrainLayout
 	TCHAR		szMeshPath[255];
 	//TCHAR		szMeshName[255];
 
-	//TCHAR		szObjName[255];
+	TCHAR		szObjName[255];
 	//int			iObjTag;
 	int			iRenderLayer;
 
@@ -161,7 +161,7 @@ typedef struct tSaveInfo_TerrainLayout
 	Vector3		vScale;
 	Vector3		vRotation;
 
-}Save_TerrainLayOut;
+}Save_TerrainLayout;
 
 #pragma endregion	
 

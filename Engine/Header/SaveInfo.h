@@ -11,10 +11,13 @@ class DLL_STATE	SaveInfo : public Component
 public:
 	struct Desc
 	{
+		wstring		szMeshPath = L"";
+		wstring		szObjName = L"";
+		int			iRenderLayer = 0;
 
+		//Save_TerrainLayout*		tSaveInfo = nullptr;
 
 	};
-public:
 	explicit	SaveInfo(Desc* _desc);
 	virtual		~SaveInfo();
 
@@ -27,13 +30,16 @@ public:
 	virtual void Release() override;
 
 public:
+	void	SaveInfo_Setting();
+
+public:
+	Save_TerrainLayout		Get_TerrainSave() const;
 
 public:
 
-public:
 
 private:
-	Save_TerrainLayOut*		m_pTerrainSave = nullptr;
+	Save_TerrainLayout		m_pTerrainSave;
 };
 
 #endif //_SAVE_INFO_H_

@@ -361,6 +361,9 @@
     <ClCompile Include="..\Cpp\SaveInfo.cpp">
       <Filter>04.Component\99.SaveInfo</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\Function_Math.cpp">
+      <Filter>96.Utility\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\DeviceManager.h">
@@ -524,6 +527,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\SaveInfo.h">
       <Filter>04.Component\99.SaveInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Function_Math.h">
+      <Filter>96.Utility\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

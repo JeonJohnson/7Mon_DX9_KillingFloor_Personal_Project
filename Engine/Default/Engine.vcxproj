@@ -197,6 +197,7 @@
     <ClInclude Include="..\Header\Engine_Mother.h" />
     <ClInclude Include="..\Header\Engine_Struct.h" />
     <ClInclude Include="..\Header\Engine_TypeDef.h" />
+    <ClInclude Include="..\Header\Function_Math.h" />
     <ClInclude Include="..\Header\Function_String.h" />
     <ClInclude Include="..\Header\GameObject.h" />
     <ClInclude Include="..\Header\GameObjectManager.h" />
@@ -246,6 +247,7 @@
     <ClCompile Include="..\Cpp\DebugManager.cpp" />
     <ClCompile Include="..\Cpp\DeviceManager.cpp" />
     <ClCompile Include="..\Cpp\Engine_Mother.cpp" />
+    <ClCompile Include="..\Cpp\Function_Math.cpp" />
     <ClCompile Include="..\Cpp\Function_String.cpp" />
     <ClCompile Include="..\Cpp\GameObject.cpp" />
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />

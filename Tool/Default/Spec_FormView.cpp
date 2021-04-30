@@ -7,6 +7,9 @@
 #include "Engine_Mother.h"
 #include "Mesh_Renderer.h"
 #include "GameObject.h"
+#include "..\..\Engine\Header\Engine_Struct.h"
+#include "..\..\Engine\Header\Function_String.h"
+#include "..\..\Engine\Header\SaveInfo.h"
 
 // Spec_FormView
 
@@ -220,11 +223,33 @@ void Spec_FormView::OnBnClickedButtonMeshload()
 
 		Mesh_Renderer::Desc Mesh_desc;
 		Mesh_desc.szMeshName = szObjName;
-
 		pTempObject->Add_Component<Mesh_Renderer>(&Mesh_desc);
 
+		SaveInfo::Desc Save_desc;
+		Save_desc.szMeshPath = szMeshRelativePath;
+		Save_desc.szObjName = szObjName;
+		pTempObject->Add_Component<SaveInfo>(&Save_desc);
+		
+		
 		m_MeshList_Combo.AddString(szObjName.c_str());
 
+#pragma region stringsTest
+		//const TCHAR* tcTemp = L"";
+		//TCHAR arrTemp[255];
+		//tcTemp = (wchar_t*)szMeshRelativePath.c_str();
+		//_tcscpy_s(arrTemp, tcTemp);
+		//wstring wstrTemp;
+		//Function_String::TCHAR2wstring(arrTemp, wstrTemp);
+
+		//TCHAR arrTemp2[255] = L"";
+		//Function_String::wstring2TCHAR(wstrTemp, arrTemp2);
+		////strcpy_s((char*)arrTemp, strlen((char*)),(char*)tcTemp);
+		////Function_String::wstring2TCHAR(szMeshRelativePath, tcTemp);
+
+		//Save_TerrainLayout* pTempSaveInfo = new Save_TerrainLayout;
+		//ZeroMemory(pTempSaveInfo, sizeof(Save_TerrainLayout));
+		//Function_String::wstring2TCHAR(szMeshRelativePath, pTempSaveInfo->szMeshPath);
+#pragma endregion
 	}
 	else
 	{
@@ -246,7 +271,7 @@ void Spec_FormView::OnCbnSelchangeComboMeshlist()
 	m_MeshList_Combo.GetLBText(m_iMeshList_Index, m_csSelMeshName);
 
 	//m_pSelectObject = EngineFunction->Get_GameObjectbyName(m_csSelMeshName.operator LPCWSTR());
-	m_pSelectObject = EngineFunction->Get_GameObject(0,m_csSelMeshName.operator LPCWSTR());
+	m_pSelectObject = EngineFunction->Get_GameObject(1,m_csSelMeshName.operator LPCWSTR());
 	assert(L"GameObject find Failed at ComboBox"&&m_pSelectObject);
 
 	m_vPos = m_pSelectObject->Get_Position();
@@ -506,12 +531,13 @@ void Spec_FormView::OnBnClickedButtonDeletelist()
 
 void Spec_FormView::OnBnClickedButtonLayoutsave()
 {
+	//레이아웃 저장
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	UpdateData(TRUE);
 
 	CFileDialog Dlg(FALSE,
 		L"dat",
-		L"*.bin",
+		L"",
 		OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
 		L"Data File(*.bin)|*.bin||", this);
 
@@ -526,7 +552,7 @@ void Spec_FormView::OnBnClickedButtonLayoutsave()
 		int pos = csResourcePath.ReverseFind('\\');
 		csResourcePath = csResourcePath.Left(pos);
 	}
-	csResourcePath += L"\\Resource";
+	csResourcePath += L"/Resource/Data";
 	Dlg.m_ofn.lpstrInitialDir = csResourcePath;
 
 	if (Dlg.DoModal())
@@ -538,7 +564,7 @@ void Spec_FormView::OnBnClickedButtonLayoutsave()
 
 		if (hFile == INVALID_HANDLE_VALUE)
 		{
-			AfxMessageBox(L"핸들 생성에서 저장이 실패 했읍니다. ㅅㄱ", MB_OK);
+			AfxMessageBox(L"저장이 핸들 생성에서 실패 했읍니다. ㅅㄱ", MB_OK);
 			return;
 		}
 
@@ -546,7 +572,13 @@ void Spec_FormView::OnBnClickedButtonLayoutsave()
 
 		list<GameObject*> TempList = EngineFunction->Get_GameObjectListbyTag(OBJECT_TAG_TERRAIN);
 
-		int i = 0;
+		for (auto& obj : TempList)
+		{
+			Save_TerrainLayout SaveData = obj->Get_Component<SaveInfo>()->Get_TerrainSave();
+			WriteFile(hFile, &SaveData, sizeof(Save_TerrainLayout), &dwByte, nullptr);
+		}
+		AfxMessageBox(L"저장완료", MB_ICONASTERISK);
+		CloseHandle(hFile);
 		
 
 	}
@@ -591,10 +623,120 @@ void Spec_FormView::OnBnClickedButtonLayoutsave()
 
 void Spec_FormView::OnBnClickedButtonLayoutload()
 {
+	//레이아웃 로드
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	UpdateData(TRUE);
 
+	CFileDialog Dlg(
+		TRUE,
+		nullptr,
+		nullptr,
+		OFN_OVERWRITEPROMPT,
+		L".bin|*bin||",
+		this);
 
+	TCHAR	szDlg_First[256] = L"";
+	GetCurrentDirectory(256, szDlg_First); //현재 문서 위치 받아오기
+	PathRemoveFileSpec(szDlg_First); //맨 마지막 파일 이름 지움 -> 프로젝트 파일 있는 곳
+	CString	 csDataFolderPath = szDlg_First;
+	//상위폴더 두개 지워주기
+	for (int i = 0; i < 1; ++i)
+	{
+		int pos = csDataFolderPath.ReverseFind('\\');
+		csDataFolderPath = csDataFolderPath.Left(pos);
+	}
+	csDataFolderPath += L"/Resource/Data";
+	Dlg.m_ofn.lpstrInitialDir = csDataFolderPath;
+
+
+	if (Dlg.DoModal())
+	{
+		CString csFilePath = Dlg.GetPathName();
+
+		HANDLE hFile = CreateFile(csFilePath, GENERIC_READ, 0, nullptr,
+			OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+
+		if (hFile == INVALID_HANDLE_VALUE)
+		{
+			AfxMessageBox(L"로드가 핸들 생성에서 실패했읍니다. ㅅㄱㅂ", MB_OK);
+		}
+
+		DWORD dwByte = 0;
+		
+		while (true)
+		{
+			Save_TerrainLayout	LoadTemp;
+
+			ReadFile(hFile, 
+				&LoadTemp, 
+				sizeof(Save_TerrainLayout), 
+				&dwByte, 
+				nullptr);
+
+			if (dwByte == 0)
+			{
+				break;
+			}
+			
+			wstring MeshPath;
+			wstring ObjName;
+
+			Function_String::TCHAR2wstring(LoadTemp.szMeshPath, MeshPath);
+			Function_String::TCHAR2wstring(LoadTemp.szObjName, ObjName);
+
+			Engine_Mother::Get_Instance()->Load_Mesh(MeshPath, ObjName);
+		
+			GameObject* pGameObject = INSTANTIATE(OBJECT_TAG_TERRAIN, ObjName);
+			pGameObject->Set_Position(LoadTemp.vPosition);
+			pGameObject->Set_Scale(LoadTemp.vScale);
+			pGameObject->Set_Rotation(LoadTemp.vRotation);
+
+			Mesh_Renderer::Desc Mesh_desc;
+			Mesh_desc.szMeshName = ObjName;
+			pGameObject->Add_Component<Mesh_Renderer>(&Mesh_desc);
+
+			SaveInfo::Desc Save_desc;
+			Save_desc.szMeshPath = MeshPath;
+			Save_desc.szObjName = ObjName;
+			pGameObject->Add_Component<SaveInfo>(&Save_desc);
+
+
+			m_MeshList_Combo.AddString(ObjName.c_str());
+
+			//sprite = new CSprite;
+			//sprite->Load(temp);
+			//wstring Path = sprite->Sprite_Info.szFilePath;
+			//CTextureManager::Get_Instance()->Insert_Texture(
+			//	sprite->type,
+			//	Path,
+			//	sprite->objKey,
+			//	sprite->objStateKey,
+			//	sprite->Sprite_Info.tFrameInfo.fFrameMax
+			//);
+
+
+
+			//CMainApp::Get_Instance()->Load(sprite);
+
+
+			//CString temp1 = sprite->objKey.c_str();
+			//CString temp2 = sprite->objStateKey.c_str();
+
+			//if (temp.iType == 1)
+			//{
+			//	m_NameCombo.AddString(temp1 + L"_" + temp2);
+			//}
+			//else if (temp.iType == 0)
+			//{
+			//	m_NameCombo.AddString(temp1);
+			//}
+
+		}
+
+		AfxMessageBox(L"레이아웃 로드 완료", MB_ICONASTERISK);
+		CloseHandle(hFile);
+
+	}
 
 
 
