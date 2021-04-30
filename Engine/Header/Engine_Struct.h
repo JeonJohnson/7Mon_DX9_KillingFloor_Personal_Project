@@ -145,4 +145,24 @@ typedef struct D3DXMESHCONTAINER_DERIVED : public D3DXMESHCONTAINER
 
 
 #pragma endregion
+
+#pragma region SaveInfo
+//for Tool's Save Data parsing
+typedef struct tSaveInfo_TerrainLayout
+{
+	TCHAR		szMeshPath[255];
+	//TCHAR		szMeshName[255];
+
+	//TCHAR		szObjName[255];
+	//int			iObjTag;
+	int			iRenderLayer;
+
+	Vector3		vPosition;
+	Vector3		vScale;
+	Vector3		vRotation;
+
+}Save_TerrainLayOut;
+
+#pragma endregion	
+
 #endif //_ENGINE_STRUCT_H_

@@ -16,6 +16,7 @@ typedef enum eRenderLayer
 typedef enum eGameObjectTag
 {
 	OBJECT_TAG_DEFAULT,
+	OBJECT_TAG_TERRAIN,
 	OBJECT_TAG_MAINCAM,
 	OBJECT_TAG_PLAYER,
 	OJBECT_TAG_UI,

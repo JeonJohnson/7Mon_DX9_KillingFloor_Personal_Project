@@ -206,6 +206,15 @@ GameObject * GameObjectManager::Get_GameObjectbyTag(int _tag)
 	
 }
 
+list<GameObject*> GameObjectManager::Get_GameObjectListbyTag(int _tag)
+{
+	if (m_vecGameObjectList[_tag].size() > 0)
+	{
+		return m_vecGameObjectList[_tag];
+	}
+	else { return list<GameObject*>(); }
+}
+
 void GameObjectManager::Insert_GameObject(GameObject * _gameObject)
 {
 	assert(L"GameObject is nullptr" && _gameObject);

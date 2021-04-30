@@ -190,6 +190,11 @@ GameObject * Engine_Mother::Get_GameObjectbyTag(int _tag)
 	return m_pGameObjectManager->Get_GameObjectbyTag(_tag);
 }
 
+list<GameObject*> Engine_Mother::Get_GameObjectListbyTag(int _tag)
+{
+	return m_pGameObjectManager->Get_GameObjectListbyTag(_tag);
+}
+
 void Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)
 {
 	m_pResourceManager->Load_Texture(_wPath, _wName);

@@ -216,7 +216,7 @@ void Spec_FormView::OnBnClickedButtonMeshload()
 		}
 		//로드할때는 리소스밑에 있는 폴더명으로 넣 어줘야함.
 		Engine_Mother::Get_Instance()->Load_Mesh(szMeshRelativePath,szObjName);
-		GameObject* pTempObject = INSTANTIATE(0, szObjName);
+		GameObject* pTempObject = INSTANTIATE(OBJECT_TAG_TERRAIN, szObjName);
 
 		Mesh_Renderer::Desc Mesh_desc;
 		Mesh_desc.szMeshName = szObjName;
@@ -508,6 +508,79 @@ void Spec_FormView::OnBnClickedButtonLayoutsave()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	UpdateData(TRUE);
+
+	CFileDialog Dlg(FALSE,
+		L"dat",
+		L"*.bin",
+		OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
+		L"Data File(*.bin)|*.bin||", this);
+
+	TCHAR	szDlg_First[256] = L"";
+	GetCurrentDirectory(256, szDlg_First);
+	PathRemoveFileSpec(szDlg_First);
+	CString	 csResourcePath = szDlg_First;
+
+	//상위폴더 두개 지워주기
+	for (int i = 0; i < 1; ++i)
+	{
+		int pos = csResourcePath.ReverseFind('\\');
+		csResourcePath = csResourcePath.Left(pos);
+	}
+	csResourcePath += L"\\Resource";
+	Dlg.m_ofn.lpstrInitialDir = csResourcePath;
+
+	if (Dlg.DoModal())
+	{
+		CString csFilePath = Dlg.GetPathName();
+
+		HANDLE	hFile = CreateFile(csFilePath, GENERIC_WRITE, 0, 0,
+			CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+
+		if (hFile == INVALID_HANDLE_VALUE)
+		{
+			AfxMessageBox(L"핸들 생성에서 저장이 실패 했읍니다. ㅅㄱ", MB_OK);
+			return;
+		}
+
+		DWORD	dwByte = 0;
+
+		list<GameObject*> TempList = EngineFunction->Get_GameObjectListbyTag(OBJECT_TAG_TERRAIN);
+
+		int i = 0;
+		
+
+	}
+
+
+	//if (Dlg.DoModal())
+	//{
+	//	CString csFilePath = Dlg.GetPathName();
+
+	//	HANDLE hFile = CreateFile(csFilePath, GENERIC_WRITE, 0, 0,
+	//		CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+
+	//	if (INVALID_HANDLE_VALUE == hFile)
+	//	{
+	//		AfxMessageBox(L"핸들 생성에서 저장이 실패 했읍니다. ㅅㄱ", MB_OK);
+	//	}
+
+	//	DWORD dwByte = 0;
+
+	//	int iSize = CMainApp::Get_Instance()->Get_SortSize();
+	//	int iCap = CMainApp::Get_Instance()->Get_VecSprite().capacity();
+
+	//	for (auto& element : CMainApp::Get_Instance()->Get_VecSprite())
+	//	{
+	//		//element->Sprite_Info.tFrameInfo.fFrameCurrent = 0.f;
+	//		//이거떄매 좆씨팔 오류 나는거 였음.
+
+	//		SAVE_INFO temp = element->Sprite_Info;
+	//		temp.tFrameInfo.fFrameCurrent = 0.f;
+	//		WriteFile(hFile, &temp, sizeof(SAVE_INFO), &dwByte, nullptr);
+	//	}
+	//	AfxMessageBox(L"저장완료", MB_ICONASTERISK);
+	//	CloseHandle(hFile);
+	//}
 
 
 

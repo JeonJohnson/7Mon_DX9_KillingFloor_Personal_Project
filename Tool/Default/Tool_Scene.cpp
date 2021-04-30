@@ -17,12 +17,12 @@ Tool_Scene::~Tool_Scene()
 
 void Tool_Scene::Initialize()
 {
-	GameObject* Grid_Test = INSTANTIATE(0, L"Test_Grid");
+	GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	VIBuffer_Renderer::Desc Grid_Desc;
 	Grid_Desc.wBufferName = L"Line_Grid";
 	Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	GameObject*	Test_Cam = INSTANTIATE(1, L"Test_Cam");
+	GameObject*	Test_Cam = INSTANTIATE(OBJECT_TAG_MAINCAM, L"Test_Cam");
 	Camera::Desc Cam_desc;
 	Cam_desc.fFov_Degree = 45.f;
 	Test_Cam->Add_Component<Camera>(&Cam_desc);

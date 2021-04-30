@@ -8,9 +8,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="98.Headers">
-      <UniqueIdentifier>{e5fe7f53-2f2c-417b-92bf-e22f5a7df445}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Manager">
       <UniqueIdentifier>{a50b67da-6d21-4cf6-9330-ac5803c91ce4}</UniqueIdentifier>
     </Filter>
@@ -28,18 +25,6 @@
     </Filter>
     <Filter Include="02.Structure\State">
       <UniqueIdentifier>{63fe55ad-c04e-4e22-8672-3ff0c041c85f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\Define">
-      <UniqueIdentifier>{46a377ed-8439-4bb4-9a58-3a27f50f8dd2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\Enum">
-      <UniqueIdentifier>{ee2c32f3-2e4d-488d-b168-786b84f939d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\Extern">
-      <UniqueIdentifier>{d3c31e27-fed9-4f69-84af-7a683aa51c57}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\Struct">
-      <UniqueIdentifier>{0ac7187f-d001-466c-ae39-47096ae7b932}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.Structure\Cycle">
       <UniqueIdentifier>{9e3d94e9-f621-4155-9e65-58a6a12434c4}</UniqueIdentifier>
@@ -79,9 +64,6 @@
     </Filter>
     <Filter Include="01.Manager\99.DebugManager">
       <UniqueIdentifier>{9a0131cd-eea7-474c-8206-57716773da1c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="98.Headers\TypeDef">
-      <UniqueIdentifier>{6f713e96-446c-4f78-b4a9-85e28c6dacd1}</UniqueIdentifier>
     </Filter>
     <Filter Include="06.Resource">
       <UniqueIdentifier>{2daab0a7-b4bd-42d2-a2e5-74b602b6d148}</UniqueIdentifier>
@@ -214,6 +196,27 @@
     </Filter>
     <Filter Include="01.Manager\08.ShaderManager">
       <UniqueIdentifier>{601f95ca-5078-4987-83e0-f6ba267c04ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\99.SaveInfo">
+      <UniqueIdentifier>{c523da75-afbe-4128-a58a-c453ce374637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System\98.Headers">
+      <UniqueIdentifier>{e5fe7f53-2f2c-417b-92bf-e22f5a7df445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System\98.Headers\Define">
+      <UniqueIdentifier>{46a377ed-8439-4bb4-9a58-3a27f50f8dd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System\98.Headers\Enum">
+      <UniqueIdentifier>{ee2c32f3-2e4d-488d-b168-786b84f939d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System\98.Headers\Extern">
+      <UniqueIdentifier>{d3c31e27-fed9-4f69-84af-7a683aa51c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System\98.Headers\Struct">
+      <UniqueIdentifier>{0ac7187f-d001-466c-ae39-47096ae7b932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.System\98.Headers\TypeDef">
+      <UniqueIdentifier>{6f713e96-446c-4f78-b4a9-85e28c6dacd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -355,6 +358,9 @@
     <ClCompile Include="..\Cpp\Shader.cpp">
       <Filter>04.Component\04.Shader</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\SaveInfo.cpp">
+      <Filter>04.Component\99.SaveInfo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\DeviceManager.h">
@@ -364,22 +370,22 @@
       <Filter>01.Manager\01.TimeManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Include.h">
-      <Filter>98.Headers</Filter>
+      <Filter>97.System\98.Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Struct.h">
-      <Filter>98.Headers\Struct</Filter>
+      <Filter>97.System\98.Headers\Struct</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Extern.h">
-      <Filter>98.Headers\Extern</Filter>
+      <Filter>97.System\98.Headers\Extern</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Enum.h">
-      <Filter>98.Headers\Enum</Filter>
+      <Filter>97.System\98.Headers\Enum</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\State.h">
       <Filter>02.Structure\State</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Define.h">
-      <Filter>98.Headers\Define</Filter>
+      <Filter>97.System\98.Headers\Define</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Cycle.h">
       <Filter>02.Structure\Cycle</Filter>
@@ -412,13 +418,13 @@
       <Filter>04.Component\01.Renderer\VIBuffer</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_KeyDefine.h">
-      <Filter>98.Headers\Define</Filter>
+      <Filter>97.System\98.Headers\Define</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\DebugManager.h">
       <Filter>01.Manager\99.DebugManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_TypeDef.h">
-      <Filter>98.Headers\TypeDef</Filter>
+      <Filter>97.System\98.Headers\TypeDef</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Transform.h">
       <Filter>04.Component\00.Transform</Filter>
@@ -515,6 +521,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\Shader.h">
       <Filter>04.Component\04.Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\SaveInfo.h">
+      <Filter>04.Component\99.SaveInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

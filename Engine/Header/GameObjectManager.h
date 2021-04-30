@@ -29,10 +29,10 @@ public: /* functions */
 	void Delete_DeadGameObjects();
 
 public: /* Get */
-	GameObject*		Get_GameObject(int _tag, const wstring& _name);
-	GameObject*		Get_GameObjectbyName(const wstring& _name); //Return First Object
-	GameObject*		Get_GameObjectbyTag(int _tag); //Return First Object
-
+	GameObject*			Get_GameObject(int _tag, const wstring& _name);
+	GameObject*			Get_GameObjectbyName(const wstring& _name); //Return First Object
+	GameObject*			Get_GameObjectbyTag(int _tag); //Return First Object
+	list<GameObject*>	Get_GameObjectListbyTag(int _tag); //Return Tag list
 	
 
 public: /* Set */

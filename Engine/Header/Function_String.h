@@ -17,6 +17,18 @@ public: /* to wstring */
 		_wstr.assign(_str.begin(), _str.end());
 	}
 
+	static const wstring& TCHAR2wstring(const TCHAR * _tchar)
+	{
+		wstring temp = (wchar_t*)_tchar;
+		return temp;
+	}
+
+	static const TCHAR*	wstring2TCHAR(const wstring& _wstring)
+	{
+		TCHAR temp[255];
+		wcscpy_s(temp, _wstring.c_str());
+		return temp;
+	}
 public:
 
 public:

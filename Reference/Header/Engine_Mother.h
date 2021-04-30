@@ -115,10 +115,10 @@ public: /* Scene Manager */
 	void Init_Scene(const wstring& _wName);
 
 public: /* Gameobject Manager */
-	GameObject*		Get_GameObject(int _tag, const wstring& _name);
-	GameObject*		Get_GameObjectbyName(const wstring& _name); //Return First Object
-	GameObject*		Get_GameObjectbyTag(int _tag); //Return First Object
-
+	GameObject*			Get_GameObject(int _tag, const wstring& _name);
+	GameObject*			Get_GameObjectbyName(const wstring& _name); //Return First Object
+	GameObject*			Get_GameObjectbyTag(int _tag); //Return First Object
+	list<GameObject*>	Get_GameObjectListbyTag(int _tag);
 
 public: /* UI Manager */
 
