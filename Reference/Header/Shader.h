@@ -17,7 +17,7 @@ class DLL_STATE Shader /*: public Component*/
 public:
 	//explicit Shader(Desc* _desc);
 	explicit Shader();
-	virtual ~Shader();
+	 ~Shader();
 
 public:
 	//virtual void Initialize() override;

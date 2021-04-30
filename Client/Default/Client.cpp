@@ -55,7 +55,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	//클라쪽 릭은 어디 파일에 몇번째 줄 나오는데
 	//엔진쪽에서 생기는 릭은 그 숫자만 나오는거
 	//여기 밑 함수안에 적어주면 거기서 중단점 걸림.
-	//_CrtSetBreakAlloc(int);
+	_CrtSetBreakAlloc(1856);
 
 	MainGame::Get_Instance()->Initialize();
 

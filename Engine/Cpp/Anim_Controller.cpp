@@ -53,7 +53,7 @@ void Anim_Controller::ReadyRender()
 
 void Anim_Controller::Release()
 {
-
+	Safe_Delete(m_tCurTrackInfo);
 }
  
 HRESULT Anim_Controller::Setup_AnimController(GameObject* _pGameObject)

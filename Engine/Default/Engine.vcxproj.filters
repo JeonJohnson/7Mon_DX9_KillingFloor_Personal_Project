@@ -533,7 +533,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\Header\Shader_Sample.fx">
+    <FxCompile Include="..\Shader\Shader_Sample.fx">
       <Filter>04.Component\04.Shader\Sample</Filter>
     </FxCompile>
   </ItemGroup>

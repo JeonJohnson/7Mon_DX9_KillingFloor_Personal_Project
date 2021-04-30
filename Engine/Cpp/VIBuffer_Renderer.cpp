@@ -32,7 +32,7 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 	}
 	
 	m_pShaderCom = new Shader;
-	m_pShaderCom->Ready_Shader(L"../../Reference/Header/Shader_Sample.fx");
+	m_pShaderCom->Ready_Shader(L"../../Reference/Shader/Shader_Sample.fx");
 	m_pEffectCom = m_pShaderCom->Get_EffectCom();
 	assert(L"EffectCom is Nullptr" && m_pEffectCom);
 
@@ -113,6 +113,7 @@ void VIBuffer_Renderer::Render()
 
 void VIBuffer_Renderer::Release()
 {
+	Safe_Delete(m_pShaderCom);
 }
 
 HRESULT VIBuffer_Renderer::Binding_Stream_VIBuffer()

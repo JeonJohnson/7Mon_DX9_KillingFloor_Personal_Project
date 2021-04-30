@@ -26,8 +26,7 @@ void Mesh::Update()
 
 void Mesh::Release()
 {
-	Safe_Delete(m_pHierarchyLoader);
-
+	Safe_Release(m_pHierarchyLoader);
 }
 
 HRESULT Mesh::Insert_Mesh(const wstring & szFullFilePath, const wstring & szMeshName)

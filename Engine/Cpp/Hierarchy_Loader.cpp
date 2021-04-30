@@ -22,6 +22,12 @@ Hierarchy_Loader::~Hierarchy_Loader()
 {
 }
 
+void Hierarchy_Loader::Release()
+{
+	//객체들 릴리즈도 쭉 돌아가면서 함.
+	//보닌 삭제 하면 될 듯.
+}
+
 HRESULT Hierarchy_Loader::CreateFrame(LPCSTR Name, LPD3DXFRAME * ppNewFrame)
 {//뼈 만드는 공장 뜎딲뜎딲
 
