@@ -36,6 +36,18 @@
 #define IDC_CameraReset_Button          1033
 #define IDC_CamMoveToSelObj_Button      1034
 #define IDC_CamStatus                   1035
+#define IDC_NaviMeshSave_Button         1036
+#define IDC_CamStatus2                  1036
+#define IDC_MouseStatus                 1036
+#define IDC_NaviMeshLoad_Button         1037
+#define IDC_LIST2                       1040
+#define IDC_DeleteVertex_BUTTON         1041
+#define IDC_NaviOrganize_BUTTON         1042
+#define IDC_VerPosX_EDIT                1043
+#define IDC_VerPosY_EDIT                1044
+#define IDC_VerPosZ_EDIT                1045
+#define IDC_RADIO1                      1046
+#define IDC_RADIO_VerCreate             1046
 
 // Next default values for new objects
 // 
@@ -43,7 +55,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        322
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1036
+#define _APS_NEXT_CONTROL_VALUE         1047
 #define _APS_NEXT_SYMED_VALUE           311
 #endif
 #endif

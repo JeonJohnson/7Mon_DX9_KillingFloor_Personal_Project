@@ -121,7 +121,7 @@ void Spec_FormView::OnInitialUpdate()
 
 	m_tabTools.InsertItem(0, L"객체 배치 도구");
 	m_tabTools.InsertItem(1, L"항해 망사 도구");
-	m_tabTools.InsertItem(2, L"충돌체 배치 툴");
+	m_tabTools.InsertItem(2, L"충돌체 배치 도구");
 	
 	m_tabTools.GetWindowRect(&m_rectToolsTab);
 
