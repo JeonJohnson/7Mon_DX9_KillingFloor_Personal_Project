@@ -14,6 +14,7 @@
 #include "..\..\Reference\Header\Engine_Mother.h"
 #include "..\..\Engine\Header\Scene.h"
 #include "Tool_Scene.h"
+#include "ObjectTool_Dialog.h"
 
 
 
@@ -220,7 +221,7 @@ BOOL CToolApp::OnIdle(LONG lCount)
 	}
 	else
 	{
-		g_pSpec_FormView->Update_Info();
+		g_pSpec_FormView->m_ObjectTool->Update_Info();
 		m_pEngine->Process();
 	}
 

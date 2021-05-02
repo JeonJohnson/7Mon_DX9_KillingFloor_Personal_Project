@@ -8,6 +8,7 @@
 // Spec_FormView Æû ºäÀÔ´Ï´Ù.
 class ObjectTool_Dialog;
 class NaviMeshTool_Dialog;
+class ColliderTool_Dialog;
 
 class Spec_FormView : public CFormView
 {
@@ -36,70 +37,69 @@ protected:
 	virtual void OnInitialUpdate();
 
 public:
-	void Update_Info();
+	//void Update_Info();
 
-	afx_msg void OnBnClickedButtonMeshload();
-	afx_msg void OnCbnSelchangeComboMeshlist();
+	//afx_msg void OnBnClickedButtonMeshload();
+	//afx_msg void OnCbnSelchangeComboMeshlist();
 
-	afx_msg void OnEnChangeEditPosx();
-	afx_msg void OnEnChangeEditPosy();
-	afx_msg void OnEnChangeEditPosz();
-	afx_msg void OnEnChangeEditScalex();
-	afx_msg void OnEnChangeEditScaley();
-	afx_msg void OnEnChangeEditScalez();
-	afx_msg void OnEnChangeEditRotx();
-	afx_msg void OnEnChangeEditRoty();
-	afx_msg void OnEnChangeEditRotz();
-	afx_msg void OnBnClickedButtonTransreset();
-	afx_msg void OnBnClickedButtonCamerareset();
-	afx_msg void OnBnClickedButtonDeletelist();
-	afx_msg void OnBnClickedButtonLayoutsave();
-	afx_msg void OnBnClickedButtonLayoutload();
+	//afx_msg void OnEnChangeEditPosx();
+	//afx_msg void OnEnChangeEditPosy();
+	//afx_msg void OnEnChangeEditPosz();
+	//afx_msg void OnEnChangeEditScalex();
+	//afx_msg void OnEnChangeEditScaley();
+	//afx_msg void OnEnChangeEditScalez();
+	//afx_msg void OnEnChangeEditRotx();
+	//afx_msg void OnEnChangeEditRoty();
+	//afx_msg void OnEnChangeEditRotz();
+	//afx_msg void OnBnClickedButtonTransreset();
+	//afx_msg void OnBnClickedButtonCamerareset();
+	//afx_msg void OnBnClickedButtonDeletelist();
+	//afx_msg void OnBnClickedButtonLayoutsave();
+	//afx_msg void OnBnClickedButtonLayoutload();
 
 public:
-	
+
+	afx_msg void OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult);
 public:
 	CTabCtrl					m_tabTools;
 	CRect						m_rectToolsTab;
 
 	ObjectTool_Dialog*			m_ObjectTool = nullptr;
 	NaviMeshTool_Dialog*		m_NaviMeshTool = nullptr;
+	ColliderTool_Dialog*		m_ColliderTool = nullptr;
+
+	CString m_csCamStatus;
+	afx_msg void OnBnClickedCameraresetButton();
+	afx_msg void OnBnClickedCammovetoselobjButton();
 
 public:
 
-	class GameObject*	m_pSelectObject;
-	
 
-	//transformation
-	Vector3				m_vPos;
-	Vector3				m_vScale;
-	Vector3				m_vRot;
+	//class GameObject*	m_pSelectObject;
 
+	////transformation
+	//Vector3				m_vPos;
+	//Vector3				m_vScale;
+	//Vector3				m_vRot;
 
+	//CComboBox			m_MeshList_Combo;
+	//int					m_iMeshList_Index = 0;
+	//CString				m_csSelMeshName;
 
+	//CString m_PosX_Edit;
+	//CString m_PosY_Edit;
+	//CString m_PosZ_Edit;
 
-	CComboBox			m_MeshList_Combo;
-	int					m_iMeshList_Index = 0;
-	CString				m_csSelMeshName;
+	//CString m_ScaleX_Edit;
+	//CString m_ScaleY_Edit;
+	//CString m_ScaleZ_Edit;
 
-	CString m_PosX_Edit;
-	CString m_PosY_Edit;
-	CString m_PosZ_Edit;
-
-	CString m_ScaleX_Edit;
-	CString m_ScaleY_Edit;
-	CString m_ScaleZ_Edit;
-
-	CString m_RotX_Edit;
-	CString m_RotY_Edit;
-	CString m_RotZ_Edit;
-
-	
+	//CString m_RotX_Edit;
+	//CString m_RotY_Edit;
+	//CString m_RotZ_Edit;
 	
 
 
-	
-	afx_msg void OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 

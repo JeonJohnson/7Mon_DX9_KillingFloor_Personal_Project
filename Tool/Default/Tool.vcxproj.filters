@@ -100,6 +100,9 @@
     <ClInclude Include="NaviMeshTool_Dialog.h">
       <Filter>05.Dialog\01.NaviMeshTool</Filter>
     </ClInclude>
+    <ClInclude Include="ColliderTool_Dialog.h">
+      <Filter>05.Dialog\02.ColliderTool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -131,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="NaviMeshTool_Dialog.cpp">
       <Filter>05.Dialog\01.NaviMeshTool</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderTool_Dialog.cpp">
+      <Filter>05.Dialog\02.ColliderTool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -210,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera_TestMove.h" />
+    <ClInclude Include="ColliderTool_Dialog.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="NaviMeshTool_Dialog.h" />
     <ClInclude Include="ObjectTool_Dialog.h" />
@@ -229,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera_TestMove.cpp" />
+    <ClCompile Include="ColliderTool_Dialog.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="NaviMeshTool_Dialog.cpp" />
     <ClCompile Include="ObjectTool_Dialog.cpp" />
