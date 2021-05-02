@@ -68,6 +68,7 @@ void Engine_Mother::Initialize(Desc_Tool * _desc)
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
 	m_pUiManager->Initailize();
+	m_pLightManager->Initialize();
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
 }

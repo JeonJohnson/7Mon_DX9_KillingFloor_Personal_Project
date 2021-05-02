@@ -11,6 +11,9 @@
 #include "..\..\Engine\Header\Function_String.h"
 #include "..\..\Engine\Header\SaveInfo.h"
 
+#include "ObjectTool_Dialog.h"
+#include "NaviMeshTool_Dialog.h"
+
 // Spec_FormView
 
 IMPLEMENT_DYNCREATE(Spec_FormView, CFormView)
@@ -51,6 +54,7 @@ void Spec_FormView::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_RotX, m_RotX_Edit);
 	DDX_Text(pDX, IDC_EDIT_RotY, m_RotY_Edit);
 	DDX_Text(pDX, IDC_EDIT_RotZ, m_RotZ_Edit);
+	DDX_Control(pDX, IDC_Tools_Tab, m_tabTools);
 }
 
 BEGIN_MESSAGE_MAP(Spec_FormView, CFormView)
@@ -72,6 +76,8 @@ BEGIN_MESSAGE_MAP(Spec_FormView, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON_DeleteList, &Spec_FormView::OnBnClickedButtonDeletelist)
 	ON_BN_CLICKED(IDC_BUTTON_LayoutSave, &Spec_FormView::OnBnClickedButtonLayoutsave)
 	ON_BN_CLICKED(IDC_BUTTON_LayoutLoad, &Spec_FormView::OnBnClickedButtonLayoutload)
+	ON_WM_CREATE()
+	ON_NOTIFY(TCN_SELCHANGE, IDC_Tools_Tab, &Spec_FormView::OnTcnSelchangeToolsTab)
 END_MESSAGE_MAP()
 
 
@@ -81,6 +87,9 @@ END_MESSAGE_MAP()
 void Spec_FormView::AssertValid() const
 {
 	CFormView::AssertValid();
+
+
+
 }
 
 #ifndef _WIN32_WCE
@@ -96,8 +105,80 @@ BOOL Spec_FormView::PreCreateWindow(CREATESTRUCT& cs)
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 	cs.cx = 320;
 	cs.cy = 720;
+
+
 	return CFormView::PreCreateWindow(cs);
 }
+
+void Spec_FormView::OnInitialUpdate()
+{
+	CFormView::OnInitialUpdate();
+
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+
+
+	m_tabTools.InsertItem(0, L"객체 배치 도구");
+	m_tabTools.InsertItem(1, L"항해 망사 도구");
+	m_tabTools.InsertItem(2, L"충돌체 배치 툴");
+	
+	m_tabTools.SetCurSel(0);
+
+	m_tabTools.GetWindowRect(&m_rectToolsTab);
+
+	if (m_ObjectTool == nullptr)
+	{
+		m_ObjectTool = new ObjectTool_Dialog;
+		m_ObjectTool->Create(IDD_Object_Dialog, &m_tabTools);
+		//m_ObjectTool->ShowWindow(SW_SHOW);
+	}
+	
+	if (m_NaviMeshTool == nullptr)
+	{
+		m_NaviMeshTool = new NaviMeshTool_Dialog;
+		m_NaviMeshTool->Create(IDD_NaviMesh_Dialog, &m_tabTools);
+
+	}
+
+}
+
+
+void Spec_FormView::OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+
+	m_tabTools.GetWindowRect(&m_rectToolsTab);
+
+	int		iTabSel = m_tabTools.GetCurSel();
+
+	switch (iTabSel)
+	{
+	case 0:
+	{
+		m_ObjectTool->MoveWindow(0, 25, m_rectToolsTab.Width(), m_rectToolsTab.Height());
+		m_ObjectTool->ShowWindow(SW_SHOW);
+		m_NaviMeshTool->ShowWindow(SW_HIDE);
+	}
+	break;
+
+	case 1:
+	{	
+		m_NaviMeshTool->MoveWindow(0, 25, m_rectToolsTab.Width(), m_rectToolsTab.Height());
+		m_NaviMeshTool->ShowWindow(SW_SHOW);
+		m_ObjectTool->ShowWindow(SW_HIDE); 
+	}
+	break;
+
+	case 2:
+	{}
+	break;
+	default:
+		break;
+	}
+
+	*pResult = 0;
+}
+
+
 
 void Spec_FormView::Update_Info()
 {
@@ -742,3 +823,7 @@ void Spec_FormView::OnBnClickedButtonLayoutload()
 
 	UpdateData(FALSE);
 }
+
+
+
+

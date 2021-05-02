@@ -24,7 +24,7 @@ public: /* Get */
 	
 
 public: /* Set */
-	void			Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name = L"Default_Light");
+	void			Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name);
 
 
 public:

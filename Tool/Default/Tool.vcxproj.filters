@@ -38,6 +38,15 @@
     <Filter Include="06.Scene\00.Camera">
       <UniqueIdentifier>{2d22caf3-7334-48fa-a487-4ea5be1aa9a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Dialog\00.ObjectTool">
+      <UniqueIdentifier>{2594d0ad-be03-48a0-aa75-f2a4140d3870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Dialog\01.NaviMeshTool">
+      <UniqueIdentifier>{36cc5103-70f5-4716-a631-f99970b3353f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Dialog\02.ColliderTool">
+      <UniqueIdentifier>{35571d9a-af40-4efd-83c8-8279ad05711e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -85,6 +94,12 @@
     <ClInclude Include="Camera_TestMove.h">
       <Filter>06.Scene\00.Camera</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectTool_Dialog.h">
+      <Filter>05.Dialog\00.ObjectTool</Filter>
+    </ClInclude>
+    <ClInclude Include="NaviMeshTool_Dialog.h">
+      <Filter>05.Dialog\01.NaviMeshTool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -110,6 +125,12 @@
     </ClCompile>
     <ClCompile Include="Camera_TestMove.cpp">
       <Filter>06.Scene\00.Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectTool_Dialog.cpp">
+      <Filter>05.Dialog\00.ObjectTool</Filter>
+    </ClCompile>
+    <ClCompile Include="NaviMeshTool_Dialog.cpp">
+      <Filter>05.Dialog\01.NaviMeshTool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

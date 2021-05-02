@@ -1,10 +1,13 @@
 #pragma once
 #include "afxwin.h"
+#include "afxcmn.h"
 
 
 
 
 // Spec_FormView Æû ºäÀÔ´Ï´Ù.
+class ObjectTool_Dialog;
+class NaviMeshTool_Dialog;
 
 class Spec_FormView : public CFormView
 {
@@ -30,6 +33,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	virtual void OnInitialUpdate();
 
 public:
 	void Update_Info();
@@ -46,8 +50,23 @@ public:
 	afx_msg void OnEnChangeEditRotx();
 	afx_msg void OnEnChangeEditRoty();
 	afx_msg void OnEnChangeEditRotz();
+	afx_msg void OnBnClickedButtonTransreset();
+	afx_msg void OnBnClickedButtonCamerareset();
+	afx_msg void OnBnClickedButtonDeletelist();
+	afx_msg void OnBnClickedButtonLayoutsave();
+	afx_msg void OnBnClickedButtonLayoutload();
 
 public:
+	
+public:
+	CTabCtrl					m_tabTools;
+	CRect						m_rectToolsTab;
+
+	ObjectTool_Dialog*			m_ObjectTool = nullptr;
+	NaviMeshTool_Dialog*		m_NaviMeshTool = nullptr;
+
+public:
+
 	class GameObject*	m_pSelectObject;
 	
 
@@ -74,11 +93,13 @@ public:
 	CString m_RotX_Edit;
 	CString m_RotY_Edit;
 	CString m_RotZ_Edit;
-	afx_msg void OnBnClickedButtonTransreset();
-	afx_msg void OnBnClickedButtonCamerareset();
-	afx_msg void OnBnClickedButtonDeletelist();
-	afx_msg void OnBnClickedButtonLayoutsave();
-	afx_msg void OnBnClickedButtonLayoutload();
+
+	
+	
+
+
+	
+	afx_msg void OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 

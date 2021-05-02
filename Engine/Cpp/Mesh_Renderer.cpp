@@ -180,7 +180,7 @@ void Mesh_Renderer::Setup_ShaderTable()
 	//조명 세팅
 	D3DLIGHT9	TempLight;
 	ZeroMemory(&TempLight, sizeof(D3DLIGHT9));
-	TempLight= LightManager::Get_Instance()->Get_LightByName(L"HatBit")->Get_Light();
+	TempLight= LightManager::Get_Instance()->Get_LightByName(L"SunShine")->Get_Light();
 
 	m_pEffectCom->SetVector("g_vLightDir", &Vector4(TempLight.Direction, 0.f));
 	m_pEffectCom->SetVector("g_vLightDiffuse", (Vector4*)&TempLight.Diffuse);

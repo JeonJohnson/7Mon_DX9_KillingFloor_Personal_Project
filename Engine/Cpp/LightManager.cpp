@@ -15,6 +15,20 @@ LightManager::~LightManager()
 
 void LightManager::Initialize()
 {
+	D3DXCOLOR	colorTemp = D3DCOLOR_RGBA(253, 251, 211, 255);
+
+	D3DLIGHT9*	Temp = new D3DLIGHT9;
+	ZeroMemory(Temp, sizeof(D3DLIGHT9));
+	Temp->Type = D3DLIGHT_DIRECTIONAL;
+	Temp->Diffuse = colorTemp;
+	Temp->Ambient = colorTemp * 0.05f;
+	Temp->Specular = colorTemp * 0.8f;
+	Vector3 vTemp = { 1.f, -1.f, 1.f };
+	Temp->Direction = vTemp;
+	Insert_Light(Temp, L"SunShine");
+	//EngineFunction->Insert_Light(Temp, L"HatBit");
+	delete Temp;
+
 }
 
 void LightManager::Release()

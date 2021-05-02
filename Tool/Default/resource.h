@@ -4,9 +4,12 @@
 //
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
+#define IDD_NaviMesh_Dialog             101
 #define IDR_MAINFRAME                   128
 #define IDR_ToolTYPE                    130
 #define IDD_SPEC_FORMVIEW               310
+#define IDD_Collision_Dialog            311
+#define IDD_Object_Dialog               312
 #define IDC_COMBO_MeshList              1008
 #define IDC_BUTTON_MeshLoad             1009
 #define IDC_BUTTON_DeleteList           1010
@@ -29,14 +32,15 @@
 #define IDC_BUTTON_LayoutSave2          1027
 #define IDC_BUTTON_LayoutLoad           1027
 #define IDC_STATIC_                     1028
+#define IDC_Tools_Tab                   1032
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        311
+#define _APS_NEXT_RESOURCE_VALUE        319
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1029
+#define _APS_NEXT_CONTROL_VALUE         1033
 #define _APS_NEXT_SYMED_VALUE           311
 #endif
 #endif

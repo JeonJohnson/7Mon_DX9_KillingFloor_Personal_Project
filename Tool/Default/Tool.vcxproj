@@ -211,6 +211,8 @@
   <ItemGroup>
     <ClInclude Include="Camera_TestMove.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="NaviMeshTool_Dialog.h" />
+    <ClInclude Include="ObjectTool_Dialog.h" />
     <ClInclude Include="Spec_FormView.h" />
     <ClInclude Include="Tool_Define.h" />
     <ClInclude Include="Tool_Enum.h" />
@@ -228,6 +230,8 @@
   <ItemGroup>
     <ClCompile Include="Camera_TestMove.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="NaviMeshTool_Dialog.cpp" />
+    <ClCompile Include="ObjectTool_Dialog.cpp" />
     <ClCompile Include="Spec_FormView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
