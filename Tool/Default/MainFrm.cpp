@@ -83,7 +83,8 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 
 	cs.cx = m_tClientRect.right - m_tClientRect.left;
 	cs.cy = m_tClientRect.bottom - m_tClientRect.top;
-
+	
+	cs.hMenu = NULL;
 
 
 	SetTitle(L"Johnson3D_Tool"); //타이틀 바꾸기

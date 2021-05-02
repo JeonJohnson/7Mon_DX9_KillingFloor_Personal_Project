@@ -38,7 +38,7 @@ void InputManager::Initialize(HINSTANCE hInst, HWND hWnd, bool _IsEngine)
 	}
 
 
-
+	m_pHWND = hWnd;
 }
 
 void InputManager::Update()
@@ -258,6 +258,23 @@ bool InputManager::GetMousePress(int _MouseVal)
 int InputManager::GetMouseMove(int _MouseMove)
 {
 	return (int)(*(((LONG*)&m_tMouse_State) + _MouseMove));
+}
+
+POINT InputManager::Get_MousePos()
+{
+	GetCursorPos(&m_tMouse_Position);
+	ScreenToClient(m_pHWND, &m_tMouse_Position);
+	
+	return m_tMouse_Position;
+}
+
+POINT InputManager::Get_MousePos(HWND _hWnd)
+{
+	GetCursorPos(&m_tMouse_Position);
+	ScreenToClient(_hWnd, &m_tMouse_Position);
+
+	return m_tMouse_Position;
+	//for Tool
 }
 
 

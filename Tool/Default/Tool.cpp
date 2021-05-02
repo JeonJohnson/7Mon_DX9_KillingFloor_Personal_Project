@@ -15,6 +15,8 @@
 #include "..\..\Engine\Header\Scene.h"
 #include "Tool_Scene.h"
 #include "ObjectTool_Dialog.h"
+#include "ColliderTool_Dialog.h"
+#include "NaviMeshTool_Dialog.h"
 
 
 
@@ -26,6 +28,9 @@ CMainFrame*			g_pMainFrame = nullptr;
 CToolView*			g_pDefaultView = nullptr;
 Spec_FormView*		g_pSpec_FormView = nullptr;
 
+ObjectTool_Dialog*		g_pObjectTool_Dialog = nullptr;
+NaviMeshTool_Dialog*	g_pNaviMeshTool_Dialog = nullptr;
+ColliderTool_Dialog*	g_pColliderTool_Dialog = nullptr;
 
 // CToolApp
 BEGIN_MESSAGE_MAP(CToolApp, CWinApp)
@@ -221,7 +226,33 @@ BOOL CToolApp::OnIdle(LONG lCount)
 	}
 	else
 	{
-		g_pSpec_FormView->m_ObjectTool->Update_Info();
+		g_pSpec_FormView->Update_Info();
+		
+		int i = g_pSpec_FormView->m_iOpenTabIndex;
+		
+		switch (i)
+		{
+		case 0:
+		//{
+			g_pObjectTool_Dialog->Update_Info();
+		//}
+		break;
+
+		case 1:
+		//{
+			g_pNaviMeshTool_Dialog->Update_Info(); 
+		//}
+		break;
+
+		case 2:
+		//{
+			g_pColliderTool_Dialog->Update_Info(); 
+		//}
+		break;
+
+		default:
+			break;
+		}
 		m_pEngine->Process();
 	}
 

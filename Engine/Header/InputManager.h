@@ -43,10 +43,15 @@ public:
 	bool	GetMouseDown(int _MouseVal);
 	bool	GetMousePress(int _MouseVal);
 	int		GetMouseMove(int _MouseMove);
+
+	POINT	Get_MousePos();
+	POINT	Get_MousePos(HWND _hWnd);
 	
 	
 private:
 	LPDIRECTINPUT8				m_pDInput8_SDK			= nullptr;
+	HWND						m_pHWND					= nullptr;
+
 	
 	LPDIRECTINPUTDEVICE8		m_pDInput8_Keyboard		= nullptr;
 	BYTE*						m_ucKeyboard_CurState;
@@ -54,6 +59,7 @@ private:
 
 	LPDIRECTINPUTDEVICE8		m_pDInput8_Mouse		= nullptr;
 	DIMOUSESTATE				m_tMouse_State;
+	POINT						m_tMouse_Position;
 	BYTE*						m_tMouseButton_PreState = nullptr;
 	//LONG    lX; -> 마우스 x 좌표 변화량
 	//LONG    lY; -> 마우스 y 좌표 변화량

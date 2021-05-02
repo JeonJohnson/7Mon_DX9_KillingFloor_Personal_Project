@@ -40,7 +40,8 @@
 
 class DLL_STATE Engine_Mother
 {
-	
+#define DIRECTINPUT_VERSION 0x0800
+
 private:
 	static Engine_Mother*	m_Instance;
 
@@ -115,7 +116,8 @@ public: /* Input Manager */
 	bool	GetMousePress(int _MouseVal);
 	int		GetMouseMove(int _MouseMove);
 
-	
+	POINT	Get_MousePos();
+	POINT	Get_MousePos(HWND _hWnd);
 
 public: /* Scene Manager */
 	void Add_Scene(const wstring& _wName, Scene* _pScene);
@@ -127,6 +129,8 @@ public: /* Gameobject Manager */
 	GameObject*			Get_GameObjectbyName(const wstring& _name); //Return First Object
 	GameObject*			Get_GameObjectbyTag(int _tag); //Return First Object
 	list<GameObject*>	Get_GameObjectListbyTag(int _tag);
+
+	Camera*			Get_MainCamera();
 
 public: /* UI Manager */
 	

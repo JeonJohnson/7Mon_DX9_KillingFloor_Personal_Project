@@ -1,5 +1,7 @@
-﻿  LightManager.cpp
+﻿  Engine_Mother.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+e:\학업\7mon_personal\7mon_personal_project\engine\header\engine_mother.h(43): warning C4005: 'DIRECTINPUT_VERSION': 매크로 재정의
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h(42): note: 'DIRECTINPUT_VERSION'의 이전 정의를 참조하십시오.
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
@@ -36,6 +38,9 @@
   ..\Header\Line_VIBuffer_Grid.h
   ..\Header\Mesh.h
   ..\Header\Mesh_Renderer.h
+  ..\Header\NaviCell.h
+  ..\Header\NaviMesh.h
+  ..\Header\NaviPoint.h
   ..\Header\Rect.h
   ..\Header\Rect_VIBuffer_Color.h
   ..\Header\Rect_VIBuffer_Texture.h
@@ -62,7 +67,7 @@
   ..\Header\UI_Renderer.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  58개 파일이 복사되었습니다.
+  61개 파일이 복사되었습니다.
   ..\Shader\Shader_Mesh.fx
   ..\Shader\Shader_Sample.fx
   2개 파일이 복사되었습니다.

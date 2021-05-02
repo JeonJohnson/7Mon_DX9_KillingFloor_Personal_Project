@@ -22,6 +22,9 @@
 IMPLEMENT_DYNCREATE(CToolView, CView)
 
 BEGIN_MESSAGE_MAP(CToolView, CView)
+	ON_WM_LBUTTONDOWN()
+	ON_WM_LBUTTONUP()
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 // CToolView 생성/소멸
@@ -79,3 +82,31 @@ CToolDoc* CToolView::GetDocument() const // 디버그되지 않은 버전은 인라인으로 지
 
 
 // CToolView 메시지 처리기
+
+
+void CToolView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+
+
+
+	CView::OnLButtonDown(nFlags, point);
+}
+
+
+void CToolView::OnLButtonUp(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+
+	CView::OnLButtonUp(nFlags, point);
+}
+
+
+void CToolView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	m_tMousePos_View.x = point.x;
+	m_tMousePos_View.y = point.y;
+
+	CView::OnMouseMove(nFlags, point);
+}

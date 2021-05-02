@@ -13,7 +13,7 @@ IMPLEMENT_DYNAMIC(NaviMeshTool_Dialog, CDialogEx)
 
 NaviMeshTool_Dialog::NaviMeshTool_Dialog(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_NaviMesh_Dialog, pParent)
-	, m_bNaviPointCreate(false)
+
 {
 
 }
@@ -25,13 +25,17 @@ NaviMeshTool_Dialog::~NaviMeshTool_Dialog()
 void NaviMeshTool_Dialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+
+	DDX_Control(pDX, IDC_CHECK_PointCreate, m_checkPointCreate);
 }
+
+
 
 
 BEGIN_MESSAGE_MAP(NaviMeshTool_Dialog, CDialogEx)
 	ON_BN_CLICKED(IDC_DeleteVertex_BUTTON, &NaviMeshTool_Dialog::OnBnClickedDeletevertexButton)
 	
-	ON_BN_CLICKED(IDC_RADIO_VerCreate, &NaviMeshTool_Dialog::OnBnClickedRadioVercreate)
+	ON_BN_CLICKED(IDC_CHECK_PointCreate, &NaviMeshTool_Dialog::OnBnClickedCheckPointcreate)
 END_MESSAGE_MAP()
 
 
@@ -40,14 +44,31 @@ END_MESSAGE_MAP()
 
 void NaviMeshTool_Dialog::OnBnClickedDeletevertexButton()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+void NaviMeshTool_Dialog::Update_Info()
+{
 }
 
 
-
-
-
-void NaviMeshTool_Dialog::OnBnClickedRadioVercreate()
+void NaviMeshTool_Dialog::OnBnClickedCheckPointcreate()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+
+	UpdateData(TRUE);
+
+	if (m_checkPointCreate.GetCheck())
+	{//체크 안돼 있을 때.
+		m_checkPointCreate.SetCheck(true);
+		m_bPointCreate = true;
+	}
+	else 
+	{//체크 돼 있을 때.
+
+		m_checkPointCreate.SetCheck(false);
+		m_bPointCreate = false;
+	}
+
+
+	UpdateData(FALSE);
 }

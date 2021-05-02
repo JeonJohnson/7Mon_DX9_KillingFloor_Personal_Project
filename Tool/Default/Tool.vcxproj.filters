@@ -47,6 +47,9 @@
     <Filter Include="05.Dialog\02.ColliderTool">
       <UniqueIdentifier>{35571d9a-af40-4efd-83c8-8279ad05711e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.Scene\01.CreateNaviMesh">
+      <UniqueIdentifier>{300c4695-20eb-4cea-aab6-38c827656810}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -103,6 +106,9 @@
     <ClInclude Include="ColliderTool_Dialog.h">
       <Filter>05.Dialog\02.ColliderTool</Filter>
     </ClInclude>
+    <ClInclude Include="NaviMeshMaker.h">
+      <Filter>06.Scene\01.CreateNaviMesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -137,6 +143,9 @@
     </ClCompile>
     <ClCompile Include="ColliderTool_Dialog.cpp">
       <Filter>05.Dialog\02.ColliderTool</Filter>
+    </ClCompile>
+    <ClCompile Include="NaviMeshMaker.cpp">
+      <Filter>06.Scene\01.CreateNaviMesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
 #include "GameObject.h"
 #include "..\..\Engine\Header\Camera.h"
 #include "Camera_TestMove.h"
-
+#include "NaviMeshMaker.h"
 
 Tool_Scene::Tool_Scene()
 {
@@ -31,4 +31,6 @@ void Tool_Scene::Initialize()
 	Camera_TestMove::Desc move_desc;
 	Test_Cam->Add_Component<Camera_TestMove>(&move_desc);
 
+	NaviMeshMaker::Desc maker_desc;
+	Test_Cam->Add_Component<NaviMeshMaker>(&maker_desc);
 }

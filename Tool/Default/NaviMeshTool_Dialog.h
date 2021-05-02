@@ -1,4 +1,5 @@
 #pragma once
+#include "afxwin.h"
 
 
 // NaviMeshTool_Dialog 대화 상자입니다.
@@ -23,9 +24,9 @@ protected:
 public:
 	afx_msg void OnBnClickedDeletevertexButton();
 
-
+	void Update_Info();
 public:
-
-	bool m_bNaviPointCreate;
-	afx_msg void OnBnClickedRadioVercreate();
+	afx_msg void OnBnClickedCheckPointcreate();
+	CButton m_checkPointCreate;
+	bool	m_bPointCreate;
 };

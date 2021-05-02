@@ -46,8 +46,7 @@
 #define IDC_VerPosX_EDIT                1043
 #define IDC_VerPosY_EDIT                1044
 #define IDC_VerPosZ_EDIT                1045
-#define IDC_RADIO1                      1046
-#define IDC_RADIO_VerCreate             1046
+#define IDC_CHECK_PointCreate           1047
 
 // Next default values for new objects
 // 
@@ -55,7 +54,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        322
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1047
+#define _APS_NEXT_CONTROL_VALUE         1048
 #define _APS_NEXT_SYMED_VALUE           311
 #endif
 #endif

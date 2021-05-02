@@ -31,6 +31,7 @@ Spec_FormView::Spec_FormView()
 	//, m_RotY_Edit(_T(""))
 	//, m_RotZ_Edit(_T(""))
 	, m_csCamStatus(_T(""))
+	, m_csMouseStatus(_T(""))
 {
 
 
@@ -56,6 +57,7 @@ void Spec_FormView::DoDataExchange(CDataExchange* pDX)
 	//DDX_Text(pDX, IDC_EDIT_RotZ, m_RotZ_Edit);
 	DDX_Control(pDX, IDC_Tools_Tab, m_tabTools);
 	DDX_Text(pDX, IDC_CamStatus, m_csCamStatus);
+	DDX_Text(pDX, IDC_MouseStatus, m_csMouseStatus);
 }
 
 BEGIN_MESSAGE_MAP(Spec_FormView, CFormView)
@@ -81,6 +83,7 @@ BEGIN_MESSAGE_MAP(Spec_FormView, CFormView)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_Tools_Tab, &Spec_FormView::OnTcnSelchangeToolsTab)
 	ON_BN_CLICKED(IDC_CameraReset_Button, &Spec_FormView::OnBnClickedCameraresetButton)
 	ON_BN_CLICKED(IDC_CamMoveToSelObj_Button, &Spec_FormView::OnBnClickedCammovetoselobjButton)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -113,6 +116,20 @@ BOOL Spec_FormView::PreCreateWindow(CREATESTRUCT& cs)
 	return CFormView::PreCreateWindow(cs);
 }
 
+void Spec_FormView::OnSize(UINT nType, int cx, int cy)
+{
+	CFormView::OnSize(nType, cx, cy);
+
+	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+
+	//UpdateData(FALSE);
+
+	m_tFormViewSize.x = cx;
+	m_tFormViewSize.y = cy;
+
+	//UpdateData(TRUE);
+}
+
 void Spec_FormView::OnInitialUpdate()
 {
 	CFormView::OnInitialUpdate();
@@ -129,20 +146,21 @@ void Spec_FormView::OnInitialUpdate()
 	{
 		m_ObjectTool = new ObjectTool_Dialog;
 		m_ObjectTool->Create(IDD_Object_Dialog, &m_tabTools);
-
+		g_pObjectTool_Dialog = m_ObjectTool;
 	}
 	
 	if (m_NaviMeshTool == nullptr)
 	{
 		m_NaviMeshTool = new NaviMeshTool_Dialog;
 		m_NaviMeshTool->Create(IDD_NaviMesh_Dialog, &m_tabTools);
-
+		g_pNaviMeshTool_Dialog = m_NaviMeshTool;
 	}
 
 	if (m_ColliderTool == nullptr)
 	{
 		m_ColliderTool = new ColliderTool_Dialog;
 		m_ColliderTool->Create(IDD_Collider_Dialog, &m_tabTools);
+		g_pColliderTool_Dialog = m_ColliderTool;
 	}
 
 	m_ObjectTool->MoveWindow(0, 25, m_rectToolsTab.Width(), m_rectToolsTab.Height());
@@ -150,18 +168,20 @@ void Spec_FormView::OnInitialUpdate()
 	m_NaviMeshTool->ShowWindow(SW_HIDE);
 	m_ColliderTool->ShowWindow(SW_HIDE);
 	m_tabTools.SetCurSel(0);
+	m_iOpenTabIndex = m_tabTools.GetCurSel();
 }
 
 
 void Spec_FormView::OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
 
 	m_tabTools.GetWindowRect(&m_rectToolsTab);
 
-	int		iTabSel = m_tabTools.GetCurSel();
+	int		m_iOpenTabIndex = m_tabTools.GetCurSel();
 
-	switch (iTabSel)
+	switch (m_iOpenTabIndex)
 	{
 	case 0:
 	{
@@ -198,6 +218,37 @@ void Spec_FormView::OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 
 	*pResult = 0;
+
+	UpdateData(FALSE);
+}
+
+void Spec_FormView::Update_Info()
+{
+	UpdateData(TRUE);
+
+	
+	if (EngineFunction->Get_MainCamera() != nullptr)
+	{
+		m_vCamPos = EngineFunction->Get_MainCamera()->Get_Transform()->Get_Position();
+
+		m_csCamPosX.Format(L"%.2f", m_vCamPos.x);
+		m_csCamPosY.Format(L"%.2f", m_vCamPos.y);
+		m_csCamPosZ.Format(L"%.2f", m_vCamPos.z);
+
+		m_csCamStatus = L"영사기 위치\n좌우 : " + m_csCamPosX
+			+ L"\n상하 : " + m_csCamPosY
+			+ L"\n전후 : " + m_csCamPosZ;
+	}
+
+	m_tMousePos =  g_pDefaultView->m_tMousePos_View;
+
+	m_csMousePosX.Format(L"%d", m_tMousePos.x);
+	m_csMousePosY.Format(L"%d", m_tMousePos.y);
+	m_csMouseStatus = L"쥐 위치\n좌우 : " + m_csMousePosX
+		+ L"\n상하 : " + m_csMousePosY;
+
+
+	UpdateData(FALSE);
 }
 
 void Spec_FormView::OnBnClickedCameraresetButton()
@@ -858,6 +909,7 @@ void Spec_FormView::OnBnClickedCammovetoselobjButton()
 //	UpdateData(FALSE);
 //}
 #pragma endregion
+
 
 
 

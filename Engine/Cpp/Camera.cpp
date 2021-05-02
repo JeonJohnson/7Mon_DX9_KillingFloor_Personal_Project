@@ -180,7 +180,45 @@ HRESULT Camera::Update_ProjSpaceMatrix()
 	return S_OK;
 }
 
-const Matrix & Camera::Get_ViweSpaceMat() const
+Vector2 Camera::World2Screen(const Vector3 & _WorldPos)
+{
+	float fHalfWinCX = DeviceManager::Get_Instance()->Get_WindowSize().x;
+	float fHalfWinCY = DeviceManager::Get_Instance()->Get_WindowSize().y;
+	
+	Vector3 vTemp;
+	D3DXVec3TransformCoord(&vTemp, &_WorldPos, &Get_ViewSpaceMat());
+	D3DXVec3TransformCoord(&vTemp, &vTemp, &Get_ProjMat());
+	D3DXVec3TransformCoord(&vTemp, &vTemp, &Get_ViewPortMat());
+
+	return Vector2(vTemp.x - fHalfWinCX, fHalfWinCY - vTemp.y);
+}
+
+Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam)
+{
+	float wincx = (float)DeviceManager::Get_Instance()->Get_WindowSize().x;
+	float wincy = (float)DeviceManager::Get_Instance()->Get_WindowSize().y;
+
+	Vector2 screenPos = _ScreenPos;
+
+	Vector3 ViewSpace;
+	Vector3 WorldSpace;
+	Matrix invView;
+	ViewSpace.x = (((2.0f * screenPos.x) / wincx) - 1.0f) / Get_ProjMat()._11;
+	ViewSpace.y = (((-2.0f * screenPos.y) / wincy) + 1.0f) / Get_ProjMat()._22;
+	ViewSpace.z = 1.0f;
+
+	D3DXMatrixInverse(&invView, 0, &Get_ViewSpaceMat());
+
+	D3DXVec3TransformCoord(&WorldSpace, &ViewSpace, &invView);
+
+	//D3DXVec3Normalize(&WorldSpace, &WorldSpace);
+	//Vector3 Result_World = m_transform->position + WorldSpace * Distance_FromCam;
+	//return Result_World;
+
+	return WorldSpace;
+}
+
+const Matrix & Camera::Get_ViewSpaceMat() const
 {
 	return m_matViewSpaceMatrix;
 }
@@ -188,5 +226,19 @@ const Matrix & Camera::Get_ViweSpaceMat() const
 const Matrix & Camera::Get_ProjMat() const
 {
 	return m_matProjectionMatrix;
+}
+
+Matrix Camera::Get_ViewPortMat() const
+{
+	float halfWincx = DeviceManager::Get_Instance()->Get_WindowSize().x* 0.5f;
+	float halfWincy = DeviceManager::Get_Instance()->Get_WindowSize().y* 0.5f;
+
+	return Matrix
+	{
+		halfWincx,	0.f        , 0.f             , 0.f,
+		0.f       , -halfWincy, 0.f             , 0.f,
+		0.f       , 0.f        , m_fzFar - m_fzNear, 0.f,
+		halfWincx, halfWincy , m_fzNear         , 1.f
+	};
 }
 

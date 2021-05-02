@@ -164,6 +164,16 @@ int Engine_Mother::GetMouseMove(int _MouseMove)
 	return m_pInputManager->Get_Instance()->GetMouseMove(_MouseMove);
 }
 
+POINT Engine_Mother::Get_MousePos()
+{
+	return m_pInputManager->Get_MousePos();
+}
+
+POINT Engine_Mother::Get_MousePos(HWND _hWnd)
+{
+	return m_pInputManager->Get_MousePos(_hWnd);
+}
+
 void Engine_Mother::Add_Scene(const wstring & _wName, Scene * _pScene)
 {
 	m_pSceneManager->Insert_Scene(_wName, _pScene);
@@ -197,6 +207,19 @@ GameObject * Engine_Mother::Get_GameObjectbyTag(int _tag)
 list<GameObject*> Engine_Mother::Get_GameObjectListbyTag(int _tag)
 {
 	return m_pGameObjectManager->Get_GameObjectListbyTag(_tag);
+}
+
+Camera * Engine_Mother::Get_MainCamera()
+{
+	if (m_pGameObjectManager->Get_GameObjectbyTag(2) == nullptr)
+	{
+		return nullptr;
+	}
+	else 
+	{ 
+		return m_pGameObjectManager->Get_GameObjectbyTag(2)->Get_Component<Camera>(); 
+	}
+
 }
 
 void Engine_Mother::Insert_Light(D3DLIGHT9 * _pLight, const wstring & _Name)

@@ -26,6 +26,10 @@ void ColliderTool_Dialog::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 }
 
+void ColliderTool_Dialog::Update_Info()
+{
+}
+
 
 BEGIN_MESSAGE_MAP(ColliderTool_Dialog, CDialogEx)
 END_MESSAGE_MAP()

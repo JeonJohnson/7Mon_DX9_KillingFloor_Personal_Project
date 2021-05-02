@@ -60,17 +60,34 @@ public:
 public:
 
 	afx_msg void OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+
+	void Update_Info();
 public:
+	POINT						m_tFormViewSize;
+
 	CTabCtrl					m_tabTools;
 	CRect						m_rectToolsTab;
+		
 
 	ObjectTool_Dialog*			m_ObjectTool = nullptr;
 	NaviMeshTool_Dialog*		m_NaviMeshTool = nullptr;
 	ColliderTool_Dialog*		m_ColliderTool = nullptr;
+	int							m_iOpenTabIndex = -1;
 
+	Vector3	m_vCamPos;
+	CString	m_csCamPosX;
+	CString m_csCamPosY;
+	CString m_csCamPosZ;
 	CString m_csCamStatus;
+
 	afx_msg void OnBnClickedCameraresetButton();
 	afx_msg void OnBnClickedCammovetoselobjButton();
+
+	POINT	m_tMousePos;
+	CString	m_csMousePosX;
+	CString	m_csMousePosY;
+	CString m_csMouseStatus;
 
 public:
 
@@ -100,6 +117,8 @@ public:
 	
 
 
+
+	
 };
 
 
