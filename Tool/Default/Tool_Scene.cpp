@@ -17,6 +17,8 @@ Tool_Scene::~Tool_Scene()
 
 void Tool_Scene::Initialize()
 {
+	EngineFunction->Load_Mesh(L"Test/StaticMesh/DebugSphere.X", L"DebugSphere");
+
 	GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	VIBuffer_Renderer::Desc Grid_Desc;
 	Grid_Desc.wBufferName = L"Line_Grid";

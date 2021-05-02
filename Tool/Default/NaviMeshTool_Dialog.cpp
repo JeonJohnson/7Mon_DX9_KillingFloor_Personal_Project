@@ -5,6 +5,7 @@
 #include "Tool.h"
 #include "NaviMeshTool_Dialog.h"
 #include "afxdialogex.h"
+#include "..\..\Engine\Header\Mesh_Renderer.h"
 
 
 // NaviMeshTool_Dialog 대화 상자입니다.
@@ -27,6 +28,7 @@ void NaviMeshTool_Dialog::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 
 	DDX_Control(pDX, IDC_CHECK_PointCreate, m_checkPointCreate);
+	DDX_Control(pDX, IDC_LIST_NaviPointList, m_PointList);
 }
 
 
@@ -48,6 +50,24 @@ void NaviMeshTool_Dialog::OnBnClickedDeletevertexButton()
 
 void NaviMeshTool_Dialog::Update_Info()
 {
+}
+
+void NaviMeshTool_Dialog::Create_NaviPoint(const Vector3 & _WorldPos)
+{
+	UpdateData(TRUE);
+	
+	GameObject* pNaviPoint = INSTANTIATE(0, L"NaviPoint" + to_wstring(m_iNaviPointIndex));
+	pNaviPoint->Set_Position(_WorldPos);
+
+	Mesh_Renderer::Desc NaviPoint_Desc;
+	NaviPoint_Desc.szMeshName = L"DebugSphere";
+	pNaviPoint->Add_Component<Mesh_Renderer>(&NaviPoint_Desc);
+
+	m_PointList.InsertString(m_iNaviPointIndex, to_wstring(m_iNaviPointIndex).c_str());
+	
+	++m_iNaviPointIndex;
+
+	UpdateData(FALSE);
 }
 
 

@@ -25,8 +25,13 @@ public:
 	afx_msg void OnBnClickedDeletevertexButton();
 
 	void Update_Info();
+	void Create_NaviPoint(const Vector3& _WorldPos);
+
 public:
+	int		m_iNaviPointIndex = 0;
+
 	afx_msg void OnBnClickedCheckPointcreate();
 	CButton m_checkPointCreate;
 	bool	m_bPointCreate;
+	CListBox m_PointList;
 };

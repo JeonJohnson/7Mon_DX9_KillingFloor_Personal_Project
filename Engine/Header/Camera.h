@@ -44,8 +44,8 @@ public: /* Functions */
 	Vector3	 Screen2World(const Vector2& _ScreenPos, float _DistanceFromCam);
 
 public: /* Get */
-	const Matrix&	Get_ViewSpaceMat() const;
-	const Matrix&	Get_ProjMat() const;
+	const Matrix&	Get_ViewSpaceMat() ;
+	const Matrix&	Get_ProjMat() ;
 	Matrix	Get_ViewPortMat() const;
 
 

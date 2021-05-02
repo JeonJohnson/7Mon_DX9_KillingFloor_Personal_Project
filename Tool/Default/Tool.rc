@@ -196,7 +196,7 @@ FONT 10, "나눔바른고딕", 400, 0, 0x81
 BEGIN
     PUSHBUTTON      "항해 망사 저장",IDC_NaviMeshSave_Button,5,411,56,19
     PUSHBUTTON      "항해 망사 꺼내기",IDC_NaviMeshLoad_Button,98,411,56,19
-    LISTBOX         IDC_LIST2,5,17,70,127,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_NaviPointList,5,17,70,127,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     CTEXT           "항해 정점 목록",IDC_STATIC,5,5,70,11,0,WS_EX_STATICEDGE
     PUSHBUTTON      "정점 삭제",IDC_DeleteVertex_BUTTON,78,119,76,16
     PUSHBUTTON      "항해 망사 정리",IDC_NaviOrganize_BUTTON,5,146,71,15

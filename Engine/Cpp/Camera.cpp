@@ -199,32 +199,72 @@ Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam)
 	float wincy = (float)DeviceManager::Get_Instance()->Get_WindowSize().y;
 
 	Vector2 screenPos = _ScreenPos;
+	
+/* ViewSpace(ScreenView)Pos To ProjectionPos */
+	//투영 스페이스 범위	|	스크린 좌표 
+	//좌상 -1,	1			|	0,		0
+	//우상 1,	1			|	1280,	0
+	//좌하 -1,	-1			|	0,		720
+	//우하 1.	-1			|	1280,	720
+	Vector3	ProjectionTransform;
+	ProjectionTransform.x = ((2.f * screenPos.x) / wincx) - 1.f;
+	ProjectionTransform.y = ((-2.f * screenPos.y) / wincy) + 1.f;
+	ProjectionTransform.z = 1.f;
 
-	Vector3 ViewSpace;
-	Vector3 WorldSpace;
-	Matrix invView;
-	ViewSpace.x = (((2.0f * screenPos.x) / wincx) - 1.0f) / Get_ProjMat()._11;
-	ViewSpace.y = (((-2.0f * screenPos.y) / wincy) + 1.0f) / Get_ProjMat()._22;
-	ViewSpace.z = 1.0f;
+/* ProjectionPos To ViewSpacePos */
+//투영스페이스 역행렬 구하기.
+	Matrix invProjection;
+	m_pDX9_Device->GetTransform(D3DTS_PROJECTION, &invProjection);
+	D3DXMatrixInverse(&invProjection, 0, &invProjection);
+//뷰스페이스의 좌표 구하기.
+	Vector3 ViewSpaceTrans;
+	D3DXVec3TransformCoord(&ViewSpaceTrans, &ProjectionTransform, &invProjection);
 
-	D3DXMatrixInverse(&invView, 0, &Get_ViewSpaceMat());
+/* ViewSpacePos To WorldSpacePos */
+//뷰스페이스의 역행렬 구하기.
+	Matrix invViewSpace;
+	m_pDX9_Device->GetTransform(D3DTS_VIEW, &invViewSpace);
+	D3DXMatrixInverse(&invViewSpace, 0, &invViewSpace);
+//월드 스페이스의 좌표 구하기.
+	Vector3	WorldSpaceTrans;
+	D3DXVec3TransformCoord(&WorldSpaceTrans, &ViewSpaceTrans, &invViewSpace);
 
-	D3DXVec3TransformCoord(&WorldSpace, &ViewSpace, &invView);
+	return WorldSpaceTrans;
+	//Vector3 ViewSpace;
+	//Vector3 WorldSpace;
+	//Matrix invViewSpace;
+	//ViewSpace.x = (((2.0f * screenPos.x) / wincx) - 1.0f) / Get_ProjMat()._11;
+	//ViewSpace.y = (((-2.0f * screenPos.y) / wincy) + 1.0f) / Get_ProjMat()._22;
+	//ViewSpace.z = 1.0f;
 
-	//D3DXVec3Normalize(&WorldSpace, &WorldSpace);
-	//Vector3 Result_World = m_transform->position + WorldSpace * Distance_FromCam;
+	//D3DXMatrixInverse(&invViewSpace, 0, &Get_ViewSpaceMat());
+
+	//D3DXVec3TransformCoord(&WorldSpace, &ViewSpace, &invViewSpace);
+
+	////D3DXVec3Normalize(&WorldSpace, &WorldSpace);
+	////Vector3 Result_World = m_Transform->Get_Position()+ WorldSpace * _DistanceFromCam;
+	//Vector3 Result_World = m_Transform->Get_Position();
+	//
+	//Vector3 Temp =  m_Transform->Get_Forward() * _DistanceFromCam;
+
+	//Result_World += Temp;
+
 	//return Result_World;
 
-	return WorldSpace;
+	//return WorldSpace;
+
+	
 }
 
-const Matrix & Camera::Get_ViewSpaceMat() const
+const Matrix & Camera::Get_ViewSpaceMat()
 {
+	Update_ViewSpaceMatrix();
 	return m_matViewSpaceMatrix;
 }
 
-const Matrix & Camera::Get_ProjMat() const
+const Matrix & Camera::Get_ProjMat()
 {
+	Update_ProjSpaceMatrix();
 	return m_matProjectionMatrix;
 }
 

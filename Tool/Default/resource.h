@@ -41,6 +41,7 @@
 #define IDC_MouseStatus                 1036
 #define IDC_NaviMeshLoad_Button         1037
 #define IDC_LIST2                       1040
+#define IDC_LIST_NaviPointList          1040
 #define IDC_DeleteVertex_BUTTON         1041
 #define IDC_NaviOrganize_BUTTON         1042
 #define IDC_VerPosX_EDIT                1043

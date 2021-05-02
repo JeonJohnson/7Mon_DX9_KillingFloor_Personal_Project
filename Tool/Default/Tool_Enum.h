@@ -12,6 +12,7 @@ typedef enum eGameObjectTag
 	OBJECT_TAG_UI,
 	OBJECT_TAG_NAVIPOINT,
 	OBJECT_TAG_END
+
 }OBJECT_TAG;
 
 #endif //_TOOL_ENUM_H_
