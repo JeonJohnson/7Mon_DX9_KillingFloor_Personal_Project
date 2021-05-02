@@ -106,7 +106,7 @@ void VIBuffer_Renderer::Render()
 	m_pEffectCom->EndPass();
 	m_pEffectCom->End();
 
-	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
+	//m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, TRUE);
 	
 }
 

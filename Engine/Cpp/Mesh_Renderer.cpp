@@ -7,6 +7,8 @@
 #include "GameObject.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "..\..\Reference\Header\Shader.h"
+#include "LightManager.h"
 
 Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 {
@@ -19,7 +21,7 @@ Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 	//}
 
 
-
+	Create_Shader();
 }
 
 Mesh_Renderer::~Mesh_Renderer()
@@ -40,13 +42,22 @@ void Mesh_Renderer::LateUpdate()
 
 void Mesh_Renderer::Render()
 {
-	m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
-
+	//Device Rendering
+		//m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
 	
+	//Shader Rendering
+	Setup_ShaderTable();
+	
+	unsigned int uiMaxPass = 0;
 
-		if (m_pMesh->Get_AnimController() == nullptr)
+	m_pEffectCom->Begin(&uiMaxPass, 0);
+	m_pEffectCom->BeginPass(0);
+
+	//Render Function
+	if (m_pMesh->Get_AnimController() == nullptr)
 	{//StaticMesh Rendering
 
+#pragma region Olds
 	 //D3DXFRAME안의 메시컨테이너 안에 매쉬정보들 있음.
 		//for (int i = 0; i < (int)m_pStaticMesh->Get_MaterialCount(); ++i)
 		//{
@@ -73,6 +84,7 @@ void Mesh_Renderer::Render()
 		//		assert(0 && L"DrawSubSet Failed at Static Mesh Renderring");
 		//	}
 		//}
+#pragma	endregion
 
 		for (auto& iter : m_pMesh->Get_MeshContainerList())
 		{
@@ -81,10 +93,18 @@ void Mesh_Renderer::Render()
 
 			for (int i = 0; i < (int)pMeshContainer->NumMaterials; ++i)
 			{
-				if (FAILED(m_pDX9_Device->SetTexture(0, tempTexture->Get_Texture(i))))
-				{
-					assert(0 && L"SetTexture Faild at Static Mesh Renderring");
+				//if (FAILED(m_pDX9_Device->SetTexture(0, tempTexture->Get_Texture(i))))
+				//{
+				//	assert(0 && L"SetTexture Faild at Static Mesh Renderring");
+				//}
+				HRESULT TexResult = m_pEffectCom->SetTexture("g_texBaseTexture", tempTexture->Get_Texture(i));
+				if (TexResult == E_FAIL)
+				{	assert(0 && L"SetTexture Faild at Static Mesh Renderring");
 				}
+				m_pEffectCom->CommitChanges();
+
+				
+					
 				if (FAILED(iter->MeshData.pMesh->DrawSubset(i)))
 				{
 					assert(0 && L"DrawSubSet Failed at Static Mesh Renderring");
@@ -121,10 +141,66 @@ void Mesh_Renderer::Render()
 		}
 	}
 
+	m_pEffectCom->EndPass();
+	m_pEffectCom->End();
+
 }
 
 void Mesh_Renderer::Release()
 {
+
+}
+
+void Mesh_Renderer::Create_Shader()
+{
+	m_pShaderCom = new Shader;
+	m_pShaderCom->Ready_Shader(L"../../Reference/Shader/Shader_Mesh.fx");
+	//나중에 이거 desc로 바꿔주기(ViBuffer Renderer도 )
+	m_pEffectCom = m_pShaderCom->Get_EffectCom();
+
+	assert(L"EffectCom is Nullptr" && m_pEffectCom);
+}
+
+void Mesh_Renderer::Setup_ShaderTable()
+{
+	Matrix	matWorld, matView, matProjection;
+
+	matWorld = m_Transform->Get_WorldMatrix();
+	m_pDX9_Device->GetTransform(D3DTS_VIEW, &matView);
+	m_pDX9_Device->GetTransform(D3DTS_PROJECTION, &matProjection);
+
+	m_pEffectCom->SetMatrix("g_matWorld", &matWorld);
+	m_pEffectCom->SetMatrix("g_matView", &matView);
+	m_pEffectCom->SetMatrix("g_matProjection", &matProjection);
+
+	D3DXMatrixInverse(&matView, NULL, &matView);
+	m_pEffectCom->SetVector("g_vCamPos", (Vector4*)&matView._41);
+	//나중에 매인 캠 트랜스폼 받아오는거 Engine_Mother에 만들기.
+
+	//조명 세팅
+	D3DLIGHT9	TempLight;
+	ZeroMemory(&TempLight, sizeof(D3DLIGHT9));
+	TempLight= LightManager::Get_Instance()->Get_LightByName(L"HatBit")->Get_Light();
+
+	m_pEffectCom->SetVector("g_vLightDir", &Vector4(TempLight.Direction, 0.f));
+	m_pEffectCom->SetVector("g_vLightDiffuse", (Vector4*)&TempLight.Diffuse);
+	m_pEffectCom->SetVector("g_vLightSpecular", (Vector4*)&TempLight.Specular);
+	m_pEffectCom->SetVector("g_vLightAmbient", (Vector4*)&TempLight.Ambient);
+
+	//
+	D3DMATERIAL9				tMtrlInfo;
+	ZeroMemory(&tMtrlInfo, sizeof(D3DMATERIAL9));
+	tMtrlInfo.Diffuse = D3DXCOLOR(1.f, 1.f, 1.f, 1.f);
+	tMtrlInfo.Ambient = D3DXCOLOR(1.f, 1.f, 1.f, 1.f);
+	tMtrlInfo.Specular = D3DXCOLOR(1.f, 1.f, 1.f, 1.f);
+	tMtrlInfo.Emissive = D3DXCOLOR(0.f, 0.f, 0.f, 1.f);
+	tMtrlInfo.Power = 20.f;
+
+	m_pEffectCom->SetVector("g_vMtrlDiffuse", (Vector4*)(&tMtrlInfo.Diffuse));
+	m_pEffectCom->SetVector("g_vMtrlSpecular", (Vector4*)(&tMtrlInfo.Specular));
+	m_pEffectCom->SetVector("g_vMtrlAmbient", (Vector4*)(&tMtrlInfo.Ambient));
+	m_pEffectCom->SetFloat("g_fPower", tMtrlInfo.Power);
+
 
 }
 

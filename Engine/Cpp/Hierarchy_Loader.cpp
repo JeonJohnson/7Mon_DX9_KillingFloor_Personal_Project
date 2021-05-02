@@ -89,12 +89,10 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 		
 		//LPD3DXMESH	pMesh = pMeshData->pMesh;
 		
-		
 		//adjacency (-> 접근용 인접 버텍스공간) 설정
 		DWORD dwPolyCount = pTempMesh->MeshData.pMesh->GetNumFaces();
 		pTempMesh->pAdjacency = new DWORD[dwPolyCount * 3];
 		memcpy(pTempMesh->pAdjacency, pAdjacency, sizeof(DWORD)* dwPolyCount * 3);
-
 
 		//FVF 설정
 		DWORD	dwFVF = pTempMesh->MeshData.pMesh->GetFVF();
@@ -106,13 +104,22 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 				dwFVF,
 				m_pDX9_Device,
 				&pTempMesh->MeshData.pMesh);
+
+			//pTempMesh->MeshData.pMesh->CloneMeshFVF(
+			//	pTempMesh->MeshData.pMesh->GetOptions(),
+			//	dwFVF | D3DFVF_NORMAL | D3DFVF_DIFFUSE,
+			//	m_pDX9_Device,
+			//	&pTempMesh->MeshData.pMesh);
+			//// 인접한 면들의 정보를 기준으로 노말 값을 만들어 줌
+			//D3DXComputeNormals(
+			//	pTempMesh->MeshData.pMesh,
+			//	pTempMesh->pAdjacency);
 		}
 		else
 		{//만약 FVF에서 노말정보가 없으면 코드로 직접 넣어주기
-
 			pTempMesh->MeshData.pMesh->CloneMeshFVF(
 				pTempMesh->MeshData.pMesh->GetOptions(),
-				dwFVF | D3DFVF_NORMAL,
+				dwFVF | D3DFVF_NORMAL | D3DFVF_DIFFUSE,
 				m_pDX9_Device,
 				&pTempMesh->MeshData.pMesh);
 			// 인접한 면들의 정보를 기준으로 노말 값을 만들어 줌

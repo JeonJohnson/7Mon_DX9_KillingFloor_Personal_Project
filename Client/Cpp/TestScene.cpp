@@ -21,21 +21,27 @@ TestScene::~TestScene()
 
 void TestScene::Initialize()
 {
+	//D3DXCOLOR	colorTemp = D3DCOLOR_RGBA(196, 220, 229, 255);
+	D3DXCOLOR	colorTemp = D3DCOLOR_RGBA(253, 251, 211, 255);
+	
+	D3DLIGHT9*	Temp = new D3DLIGHT9;
+	ZeroMemory(Temp, sizeof(D3DLIGHT9));
+	Temp->Type = D3DLIGHT_DIRECTIONAL;
+	Temp->Diffuse = colorTemp;
+	Temp->Ambient = colorTemp * 0.05f;
+	Temp->Specular = colorTemp * 0.8f;
+	Vector3 vTemp = { 1.f, -1.f, 1.f };
+	Temp->Direction = vTemp;
+
+	EngineFunction->Insert_Light(Temp, L"HatBit");
+	delete Temp;
+
 	GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	VIBuffer_Renderer::Desc Grid_Desc;
 	Grid_Desc.wBufferName = L"Line_Grid";
 	Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	//GameObject*	Test_Cam = INSTANTIATE(OBJECT_TAG_MAINCAM, L"Test_Cam");
-	//Camera::Desc Cam_desc;
-	//Cam_desc.fFov_Degree = 45.f;
-	//Test_Cam->Add_Component<Camera>(&Cam_desc);
-	//Test_Cam->Set_Position(Vector3(0.f, 0.f, -100.f));
-
-	//Camera_FreeMove::Desc move_desc;
-	//Test_Cam->Add_Component<Camera_FreeMove>(&move_desc);
-
-	EngineFunction->Load_TerrainLayout(L"Data/temp.bin");
+	//EngineFunction->Load_TerrainLayout(L"Data/temp.bin");
 		
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
@@ -48,20 +54,41 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
 
 	//EngineFunction->Load_Mesh(L"Mesh/DynamicMesh/FPPOV_Revolver.X", L"Hand_Revolver");
-	
-
 	EngineFunction->Load_Mesh(L"Mesh/Weapon/Rifle/M4.X", L"M4");
 	EngineFunction->Load_Mesh(L"Mesh/Weapon/Secondary/BerettaM9.X", L"BerettaM9");
 	EngineFunction->Load_Mesh(L"Mesh/Weapon/Melee/Knife_M9.X", L"Knife_M9");
 
-
-	//EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
-
+	EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
 	EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
-
+	EngineFunction->Load_Mesh(L"Test/StaticMesh/stone.X", L"Stone");
+	//EngineFunction->Load_Mesh(L"Test/StaticMesh/Boss_AgentSanwaMoney_000.X", L"Test_01");
+	
 
 	{
+
+		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
+		PoliceCar->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		PoliceCar->Set_Position(Vector3(-100.f, 0.f, -100.f));
+		Mesh_Renderer::Desc Policecar_desc;
+		Policecar_desc.szMeshName = L"PoliceCar";
+		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
+
+		GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
+		Taxi->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		Taxi->Set_Position(Vector3(50.f, 0.f, 50.f));
+		Mesh_Renderer::Desc Taxi_Desc;
+		Taxi_Desc.szMeshName = L"Taxi";
+		Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
+		
+		GameObject*		Test2 = INSTANTIATE(OBJECT_TAG_DEFAULT, L"TestObj");
+		Test2->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		Test2->Set_Position(Vector3(500.f, 0.f, 100.f));
+		Mesh_Renderer::Desc Test2desc;
+		Test2desc.szMeshName = L"Stone";
+		Test2->Add_Component<Mesh_Renderer>(&Test2desc);
+
+
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
 		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
 
@@ -99,19 +126,14 @@ void TestScene::Initialize()
 		Att_Desc.szMelee = L"Knife_M9";
 		Player->Add_Component<Player_Attack>(&Att_Desc);
 
+	
 
-		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
-		PoliceCar->Set_Position(Vector3(0, 0, 50.f));
-		Mesh_Renderer::Desc Policecar_desc;
-		Policecar_desc.szMeshName = L"PoliceCar";
-		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
-
-		//GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-		//Map->Set_Position(Vector3(0, 0, 0.f));
-		//Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		//Mesh_Renderer::Desc Map_desc;
-		//Map_desc.szMeshName = L"Map";
-		//Map->Add_Component<Mesh_Renderer>(&Map_desc);
+		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+		Map->Set_Position(Vector3(0, 0, 0.f));
+		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		Mesh_Renderer::Desc Map_desc;
+		Map_desc.szMeshName = L"Map";
+		Map->Add_Component<Mesh_Renderer>(&Map_desc);
 		
 	}
 

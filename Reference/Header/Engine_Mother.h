@@ -14,6 +14,7 @@
 #include "UIManager.h"
 #include "ResourceManager.h"
 #include "RenderManager.h"
+#include "LightManager.h"
 
 #include "DebugManager.h"
 #pragma endregion
@@ -128,6 +129,10 @@ public: /* Gameobject Manager */
 	list<GameObject*>	Get_GameObjectListbyTag(int _tag);
 
 public: /* UI Manager */
+	
+public: /* Light Manager */
+	void				Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name = L"Default_Light");
+
 
 public: /* Render Manager */
 
@@ -145,9 +150,10 @@ private:
 	TimeManager*			m_pTimeManager = nullptr;
 	InputManager*			m_pInputManager = nullptr;
 	ResourceManager*		m_pResourceManager = nullptr;
-	
+
 	GameObjectManager*		m_pGameObjectManager = nullptr;
 	UIManager*				m_pUiManager = nullptr;
+	LightManager*			m_pLightManager = nullptr;
 	RenderManager*			m_pRenderManager = nullptr;
 	SceneManager*			m_pSceneManager = nullptr;
 	

@@ -7,9 +7,10 @@
 
 #include "Renderer.h"
 
-class StaticMesh;
-class AnimMesh;
+//class StaticMesh;
+//class AnimMesh;
 class Mesh;
+class Shader;
 
 class DLL_STATE Mesh_Renderer : public Renderer
 {
@@ -37,6 +38,9 @@ public:
 	virtual void Release() override;
 	
 public:
+	void		Create_Shader();
+	void		Setup_ShaderTable();
+
 
 public: /* Get */
 	Mesh*		Get_Mesh();
@@ -48,6 +52,8 @@ public: /* Set */
 
 private:
 	Mesh*			m_pMesh = nullptr;
+	Shader*			m_pShaderCom = nullptr;
+	LPD3DXEFFECT	m_pEffectCom = nullptr;
 	//Vector3			m_vPosition;
 	//Vector3			m_vRoation;
 	//Vector3			m_vScale;

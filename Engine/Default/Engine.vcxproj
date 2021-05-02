@@ -203,6 +203,8 @@
     <ClInclude Include="..\Header\GameObjectManager.h" />
     <ClInclude Include="..\Header\Hierarchy_Loader.h" />
     <ClInclude Include="..\Header\InputManager.h" />
+    <ClInclude Include="..\Header\Light.h" />
+    <ClInclude Include="..\Header\LightManager.h" />
     <ClInclude Include="..\Header\Line_VIBuffer_Gizmo.h" />
     <ClInclude Include="..\Header\Line_VIBuffer_Grid.h" />
     <ClInclude Include="..\Header\Mesh.h" />
@@ -253,6 +255,8 @@
     <ClCompile Include="..\Cpp\GameObjectManager.cpp" />
     <ClCompile Include="..\Cpp\Hierarchy_Loader.cpp" />
     <ClCompile Include="..\Cpp\InputManager.cpp" />
+    <ClCompile Include="..\Cpp\Light.cpp" />
+    <ClCompile Include="..\Cpp\LightManager.cpp" />
     <ClCompile Include="..\Cpp\Line_VIBuffer_Gizmo.cpp" />
     <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp" />
     <ClCompile Include="..\Cpp\Mesh.cpp" />
@@ -285,7 +289,12 @@
     <ClCompile Include="..\Cpp\VIBuffer_Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\Shader\Shader_Mesh.fx" />
+    <FxCompile Include="..\Shader\Shader_Mesh.fx">
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VS_MAIN</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VS_MAIN</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VS_MAIN</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VS_MAIN</EntryPointName>
+    </FxCompile>
     <FxCompile Include="..\Shader\Shader_Sample.fx">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VS_MAIN</EntryPointName>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VS_MAIN</EntryPointName>

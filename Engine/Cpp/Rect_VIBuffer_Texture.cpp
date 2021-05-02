@@ -81,18 +81,40 @@ HRESULT Rect_VIBuffer_Texture::Create_VBuffer()
 	//ÁÂ»ó
 	pVertices[0].vPos = Vector3(-1.f, 1.f, 0.f);
 	pVertices[0].vUV = Vector2(0.f, 0.f);
+	pVertices[0].vNormal = Vector3(0.f, 0.f, 0.f);
 
 	//¿ì»ó
 	pVertices[1].vPos = Vector3(1.f, 1.f, 0.f);
 	pVertices[1].vUV = Vector2(1.f, 0.f);
+	pVertices[1].vNormal = Vector3(0.f, 0.f, 0.f);
 
 	//¿ìÇÏ
 	pVertices[2].vPos = Vector3(1.f, -1.f, 0.f);
 	pVertices[2].vUV = Vector2(1.f, 1.f);
-	
+	pVertices[2].vNormal = Vector3(0.f, 0.f, 0.f);
+
 	//ÁÂÇÏ
 	pVertices[3].vPos = Vector3(-1.f, -1.f, 0.f);
 	pVertices[3].vUV = Vector2(0.f, 1.f);
+	pVertices[3].vNormal = Vector3(0.f, 0.f, 0.f);
+
+	Vector3 vFirst, vSecond, vNormal;
+	//¿ì »ó´Ü »ï°¢Çü ¹ý¼±º¤ÅÍ
+	vFirst = pVertices[1].vPos - pVertices[0].vPos;
+	vSecond = pVertices[2].vPos - pVertices[0].vPos;
+	D3DXVec3Cross(&vNormal, &vFirst, &vSecond);
+	pVertices[0].vNormal = vNormal;
+	pVertices[1].vNormal = vNormal;
+	pVertices[2].vNormal = vNormal;
+
+	//ÁÂ ÇÏ´Ü »ï°¢Çü ¹ý¼±º¤ÅÍ
+	vFirst = pVertices[2].vPos - pVertices[0].vPos;
+	vSecond = pVertices[3].vPos - pVertices[0].vPos;
+	D3DXVec3Cross(&vNormal, &vFirst, &vSecond);
+	pVertices[0].vNormal = vNormal;
+	pVertices[2].vNormal = vNormal;
+	pVertices[3].vNormal = vNormal;
+
 
 	m_pVB->Unlock();
 
@@ -118,15 +140,18 @@ HRESULT Rect_VIBuffer_Texture::Create_IBuffer()
 
 	m_pIB->Lock(0, 0, (void**)&pIndices, 0);
 	//ÇÑ ¹è¿­¿¡ ÇÑ »ï°¢ÇüÀÌ¶ó°í »ý°¢ÇÏ¸é ´ï.
-
+	
+	//¿À¸¥ÂÊ À§ »ï°¢Çü
 	pIndices[0]._1 = 0; //Á¢±ÙÀÌ µÉ¶õ°¡?
 	pIndices[0]._2 = 1;
 	pIndices[0]._3 = 2;
-
+	
+	//¿ÞÂÊ À§ »ï°¢Çü
 	pIndices[1]._1 = 0;
 	pIndices[1]._2 = 2;
 	pIndices[1]._3 = 3;
-	
+		//³ë¸»º¤ÅÍ ¼³Á¤
+
 
 	m_pIB->Unlock();
 

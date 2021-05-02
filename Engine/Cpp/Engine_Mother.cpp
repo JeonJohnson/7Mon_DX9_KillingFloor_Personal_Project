@@ -29,6 +29,7 @@ Engine_Mother::Engine_Mother()
 
 	m_pGameObjectManager	= GameObjectManager::Get_Instance();
 	m_pUiManager			= UIManager::Get_Instance();
+	m_pLightManager			= LightManager::Get_Instance();
 	m_pRenderManager		= RenderManager::Get_Instance();
 	m_pSceneManager			= SceneManager::Get_Instance();
 }
@@ -52,6 +53,7 @@ void Engine_Mother::Initialize(Desc * _desc)
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
 	m_pUiManager->Initailize();
+	m_pLightManager->Initialize();
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
 	
@@ -87,6 +89,7 @@ void Engine_Mother::Release()
 {
 	m_pSceneManager->Destroy_Instance();
 	m_pRenderManager->Destroy_Instance();
+	m_pLightManager->Destroy_Instance();
 	m_pUiManager->Destroy_Instance();
 	m_pGameObjectManager->Destroy_Instance();
 	m_pInputManager->Destroy_Instance();
@@ -193,6 +196,11 @@ GameObject * Engine_Mother::Get_GameObjectbyTag(int _tag)
 list<GameObject*> Engine_Mother::Get_GameObjectListbyTag(int _tag)
 {
 	return m_pGameObjectManager->Get_GameObjectListbyTag(_tag);
+}
+
+void Engine_Mother::Insert_Light(D3DLIGHT9 * _pLight, const wstring & _Name)
+{
+	m_pLightManager->Insert_Light(_pLight, _Name);
 }
 
 void Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)

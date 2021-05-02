@@ -54,6 +54,8 @@ public:
 	virtual HRESULT Create_VBuffer() = 0;
 	virtual HRESULT Create_IBuffer() = 0;
 	//virtual void	VI_Setting() = 0;
+
+	//void ComputeNormal(Vector3* )
 public:
 	/* Get */
 	const wstring&			Get_Name() const;

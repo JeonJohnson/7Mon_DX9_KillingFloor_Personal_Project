@@ -188,35 +188,41 @@
     <Filter Include="06.Resource\01.Mesh\99.Olds\AnimationController_NO">
       <UniqueIdentifier>{848b00bf-9598-4740-86a3-fbcdb3fc50d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Component\04.Shader">
-      <UniqueIdentifier>{ca5e4240-cfbe-4302-a54a-f735f497682d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Manager\08.ShaderManager">
-      <UniqueIdentifier>{601f95ca-5078-4987-83e0-f6ba267c04ec}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.Component\99.SaveInfo">
       <UniqueIdentifier>{c523da75-afbe-4128-a58a-c453ce374637}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.System\98.Headers">
+    <Filter Include="01.Manager\08.LightManager">
+      <UniqueIdentifier>{9515f512-346f-4364-b1d5-afc6219cd798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\09.ShaderManager">
+      <UniqueIdentifier>{601f95ca-5078-4987-83e0-f6ba267c04ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\04.Light">
+      <UniqueIdentifier>{b73ec913-f6f1-4c31-ad26-c74b1ee09f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\05.Shader">
+      <UniqueIdentifier>{ca5e4240-cfbe-4302-a54a-f735f497682d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\05.Shader\Fx">
+      <UniqueIdentifier>{47cae730-5b63-413a-905c-88a25a81e506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Headers">
       <UniqueIdentifier>{e5fe7f53-2f2c-417b-92bf-e22f5a7df445}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.System\98.Headers\Define">
+    <Filter Include="98.Headers\Define">
       <UniqueIdentifier>{46a377ed-8439-4bb4-9a58-3a27f50f8dd2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.System\98.Headers\Enum">
+    <Filter Include="98.Headers\Enum">
       <UniqueIdentifier>{ee2c32f3-2e4d-488d-b168-786b84f939d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.System\98.Headers\Extern">
+    <Filter Include="98.Headers\Extern">
       <UniqueIdentifier>{d3c31e27-fed9-4f69-84af-7a683aa51c57}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.System\98.Headers\Struct">
+    <Filter Include="98.Headers\Struct">
       <UniqueIdentifier>{0ac7187f-d001-466c-ae39-47096ae7b932}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.System\98.Headers\TypeDef">
+    <Filter Include="98.Headers\TypeDef">
       <UniqueIdentifier>{6f713e96-446c-4f78-b4a9-85e28c6dacd1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.Component\04.Shader\Fx">
-      <UniqueIdentifier>{47cae730-5b63-413a-905c-88a25a81e506}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -356,13 +362,19 @@
       <Filter>06.Resource\01.Mesh\Hierarchy_Loader</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Shader.cpp">
-      <Filter>04.Component\04.Shader</Filter>
+      <Filter>04.Component\05.Shader</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\SaveInfo.cpp">
       <Filter>04.Component\99.SaveInfo</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Function_Math.cpp">
       <Filter>96.Utility\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\LightManager.cpp">
+      <Filter>01.Manager\08.LightManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Light.cpp">
+      <Filter>04.Component\04.Light</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -373,22 +385,22 @@
       <Filter>01.Manager\01.TimeManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Include.h">
-      <Filter>97.System\98.Headers</Filter>
+      <Filter>98.Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Struct.h">
-      <Filter>97.System\98.Headers\Struct</Filter>
+      <Filter>98.Headers\Struct</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Extern.h">
-      <Filter>97.System\98.Headers\Extern</Filter>
+      <Filter>98.Headers\Extern</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Enum.h">
-      <Filter>97.System\98.Headers\Enum</Filter>
+      <Filter>98.Headers\Enum</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\State.h">
       <Filter>02.Structure\State</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Define.h">
-      <Filter>97.System\98.Headers\Define</Filter>
+      <Filter>98.Headers\Define</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Cycle.h">
       <Filter>02.Structure\Cycle</Filter>
@@ -421,13 +433,13 @@
       <Filter>04.Component\01.Renderer\VIBuffer</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_KeyDefine.h">
-      <Filter>97.System\98.Headers\Define</Filter>
+      <Filter>98.Headers\Define</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\DebugManager.h">
       <Filter>01.Manager\99.DebugManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_TypeDef.h">
-      <Filter>97.System\98.Headers\TypeDef</Filter>
+      <Filter>98.Headers\TypeDef</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Transform.h">
       <Filter>04.Component\00.Transform</Filter>
@@ -523,7 +535,7 @@
       <Filter>06.Resource\01.Mesh\Hierarchy_Loader</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Shader.h">
-      <Filter>04.Component\04.Shader</Filter>
+      <Filter>04.Component\05.Shader</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\SaveInfo.h">
       <Filter>04.Component\99.SaveInfo</Filter>
@@ -531,13 +543,19 @@
     <ClInclude Include="..\Header\Function_Math.h">
       <Filter>96.Utility\Math</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\LightManager.h">
+      <Filter>01.Manager\08.LightManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Light.h">
+      <Filter>04.Component\04.Light</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\Shader\Shader_Sample.fx">
-      <Filter>04.Component\04.Shader\Fx</Filter>
+      <Filter>04.Component\05.Shader\Fx</Filter>
     </FxCompile>
     <FxCompile Include="..\Shader\Shader_Mesh.fx">
-      <Filter>04.Component\04.Shader\Fx</Filter>
+      <Filter>04.Component\05.Shader\Fx</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>
