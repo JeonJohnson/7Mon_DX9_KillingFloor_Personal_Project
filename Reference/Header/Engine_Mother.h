@@ -136,13 +136,17 @@ public: /* Gameobject Manager */
 public: /* UI Manager */
 
 public: /* Line Manager */
+	Line*			Create_Line(const Vector3& _vStart,
+		const Vector3& _vDest,
+		D3DXCOLOR _tColor = D3DCOLOR_RGBA(0, 255, 0, 255),
+		float _fWidth = 3.5f);
 	void			Insert_Line(Line* _pLine);
 
 	
 public: /* Light Manager */
 	void				Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name = L"Default_Light");
-
-
+	
+	 
 public: /* Render Manager */
 
 public: /* Resource Manager */

@@ -18,15 +18,18 @@ public:
 
 public:
 	virtual void Initialize() override;
+	
 	virtual void Release() override;
 
 public:
 
 public:
 
-public:
+public: /* Get */
+	vector<NaviCell*>	Get_NaivCellList();
 
-public:
+public: /* Set */
+	void		Insert_NaviCell(NaviCell* _pNaviCell);
 
 private:
 	vector<NaviCell*>		m_vecNaviCells;

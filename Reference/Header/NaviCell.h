@@ -11,19 +11,32 @@ class DLL_STATE NaviCell
 {
 	friend class NaviMesh; 
 public:
+
+public:
 	NaviCell();
 	~NaviCell();
 
 public:
+	void Initialize();
+	//void Render();
+	void Release();
 
-public:
+public: 
 
-public:
+public: /* Func */
+	void Setup_Lines();
 
-public:
+public: /* Get */
+	NaviPoint*			Get_NaviPoint(int _iIndex);
+	int					Get_PointArraySize();
+
+public: /* Set */
+	HRESULT	Insert_NaviPoint(NaviPoint* _pPoint, int _iIndex);
 
 private:
-	NaviPoint*		m_arrNaviPoints[3];
+	//LPDIRECT3DDEVICE9	m_pDX9_Device = nullptr;
+	//LPD3DXLINE			m_pDX9_Line = nullptr;
+	NaviPoint*			m_arrNaviPoints[3] = { nullptr };
 };
 
 #endif //_NAVI_CELL_H_

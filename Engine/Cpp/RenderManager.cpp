@@ -57,8 +57,6 @@ void RenderManager::Render()
 	m_pDX9_Device->Clear(
 		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
 		D3DCOLOR_ARGB(255, 255, 222, 222), 1.f, 0);
-	
-	
 
 	m_pDX9_Device->BeginScene();
 
@@ -131,7 +129,7 @@ void RenderManager::Render_UI()
 
 	UIManager::Get_Instance()->Render();
 	
-	LineManager::Get_Instance()->Render();
+
 #pragma region Test
 	//IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"PangDongE")->Get_Texture(0);
 	//LPDIRECT3DTEXTURE9 temp2 = 
@@ -177,6 +175,8 @@ void RenderManager::Render_UI()
 	//	&RectTemp, DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 255, 255));
 #pragma endregion
 	m_pDX9_Sprite->End();
+
+	LineManager::Get_Instance()->Render();
 }
 
 void RenderManager::Clear_RenderingList()

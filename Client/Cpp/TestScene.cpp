@@ -70,19 +70,19 @@ void TestScene::Initialize()
 
 	{
 
-		//GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
-		//PoliceCar->Set_Scale(Vector3(1.f, 1.f, 1.f));
-		//PoliceCar->Set_Position(Vector3(-100.f, 0.f, -100.f));
-		//Mesh_Renderer::Desc Policecar_desc;
-		//Policecar_desc.szMeshName = L"PoliceCar";
-		//PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
+		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
+		PoliceCar->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		PoliceCar->Set_Position(Vector3(-100.f, 0.f, -100.f));
+		Mesh_Renderer::Desc Policecar_desc;
+		Policecar_desc.szMeshName = L"PoliceCar";
+		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
 
-		//GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
-		//Taxi->Set_Scale(Vector3(1.f, 1.f, 1.f));
-		//Taxi->Set_Position(Vector3(50.f, 0.f, 50.f));
-		//Mesh_Renderer::Desc Taxi_Desc;
-		//Taxi_Desc.szMeshName = L"Taxi";
-		//Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
+		GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
+		Taxi->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		Taxi->Set_Position(Vector3(50.f, 0.f, 50.f));
+		Mesh_Renderer::Desc Taxi_Desc;
+		Taxi_Desc.szMeshName = L"Taxi";
+		Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
 		//
 		//GameObject*		Test2 = INSTANTIATE(OBJECT_TAG_DEFAULT, L"TestObj");
 		//Test2->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
@@ -104,16 +104,15 @@ void TestScene::Initialize()
 		Fps_Desc.fSensitive = 50.f;
 		Player->Add_Component<Camera_FPS>(&Fps_Desc);
 
+		Mesh_Renderer::Desc	Hand_Desc;
+		Hand_Desc.szMeshName = L"M4";
+		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
-		//Mesh_Renderer::Desc	Hand_Desc;
-		//Hand_Desc.szMeshName = L"M4";
-		//Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
-
-		//Anim_Controller::Desc Anim_Desc;
-		//Anim_Desc.fAnimSpd = 1.f;
-		//Anim_Desc.iInitIndex = 6;
-		//Anim_Desc.pGameObject = Player;
-		//Player->Add_Component<Anim_Controller>(&Anim_Desc);
+		Anim_Controller::Desc Anim_Desc;
+		Anim_Desc.fAnimSpd = 1.f;
+		Anim_Desc.iInitIndex = 6;
+		Anim_Desc.pGameObject = Player;
+		Player->Add_Component<Anim_Controller>(&Anim_Desc);
 
 
 		Player_Move::Desc player_Desc;
@@ -121,22 +120,22 @@ void TestScene::Initialize()
 		player_Desc.fSprintSpd = 55.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 
-		//Player_Attack::Desc Att_Desc;
-		//Att_Desc.pAnimCtrl = Player->Get_NewComponent<Anim_Controller>();
-		//Att_Desc.pMeshRenderer = Player->Get_NewComponent<Mesh_Renderer>();
-		//Att_Desc.szPrimary = L"M4";
-		//Att_Desc.szSecondary = L"BerettaM9";
-		//Att_Desc.szMelee = L"Knife_M9";
-		//Player->Add_Component<Player_Attack>(&Att_Desc);
+		Player_Attack::Desc Att_Desc;
+		Att_Desc.pAnimCtrl = Player->Get_NewComponent<Anim_Controller>();
+		Att_Desc.pMeshRenderer = Player->Get_NewComponent<Mesh_Renderer>();
+		Att_Desc.szPrimary = L"M4";
+		Att_Desc.szSecondary = L"BerettaM9";
+		Att_Desc.szMelee = L"Knife_M9";
+		Player->Add_Component<Player_Attack>(&Att_Desc);
 
-	
 
-		//GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-		//Map->Set_Position(Vector3(0, 0, 0.f));
-		//Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		//Mesh_Renderer::Desc Map_desc;
-		//Map_desc.szMeshName = L"Map";
-		//Map->Add_Component<Mesh_Renderer>(&Map_desc);
+
+		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+		Map->Set_Position(Vector3(0, 0, 0.f));
+		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		Mesh_Renderer::Desc Map_desc;
+		Map_desc.szMeshName = L"Map";
+		Map->Add_Component<Mesh_Renderer>(&Map_desc);
 		
 	}
 

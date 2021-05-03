@@ -2,7 +2,12 @@
 #include "afxwin.h"
 
 
+
 // NaviMeshTool_Dialog 대화 상자입니다.
+
+class NaviPoint;
+class NaviCell;
+class NaviMesh;
 
 class NaviMeshTool_Dialog : public CDialogEx
 {
@@ -34,4 +39,8 @@ public:
 	CButton m_checkPointCreate;
 	bool	m_bPointCreate;
 	CListBox m_PointList;
+
+	NaviPoint*		m_pTempPoint= nullptr;
+	NaviCell*		m_pTempCell = nullptr;
+	NaviMesh*		m_pNaviMesh = nullptr;
 };

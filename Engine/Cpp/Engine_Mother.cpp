@@ -227,6 +227,13 @@ Camera * Engine_Mother::Get_MainCamera()
 
 }
 
+Line* Engine_Mother::Create_Line(const Vector3 & _vStart, const Vector3 & _vDest, D3DXCOLOR _tColor, float _fWidth)
+{
+	return m_pLineManager->Create_Line(
+		_vStart, _vDest,
+		_tColor, _fWidth);
+}
+
 void Engine_Mother::Insert_Line(Line * _pLine)
 {
 	m_pLineManager->Insert_Line(_pLine);

@@ -11,15 +11,22 @@ class DLL_STATE NaviPoint
 
 public:
 	NaviPoint();
+	NaviPoint(const Vector3& _vPos);
 	~NaviPoint();
 	
 public:
+	void Initialize();
+	void Render();
+	void Release();
 
-public:
+public: /* func */
 
-public:
 
-public:
+public: /* Get */
+	const Vector3&	Get_Position() const ;
+
+public: /* Set */
+	void			Set_Position(const Vector3& _vPos);
 
 private:
 	Vector3		m_vPosition;

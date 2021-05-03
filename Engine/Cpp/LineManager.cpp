@@ -29,18 +29,17 @@ void LineManager::Initialize()
 
 void LineManager::Render()
 {
-	Matrix	matViewSpace, matProjSpace;
+	Vector3		vPos[2];
+	//D3DCOLOR	tColor;
+	//float		fWidth;
+	Matrix		matViewSpace, matProjSpace, matTemp;
 
 	m_pDX9_Device->GetTransform(D3DTS_VIEW, &matViewSpace);
 	m_pDX9_Device->GetTransform(D3DTS_PROJECTION, &matProjSpace);
-	
-	//m_pDX9_Device->EndScene();
-	//m_pDX9_Device->BeginScene();
 
 	for (auto& line : m_listLines)
 	{
-		Vector3 vPos[2];
-		vPos[0]= line->Get_StartPos();
+		vPos[0] = line->Get_StartPos();
 		vPos[1] = line->Get_DestPos();
 
 		for (int i = 0; i < 2; ++i)
@@ -48,31 +47,25 @@ void LineManager::Render()
 			D3DXVec3TransformCoord(&vPos[i], &vPos[i], &matViewSpace);
 			if (vPos[i].z <= 0.1f)
 			{
-				vPos[i].z == 0.1f;
+				vPos[i].z = 0.1f;
 			}
-			//D3DXVec3TransformCoord(&vPos[i], &vPos[i], &matProjSpace);
+			D3DXVec3TransformCoord(&vPos[i], &vPos[i], &matProjSpace);
 		}
 
-		Matrix matTemp;
 		D3DXMatrixIdentity(&matTemp);
-		//matTemp = matTemp * matViewSpace * matProjSpace;
 
-		m_pDX9_LineCom->SetWidth(20.f);
+		m_pDX9_LineCom->SetWidth(line->Get_Width());
 
 		m_pDX9_LineCom->Begin();
-		HRESULT hTemp = m_pDX9_LineCom->DrawTransform(vPos, 2, &matProjSpace, line->Get_Color());
-		if (hTemp == E_FAIL)
-		{
-			int i = 0;
-		}
+		m_pDX9_LineCom->DrawTransform(vPos, 2, &matTemp, line->Get_Color());
 		m_pDX9_LineCom->End();
 	}
-
 
 }
 
 void LineManager::Release()
 {
+	Delete_Lines();
 
 	Safe_Release(m_pDX9_LineCom);
 }
@@ -80,6 +73,28 @@ void LineManager::Release()
 void LineManager::Delete_Lines()
 {
 	
+	for (auto list_iter = m_listLines.begin(); list_iter != m_listLines.end();)
+	{
+		(*list_iter)->Release();
+		delete *list_iter;
+		*list_iter = nullptr;
+		list_iter = m_listLines.erase(list_iter);
+	}
+
+}
+
+Line * LineManager::Create_Line(const Vector3& _vStart,
+	const Vector3& _vDest,  D3DXCOLOR _tColor, float _fWidth)
+{
+	Line::Desc	descTemp;
+	descTemp.vStart = _vStart;
+	descTemp.vDest = _vDest;
+	descTemp.tColor = _tColor;
+	descTemp.fWidth = _fWidth;
+
+	Line*	LineTemp = new Line(&descTemp);
+
+	return LineTemp;
 }
 
 void LineManager::Insert_Line(Line * _pLine)

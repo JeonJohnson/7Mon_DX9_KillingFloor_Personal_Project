@@ -26,10 +26,16 @@ public:
 public: /* funciton */
 	void Delete_Lines();
 
+	Line*		Create_Line(const Vector3& _vStart, 
+		const Vector3& _vDest,
+		D3DXCOLOR _tColor = D3DCOLOR_RGBA(0, 255, 0, 255),
+		float _fWidth = 3.5f);
+
 public: /* Get */
 	 
 
 public: /* Set */
+		
 	void Insert_Line(Line* _pLine);
 
 private:
