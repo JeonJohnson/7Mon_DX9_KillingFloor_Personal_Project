@@ -56,17 +56,19 @@ public:
 		string strName = typeid(T).name(); //클래스 이름을 string형으로 바까줌
 		wstring wName;
 		wName.assign(strName.begin(), strName.end());
-
+		 
 		m_vecNewComponents.emplace_back(pair<wstring, Component*>(wName,component));
 
 		return this;
 	}
 
-	template <class T>
+	template <typename T>
 	GameObject* Add_Component()
 	{
 		Component* component = nullptr;
-		component = Component::Instantiate<T>();
+		
+		typename T::Desc tempDesc;
+		component = Component::Instantiate<T>(&tempDesc);
 		assert(L"Add Component is failed" && component);
 
 		component->Set_GameObject(this);

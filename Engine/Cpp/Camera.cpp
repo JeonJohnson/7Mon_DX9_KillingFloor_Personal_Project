@@ -18,6 +18,7 @@ Camera::Camera(Desc * _desc)
 
 	m_fzNear = _desc->fzNear;
 	m_fzFar = _desc->fzFar;
+
 }
 
 Camera::~Camera()

@@ -23,9 +23,6 @@
     <Filter Include="02.Structure">
       <UniqueIdentifier>{e2c25aac-a613-406d-9401-d57a1de678dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.Structure\State">
-      <UniqueIdentifier>{63fe55ad-c04e-4e22-8672-3ff0c041c85f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.Structure\Cycle">
       <UniqueIdentifier>{9e3d94e9-f621-4155-9e65-58a6a12434c4}</UniqueIdentifier>
     </Filter>
@@ -245,6 +242,9 @@
     <Filter Include="04.Component\06.StateController">
       <UniqueIdentifier>{58bd4c95-9b53-4b6d-b42a-a98d5d796bd6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Structure\State">
+      <UniqueIdentifier>{63fe55ad-c04e-4e22-8672-3ff0c041c85f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -252,9 +252,6 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\TimeManager.cpp">
       <Filter>01.Manager\01.TimeManager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\State.cpp">
-      <Filter>02.Structure\State</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Cycle.cpp">
       <Filter>02.Structure\Cycle</Filter>
@@ -415,6 +412,9 @@
     <ClCompile Include="..\Cpp\StateController.cpp">
       <Filter>04.Component\06.StateController</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\CState.cpp">
+      <Filter>02.Structure\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\DeviceManager.h">
@@ -434,9 +434,6 @@
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Enum.h">
       <Filter>98.Headers\Enum</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\State.h">
-      <Filter>02.Structure\State</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Engine_Define.h">
       <Filter>98.Headers\Define</Filter>
@@ -605,6 +602,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\StateController.h">
       <Filter>04.Component\06.StateController</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\CState.h">
+      <Filter>02.Structure\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

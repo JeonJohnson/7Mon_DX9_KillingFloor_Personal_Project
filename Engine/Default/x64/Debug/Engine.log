@@ -1,6 +1,6 @@
-﻿  NaviCell.cpp
+﻿  Anim_Controller.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Engine.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
   1개 파일이 복사되었습니다.
@@ -10,6 +10,7 @@
   ..\Header\Camera.h
   ..\Header\Component.h
   ..\Header\CResource.h
+  ..\Header\CState.h
   ..\Header\Cube_VIBuffer_Color.h
   ..\Header\Cube_VIBuffer_DDS.h
   ..\Header\Cube_VIBuffer_Texture.h
@@ -53,7 +54,7 @@
   ..\Header\Shader.h
   ..\Header\SkyBox_VIBuffer_DDS.h
   ..\Header\Sprite.h
-  ..\Header\State.h
+  ..\Header\StateController.h
   ..\Header\StaticMesh.h
   ..\Header\SystemManager.h
   ..\Header\Text.h
@@ -67,7 +68,7 @@
   ..\Header\UI_Renderer.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  63개 파일이 복사되었습니다.
+  64개 파일이 복사되었습니다.
   ..\Shader\Shader_Mesh.fx
   ..\Shader\Shader_Sample.fx
   2개 파일이 복사되었습니다.

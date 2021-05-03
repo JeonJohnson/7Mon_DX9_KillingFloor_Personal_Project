@@ -42,7 +42,7 @@ public: //Functions
 	bool	Swap();
 
 public:	//Get
-
+	int		Get_CurWeaponIndex();
 
 public: //Set
 
@@ -59,6 +59,7 @@ private:
 
 	Anim_Controller*	m_pWeaponAnim = nullptr;
 
+	class StateController*	m_pStateCtrl = nullptr;
 };
 
 #endif //_PLAYER_ATT_H_

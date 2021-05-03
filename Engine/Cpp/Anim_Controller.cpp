@@ -37,8 +37,9 @@ void Anim_Controller::Update()
 {
 	m_fdTime = TimeManager::Get_Instance()->Get_Time();
 
+
 	Play_Animation();
-	m_pAnimController->GetTrackDesc(m_iCurTrack, m_tCurTrackInfo);
+	
 }
 
 void Anim_Controller::LateUpdate()
@@ -58,6 +59,8 @@ void Anim_Controller::Release()
  
 HRESULT Anim_Controller::Setup_AnimController(GameObject* _pGameObject)
 {
+	//나중에 템플릿으로 연결지을 MeshRenderer 넣어줘야할덧...?
+
 	if (_pGameObject != nullptr)
 	{
 		Mesh_Renderer* Temp_MeshRenderer = _pGameObject->Get_NewComponent<Mesh_Renderer>();
@@ -98,17 +101,33 @@ HRESULT Anim_Controller::Setup_AnimController(GameObject* _pGameObject)
 
 void Anim_Controller::Play_Animation()
 {
-	if (m_bPlay)
+	//if (m_fCurKeyFrame + m_fdTime >= (float)m_dMaxKeyFrame )
+	//{
+	//	m_fCurKeyFrame = m_dMaxKeyFrame;
+
+	//	m_pAnimController->AdvanceTime((m_dMaxKeyFrame-m_fdTime-0.01) * m_fAnimSpd, NULL);
+	//}
+	//else 
 	{
 		m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
-		m_fCurKeyFrame += m_fdTime;
 	}
+
+	m_pAnimController->GetTrackDesc(m_iCurTrack, m_tCurTrackInfo);
+
+	m_fCurKeyFrame = (float)m_tCurTrackInfo->Position;
+
+
 }
 
-void Anim_Controller::Stop_Animation()
-{
-	m_bPlay = false;
-}
+//void Anim_Controller::Reset_Frame()
+//{
+//
+//}
+
+//void Anim_Controller::Stop_Animation()
+//{
+//	m_bPlay = false;
+//}
 
 LPD3DXANIMATIONCONTROLLER Anim_Controller::Get_AnimController() const
 {
@@ -130,16 +149,13 @@ float Anim_Controller::Get_AnimCurSpd() const
 	return m_fAnimSpd;
 }
 
-bool Anim_Controller::Get_Playing()
+bool Anim_Controller::Get_End()
 {
-
-	//m_pAnimController->GetTrackDesc(m_iCurTrack, );
-
-	if (m_tCurTrackInfo->Position >= m_dMaxKeyFrame - 0.001)
+	if (m_fCurKeyFrame >= (float)m_dMaxKeyFrame - 0.1)
 	{
-		return false;
+		return true;
 	}
-	return true;
+	return false;
 }
 
 void Anim_Controller::Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl)
@@ -187,7 +203,7 @@ void Anim_Controller::Set_AnimIndex(int _iNewIndex)
 	//해당 트랙이 해제되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
 	m_pAnimController->KeyTrackWeight(m_iCurTrack, 0.1f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 
-	//트랙을 활성화
+	//트랙을 활성화, 다음 애니메이션 시작.
 	m_pAnimController->SetTrackEnable(m_iNewTrack, TRUE);
 	//해당 트랙이 시작되는 시간동안 현재 키 프레임은 어떤 속도로 움직이게 할 것인가
 	m_pAnimController->KeyTrackSpeed(m_iNewTrack, 1.f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
@@ -219,4 +235,12 @@ void Anim_Controller::Set_CurFrame(float _fFrame)
 void Anim_Controller::Set_Loop(bool _bLoop)
 {
 	m_bLoop = _bLoop;
+}
+
+void Anim_Controller::Set_AnimReset(int _iIndex)
+{
+	m_pAnimController->ResetTime();
+	m_fCurKeyFrame = 0.f;
+
+	m_pAnimController->SetTrackPosition(_iIndex, 0.0);
 }

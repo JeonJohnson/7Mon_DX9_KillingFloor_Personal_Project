@@ -8,6 +8,10 @@
 #include "Player_Attack.h"
 #include "Anim_Controller.h"
 #include "Line.h"
+#include "..\..\Engine\Header\StateController.h"
+#include "Player_Idle.h"
+#include "Player_Reload.h"
+#include "Player_Att.h"
 //#include "../../Reference/Header/Camera.h"
  
 TestScene::TestScene()
@@ -36,8 +40,6 @@ void TestScene::Initialize()
 
 	//EngineFunction->Insert_Light(Temp, L"HatBit");
 	//delete Temp;
-	
-
 
 	GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	VIBuffer_Renderer::Desc Grid_Desc;
@@ -95,6 +97,13 @@ void TestScene::Initialize()
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
 		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
 
+		Player->Add_Component<StateController>();
+		auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
+		PlayerStateCtrl->Add_State<Player_Idle>(L"Player_Idle");
+		PlayerStateCtrl->Add_State<Player_Att>(L"Player_Att");
+		PlayerStateCtrl->Add_State<Player_Reload>(L"Player_Reload");
+		//PlayerStateCtrl->Add_State<Player_Idle>(L"Player_Idle");
+		PlayerStateCtrl->Set_InitState(L"Player_Idle");
 
 		Camera::Desc Cam_desc;
 		Cam_desc.fFov_Degree = 45.f;
@@ -104,15 +113,22 @@ void TestScene::Initialize()
 		Fps_Desc.fSensitive = 50.f;
 		Player->Add_Component<Camera_FPS>(&Fps_Desc);
 
+		//GameObject* AnimTest = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test");
+		//AnimTest->Set_Position(Vector3(0.f, 20.f, 50.f));
+
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"M4";
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
+		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 		Anim_Controller::Desc Anim_Desc;
 		Anim_Desc.fAnimSpd = 1.f;
 		Anim_Desc.iInitIndex = 6;
+		Anim_Desc.bLoop = false;
 		Anim_Desc.pGameObject = Player;
+		//Anim_Desc.pGameObject = AnimTest;
 		Player->Add_Component<Anim_Controller>(&Anim_Desc);
+		//AnimTest->Add_Component<Anim_Controller>(&Anim_Desc);
 
 
 		Player_Move::Desc player_Desc;
@@ -123,6 +139,8 @@ void TestScene::Initialize()
 		Player_Attack::Desc Att_Desc;
 		Att_Desc.pAnimCtrl = Player->Get_NewComponent<Anim_Controller>();
 		Att_Desc.pMeshRenderer = Player->Get_NewComponent<Mesh_Renderer>();
+		//Att_Desc.pAnimCtrl = AnimTest->Get_NewComponent<Anim_Controller>();
+		//Att_Desc.pMeshRenderer = AnimTest->Get_NewComponent<Mesh_Renderer>();
 		Att_Desc.szPrimary = L"M4";
 		Att_Desc.szSecondary = L"BerettaM9";
 		Att_Desc.szMelee = L"Knife_M9";

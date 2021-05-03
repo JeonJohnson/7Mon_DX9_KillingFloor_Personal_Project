@@ -100,6 +100,8 @@ void GameObject::Merge_Components()
 
 	for (auto& newComponent : m_vecNewComponents)
 	{
+		//컴포넌트 이니셜 라이즈 시기 맞추기.
+		newComponent.second->Initialize();
 		m_vecComponents.emplace_back(newComponent);
 	}
 

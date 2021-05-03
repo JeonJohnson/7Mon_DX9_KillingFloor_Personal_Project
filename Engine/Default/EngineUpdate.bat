@@ -1,5 +1,6 @@
 ::For General
 xcopy /y ..\Bin\*.lib ..\..\Reference\Lib\
+del /q ..\..\Reference\Header\*.h
 xcopy /y ..\Header\*.h ..\..\Reference\Header\
 xcopy /y ..\Shader\*.fx ..\..\Reference\Shader\
 

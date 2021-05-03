@@ -5,6 +5,8 @@
 #include "Mesh_Renderer.h"
 #include "Mesh.h"
 #include "Anim_Controller.h"
+#include "Component.h"
+#include "..\..\Engine\Header\StateController.h"
 
 Player_Attack::Player_Attack(Desc * _desc)
 {
@@ -20,6 +22,7 @@ Player_Attack::Player_Attack(Desc * _desc)
 	m_arrWeapons[2] = _desc->szMelee;
 
 	m_pWeaponAnim = _desc->pAnimCtrl;
+
 };
 
 
@@ -77,39 +80,42 @@ bool Player_Attack::Shoot()
 {
 	if (MouseDown(KEY_STATE_LMouse))
 	{
-		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(4);
-		switch (m_iCurWeaponIndex)
-		{
-		case 0:
-		{
-			m_pWeaponAnim->Set_AnimIndex(4);
-		}
-		break;
+		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Att");
 
-		case 1:
-		{
-			m_pWeaponAnim->Set_AnimIndex(3);
-		}
-		break;
 
-		case 2:
-		{
-			m_pWeaponAnim->Set_AnimIndex(7);
-		}
-		break;
+		////Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(4);
+		//switch (m_iCurWeaponIndex)
+		//{
+		//case 0:
+		//{
+		//	m_pWeaponAnim->Set_AnimIndex(4);
+		//}
+		//break;
 
-		default:
-			break;
-		}
-		
-		return true;
+		//case 1:
+		//{
+		//	m_pWeaponAnim->Set_AnimIndex(3);
+		//}
+		//break;
+
+		//case 2:
+		//{
+		//	m_pWeaponAnim->Set_AnimIndex(7);
+		//}
+		//break;
+
+		//default:
+		//	break;
+		//}
+		//
+		//return true;
 	}
-	if (MouseUp(KEY_STATE_LMouse))
-	{
-		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(5);
-		
-		return true;
-	}
+	//if (MouseUp(KEY_STATE_LMouse))
+	//{
+	//	//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(5);
+	//	
+	//	return true;
+	//}
 
 	return false;
 }
@@ -118,8 +124,9 @@ bool Player_Attack::Reload()
 {
 	if (KeyPress(KEY_STATE_R))
 	{
+		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");
 		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(1);
-		switch (m_iCurWeaponIndex)
+	/*	switch (m_iCurWeaponIndex)
 		{
 		case 0:
 		{
@@ -137,7 +144,7 @@ bool Player_Attack::Reload()
 		default:
 			break;
 		}
-		return true;
+		return true;*/
 	}
 
 	return false;
@@ -163,12 +170,15 @@ bool Player_Attack::Swap()
 		m_pWeapon_Mesh->Set_Mesh(m_arrWeapons[m_iNewWeaponIndex]);
 		m_pWeaponAnim->Setup_AnimController(m_GameObject);
 		
+
 		switch (m_iNewWeaponIndex)
 		{
 		case 0:
 		{
 			//m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(0);
+		
+			//m_pWeaponAnim->Set_AnimReset(0);
 		}
 		break;
 
@@ -176,6 +186,7 @@ bool Player_Attack::Swap()
 		{
 			//m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(2);
+			//m_pWeaponAnim->Set_AnimReset(2);
 		}
 		break;
 
@@ -183,6 +194,7 @@ bool Player_Attack::Swap()
 		{
 			//m_pWeaponAnim->Set_CurFrame(0.f);
 			m_pWeaponAnim->Set_AnimIndex(0);
+			//m_pWeaponAnim->Set_AnimReset(0);
 		}
 		break;
 
@@ -196,4 +208,9 @@ bool Player_Attack::Swap()
 	}
 
 	return false;
+}
+
+int Player_Attack::Get_CurWeaponIndex()
+{
+	return m_iCurWeaponIndex;
 }

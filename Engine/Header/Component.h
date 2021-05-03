@@ -49,23 +49,24 @@ public: /* Create */
 		Component* Instance = nullptr;
 		Instance = new T(_desc);
 		assert(L"Component Instance failed" && Instance);
-		Instance->Initialize();
+		//Instance->Initialize();
+		//여기말고 GameObject에서 newComponet Merge하는 부분에서 해줌.
 		
 		
 		return Instance;
 	}
 
-	template<class T>
-	static Component* Instantiate()
-	{
-		Component* Instance = nullptr;
-		Instance = new T();
-		assert(L"Component Instance failed" && Instance);
-		Instance->Initialize();
-		
+	//template<class T>
+	//static Component* Instantiate()
+	//{
+	//	Component* Instance = nullptr;
+	//	Instance = new T();
+	//	assert(L"Component Instance failed" && Instance);
+	//	Instance->Initialize();
+	//	
 
-		return Instance;
-	}
+	//	return Instance;
+	//}
 
 
 #pragma endregion 

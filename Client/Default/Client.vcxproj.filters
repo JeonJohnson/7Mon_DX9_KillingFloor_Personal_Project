@@ -80,6 +80,24 @@
     <Filter Include="05.Objects\00.Player\01.Att">
       <UniqueIdentifier>{84357764-7194-47c4-8df0-b0f01c431224}</UniqueIdentifier>
     </Filter>
+    <Filter Include="05.Objects\00.Player\State">
+      <UniqueIdentifier>{f7ab2c79-925c-46de-8305-ddeb115d902c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\State\00.Idle">
+      <UniqueIdentifier>{2e4e05d5-4d36-4f46-bd8c-67352c102b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\State\01.Walk">
+      <UniqueIdentifier>{8d14ecbf-b31d-42f4-90e6-e31317e50a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\State\03.Reload">
+      <UniqueIdentifier>{f777eca2-7ed5-4896-b9fe-0a5c739340ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\State\02.Run">
+      <UniqueIdentifier>{c7965044-b88e-4a44-b998-2e17368cb1ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\State\03.Att">
+      <UniqueIdentifier>{53c3c05c-75e4-414a-adba-49fbc51714b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -136,6 +154,18 @@
     <ClInclude Include="..\Header\Player_Attack.h">
       <Filter>05.Objects\00.Player\01.Att</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Player_Idle.h">
+      <Filter>05.Objects\00.Player\State\00.Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Walk.h">
+      <Filter>05.Objects\00.Player\State\01.Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Att.h">
+      <Filter>05.Objects\00.Player\State\03.Att</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Reload.h">
+      <Filter>05.Objects\00.Player\State\03.Reload</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -167,6 +197,18 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Attack.cpp">
       <Filter>05.Objects\00.Player\01.Att</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Idle.cpp">
+      <Filter>05.Objects\00.Player\State\00.Idle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Walk.cpp">
+      <Filter>05.Objects\00.Player\State\01.Walk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Att.cpp">
+      <Filter>05.Objects\00.Player\State\03.Att</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Reload.cpp">
+      <Filter>05.Objects\00.Player\State\03.Reload</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

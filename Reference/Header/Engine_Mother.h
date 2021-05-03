@@ -41,7 +41,7 @@
 
 class DLL_STATE Engine_Mother
 {
-#define DIRECTINPUT_VERSION 0x0800
+//#define DIRECTINPUT_VERSION 0x0800
 
 private:
 	static Engine_Mother*	m_Instance;

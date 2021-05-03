@@ -35,14 +35,15 @@ public:
 public: /* Function */
 	HRESULT			Setup_AnimController(GameObject* _pGameObject);
 	void			Play_Animation();
-	void			Stop_Animation();
+	//void			Reset_Frame();
+	//void			Stop_Animation();
 
 public: /* Get */
 	LPD3DXANIMATIONCONTROLLER		Get_AnimController() const;
 	int								Get_CurIndex() const;
 	int								Get_MaxIndex() const;
 	float							Get_AnimCurSpd() const;
-	bool							Get_Playing() ;
+	bool							Get_End();
 
 public: /* Set */
 	void							Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl);
@@ -50,9 +51,12 @@ public: /* Set */
 	void							Set_AnimSpd(float _fAnimSpd);
 	void							Set_CurFrame(float _fFrame);
 	void							Set_Loop(bool _bLoop);
+	void							Set_AnimReset(int _iIndex);
 
  private:
 	LPD3DXANIMATIONCONTROLLER		m_pAnimController = nullptr;
+	LPD3DXANIMATIONSET				m_pAnimSet = nullptr;
+
 	int		m_iCurIndex = 9999; //재생중인 애니메이션 번호
 	int		m_iMaxIndex; // = Animation Count
 	LPD3DXTRACK_DESC				m_tCurTrackInfo = nullptr;
@@ -64,6 +68,7 @@ public: /* Set */
 	int		m_iNewTrack = 1;
 
 	float	m_fCurKeyFrame = 0.f;		//= m_fAccTime;
+	//float	m_fPreKeyFrame = 0.f;
 	double	m_dMaxKeyFrame = 0.0;		//= m_dPeriod;
 
 	float	m_fdTime = 0.f;
