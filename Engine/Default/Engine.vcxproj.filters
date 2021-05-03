@@ -197,9 +197,6 @@
     <Filter Include="01.Manager\09.ShaderManager">
       <UniqueIdentifier>{601f95ca-5078-4987-83e0-f6ba267c04ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Component\04.Light">
-      <UniqueIdentifier>{b73ec913-f6f1-4c31-ad26-c74b1ee09f6f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.Component\05.Shader">
       <UniqueIdentifier>{ca5e4240-cfbe-4302-a54a-f735f497682d}</UniqueIdentifier>
     </Filter>
@@ -224,16 +221,25 @@
     <Filter Include="98.Headers\TypeDef">
       <UniqueIdentifier>{6f713e96-446c-4f78-b4a9-85e28c6dacd1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\04.NaviMesh">
+    <Filter Include="01.Manager\LineManager">
+      <UniqueIdentifier>{9f79fcb8-5dba-4b84-9301-45d216d7ddb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.GameObject\04.Light">
+      <UniqueIdentifier>{b73ec913-f6f1-4c31-ad26-c74b1ee09f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.GameObject\Line">
+      <UniqueIdentifier>{d4a491bf-8d75-4b8b-810e-d5f77f9ccf19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.GameObject\04.NaviMesh">
       <UniqueIdentifier>{c6c694a1-aaa7-415a-95c1-9020c8eeed59}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\04.NaviMesh\01.Cell">
+    <Filter Include="03.GameObject\04.NaviMesh\01.Cell">
       <UniqueIdentifier>{692c9889-8427-447e-b0ff-5cbe2b02df75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\04.NaviMesh\00.Point">
+    <Filter Include="03.GameObject\04.NaviMesh\00.Point">
       <UniqueIdentifier>{66a03504-ce58-4abf-a42a-a7c13ff9d942}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\04.NaviMesh\02.NaviMesh">
+    <Filter Include="03.GameObject\04.NaviMesh\02.NaviMesh">
       <UniqueIdentifier>{463795d0-284b-458d-a53f-13606fa10f85}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -386,16 +392,22 @@
       <Filter>01.Manager\08.LightManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Light.cpp">
-      <Filter>04.Component\04.Light</Filter>
+      <Filter>03.GameObject\04.Light</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\NaviMesh.cpp">
-      <Filter>06.Resource\04.NaviMesh\02.NaviMesh</Filter>
+      <Filter>03.GameObject\04.NaviMesh\02.NaviMesh</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\NaviPoint.cpp">
-      <Filter>06.Resource\04.NaviMesh\00.Point</Filter>
+      <Filter>03.GameObject\04.NaviMesh\00.Point</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\NaviCell.cpp">
-      <Filter>06.Resource\04.NaviMesh\01.Cell</Filter>
+      <Filter>03.GameObject\04.NaviMesh\01.Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Line.cpp">
+      <Filter>03.GameObject\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\LineManager.cpp">
+      <Filter>01.Manager\LineManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -568,16 +580,22 @@
       <Filter>01.Manager\08.LightManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Light.h">
-      <Filter>04.Component\04.Light</Filter>
+      <Filter>03.GameObject\04.Light</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\NaviMesh.h">
-      <Filter>06.Resource\04.NaviMesh\02.NaviMesh</Filter>
+      <Filter>03.GameObject\04.NaviMesh\02.NaviMesh</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\NaviPoint.h">
-      <Filter>06.Resource\04.NaviMesh\00.Point</Filter>
+      <Filter>03.GameObject\04.NaviMesh\00.Point</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\NaviCell.h">
-      <Filter>06.Resource\04.NaviMesh\01.Cell</Filter>
+      <Filter>03.GameObject\04.NaviMesh\01.Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Line.h">
+      <Filter>03.GameObject\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\LineManager.h">
+      <Filter>01.Manager\LineManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

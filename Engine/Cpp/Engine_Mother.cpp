@@ -29,6 +29,7 @@ Engine_Mother::Engine_Mother()
 
 	m_pGameObjectManager	= GameObjectManager::Get_Instance();
 	m_pUiManager			= UIManager::Get_Instance();
+	m_pLineManager			= LineManager::Get_Instance();
 	m_pLightManager			= LightManager::Get_Instance();
 	m_pRenderManager		= RenderManager::Get_Instance();
 	m_pSceneManager			= SceneManager::Get_Instance();
@@ -52,7 +53,9 @@ void Engine_Mother::Initialize(Desc * _desc)
 	m_pResourceManager->Initialize();
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
+	
 	m_pUiManager->Initailize();
+	m_pLineManager->Initialize();
 	m_pLightManager->Initialize();
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
@@ -68,6 +71,7 @@ void Engine_Mother::Initialize(Desc_Tool * _desc)
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
 	m_pUiManager->Initailize();
+	m_pLineManager->Initialize();
 	m_pLightManager->Initialize();
 	m_pRenderManager->Initialize();
 	m_pSceneManager->Initialize();
@@ -91,6 +95,7 @@ void Engine_Mother::Release()
 	m_pSceneManager->Destroy_Instance();
 	m_pRenderManager->Destroy_Instance();
 	m_pLightManager->Destroy_Instance();
+	m_pLineManager->Destroy_Instance();
 	m_pUiManager->Destroy_Instance();
 	m_pGameObjectManager->Destroy_Instance();
 	m_pInputManager->Destroy_Instance();
@@ -220,6 +225,11 @@ Camera * Engine_Mother::Get_MainCamera()
 		return m_pGameObjectManager->Get_GameObjectbyTag(2)->Get_Component<Camera>(); 
 	}
 
+}
+
+void Engine_Mother::Insert_Line(Line * _pLine)
+{
+	m_pLineManager->Insert_Line(_pLine);
 }
 
 void Engine_Mother::Insert_Light(D3DLIGHT9 * _pLight, const wstring & _Name)

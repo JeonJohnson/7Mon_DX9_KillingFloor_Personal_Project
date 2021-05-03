@@ -14,6 +14,7 @@
 #include "UIManager.h"
 #include "ResourceManager.h"
 #include "RenderManager.h"
+#include "LineManager.h"
 #include "LightManager.h"
 
 #include "DebugManager.h"
@@ -133,6 +134,10 @@ public: /* Gameobject Manager */
 	Camera*			Get_MainCamera();
 
 public: /* UI Manager */
+
+public: /* Line Manager */
+	void			Insert_Line(Line* _pLine);
+
 	
 public: /* Light Manager */
 	void				Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name = L"Default_Light");
@@ -157,6 +162,7 @@ private:
 
 	GameObjectManager*		m_pGameObjectManager = nullptr;
 	UIManager*				m_pUiManager = nullptr;
+	LineManager*			m_pLineManager = nullptr;
 	LightManager*			m_pLightManager = nullptr;
 	RenderManager*			m_pRenderManager = nullptr;
 	SceneManager*			m_pSceneManager = nullptr;

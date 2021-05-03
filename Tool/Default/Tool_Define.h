@@ -7,6 +7,10 @@
 
 #define dTime Engine_Mother::Get_Instance()->Get_DeltaTime()
 
+#define ruSure(Script) AfxMessageBox(Script, MB_YESNO | MB_ICONQUESTION)
+//IDYES, IDNO
+#define Notice(Script2) AfxMessageBox(Script2, MB_OK| MB_ICONASTERISK)
+
 #define KeyUp(KeyValue) Engine_Mother::Get_Instance()->GetKeyUp(KeyValue)
 #define KeyDown(KeyValue) Engine_Mother::Get_Instance()->GetKeyDown(KeyValue)
 #define KeyPress(KeyValue) Engine_Mother::Get_Instance()->GetKeyPress(KeyValue)

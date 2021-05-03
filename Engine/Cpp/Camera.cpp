@@ -209,7 +209,7 @@ Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam)
 	Vector3	ProjectionTransform;
 	ProjectionTransform.x = ((2.f * screenPos.x) / wincx) - 1.f;
 	ProjectionTransform.y = ((-2.f * screenPos.y) / wincy) + 1.f;
-	ProjectionTransform.z = 1.f;
+	ProjectionTransform.z = 1.;
 
 /* ProjectionPos To ViewSpacePos */
 //투영스페이스 역행렬 구하기.
@@ -228,32 +228,16 @@ Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam)
 //월드 스페이스의 좌표 구하기.
 	Vector3	WorldSpaceTrans;
 	D3DXVec3TransformCoord(&WorldSpaceTrans, &ViewSpaceTrans, &invViewSpace);
-
-	return WorldSpaceTrans;
-	//Vector3 ViewSpace;
-	//Vector3 WorldSpace;
-	//Matrix invViewSpace;
-	//ViewSpace.x = (((2.0f * screenPos.x) / wincx) - 1.0f) / Get_ProjMat()._11;
-	//ViewSpace.y = (((-2.0f * screenPos.y) / wincy) + 1.0f) / Get_ProjMat()._22;
-	//ViewSpace.z = 1.0f;
-
-	//D3DXMatrixInverse(&invViewSpace, 0, &Get_ViewSpaceMat());
-
-	//D3DXVec3TransformCoord(&WorldSpace, &ViewSpace, &invViewSpace);
-
-	////D3DXVec3Normalize(&WorldSpace, &WorldSpace);
-	////Vector3 Result_World = m_Transform->Get_Position()+ WorldSpace * _DistanceFromCam;
-	//Vector3 Result_World = m_Transform->Get_Position();
-	//
-	//Vector3 Temp =  m_Transform->Get_Forward() * _DistanceFromCam;
-
-	//Result_World += Temp;
-
-	//return Result_World;
-
-	//return WorldSpace;
-
 	
+
+/* 거리 조절 해주기 */
+	Vector3 BetweenVector;
+	Vector3 ResultPos;
+	BetweenVector = WorldSpaceTrans - m_Transform->Get_Position();
+	D3DXVec3Normalize(&BetweenVector, &BetweenVector);
+	ResultPos = m_Transform->Get_Position() + (BetweenVector * _DistanceFromCam);
+
+	return ResultPos;
 }
 
 const Matrix & Camera::Get_ViewSpaceMat()

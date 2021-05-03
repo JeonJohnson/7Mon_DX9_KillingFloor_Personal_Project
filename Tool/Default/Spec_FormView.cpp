@@ -227,9 +227,13 @@ void Spec_FormView::Update_Info()
 	UpdateData(TRUE);
 
 	
-	if (EngineFunction->Get_MainCamera() != nullptr)
+	if (m_pMainCam == nullptr)
 	{
-		m_vCamPos = EngineFunction->Get_MainCamera()->Get_Transform()->Get_Position();
+		m_pMainCam = EngineFunction->Get_MainCamera();
+	}
+	else
+	{
+		m_vCamPos = m_pMainCam->Get_Transform()->Get_Position();
 
 		m_csCamPosX.Format(L"%.2f", m_vCamPos.x);
 		m_csCamPosY.Format(L"%.2f", m_vCamPos.y);
@@ -254,6 +258,19 @@ void Spec_FormView::Update_Info()
 void Spec_FormView::OnBnClickedCameraresetButton()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+
+	if (ruSure(L"영사기의 위치를 초기화 하시겠습니까? {0,0,-100}") == IDYES)
+	{
+		m_pMainCam->Get_Transform()->Set_Position(Vector3(0.f, 0.f, -100.f));
+		m_pMainCam->Get_Transform()->Set_Rotation(Vector3(0.f, 0.f, 0.f));
+
+		Notice(L"위치를 초기화 했읍니다.");
+	}
+
+	
+
+	UpdateData(FALSE);
 }
 
 

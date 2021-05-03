@@ -205,6 +205,8 @@
     <ClInclude Include="..\Header\InputManager.h" />
     <ClInclude Include="..\Header\Light.h" />
     <ClInclude Include="..\Header\LightManager.h" />
+    <ClInclude Include="..\Header\Line.h" />
+    <ClInclude Include="..\Header\LineManager.h" />
     <ClInclude Include="..\Header\Line_VIBuffer_Gizmo.h" />
     <ClInclude Include="..\Header\Line_VIBuffer_Grid.h" />
     <ClInclude Include="..\Header\Mesh.h" />
@@ -260,6 +262,8 @@
     <ClCompile Include="..\Cpp\InputManager.cpp" />
     <ClCompile Include="..\Cpp\Light.cpp" />
     <ClCompile Include="..\Cpp\LightManager.cpp" />
+    <ClCompile Include="..\Cpp\Line.cpp" />
+    <ClCompile Include="..\Cpp\LineManager.cpp" />
     <ClCompile Include="..\Cpp\Line_VIBuffer_Gizmo.cpp" />
     <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp" />
     <ClCompile Include="..\Cpp\Mesh.cpp" />

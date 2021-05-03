@@ -29,6 +29,7 @@ public:
 public:
 
 private:
+	vector<NaviCell*>		m_vecNaviCells;
 
 };
 

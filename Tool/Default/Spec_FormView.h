@@ -75,6 +75,7 @@ public:
 	ColliderTool_Dialog*		m_ColliderTool = nullptr;
 	int							m_iOpenTabIndex = -1;
 
+	Camera*		m_pMainCam = nullptr;
 	Vector3	m_vCamPos;
 	CString	m_csCamPosX;
 	CString m_csCamPosY;

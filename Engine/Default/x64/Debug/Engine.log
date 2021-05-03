@@ -1,5 +1,6 @@
-﻿  Camera.cpp
+﻿  LineManager.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+e:\학업\7mon_personal\7mon_personal_project\engine\cpp\linemanager.cpp(51): warning C4553: '==': 의미 없는 연산자입니다. '='을(를) 사용하려고 했습니까?
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
@@ -32,6 +33,8 @@
   ..\Header\InputManager.h
   ..\Header\Light.h
   ..\Header\LightManager.h
+  ..\Header\Line.h
+  ..\Header\LineManager.h
   ..\Header\Line_VIBuffer_Gizmo.h
   ..\Header\Line_VIBuffer_Grid.h
   ..\Header\Mesh.h
@@ -65,7 +68,7 @@
   ..\Header\UI_Renderer.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  61개 파일이 복사되었습니다.
+  63개 파일이 복사되었습니다.
   ..\Shader\Shader_Mesh.fx
   ..\Shader\Shader_Sample.fx
   2개 파일이 복사되었습니다.

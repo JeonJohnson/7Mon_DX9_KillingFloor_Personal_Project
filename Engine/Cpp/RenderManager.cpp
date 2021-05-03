@@ -5,6 +5,7 @@
 
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "LineManager.h"
 
 Implement_Singleton(RenderManager)
 
@@ -129,7 +130,8 @@ void RenderManager::Render_UI()
 	//}
 
 	UIManager::Get_Instance()->Render();
-		
+	
+	LineManager::Get_Instance()->Render();
 #pragma region Test
 	//IDirect3DBaseTexture9* temp = ResourceManager::Get_Instance()->Get_Resource<Texture>(L"PangDongE")->Get_Texture(0);
 	//LPDIRECT3DTEXTURE9 temp2 = 

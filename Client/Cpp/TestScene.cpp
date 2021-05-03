@@ -7,6 +7,7 @@
 #include "Camera_FPS.h"
 #include "Player_Attack.h"
 #include "Anim_Controller.h"
+#include "Line.h"
 //#include "../../Reference/Header/Camera.h"
  
 TestScene::TestScene()
@@ -35,6 +36,8 @@ void TestScene::Initialize()
 
 	//EngineFunction->Insert_Light(Temp, L"HatBit");
 	//delete Temp;
+	
+
 
 	GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	VIBuffer_Renderer::Desc Grid_Desc;
@@ -67,26 +70,26 @@ void TestScene::Initialize()
 
 	{
 
-		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
-		PoliceCar->Set_Scale(Vector3(1.f, 1.f, 1.f));
-		PoliceCar->Set_Position(Vector3(-100.f, 0.f, -100.f));
-		Mesh_Renderer::Desc Policecar_desc;
-		Policecar_desc.szMeshName = L"PoliceCar";
-		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
+		//GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
+		//PoliceCar->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		//PoliceCar->Set_Position(Vector3(-100.f, 0.f, -100.f));
+		//Mesh_Renderer::Desc Policecar_desc;
+		//Policecar_desc.szMeshName = L"PoliceCar";
+		//PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
 
-		GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
-		Taxi->Set_Scale(Vector3(1.f, 1.f, 1.f));
-		Taxi->Set_Position(Vector3(50.f, 0.f, 50.f));
-		Mesh_Renderer::Desc Taxi_Desc;
-		Taxi_Desc.szMeshName = L"Taxi";
-		Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
-		
-		GameObject*		Test2 = INSTANTIATE(OBJECT_TAG_DEFAULT, L"TestObj");
-		Test2->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		Test2->Set_Position(Vector3(500.f, 0.f, 100.f));
-		Mesh_Renderer::Desc Test2desc;
-		Test2desc.szMeshName = L"Stone";
-		Test2->Add_Component<Mesh_Renderer>(&Test2desc);
+		//GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
+		//Taxi->Set_Scale(Vector3(1.f, 1.f, 1.f));
+		//Taxi->Set_Position(Vector3(50.f, 0.f, 50.f));
+		//Mesh_Renderer::Desc Taxi_Desc;
+		//Taxi_Desc.szMeshName = L"Taxi";
+		//Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
+		//
+		//GameObject*		Test2 = INSTANTIATE(OBJECT_TAG_DEFAULT, L"TestObj");
+		//Test2->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		//Test2->Set_Position(Vector3(500.f, 0.f, 100.f));
+		//Mesh_Renderer::Desc Test2desc;
+		//Test2desc.szMeshName = L"Stone";
+		//Test2->Add_Component<Mesh_Renderer>(&Test2desc);
 
 
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
@@ -102,15 +105,15 @@ void TestScene::Initialize()
 		Player->Add_Component<Camera_FPS>(&Fps_Desc);
 
 
-		Mesh_Renderer::Desc	Hand_Desc;
-		Hand_Desc.szMeshName = L"M4";
-		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
+		//Mesh_Renderer::Desc	Hand_Desc;
+		//Hand_Desc.szMeshName = L"M4";
+		//Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
-		Anim_Controller::Desc Anim_Desc;
-		Anim_Desc.fAnimSpd = 1.f;
-		Anim_Desc.iInitIndex = 6;
-		Anim_Desc.pGameObject = Player;
-		Player->Add_Component<Anim_Controller>(&Anim_Desc);
+		//Anim_Controller::Desc Anim_Desc;
+		//Anim_Desc.fAnimSpd = 1.f;
+		//Anim_Desc.iInitIndex = 6;
+		//Anim_Desc.pGameObject = Player;
+		//Player->Add_Component<Anim_Controller>(&Anim_Desc);
 
 
 		Player_Move::Desc player_Desc;
@@ -118,22 +121,22 @@ void TestScene::Initialize()
 		player_Desc.fSprintSpd = 55.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 
-		Player_Attack::Desc Att_Desc;
-		Att_Desc.pAnimCtrl = Player->Get_NewComponent<Anim_Controller>();
-		Att_Desc.pMeshRenderer = Player->Get_NewComponent<Mesh_Renderer>();
-		Att_Desc.szPrimary = L"M4";
-		Att_Desc.szSecondary = L"BerettaM9";
-		Att_Desc.szMelee = L"Knife_M9";
-		Player->Add_Component<Player_Attack>(&Att_Desc);
+		//Player_Attack::Desc Att_Desc;
+		//Att_Desc.pAnimCtrl = Player->Get_NewComponent<Anim_Controller>();
+		//Att_Desc.pMeshRenderer = Player->Get_NewComponent<Mesh_Renderer>();
+		//Att_Desc.szPrimary = L"M4";
+		//Att_Desc.szSecondary = L"BerettaM9";
+		//Att_Desc.szMelee = L"Knife_M9";
+		//Player->Add_Component<Player_Attack>(&Att_Desc);
 
 	
 
-		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-		Map->Set_Position(Vector3(0, 0, 0.f));
-		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		Mesh_Renderer::Desc Map_desc;
-		Map_desc.szMeshName = L"Map";
-		Map->Add_Component<Mesh_Renderer>(&Map_desc);
+		//GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+		//Map->Set_Position(Vector3(0, 0, 0.f));
+		//Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		//Mesh_Renderer::Desc Map_desc;
+		//Map_desc.szMeshName = L"Map";
+		//Map->Add_Component<Mesh_Renderer>(&Map_desc);
 		
 	}
 
@@ -151,15 +154,15 @@ void TestScene::Initialize()
 	}
 
 	{//Rect Textrue Test
-		GameObject* RectTexture_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_RectTexture");
-		RectTexture_Test->Set_Position(Vector3(0.f, 50.f,0.f));
-		RectTexture_Test->Set_Scale(Vector3(50.f, 50.f, 50.f));
+		//GameObject* RectTexture_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_RectTexture");
+		//RectTexture_Test->Set_Position(Vector3(0.f, 50.f,0.f));
+		//RectTexture_Test->Set_Scale(Vector3(50.f, 50.f, 50.f));
 
-		VIBuffer_Renderer::Desc Test_Desc;
-		Test_Desc.wBufferName = L"Rect_Texture";
-		Test_Desc.wTextureName = L"PangDongE"; 
-		Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_NonAlpha;
-		RectTexture_Test->Add_Component<VIBuffer_Renderer>(&Test_Desc);
+		//VIBuffer_Renderer::Desc Test_Desc;
+		//Test_Desc.wBufferName = L"Rect_Texture";
+		//Test_Desc.wTextureName = L"PangDongE"; 
+		//Test_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_NonAlpha;
+		//RectTexture_Test->Add_Component<VIBuffer_Renderer>(&Test_Desc);
 	}
 
 	{ //Cube Color Test
