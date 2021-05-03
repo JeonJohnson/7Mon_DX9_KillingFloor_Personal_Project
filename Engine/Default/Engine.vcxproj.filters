@@ -242,6 +242,9 @@
     <Filter Include="03.GameObject\04.NaviMesh\02.NaviMesh">
       <UniqueIdentifier>{463795d0-284b-458d-a53f-13606fa10f85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.Component\06.StateController">
+      <UniqueIdentifier>{58bd4c95-9b53-4b6d-b42a-a98d5d796bd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -408,6 +411,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\LineManager.cpp">
       <Filter>01.Manager\LineManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\StateController.cpp">
+      <Filter>04.Component\06.StateController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -596,6 +602,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\LineManager.h">
       <Filter>01.Manager\LineManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\StateController.h">
+      <Filter>04.Component\06.StateController</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

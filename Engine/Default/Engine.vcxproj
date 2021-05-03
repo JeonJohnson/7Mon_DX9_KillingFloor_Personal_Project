@@ -227,6 +227,7 @@
     <ClInclude Include="..\Header\SkyBox_VIBuffer_DDS.h" />
     <ClInclude Include="..\Header\Sprite.h" />
     <ClInclude Include="..\Header\State.h" />
+    <ClInclude Include="..\Header\StateController.h" />
     <ClInclude Include="..\Header\StaticMesh.h" />
     <ClInclude Include="..\Header\SystemManager.h" />
     <ClInclude Include="..\Header\Text.h" />
@@ -284,6 +285,7 @@
     <ClCompile Include="..\Cpp\SkyBox_VIBuffer_DDS.cpp" />
     <ClCompile Include="..\Cpp\Sprite.cpp" />
     <ClCompile Include="..\Cpp\State.cpp" />
+    <ClCompile Include="..\Cpp\StateController.cpp" />
     <ClCompile Include="..\Cpp\StaticMesh.cpp" />
     <ClCompile Include="..\Cpp\SystemManager.cpp" />
     <ClCompile Include="..\Cpp\Text.cpp" />
