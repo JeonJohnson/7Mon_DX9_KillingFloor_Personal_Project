@@ -46,12 +46,16 @@ public: /* Get */
 	bool							Get_End();
 
 public: /* Set */
-	void							Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl);
-	void							Set_AnimIndex(int _iNewIndex);
-	void							Set_AnimSpd(float _fAnimSpd);
-	void							Set_CurFrame(float _fFrame);
-	void							Set_Loop(bool _bLoop);
-	void							Set_AnimReset(int _iIndex);
+	void					Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl);
+	
+	void					Set_AnimIndex(int _iNewIndex);
+	void					Set_AnimIndex_NoBlend(int _iNewIndex);
+	void					Set_AnimReset(int _iIndex);
+
+	void					Set_AnimSpd(float _fAnimSpd);
+	void					Set_CurFrame(float _fFrame);
+	void					Set_Loop(bool _bLoop);
+	
 
  private:
 	LPD3DXANIMATIONCONTROLLER		m_pAnimController = nullptr;
@@ -82,6 +86,14 @@ public: /* Set */
 	//{애니메이션 반복O / 반복 X}
 	//{플레이 중인지 ? / 끝났는지 ? }
 	//{애니메이션 재생 속도 = > AdvancedTime 시간 줄여주면 됨.}
+
+	double	m_dOffSet = 0.01; //보정값
+	//maxFrame은 double이고 cur은 float인데다가
+	//dTimeeh float임.
+	//애초에 소수점 값들이 정확한 값이 안나오기도 해서
+	//여러 조건 검사에서 이정도 오차는 ㅇㅋ입니다.
+	//할 용도.ㅣ
+
 };
 
 

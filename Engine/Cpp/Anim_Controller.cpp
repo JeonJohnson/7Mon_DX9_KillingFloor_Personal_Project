@@ -109,8 +109,54 @@ void Anim_Controller::Play_Animation()
 	//}
 	//else 
 	{
-		m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
+		//m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
 	}
+
+	if (m_bLoop)
+	{
+		//if (m_fCurKeyFrame + (m_fdTime*m_fAnimSpd) >= (float)m_dMaxKeyFrame)
+		//{//그 만약 현재 애니메이션 위치에서 한 프레임 더 진행되는것이
+		//	//최대값을 넘어간다면?
+		//	// => 만약 그대로 진행시 Max보다 커져버림.
+		//	// => 자동으로 오버플로우 되기 땜시
+		//	// End() 타이밍에 애미넹션을 정시할시 
+		//	// curindex 애니메이션의 처음 부분으로 돌아간 상태로 멈춤.
+		//	//그래서 더해도 maxFrame을 넘지않을 값으로 애니메이션을 진행함.
+
+		//	float LastFrameOffset = (float)m_dMaxKeyFrame - (m_fdTime*m_fAnimSpd);
+
+		//	m_pAnimController->AdvanceTime(LastFrameOffset, NULL);
+
+		//	m_pAnimController->ResetTime();
+		//	m_fCurKeyFrame = 0.f;
+		//}
+		//else { m_pAnimController->AdvanceTime(m_fdTime *m_fAnimSpd, NULL); }
+		m_pAnimController->AdvanceTime(m_fdTime *m_fAnimSpd, NULL);
+	}
+	else
+	{
+		if (m_fCurKeyFrame < (float)m_dMaxKeyFrame - 0.01)
+		{
+			if (m_fCurKeyFrame + (m_fdTime*m_fAnimSpd) >= (float)m_dMaxKeyFrame)
+			{
+				//m_pAnimController->SetTrackPosition(m_iCurTrack, m_dMaxKeyFrame);
+
+				float LastFrameOffset = m_dMaxKeyFrame - (m_fdTime*m_fAnimSpd);
+
+				m_pAnimController->AdvanceTime(LastFrameOffset, NULL);
+			}
+			else 
+			{
+				m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
+			}
+		}
+		else 
+		{
+			m_pAnimController->SetTrackPosition(m_iCurTrack, m_dMaxKeyFrame);
+		}
+	}
+
+	
 
 	m_pAnimController->GetTrackDesc(m_iCurTrack, m_tCurTrackInfo);
 
@@ -151,7 +197,7 @@ float Anim_Controller::Get_AnimCurSpd() const
 
 bool Anim_Controller::Get_End()
 {
-	if (m_fCurKeyFrame >= (float)m_dMaxKeyFrame - 0.1)
+	if (m_fCurKeyFrame >= (float)(m_dMaxKeyFrame - m_dOffSet))
 	{
 		return true;
 	}
@@ -183,9 +229,11 @@ void Anim_Controller::Set_AnimIndex(int _iNewIndex)
 
 	LPD3DXANIMATIONSET		pAnimSet = nullptr;
 	
+
 	//애니메이션 세트 가져오기.
 	m_pAnimController->GetAnimationSet(_iNewIndex, &pAnimSet);
 					//=>GetAnimationSetByName()으로 불러올 수 있음.
+	m_pAnimSet = pAnimSet;
 
 	//애니메이션 키프레임 최대치 가져오기
 	m_dMaxKeyFrame = pAnimSet->GetPeriod();
@@ -222,6 +270,50 @@ void Anim_Controller::Set_AnimIndex(int _iNewIndex)
 	m_iCurTrack = m_iNewTrack;
 }
 
+void Anim_Controller::Set_AnimIndex_NoBlend(int _iNewIndex)
+{
+	if (m_iCurIndex == _iNewIndex)
+	{
+		return;
+	}
+
+	if (m_iCurTrack == 0)
+	{
+		m_iNewTrack = 1;
+	}
+	else
+	{
+		m_iNewTrack = 0;
+	}
+
+	LPD3DXANIMATIONSET		pAnimSet = nullptr;
+
+	m_pAnimController->GetAnimationSet(_iNewIndex, &pAnimSet);
+	m_pAnimSet = pAnimSet;
+	m_dMaxKeyFrame = pAnimSet->GetPeriod();
+
+	//m_pAnimController->SetTrackPosition(m_iCurTrack, 0.0);
+
+	m_pAnimController->SetTrackAnimationSet(m_iCurTrack, pAnimSet);
+	//m_pAnimController->UnkeyAllTrackEvents(m_iCurTrack);
+	//m_pAnimController->UnkeyAllTrackEvents(m_iNewTrack);
+	m_pAnimController->SetTrackEnable(m_iCurTrack, TRUE);
+
+	//m_pAnimController->KeyTrackEnable(m_iCurTrack, FALSE);
+	//m_pAnimController->SetTrackEnable(m_iNewTrack, TRUE);
+
+	//AdvanceTime 호출 시 증가하던 시간 값을 초기화
+	m_pAnimController->ResetTime();
+	m_fCurKeyFrame = 0.f;
+
+	m_pAnimController->SetTrackPosition(m_iCurTrack, 0.0);
+
+	m_iCurIndex = _iNewIndex;
+
+	//m_iCurTrack = m_iNewTrack;
+
+}
+
 void Anim_Controller::Set_AnimSpd(float _fAnimSpd)
 {
 	m_fAnimSpd = _fAnimSpd;
@@ -239,8 +331,5 @@ void Anim_Controller::Set_Loop(bool _bLoop)
 
 void Anim_Controller::Set_AnimReset(int _iIndex)
 {
-	m_pAnimController->ResetTime();
-	m_fCurKeyFrame = 0.f;
-
 	m_pAnimController->SetTrackPosition(_iIndex, 0.0);
 }

@@ -27,6 +27,8 @@ public:
 	void				Set_AnimationSet(int _iIndex);
 	void				Play_AnimationSet();
 
+
+	void		Change_AnimByIndex(int _iIndex, bool _Blending = false);
 public: /* Get */
 	void		Set_AnimContoller(LPD3DXANIMATIONCONTROLLER _controller);
 

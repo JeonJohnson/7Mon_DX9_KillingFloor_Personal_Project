@@ -23,6 +23,8 @@ Player_Attack::Player_Attack(Desc * _desc)
 
 	m_pWeaponAnim = _desc->pAnimCtrl;
 
+	m_pWeaponAnim->Set_AnimIndex(0);
+	m_iCurWeaponIndex = 0;
 };
 
 
@@ -37,7 +39,7 @@ void Player_Attack::Initialize()
 
 void Player_Attack::Update()
 {
-	Swap();
+	//Swap();
 	Reload();
 	Shoot();
 
@@ -80,35 +82,38 @@ bool Player_Attack::Shoot()
 {
 	if (MouseDown(KEY_STATE_LMouse))
 	{
-		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Att");
+		//m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Att");
 
 
-		////Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(4);
-		//switch (m_iCurWeaponIndex)
-		//{
-		//case 0:
-		//{
-		//	m_pWeaponAnim->Set_AnimIndex(4);
-		//}
-		//break;
+		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(4);
+		switch (m_iCurWeaponIndex)
+		{
+		case 0:
+		{
+		
+			m_pWeaponAnim->Set_AnimIndex_NoBlend(4);
+			m_pWeaponAnim->Set_AnimReset(4);
+			
+		}
+		break;
 
-		//case 1:
-		//{
-		//	m_pWeaponAnim->Set_AnimIndex(3);
-		//}
-		//break;
+		case 1:
+		{
+			m_pWeaponAnim->Set_AnimIndex(3);
+		}
+		break;
 
-		//case 2:
-		//{
-		//	m_pWeaponAnim->Set_AnimIndex(7);
-		//}
-		//break;
+		case 2:
+		{
+			m_pWeaponAnim->Set_AnimIndex(7);
+		}
+		break;
 
-		//default:
-		//	break;
-		//}
-		//
-		//return true;
+		default:
+			break;
+		}
+		
+		return true;
 	}
 	//if (MouseUp(KEY_STATE_LMouse))
 	//{
@@ -124,13 +129,13 @@ bool Player_Attack::Reload()
 {
 	if (KeyPress(KEY_STATE_R))
 	{
-		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");
-		//Get_GameObject()->Get_Component<Mesh_Renderer>()->Get_Mesh()->Get_AnimationController()->Set_AnimationSet(1);
-	/*	switch (m_iCurWeaponIndex)
+		//m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");
+		
+		switch (m_iCurWeaponIndex)
 		{
 		case 0:
 		{
-			m_pWeaponAnim->Set_AnimIndex(6);
+			m_pWeaponAnim->Set_AnimIndex_NoBlend(6);
 		}
 		break;
 
@@ -144,7 +149,7 @@ bool Player_Attack::Reload()
 		default:
 			break;
 		}
-		return true;*/
+		return true;
 	}
 
 	return false;
@@ -176,7 +181,7 @@ bool Player_Attack::Swap()
 		case 0:
 		{
 			//m_pWeaponAnim->Set_CurFrame(0.f);
-			m_pWeaponAnim->Set_AnimIndex(0);
+			m_pWeaponAnim->Set_AnimIndex_NoBlend(0);
 		
 			//m_pWeaponAnim->Set_AnimReset(0);
 		}
@@ -185,7 +190,7 @@ bool Player_Attack::Swap()
 		case 1:
 		{
 			//m_pWeaponAnim->Set_CurFrame(0.f);
-			m_pWeaponAnim->Set_AnimIndex(2);
+			m_pWeaponAnim->Set_AnimIndex_NoBlend(2);
 			//m_pWeaponAnim->Set_AnimReset(2);
 		}
 		break;
@@ -193,7 +198,7 @@ bool Player_Attack::Swap()
 		case 2:
 		{
 			//m_pWeaponAnim->Set_CurFrame(0.f);
-			m_pWeaponAnim->Set_AnimIndex(0);
+			m_pWeaponAnim->Set_AnimIndex_NoBlend(0);
 			//m_pWeaponAnim->Set_AnimReset(0);
 		}
 		break;
