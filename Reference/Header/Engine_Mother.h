@@ -104,7 +104,8 @@ public: /* Device Manager */
 #endif //_DEBUG
 
 public: /* Time Manager */
-	float	Get_DeltaTime() const;
+	float	Get_fDeltaTime() const;
+	double	Get_dDeltaTime() const;
 	int		Get_FPS() const;
 
 public: /* Input Manager */

@@ -1,56 +1,89 @@
 #pragma once
-
 #ifndef _ANIMATION_CONTROLLER_H_
 #define _ANIMATION_CONTROLLER_H_
 
 #include "Engine_Include.h"
 
-class DLL_STATE AnimationController
+#include "Component.h"
+
+class DLL_STATE AnimationController : public Component
 {
-	//나중에는 얘를 컴포넌트로 바꿔서
-	//일단 MeshRenderer컴포넌트를 가지고 있는 애에다가
-	//이 컴포넌트도 달아준다음
-	//애니메이션 정보가 있으면 재생하고 없으면 그냥 스태틱 매쉬로 출력하도록.
+public:
+	struct Desc
+	{
+		int	InitIndex = 0;
+		double fAnimSpd = 1.f;
+
+		bool bLoop = true;
+		bool bPlay = true;
+		
+		//wstring		MeshName = L"";
+	};
 
 public:
-	explicit AnimationController();
-	explicit AnimationController(LPD3DXANIMATIONCONTROLLER pAniCtrl);
-	explicit AnimationController(const AnimationController& rhs);
-	~AnimationController();
+	explicit AnimationController(Desc* _desc);
+	virtual ~AnimationController();
 
 public:
+	virtual void Initialize() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void ReadyRender() override;
+	virtual void Release() override;
+
+public: /* Func */
+	HRESULT				SetUp_AnimCtrl();
+	HRESULT				Change_Mesh();
+	void				Animating();
+	void				Play(int _iNewIndex, bool _bBlending = false);
+	//void				Play(const wstring& _szAnimName, bool _bBlending = false);
 
 
-public:
-	HRESULT				Ready_Controller();
-	
-	void				Set_AnimationSet(int _iIndex);
-	void				Play_AnimationSet();
-
-
-	void		Change_AnimByIndex(int _iIndex, bool _Blending = false);
 public: /* Get */
-	void		Set_AnimContoller(LPD3DXANIMATIONCONTROLLER _controller);
+	LPD3DXANIMATIONCONTROLLER		Get_AnimController();
+	LPD3DXANIMATIONSET				Get_AnimSet();
+	LPD3DXTRACK_DESC				Get_TrackInfo();
+
+	wstring							Get_AnimName();
+	int								Get_CurIndex();
+	int								Get_MaxIndex();
+
+	bool							IsEnd();
+	
+
 
 public: /* Set */
-	LPD3DXANIMATIONCONTROLLER		Get_Controller();
-	bool							Get_IsPlaying();
+	void		Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl);
+
+	void		Set_AnimSpd(double _dAnimSpd);
+	void		Set_Play(bool _OnOff);
+	void		Set_Loop(bool _OnOff);
 
 private:
-	LPD3DXANIMATIONCONTROLLER		m_pAnimationController = nullptr;
+	LPD3DXANIMATIONCONTROLLER		m_pAnimCtrl = nullptr;
+	LPD3DXANIMATIONSET				m_pAnimSet = nullptr;
 
-	//트랙 -> 애니메이션을 재생할 틀
-	//보통 1개~2개씀
-	//우리는 2개씀. 애니메이션 블랜딩을 위해서.
-	int		m_iCurrentTrack = 0; 
-	int		m_iNewTrack = 1; //
+	int								m_iCurIndex = 9999;
+	int								m_iMaxIndex = 0; //Full Anim Count
+	
+	LPD3DXTRACK_DESC				m_pCurTrackInfo = nullptr;
+	int								m_iCurTrackIndex = 0; 
+	int								m_iNewTrackIndex = 1; //for Blending
 
-	float	m_fAccTime = 0.f; //누적시간, (current 키 프레임이라고 보면 될듯)
-	int		m_iOldIndex = 999; //재생중인 인덱스 
+	double							m_dCurKeyFrame = 0.0;
+	double							m_dMaxKeyFrame = 0.0;
 
-	double	m_dPeriod = 0.0; //현재 애니메이션의 전체 재생 시간(FullKeyFrame)
+	double							m_dDeltaTime = 0.0;
+	double							m_dOffSet = 0.01;
+	double							m_dAnimSpd = 1.0;
 
-	float	m_fAnimSpd = 1.f;
+	bool							m_bLoop = true;
+	bool							m_bPlay = true;
+
+
+
+
+
 };
 
 #endif //_ANIMATION_CONTROLLER_H_

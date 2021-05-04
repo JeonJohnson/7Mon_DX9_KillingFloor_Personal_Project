@@ -54,25 +54,25 @@ void Camera_FreeMove::Move()
 
 	if (KeyPress(KEY_STATE_W))
 	{
-		Vector3 vDir = m_Transform->Get_Forward() * dTime * m_fMoveSpd;
+		Vector3 vDir = m_Transform->Get_Forward() * fTime * m_fMoveSpd;
 		m_Transform->Add_Position(vDir);
 
 	}
 	if (KeyPress(KEY_STATE_S))
 	{
-		Vector3 vDir = m_Transform->Get_Forward() * dTime * -m_fMoveSpd;
+		Vector3 vDir = m_Transform->Get_Forward() * fTime * -m_fMoveSpd;
 		m_Transform->Add_Position(vDir);
 	}
 
 	if (KeyPress(KEY_STATE_A))
 	{
-		Vector3 vDir = m_Transform->Get_Right() * dTime * -m_fMoveSpd;
+		Vector3 vDir = m_Transform->Get_Right() * fTime * -m_fMoveSpd;
 		m_Transform->Add_Position(vDir);
 	}
 
 	if (KeyPress(KEY_STATE_D))
 	{
-		Vector3 vDir = m_Transform->Get_Right() * dTime * m_fMoveSpd;
+		Vector3 vDir = m_Transform->Get_Right() * fTime * m_fMoveSpd;
 		m_Transform->Add_Position(vDir);
 	}
 
@@ -81,8 +81,8 @@ void Camera_FreeMove::Move()
 
 void Camera_FreeMove::Look()
 {
-	float fMouseMoveX = MouseMove(KEY_STATE_MouseX) * dTime * m_fMouseX_Sen;
-	float fMouseMoveY = MouseMove(KEY_STATE_MouseY)* dTime * m_fMouseX_Sen;
+	float fMouseMoveX = MouseMove(KEY_STATE_MouseX) * fTime * m_fMouseX_Sen;
+	float fMouseMoveY = MouseMove(KEY_STATE_MouseY)* fTime * m_fMouseX_Sen;
 
 	//m_Transform->RotateY(fMouseMoveX * dTime);
 	//m_Transform->RotateX(fMouseMoveY * dTime);

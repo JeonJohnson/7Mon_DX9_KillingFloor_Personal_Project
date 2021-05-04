@@ -35,7 +35,7 @@ void Anim_Controller::Initialize()
 
 void Anim_Controller::Update()
 {
-	m_fdTime = TimeManager::Get_Instance()->Get_Time();
+	m_fdTime = TimeManager::Get_Instance()->Get_fTime();
 
 
 	Play_Animation();
@@ -141,7 +141,7 @@ void Anim_Controller::Play_Animation()
 			{
 				//m_pAnimController->SetTrackPosition(m_iCurTrack, m_dMaxKeyFrame);
 
-				float LastFrameOffset = m_dMaxKeyFrame - (m_fdTime*m_fAnimSpd);
+				float LastFrameOffset = (float)(m_dMaxKeyFrame - (m_fdTime*m_fAnimSpd));
 
 				m_pAnimController->AdvanceTime(LastFrameOffset, NULL);
 			}

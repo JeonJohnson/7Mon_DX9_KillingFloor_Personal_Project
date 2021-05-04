@@ -37,8 +37,8 @@ void Camera_FPS::Look()
 	int fMouseMoveX = MouseMove(KEY_STATE_MouseX);
 	int fMouseMoveY = MouseMove(KEY_STATE_MouseY);
 	
-	m_fRotX += fMouseMoveX * m_fSensitive * dTime;
-	m_fRotY += fMouseMoveY * m_fSensitive * dTime;
+	m_fRotX += fMouseMoveX * m_fSensitive * fTime;
+	m_fRotY += fMouseMoveY * m_fSensitive * fTime;
 
 	if (m_fRotY >= 70.f)
 	{

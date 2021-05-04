@@ -21,9 +21,14 @@ public:
 	void FPS_Update();
 
 public:
-	float Get_Time() const
+	float Get_fTime() const
 	{
 		return m_fDeltaTime;
+	};
+
+	double	Get_dTime() const
+	{
+		return m_dDeltaTime;
 	};
 	
 	int	Get_FPS() const;
@@ -35,6 +40,7 @@ private:
 	LARGE_INTEGER	m_BeginTime;
 	LARGE_INTEGER	m_EndTime;
 
+	double			m_dDeltaTime;
 	float			m_fDeltaTime;
 	
 	float			m_fFPS_Time = 0.f;

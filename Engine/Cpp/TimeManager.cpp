@@ -17,7 +17,8 @@ void TimeManager::Time_Init()
 	ZeroMemory(&m_BeginTime, sizeof(LARGE_INTEGER));
 	ZeroMemory(&m_EndTime, sizeof(LARGE_INTEGER));
 
-	m_fDeltaTime = 0.f;
+	m_dDeltaTime = 0.0;
+	//m_fDeltaTime = 0.f;
 	//1. cpu클럭 측정
 	QueryPerformanceFrequency(&m_CpuTick);
 
@@ -35,7 +36,8 @@ void TimeManager::Time_Update()
 
 	//계산하기
 	//(끝지점-시작지점)/씨퓨클럭
-	m_fDeltaTime = float(m_EndTime.QuadPart - m_BeginTime.QuadPart) / m_CpuTick.QuadPart;
+	m_dDeltaTime = float(m_EndTime.QuadPart - m_BeginTime.QuadPart) / m_CpuTick.QuadPart;
+	m_fDeltaTime = (float)m_dDeltaTime;
 
 	//계산하고 나면 다시
 	m_BeginTime = m_EndTime;

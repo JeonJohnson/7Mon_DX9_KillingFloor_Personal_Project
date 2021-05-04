@@ -13,7 +13,11 @@
 
 #define EngineFunction Engine_Mother::Get_Instance()
 
-#define dTime Engine_Mother::Get_Instance()->Get_DeltaTime()
+#define fTime Engine_Mother::Get_Instance()->Get_fDeltaTime()
+#define dTime Engine_Mother::Get_Instance()->Get_dDeltaTime()
+
+#define ON	true
+#define OFF	false
 
 #define KeyUp(KeyValue) Engine_Mother::Get_Instance()->GetKeyUp(KeyValue)
 #define KeyDown(KeyValue) Engine_Mother::Get_Instance()->GetKeyDown(KeyValue)
