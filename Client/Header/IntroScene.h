@@ -15,6 +15,8 @@ public:
 public:
 	virtual void Initialize() override;
 
+private:
+	UI* Fade = nullptr;
 };
 
 #endif //_INTRO_SCENE_H_

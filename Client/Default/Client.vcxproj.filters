@@ -101,6 +101,9 @@
     <Filter Include="06.Ui\Fade_InOut">
       <UniqueIdentifier>{d3173872-7307-4357-99c9-6a276157a880}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Scene\00.Intro\Skipper">
+      <UniqueIdentifier>{f9abee30-9fb1-4a7a-b85f-8b018772c3e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -175,6 +178,9 @@
     <ClInclude Include="..\Header\IntroScene.h">
       <Filter>02.Scene\00.Intro</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\IntroSkipper.h">
+      <Filter>02.Scene\00.Intro\Skipper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -224,6 +230,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\IntroScene.cpp">
       <Filter>02.Scene\00.Intro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\IntroSkipper.cpp">
+      <Filter>02.Scene\00.Intro\Skipper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

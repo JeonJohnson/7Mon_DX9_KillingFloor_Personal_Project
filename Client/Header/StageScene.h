@@ -1,10 +1,17 @@
 #pragma once
-#include "C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Reference\Header\Scene.h"
-class StageScene :
-	public Scene
+
+#ifndef _STAGE_SCENE_H_
+#define _STAGE_SCENE_H_
+
+#include "Scene.h"
+class StageScene :	public Scene
 {
 public:
 	StageScene();
 	virtual ~StageScene();
+
+public:
+	virtual void Initialize() override;
 };
 
+#endif //_STAGE_SCENE_H_

@@ -122,7 +122,23 @@ void Sprite::Set_Alpha(float _fAlpha)
 
 void Sprite::Add_Alpha(float _fAlpha)
 {//줄일 수록 투명해짐.
-	m_tColor.a += _fAlpha;
+	//ㅋㅋㅋㅋ 여기는 D3DCOLOR_RGBA값 아님...
+	// 0~1사이 값임!
+	float fTemp = m_tColor.a;
+
+	fTemp += _fAlpha;
+
+	if (fTemp <= 0.f)
+	{
+		fTemp = 0.f;
+	}
+
+	if (fTemp >= 1.f)
+	{
+		fTemp = 1.f;
+	}
+
+	m_tColor.a = fTemp;
 }
 
 

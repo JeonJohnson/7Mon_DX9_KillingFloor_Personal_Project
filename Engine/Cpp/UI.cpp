@@ -67,7 +67,7 @@ void UI::Release()
 	}
 }
 
-UI* UI::Instantiate_UI(const wstring & _wNameUI)
+UI* UI::Instantiate_UI(const wstring & _wNameUI, bool _bIsStatic)
 {
 	UI* UIObj = new UI;
 	assert(L"UIObj create failed" && UIObj);
@@ -75,9 +75,19 @@ UI* UI::Instantiate_UI(const wstring & _wNameUI)
 	UIObj->Initialize();
 	UIObj->m_wName = _wNameUI;
 
-	if (FAILED(UIManager::Get_Instance()->Insert_UI(UIObj, _wNameUI)))
+	if (_bIsStatic)
 	{
-		assert(0 && L"Ui name is aready exist");
+		if (FAILED(UIManager::Get_Instance()->Insert_StaticUI(UIObj, _wNameUI)))
+		{
+			assert(0 && L"Ui name is aready exist");
+		}
+	}
+	else
+	{
+		if (FAILED(UIManager::Get_Instance()->Insert_UI(UIObj, _wNameUI)))
+		{
+			assert(0 && L"Ui name is aready exist");
+		}
 	}
 
 	return UIObj;

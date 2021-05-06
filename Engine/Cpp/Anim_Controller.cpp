@@ -192,7 +192,7 @@ float Anim_Controller::Get_CurFrame() const
 
 float Anim_Controller::Get_MaxFrame() const
 {
-	return m_dMaxKeyFrame;
+	return (float)m_dMaxKeyFrame;
 }
 
 bool Anim_Controller::Get_End()

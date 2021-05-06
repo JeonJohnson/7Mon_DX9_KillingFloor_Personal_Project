@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "UI.h"
 #include "..\..\Engine\Header\Sprite.h"
+#include "IntroSkipper.h"
 
 
 IntroScene::IntroScene()
@@ -64,14 +65,24 @@ void IntroScene::Initialize()
 	}
 
 	{//Fade
-		UI*		Fade = INSTANTIATE_UI(L"Fade");
+		Fade = INSTANTIATE_UI(L"Fade");
 		Fade->Set_Position(Vector3(640.f, 360.f, 0.f));
 		Fade->Set_Scale(Vector3(1.f, 1.f, 1.f));
 
 		Sprite::Desc FadeSprite;
-		FadeSprite.tColor = D3DCOLOR_RGBA(255, 255, 255, 0);
+		FadeSprite.tColor = D3DCOLOR_RGBA(255, 255, 255, 255);
 		FadeSprite.TextureName = L"Fade";
 
 		Fade->Add_UIComponent<Sprite>(&FadeSprite);
 	}
+
+	{//Intro Skipper
+		GameObject*	 pIntroSkipper = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Intro_Skipper");
+
+		IntroSkipper::Desc skipper_desc;
+		skipper_desc.pFade = Fade;
+
+		pIntroSkipper->Add_Component<IntroSkipper>(&skipper_desc);
+	}
+
 }

@@ -2,6 +2,7 @@
 #include "RenderManager.h"
 #include "GameObjectManager.h"
 #include "ResourceManager.h"
+#include "UIManager.h"
 
 
 
@@ -111,7 +112,7 @@ void SceneManager::Load_Scene(const wstring & _wName)
 {
 	m_bNext = true;
 	m_pNextScene = m_mapSceneList[_wName];
-	assert(L"그런 이름 씬 읍는데여ㅋㅋ;" && m_mapSceneList[_wName]);
+	assert(L"그런 이름 씬 읍는데여ㅋㅋ;" && m_pNextScene);
 }
 
 void SceneManager::SceneChangeCheck()
@@ -124,6 +125,7 @@ void SceneManager::SceneChangeCheck()
 
 		//겜옵줵메니저에서 옵줵트들 다 지워주기
 		GameObjectManager::Get_Instance()->Release_Scene();
+		UIManager::Get_Instance()->Release_Scene();
 
 		m_pCurrentScene = m_pNextScene;
 		m_pCurrentScene->Initialize();

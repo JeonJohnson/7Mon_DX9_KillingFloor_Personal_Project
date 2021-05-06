@@ -10,3 +10,7 @@ StageScene::StageScene()
 StageScene::~StageScene()
 {
 }
+
+void StageScene::Initialize()
+{
+}

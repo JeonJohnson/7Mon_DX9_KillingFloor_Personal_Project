@@ -10,3 +10,7 @@ MainMenuScene::MainMenuScene()
 MainMenuScene::~MainMenuScene()
 {
 }
+
+void MainMenuScene::Initialize()
+{
+}

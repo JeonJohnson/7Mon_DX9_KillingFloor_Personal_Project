@@ -140,7 +140,7 @@ HRESULT UIManager::Insert_StaticUI(UI * _pUi, const wstring & _name)
 	//wstring name = _pUi->Get_Name();
 	//wstring 중복값 처리 해주삼
 
-	for (auto& uicomponent : m_vecUIList)
+	for (auto& uicomponent : m_vecStaticUiList)
 	{
 		if (uicomponent.first == _name)
 		{
@@ -148,9 +148,9 @@ HRESULT UIManager::Insert_StaticUI(UI * _pUi, const wstring & _name)
 		}
 	}
 
-	m_vecUIList.emplace_back(pair<wstring, UI*>(_name, _pUi));
+	m_vecStaticUiList.emplace_back(pair<wstring, UI*>(_name, _pUi));
 
-	m_vecUIList.shrink_to_fit();
+	m_vecStaticUiList.shrink_to_fit();
 
 	return S_OK;
 }

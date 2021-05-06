@@ -53,16 +53,16 @@ public: /* Set */
 	void			Add_Alpha(float _fAlpha);
 
 private:
-	UI_KIND	m_eUiKind = UI_KIND::UI_SPRITE;
+	UI_KIND				m_eUiKind = UI_KIND::UI_SPRITE;
 
 	LPD3DXSPRITE		m_pDX9_Sprite = nullptr;
 	Texture*			m_pTexture = nullptr;
 	int					m_iTextureNum = 0;
 
-	float		m_fWidth;
-	float		m_fHeight;
-	RECT		m_tRect;
-	D3DXCOLOR	m_tColor;
+	float				m_fWidth;
+	float				m_fHeight;
+	RECT				m_tRect;
+	D3DXCOLOR			m_tColor;
 
 };
 

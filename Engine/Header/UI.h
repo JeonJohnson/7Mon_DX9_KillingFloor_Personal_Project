@@ -37,7 +37,7 @@ public:
 	virtual void Release() override;
 	
 public: /* */
-	static UI* Instantiate_UI(const wstring& _wNameUI);
+	static UI* Instantiate_UI(const wstring& _wNameUI, bool _bIsStatic = false);
 	static void Destory_UI(UI* _pUi);
 
 #pragma region Template

@@ -4,6 +4,8 @@
 #include "TestScene.h"
 #include "Text.h"
 #include "IntroScene.h"
+#include "MainMenuScene.h"
+#include "StageScene.h"
 
 
 
@@ -66,7 +68,9 @@ void MainGame::Scene_Setting()
 	//m_pEngine->Init_Scene(L"Test_Scene");
 
 	m_pEngine->Add_Scene(L"Intro_Scene", Scene::Instantiate<IntroScene>());
+	m_pEngine->Add_Scene(L"MainMenu_Scene", Scene::Instantiate<MainMenuScene>());
 	m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
+	m_pEngine->Add_Scene(L"Stage_Scene", Scene::Instantiate<StageScene>());
 	m_pEngine->Init_Scene(L"Intro_Scene");
 }
 
@@ -74,7 +78,7 @@ void MainGame::FPS_RenderSetting()
 {
 	//GameObject* FPS_Renderer = INSTANTIATE(OJBECT_TAG_UI, L"FPS_Renderer");
 
-	UI*			FPS_Renderer = INSTANTIATE_UI(L"FPS_Renderer");
+	UI*			FPS_Renderer = INSTANTIATE_UI(L"FPS_Renderer", true);
 	FPS_Renderer->Set_Position(Vector3(50,50,0));
 
 	Text::Desc fps_text;

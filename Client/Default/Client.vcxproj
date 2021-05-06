@@ -196,6 +196,7 @@
     <ClInclude Include="..\Header\Extern.h" />
     <ClInclude Include="..\Header\Include.h" />
     <ClInclude Include="..\Header\IntroScene.h" />
+    <ClInclude Include="..\Header\IntroSkipper.h" />
     <ClInclude Include="..\Header\MainGame.h" />
     <ClInclude Include="..\Header\MainMenuScene.h" />
     <ClInclude Include="..\Header\Player_Att.h" />
@@ -218,6 +219,7 @@
     <ClCompile Include="..\Cpp\Camera_FPS.cpp" />
     <ClCompile Include="..\Cpp\Camera_FreeMove.cpp" />
     <ClCompile Include="..\Cpp\IntroScene.cpp" />
+    <ClCompile Include="..\Cpp\IntroSkipper.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />
     <ClCompile Include="..\Cpp\MainMenuScene.cpp" />
     <ClCompile Include="..\Cpp\Player_Att.cpp" />
