@@ -32,6 +32,7 @@ typedef enum eUi_Kind
 {
 	UI_SPRITE,
 	UI_TEXT,
+	UI_COMPONENT,
 	UI_END
 
 }UI_KIND;

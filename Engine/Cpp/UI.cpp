@@ -10,10 +10,22 @@ void UI::Initialize()
 
 void UI::Update()
 {
+	//Update_UITransform();
+
+	if (m_pSprite)
+	{
+		m_pSprite->Update();
+	}
+
+	if (m_pText)
+	{
+		m_pText->Update();
+	}
 }
 
 void UI::LateUpdate()
 {
+
 }
 
 void UI::ReadyRender()

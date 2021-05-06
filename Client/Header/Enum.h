@@ -8,7 +8,9 @@ typedef enum eRenderLayer
 	RENDER_LAYER_Priority,
 	RENDER_LAYER_NonAlpha,
 	RENDER_LAYER_Alpha,
-	RENDER_LAYER_UI,
+	RENDER_LAYER_Sprite,
+	RENDER_LAYER_Text,
+	RENDER_LAYER_Line,
 	RENDER_LAYER_End
 
 }RENDER_LAYER;
@@ -22,7 +24,13 @@ typedef enum eGameObjectTag
 	OJBECT_TAG_UI,
 	OBJECT_TAG_NAVIPOINT,
 	OBJECT_TAG_END
+
 }OBJECT_TAG;
+
+typedef enum eCollisionTag
+{
+
+}COLLISION_TAG;
 
 
 #endif //_ENUM_H_

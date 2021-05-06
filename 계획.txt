@@ -683,6 +683,16 @@ FSM적용함
 => 스왑도 스테이트로 만들기. 이건 Idle일때만 가능하도록 하면 될 듯.
 권총 공격 애니메이션 프레임 반으로 뽑기
 
+18:19 2021-05-06 목
+UI렌더러 바꾸기.
+지금 UI(GameObject역할) -> UI_Component(Component역할)을 UiRenderer에 모아서 하는데 이러지 말고 그냥. 
+GameObject, Component 그냥 쓰고 Line, Text, Sprite 렌더러를 만들어서
+똑같이 컴포넌트로 넣기. => 다 리소스로.
+시123발 왜 이생각을 못했을까....
+FPS도 system매니저에 넣기 + 툴인지 클라인지 System매니저에서 판단해주기.
+
+
+
 
 
 

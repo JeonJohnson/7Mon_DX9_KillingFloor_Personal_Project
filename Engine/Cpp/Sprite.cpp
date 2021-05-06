@@ -13,6 +13,8 @@ Sprite::Sprite(Desc * _desc)
 	//Texture불러오기.
 	m_pTexture = ResourceManager::Get_Instance()->Get_Resource<Texture>(_desc->TextureName);
 	m_iTextureNum = _desc->iTextureNum;
+
+	m_tColor = _desc->tColor;
 }
 
 Sprite::~Sprite() 
@@ -73,7 +75,7 @@ void Sprite::Render()
 			/*&m_UiObject->Get_Center(),*/
 			&vCenter,
 			nullptr, 
-			D3DCOLOR_ARGB(255, 255, 255, 255))))
+			m_tColor)))
 		{
 			//Z값이 1되면 옵젝들보다 뒤에 있음.
 			//0이면 폰트보다 앞에있어서 0.1로 해놨음.
@@ -106,6 +108,21 @@ D3DXIMAGE_INFO * Sprite::Get_TextureInfo(int _iNum)
 int Sprite::Get_TextureNum() const
 {
 	return m_iTextureNum;
+}
+
+float Sprite::Get_Alpha()
+{
+	return m_tColor.a;
+}
+
+void Sprite::Set_Alpha(float _fAlpha)
+{
+	m_tColor.a = _fAlpha;
+}
+
+void Sprite::Add_Alpha(float _fAlpha)
+{//줄일 수록 투명해짐.
+	m_tColor.a += _fAlpha;
 }
 
 

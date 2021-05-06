@@ -20,6 +20,7 @@ public:
 	{		
 		wstring		TextureName = L"";
 		int			iTextureNum = 0;
+		D3DXCOLOR	tColor = D3DCOLOR_RGBA(255, 255, 255, 255);
 
 	};
 public:
@@ -44,7 +45,12 @@ public: /* Get */
 	
 	int				Get_TextureNum() const;
 
+
+	float			Get_Alpha();
+
 public: /* Set */
+	void			Set_Alpha(float _fAlpha);
+	void			Add_Alpha(float _fAlpha);
 
 private:
 	UI_KIND	m_eUiKind = UI_KIND::UI_SPRITE;
@@ -53,9 +59,10 @@ private:
 	Texture*			m_pTexture = nullptr;
 	int					m_iTextureNum = 0;
 
-	float	m_fWidth;
-	float	m_fHeight;
-	RECT	m_tRect;
+	float		m_fWidth;
+	float		m_fHeight;
+	RECT		m_tRect;
+	D3DXCOLOR	m_tColor;
 
 };
 

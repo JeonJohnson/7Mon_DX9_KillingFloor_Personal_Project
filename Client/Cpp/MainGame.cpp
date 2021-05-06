@@ -3,6 +3,7 @@
 #include "Engine_Mother.h"
 #include "TestScene.h"
 #include "Text.h"
+#include "IntroScene.h"
 
 
 
@@ -61,8 +62,12 @@ void MainGame::Engine_Load()
 
 void MainGame::Scene_Setting()
 {
+	//m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
+	//m_pEngine->Init_Scene(L"Test_Scene");
+
+	m_pEngine->Add_Scene(L"Intro_Scene", Scene::Instantiate<IntroScene>());
 	m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
-	m_pEngine->Init_Scene(L"Test_Scene");
+	m_pEngine->Init_Scene(L"Intro_Scene");
 }
 
 void MainGame::FPS_RenderSetting()

@@ -151,8 +151,6 @@ public:
 
 	//void		Load_TerrainLayout(const wstring& _szDataPath);
 
-
-
 	void Insert_VIBuffers();
 	
 	wstring			EraseFolderPath(wstring _FullPath);
