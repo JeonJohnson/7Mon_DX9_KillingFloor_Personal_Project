@@ -74,13 +74,13 @@ void TestScene::Initialize()
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
 		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
 
-		//Player->Add_Component<StateController>();
-		//auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
+		Player->Add_Component<StateController>();
+		auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
+		PlayerStateCtrl->Add_State<Player_Idle>(L"Player_Idle");
+		PlayerStateCtrl->Add_State<Player_Att>(L"Player_Att");
+		PlayerStateCtrl->Add_State<Player_Reload>(L"Player_Reload");
 		//PlayerStateCtrl->Add_State<Player_Idle>(L"Player_Idle");
-		//PlayerStateCtrl->Add_State<Player_Att>(L"Player_Att");
-		//PlayerStateCtrl->Add_State<Player_Reload>(L"Player_Reload");
-		////PlayerStateCtrl->Add_State<Player_Idle>(L"Player_Idle");
-		//PlayerStateCtrl->Set_InitState(L"Player_Idle");
+		PlayerStateCtrl->Set_InitState(L"Player_Idle");
 
 		Camera::Desc Cam_desc;
 		Cam_desc.fFov_Degree = 45.f;

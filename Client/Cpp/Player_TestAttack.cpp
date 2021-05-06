@@ -8,6 +8,7 @@
 #include "AnimationController.h"
 #include "Component.h"
 #include "..\..\Engine\Header\StateController.h"
+#include "StateController.h"
 
 Player_TestAttack::Player_TestAttack(Desc * _desc)
 {
@@ -47,8 +48,10 @@ void Player_TestAttack::Update()
 
 	wstring temp = L"Cur Frame : " + to_wstring(m_pWeaponAnim->Get_CurFrame());
 	wstring temp2 = L"Max Frame : " + to_wstring(m_pWeaponAnim->Get_MaxFrame());
+	wstring temp3 = L"Cur State : " + m_GameObject->Get_Component<StateController>()->Get_CurStateName();
 	DEBUG_LOG(temp);
 	DEBUG_LOG(temp2);
+	DEBUG_LOG(temp3);
 
 	//if (!Swap() && !Reload()) 
 	//{
@@ -99,20 +102,23 @@ bool Player_TestAttack::Shoot()
 		{
 		
 			//m_pWeaponAnim->Set_AnimIndex_NoBlend(4);
-			m_pWeaponAnim->Play(4);
+			m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Att");
+			//m_pWeaponAnim->Play(4);
 			
 		}
 		break;
 
 		case 1:
 		{
-			m_pWeaponAnim->Play(3);
+			m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Att");
+			//m_pWeaponAnim->Play(3);
 		}
 		break;
 
 		case 2:
 		{
-			m_pWeaponAnim->Play(7);
+			m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Att");
+			//m_pWeaponAnim->Play(7);
 		}
 		break;
 
@@ -134,32 +140,41 @@ bool Player_TestAttack::Shoot()
 
 bool Player_TestAttack::Reload()
 {
-	if (KeyDown(KEY_STATE_R))
+	wstring temp = m_GameObject->Get_Component<StateController>()->Get_CurStateName();
+	
+	
+	
+	if (m_GameObject->Get_Component<StateController>()->Get_CurStateName() != L"Player_Reload")
 	{
-		//m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");
-		
-		switch (m_iCurWeaponIndex)
+		if (KeyDown(KEY_STATE_R))
 		{
-		case 0:
-		{
-			m_pWeaponAnim->Play(6);
-		}
-		break;
+			//m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");
 
-		case 1:
-		{
-			m_pWeaponAnim->Play(0);
-		}
-		break;
-
-
-		default:
+			switch (m_iCurWeaponIndex)
+			{
+			case 0:
+			{
+				m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");
+				//m_pWeaponAnim->Play(6);
+			}
 			break;
-		}
-		return true;
-	}
 
-	return false;
+			case 1:
+			{
+				m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");
+				//m_pWeaponAnim->Play(0);
+			}
+			break;
+
+
+			default:
+				break;
+			}
+			return true;
+		}
+	}
+		return false;
+
 }
 
 bool Player_TestAttack::Swap()

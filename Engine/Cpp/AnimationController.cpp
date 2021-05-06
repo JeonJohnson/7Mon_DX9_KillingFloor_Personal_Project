@@ -148,6 +148,8 @@ void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 		m_pAnimCtrl->ResetTime();
 		m_pAnimCtrl->SetTrackPosition(m_iCurTrackIndex, 0.0);
 		m_dCurKeyFrame = 0.0;
+
+		m_iCurIndex = _iNewAnimIndex;
 	}
 	else
 	{//Do Blending for Animation Change

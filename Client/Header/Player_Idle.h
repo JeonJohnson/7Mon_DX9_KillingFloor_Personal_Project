@@ -28,8 +28,8 @@ public:
 public:
 
 private:
-	class Anim_Controller*		m_pAnimCtrl = nullptr;
-	class Player_Attack*		m_pWeapon = nullptr;
+	class AnimationController*		m_pAnimCtrl = nullptr;
+	class Player_TestAttack*		m_pWeapon = nullptr;
 };
 
 #endif // _PLAYER_IDLE_H_

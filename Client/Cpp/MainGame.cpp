@@ -73,11 +73,11 @@ void MainGame::FPS_RenderSetting()
 	FPS_Renderer->Set_Position(Vector3(50,50,0));
 
 	Text::Desc fps_text;
-	fps_text.iHeight = 20;
+	fps_text.iHeight = 14;
 	fps_text.iWeight = FW_HEAVY;
 	fps_text.ulOption = DT_LEFT|DT_NOCLIP;
 	fps_text.szScript = L"FPS : ";
-	fps_text.tColor = D3DCOLOR_ARGB(255, 0, 0, 0);
+	fps_text.tColor = D3DCOLOR_RGBA(0, 255, 0, 255);
 
 	FPS_Renderer->Add_UIComponent<Text>(&fps_text);
 	

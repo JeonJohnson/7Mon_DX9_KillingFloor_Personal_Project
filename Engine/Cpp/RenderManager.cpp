@@ -165,10 +165,10 @@ void RenderManager::Render_UI()
 	//	assert(0 && L"sprite draw failed");
 	//}
 
-	int iFps = TimeManager::Get_Instance()->Get_FPS();
+	//int iFps = TimeManager::Get_Instance()->Get_FPS();
 
-	wstring temp = L"FPS : " + to_wstring(iFps);
-	RECT	RectTemp = { 0,0,0,0 };
+	//wstring temp = L"FPS : " + to_wstring(iFps);
+	//RECT	RectTemp = { 0,0,0,0 };
 
 	//m_pTempFont->DrawTextW(
 	//	nullptr,

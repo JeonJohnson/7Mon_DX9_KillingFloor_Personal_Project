@@ -68,9 +68,6 @@
     <Filter Include="05.Objects\00.Player\States\00.Idle">
       <UniqueIdentifier>{2e4e05d5-4d36-4f46-bd8c-67352c102b65}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Objects\00.Player\States\03.Reload">
-      <UniqueIdentifier>{f777eca2-7ed5-4896-b9fe-0a5c739340ae}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.Objects\00.Player\States\03.Att">
       <UniqueIdentifier>{53c3c05c-75e4-414a-adba-49fbc51714b9}</UniqueIdentifier>
     </Filter>
@@ -91,6 +88,12 @@
     </Filter>
     <Filter Include="02.Scene\97.Test\02.testScene2">
       <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\States\01.Swap">
+      <UniqueIdentifier>{7ffbb926-5e47-469e-8013-57d8d5a0afb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Objects\00.Player\States\02.Reload">
+      <UniqueIdentifier>{f777eca2-7ed5-4896-b9fe-0a5c739340ae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +152,7 @@
       <Filter>05.Objects\00.Player\States\03.Att</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_Reload.h">
-      <Filter>05.Objects\00.Player\States\03.Reload</Filter>
+      <Filter>05.Objects\00.Player\States\02.Reload</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_TestMove.h">
       <Filter>02.Scene\97.Test\PlayerTestMove</Filter>
@@ -190,7 +193,7 @@
       <Filter>05.Objects\00.Player\States\03.Att</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Reload.cpp">
-      <Filter>05.Objects\00.Player\States\03.Reload</Filter>
+      <Filter>05.Objects\00.Player\States\02.Reload</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_TestMove.cpp">
       <Filter>02.Scene\97.Test\PlayerTestMove</Filter>

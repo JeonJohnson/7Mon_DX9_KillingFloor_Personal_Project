@@ -58,7 +58,9 @@ bool StateController::Compare_State(const wstring & _StateName)
 	}
 
 	if (m_mapStateList[_StateName] == m_pCurState)
-	{	return true;	}
+	{
+		return true;	
+	}
 	else
 	{
 		return false;
