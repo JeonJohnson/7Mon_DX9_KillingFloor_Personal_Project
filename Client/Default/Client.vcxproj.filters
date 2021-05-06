@@ -41,9 +41,6 @@
     <Filter Include="02.Scene\01.MainMenu">
       <UniqueIdentifier>{a93ee90a-2a2b-4d63-aafa-59bbfccf0de6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.Scene\99.TestScene">
-      <UniqueIdentifier>{5b358ecb-96f3-4421-9fba-1103ddf02972}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.Objects">
       <UniqueIdentifier>{c6c4ea17-3674-4723-a3b2-4ff32199c3ad}</UniqueIdentifier>
     </Filter>
@@ -59,44 +56,41 @@
     <Filter Include="05.Objects\00.Camera">
       <UniqueIdentifier>{e768efbe-dcab-4fd3-ad9b-13786f31c029}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.Scene\99.TestScene\01.test1">
-      <UniqueIdentifier>{c2d87962-e616-468c-9c25-e138bea10f4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.Scene\99.TestScene\02.test2">
-      <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Objects\00.Camera\FreeMove">
-      <UniqueIdentifier>{e0acfa35-b7a1-4b6d-b984-5cb6a40293bd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.Objects\00.Camera\01.FPSCamera">
       <UniqueIdentifier>{dd892190-7e80-447d-82c0-28b281818c00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Objects\00.Player\99.Test">
-      <UniqueIdentifier>{42b4af10-35c9-4a45-9861-192fa0b9cd37}</UniqueIdentifier>
     </Filter>
     <Filter Include="05.Objects\00.Player\00.Move">
       <UniqueIdentifier>{0ac47022-593f-4dcb-b07c-4dda6c06ef7f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Objects\00.Player\01.Att">
-      <UniqueIdentifier>{84357764-7194-47c4-8df0-b0f01c431224}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Objects\00.Player\State">
+    <Filter Include="05.Objects\00.Player\States">
       <UniqueIdentifier>{f7ab2c79-925c-46de-8305-ddeb115d902c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Objects\00.Player\State\00.Idle">
+    <Filter Include="05.Objects\00.Player\States\00.Idle">
       <UniqueIdentifier>{2e4e05d5-4d36-4f46-bd8c-67352c102b65}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Objects\00.Player\State\01.Walk">
-      <UniqueIdentifier>{8d14ecbf-b31d-42f4-90e6-e31317e50a40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Objects\00.Player\State\03.Reload">
+    <Filter Include="05.Objects\00.Player\States\03.Reload">
       <UniqueIdentifier>{f777eca2-7ed5-4896-b9fe-0a5c739340ae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.Objects\00.Player\State\02.Run">
-      <UniqueIdentifier>{c7965044-b88e-4a44-b998-2e17368cb1ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="05.Objects\00.Player\State\03.Att">
+    <Filter Include="05.Objects\00.Player\States\03.Att">
       <UniqueIdentifier>{53c3c05c-75e4-414a-adba-49fbc51714b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\97.Test">
+      <UniqueIdentifier>{5b358ecb-96f3-4421-9fba-1103ddf02972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\97.Test\CameraFreeMove">
+      <UniqueIdentifier>{e0acfa35-b7a1-4b6d-b984-5cb6a40293bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\97.Test\PlayerTestMove">
+      <UniqueIdentifier>{42b4af10-35c9-4a45-9861-192fa0b9cd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\97.Test\PlayerTestAtt_Swap_Reload">
+      <UniqueIdentifier>{84357764-7194-47c4-8df0-b0f01c431224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\97.Test\01.testScene1">
+      <UniqueIdentifier>{c2d87962-e616-468c-9c25-e138bea10f4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\97.Test\02.testScene2">
+      <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -134,16 +128,13 @@
       <Filter>98.Header\TypeDef</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\TestScene.h">
-      <Filter>02.Scene\99.TestScene</Filter>
+      <Filter>02.Scene\97.Test</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\IntroScene.h">
       <Filter>02.Scene\00.Intro</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Camera_FreeMove.h">
-      <Filter>05.Objects\00.Camera\FreeMove</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Player_TestMove.h">
-      <Filter>05.Objects\00.Player\99.Test</Filter>
+      <Filter>02.Scene\97.Test\CameraFreeMove</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Camera_FPS.h">
       <Filter>05.Objects\00.Camera\01.FPSCamera</Filter>
@@ -151,20 +142,20 @@
     <ClInclude Include="..\Header\Player_Move.h">
       <Filter>05.Objects\00.Player\00.Move</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Player_Attack.h">
-      <Filter>05.Objects\00.Player\01.Att</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\Player_Idle.h">
-      <Filter>05.Objects\00.Player\State\00.Idle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Player_Walk.h">
-      <Filter>05.Objects\00.Player\State\01.Walk</Filter>
+      <Filter>05.Objects\00.Player\States\00.Idle</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_Att.h">
-      <Filter>05.Objects\00.Player\State\03.Att</Filter>
+      <Filter>05.Objects\00.Player\States\03.Att</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_Reload.h">
-      <Filter>05.Objects\00.Player\State\03.Reload</Filter>
+      <Filter>05.Objects\00.Player\States\03.Reload</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_TestMove.h">
+      <Filter>02.Scene\97.Test\PlayerTestMove</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_TestAttack.h">
+      <Filter>02.Scene\97.Test\PlayerTestAtt_Swap_Reload</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -178,16 +169,13 @@
       <Filter>01.MainGame</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\TestScene.cpp">
-      <Filter>02.Scene\99.TestScene</Filter>
+      <Filter>02.Scene\97.Test</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\IntroScene.cpp">
       <Filter>02.Scene\00.Intro</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Camera_FreeMove.cpp">
-      <Filter>05.Objects\00.Camera\FreeMove</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Player_TestMove.cpp">
-      <Filter>05.Objects\00.Player\99.Test</Filter>
+      <Filter>02.Scene\97.Test\CameraFreeMove</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Camera_FPS.cpp">
       <Filter>05.Objects\00.Camera\01.FPSCamera</Filter>
@@ -195,20 +183,20 @@
     <ClCompile Include="..\Cpp\Player_Move.cpp">
       <Filter>05.Objects\00.Player\00.Move</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\Player_Attack.cpp">
-      <Filter>05.Objects\00.Player\01.Att</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\Player_Idle.cpp">
-      <Filter>05.Objects\00.Player\State\00.Idle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Player_Walk.cpp">
-      <Filter>05.Objects\00.Player\State\01.Walk</Filter>
+      <Filter>05.Objects\00.Player\States\00.Idle</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Att.cpp">
-      <Filter>05.Objects\00.Player\State\03.Att</Filter>
+      <Filter>05.Objects\00.Player\States\03.Att</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Reload.cpp">
-      <Filter>05.Objects\00.Player\State\03.Reload</Filter>
+      <Filter>05.Objects\00.Player\States\03.Reload</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_TestMove.cpp">
+      <Filter>02.Scene\97.Test\PlayerTestMove</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_TestAttack.cpp">
+      <Filter>02.Scene\97.Test\PlayerTestAtt_Swap_Reload</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

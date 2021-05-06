@@ -198,12 +198,11 @@
     <ClInclude Include="..\Header\IntroScene.h" />
     <ClInclude Include="..\Header\MainGame.h" />
     <ClInclude Include="..\Header\Player_Att.h" />
-    <ClInclude Include="..\Header\Player_Attack.h" />
+    <ClInclude Include="..\Header\Player_TestAttack.h" />
     <ClInclude Include="..\Header\Player_Idle.h" />
     <ClInclude Include="..\Header\Player_Move.h" />
     <ClInclude Include="..\Header\Player_Reload.h" />
     <ClInclude Include="..\Header\Player_TestMove.h" />
-    <ClInclude Include="..\Header\Player_Walk.h" />
     <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\TestScene.h" />
     <ClInclude Include="..\Header\TypeDef.h" />
@@ -218,12 +217,11 @@
     <ClCompile Include="..\Cpp\IntroScene.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />
     <ClCompile Include="..\Cpp\Player_Att.cpp" />
-    <ClCompile Include="..\Cpp\Player_Attack.cpp" />
+    <ClCompile Include="..\Cpp\Player_TestAttack.cpp" />
     <ClCompile Include="..\Cpp\Player_Idle.cpp" />
     <ClCompile Include="..\Cpp\Player_Move.cpp" />
     <ClCompile Include="..\Cpp\Player_Reload.cpp" />
     <ClCompile Include="..\Cpp\Player_TestMove.cpp" />
-    <ClCompile Include="..\Cpp\Player_Walk.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">

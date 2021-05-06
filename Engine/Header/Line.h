@@ -40,8 +40,8 @@ public: /* Get */
 	const Vector3&		Get_DestPos() const;
 
 public: /* Set */
-	void			Set_StartPos(const Vector3& _vStartPos);
-	void			Set_DestPos(const Vector3& _DestPos);
+	void				Set_StartPos(const Vector3& _vStartPos);
+	void				Set_DestPos(const Vector3& _DestPos);
 
 private:
 	//LPD3DXLINE			m_pDX9_Line_Com = nullptr;

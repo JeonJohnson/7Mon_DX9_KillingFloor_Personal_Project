@@ -18,12 +18,12 @@ void LineManager::Initialize()
 
 	D3DXCreateLine(m_pDX9_Device, &m_pDX9_LineCom);
 
-	Line::Desc lineDesc;
-	lineDesc.fWidth = 10.f;
-	lineDesc.vStart = Vector3(0 , 0, 0);
-	lineDesc.vDest = Vector3(100, 100, 100);
-	Line*	pLineTemp = new Line(&lineDesc);
-	Insert_Line(pLineTemp);
+	//Line::Desc lineDesc;
+	//lineDesc.fWidth = 10.f;
+	//lineDesc.vStart = Vector3(0 , 0, 0);
+	//lineDesc.vDest = Vector3(100, 100, 100);
+	//Line*	pLineTemp = new Line(&lineDesc);
+	//Insert_Line(pLineTemp);
 
 }
 

@@ -8,17 +8,25 @@
 
 AnimationController::AnimationController(Desc * _desc)
 {
+	m_iCurIndex = _desc->InitIndex;
+	m_dAnimSpd = _desc->dAnimSpd;
 
+	m_bLoop = _desc->bLoop;
+	m_bPlay = _desc->bPlay;
 
-
+	m_pCurTrackInfo = new D3DXTRACK_DESC;
+	ZeroMemory(m_pCurTrackInfo, sizeof(D3DXTRACK_DESC));
 }
 
 AnimationController::~AnimationController()
 {
+
 }
 
 void AnimationController::Initialize()
 {
+	SetUp_AnimCtrl();
+	Play(m_iCurIndex);
 }
 
 void AnimationController::Update()
@@ -33,7 +41,7 @@ void AnimationController::Update()
 
 void AnimationController::LateUpdate()
 {
-
+	
 }
 
 void AnimationController::ReadyRender()
@@ -43,13 +51,14 @@ void AnimationController::ReadyRender()
 
 void AnimationController::Release()
 {
+	Safe_Delete(m_pCurTrackInfo);
 }
 
 HRESULT AnimationController::SetUp_AnimCtrl()
 {
 	if (m_GameObject == nullptr)
 	{
-		return;
+		return E_FAIL;
 	}
 
 	Mesh_Renderer* Temp_MeshRenderer = m_GameObject->Get_Component<Mesh_Renderer>();
@@ -65,16 +74,19 @@ HRESULT AnimationController::SetUp_AnimCtrl()
 
 	if (pTempAnimCtrl != nullptr)
 	{
-		pTempAnimCtrl->CloneAnimationController(
-			pTempAnimCtrl->GetMaxNumAnimationOutputs(),
-			pTempAnimCtrl->GetMaxNumAnimationSets(),
-			pTempAnimCtrl->GetMaxNumTracks(),
-			pTempAnimCtrl->GetMaxNumEvents(),
-			&m_pAnimCtrl);
+		m_pAnimCtrl = pTempAnimCtrl;
+
+		//pTempAnimCtrl->CloneAnimationController(
+		//	pTempAnimCtrl->GetMaxNumAnimationOutputs(),
+		//	pTempAnimCtrl->GetMaxNumAnimationSets(),
+		//	pTempAnimCtrl->GetMaxNumTracks(),
+		//	pTempAnimCtrl->GetMaxNumEvents(),
+		//	&m_pAnimCtrl);
 
 		m_iMaxIndex = m_pAnimCtrl->GetMaxNumAnimationSets();
 	}
 
+	return S_OK;
 }
 
 
@@ -101,62 +113,85 @@ void AnimationController::Animating()
 
 	m_pAnimCtrl->GetTrackDesc(m_iCurTrackIndex, m_pCurTrackInfo);
 	m_dCurKeyFrame = m_pCurTrackInfo->Position;
+	
 
 }
 
-void AnimationController::Play(int _iNewIndex, bool _bBlending)
+void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 {
-	if (m_iCurIndex == _iNewIndex)
-	{
-		return;
-	}
+	//if (m_iCurIndex == _iNewIndex)
+	//{
+	//	return;
+	//}
 
-	m_iNewTrackIndex = (m_iCurTrackIndex == 0) ? 1 : 0;
-
-
-	m_pAnimCtrl->GetAnimationSet(_iNewIndex, &m_pAnimSet);
+	m_pAnimCtrl->GetAnimationSet(_iNewAnimIndex, &m_pAnimSet);
 	m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
-
 
 	if (!_bBlending)
 	{//Do not Animation Blending for Animation change
-		m_pAnimCtrl->SetTrackAnimationSet(m_iNewTrackIndex, m_pAnimSet);
+		//0. 적용되어있는 이벤트 제거(먼지는 몰름 ㅋㅋ)
 		m_pAnimCtrl->UnkeyAllTrackEvents(m_iCurTrackIndex);
-		m_pAnimCtrl->UnkeyAllTrackEvents(m_iNewTrackIndex);
 
-		m_pAnimCtrl->SetTrackEnable(m_iNewTrackIndex, TRUE);
+		//1. 인덱스에 해당하는 애니메이션 세트 받아오기
+		m_pAnimCtrl->GetAnimationSet(_iNewAnimIndex, &m_pAnimSet);
+
+		//2. 해당 애니메이션셑에서 필요한 정보 받아오기.
+		m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
+
+		//3. 블랜딩 필요 없으니 그냥 현재 트랙에 애니메이션 세트올리기
+		m_pAnimCtrl->SetTrackAnimationSet(m_iCurTrackIndex, m_pAnimSet);
+
+		//4. 트랙 활성화
+		m_pAnimCtrl->SetTrackEnable(m_iCurTrackIndex, TRUE);
+
+		//5. 새로운 애니메이션을 시작하기 위해서 값 초기화.
+		m_pAnimCtrl->ResetTime();
+		m_pAnimCtrl->SetTrackPosition(m_iCurTrackIndex, 0.0);
+		m_dCurKeyFrame = 0.0;
 	}
 	else
 	{//Do Blending for Animation Change
-	 //트랙 세팅->해제
+		// track Index Check;
+		m_iNewTrackIndex = (m_iCurTrackIndex == 0) ? 1 : 0;
+
+		//트랙 세팅->해제
 		m_pAnimCtrl->SetTrackAnimationSet(m_iNewTrackIndex, m_pAnimSet);
 		m_pAnimCtrl->UnkeyAllTrackEvents(m_iCurTrackIndex);
 		m_pAnimCtrl->UnkeyAllTrackEvents(m_iNewTrackIndex);
 		
 		//현재 재생되고 있는 애니메이션을 어디까지 재생할 것인가.
 		m_pAnimCtrl->KeyTrackEnable(m_iCurTrackIndex, FALSE, m_dCurKeyFrame + 0.25);
-		//해당 트랙이 해제되는 시간동안 현재 키 프레임은 어떤 속도로 움직이게 할 것인가
+		//해당 트랙이 해제되는 동안 현재 어떤 속도로 진행할 것인가.
 		m_pAnimCtrl->KeyTrackSpeed(m_iCurTrackIndex, 1.f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 		//해당 트랙이 해제되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
 		m_pAnimCtrl->KeyTrackWeight(m_iCurTrackIndex, 0.1f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 
-		//새 트랙을 활성화, 다음 애니메이션 시작.
+		//새 트랙 활성화.
 		m_pAnimCtrl->SetTrackEnable(m_iNewTrackIndex, TRUE);
 		//새 트랙이 시작되는 시간동안 새로운 애니메이션은 어떤 속도로 움직이게 할 것인가
 		m_pAnimCtrl->KeyTrackSpeed(m_iNewTrackIndex, 1.f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 		//새 트랙이 시작되는 시간동안 새로운 애니메이션의 가중치를 어떻게 설정할 것인가 
 		m_pAnimCtrl->KeyTrackWeight(m_iNewTrackIndex, 0.9f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
-		
+
+		//값 정리.
+		m_pAnimCtrl->ResetTime();
+		m_pAnimCtrl->SetTrackPosition(m_iNewTrackIndex, 0.0);
+		m_dCurKeyFrame = 0.0;
+
+		m_iCurIndex = _iNewAnimIndex;
+		m_iCurTrackIndex = m_iNewTrackIndex;
 	}
 
-	m_pAnimCtrl->ResetTime();
-	m_dCurKeyFrame = 0.0;
-
-	m_pAnimCtrl->SetTrackPosition(m_iNewTrackIndex, 0.0);
-	m_iCurIndex = _iNewIndex;
-	m_iCurTrackIndex = m_iNewTrackIndex;
-
 	m_pAnimCtrl->GetTrackDesc(m_iCurTrackIndex, m_pCurTrackInfo);
+}
+
+bool AnimationController::IsEnd()
+{
+	if (m_dCurKeyFrame >= m_dMaxKeyFrame - m_dOffSet)
+	{
+		return true;
+	}
+	return false;
 }
 
 LPD3DXANIMATIONCONTROLLER AnimationController::Get_AnimController()
@@ -174,7 +209,7 @@ LPD3DXTRACK_DESC AnimationController::Get_TrackInfo()
 	return m_pCurTrackInfo;
 }
 
-wstring AnimationController::Get_AnimName()
+wstring AnimationController::Get_CurAnimName()
 {
 	wstring szResult;
 
@@ -183,24 +218,31 @@ wstring AnimationController::Get_AnimName()
 	return szResult;
 }
 
-int AnimationController::Get_CurIndex()
+int AnimationController::Get_CurAnimIndex()
 {
 	return m_iCurIndex;
 }
 
-int AnimationController::Get_MaxIndex()
+int AnimationController::Get_MaxAnimIndex()
 {
 	return m_iMaxIndex;
 }
 
-bool AnimationController::IsEnd()
+double AnimationController::Get_CurFrame()
 {
-	if (m_dCurKeyFrame >= m_dMaxKeyFrame - m_dOffSet)
-	{
-		return true;
-	}
-	return false;
+	return m_dCurKeyFrame;
 }
+
+double AnimationController::Get_MaxFrame()
+{
+	return m_dMaxKeyFrame;
+}
+
+double AnimationController::Get_AnimSpd()
+{
+	return m_dOffSet;
+}
+
 
 void AnimationController::Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl)
 {
@@ -221,4 +263,9 @@ void AnimationController::Set_Play(bool _OnOff)
 void AnimationController::Set_Loop(bool _OnOff)
 {
 	m_bLoop = _OnOff;
+}
+
+void AnimationController::Set_OffSet(double _dOffSet)
+{
+	m_dOffSet = _dOffSet;
 }

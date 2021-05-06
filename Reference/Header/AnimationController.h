@@ -11,9 +11,11 @@ class DLL_STATE AnimationController : public Component
 public:
 	struct Desc
 	{
-		
+		int	InitIndex = 0;
+		double dAnimSpd = 1.0;
 
-
+		bool bLoop = false;
+		bool bPlay = true;
 	};
 
 public:
@@ -21,23 +23,67 @@ public:
 	virtual ~AnimationController();
 
 public:
+	virtual void Initialize() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void ReadyRender() override;
+	virtual void Release() override;
 
-public:
+public: /* Func */
+	HRESULT				SetUp_AnimCtrl();
+	void				Animating();
+	void				Play(int _iNewAnimIndex, bool _bBlending = false);
+	bool				IsEnd();
+	//void				Play(const wstring& _szAnimName, bool _bBlending = false);
 
-public:
 
-public:
+public: /* Get */
+	LPD3DXANIMATIONCONTROLLER		Get_AnimController();
+	LPD3DXANIMATIONSET				Get_AnimSet();
+	LPD3DXTRACK_DESC				Get_TrackInfo();
+
+	wstring							Get_CurAnimName();
+	int								Get_CurAnimIndex();
+	int								Get_MaxAnimIndex();
+
+	double							Get_CurFrame();
+	double							Get_MaxFrame();
+
+	double							Get_AnimSpd();
+
+
+	
+
+
+public: /* Set */
+	void		Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl);
+
+	void		Set_AnimSpd(double _dAnimSpd);
+	void		Set_Play(bool _OnOff);
+	void		Set_Loop(bool _OnOff);
+	void		Set_OffSet(double _dOffSet);
 
 private:
 	LPD3DXANIMATIONCONTROLLER		m_pAnimCtrl = nullptr;
 	LPD3DXANIMATIONSET				m_pAnimSet = nullptr;
 
-	int								m_iCurIndex = 9999;
-	int								m_iMaxIndex = 0;
+	int								m_iCurIndex = 9999; //Current Anim Index
+	int								m_iMaxIndex = 0; //Full Anim Count
 	
-	int								m_iCurTrackIndex = 0;
-	int								m_iNewTrackIndex = 1;
 	LPD3DXTRACK_DESC				m_pCurTrackInfo = nullptr;
+	int								m_iCurTrackIndex = 0; 
+	int								m_iNewTrackIndex = 1; //for Blending
+
+	double							m_dCurKeyFrame = 0.0;
+	double							m_dMaxKeyFrame = 0.0;
+
+	double							m_dDeltaTime = 0.0;
+	double							m_dOffSet = 0.01;
+	double							m_dAnimSpd = 1.0;
+
+	bool							m_bLoop = true;
+	bool							m_bPlay = true;
+
 
 
 

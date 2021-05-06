@@ -81,12 +81,12 @@ HRESULT Anim_Controller::Setup_AnimController(GameObject* _pGameObject)
 		{
 			m_pAnimController = pTempAnimCtrl;
 
-			pTempAnimCtrl->CloneAnimationController(
-				pTempAnimCtrl->GetMaxNumAnimationOutputs(),
-				pTempAnimCtrl->GetMaxNumAnimationSets(),
-				pTempAnimCtrl->GetMaxNumTracks(),
-				pTempAnimCtrl->GetMaxNumEvents(),
-				&m_pAnimController);
+			//pTempAnimCtrl->CloneAnimationController(
+			//	pTempAnimCtrl->GetMaxNumAnimationOutputs(),
+			//	pTempAnimCtrl->GetMaxNumAnimationSets(),
+			//	pTempAnimCtrl->GetMaxNumTracks(),
+			//	pTempAnimCtrl->GetMaxNumEvents(),
+			//	&m_pAnimController);
 
 			assert(L"Animation Controller Create Clone is failed" && m_pAnimController);
 
@@ -114,46 +114,36 @@ void Anim_Controller::Play_Animation()
 
 	if (m_bLoop)
 	{
-		//if (m_fCurKeyFrame + (m_fdTime*m_fAnimSpd) >= (float)m_dMaxKeyFrame)
-		//{//그 만약 현재 애니메이션 위치에서 한 프레임 더 진행되는것이
-		//	//최대값을 넘어간다면?
-		//	// => 만약 그대로 진행시 Max보다 커져버림.
-		//	// => 자동으로 오버플로우 되기 땜시
-		//	// End() 타이밍에 애미넹션을 정시할시 
-		//	// curindex 애니메이션의 처음 부분으로 돌아간 상태로 멈춤.
-		//	//그래서 더해도 maxFrame을 넘지않을 값으로 애니메이션을 진행함.
-
-		//	float LastFrameOffset = (float)m_dMaxKeyFrame - (m_fdTime*m_fAnimSpd);
-
-		//	m_pAnimController->AdvanceTime(LastFrameOffset, NULL);
-
-		//	m_pAnimController->ResetTime();
-		//	m_fCurKeyFrame = 0.f;
-		//}
-		//else { m_pAnimController->AdvanceTime(m_fdTime *m_fAnimSpd, NULL); }
 		m_pAnimController->AdvanceTime(m_fdTime *m_fAnimSpd, NULL);
 	}
 	else
 	{
-		if (m_fCurKeyFrame < (float)m_dMaxKeyFrame - 0.01)
-		{
-			if (m_fCurKeyFrame + (m_fdTime*m_fAnimSpd) >= (float)m_dMaxKeyFrame)
-			{
-				//m_pAnimController->SetTrackPosition(m_iCurTrack, m_dMaxKeyFrame);
-
-				float LastFrameOffset = (float)(m_dMaxKeyFrame - (m_fdTime*m_fAnimSpd));
-
-				m_pAnimController->AdvanceTime(LastFrameOffset, NULL);
-			}
-			else 
-			{
-				m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
-			}
-		}
-		else 
+		if (m_fCurKeyFrame + (m_fdTime* m_fAnimSpd) >= m_dMaxKeyFrame)
 		{
 			m_pAnimController->SetTrackPosition(m_iCurTrack, m_dMaxKeyFrame);
 		}
+		else { m_pAnimController->AdvanceTime(m_fdTime* m_fAnimSpd, NULL); }
+
+
+	//	if (m_fCurKeyFrame < (float)m_dMaxKeyFrame - 0.01)
+	//	{
+	//		if (m_fCurKeyFrame + (m_fdTime*m_fAnimSpd) >= (float)m_dMaxKeyFrame)
+	//		{
+	//			//m_pAnimController->SetTrackPosition(m_iCurTrack, m_dMaxKeyFrame);
+
+	//			float LastFrameOffset = (float)(m_dMaxKeyFrame - (m_fdTime*m_fAnimSpd));
+
+	//			m_pAnimController->AdvanceTime(LastFrameOffset, NULL);
+	//		}
+	//		else 
+	//		{
+	//			m_pAnimController->AdvanceTime(m_fdTime * m_fAnimSpd, NULL);
+	//		}
+	//	}
+	//	else 
+	//	{
+	//		m_pAnimController->SetTrackPosition(m_iCurTrack, m_dMaxKeyFrame);
+	//	}
 	}
 
 	
@@ -195,6 +185,16 @@ float Anim_Controller::Get_AnimCurSpd() const
 	return m_fAnimSpd;
 }
 
+float Anim_Controller::Get_CurFrame() const
+{
+	return (float)m_tCurTrackInfo->Position;
+}
+
+float Anim_Controller::Get_MaxFrame() const
+{
+	return m_dMaxKeyFrame;
+}
+
 bool Anim_Controller::Get_End()
 {
 	if (m_fCurKeyFrame >= (float)(m_dMaxKeyFrame - m_dOffSet))
@@ -213,61 +213,96 @@ void Anim_Controller::Set_AnimController(LPD3DXANIMATIONCONTROLLER _pAnimCtrl)
 
 void Anim_Controller::Set_AnimIndex(int _iNewIndex)
 {
-	if (m_iCurIndex == _iNewIndex)
-	{
-		return;
-	}
+	//if (m_iCurIndex == _iNewIndex)
+	//{
+	//	return;
+	//}
 
-	if (m_iCurTrack == 0)
-	{
-		m_iNewTrack = 1;
-	}
-	else 
-	{
-		m_iNewTrack = 0;
-	}
 
-	LPD3DXANIMATIONSET		pAnimSet = nullptr;
-	
+#pragma region Test
+	//m_pAnimController->UnkeyAllTrackEvents(m_iCurTrack);
+	//m_pAnimController->KeyTrackEnable(m_iCurTrack, FALSE, m_fCurKeyFrame);
 
-	//애니메이션 세트 가져오기.
-	m_pAnimController->GetAnimationSet(_iNewIndex, &pAnimSet);
-					//=>GetAnimationSetByName()으로 불러올 수 있음.
-	m_pAnimSet = pAnimSet;
+	//1. 인덱스에 해당하는 애니메이션 세트 받아오기.
+	m_pAnimController->GetAnimationSet(_iNewIndex, &m_pAnimSet);
 
-	//애니메이션 키프레임 최대치 가져오기
-	m_dMaxKeyFrame = pAnimSet->GetPeriod();
+	//2. 해당 애니메이션세트에서 필요한 정보 받아오기.
+	m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
 
-	//트랙 세팅->해제
-	m_pAnimController->SetTrackAnimationSet(m_iNewTrack, pAnimSet);
-	m_pAnimController->UnkeyAllTrackEvents(m_iCurTrack);
-	m_pAnimController->UnkeyAllTrackEvents(m_iNewTrack);
+	//3. 블랜딩이 필요없으니 그냥 현재 트랙에 애니메이션 셋 올리기.
+	m_pAnimController->SetTrackAnimationSet(m_iCurTrack, m_pAnimSet);
 
-	m_pAnimController->KeyTrackEnable(m_iCurTrack, FALSE, m_fCurKeyFrame + 0.25);
+	//4. 트랙 활성화.
+	m_pAnimController->SetTrackEnable(m_iCurTrack, TRUE);
 
-	//해당 트랙이 해제되는 시간동안 현재 키 프레임은 어떤 속도로 움직이게 할 것인가
-	m_pAnimController->KeyTrackSpeed(m_iCurTrack, 1.f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+	//5. 해당 트랙의 정보 받아오기.
+	//
+	//지금 null로 받아와짐.
 
-	//해당 트랙이 해제되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
-	m_pAnimController->KeyTrackWeight(m_iCurTrack, 0.1f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
-
-	//트랙을 활성화, 다음 애니메이션 시작.
-	m_pAnimController->SetTrackEnable(m_iNewTrack, TRUE);
-	//해당 트랙이 시작되는 시간동안 현재 키 프레임은 어떤 속도로 움직이게 할 것인가
-	m_pAnimController->KeyTrackSpeed(m_iNewTrack, 1.f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
-
-	//해당 트랙이 시작되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
-	m_pAnimController->KeyTrackWeight(m_iNewTrack, 0.9f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
-
-	//AdvanceTime 호출 시 증가하던 시간 값을 초기화
+	//6. 새로 시작을 위해서 값 초기화 하기.
+	m_pAnimController->SetTrackPosition(m_iCurTrack, 0.0);
 	m_pAnimController->ResetTime();
 	m_fCurKeyFrame = 0.f;
 
-	m_pAnimController->SetTrackPosition(m_iNewTrack, 0.0);
+	m_pAnimController->GetTrackDesc(m_iCurTrack, m_tCurTrackInfo);
+#pragma endregion 
 
-	m_iCurIndex = _iNewIndex;
 
-	m_iCurTrack = m_iNewTrack;
+
+
+#pragma region Origin
+
+	//if (m_iCurTrack == 0)
+	//{
+	//	m_iNewTrack = 1;
+	//}
+	//else
+	//{
+	//	m_iNewTrack = 0;
+	//}
+
+	////애니메이션 세트 가져오기.
+	//m_pAnimController->GetAnimationSet(_iNewIndex, &m_pAnimSet);
+	//				//=>GetAnimationSetByName()으로 불러올 수 있음.
+	////m_pAnimSet = pAnimSet;
+
+	////애니메이션 키프레임 최대치 가져오기
+	//m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
+
+	////트랙 세팅
+	//m_pAnimController->SetTrackAnimationSet(m_iNewTrack, m_pAnimSet);
+
+	//m_pAnimController->UnkeyAllTrackEvents(m_iCurTrack);
+	//m_pAnimController->UnkeyAllTrackEvents(m_iNewTrack);
+
+	//m_pAnimController->KeyTrackEnable(m_iCurTrack, FALSE, m_fCurKeyFrame);
+
+	//m_pAnimController->KeyTrackEnable(m_iCurTrack, FALSE, m_fCurKeyFrame + 0.25);
+
+	////해당 트랙이 해제되는 시간동안 현재 키 프레임은 어떤 속도로 움직이게 할 것인가
+	//m_pAnimController->KeyTrackSpeed(m_iCurTrack, 1.f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+
+	////해당 트랙이 해제되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
+	//m_pAnimController->KeyTrackWeight(m_iCurTrack, 0.1f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+
+	//트랙을 활성화, 다음 애니메이션 시작.
+	//m_pAnimController->SetTrackEnable(m_iNewTrack, TRUE);
+	////해당 트랙이 시작되는 시간동안 현재 키 프레임은 어떤 속도로 움직이게 할 것인가
+	//m_pAnimController->KeyTrackSpeed(m_iNewTrack, 1.f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+
+	////해당 트랙이 시작되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
+	//m_pAnimController->KeyTrackWeight(m_iNewTrack, 0.9f, m_fCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+
+	////AdvanceTime 호출 시 증가하던 시간 값을 초기화
+	//m_pAnimController->ResetTime();
+	//m_fCurKeyFrame = 0.f;
+	//m_pAnimController->SetTrackPosition(m_iNewTrack, 0.0);
+
+	//m_iCurIndex = _iNewIndex;
+	//m_iCurTrack = m_iNewTrack;
+#pragma	endregion
+
+
 }
 
 void Anim_Controller::Set_AnimIndex_NoBlend(int _iNewIndex)

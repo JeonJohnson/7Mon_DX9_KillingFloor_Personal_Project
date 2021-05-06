@@ -5,7 +5,7 @@
 
 #define EngineFunction Engine_Mother::Get_Instance()
 
-#define dTime Engine_Mother::Get_Instance()->Get_DeltaTime()
+#define dTime Engine_Mother::Get_Instance()->Get_fDeltaTime()
 
 #define ruSure(Script) AfxMessageBox(Script, MB_YESNO | MB_ICONQUESTION)
 //IDYES, IDNO

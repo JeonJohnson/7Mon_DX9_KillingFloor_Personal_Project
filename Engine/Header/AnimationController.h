@@ -12,12 +12,10 @@ public:
 	struct Desc
 	{
 		int	InitIndex = 0;
-		double fAnimSpd = 1.f;
+		double dAnimSpd = 1.0;
 
-		bool bLoop = true;
+		bool bLoop = false;
 		bool bPlay = true;
-		
-		//wstring		MeshName = L"";
 	};
 
 public:
@@ -33,9 +31,9 @@ public:
 
 public: /* Func */
 	HRESULT				SetUp_AnimCtrl();
-	HRESULT				Change_Mesh();
 	void				Animating();
-	void				Play(int _iNewIndex, bool _bBlending = false);
+	void				Play(int _iNewAnimIndex, bool _bBlending = false);
+	bool				IsEnd();
 	//void				Play(const wstring& _szAnimName, bool _bBlending = false);
 
 
@@ -44,11 +42,16 @@ public: /* Get */
 	LPD3DXANIMATIONSET				Get_AnimSet();
 	LPD3DXTRACK_DESC				Get_TrackInfo();
 
-	wstring							Get_AnimName();
-	int								Get_CurIndex();
-	int								Get_MaxIndex();
+	wstring							Get_CurAnimName();
+	int								Get_CurAnimIndex();
+	int								Get_MaxAnimIndex();
 
-	bool							IsEnd();
+	double							Get_CurFrame();
+	double							Get_MaxFrame();
+
+	double							Get_AnimSpd();
+
+
 	
 
 
@@ -58,12 +61,13 @@ public: /* Set */
 	void		Set_AnimSpd(double _dAnimSpd);
 	void		Set_Play(bool _OnOff);
 	void		Set_Loop(bool _OnOff);
+	void		Set_OffSet(double _dOffSet);
 
 private:
 	LPD3DXANIMATIONCONTROLLER		m_pAnimCtrl = nullptr;
 	LPD3DXANIMATIONSET				m_pAnimSet = nullptr;
 
-	int								m_iCurIndex = 9999;
+	int								m_iCurIndex = 9999; //Current Anim Index
 	int								m_iMaxIndex = 0; //Full Anim Count
 	
 	LPD3DXTRACK_DESC				m_pCurTrackInfo = nullptr;

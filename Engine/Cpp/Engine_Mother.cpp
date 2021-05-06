@@ -33,6 +33,11 @@ Engine_Mother::Engine_Mother()
 	m_pLightManager			= LightManager::Get_Instance();
 	m_pRenderManager		= RenderManager::Get_Instance();
 	m_pSceneManager			= SceneManager::Get_Instance();
+
+#ifdef _DEBUG		
+	m_pDebugManager			= DebugManager::Get_Instance();
+
+#endif //_DEBUG
 }
 
 Engine_Mother::~Engine_Mother()
@@ -47,6 +52,7 @@ void Engine_Mother::Initialize(Desc * _desc)
 #ifdef _DEBUG
 	m_pDeviceManager->Ready_DX9_Device_DEBUG(_desc->hWnd_DEBUG,
 		_desc->wincx_DEBUG, _desc->wincy_DEBUG);
+	m_pDebugManager->Initialize();
 #endif //_DEBUG
 	m_pTimeManager->Time_Init();
 	m_pInputManager->Initialize(_desc->hInst, _desc->hWnd, false);
@@ -102,6 +108,10 @@ void Engine_Mother::Release()
 	m_pTimeManager->Destroy_Instance();
 
 	m_pResourceManager->Destroy_Instance();
+
+#ifdef _DEBUG
+	m_pDebugManager->Destroy_Instance();
+#endif //_DEBUG
 
 	m_pDeviceManager->Destroy_Instance();
 }
@@ -243,6 +253,13 @@ void Engine_Mother::Insert_Line(Line * _pLine)
 {
 	m_pLineManager->Insert_Line(_pLine);
 }
+
+#ifdef _DEBUG
+void Engine_Mother::DebugLog(const wstring & _log)
+{
+	m_pDebugManager->DebugLog(_log);
+}
+#endif //_debug
 
 void Engine_Mother::Insert_Light(D3DLIGHT9 * _pLight, const wstring & _Name)
 {

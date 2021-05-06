@@ -128,12 +128,6 @@
     <Filter Include="06.Resource\00.VIBuffer\00.Line">
       <UniqueIdentifier>{e48dbcc0-3293-42e3-9e8f-e5c8c86ce763}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\00.Line\Grid">
-      <UniqueIdentifier>{5438ed5b-2b60-4de7-bf15-e20c728078db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="06.Resource\00.VIBuffer\00.Line\Gizmo">
-      <UniqueIdentifier>{f570a6e7-d073-47b0-adcb-e500c9b3964d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="06.Resource\00.VIBuffer\01.Triangle">
       <UniqueIdentifier>{1584bd63-fbc3-4d33-b3ce-bb2c791451c1}</UniqueIdentifier>
     </Filter>
@@ -218,15 +212,6 @@
     <Filter Include="98.Headers\TypeDef">
       <UniqueIdentifier>{6f713e96-446c-4f78-b4a9-85e28c6dacd1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Manager\LineManager">
-      <UniqueIdentifier>{9f79fcb8-5dba-4b84-9301-45d216d7ddb6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.GameObject\04.Light">
-      <UniqueIdentifier>{b73ec913-f6f1-4c31-ad26-c74b1ee09f6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.GameObject\Line">
-      <UniqueIdentifier>{d4a491bf-8d75-4b8b-810e-d5f77f9ccf19}</UniqueIdentifier>
-    </Filter>
     <Filter Include="03.GameObject\04.NaviMesh">
       <UniqueIdentifier>{c6c694a1-aaa7-415a-95c1-9020c8eeed59}</UniqueIdentifier>
     </Filter>
@@ -244,6 +229,21 @@
     </Filter>
     <Filter Include="02.Structure\State">
       <UniqueIdentifier>{63fe55ad-c04e-4e22-8672-3ff0c041c85f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\00.Line\Grid_Old">
+      <UniqueIdentifier>{5438ed5b-2b60-4de7-bf15-e20c728078db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\00.VIBuffer\00.Line\Gizmo_Old">
+      <UniqueIdentifier>{f570a6e7-d073-47b0-adcb-e500c9b3964d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\03.UI\02.Line">
+      <UniqueIdentifier>{d4a491bf-8d75-4b8b-810e-d5f77f9ccf19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\04.Light">
+      <UniqueIdentifier>{b73ec913-f6f1-4c31-ad26-c74b1ee09f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Manager\10.LineManager">
+      <UniqueIdentifier>{9f79fcb8-5dba-4b84-9301-45d216d7ddb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -365,10 +365,10 @@
       <Filter>04.Component\01.Renderer\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Line_VIBuffer_Gizmo.cpp">
-      <Filter>06.Resource\00.VIBuffer\00.Line\Gizmo</Filter>
+      <Filter>06.Resource\00.VIBuffer\00.Line\Gizmo_Old</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp">
-      <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
+      <Filter>06.Resource\00.VIBuffer\00.Line\Grid_Old</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\AnimationController.cpp">
       <Filter>06.Resource\01.Mesh\99.Olds\AnimationController_NO</Filter>
@@ -392,7 +392,7 @@
       <Filter>01.Manager\08.LightManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Light.cpp">
-      <Filter>03.GameObject\04.Light</Filter>
+      <Filter>06.Resource\04.Light</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\NaviMesh.cpp">
       <Filter>03.GameObject\04.NaviMesh\02.NaviMesh</Filter>
@@ -404,10 +404,10 @@
       <Filter>03.GameObject\04.NaviMesh\01.Cell</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Line.cpp">
-      <Filter>03.GameObject\Line</Filter>
+      <Filter>06.Resource\03.UI\02.Line</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\LineManager.cpp">
-      <Filter>01.Manager\LineManager</Filter>
+      <Filter>01.Manager\10.LineManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\StateController.cpp">
       <Filter>04.Component\06.StateController</Filter>
@@ -556,10 +556,10 @@
       <Filter>04.Component\01.Renderer\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Line_VIBuffer_Gizmo.h">
-      <Filter>06.Resource\00.VIBuffer\00.Line\Gizmo</Filter>
+      <Filter>06.Resource\00.VIBuffer\00.Line\Gizmo_Old</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Line_VIBuffer_Grid.h">
-      <Filter>06.Resource\00.VIBuffer\00.Line\Grid</Filter>
+      <Filter>06.Resource\00.VIBuffer\00.Line\Grid_Old</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\AnimationController.h">
       <Filter>06.Resource\01.Mesh\99.Olds\AnimationController_NO</Filter>
@@ -583,7 +583,7 @@
       <Filter>01.Manager\08.LightManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Light.h">
-      <Filter>03.GameObject\04.Light</Filter>
+      <Filter>06.Resource\04.Light</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\NaviMesh.h">
       <Filter>03.GameObject\04.NaviMesh\02.NaviMesh</Filter>
@@ -595,10 +595,10 @@
       <Filter>03.GameObject\04.NaviMesh\01.Cell</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Line.h">
-      <Filter>03.GameObject\Line</Filter>
+      <Filter>06.Resource\03.UI\02.Line</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\LineManager.h">
-      <Filter>01.Manager\LineManager</Filter>
+      <Filter>01.Manager\10.LineManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\StateController.h">
       <Filter>04.Component\06.StateController</Filter>

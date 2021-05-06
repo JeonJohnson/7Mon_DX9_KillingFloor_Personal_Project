@@ -143,12 +143,19 @@ public: /* Line Manager */
 		float _fWidth = 3.5f);
 	void			Insert_Line(Line* _pLine);
 
+#ifdef _DEBUG
+	public: /* DebugManager */
+		void		DebugLog(const wstring& _log);
+
+#endif //_DEBUG
+
 	
 public: /* Light Manager */
 	void				Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name = L"Default_Light");
 	
 	 
 public: /* Render Manager */
+
 
 public: /* Resource Manager */
 	void Load_Texture(const wstring & _wPath, const wstring& _wName);
@@ -172,6 +179,9 @@ private:
 	RenderManager*			m_pRenderManager = nullptr;
 	SceneManager*			m_pSceneManager = nullptr;
 	
-	
+#ifdef _DEBUG
+	DebugManager*			m_pDebugManager = nullptr;
+#endif //_DEBUG
+
 };
 #endif //_ENGINE_MOTHER_H_

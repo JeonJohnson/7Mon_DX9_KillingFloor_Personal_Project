@@ -17,7 +17,7 @@ void Line_VIBuffer_Grid::Initialize()
 	m_eKind = VIBUFFER_KIND::VIBuffer_Color;
 	m_eDrawType = D3DPT_LINELIST;
 
-	Set_Name(L"Line_Grid");
+	Set_Name(L"Line_VIBuffer_Grid");
 
 	VBUFFER_INFO vTemp;
 	ZeroMemory(&vTemp, sizeof(VBUFFER_INFO));

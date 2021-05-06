@@ -139,6 +139,10 @@ const Vector2 & DeviceManager::Get_WindowSize() const
 #ifdef _DEBUG
 HRESULT DeviceManager::Ready_DX9_Device_DEBUG(HWND _hWnd, UINT _wincx, UINT _wincy)
 {
+
+	m_vWindowSize_DEBUG.x = (float)_wincx;
+	m_vWindowSize_DEBUG.y = (float)_wincy;
+
 	D3DCAPS9 DeviceCap;//장치의 지원 수준을 조사해서 데이터 보관한 구조체.
 					   //지금 멀티쓰레드 사용할때 설정안하면 버그있는 부분있어서 만들어줌.
 
@@ -211,6 +215,10 @@ HRESULT DeviceManager::Ready_DX9_Device_DEBUG(HWND _hWnd, UINT _wincx, UINT _win
 LPDIRECT3DDEVICE9 DeviceManager::Get_DX9_Device_DEBUG() const
 {
 	return m_pDX9_Device_DEBUG;
+}
+const Vector2 & DeviceManager::Get_WindowSize_DEBUG() const
+{
+	return m_vWindowSize_DEBUG;
 }
 #endif //_DEBUG
 

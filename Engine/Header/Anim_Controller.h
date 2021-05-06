@@ -43,6 +43,8 @@ public: /* Get */
 	int								Get_CurIndex() const;
 	int								Get_MaxIndex() const;
 	float							Get_AnimCurSpd() const;
+	float							Get_CurFrame() const;
+	float							Get_MaxFrame() const;
 	bool							Get_End();
 
 public: /* Set */
