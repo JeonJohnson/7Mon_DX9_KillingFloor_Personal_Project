@@ -15,7 +15,8 @@ void NaviMeshMaker::Initialize()
 
 void NaviMeshMaker::Update()
 {
-	if (MouseUp(KEY_STATE_LMouse) && g_pNaviMeshTool_Dialog->m_bPointCreate)
+	if (MouseUp(KEY_STATE_LMouse) && g_pNaviMeshTool_Dialog->m_bPointCreate
+		&& KeyPress(KEY_STATE_LCtrl))
 	{
 		if (g_pDefaultView->m_tMousePos_View.x >= 0)
 		{
@@ -33,6 +34,7 @@ void NaviMeshMaker::Update()
 
 void NaviMeshMaker::LateUpdate()
 {
+
 }
 
 void NaviMeshMaker::ReadyRender()
