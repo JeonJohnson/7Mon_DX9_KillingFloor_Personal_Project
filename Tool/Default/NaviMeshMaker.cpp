@@ -146,7 +146,56 @@ void NaviMeshMaker::Picking_Mesh()
 		pVB->Unlock();
 		pIB->Unlock();
 
-		
+
+		/*
+		Vector3* m_vertexPositionData = nullptr;
+			INDEX32* m_indexData = nullptr;
+		m_vertexPositionData = new Vector3[m_vertexCount];
+			m_indexData = new INDEX32[m_figureCount];
+
+			DWORD vertexIndex = 0;
+			DWORD figureIndex = 0;
+
+			for (auto& meshContainer : m_meshContainerList)
+			{
+				LPD3DXMESH mesh = meshContainer->MeshData.pMesh;
+
+				D3DVERTEXELEMENT9            decl[MAX_FVF_DECL_SIZE];
+				ZeroMemory(decl, sizeof(D3DVERTEXELEMENT9) * MAX_FVF_DECL_SIZE);
+				mesh->GetDeclaration(decl);
+				DWORD offset = 0;
+
+				for (DWORD i = 0; i < MAX_FVF_DECL_SIZE; ++i)
+				{
+					if (decl[i].Usage == D3DDECLUSAGE_POSITION)
+					{
+						offset = (unsigned char)decl[i].Offset;
+						break;
+					}
+				}
+
+				void* vertexMem = nullptr;
+				mesh->LockVertexBuffer(0, &vertexMem);
+				DWORD currentVertexCount = mesh->GetNumVertices();
+				for (DWORD i = 0; i < currentVertexCount; ++i)
+				{
+					m_vertexPositionData[vertexIndex] = ((Vector3)(((char*)vertexMem) + (m_stride * i + offset)));
+					++vertexIndex;
+				}
+				mesh->UnlockVertexBuffer();
+
+
+				void* indexMem = nullptr;
+				mesh->LockIndexBuffer(0, &indexMem);
+				DWORD currentFigureCount = mesh->GetNumFaces();
+				for (DWORD i = 0; i < currentFigureCount; ++i)
+				{
+					m_indexData[figureIndex] = ((INDEX32*)indexMem)[i];
+					++figureIndex;
+				}
+				//memcpy(&m_indexData[figureIndex], indexMem, sizeof(INDEX32) * currentFigureCount);
+				mesh->UnlockIndexBuffer();
+			}*/
 	}
 }
 
