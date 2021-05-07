@@ -59,7 +59,7 @@ void NaviMeshTool_Dialog::Create_NaviPoint(const Vector3 & _WorldPos)
 {
 	UpdateData(TRUE);
 	
-	GameObject* pNaviPoint = INSTANTIATE(0, L"NaviPoint" + to_wstring(m_iNaviPointIndex));
+	GameObject* pNaviPoint = INSTANTIATE(OBJECT_TAG_NAVIPOINT, L"NaviPoint_" + to_wstring(m_iNaviPointIndex));
 	pNaviPoint->Set_Position(_WorldPos);
 
 	Mesh_Renderer::Desc NaviPoint_Desc;
@@ -90,6 +90,8 @@ void NaviMeshTool_Dialog::Create_NaviPoint(const Vector3 & _WorldPos)
 	}
 	else 
 	{ //그외에 이제 2개 선택해서 찍어야 할 때.
+
+
 
 	}
 

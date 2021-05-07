@@ -41,7 +41,7 @@ public: /* Functions */
 	HRESULT		Update_ProjSpaceMatrix();
 
 	Vector2	 World2Screen(const Vector3& _WorldPos);
-	Vector3	 Screen2World(const Vector2& _ScreenPos, float _DistanceFromCam);
+	Vector3	 Screen2World(const Vector2& _ScreenPos, float _DistanceFromCam = 0.f, Vector3* _pOutViewSpace = nullptr, Vector3* _pOutWorldSpace = nullptr);
 
 public: /* Get */
 	const Matrix&	Get_ViewSpaceMat() ;

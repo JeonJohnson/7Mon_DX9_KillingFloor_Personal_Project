@@ -194,7 +194,8 @@ Vector2 Camera::World2Screen(const Vector3 & _WorldPos)
 	return Vector2(vTemp.x - fHalfWinCX, fHalfWinCY - vTemp.y);
 }
 
-Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam)
+Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam,
+	Vector3* _pOutViewSpace, Vector3* _pOutWorldSpace)
 {
 	float wincx = (float)DeviceManager::Get_Instance()->Get_WindowSize().x;
 	float wincy = (float)DeviceManager::Get_Instance()->Get_WindowSize().y;
@@ -220,6 +221,12 @@ Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam)
 //뷰스페이스의 좌표 구하기.
 	Vector3 ViewSpaceTrans;
 	D3DXVec3TransformCoord(&ViewSpaceTrans, &ProjectionTransform, &invProjection);
+	
+	if (_pOutViewSpace != nullptr)
+	{
+		*_pOutViewSpace = ViewSpaceTrans;
+	}
+
 
 /* ViewSpacePos To WorldSpacePos */
 //뷰스페이스의 역행렬 구하기.
@@ -230,6 +237,11 @@ Vector3 Camera::Screen2World(const Vector2 & _ScreenPos, float _DistanceFromCam)
 	Vector3	WorldSpaceTrans;
 	D3DXVec3TransformCoord(&WorldSpaceTrans, &ViewSpaceTrans, &invViewSpace);
 	
+	if (_pOutWorldSpace != nullptr)
+	{
+		*_pOutWorldSpace = WorldSpaceTrans;
+	}
+
 
 /* 거리 조절 해주기 */
 	Vector3 BetweenVector;

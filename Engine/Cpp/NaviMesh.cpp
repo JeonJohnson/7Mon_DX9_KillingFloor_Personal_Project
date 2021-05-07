@@ -29,5 +29,4 @@ vector<NaviCell*> NaviMesh::Get_NaivCellList()
 void NaviMesh::Insert_NaviCell(NaviCell * _pNaviCell)
 {
 	m_vecNaviCells.emplace_back(_pNaviCell);
-
 }

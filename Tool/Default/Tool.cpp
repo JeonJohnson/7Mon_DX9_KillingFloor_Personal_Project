@@ -148,8 +148,8 @@ BOOL CToolApp::InitInstance()
 	Engine_desc.hWnd_forDInput = AfxGetMainWnd()->m_hWnd;
 	//Engine_desc.hInst = AfxGetInstanceHandle();
 	Engine_desc.hInst = GetModuleHandle(NULL);
-	Engine_desc.Object_Tag_MaxCount = 4;
-	Engine_desc.Render_Layer_MaxCount = 4;
+	Engine_desc.Object_Tag_MaxCount = OBJECT_TAG_END;
+	Engine_desc.Render_Layer_MaxCount = RENDER_LAYER_End;
 
 	m_pEngine->Initialize(&Engine_desc);
 
