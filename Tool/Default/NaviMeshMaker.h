@@ -28,9 +28,12 @@ public:
 
 public:
 	void		Create_Point();
-	void		Picking();
+	void		Picking_Mesh();
+	bool		Picking_Ray2Sphere(float* _fpOutDistance = nullptr,
+		Vector3* _vpOutIntersection = nullptr,
+		wstring* _szMeshName = nullptr);
 
-	Vector3		Create_Ray(const Vector2& _ScreenPos);
+	void		Create_Ray(const Vector2& _ScreenPos);
 
 private:
 	Vector2		m_tMousePos;

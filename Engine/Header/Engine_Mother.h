@@ -99,8 +99,10 @@ public:
 public: /* Device Manager */
 	LPDIRECT3DDEVICE9	Get_Dx9_Device() const;
 	LPD3DXSPRITE		Get_DX9_Sprite() const;
+	Vector2				Get_WindowSize() const;
 #ifdef _DEBUG
 	LPDIRECT3DDEVICE9	Get_Dx9_Device_DEBUG() const;
+	Vector2				Get_WindowSize_DEBUG();
 #endif //_DEBUG
 
 public: /* Time Manager */

@@ -97,6 +97,7 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 		//FVF ¼³Á¤
 		DWORD	dwFVF = pTempMesh->MeshData.pMesh->GetFVF();
 
+
 		if (dwFVF & D3DFVF_NORMAL)
 		{
 			pTempMesh->MeshData.pMesh->CloneMeshFVF(

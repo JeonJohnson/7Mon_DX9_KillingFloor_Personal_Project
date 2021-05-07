@@ -126,10 +126,19 @@ LPD3DXSPRITE Engine_Mother::Get_DX9_Sprite() const
 	return m_pDeviceManager->Get_DX9_Sprite();
 }
 
+Vector2 Engine_Mother::Get_WindowSize() const
+{
+	return m_pDeviceManager->Get_WindowSize();
+}
+
 #ifdef _DEBUG
 LPDIRECT3DDEVICE9 Engine_Mother::Get_Dx9_Device_DEBUG() const
 {
 	return m_pDeviceManager->Get_DX9_Device_DEBUG();
+}
+Vector2 Engine_Mother::Get_WindowSize_DEBUG()
+{
+	return m_pDeviceManager->Get_WindowSize_DEBUG();
 }
 #endif //_DEBUG
 

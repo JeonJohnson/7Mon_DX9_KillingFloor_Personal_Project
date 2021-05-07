@@ -93,8 +93,6 @@ void NaviCell::Setup_Lines()
 					colorTemp));
 		}
 	}
-
-
 }
 
 NaviPoint * NaviCell::Get_NaviPoint(int _iIndex)
