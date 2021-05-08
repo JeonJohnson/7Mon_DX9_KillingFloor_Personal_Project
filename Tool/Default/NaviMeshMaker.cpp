@@ -18,10 +18,9 @@ void NaviMeshMaker::Initialize()
 {
 }
 
-//ï¿½Ì°ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Î±ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ã¹ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½Ï´Ï±ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+//ÀÌ°Å ±×³É ´Ù ´ÙÀÌ¾ó ·Î±× ¾È¿¡¼­ ÇÏÀÚ. ½Ã¹ß ¿©±â¼­ ÇÏ´Ï±î ³Ê¹« Á¿°°´© 
 void NaviMeshMaker::Update()
 {
-	if (MouseUp(KEY_STATE_LMouse) && g_pNaviMeshTool_Dialog->m_bPointCreate)
 	//if (MouseUp(KEY_STATE_LMouse) && g_pNaviMeshTool_Dialog->m_bPointCreate)
 	//{
 	//	if (KeyPress(KEY_STATE_LCtrl))
@@ -365,7 +364,7 @@ bool NaviMeshMaker::Picking_Ray2Sphere(GameObject** _PickingOjbect,
 	}
 
 	if (vecPickObj.size() > 1)
-	{//ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ï´Âµï¿½... ï¿½Ù¸ï¿½ Ä­ï¿½ï¿½ ï¿½Ö³ï¿½...
+	{//°Å¸® °è»êÇØ¾ßÇÏ´Âµð... ´Ù¸¥ Ä­¿¡ ÀÖ³×...
 
 		float	fLongest;
 		int		iCount;
