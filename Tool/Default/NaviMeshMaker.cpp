@@ -18,42 +18,51 @@ void NaviMeshMaker::Initialize()
 {
 }
 
+//�̰� �׳� �� ���̾� �α� �ȿ��� ����. �ù� ���⼭ �ϴϱ� �ʹ� ������ 
 void NaviMeshMaker::Update()
 {
 	if (MouseUp(KEY_STATE_LMouse) && g_pNaviMeshTool_Dialog->m_bPointCreate)
-	{
-		if (KeyPress(KEY_STATE_LCtrl))
-		{
-			if (g_pDefaultView->m_tMousePos_View.x >= 0)
-			{
-				m_tMousePos.x = (FLOAT)g_pDefaultView->m_tMousePos_View.x;
-				m_tMousePos.y = (FLOAT)g_pDefaultView->m_tMousePos_View.y;
+	//if (MouseUp(KEY_STATE_LMouse) && g_pNaviMeshTool_Dialog->m_bPointCreate)
+	//{
+	//	if (KeyPress(KEY_STATE_LCtrl))
+	//	{
+	//		if (g_pDefaultView->m_tMousePos_View.x >= 0)
+	//		{
+	//			m_tMousePos.x = (FLOAT)g_pDefaultView->m_tMousePos_View.x;
+	//			m_tMousePos.y = (FLOAT)g_pDefaultView->m_tMousePos_View.y;
 
-				m_vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_tMousePos, 100);
-				//m_vWorldPos.y = 0.f;
+	//			m_vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_tMousePos, 100);
+	//			//m_vWorldPos.y = 0.f;
 
-				g_pNaviMeshTool_Dialog->Create_NaviPoint(m_vWorldPos);
-			}
-		}
-		else
-		{
-			m_tMousePos.x = (FLOAT)g_pDefaultView->m_tMousePos_View.x;
-			m_tMousePos.y = (FLOAT)g_pDefaultView->m_tMousePos_View.y;
+	//			g_pNaviMeshTool_Dialog->Create_NaviPoint(m_vWorldPos);
+	//		}
+	//	}
+	//	else
+	//	{
+	//		m_tMousePos.x = (FLOAT)g_pDefaultView->m_tMousePos_View.x;
+	//		m_tMousePos.y = (FLOAT)g_pDefaultView->m_tMousePos_View.y;
 
-			Create_Ray(m_tMousePos);
+	//		Create_Ray(m_tMousePos);
 
-			float dist;
-			Vector3	Intersection;
-			wstring meshName;
+	//		float dist;
+	//		Vector3	Intersection;
+	//		//wstring meshName;
+	//		GameObject* Obj = nullptr;
 
-			if (Picking_Ray2Sphere(&dist, &Intersection, &meshName))
-			{
-				int i = 0;
-			}
-			//Picking_Mesh(); 
-		}
 
-	}
+	//		if (Picking_Ray2Sphere(&Obj, &dist, &Intersection))
+	//		{
+	//			Notice(L"Shpere Picking is succed");
+	//			g_pNaviMeshTool_Dialog->Create_NaviPoint(m_vWorldPos,Obj);
+	//		}
+	//		else 
+	//		{
+	//			Notice(L"Shpere Picking is falied");
+	//		}
+	//		//Picking_Mesh(); 
+	//	}
+
+	//}
 }
 
 void NaviMeshMaker::LateUpdate()
@@ -69,6 +78,7 @@ void NaviMeshMaker::Release()
 
 void NaviMeshMaker::Create_Point()
 {
+
 }
 
 void NaviMeshMaker::Picking_Mesh()
@@ -199,11 +209,17 @@ void NaviMeshMaker::Picking_Mesh()
 	}
 }
 
-bool NaviMeshMaker::Picking_Ray2Sphere(float* _fpOutDistance, Vector3* _vpOutIntersection, 
-	wstring* _szMeshName)
+bool NaviMeshMaker::Picking_Ray2Sphere(GameObject** _PickingOjbect,
+	float* _fpOutDistance,
+	Vector3* _vpOutIntersection)
 {
+
 	auto naviPoints = EngineFunction->Get_GameObjectListbyTag(OBJECT_TAG_NAVIPOINT);
 	
+	vector<GameObject*>		vecPickObj;
+	vector<float>			vecDistance;
+	vector<Vector3>			vecIntersection;
+
 #pragma region Test
 	//Vector3		vSphereCenter;
 	//float		fSphereRadius;
@@ -289,14 +305,16 @@ bool NaviMeshMaker::Picking_Ray2Sphere(float* _fpOutDistance, Vector3* _vpOutInt
 
 		if (s < 0 && l2 > r2)
 		{
-			return false;
+			//return false;
+			continue;
 		}
 
 		double m2 = l2 - pow(s, 2);
 
 		if (m2 > r2)
 		{
-			return false;
+			//return false;
+			continue;
 		}
 
 		double q = sqrt(r2 - m2);
@@ -310,25 +328,77 @@ bool NaviMeshMaker::Picking_Ray2Sphere(float* _fpOutDistance, Vector3* _vpOutInt
 		{
 			fDistance = (float)(s + q);
 		}
+		vecDistance.emplace_back(fDistance * fLength_L);
+		vecIntersection.emplace_back(m_vRayOrigin + fDistance*m_vRayDir);
+		vecPickObj.emplace_back(naviPoint);
+
+
+		//if (_fpOutDistance != nullptr)
+		//{	
+		//	*_fpOutDistance = fDistance*fLength_L;
+		//}
+		//if (_vpOutIntersection != nullptr)
+		//{
+		//	*_vpOutIntersection = m_vRayOrigin + fDistance*m_vRayDir;
+		//}
+
+		//if (_szMeshName != nullptr)
+		//{
+		//	*_szMeshName = naviPoint->Get_Name();
+		//}
+
+		//return true;
+	}
+
+	if (vecPickObj.size() == 0)
+	{
+		return false;
+	}
+
+	if (vecPickObj.size() == 1)
+	{
+		*_PickingOjbect = vecPickObj.front();
+		*_fpOutDistance = vecDistance.front();
+		*_vpOutIntersection = vecIntersection.front();
+
+		return true;
+	}
+
+	if (vecPickObj.size() > 1)
+	{//�Ÿ� ����ؾ��ϴµ�... �ٸ� ĭ�� �ֳ�...
+
+		float	fLongest;
+		int		iCount;
+
+		for (int i = 0; i < vecDistance.size(); ++i)
+		{
+			if (i == 0)
+			{
+				fLongest = vecDistance[i];
+			}
+			else
+			{
+				if (fLongest > vecDistance[i])
+				{
+					fLongest = vecDistance[i];
+					iCount = i;
+				}
+			}
+		}
 
 		if (_fpOutDistance != nullptr)
 		{	
-			*_fpOutDistance = fDistance*fLength_L;
+			*_fpOutDistance = fLongest;
 		}
 		if (_vpOutIntersection != nullptr)
 		{
-			*_vpOutIntersection = m_vRayOrigin + fDistance*m_vRayOrigin;
+			*_vpOutIntersection = vecIntersection[iCount];
 		}
 
-		if (_szMeshName != nullptr)
-		{
-			*_szMeshName = naviPoint->Get_Name();
-		}
-
+		*_PickingOjbect = vecPickObj[iCount];
+		
 		return true;
-
 	}
-	return false;
 
 }
 

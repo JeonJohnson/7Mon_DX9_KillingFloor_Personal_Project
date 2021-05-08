@@ -28,10 +28,13 @@ public:
 
 public:
 	void		Create_Point();
+
+public:
+
 	void		Picking_Mesh();
-	bool		Picking_Ray2Sphere(float* _fpOutDistance = nullptr,
-		Vector3* _vpOutIntersection = nullptr,
-		wstring* _szMeshName = nullptr);
+	bool		Picking_Ray2Sphere(GameObject** _PickingObject, 
+		float* _fpOutDistance = nullptr,
+		Vector3* _vpOutIntersection = nullptr);
 
 	void		Create_Ray(const Vector2& _ScreenPos);
 
@@ -40,8 +43,10 @@ private:
 	Vector3		m_vWorldPos;
 
 	//for meshpicking
-	Vector3		m_vRayOrigin; //2뷰스페이스
-	Vector3		m_vRayDir; //2월드
+
+	GameObject*		m_pSelectSphere[2] = {nullptr};
+	Vector3			m_vRayOrigin; //2뷰스페이스
+	Vector3			m_vRayDir; //2월드
 	//크릭한 곳에서 부터 화면 안쪽으로 향하는 광선의 방향
 };
 

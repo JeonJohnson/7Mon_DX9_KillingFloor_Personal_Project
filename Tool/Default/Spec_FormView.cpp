@@ -179,7 +179,7 @@ void Spec_FormView::OnTcnSelchangeToolsTab(NMHDR *pNMHDR, LRESULT *pResult)
 
 	m_tabTools.GetWindowRect(&m_rectToolsTab);
 
-	int		m_iOpenTabIndex = m_tabTools.GetCurSel();
+	m_iOpenTabIndex = m_tabTools.GetCurSel();
 
 	switch (m_iOpenTabIndex)
 	{

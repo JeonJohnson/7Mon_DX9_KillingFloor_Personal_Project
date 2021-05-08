@@ -30,12 +30,29 @@ public:
 	afx_msg void OnBnClickedDeletevertexButton();
 
 	void Update_Info();
-	void Create_NaviPoint(const Vector3& _WorldPos);
 
-public:
+	//void Create_NaviPoint(const Vector3& _WorldPos, GameObject* _PickingPoint = nullptr);
+	
+
+	//NaviMaker에서 안하고 여기서 다 하기.
+	Vector2		m_vMousePos;
+	void		Create_Ray();
+	Vector3		m_vRayOrigin;
+	Vector3		m_vRayDir;
+	NaviPoint* Create_Sphere(const Vector3& _WorldPos, int _Index);
+
+	void		Create_NaviPoint_First();
+	
+	bool		Picking_Ray2Sphere(NaviPoint** _pOutNaviPoint);
+	NaviPoint*	m_pPickingPoint[2] = { nullptr };
+	void		Create_NaviPoint();
+
+
+	//void Pick_Sphere(int _index)
 	int		m_iNaviPointIndex = 0;
 
 	afx_msg void OnBnClickedCheckPointcreate();
+
 	CButton m_checkPointCreate;
 	bool	m_bPointCreate;
 	CListBox m_PointList;
