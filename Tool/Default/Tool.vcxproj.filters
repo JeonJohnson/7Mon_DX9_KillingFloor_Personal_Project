@@ -53,6 +53,9 @@
     <Filter Include="07.Obect/Component\00.Camera">
       <UniqueIdentifier>{2d22caf3-7334-48fa-a487-4ea5be1aa9a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="07.Obect/Component\02.NeviTestObj">
+      <UniqueIdentifier>{7e9ae873-73ed-4629-9191-e6298eda9aa6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -112,6 +115,9 @@
     <ClInclude Include="NaviMeshMaker.h">
       <Filter>07.Obect/Component\01.CreateNaviMesh</Filter>
     </ClInclude>
+    <ClInclude Include="NaviMeshTestObj_Move.h">
+      <Filter>07.Obect/Component\02.NeviTestObj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -149,6 +155,9 @@
     </ClCompile>
     <ClCompile Include="NaviMeshMaker.cpp">
       <Filter>07.Obect/Component\01.CreateNaviMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="NaviMeshTestObj_Move.cpp">
+      <Filter>07.Obect/Component\02.NeviTestObj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

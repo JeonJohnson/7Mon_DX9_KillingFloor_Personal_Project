@@ -213,6 +213,7 @@
     <ClInclude Include="ColliderTool_Dialog.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="NaviMeshMaker.h" />
+    <ClInclude Include="NaviMeshTestObj_Move.h" />
     <ClInclude Include="NaviMeshTool_Dialog.h" />
     <ClInclude Include="ObjectTool_Dialog.h" />
     <ClInclude Include="Spec_FormView.h" />
@@ -234,6 +235,7 @@
     <ClCompile Include="ColliderTool_Dialog.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="NaviMeshMaker.cpp" />
+    <ClCompile Include="NaviMeshTestObj_Move.cpp" />
     <ClCompile Include="NaviMeshTool_Dialog.cpp" />
     <ClCompile Include="ObjectTool_Dialog.cpp" />
     <ClCompile Include="Spec_FormView.cpp" />

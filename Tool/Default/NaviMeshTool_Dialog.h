@@ -49,6 +49,7 @@ public:
 
 
 	//void Pick_Sphere(int _index)
+	int		m_iCellIndex = 0;
 	int		m_iNaviPointIndex = 0;
 
 	afx_msg void OnBnClickedCheckPointcreate();
@@ -60,4 +61,5 @@ public:
 	NaviPoint*		m_pTempPoint= nullptr;
 	NaviCell*		m_pTempCell = nullptr;
 	NaviMesh*		m_pNaviMesh = nullptr;
+	afx_msg void OnBnClickedButton2();
 };

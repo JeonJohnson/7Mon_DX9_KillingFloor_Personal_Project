@@ -211,6 +211,7 @@ BEGIN
     LTEXT           "연결되어있는 정점 번",IDC_STATIC,81,93,73,20,WS_BORDER
     LTEXT           "~정점개수 3개 미만~\n왼쪽 쥐 버튼 + 왼쪽 조작버튼시\n\n정점추가 가능\n~그외 정점 3개이상~\n왼쪽 대안버튼+ 클릭으로 정점 2개이상 선택 후\n컨트롤+클릭으로 새로운 정점",IDC_STATIC,5,185,149,61,WS_BORDER
     PUSHBUTTON      "항해 망사 저장",IDC_BUTTON_NavMeshSave,88,166,66,16
+    PUSHBUTTON      "TEST",IDC_BUTTON2,39,287,40,32
 END
 
 IDD_Object_Dialog DIALOGEX 0, 0, 173, 358

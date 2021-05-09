@@ -24,7 +24,8 @@ public:
 public:
 
 public:
-	void	Link_Cells();
+	void		Link_Cells();
+	Vector3		MoveOn(const Vector3& _vTargetPos, const Vector3& _vTargetDir);
 
 public: /* Get */
 	vector<NaviCell*>	Get_NaivCellList();
@@ -34,7 +35,7 @@ public: /* Set */
 
 private:
 	vector<NaviCell*>		m_vecNaviCells;
-
+	int						m_iCellIndex = 0;//플레이어가 위치해 있는 인덱스?
 };
 
 #endif //_NAVI_MESH_H_

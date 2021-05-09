@@ -9,6 +9,7 @@
 #include "NaviPoint.h"
 #include "NaviCell.h"
 #include "NaviMesh.h"
+#include "NaviMeshTestObj_Move.h"
 
 
 // NaviMeshTool_Dialog 대화 상자입니다.
@@ -41,6 +42,7 @@ BEGIN_MESSAGE_MAP(NaviMeshTool_Dialog, CDialogEx)
 	ON_BN_CLICKED(IDC_DeleteVertex_BUTTON, &NaviMeshTool_Dialog::OnBnClickedDeletevertexButton)
 	
 	ON_BN_CLICKED(IDC_CHECK_PointCreate, &NaviMeshTool_Dialog::OnBnClickedCheckPointcreate)
+	ON_BN_CLICKED(IDC_BUTTON2, &NaviMeshTool_Dialog::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -235,6 +237,8 @@ void NaviMeshTool_Dialog::Create_NaviPoint_First()
 	{
 		Vector3 vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_vMousePos, 100);
 
+		vWorldPos.y = 0;
+
 		if (m_pTempCell == nullptr)
 		{
 			m_pTempCell = new NaviCell;
@@ -247,11 +251,16 @@ void NaviMeshTool_Dialog::Create_NaviPoint_First()
 		{
 			m_pTempCell->Insert_NaviPoint(m_pTempPoint, m_iNaviPointIndex % 3);
 			m_pTempCell->Setup_Lines();
+			
 
 			if (m_pTempCell->Get_PointArraySize() >= 3)
 			{
+				m_pTempCell->Set_CellIndex(m_iCellIndex);
+				++m_iCellIndex;
 				m_pNaviMesh->Insert_NaviCell(m_pTempCell);
+
 				m_pTempCell = nullptr;
+					
 			}
 			m_pTempPoint = nullptr;
 		}
@@ -259,6 +268,7 @@ void NaviMeshTool_Dialog::Create_NaviPoint_First()
 		m_PointList.InsertString(m_iNaviPointIndex, to_wstring(m_iNaviPointIndex).c_str());
 
 		++m_iNaviPointIndex;
+		
 	}
 
 }
@@ -406,6 +416,8 @@ void NaviMeshTool_Dialog::Create_NaviPoint()
 
 		Vector3 vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_vMousePos, 100);
 
+		vWorldPos.y = 0;
+
 		int nullCount = 0;
 		
 		for (int i = 0; i < 2; ++i)
@@ -441,10 +453,12 @@ void NaviMeshTool_Dialog::Create_NaviPoint()
 				m_pTempCell->Insert_NaviPoint(m_pTempPoint, 2);
 
 				m_pTempCell->Setup_Lines();
+				m_pTempCell->Set_CellIndex(m_iCellIndex);
 
 				if (m_pTempCell->Get_PointArraySize() >= 3)
 				{
 					m_pNaviMesh->Insert_NaviCell(m_pTempCell);
+					m_pNaviMesh->Link_Cells();
 					m_pTempCell = nullptr;
 					m_pTempPoint = nullptr;
 					m_pPickingPoint[0] = nullptr;
@@ -453,6 +467,7 @@ void NaviMeshTool_Dialog::Create_NaviPoint()
 				m_PointList.InsertString(m_iNaviPointIndex, to_wstring(m_iNaviPointIndex).c_str());
 
 				++m_iNaviPointIndex;
+				++m_iCellIndex;
 			}
 
 
@@ -483,4 +498,14 @@ void NaviMeshTool_Dialog::OnBnClickedCheckPointcreate()
 
 
 	UpdateData(FALSE);
+}
+
+
+void NaviMeshTool_Dialog::OnBnClickedButton2()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+
+	GameObject* temp= EngineFunction->Get_GameObjectbyName(L"NaviMesh_Test");
+
+	temp->Get_Component<NaviMeshTestObj_Move>()->Set_NaviMesh(m_pNaviMesh);
 }

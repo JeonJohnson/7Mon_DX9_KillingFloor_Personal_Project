@@ -42,9 +42,17 @@ typedef enum eNaviPoint
 	POINT_A,
 	POINT_B,
 	POINT_C,
-	POINT_END
+	POINT_NAME_END
 
 }Point_Name;
+
+typedef enum eLineDirection
+{
+	LINE_LEFT,
+	LINE_RIGHT,
+	LINE_DIR_END
+
+}Line_Dir;
 
 typedef enum eNaviCell_Adjacency
 {
@@ -56,7 +64,7 @@ typedef enum eNaviCell_Adjacency
 	CELL_AB,
 	CELL_BC,
 	CELL_CA,
-	CELL_END
+	CELL_ADJACENCY_END
 
 }Cell_Adjacency;
 
@@ -64,7 +72,7 @@ typedef enum eNaviCell_Option
 {
 	CELL_MOVE,
 	CELL_STOP,
-	CELL_Last
+	CELL_OPTION_END
 
 }Cell_Option;
 

@@ -32,6 +32,8 @@ public:
 public:
 
 public:
+	void Setup_Normal();
+	Line_Dir Compare(const Vector3& _vEndPos);
 
 public: /* Get */
 	float				Get_Width() const;
@@ -42,12 +44,17 @@ public: /* Get */
 public: /* Set */
 	void				Set_StartPos(const Vector3& _vStartPos);
 	void				Set_DestPos(const Vector3& _DestPos);
+	
 
 private:
 	//LPD3DXLINE			m_pDX9_Line_Com = nullptr;
 	D3DXCOLOR			m_tColor;
 	float				m_fWidth;
 	Vector3				m_vArrPoint[POINT_END];
+
+
+	Vector2				m_vDirection;
+	Vector2				m_vNormal;
 
 };
 

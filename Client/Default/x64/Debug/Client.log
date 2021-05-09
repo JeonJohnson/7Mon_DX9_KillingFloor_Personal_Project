@@ -1,2 +1,28 @@
-﻿  Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
+﻿  stdafx.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+cl : 명령줄 warning D9028: 최소 다시 빌드에 실패했습니다. 정상 빌드로 되돌립니다.
+  Client.cpp
+  TestScene.cpp
+  StageScene.cpp
+  Player_TestMove.cpp
+e:\학업\7mon_personal\7mon_personal_project\client\cpp\player_testmove.cpp(22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+e:\학업\7mon_personal\7mon_personal_project\client\cpp\player_testmove.cpp(26): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Player_TestAttack.cpp
+  Player_Swap.cpp
+  Player_Reload.cpp
+  Player_Move.cpp
+e:\학업\7mon_personal\7mon_personal_project\client\cpp\player_move.cpp(51): warning C4244: '인수': 'double'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+e:\학업\7mon_personal\7mon_personal_project\client\cpp\player_move.cpp(55): warning C4244: '인수': 'double'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+e:\학업\7mon_personal\7mon_personal_project\client\cpp\player_move.cpp(59): warning C4244: '인수': 'double'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+e:\학업\7mon_personal\7mon_personal_project\client\cpp\player_move.cpp(63): warning C4244: '인수': 'double'에서 'FLOAT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Player_Idle.cpp
+  Player_Att.cpp
+  MainMenuScene.cpp
+  MainGame.cpp
+  IntroSkipper.cpp
+  IntroScene.cpp
+  Camera_FreeMove.cpp
+  Camera_FPS.cpp
+  코드를 생성하고 있습니다...
+  Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
   Client.vcxproj -> ../Bin/x64\Debug\Client.pdb (Full PDB)

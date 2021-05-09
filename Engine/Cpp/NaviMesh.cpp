@@ -67,8 +67,23 @@ void NaviMesh::Link_Cells()
 			
 
 		}
-
+		
 	}
+
+}
+
+Vector3 NaviMesh::MoveOn(const Vector3 & _vTargetPos, const Vector3 & _vTargetDir)
+{
+	Vector3 vEndPos = _vTargetPos + _vTargetDir;
+
+	if (m_vecNaviCells[m_iCellIndex]->Compare(vEndPos, &m_iCellIndex) == CELL_MOVE)
+	{
+		return vEndPos;
+	}
+	//else if (m_vecNaviCells[m_iCellIndex]->Compare(vEndPos, &m_iCellIndex) == CELL_STOP)
+	//{
+		return _vTargetPos;
+	//}
 
 }
 

@@ -2,7 +2,7 @@
 #include "NaviPoint.h"
 #include "..\..\Reference\Header\DeviceManager.h"
 #include "LineManager.h"
-
+#include "Line.h"
 
 
 NaviCell::NaviCell()
@@ -73,24 +73,32 @@ void NaviCell::Setup_Lines()
 	if (m_arrNaviPoints[0] != nullptr && m_arrNaviPoints[1] != nullptr)
 	{
 		LineManager::Get_Instance()->Insert_Line(
-			LineManager::Get_Instance()->Create_Line(
+			m_ArrLines[0] = LineManager::Get_Instance()->Create_Line(
 			m_arrNaviPoints[0]->Get_Position(),
 			m_arrNaviPoints[1]->Get_Position(),
 			colorTemp));
 
+		m_ArrLines[0]->Setup_Normal();
+		//m_Lines[0] = make_pair(m_arrNaviPoints[0]->Get_Position(), m_arrNaviPoints[1]->Get_Position());
+
 		if (m_arrNaviPoints[2] != nullptr)
 		{
 			LineManager::Get_Instance()->Insert_Line(
-				LineManager::Get_Instance()->Create_Line(
+				m_ArrLines[1] = LineManager::Get_Instance()->Create_Line(
 					m_arrNaviPoints[1]->Get_Position(),
 					m_arrNaviPoints[2]->Get_Position(),
 					colorTemp));
+			m_ArrLines[1]->Setup_Normal();
+			//m_Lines[1] = make_pair(m_arrNaviPoints[1]->Get_Position(), m_arrNaviPoints[2]->Get_Position());
 
 			LineManager::Get_Instance()->Insert_Line(
-				LineManager::Get_Instance()->Create_Line(
+				m_ArrLines[2] = LineManager::Get_Instance()->Create_Line(
 					m_arrNaviPoints[2]->Get_Position(), 
 					m_arrNaviPoints[0]->Get_Position(),
 					colorTemp));
+			m_ArrLines[2]->Setup_Normal();
+			//m_Lines[2] = make_pair(m_arrNaviPoints[2]->Get_Position(), m_arrNaviPoints[0]->Get_Position());
+
 		}
 	}
 }
@@ -149,6 +157,28 @@ bool NaviCell::Setting_AdjacencyCell(NaviPoint * _pointA, NaviPoint * _pointB, N
 	///return false;
 }
 
+Cell_Option NaviCell::Compare(const Vector3 & _vEndPos, int* pOutIndex)
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		if (m_ArrLines[i]->Compare(_vEndPos) == Line_Dir::LINE_LEFT)
+		{
+			if (m_AdjacencyCell[i] == nullptr)
+			{
+				return Cell_Option::CELL_STOP;
+			}
+			else
+			{
+				*pOutIndex = m_AdjacencyCell[i]->Get_CellIndex();
+				return Cell_Option::CELL_MOVE;
+			}
+		}
+	}
+
+	return Cell_Option::CELL_MOVE;
+}
+
+
 
 
 NaviPoint * NaviCell::Get_NaviPoint(int _iIndex)
@@ -180,6 +210,11 @@ NaviCell * NaviCell::Get_AdjacencyCell(int _iIndex)
 	return m_AdjacencyCell[_iIndex];
 }
 
+int NaviCell::Get_CellIndex()
+{
+	return m_iCellIndex;
+}
+
 HRESULT NaviCell::Insert_NaviPoint(NaviPoint * _pPoint, int _iIndex)
 {
 	if (m_arrNaviPoints[_iIndex] == nullptr)
@@ -197,5 +232,10 @@ HRESULT NaviCell::Insert_NaviPoint(NaviPoint * _pPoint, int _iIndex)
 void NaviCell::Set_AdjacencyCell(int iIndex, NaviCell * _pNaviMesh)
 {
 	m_AdjacencyCell[iIndex] = _pNaviMesh;
+}
+
+void NaviCell::Set_CellIndex(int _iIndex)
+{
+	m_iCellIndex = _iIndex;
 }
  
