@@ -47,7 +47,8 @@ void TestScene::Initialize()
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
+	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
+	EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
 		
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
