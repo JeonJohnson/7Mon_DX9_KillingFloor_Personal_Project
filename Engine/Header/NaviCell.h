@@ -35,6 +35,7 @@ public: /* Func */
 
 public: /* Get */
 	NaviPoint*			Get_NaviPoint(int _iIndex);
+
 	int					Get_PointArraySize();
 	NaviCell*			Get_AdjacencyCell(int _iIndex);
 

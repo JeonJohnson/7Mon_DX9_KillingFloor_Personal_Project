@@ -64,7 +64,7 @@ typedef enum eNaviCell_Option
 {
 	CELL_MOVE,
 	CELL_STOP,
-	CELL_END
+	CELL_Last
 
 }Cell_Option;
 

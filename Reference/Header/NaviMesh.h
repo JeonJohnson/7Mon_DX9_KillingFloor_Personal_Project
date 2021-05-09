@@ -24,6 +24,7 @@ public:
 public:
 
 public:
+	void	Link_Cells();
 
 public: /* Get */
 	vector<NaviCell*>	Get_NaivCellList();
