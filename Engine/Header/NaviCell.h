@@ -26,12 +26,21 @@ public:
 public: /* Func */
 	void Setup_Lines();
 
+	
+	bool Setting_AdjacencyCell(NaviPoint*_pointA, NaviPoint* _pointB, NaviCell* _pCell);
+	//Mesh에서 이 Cell의 다음번 Cell의 Point를 넣어서
+	//같은 값이 있는 곳 방향에다가 인접시켜줌.
+
+
+
 public: /* Get */
 	NaviPoint*			Get_NaviPoint(int _iIndex);
 	int					Get_PointArraySize();
+	NaviCell*			Get_AdjacencyCell(int _iIndex);
 
 public: /* Set */
 	HRESULT	Insert_NaviPoint(NaviPoint* _pPoint, int _iIndex);
+	void	Set_AdjacencyCell(int iIndex, NaviCell* _pNaviMesh);
 
 private:
 	//LPDIRECT3DDEVICE9	m_pDX9_Device = nullptr;

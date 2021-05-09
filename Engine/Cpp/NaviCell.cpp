@@ -95,6 +95,62 @@ void NaviCell::Setup_Lines()
 	}
 }
 
+bool NaviCell::Setting_AdjacencyCell(NaviPoint * _pointA, NaviPoint * _pointB, NaviCell * _pCell)
+{
+
+	if (m_arrNaviPoints[POINT_A] == _pointA)
+	{
+		if (m_arrNaviPoints[POINT_B] == _pointB)
+		{//다음 번 셀의 A와 B Point가 지금 이 셀의 A와 B Point랑 같을 경우.
+			m_AdjacencyCell[CELL_AB] = _pCell;
+			return true;
+		}
+
+		if (m_arrNaviPoints[POINT_C] == _pointB)
+		{
+			m_AdjacencyCell[CELL_CA] = _pCell;
+			return true;
+		}
+	}
+
+	if (m_arrNaviPoints[POINT_B] == _pointA)
+	{
+		if (m_arrNaviPoints[POINT_A] == _pointB)
+		{
+			m_AdjacencyCell[CELL_AB] = _pCell;
+			return true;
+		}
+
+		if (m_arrNaviPoints[POINT_C] == _pointB)
+		{
+			m_AdjacencyCell[CELL_BC] = _pCell;
+			return true;
+		}
+	}
+
+	if (m_arrNaviPoints[POINT_C] == _pointA)
+	{
+		if (m_arrNaviPoints[POINT_B] == _pointB)
+		{
+			m_AdjacencyCell[CELL_BC] = _pCell;
+			return true;
+		}
+
+		if (m_arrNaviPoints[POINT_A] == _pointB)
+		{
+			m_AdjacencyCell[CELL_CA] = _pCell;
+			return true;
+		}
+	}
+
+	return false;
+	
+
+	///return false;
+}
+
+
+
 NaviPoint * NaviCell::Get_NaviPoint(int _iIndex)
 {
 	return m_arrNaviPoints[_iIndex];
@@ -115,6 +171,15 @@ int NaviCell::Get_PointArraySize()
 	return iSize;
 }
 
+NaviCell * NaviCell::Get_AdjacencyCell(int _iIndex)
+{
+	if (_iIndex > 2)
+	{
+		return nullptr;
+	}
+	return m_AdjacencyCell[_iIndex];
+}
+
 HRESULT NaviCell::Insert_NaviPoint(NaviPoint * _pPoint, int _iIndex)
 {
 	if (m_arrNaviPoints[_iIndex] == nullptr)
@@ -127,5 +192,10 @@ HRESULT NaviCell::Insert_NaviPoint(NaviPoint * _pPoint, int _iIndex)
 	{
 		return E_FAIL;
 	}
+}
+
+void NaviCell::Set_AdjacencyCell(int iIndex, NaviCell * _pNaviMesh)
+{
+	m_AdjacencyCell[iIndex] = _pNaviMesh;
 }
  
