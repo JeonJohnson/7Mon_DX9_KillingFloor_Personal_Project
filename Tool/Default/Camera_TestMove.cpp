@@ -101,14 +101,14 @@ void Camera_TestMove::Look()
 		m_fRotX += fMouseMoveX * m_fMouseX_Sen * dTime;
 		m_fRotY += fMouseMoveY * m_fMouseY_Sen * dTime;
 
-		if (m_fRotY >= 70.f)
+		if (m_fRotY >= 90.f)
 		{
-			m_fRotY = 70.f;
+			m_fRotY = 90.f;
 		}
 
-		if (m_fRotY <= -70.f)
+		if (m_fRotY <= -90.f)
 		{
-			m_fRotY = -70.f;
+			m_fRotY = -90.f;
 		}
 
 		m_Transform->Set_Rotation(Vector3(m_fRotY, m_fRotX, 0.f));

@@ -2,7 +2,7 @@
 0. Idle
 1. Swap
 2. Reload
-3. Shoot
+3. Fire
 4. 강공or특수공격등 
 
 

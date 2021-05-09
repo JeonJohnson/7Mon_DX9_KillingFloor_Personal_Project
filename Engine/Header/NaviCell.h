@@ -37,6 +37,7 @@ private:
 	//LPDIRECT3DDEVICE9	m_pDX9_Device = nullptr;
 	//LPD3DXLINE			m_pDX9_Line = nullptr;
 	NaviPoint*			m_arrNaviPoints[3] = { nullptr };
+	NaviCell*			m_AdjacencyCell[3] = { nullptr };
 
 };
 

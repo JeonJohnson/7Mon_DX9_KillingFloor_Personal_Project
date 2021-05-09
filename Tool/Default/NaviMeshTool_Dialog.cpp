@@ -84,7 +84,8 @@ void NaviMeshTool_Dialog::Update_Info()
 			{
 				Notice(L"plz select another Sphere");
 			}
-			else {
+			else 
+			{
 				m_pPickingPoint[1] = Temp;
 			}
 		}

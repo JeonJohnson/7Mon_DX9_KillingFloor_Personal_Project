@@ -37,5 +37,37 @@ typedef enum eUi_Kind
 
 }UI_KIND;
 
+typedef enum eNaviPoint
+{
+	POINT_A,
+	POINT_B,
+	POINT_C,
+	POINT_END
+
+}Point_Name;
+
+typedef enum eNaviCell_Adjacency
+{
+	//선분에서 오른쪽기준
+	//		  A
+	//	2	/   \  0
+	//	   C-----B
+	//        1
+	CELL_AB,
+	CELL_BC,
+	CELL_CA,
+	CELL_END
+
+}Cell_Adjacency;
+
+typedef enum eNaviCell_Option
+{
+	CELL_MOVE,
+	CELL_STOP,
+	CELL_END
+
+}Cell_Option;
+
+
 
 #endif //_ENGINE_ENUM_H_
