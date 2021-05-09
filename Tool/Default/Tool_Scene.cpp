@@ -39,9 +39,9 @@ void Tool_Scene::Initialize()
 	//Test_Cam->Add_Component<NaviMeshMaker>(&maker_desc);
 
 	GameObject* TestObj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"NaviMesh_Test");
-	Mesh_Renderer::Desc Test_desc;
-	Test_desc.szMeshName = L"RedBus";
-	TestObj->Add_Component<Mesh_Renderer>(&Test_desc);
+	//Mesh_Renderer::Desc Test_desc;
+	//Test_desc.szMeshName = L"RedBus";
+	//TestObj->Add_Component<Mesh_Renderer>(&Test_desc);
 
 	NaviMeshTestObj_Move::Desc MoveTest_Desc;
 	TestObj->Add_Component<NaviMeshTestObj_Move>(&MoveTest_Desc);

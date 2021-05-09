@@ -47,7 +47,7 @@ void TestScene::Initialize()
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	//EngineFunction->Load_TerrainLayout(L"Data/temp.bin");
+	EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
 		
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
@@ -64,7 +64,7 @@ void TestScene::Initialize()
 	EngineFunction->Load_Mesh(L"Mesh/Weapon/Secondary/BerettaM9.X", L"BerettaM9");
 	EngineFunction->Load_Mesh(L"Mesh/Weapon/Melee/Knife_M9.X", L"Knife_M9");
 
-	EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
+	//EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
 	EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/stone.X", L"Stone");
@@ -72,7 +72,7 @@ void TestScene::Initialize()
 	
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
-		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
+		Player->Set_Position(Vector3(0.f, 30.f, 200.f));
 
 		Player->Add_Component<StateController>();
 		auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
@@ -84,6 +84,7 @@ void TestScene::Initialize()
 
 		Camera::Desc Cam_desc;
 		Cam_desc.fFov_Degree = 45.f;
+		Cam_desc.fzFar = 1200.f;
 		Player->Add_Component<Camera>(&Cam_desc);
 
 		Camera_FPS::Desc Fps_Desc;
@@ -112,8 +113,8 @@ void TestScene::Initialize()
 
 
 		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 40.f;
-		player_Desc.fSprintSpd = 55.f;
+		player_Desc.fWalkSpd = 80.f;
+		player_Desc.fSprintSpd = 120.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Player_TestAttack::Desc Att_Desc;
@@ -144,13 +145,13 @@ void TestScene::Initialize()
 		Taxi_Desc.szMeshName = L"Taxi";
 		Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
 
-		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-		Map->Set_Position(Vector3(0, 0, 0.f));
-		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		Mesh_Renderer::Desc Map_desc;
-		Map_desc.szMeshName = L"Map";
-		Map->Add_Component<Mesh_Renderer>(&Map_desc);
-		
+		/*	GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+			Map->Set_Position(Vector3(0, 0, 0.f));
+			Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+			Mesh_Renderer::Desc Map_desc;
+			Map_desc.szMeshName = L"Map";
+			Map->Add_Component<Mesh_Renderer>(&Map_desc);
+			*/
 	}
 
 

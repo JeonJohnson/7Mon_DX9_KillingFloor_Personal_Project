@@ -9,8 +9,8 @@ class Player_Move :	public Component
 public:
 	struct Desc
 	{
-		float	fWalkSpd = 10.f;
-		float	fSprintSpd = 15.f;
+		float	fWalkSpd = 20.f;
+		float	fSprintSpd = 30.f;
 	};
 
 public:
