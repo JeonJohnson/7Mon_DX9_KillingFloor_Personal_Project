@@ -22,9 +22,29 @@ void Camera_TestMove::Initialize()
 
 void Camera_TestMove::Update()
 {
+
+	if (KeyDown(KEY_STATE_Lshift))
+	{
+		m_fMoveSpd *= m_fSprintSpd;
+	}
+	if (KeyUp(KEY_STATE_Lshift))
+	{
+		m_fMoveSpd = m_fOriginSpd;
+	}
+
+	if (g_pSpec_FormView->m_iOpenTabIndex == 0)
+	{
+		Move();
+		Look();
+
+	}
 	
-	Move();
-	Look();
+	if (g_pSpec_FormView->m_iOpenTabIndex == 1)
+	{
+		NaviMesh_Move();
+	}
+	
+
 
 
 }
@@ -43,14 +63,7 @@ void Camera_TestMove::Release()
 
 void Camera_TestMove::Move()
 {
-	if (KeyDown(KEY_STATE_Lshift))
-	{
-		m_fMoveSpd *= m_fSprintSpd;
-	}
-	if (KeyUp(KEY_STATE_Lshift))
-	{
-		m_fMoveSpd = m_fOriginSpd;
-	}
+
 
 	if (KeyPress(KEY_STATE_W))
 	{
@@ -112,6 +125,43 @@ void Camera_TestMove::Look()
 		}
 
 		m_Transform->Set_Rotation(Vector3(m_fRotY, m_fRotX, 0.f));
+	}
+}
+
+void Camera_TestMove::NaviMesh_Move()
+{
+	m_Transform->Set_RotationX(90.f);
+	m_Transform->Set_RotationY(0.f);
+	m_Transform->Set_RotationZ(0.f);
+
+
+	if (KeyPress(KEY_STATE_W))
+	{
+		m_Transform->Add_PosZ(dTime * m_fMoveSpd);
+	}
+	if (KeyPress(KEY_STATE_S))
+	{
+		m_Transform->Add_PosZ(-1 * dTime * m_fMoveSpd);
+	}
+	if (KeyPress(KEY_STATE_A))
+	{
+		m_Transform->Add_PosX(-1 * dTime * m_fMoveSpd);
+	}
+	if (KeyPress(KEY_STATE_D))
+	{
+		m_Transform->Add_PosX(dTime * m_fMoveSpd);
+	}
+
+	if (MousePress(KEY_STATE_RMouse))
+	{
+		//int fMouseMoveX = MouseMove(KEY_STATE_MouseX);
+		int fMouseMoveY = MouseMove(KEY_STATE_MouseY);
+
+		//m_fRotX += fMouseMoveX * m_fMouseX_Sen * dTime;
+		//m_fFar += fMouseMoveY * m_fMouseY_Sen * dTime;
+
+
+		m_Transform->Add_PosY(fMouseMoveY * m_fMouseY_Sen * dTime);
 	}
 }
 

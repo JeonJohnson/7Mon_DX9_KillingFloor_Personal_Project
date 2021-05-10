@@ -32,6 +32,7 @@ public:
 	void Move();
 	void Look();
 
+	void NaviMesh_Move();
 public:
 
 private:
@@ -39,7 +40,8 @@ private:
 	float	m_fMouseY_Sen;
 	float	m_fRotX = 0.f;
 	float	m_fRotY = 0.f;
-
+	
+	float	m_fFar = 0.f;
 
 	float	m_fMoveSpd;
 	float	m_fOriginSpd;

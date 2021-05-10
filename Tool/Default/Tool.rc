@@ -194,12 +194,12 @@ IDD_NaviMesh_Dialog DIALOGEX 0, 0, 159, 437
 STYLE DS_SETFONT | WS_CHILD
 FONT 10, "나눔바른고딕", 400, 0, 0x81
 BEGIN
-    PUSHBUTTON      "항해 망사 저장",IDC_NaviMeshSave_Button,5,411,56,19
-    PUSHBUTTON      "항해 망사 꺼내기",IDC_NaviMeshLoad_Button,98,411,56,19
+    PUSHBUTTON      "항해 망사 저장",IDC_NaviMeshSave_Button,5,249,56,19
+    PUSHBUTTON      "항해 망사 꺼내기",IDC_NaviMeshLoad_Button,98,251,56,19
     LISTBOX         IDC_LIST_NaviPointList,5,17,70,127,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     CTEXT           "항해 정점 목록",IDC_STATIC,5,5,70,11,0,WS_EX_STATICEDGE
     PUSHBUTTON      "정점 삭제",IDC_DeleteVertex_BUTTON,5,146,76,16
-    PUSHBUTTON      "항해 망사 정리",IDC_NaviOrganize_BUTTON,83,144,71,17
+    PUSHBUTTON      "항해 망사 정리",IDC_NaviOrganize_BUTTON,83,165,71,17
     GROUPBOX        "항해 정점 정보",IDC_STATIC,79,5,75,138
     LTEXT           "좌우",IDC_STATIC,81,21,25,12,WS_BORDER
     LTEXT           "상하",IDC_STATIC,82,43,25,12,WS_BORDER
@@ -210,8 +210,7 @@ BEGIN
     CONTROL         "항해 정점 생성",IDC_CHECK_PointCreate,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,165,76,17,WS_EX_CLIENTEDGE
     LTEXT           "연결되어있는 정점 번",IDC_STATIC,81,93,73,20,WS_BORDER
     LTEXT           "~정점개수 3개 미만~\n왼쪽 쥐 버튼 + 왼쪽 조작버튼시\n\n정점추가 가능\n~그외 정점 3개이상~\n왼쪽 대안버튼+ 클릭으로 정점 2개이상 선택 후\n컨트롤+클릭으로 새로운 정점",IDC_STATIC,5,185,149,61,WS_BORDER
-    PUSHBUTTON      "항해 망사 저장",IDC_BUTTON_NavMeshSave,88,166,66,16
-    PUSHBUTTON      "TEST",IDC_BUTTON2,39,287,40,32
+    PUSHBUTTON      "Bus TEST",IDC_BUTTON2,94,145,60,18
 END
 
 IDD_Object_Dialog DIALOGEX 0, 0, 173, 358

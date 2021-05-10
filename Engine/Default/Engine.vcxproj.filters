@@ -257,6 +257,15 @@
     <Filter Include="04.Component\01.Renderer\03.UI\03.LIne">
       <UniqueIdentifier>{4a305c74-772c-4bcd-a8a9-d7afa9d0760b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Manager\11.NaviMeshManager">
+      <UniqueIdentifier>{29ea6d56-bfe6-4293-8682-993601bdfc90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\99.SaveInfo\Terrain_SaveInfo">
+      <UniqueIdentifier>{f689cbc0-5204-44bd-9668-df9db8cd81a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\99.SaveInfo\NaviMesh_SaveInfo">
+      <UniqueIdentifier>{291038dd-6731-4fae-870d-c3b34472f3b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\DeviceManager.cpp">
@@ -394,9 +403,6 @@
     <ClCompile Include="..\Cpp\Shader.cpp">
       <Filter>04.Component\05.Shader</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\SaveInfo.cpp">
-      <Filter>04.Component\99.SaveInfo</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\Function_Math.cpp">
       <Filter>96.Utility\Math</Filter>
     </ClCompile>
@@ -435,6 +441,12 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Text_Renderer.cpp">
       <Filter>04.Component\01.Renderer\03.UI\02.Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\SaveInfo.cpp">
+      <Filter>04.Component\99.SaveInfo\Terrain_SaveInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\SaveInfo_NaviMesh.cpp">
+      <Filter>04.Component\99.SaveInfo\NaviMesh_SaveInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -594,9 +606,6 @@
     <ClInclude Include="..\Header\Shader.h">
       <Filter>04.Component\05.Shader</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\SaveInfo.h">
-      <Filter>04.Component\99.SaveInfo</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\Function_Math.h">
       <Filter>96.Utility\Math</Filter>
     </ClInclude>
@@ -635,6 +644,12 @@
     </ClInclude>
     <ClInclude Include="..\Header\Text_Renderer.h">
       <Filter>04.Component\01.Renderer\03.UI\02.Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\SaveInfo.h">
+      <Filter>04.Component\99.SaveInfo\Terrain_SaveInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\SaveInfo_NaviMesh.h">
+      <Filter>04.Component\99.SaveInfo\NaviMesh_SaveInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

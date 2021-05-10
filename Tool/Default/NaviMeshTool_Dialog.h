@@ -35,6 +35,7 @@ public:
 	
 
 	//NaviMaker에서 안하고 여기서 다 하기.
+	class Camera* m_pMainCam = nullptr;
 	Vector2		m_vMousePos;
 	void		Create_Ray();
 	Vector3		m_vRayOrigin;
@@ -59,7 +60,13 @@ public:
 	CListBox m_PointList;
 
 	NaviPoint*		m_pTempPoint= nullptr;
+	map<int, NaviPoint*>	m_mapPoint;
+
 	NaviCell*		m_pTempCell = nullptr;
+	//list<NaviCell>
+
 	NaviMesh*		m_pNaviMesh = nullptr;
 	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedNavimeshsaveButton();
+	afx_msg void OnBnClickedNavimeshloadButton();
 };

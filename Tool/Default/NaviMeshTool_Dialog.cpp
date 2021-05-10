@@ -10,6 +10,7 @@
 #include "NaviCell.h"
 #include "NaviMesh.h"
 #include "NaviMeshTestObj_Move.h"
+#include "..\..\Engine\Header\SaveInfo_NaviMesh.h"
 
 
 // NaviMeshTool_Dialog 대화 상자입니다.
@@ -43,6 +44,8 @@ BEGIN_MESSAGE_MAP(NaviMeshTool_Dialog, CDialogEx)
 	
 	ON_BN_CLICKED(IDC_CHECK_PointCreate, &NaviMeshTool_Dialog::OnBnClickedCheckPointcreate)
 	ON_BN_CLICKED(IDC_BUTTON2, &NaviMeshTool_Dialog::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_NaviMeshSave_Button, &NaviMeshTool_Dialog::OnBnClickedNavimeshsaveButton)
+	ON_BN_CLICKED(IDC_NaviMeshLoad_Button, &NaviMeshTool_Dialog::OnBnClickedNavimeshloadButton)
 END_MESSAGE_MAP()
 
 
@@ -55,6 +58,11 @@ void NaviMeshTool_Dialog::OnBnClickedDeletevertexButton()
 
 void NaviMeshTool_Dialog::Update_Info()
 {
+	if (m_pMainCam == nullptr)
+	{
+		m_pMainCam = EngineFunction->Get_MainCamera();
+	}
+
 	m_vMousePos.x = (FLOAT)g_pDefaultView->m_tMousePos_View.x;
 	m_vMousePos.y = (FLOAT)g_pDefaultView->m_tMousePos_View.y;
 
@@ -235,7 +243,11 @@ void NaviMeshTool_Dialog::Create_NaviPoint_First()
 {
 	if (MouseDown(KEY_STATE_LMouse) && KeyPress(KEY_STATE_LCtrl) && m_bPointCreate)
 	{
-		Vector3 vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_vMousePos, 100);
+		float YTemp = m_pMainCam->Get_Transform()->Get_Position().y;
+
+		Vector3 vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_vMousePos, YTemp);
+
+		//Vector3 vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_vMousePos, 100);
 
 		vWorldPos.y = 0;
 
@@ -246,6 +258,7 @@ void NaviMeshTool_Dialog::Create_NaviPoint_First()
 
 		m_pTempPoint = Create_Sphere(vWorldPos, m_iNaviPointIndex);
 		assert(L"Point is nullptr" && m_pTempPoint);
+		m_mapPoint.emplace(m_iNaviPointIndex, m_pTempPoint);
 
 		if (m_pTempCell->Get_PointArraySize() < 3)
 		{
@@ -413,8 +426,9 @@ void NaviMeshTool_Dialog::Create_NaviPoint()
 {
 	if (MouseDown(KEY_STATE_LMouse) && KeyPress(KEY_STATE_LCtrl) && m_bPointCreate)
 	{
+		float YTemp = m_pMainCam->Get_Transform()->Get_Position().y;
 
-		Vector3 vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_vMousePos, 100);
+		Vector3 vWorldPos = EngineFunction->Get_MainCamera()->Screen2World(m_vMousePos, YTemp);
 
 		vWorldPos.y = 0;
 
@@ -450,6 +464,7 @@ void NaviMeshTool_Dialog::Create_NaviPoint()
 				m_pTempCell->Insert_NaviPoint(m_pPickingPoint[1], 1);
 
 				m_pTempPoint = Create_Sphere(vWorldPos,m_iNaviPointIndex);
+				m_mapPoint.emplace(m_iNaviPointIndex, m_pTempPoint);
 				m_pTempCell->Insert_NaviPoint(m_pTempPoint, 2);
 
 				m_pTempCell->Setup_Lines();
@@ -508,4 +523,257 @@ void NaviMeshTool_Dialog::OnBnClickedButton2()
 	GameObject* temp= EngineFunction->Get_GameObjectbyName(L"NaviMesh_Test");
 
 	temp->Get_Component<NaviMeshTestObj_Move>()->Set_NaviMesh(m_pNaviMesh);
+}
+
+
+void NaviMeshTool_Dialog::OnBnClickedNavimeshsaveButton()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+	//저장할때 필요한거 
+	//1. 셀의 총개수
+	//2. 한 셀의 세 점 위치.
+	
+	CFileDialog Dlg(FALSE,
+		L"dat",
+		L"",
+		OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
+		L"NaviMeshData(*.bin)|*.bin||", this);
+
+	TCHAR	szDlg_First[256] = L"";
+	GetCurrentDirectory(256, szDlg_First);
+	PathRemoveFileSpec(szDlg_First);
+	CString	 csResourcePath = szDlg_First;
+
+	//상위폴더 두개 지워주기
+	for (int i = 0; i < 1; ++i)
+	{
+		int pos = csResourcePath.ReverseFind('\\');
+		csResourcePath = csResourcePath.Left(pos);
+	}
+	csResourcePath += L"/Resource/Data";
+	Dlg.m_ofn.lpstrInitialDir = csResourcePath;
+
+	if (Dlg.DoModal())
+	{
+		CString csFilePath = Dlg.GetPathName();
+
+		HANDLE	hFile = CreateFile(csFilePath, GENERIC_WRITE, 0, 0,
+			CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+		
+		if (hFile == INVALID_HANDLE_VALUE)
+		{
+			AfxMessageBox(L"저장이 핸들 생성에서 실패 했읍니다. ㅅㄱ", MB_OK);
+			return;
+		}
+
+		DWORD dwByte = 0;
+
+		SaveInfo_NaviMesh NaviMeshSaveData;
+
+		//저장할때 STL 쓰면안됨. STL도 하나의 클래스임.
+
+		//NaviPoint Count
+ 		int iPointCount = m_iNaviPointIndex;
+		//NaviPoint Position (역순으로...?)
+		vector<Vector3> vecPointPosition;
+
+		for (int i = 0; i < iPointCount; ++i)
+		{
+			vecPointPosition.emplace_back(m_mapPoint[i]->Get_Position());
+		}
+
+		//for (int i = iPointCount-1; i == 0 ; --i)
+		//{
+		//	vecPointPosition.emplace_back(m_mapPoint[i]);
+		//}
+
+		//CellCount
+		int iCellCount = m_iCellIndex;
+		vector<tuple<int, int, int>> vecCellPoint;
+
+		vector<NaviCell*> tempCells = m_pNaviMesh->Get_NaivCellList();
+
+		for (int i = 0; i < iCellCount; ++i)
+		{
+			tuple<int, int, int> temp;
+			
+			int iTemp[3];
+
+			for (int j = 0; j < 3; ++j)
+			{
+				iTemp[j]= tempCells[i]->Get_NaviPoint(j)->Get_Index();
+			}
+
+			temp = make_tuple(iTemp[0], iTemp[1], iTemp[2]);
+
+			vecCellPoint.emplace_back(temp);
+		}
+
+		//for (int i = iCellCount - 1; i == 0; --i)
+		//{
+		//	
+		//}
+
+		NaviMeshSaveData.iPointCount = iPointCount;
+		NaviMeshSaveData.vecPointPosition = vecPointPosition;
+		NaviMeshSaveData.iCellCount = iCellCount;
+		NaviMeshSaveData.vecCellPoint = vecCellPoint;
+		
+		WriteFile(hFile, &NaviMeshSaveData, sizeof(SaveInfo_NaviMesh), &dwByte, nullptr);
+
+		Notice(L"냅이맷시 저장완료");
+
+		CloseHandle(hFile);
+	}
+
+
+
+	UpdateData(FALSE);
+}
+
+
+void NaviMeshTool_Dialog::OnBnClickedNavimeshloadButton()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+
+
+	CFileDialog Dlg(
+		TRUE,
+		nullptr,
+		nullptr,
+		OFN_OVERWRITEPROMPT,
+		L".bin|*bin||",
+		this);
+
+	TCHAR	szDlg_First[256] = L"";
+	GetCurrentDirectory(256, szDlg_First); //현재 문서 위치 받아오기
+	PathRemoveFileSpec(szDlg_First); //맨 마지막 파일 이름 지움 -> 프로젝트 파일 있는 곳
+	CString	 csDataFolderPath = szDlg_First;
+	//상위폴더 두개 지워주기
+	for (int i = 0; i < 1; ++i)
+	{
+		int pos = csDataFolderPath.ReverseFind('\\');
+		csDataFolderPath = csDataFolderPath.Left(pos);
+	}
+	csDataFolderPath += L"/Resource/Data";
+	Dlg.m_ofn.lpstrInitialDir = csDataFolderPath;
+
+
+	if (Dlg.DoModal())
+	{
+		CString csFilePath = Dlg.GetPathName();
+
+		HANDLE hFile = CreateFile(csFilePath, GENERIC_READ, 0, nullptr,
+			OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+
+		if (hFile == INVALID_HANDLE_VALUE)
+		{
+			AfxMessageBox(L"로드가 핸들 생성에서 실패했읍니다. ㅅㄱㅂ", MB_OK);
+		}
+
+		DWORD dwByte = 0;
+		SaveInfo_NaviMesh LoadNaviMeshData;
+
+		while (true)
+		{
+			//SaveInfo_NaviMesh	LoadTemp;
+
+			int iPointCount;
+			vector<Vector3>		vecPointPosition;
+
+			ReadFile(hFile,
+				&iPointCount,
+				sizeof(int),
+				&dwByte,
+				nullptr);
+
+			for (int i = 0; i < iPointCount; ++i)
+			{
+				Vector3 temp;
+
+				ReadFile(hFile,
+					&temp,
+					sizeof(Vector3),
+					&dwByte,
+					nullptr);
+
+				vecPointPosition.emplace_back(temp);
+			}
+
+			int iCellCount;
+			vector<tuple<int, int, int>> vecCellPointIndex;
+
+			ReadFile(hFile,
+				&iCellCount,
+				sizeof(int),
+				&dwByte,
+				nullptr);
+
+			for (int i = 0; i < iCellCount; ++i)
+			{
+				int a[3];
+
+				for (int j = 0; j < 3; ++j)
+				{
+					ReadFile(hFile,
+						&a[j],
+						sizeof(int),
+						&dwByte,
+						nullptr);
+				}
+
+				tuple<int, int, int> tupleTemp = make_tuple(a[0], a[1], a[2]);
+				vecCellPointIndex.emplace_back(tupleTemp);
+			}
+	
+			LoadNaviMeshData.iPointCount = iPointCount;
+			LoadNaviMeshData.vecPointPosition = vecPointPosition;
+			LoadNaviMeshData.iCellCount = iCellCount;
+			LoadNaviMeshData.vecCellPoint = vecCellPointIndex;
+
+			if (dwByte == 0)
+			{
+				break;
+			}
+
+			//LoadNaviMeshData = LoadTemp;
+
+			//memcpy(&LoadNaviMeshData, &LoadTemp, sizeof(SaveInfo_NaviMesh));
+
+			//wstring MeshPath;
+			//wstring ObjName;
+
+			//Function_String::TCHAR2wstring(LoadTemp.szMeshPath, MeshPath);
+			//Function_String::TCHAR2wstring(LoadTemp.szObjName, ObjName);
+
+			//Engine_Mother::Get_Instance()->Load_Mesh(MeshPath, ObjName);
+
+			//GameObject* pGameObject = INSTANTIATE(OBJECT_TAG_TERRAIN, ObjName);
+			//pGameObject->Set_Position(LoadTemp.vPosition);
+			//pGameObject->Set_Scale(LoadTemp.vScale);
+			//pGameObject->Set_Rotation(LoadTemp.vRotation);
+
+			//Mesh_Renderer::Desc Mesh_desc;
+			//Mesh_desc.szMeshName = ObjName;
+			//pGameObject->Add_Component<Mesh_Renderer>(&Mesh_desc);
+
+			//SaveInfo::Desc Save_desc;
+			//Save_desc.szMeshPath = MeshPath;
+			//Save_desc.szObjName = ObjName;
+			//pGameObject->Add_Component<SaveInfo>(&Save_desc);
+
+
+			//m_MeshList_Combo.AddString(ObjName.c_str());
+		}
+
+		AfxMessageBox(L"레이아웃 로드 완료", MB_ICONASTERISK);
+		CloseHandle(hFile);
+
+	}
+
+
+
+	UpdateData(FALSE);
 }

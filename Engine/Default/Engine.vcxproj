@@ -222,6 +222,7 @@
     <ClInclude Include="..\Header\CResource.h" />
     <ClInclude Include="..\Header\ResourceManager.h" />
     <ClInclude Include="..\Header\SaveInfo.h" />
+    <ClInclude Include="..\Header\SaveInfo_NaviMesh.h" />
     <ClInclude Include="..\Header\Scene.h" />
     <ClInclude Include="..\Header\SceneManager.h" />
     <ClInclude Include="..\Header\Shader.h" />
@@ -283,6 +284,7 @@
     <ClCompile Include="..\Cpp\CResource.cpp" />
     <ClCompile Include="..\Cpp\ResourceManager.cpp" />
     <ClCompile Include="..\Cpp\SaveInfo.cpp" />
+    <ClCompile Include="..\Cpp\SaveInfo_NaviMesh.cpp" />
     <ClCompile Include="..\Cpp\Scene.cpp" />
     <ClCompile Include="..\Cpp\SceneManager.cpp" />
     <ClCompile Include="..\Cpp\Shader.cpp" />
