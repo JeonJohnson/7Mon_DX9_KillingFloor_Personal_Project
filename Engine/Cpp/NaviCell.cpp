@@ -215,11 +215,11 @@ int NaviCell::Get_CellIndex()
 	return m_iCellIndex;
 }
 
-HRESULT NaviCell::Insert_NaviPoint(NaviPoint * _pPoint, int _iIndex)
+HRESULT NaviCell::Insert_NaviPoint(NaviPoint * _pPoint, int _iPointIndex)
 {
-	if (m_arrNaviPoints[_iIndex] == nullptr)
+	if (m_arrNaviPoints[_iPointIndex] == nullptr)
 	{
-		m_arrNaviPoints[_iIndex] = _pPoint;
+		m_arrNaviPoints[_iPointIndex] = _pPoint;
 
 		return S_OK;
 	}

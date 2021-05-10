@@ -43,7 +43,7 @@ public: /* Get */
 	int					Get_CellIndex();
 
 public: /* Set */
-	HRESULT	Insert_NaviPoint(NaviPoint* _pPoint, int _iIndex);
+	HRESULT	Insert_NaviPoint(NaviPoint* _pPoint, int _iPointIndex);
 	void	Set_AdjacencyCell(int iIndex, NaviCell* _pNaviMesh);
 	void	Set_CellIndex(int _iIndex);
 

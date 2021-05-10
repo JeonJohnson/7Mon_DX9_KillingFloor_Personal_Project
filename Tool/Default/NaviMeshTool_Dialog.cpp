@@ -570,57 +570,91 @@ void NaviMeshTool_Dialog::OnBnClickedNavimeshsaveButton()
 		DWORD dwByte = 0;
 
 		SaveInfo_NaviMesh NaviMeshSaveData;
+		NaviMeshSaveData.Setting(m_iNaviPointIndex, m_iCellIndex);
 
-		//저장할때 STL 쓰면안됨. STL도 하나의 클래스임.
-
-		//NaviPoint Count
- 		int iPointCount = m_iNaviPointIndex;
-		//NaviPoint Position (역순으로...?)
-		vector<Vector3> vecPointPosition;
-
-		for (int i = 0; i < iPointCount; ++i)
+		for (int i = 0; i < m_iNaviPointIndex; ++i)
 		{
-			vecPointPosition.emplace_back(m_mapPoint[i]->Get_Position());
+			NaviMeshSaveData.arrPointPosition[i] = m_mapPoint[i]->Get_Position();
 		}
-
-		//for (int i = iPointCount-1; i == 0 ; --i)
-		//{
-		//	vecPointPosition.emplace_back(m_mapPoint[i]);
-		//}
-
-		//CellCount
-		int iCellCount = m_iCellIndex;
-		vector<tuple<int, int, int>> vecCellPoint;
 
 		vector<NaviCell*> tempCells = m_pNaviMesh->Get_NaivCellList();
 
-		for (int i = 0; i < iCellCount; ++i)
+		for (int i = 0; i < m_iCellIndex; ++i)
 		{
-			tuple<int, int, int> temp;
-			
 			int iTemp[3];
 
 			for (int j = 0; j < 3; ++j)
 			{
-				iTemp[j]= tempCells[i]->Get_NaviPoint(j)->Get_Index();
+				iTemp[j] = tempCells[i]->Get_NaviPoint(j)->Get_Index();
 			}
 
-			temp = make_tuple(iTemp[0], iTemp[1], iTemp[2]);
-
-			vecCellPoint.emplace_back(temp);
+			NaviMeshSaveData.arrCellPointIndex[i].x = (float)iTemp[0];
+			NaviMeshSaveData.arrCellPointIndex[i].y = (float)iTemp[1];
+			NaviMeshSaveData.arrCellPointIndex[i].z = (float)iTemp[2];
 		}
 
-		//for (int i = iCellCount - 1; i == 0; --i)
+	
+
+		////저장할때 STL 쓰면안됨. STL도 하나의 클래스임.
+
+		////NaviPoint Count
+ 	//	int iPointCount = m_iNaviPointIndex;
+		////NaviPoint Position (역순으로...?)
+		//vector<Vector3> vecPointPosition;
+
+		//for (int i = 0; i < iPointCount; ++i)
 		//{
-		//	
+		//	vecPointPosition.emplace_back(m_mapPoint[i]->Get_Position());
 		//}
 
-		NaviMeshSaveData.iPointCount = iPointCount;
-		NaviMeshSaveData.vecPointPosition = vecPointPosition;
-		NaviMeshSaveData.iCellCount = iCellCount;
-		NaviMeshSaveData.vecCellPoint = vecCellPoint;
+		////for (int i = iPointCount-1; i == 0 ; --i)
+		////{
+		////	vecPointPosition.emplace_back(m_mapPoint[i]);
+		////}
+
+		////CellCount
+		//int iCellCount = m_iCellIndex;
+		//vector<tuple<int, int, int>> vecCellPoint;
+
+		//vector<NaviCell*> tempCells = m_pNaviMesh->Get_NaivCellList();
+
+		//for (int i = 0; i < iCellCount; ++i)
+		//{
+		//	tuple<int, int, int> temp;
+		//	
+		//	int iTemp[3];
+
+		//	for (int j = 0; j < 3; ++j)
+		//	{
+		//		iTemp[j]= tempCells[i]->Get_NaviPoint(j)->Get_Index();
+		//	}
+
+		//	temp = make_tuple(iTemp[0], iTemp[1], iTemp[2]);
+
+		//	vecCellPoint.emplace_back(temp);
+		//}
+
+		////for (int i = iCellCount - 1; i == 0; --i)
+		////{
+		////	
+		////}
+
+		////NaviMeshSaveData.iPointCount = iPointCount;
+		////NaviMeshSaveData.vecPointPosition = vecPointPosition;
+		////NaviMeshSaveData.iCellCount = iCellCount;
+		////NaviMeshSaveData.vecCellPoint = vecCellPoint;
 		
-		WriteFile(hFile, &NaviMeshSaveData, sizeof(SaveInfo_NaviMesh), &dwByte, nullptr);
+		WriteFile(hFile, &NaviMeshSaveData.iPointCount, sizeof(int), &dwByte, nullptr);
+		for (int i = 0; i < m_iNaviPointIndex; ++i)
+		{
+			WriteFile(hFile, &(NaviMeshSaveData.arrPointPosition[i]), sizeof(Vector3), &dwByte, nullptr);
+		}
+		WriteFile(hFile, &NaviMeshSaveData.iCellCount, sizeof(int), &dwByte, nullptr);
+		for (int i = 0; i < m_iCellIndex; ++i)
+		{
+			WriteFile(hFile, &(NaviMeshSaveData.arrCellPointIndex[i]), sizeof(Vector3), &dwByte, nullptr);
+		}
+
 
 		Notice(L"냅이맷시 저장완료");
 
@@ -678,97 +712,110 @@ void NaviMeshTool_Dialog::OnBnClickedNavimeshloadButton()
 
 		while (true)
 		{
-			//SaveInfo_NaviMesh	LoadTemp;
-
+			//Point
 			int iPointCount;
-			vector<Vector3>		vecPointPosition;
-
 			ReadFile(hFile,
 				&iPointCount,
 				sizeof(int),
 				&dwByte,
 				nullptr);
 
+			if (dwByte == 0)
+			{
+				break;
+			}
+
+			Vector3*		arrPointPosition = new Vector3[iPointCount];
 			for (int i = 0; i < iPointCount; ++i)
 			{
-				Vector3 temp;
-
 				ReadFile(hFile,
-					&temp,
+					&arrPointPosition[i],
 					sizeof(Vector3),
 					&dwByte,
 					nullptr);
-
-				vecPointPosition.emplace_back(temp);
 			}
 
+			//Cell
 			int iCellCount;
-			vector<tuple<int, int, int>> vecCellPointIndex;
-
 			ReadFile(hFile,
 				&iCellCount,
 				sizeof(int),
 				&dwByte,
 				nullptr);
 
+			Vector3*		arrCellPointIndex = new Vector3[iCellCount];
 			for (int i = 0; i < iCellCount; ++i)
 			{
-				int a[3];
-
-				for (int j = 0; j < 3; ++j)
-				{
-					ReadFile(hFile,
-						&a[j],
-						sizeof(int),
-						&dwByte,
-						nullptr);
-				}
-
-				tuple<int, int, int> tupleTemp = make_tuple(a[0], a[1], a[2]);
-				vecCellPointIndex.emplace_back(tupleTemp);
+				ReadFile(hFile,
+					&arrCellPointIndex[i],
+					sizeof(Vector3),
+					&dwByte,
+					nullptr);
 			}
-	
-			LoadNaviMeshData.iPointCount = iPointCount;
-			LoadNaviMeshData.vecPointPosition = vecPointPosition;
-			LoadNaviMeshData.iCellCount = iCellCount;
-			LoadNaviMeshData.vecCellPoint = vecCellPointIndex;
+
+			//setting
+			LoadNaviMeshData.Setting(iPointCount, iCellCount);
+			LoadNaviMeshData.arrPointPosition = arrPointPosition;
+			LoadNaviMeshData.arrCellPointIndex = arrCellPointIndex;
 
 			if (dwByte == 0)
 			{
 				break;
 			}
-
-			//LoadNaviMeshData = LoadTemp;
-
-			//memcpy(&LoadNaviMeshData, &LoadTemp, sizeof(SaveInfo_NaviMesh));
-
-			//wstring MeshPath;
-			//wstring ObjName;
-
-			//Function_String::TCHAR2wstring(LoadTemp.szMeshPath, MeshPath);
-			//Function_String::TCHAR2wstring(LoadTemp.szObjName, ObjName);
-
-			//Engine_Mother::Get_Instance()->Load_Mesh(MeshPath, ObjName);
-
-			//GameObject* pGameObject = INSTANTIATE(OBJECT_TAG_TERRAIN, ObjName);
-			//pGameObject->Set_Position(LoadTemp.vPosition);
-			//pGameObject->Set_Scale(LoadTemp.vScale);
-			//pGameObject->Set_Rotation(LoadTemp.vRotation);
-
-			//Mesh_Renderer::Desc Mesh_desc;
-			//Mesh_desc.szMeshName = ObjName;
-			//pGameObject->Add_Component<Mesh_Renderer>(&Mesh_desc);
-
-			//SaveInfo::Desc Save_desc;
-			//Save_desc.szMeshPath = MeshPath;
-			//Save_desc.szObjName = ObjName;
-			//pGameObject->Add_Component<SaveInfo>(&Save_desc);
-
-
-			//m_MeshList_Combo.AddString(ObjName.c_str());
 		}
 
-		AfxMessageBox(L"레이아웃 로드 완료", MB_ICONASTERISK);
+		//Create Points
+		vector<NaviPoint*> vecPoint;
+		for (int i = 0; i < LoadNaviMeshData.iPointCount; ++i)
+		{
+			NaviPoint* PointObject = Create_Sphere(LoadNaviMeshData.arrPointPosition[i], i);
+
+			vecPoint.emplace_back(PointObject);
+
+			m_PointList.InsertString(m_iNaviPointIndex, to_wstring(m_iNaviPointIndex).c_str());
+			++m_iNaviPointIndex;
+		}
+
+		//CellSetting
+		m_pNaviMesh = new NaviMesh;
+		for (int i = 0; i < LoadNaviMeshData.iCellCount; ++i)
+		{
+			NaviCell* Cell = new NaviCell;
+			Cell->Set_CellIndex(i);
+			Vector3		Index = LoadNaviMeshData.arrCellPointIndex[i];
+
+			for (int j = 0; j < 3; ++j)
+			{
+				switch (j)
+				{
+				case 0:
+				{Cell->Insert_NaviPoint(vecPoint[(int)Index.x], j); }
+				break;
+
+				case 1:
+				{Cell->Insert_NaviPoint(vecPoint[(int)Index.y], j); }
+				break;
+
+				case 2:
+				{Cell->Insert_NaviPoint(vecPoint[(int)Index.z], j); }
+				break;
+
+				default:
+					break;
+				}
+				
+			}
+
+			Cell->Setup_Lines();
+			
+			
+			m_pNaviMesh->Insert_NaviCell(Cell);
+			m_pNaviMesh->Link_Cells();
+
+			++m_iCellIndex;
+		}
+
+		AfxMessageBox(L"내비매쉬 로드 완료", MB_ICONASTERISK);
 		CloseHandle(hFile);
 
 	}

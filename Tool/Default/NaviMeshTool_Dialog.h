@@ -48,10 +48,9 @@ public:
 	NaviPoint*	m_pPickingPoint[2] = { nullptr };
 	void		Create_NaviPoint();
 
-
 	//void Pick_Sphere(int _index)
-	int		m_iCellIndex = 0;
 	int		m_iNaviPointIndex = 0;
+	int		m_iCellIndex = 0;
 
 	afx_msg void OnBnClickedCheckPointcreate();
 
