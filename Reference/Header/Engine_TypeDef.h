@@ -16,7 +16,7 @@ typedef		D3DXQUATERNION		Quaternion;
 /* Layer, Tag Typedef */
 typedef unsigned int	_object_Tag;
 typedef unsigned int	_render_Layer;
-typedef unsigned int	_render_Queue;
+//typedef unsigned int	_render_Queue;
 typedef unsigned int	_collision_Layer;
 //typedef unsigned int	OBJECT_TAG;
 

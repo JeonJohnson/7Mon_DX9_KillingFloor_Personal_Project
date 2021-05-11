@@ -13,6 +13,8 @@ class StaticMesh;
 class AnimMesh;
 class Mesh;
 
+class NaviMesh;
+
 class DLL_STATE ResourceManager
 {
 	Declare_Singleton(ResourceManager)
@@ -157,10 +159,11 @@ public:
 	wstring			EraseFileExtension(wstring _FileName);
 public: /* Get */
 	const wstring&	Get_ResourceFolderPath() const;
-	
+	NaviMesh* Get_NaviMesh()const;
 
 public: /* Set */
 	void Set_ResourceFolderPath(const wstring& _wPath);
+	void Set_NaviMesh(NaviMesh* _pNaviMesh);
 	
 private:
 	typedef unordered_map<wstring, CResource*> RESOURCE_LIST;
@@ -171,5 +174,10 @@ private:
 
 private:
 	wstring		m_wFolderPath;
+
+
+	NaviMesh*	m_pNaviMesh = nullptr;
+	
+
 };
 #endif //_RESOURCE_MANAGER_H_

@@ -42,13 +42,17 @@ void TestScene::Initialize()
 	//EngineFunction->Insert_Light(Temp, L"HatBit");
 	//delete Temp;
 
-	//GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
-	//VIBuffer_Renderer::Desc Grid_Desc;
+	GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
+	Grid_Test->Set_Position(Vector3(0, 30.f, 200));
+	Grid_Test->Set_Scale(Vector3(10.f, 10.f, 10.f));
+	VIBuffer_Renderer::Desc Grid_Desc;
+	Grid_Desc.wBufferName = L"Sphere_Debug";
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
-	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
+	Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
 	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
 	EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
+	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Test.bin");
 		
 	EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");

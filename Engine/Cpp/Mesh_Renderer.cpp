@@ -102,8 +102,6 @@ void Mesh_Renderer::Render()
 				{	assert(0 && L"SetTexture Faild at Static Mesh Renderring");
 				}
 				m_pEffectCom->CommitChanges();
-
-				
 					
 				if (FAILED(iter->MeshData.pMesh->DrawSubset(i)))
 				{

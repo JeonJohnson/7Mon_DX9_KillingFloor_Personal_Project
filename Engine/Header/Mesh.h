@@ -33,6 +33,7 @@ public:
 	//void		Set_AnimationSet(int _AnimIndex);
 	//void		Play_AnimationSet();
 
+
 public: /* Get */
 	list<MeshContainer_Derived*>		Get_MeshContainerList();
 	//AnimationController*				Get_AnimationController();

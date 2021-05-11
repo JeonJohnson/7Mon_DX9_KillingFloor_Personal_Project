@@ -2,6 +2,7 @@
 
 #include "Hierarchy_Loader.h"
 #include "AnimationController.h"
+#include "DeviceManager.h"
 
 Mesh::Mesh()
 {
@@ -157,6 +158,20 @@ void Mesh::Update_BoneMatrix(D3DXFrame_Derived * pBone, Matrix * pParentMatrix)
 //		D3DXMatrixRotationY(&matTemp, D3DXToRadian(-90.f));
 //		Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &matTemp);
 //	}
+//}
+
+//HRESULT Mesh::Create_DefaultSphere()
+//{
+//	MeshContainer_Derived*		Sphere_Meshcontainer = new MeshContainer_Derived;
+//	ZeroMemory(&Sphere_Meshcontainer,sizeof(MeshContainer_Derived));
+//
+//	D3DXCreateSphere(
+//		DeviceManager::Get_Instance()->Get_DX9_Device(),
+//		1.f,
+//
+//
+//
+//	);
 //}
 
 list<MeshContainer_Derived*> Mesh::Get_MeshContainerList()

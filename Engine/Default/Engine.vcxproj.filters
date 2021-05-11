@@ -101,9 +101,6 @@
     <Filter Include="97.System\00.FPS">
       <UniqueIdentifier>{c95c7d61-9574-4f3d-b36a-675f9a65cd7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\02.Texture">
-      <UniqueIdentifier>{930bd6be-7d46-4f4a-b929-428219d8df01}</UniqueIdentifier>
-    </Filter>
     <Filter Include="06.Resource\01.Mesh">
       <UniqueIdentifier>{50f4a94a-bc38-4672-94d3-51a0b958bf4a}</UniqueIdentifier>
     </Filter>
@@ -265,6 +262,18 @@
     </Filter>
     <Filter Include="04.Component\99.SaveInfo\NaviMesh_SaveInfo">
       <UniqueIdentifier>{291038dd-6731-4fae-870d-c3b34472f3b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\07.Collider">
+      <UniqueIdentifier>{71805b49-c285-4faf-a252-211f49ff07c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Component\07.Collider\SphereCollider">
+      <UniqueIdentifier>{deebbd13-aa59-4aae-a463-13a6b67ea5ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\01.Mesh\00.Default_Shapes">
+      <UniqueIdentifier>{e4188166-5c15-43b7-a3ff-ebb724a7c5e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\02.Texture">
+      <UniqueIdentifier>{930bd6be-7d46-4f4a-b929-428219d8df01}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -447,6 +456,15 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\SaveInfo_NaviMesh.cpp">
       <Filter>04.Component\99.SaveInfo\NaviMesh_SaveInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Collider.cpp">
+      <Filter>04.Component\07.Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\SphereCollider.cpp">
+      <Filter>04.Component\07.Collider\SphereCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Sphere_VIBuffer.cpp">
+      <Filter>06.Resource\00.VIBuffer\05.Sphere</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -650,6 +668,15 @@
     </ClInclude>
     <ClInclude Include="..\Header\SaveInfo_NaviMesh.h">
       <Filter>04.Component\99.SaveInfo\NaviMesh_SaveInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Collider.h">
+      <Filter>04.Component\07.Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\SphereCollider.h">
+      <Filter>04.Component\07.Collider\SphereCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Sphere_VIBuffer.h">
+      <Filter>06.Resource\00.VIBuffer\05.Sphere</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

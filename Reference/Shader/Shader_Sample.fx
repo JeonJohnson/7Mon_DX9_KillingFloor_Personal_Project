@@ -123,11 +123,11 @@ PS_OUT		PS_MAIN(PS_IN _In)
 	
 
 	//여기에 색깔 변할거 적어주면 됨.
-	if (_In.vTexUV.x <= 0.5f)
-	{
-		tOut.vColor.r = 0.5f;
-	}
-	else { tOut.vColor.g = 0.5f; }
+	//if (_In.vTexUV.x <= 0.5f)
+	//{
+	//	tOut.vColor.r = 0.5f;
+	//}
+	//else { tOut.vColor.g = 0.5f; }
 	return tOut;
 }
 

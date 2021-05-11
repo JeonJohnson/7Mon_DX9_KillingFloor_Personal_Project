@@ -1,4 +1,8 @@
 #include "..\Header\Engine_Mother.h"
+#include "SaveInfo_NaviMesh.h"
+#include "..\..\Reference\Header\NaviPoint.h"
+#include "NaviMesh.h"
+#include "NaviCell.h"
 
 Engine_Mother*	Engine_Mother::m_Instance = nullptr;
 
@@ -350,5 +354,149 @@ void Engine_Mother::Load_TerrainLayout(const wstring & _szDataPath)
 
 
 	CloseHandle(hFile);
+
+}
+
+void Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
+{
+	wstring szDataFullPath = m_pResourceManager->Get_ResourceFolderPath() + _szDataPath;
+
+	HANDLE	hFile = CreateFile(szDataFullPath.c_str(),
+		GENERIC_READ,
+		0,
+		nullptr,
+		OPEN_EXISTING,
+		FILE_ATTRIBUTE_NORMAL,
+		nullptr);
+
+	if (hFile == INVALID_HANDLE_VALUE)
+	{
+		assert(0 && L"Handle Create failed to NaviMeshData");
+	}
+
+	DWORD	dwByte = 0;
+	SaveInfo_NaviMesh LoadNaviMeshData;
+
+	while(true)
+	{
+		int iPointCount;
+		ReadFile(hFile,
+			&iPointCount,
+			sizeof(int),
+			&dwByte,
+			nullptr);
+
+		if (dwByte == 0)
+		{
+			break;
+		}
+
+		Vector3*		arrPointPosition = new Vector3[iPointCount];
+		for (int i = 0; i < iPointCount; ++i)
+		{
+			ReadFile(hFile,
+				&arrPointPosition[i],
+				sizeof(Vector3),
+				&dwByte,
+				nullptr);
+		}
+
+		//Cell
+		int iCellCount;
+		ReadFile(hFile,
+			&iCellCount,
+			sizeof(int),
+			&dwByte,
+			nullptr);
+
+		Vector3*		arrCellPointIndex = new Vector3[iCellCount];
+		for (int i = 0; i < iCellCount; ++i)
+		{
+			ReadFile(hFile,
+				&arrCellPointIndex[i],
+				sizeof(Vector3),
+				&dwByte,
+				nullptr);
+		}
+
+		//setting
+		LoadNaviMeshData.Setting(iPointCount, iCellCount);
+		LoadNaviMeshData.arrPointPosition = arrPointPosition;
+		LoadNaviMeshData.arrCellPointIndex = arrCellPointIndex;
+
+	}
+	CloseHandle(hFile);
+
+	Load_Mesh(L"Test/StaticMesh/DebugSphere.X", L"DebugSphere");
+
+	//Create Points
+	vector<NaviPoint*> vecPoint;
+	for (int i = 0; i < LoadNaviMeshData.iPointCount; ++i)
+	{	
+		Vector3 _WorldPos = LoadNaviMeshData.arrPointPosition[i];
+
+		GameObject* pPointObj = INSTANTIATE(5, L"NaviPoint_" + to_wstring(i));
+		pPointObj->Set_Position(_WorldPos);
+
+		Mesh_Renderer::Desc Render_Desc;
+		Render_Desc.szMeshName = L"DebugSphere";
+		pPointObj->Add_Component<Mesh_Renderer>(&Render_Desc);
+
+		NaviPoint::Desc NaviPoint_Desc;
+		NaviPoint_Desc.Pos = _WorldPos;
+		NaviPoint_Desc.Index = i;
+		pPointObj->Add_Component<NaviPoint>(&NaviPoint_Desc);
+		
+		NaviPoint* tempPoint = pPointObj->Get_NewComponent<NaviPoint>();
+
+		vecPoint.emplace_back(tempPoint);
+	}
+
+	NaviMesh* tempNaviMesh = new NaviMesh;
+	//CreateCell & Setting
+	for (int i = 0; i < LoadNaviMeshData.iCellCount; ++i)
+	{
+		NaviCell* Cell = new NaviCell;
+		Cell->Set_CellIndex(i);
+		Vector3		PointIndex = LoadNaviMeshData.arrCellPointIndex[i];
+
+		for (int j = 0; j < 3; ++j)
+		{
+			switch (j)
+			{
+			case 0:
+			{
+				Cell->Insert_NaviPoint(vecPoint[(int)PointIndex.x], j);
+			}
+			break;
+
+			case 1:
+			{
+				Cell->Insert_NaviPoint(vecPoint[(int)PointIndex.y], j);
+			}
+			break;
+
+			case 2:
+			{
+				Cell->Insert_NaviPoint(vecPoint[(int)PointIndex.z], j);
+			}
+			break;
+			default:
+				break;
+			}
+		}
+
+		Cell->Setup_Lines();
+
+		tempNaviMesh->Insert_NaviCell(Cell);
+		tempNaviMesh->Link_Cells();
+	}
+
+	m_pResourceManager->Set_NaviMesh(tempNaviMesh);
+
+#ifdef _DEBUG	
+	MsgBox(L"Notice", L"NaviMesh Load Compelate");
+#endif
+
 
 }

@@ -1,8 +1,4 @@
-﻿  NaviCell.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  코드를 생성하고 있습니다...
-  건너뛰고 있습니다... (관련된 변경 내용 없음)
-  NaviMesh.cpp
+﻿  compilation object save succeeded; see E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Bin\Shader_Mesh.cso
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
@@ -11,6 +7,7 @@
   ..\Header\AnimMesh.h
   ..\Header\Anim_Controller.h
   ..\Header\Camera.h
+  ..\Header\Collider.h
   ..\Header\Component.h
   ..\Header\CResource.h
   ..\Header\CState.h
@@ -58,6 +55,8 @@
   ..\Header\SceneManager.h
   ..\Header\Shader.h
   ..\Header\SkyBox_VIBuffer_DDS.h
+  ..\Header\SphereCollider.h
+  ..\Header\Sphere_VIBuffer.h
   ..\Header\Sprite.h
   ..\Header\Sprite_Renderer.h
   ..\Header\StateController.h
@@ -75,7 +74,7 @@
   ..\Header\UI_Renderer.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  68개 파일이 복사되었습니다.
+  71개 파일이 복사되었습니다.
   ..\Shader\Shader_Mesh.fx
   ..\Shader\Shader_Sample.fx
   2개 파일이 복사되었습니다.

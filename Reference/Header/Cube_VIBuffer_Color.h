@@ -7,6 +7,9 @@
 class Cube_VIBuffer_Color : public VIBuffer
 {
 public:
+
+
+public:
 	Cube_VIBuffer_Color();
 	virtual ~Cube_VIBuffer_Color();
 

@@ -182,6 +182,7 @@
     <ClInclude Include="..\Header\AnimMesh.h" />
     <ClInclude Include="..\Header\Anim_Controller.h" />
     <ClInclude Include="..\Header\Camera.h" />
+    <ClInclude Include="..\Header\Collider.h" />
     <ClInclude Include="..\Header\Component.h" />
     <ClInclude Include="..\Header\Cube_VIBuffer_Color.h" />
     <ClInclude Include="..\Header\Cube_VIBuffer_DDS.h" />
@@ -227,6 +228,8 @@
     <ClInclude Include="..\Header\SceneManager.h" />
     <ClInclude Include="..\Header\Shader.h" />
     <ClInclude Include="..\Header\SkyBox_VIBuffer_DDS.h" />
+    <ClInclude Include="..\Header\SphereCollider.h" />
+    <ClInclude Include="..\Header\Sphere_VIBuffer.h" />
     <ClInclude Include="..\Header\Sprite.h" />
     <ClInclude Include="..\Header\CState.h" />
     <ClInclude Include="..\Header\Sprite_Renderer.h" />
@@ -251,6 +254,7 @@
     <ClCompile Include="..\Cpp\AnimMesh.cpp" />
     <ClCompile Include="..\Cpp\Anim_Controller.cpp" />
     <ClCompile Include="..\Cpp\Camera.cpp" />
+    <ClCompile Include="..\Cpp\Collider.cpp" />
     <ClCompile Include="..\Cpp\Component.cpp" />
     <ClCompile Include="..\Cpp\Cube_VIBuffer_Color.cpp" />
     <ClCompile Include="..\Cpp\Cube_VIBuffer_DDS.cpp" />
@@ -289,6 +293,8 @@
     <ClCompile Include="..\Cpp\SceneManager.cpp" />
     <ClCompile Include="..\Cpp\Shader.cpp" />
     <ClCompile Include="..\Cpp\SkyBox_VIBuffer_DDS.cpp" />
+    <ClCompile Include="..\Cpp\SphereCollider.cpp" />
+    <ClCompile Include="..\Cpp\Sphere_VIBuffer.cpp" />
     <ClCompile Include="..\Cpp\Sprite.cpp" />
     <ClCompile Include="..\Cpp\CState.cpp" />
     <ClCompile Include="..\Cpp\Sprite_Renderer.cpp" />

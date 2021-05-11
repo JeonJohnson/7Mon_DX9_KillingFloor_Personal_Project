@@ -3,6 +3,8 @@
 #ifndef _ENGINE_MOTHER_H_
 #define _ENGINE_MOTHER_H_
 
+#define DIRECTINPUT_VERSION 0x0800
+
 #include "Engine_Include.h"
 
 #pragma region Managers
@@ -165,6 +167,7 @@ public: /* Resource Manager */
 	//void Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	void Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	void Load_TerrainLayout(const wstring& _szDataPath);
+	void Load_NaviMeshData(const wstring& _szDataPath);
 
 public:
 		

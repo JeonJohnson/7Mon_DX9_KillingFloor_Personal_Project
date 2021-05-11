@@ -14,6 +14,8 @@
 #include "StaticMesh.h"
 #include "AnimMesh.h"
 #include "Mesh.h"
+#include "SphereCollider.h"
+#include "Sphere_VIBuffer.h"
 
 
 Implement_Singleton(ResourceManager)
@@ -178,7 +180,7 @@ void ResourceManager::Insert_VIBuffers()
 		Insert_Resource<VIBuffer, Line_VIBuffer_Grid>(L"Line_Grid");
 
 	}
-
+	
 
 	{ //Rects
 		Insert_Resource<VIBuffer, Rect_VIBuffer_Color>(L"Rect_Color");
@@ -193,6 +195,9 @@ void ResourceManager::Insert_VIBuffers()
 		Insert_Resource<VIBuffer, Cube_VIBuffer_DDS>(L"Cube_DDS");
 	}
 
+	{
+		Insert_Resource<VIBuffer, Sphere_VIBuffer>(L"Sphere_Debug");
+	}
 
 
 }
@@ -220,7 +225,19 @@ const wstring & ResourceManager::Get_ResourceFolderPath() const
 	return m_wFolderPath;
 }
 
+NaviMesh* ResourceManager::Get_NaviMesh() const
+{
+	return m_pNaviMesh;
+}
+
 void ResourceManager::Set_ResourceFolderPath(const wstring & _wPath)
 {//상대경로로 폴더까지만 불러오자.
 	m_wFolderPath = _wPath;
+}
+
+void ResourceManager::Set_NaviMesh(NaviMesh * _pNaviMesh)
+{
+	assert(L"NaviMehs is Failed " && _pNaviMesh);
+
+	m_pNaviMesh = _pNaviMesh;
 }

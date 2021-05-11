@@ -59,6 +59,10 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
+
+
+
+
 	Setup_ShaderTable();
 
 	//m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
@@ -91,6 +95,8 @@ void VIBuffer_Renderer::Render()
 	}
 	else 
 	{
+		m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+
 		if (FAILED(m_pDX9_Device->DrawIndexedPrimitive(
 			m_pVIBuffer->Get_DrawType(), //그리고자하는 방식.
 			0, 0,
@@ -101,6 +107,7 @@ void VIBuffer_Renderer::Render()
 		{
 			assert(0 && L"Index Buffer Object Draw Failed");
 		}
+		m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 	}
 
 	m_pEffectCom->EndPass();
