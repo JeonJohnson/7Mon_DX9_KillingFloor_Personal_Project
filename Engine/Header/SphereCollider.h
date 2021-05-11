@@ -15,6 +15,7 @@ public:
 		float				fRadius = 1.f;
 		Vector3				vOffset = { 0.f,0.f,0.f };
 		_collision_Layer	iCollisionLayer = -1;
+		wstring				szColName = L"";
 	};
 
 public:
@@ -29,18 +30,35 @@ public:
 	virtual void Release() override;
 
 public:
+	bool	Sphere2Sphere(SphereCollider * _pStart, SphereCollider * _pDest);
+	bool	Collision_Check(GameObject* _pGameObejct, const wstring& _szColName = L"");
+	bool	Collision_Check(_object_Tag _iTag, const wstring& _szObjName, const wstring& _szColName = L"");
+	//bool	Collision(SphereCollider* )
 
-public:
+public: 
 
-public:
 
-public:
+
+public: /* Get */
+	Vector3			Get_Center();
+	float			Get_Radius();
+	
+public : /* Set */
 
 private:
-	GameObject*			m_pDebuging = nullptr;
 	float				m_fRadius = 0.f;
 	Vector3				m_vOffset = { 0.f,0.f,0.f };
+	Vector3				m_vCenter = { 0,0,0 };
+
 	_collision_Layer	m_iCollisionLayer = -1;
+	wstring				m_szColName;
+
+	bool				m_bCheck = false;
+
+
+
+	GameObject*			m_pDebuging = nullptr;
+
 };
 
 #endif //_SPHERE_COLLIDER_H_

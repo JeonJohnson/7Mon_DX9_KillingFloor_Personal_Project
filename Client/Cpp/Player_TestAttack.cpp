@@ -9,6 +9,7 @@
 #include "Component.h"
 #include "..\..\Engine\Header\StateController.h"
 #include "StateController.h"
+#include "..\..\Engine\Header\SphereCollider.h"
 
 Player_TestAttack::Player_TestAttack(Desc * _desc)
 {
@@ -69,6 +70,12 @@ void Player_TestAttack::Update()
 	//		{		m_pWeaponAnim->Set_AnimIndex(2);		}
 	//	}
 	//}
+	GameObject* Taxi = EngineFunction->Get_GameObjectbyName(L"Taxi");
+	if (m_GameObject->Get_Component<SphereCollider>()->Collision_Check(Taxi))
+	{
+		DEBUG_LOG(L"Col Check!");
+	}
+
 }
 
 void Player_TestAttack::LateUpdate()

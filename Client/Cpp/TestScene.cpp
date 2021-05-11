@@ -12,6 +12,7 @@
 #include "Player_Idle.h"
 #include "Player_Reload.h"
 #include "Player_Att.h"
+#include "..\..\Engine\Header\SphereCollider.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -42,13 +43,13 @@ void TestScene::Initialize()
 	//EngineFunction->Insert_Light(Temp, L"HatBit");
 	//delete Temp;
 
-	GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
-	Grid_Test->Set_Position(Vector3(0, 30.f, 200));
-	Grid_Test->Set_Scale(Vector3(10.f, 10.f, 10.f));
-	VIBuffer_Renderer::Desc Grid_Desc;
-	Grid_Desc.wBufferName = L"Sphere_Debug";
+	//GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
+	//Grid_Test->Set_Position(Vector3(0, 30.f, 200));
+	//Grid_Test->Set_Scale(Vector3(10.f, 10.f, 10.f));
+	//VIBuffer_Renderer::Desc Grid_Desc;
+	////Grid_Desc.wBufferName = L"Sphere_Debug";
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
-	Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
+	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
 	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
 	EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
@@ -131,6 +132,10 @@ void TestScene::Initialize()
 		Att_Desc.szSecondary = L"BerettaM9";
 		Att_Desc.szMelee = L"Knife_M9";
 		Player->Add_Component<Player_TestAttack>(&Att_Desc);
+
+		SphereCollider::Desc  colDesc;
+		colDesc.fRadius = 50.f;
+		Player->Add_Component<SphereCollider>(&colDesc);
 	}
 	
 
@@ -149,6 +154,11 @@ void TestScene::Initialize()
 		Mesh_Renderer::Desc Taxi_Desc;
 		Taxi_Desc.szMeshName = L"Taxi";
 		Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
+
+		SphereCollider::Desc colDesc;
+		colDesc.fRadius = 20.f;
+		colDesc.vOffset = Vector3(0.f, 10.f, 0.f);
+		Taxi->Add_Component<SphereCollider>(&colDesc);
 
 		/*	GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
 			Map->Set_Position(Vector3(0, 0, 0.f));

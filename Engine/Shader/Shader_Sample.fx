@@ -121,6 +121,7 @@ PS_OUT		PS_MAIN(PS_IN _In)
 	//2차원 텍스처로부터 UV 값에 해당하는 픽셀의 색상을 추출하는 함수, 반환타입은 VECTOR 타입
 	//즉 받아온 Texture의 각 UV좌표에 해당하는 픽셀의 색상값을 추출하는거.
 	
+	tOut.vColor.g = 1.f;
 
 	//여기에 색깔 변할거 적어주면 됨.
 	//if (_In.vTexUV.x <= 0.5f)

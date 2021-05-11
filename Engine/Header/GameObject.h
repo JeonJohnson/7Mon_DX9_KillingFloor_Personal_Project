@@ -26,7 +26,7 @@ private:
 	virtual ~GameObject() = default;
 
 public:
-	static GameObject*	Instantiate(int _iTag = 0, wstring _wName = L"");
+	static GameObject*	Instantiate(int _iTag = 0, wstring _wName = L"Default_GameObject");
 	static void			Destory(GameObject* _pObj);
 
 public:

@@ -8,6 +8,8 @@ class Mesh_Renderer;
 class AnimationController;
 class Anim_Controller;
 
+class SphereCollider;
+
 class Player_TestAttack : public Component
 {
 public:
@@ -63,6 +65,8 @@ private:
 	AnimationController* m_pWeaponAnim = nullptr;
 
 	class StateController*	m_pStateCtrl = nullptr;
+
+	SphereCollider*		m_pPlayerCol = nullptr;
 };
 
 #endif //_PLAYER_ATT_H_

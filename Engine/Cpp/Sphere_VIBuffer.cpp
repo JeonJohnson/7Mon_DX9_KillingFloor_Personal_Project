@@ -66,7 +66,7 @@ HRESULT Sphere_VIBuffer::Create_VBuffer()
 
 	int vertexCount = 0;
 	float radius = m_fRadius;
-	pVertices[vertexCount].vPos = Vector3(0, 0.5f, 0);
+	pVertices[vertexCount].vPos = Vector3(0, radius, 0);
 	pVertices[vertexCount].uiColor = D3DCOLOR_RGBA(0, 255, 0, 255);
 	
 

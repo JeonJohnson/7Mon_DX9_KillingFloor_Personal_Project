@@ -1,4 +1,8 @@
-﻿  compilation object save succeeded; see E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Bin\Shader_Mesh.cso
+﻿  SphereCollider.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+e:\학업\7mon_personal\7mon_personal_project\engine\header\engine_mother.h(6): warning C4005: 'DIRECTINPUT_VERSION': 매크로 재정의
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h(42): note: 'DIRECTINPUT_VERSION'의 이전 정의를 참조하십시오.
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
