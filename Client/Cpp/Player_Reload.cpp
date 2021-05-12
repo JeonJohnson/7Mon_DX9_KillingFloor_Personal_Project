@@ -4,6 +4,7 @@
 #include "AnimationController.h"
 #include "..\..\Engine\Header\StateController.h"
 #include "Player_TestAttack.h"
+#include "Player_Attack.h"
 
 
 Player_Reload::Player_Reload()
@@ -26,33 +27,40 @@ void Player_Reload::EnterState()
 void Player_Reload::UpdateState()
 {
 
-	int temp = m_GameObject->Get_Component<AnimationController>()->Get_CurAnimIndex();
-
-	switch (m_GameObject->Get_Component<Player_TestAttack>()->Get_CurWeaponIndex())
-	{
-	case 0:
-	{
 	
-
-		if (temp != 6)
-		{
-			m_GameObject->Get_Component<AnimationController>()->Play(6); 
-		}
-	}
-	break;
-
-	case 1:
+	int temp = m_GameObject->Get_Component<AnimationController>()->Get_CurAnimIndex();
+	
+	if (temp != 2)
 	{
-		if (temp != 0)
-		{
-			m_GameObject->Get_Component<AnimationController>()->Play(0);
-		}
+		m_GameObject->Get_Component<AnimationController>()->Play(2);
 	}
-	break;
 
-	default:
-		break;
-	}
+
+	//switch (m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponIndex())
+	//{
+	//case 0:
+	//{
+	//
+
+	//	if (temp != 6)
+	//	{
+	//		m_GameObject->Get_Component<AnimationController>()->Play(6); 
+	//	}
+	//}
+	//break;
+
+	//case 1:
+	//{
+	//	if (temp != 0)
+	//	{
+	//		m_GameObject->Get_Component<AnimationController>()->Play(0);
+	//	}
+	//}
+	//break;
+
+	//default:
+	//	break;
+	//}
 
 	if (m_GameObject->Get_Component<AnimationController>()->IsEnd())
 	{

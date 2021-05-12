@@ -70,6 +70,11 @@ HRESULT AnimationController::SetUp_AnimCtrl()
 
 	assert(L"Cant find MeshRenderer at AnimCtrler" && Temp_MeshRenderer);
 
+	if (Temp_MeshRenderer->Get_Mesh() == nullptr)
+	{
+		return E_FAIL;
+	}
+
 	LPD3DXANIMATIONCONTROLLER pTempAnimCtrl = Temp_MeshRenderer->Get_Mesh()->Get_AnimController();
 
 	if (pTempAnimCtrl != nullptr)
@@ -123,6 +128,10 @@ void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 	//{
 	//	return;
 	//}
+	if (m_pAnimCtrl == nullptr)
+	{
+		return;
+	}
 
 	m_pAnimCtrl->GetAnimationSet(_iNewAnimIndex, &m_pAnimSet);
 	m_dMaxKeyFrame = m_pAnimSet->GetPeriod();

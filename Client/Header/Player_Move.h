@@ -3,7 +3,12 @@
 #ifndef _PLYAER_MOVE_H_
 #define _PLYAER_MOVE_H_
 
+#include "Include.h"
+
 #include "Component.h"
+
+class Camera;
+
 class Player_Move :	public Component
 {
 public:
@@ -35,6 +40,7 @@ private:
 	float	m_fWalkSpd = 0.f;
 	float	m_fSprintSpd = 0.f;
 
+	
 
 
 };

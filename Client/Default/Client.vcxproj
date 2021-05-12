@@ -200,6 +200,9 @@
     <ClInclude Include="..\Header\MainGame.h" />
     <ClInclude Include="..\Header\MainMenuScene.h" />
     <ClInclude Include="..\Header\Player_Att.h" />
+    <ClInclude Include="..\Header\Player_Attack.h" />
+    <ClInclude Include="..\Header\Player_Fire.h" />
+    <ClInclude Include="..\Header\Player_Status.h" />
     <ClInclude Include="..\Header\Player_Swap.h" />
     <ClInclude Include="..\Header\Player_TestAttack.h" />
     <ClInclude Include="..\Header\Player_Idle.h" />
@@ -211,6 +214,7 @@
     <ClInclude Include="..\Header\TestScene.h" />
     <ClInclude Include="..\Header\TypeDef.h" />
     <ClInclude Include="..\Header\Weapon.h" />
+    <ClInclude Include="..\Header\WeaponManager.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -224,6 +228,9 @@
     <ClCompile Include="..\Cpp\MainGame.cpp" />
     <ClCompile Include="..\Cpp\MainMenuScene.cpp" />
     <ClCompile Include="..\Cpp\Player_Att.cpp" />
+    <ClCompile Include="..\Cpp\Player_Attack.cpp" />
+    <ClCompile Include="..\Cpp\Player_Fire.cpp" />
+    <ClCompile Include="..\Cpp\Player_Status.cpp" />
     <ClCompile Include="..\Cpp\Player_Swap.cpp" />
     <ClCompile Include="..\Cpp\Player_TestAttack.cpp" />
     <ClCompile Include="..\Cpp\Player_Idle.cpp" />
@@ -233,6 +240,7 @@
     <ClCompile Include="..\Cpp\StageScene.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\Weapon.cpp" />
+    <ClCompile Include="..\Cpp\WeaponManager.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

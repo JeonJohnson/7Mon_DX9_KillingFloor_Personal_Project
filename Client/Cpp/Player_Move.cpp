@@ -48,19 +48,19 @@ void Player_Move::Move()
 
 	if (KeyPress(KEY_STATE_W))
 	{
-		m_Transform->Add_Position(vForward * m_fCurSpd * dTime);
+		m_Transform->Add_Position(vForward * m_fCurSpd * fTime);
 	}
 	if (KeyPress(KEY_STATE_S))
 	{
-		m_Transform->Add_Position(vForward * m_fCurSpd * dTime * -1.f);
+		m_Transform->Add_Position(vForward * m_fCurSpd * fTime * -1.f);
 	}
 	if (KeyPress(KEY_STATE_D))
 	{
-		m_Transform->Add_Position(vRight* m_fCurSpd * dTime);
+		m_Transform->Add_Position(vRight* m_fCurSpd * fTime);
 	}
 	if (KeyPress(KEY_STATE_A))
 	{
-		m_Transform->Add_Position(vRight* m_fCurSpd * dTime * -1.f);
+		m_Transform->Add_Position(vRight* m_fCurSpd * fTime * -1.f);
 	}
 	
 

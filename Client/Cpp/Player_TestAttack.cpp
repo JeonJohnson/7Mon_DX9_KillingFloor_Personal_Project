@@ -29,7 +29,7 @@ Player_TestAttack::Player_TestAttack(Desc * _desc)
 	//m_pWeaponAnim->Set_AnimIndex(0);
 
 	m_iCurWeaponIndex = 0;
-};
+};  
 
 
 
@@ -73,7 +73,7 @@ void Player_TestAttack::Update()
 	GameObject* Taxi = EngineFunction->Get_GameObjectbyName(L"Taxi");
 	if (m_GameObject->Get_Component<SphereCollider>()->Collision_Check(Taxi))
 	{
-		DEBUG_LOG(L"Col Check!");
+		DEBUG_LOG(L"Col Check! to Taxi");
 	}
 
 }
@@ -92,6 +92,11 @@ void Player_TestAttack::Release()
 
 bool Player_TestAttack::IronSight()
 {
+	if (MousePress(KEY_STATE_RMouse))
+	{
+		return false;
+	}
+
 	return false;
 }
 
@@ -165,7 +170,7 @@ bool Player_TestAttack::Reload()
 				//m_pWeaponAnim->Play(6);
 			}
 			break;
-
+			      
 			case 1:
 			{
 				m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Reload");

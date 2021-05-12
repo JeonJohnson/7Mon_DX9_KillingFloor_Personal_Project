@@ -71,7 +71,7 @@ void MainGame::Scene_Setting()
 	m_pEngine->Add_Scene(L"MainMenu_Scene", Scene::Instantiate<MainMenuScene>());
 	m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
 	m_pEngine->Add_Scene(L"Stage_Scene", Scene::Instantiate<StageScene>());
-	m_pEngine->Init_Scene(L"Intro_Scene");
+	m_pEngine->Init_Scene(L"Test_Scene");
 }
 
 void MainGame::FPS_RenderSetting()

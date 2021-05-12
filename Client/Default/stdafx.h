@@ -4,6 +4,9 @@
 //
 
 #pragma once
+#ifndef _STDAFX_H_
+#define _STDAFX_H_
+
 
 #include "targetver.h"
 
@@ -35,3 +38,5 @@
 #define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
 #define new DBG_NEW
 #endif //DBG_NEW 
+
+#endif //_STDAFX_H_

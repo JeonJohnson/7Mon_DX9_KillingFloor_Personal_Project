@@ -119,6 +119,39 @@
     <Filter Include="03.Objects\01.Player\Attack">
       <UniqueIdentifier>{67ccbda1-1587-41e7-9e37-519668fe62b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Objects\Bullets">
+      <UniqueIdentifier>{ec2e63de-b837-417d-9630-186af22a087b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\Weapons\Manager">
+      <UniqueIdentifier>{44d1d4d0-b253-4f0d-800f-9ea7f033e467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\01.Player\Status_Info">
+      <UniqueIdentifier>{233c2143-ecda-40fe-9c78-aa88c545bcf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Manager">
+      <UniqueIdentifier>{cf066f53-ebff-41e4-b59a-2a9f4bf29a4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Manager\GameManager">
+      <UniqueIdentifier>{6ed301b7-799d-4b24-b1be-197ed1858e87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State">
+      <UniqueIdentifier>{7a69c94e-fb46-48cd-ae94-d50c504c73e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\01.Stage_01">
+      <UniqueIdentifier>{43bba4d4-6cc9-4a75-8746-50d57556bcac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\00.Stage_Shop">
+      <UniqueIdentifier>{764f0b92-fb78-45db-8a2f-35d42223c146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\04.Stage_Boss">
+      <UniqueIdentifier>{5a2127d8-bd03-4857-bf37-b140ec3ecdc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\03.Stage_03">
+      <UniqueIdentifier>{9f1f1801-9ec5-48f6-b2b6-da8ce0488d70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\02.Stage_02">
+      <UniqueIdentifier>{c3e76c56-ccd0-424e-842d-e45f6186021a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -199,6 +232,18 @@
     <ClInclude Include="..\Header\Weapon.h">
       <Filter>03.Objects\Weapons</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Player_Attack.h">
+      <Filter>03.Objects\01.Player\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\WeaponManager.h">
+      <Filter>03.Objects\Weapons\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Status.h">
+      <Filter>03.Objects\01.Player\Status_Info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Fire.h">
+      <Filter>03.Objects\01.Player\States\03.Fire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -254,6 +299,18 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Weapon.cpp">
       <Filter>03.Objects\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Attack.cpp">
+      <Filter>03.Objects\01.Player\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\WeaponManager.cpp">
+      <Filter>03.Objects\Weapons\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Status.cpp">
+      <Filter>03.Objects\01.Player\Status_Info</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Fire.cpp">
+      <Filter>03.Objects\01.Player\States\03.Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

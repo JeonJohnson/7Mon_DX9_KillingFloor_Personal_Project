@@ -33,12 +33,22 @@ typedef enum eCollisionTag
 }COLLISION_TAG;
 
 
-typedef enum eWeaponType
+typedef enum eWeaponPriority
 {
 	Weapon_Primary,
 	Weapon_Secondary,
 	Weapon_Melee,
-	Weapon_End
+	Weapon_Priority_End
+}WEAPON_PRIORITY;
+
+typedef enum eWeaponType
+{
+	Weapon_Rifle,
+	Weapon_Shotgun,
+	Weapon_Sniper,
+	Weapon_Pistol,
+	Weapon_Knife,
+	Weapon_Type_End
 
 }WEAPON_TYPE;
 

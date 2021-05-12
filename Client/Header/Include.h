@@ -4,6 +4,8 @@
 
 //#include "Engine_Include.h"
 
+#include "stdafx.h"
+
 #include "TypeDef.h"
 #include "Define.h"
 #include "Enum.h"

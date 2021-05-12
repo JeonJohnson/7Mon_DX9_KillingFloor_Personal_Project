@@ -1,5 +1,4 @@
 #pragma once
-
 #ifndef _EXTERN_H_
 #define _EXTERN_H_
 

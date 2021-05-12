@@ -12,8 +12,12 @@
 
 Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 {
-	m_pMesh = ResourceManager::Get_Instance()->Get_Resource<Mesh>(_desc->szMeshName);
-	assert(L"AnimMesh Loading Failed" && m_pMesh);
+	if (_desc->szMeshName != L"")
+
+	{
+		m_pMesh = ResourceManager::Get_Instance()->Get_Resource<Mesh>(_desc->szMeshName);
+		assert(L"AnimMesh Loading Failed" && m_pMesh);
+	}
 
 	//if (m_pMesh->Get_AnimationController() != nullptr)
 	//{

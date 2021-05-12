@@ -1,8 +1,17 @@
 무기 기획
 
+무기 애니메이션 순서
+0. Idle
+1. Swap
+2. Reload
+3. Fire
+4. 강공or특수공격등 
+
+
 주무기 4개 -> 
 	=> 라이플류 (연사, 단발) 
 	=> 샷건류 (한발 한발 장전 + 산탄 기능)
+		=> 얘는 장전중 다른 모션 블랜딩 필요
 	=> 스나이퍼류 (줌인 줌아웃 => 화면 전체말고 부분)
 보조무기 2개
 	=> 베레타 (공격 애니메이션 반으로 뽑기)
@@ -13,5 +22,23 @@
 샷건 한발 장전시작-삽입 28프레임. 약 1초 안됨.
 한발 삽입 15프레임
 마지막 펌프 110프레임~143프레임
+
+무기
+wstring	m_szName = L"";
+int	m_iDmg = 0;			//뎀쥐(콩쥐 팥쥐 아님ㅎ;)
+int	m_iCurBullet = 0;
+int	m_iMaxBullet = 0;
+int	m_iCurMagazine = 0;
+int	m_iMaxMagazine = 0;
+int	m_iBuck = 0;		//샷건에서 벜 개수
+bool	m_bAuto = false;		//(단발, 연발 Mouse press down)
+float	m_fCurRapid = 0.f;	//연사력 : 현재 굴러갈 시간
+float	m_fMaxRapid = 0.f;	//연사력 : 발사 허가할 시간.
+float	m_fAccuracy = 0.f;	//정확도 : 탄퍼짐 할 때.
+float	m_fRecoilForce = 0.f;	//반동 : 카메라 쉐이크 줄 때
+int	m_iWeight = 0;
+int	m_iPrice = 0;
+
+
 
 

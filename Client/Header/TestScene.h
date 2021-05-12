@@ -6,8 +6,7 @@
 #include "Scene.h"
 
 
-class TestScene :
-	public Scene
+class TestScene :	public Scene
 {
 public:
 	TestScene();
