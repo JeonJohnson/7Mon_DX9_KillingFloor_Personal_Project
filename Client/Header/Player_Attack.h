@@ -18,11 +18,8 @@ class Player_Attack : public Component
 public:
 	struct Desc
 	{
-		wstring szInitPri = L"";
-		wstring szInitSec = L"Beretta";
+		wstring szInitWeapon = L""; //ÁÖ¹«±â, ¾øÀ¸¸é ±ÇÃÑ µê.
 		
-
-
 
 	};
 
@@ -46,13 +43,15 @@ public: /* Func */
 	void			SetUp();
 
 public: /* Get */
-	Weapon*		Get_CurWeapon();
-	Mesh_Renderer*	Get_Renderer();
+	Weapon*					Get_CurWeapon();
+	Mesh_Renderer*			Get_Renderer();
 	AnimationController*	Get_AnimCtrl();
-
+	int						Get_iCurIndex();
+	vector<Weapon*>*		Get_WeaponsArr();
 
 public: /* Set  */
-	void		Insert_Weapon();
+	//void					Insert_Weapon();
+	void					Set_CurWeapon(Weapon* _pWeapon);
 
 private:
 	StateController*	m_pStateCtlr = nullptr;

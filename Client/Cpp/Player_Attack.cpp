@@ -11,32 +11,29 @@
 
 Player_Attack::Player_Attack(Desc * _desc)
 {
+//Beretta
+	Weapon* Beretta = WeaponManager::Get_Instance()->Get_Weapon(L"Beretta");
+	assert(L"Beretta has't exist WeaponManager" && Beretta);
 
-	if (_desc->szInitPri != L"")
+	m_arrWeapons[1].emplace_back(Beretta);
+	
+	//Knife
+	Weapon* Knife = WeaponManager::Get_Instance()->Get_Weapon(L"Knife");
+	assert(L"Knife has't exist WeaponManager" && Knife);
+
+	m_arrWeapons[2].emplace_back(Knife);
+		
+	if (_desc->szInitWeapon == L"")
 	{
-		Weapon* temp = WeaponManager::Get_Instance()->Get_Weapon(_desc->szInitPri);
-		if (temp)
-		{
-			m_arrWeapons[0].emplace_back(temp);
-			m_iCurWeaponIndex = 1;
-			m_pCurWeapon = temp;
-		}
+		m_iNewWeaponIndex = 1;
+		m_pCurWeapon = Beretta;
 	}
-
+	else 
 	{
-		Weapon* temp = WeaponManager::Get_Instance()->Get_Weapon(_desc->szInitSec);
-		if (temp)
-		{
-			m_arrWeapons[1].emplace_back(temp);
-		}
-	}
-
-	{
-		Weapon*	temp = WeaponManager::Get_Instance()->Get_Weapon(L"Knife");
-		if (temp)
-		{
-			m_arrWeapons[2].emplace_back(temp);
-		}
+		Weapon* PrimaryWeapon = WeaponManager::Get_Instance()->Get_Weapon(_desc->szInitWeapon);
+		m_arrWeapons[0].emplace_back(PrimaryWeapon);
+		m_iNewWeaponIndex = 0;
+		m_pCurWeapon = PrimaryWeapon;
 	}
 
 
@@ -74,25 +71,13 @@ void Player_Attack::Initialize()
 void Player_Attack::Update()
 {
 
-	
-
 	Swap();
 	Reload();
 	Fire();
 
-
 	DEBUG_LOG(m_pCurWeapon->m_szName);
 	DEBUG_LOG(to_wstring(m_pCurWeapon->m_iCurBullet) + L" / " + to_wstring(m_pCurWeapon->m_iMaxBullet));
-	//if (m_pStateCtlr->Get_CurStateName() == L"Idle")
-	//{
-	//	Swap();
-	//	Fire();	
-	//}
 
-	//if (m_pStateCtlr->Get_CurStateName() != L"Reload")
-	//{
-	//	IronSight();
-	//}
 }
 
 void Player_Attack::LateUpdate()
@@ -109,29 +94,10 @@ void Player_Attack::Release()
 
 void Player_Attack::Fire()
 {
-	//if (m_pCurWeapon->m_bAuto)
-	//{
-	//	if (MousePress(KEY_STATE_LMouse))
-	//	{
-	//		if (m_pCurWeapon->m_fCurRapid >= m_pCurWeapon->m_fMaxRapid)
-	//		{
-	//			m_pStateCtlr->Set_State(L"Player_Fire");
-	//		}
-	//	}
-
-	//}
-	//else 
-	//{
-	//	if (MouseDown(KEY_STATE_LMouse))
-	//	{
-	//		if (m_pCurWeapon->m_fCurRapid >= m_pCurWeapon->m_fMaxRapid)
-	//		{
-	//			m_pStateCtlr->Set_State(L"Player_Fire");
-	//		}
-	//	}
-	//}
-
-	if (MouseDown(KEY_STATE_LMouse))
+	if (MouseDown(KEY_STATE_LMouse)
+		&& m_pStateCtlr->Get_CurStateName() != L"Player_Reload"
+		&& m_pStateCtlr->Get_CurStateName() != L"Player_Fire"
+		&& m_pStateCtlr->Get_CurStateName() != L"Player_Swap")
 	{
 		m_pStateCtlr->Set_State(L"Player_Fire");
 	}
@@ -170,13 +136,23 @@ void Player_Attack::Swap()
 
 	if (m_iCurWeaponIndex != m_iNewWeaponIndex)
 	{
-		/*if(m_pStateCtlr->Get_CurStateName() != Fire)*/
+		if (m_arrWeapons[m_iNewWeaponIndex].size() <= 0)
+		{
+			return;
+		}
+
+		
+
+		//if (m_pStateCtlr->Get_CurStateName() != Fire);
+	
 		m_pCurWeapon = m_arrWeapons[m_iNewWeaponIndex].front();
 
 		m_pWeaponRenderer->Set_Mesh(m_pCurWeapon->m_szName);
 		m_pWeaponAnim->SetUp_AnimCtrl();
 
-		m_pWeaponAnim->Play(1);
+		m_pStateCtlr->Set_State(L"Player_Swap");
+		
+		//m_pWeaponAnim->Play(1);
 
 		m_iCurWeaponIndex = m_iNewWeaponIndex;
 		
@@ -209,6 +185,21 @@ Mesh_Renderer * Player_Attack::Get_Renderer()
 AnimationController * Player_Attack::Get_AnimCtrl()
 {
 	return m_pWeaponAnim;
+}
+
+int Player_Attack::Get_iCurIndex()
+{
+	return m_iCurWeaponIndex;
+}
+
+vector<Weapon*>* Player_Attack::Get_WeaponsArr()
+{
+	return m_arrWeapons;
+}
+
+void Player_Attack::Set_CurWeapon(Weapon * _pWeapon)
+{
+	m_pCurWeapon = _pWeapon;
 }
 
 

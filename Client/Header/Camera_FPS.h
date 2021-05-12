@@ -34,6 +34,7 @@ private:
 
 	float	m_fRotX = 0.f;
 	float	m_fRotY = 0.f;
+	float	m_fRotZ = 0.f;
 };
 
 #endif //_CAMERA_FPS_H_

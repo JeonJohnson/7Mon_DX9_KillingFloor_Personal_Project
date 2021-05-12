@@ -171,18 +171,18 @@ void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 		m_pAnimCtrl->UnkeyAllTrackEvents(m_iNewTrackIndex);
 		
 		//현재 재생되고 있는 애니메이션을 어디까지 재생할 것인가.
-		m_pAnimCtrl->KeyTrackEnable(m_iCurTrackIndex, FALSE, m_dCurKeyFrame + 0.25);
+		m_pAnimCtrl->KeyTrackEnable(m_iCurTrackIndex, FALSE, m_dCurKeyFrame + 0.1);
 		//해당 트랙이 해제되는 동안 현재 어떤 속도로 진행할 것인가.
-		m_pAnimCtrl->KeyTrackSpeed(m_iCurTrackIndex, 1.f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackSpeed(m_iCurTrackIndex, 1.f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
 		//해당 트랙이 해제되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
-		m_pAnimCtrl->KeyTrackWeight(m_iCurTrackIndex, 0.1f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackWeight(m_iCurTrackIndex, 0.2f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
 
 		//새 트랙 활성화.
 		m_pAnimCtrl->SetTrackEnable(m_iNewTrackIndex, TRUE);
 		//새 트랙이 시작되는 시간동안 새로운 애니메이션은 어떤 속도로 움직이게 할 것인가
-		m_pAnimCtrl->KeyTrackSpeed(m_iNewTrackIndex, 1.f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackSpeed(m_iNewTrackIndex, 1.f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
 		//새 트랙이 시작되는 시간동안 새로운 애니메이션의 가중치를 어떻게 설정할 것인가 
-		m_pAnimCtrl->KeyTrackWeight(m_iNewTrackIndex, 0.9f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackWeight(m_iNewTrackIndex, 0.8f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
 
 		//값 정리.
 		m_pAnimCtrl->ResetTime();

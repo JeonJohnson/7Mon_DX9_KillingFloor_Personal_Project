@@ -189,8 +189,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Header\BulletManager.h" />
+    <ClInclude Include="..\Header\Bullet_Move.h" />
     <ClInclude Include="..\Header\Camera_FPS.h" />
-    <ClInclude Include="..\Header\Camera_FreeMove.h" />
     <ClInclude Include="..\Header\Define.h" />
     <ClInclude Include="..\Header\Enum.h" />
     <ClInclude Include="..\Header\Extern.h" />
@@ -199,16 +200,13 @@
     <ClInclude Include="..\Header\IntroSkipper.h" />
     <ClInclude Include="..\Header\MainGame.h" />
     <ClInclude Include="..\Header\MainMenuScene.h" />
-    <ClInclude Include="..\Header\Player_Att.h" />
     <ClInclude Include="..\Header\Player_Attack.h" />
     <ClInclude Include="..\Header\Player_Fire.h" />
     <ClInclude Include="..\Header\Player_Status.h" />
-    <ClInclude Include="..\Header\Player_Swap.h" />
-    <ClInclude Include="..\Header\Player_TestAttack.h" />
     <ClInclude Include="..\Header\Player_Idle.h" />
     <ClInclude Include="..\Header\Player_Move.h" />
     <ClInclude Include="..\Header\Player_Reload.h" />
-    <ClInclude Include="..\Header\Player_TestMove.h" />
+    <ClInclude Include="..\Header\Player_Swap.h" />
     <ClInclude Include="..\Header\StageScene.h" />
     <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\TestScene.h" />
@@ -221,22 +219,20 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cpp\BulletManager.cpp" />
+    <ClCompile Include="..\Cpp\Bullet_Move.cpp" />
     <ClCompile Include="..\Cpp\Camera_FPS.cpp" />
-    <ClCompile Include="..\Cpp\Camera_FreeMove.cpp" />
     <ClCompile Include="..\Cpp\IntroScene.cpp" />
     <ClCompile Include="..\Cpp\IntroSkipper.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />
     <ClCompile Include="..\Cpp\MainMenuScene.cpp" />
-    <ClCompile Include="..\Cpp\Player_Att.cpp" />
     <ClCompile Include="..\Cpp\Player_Attack.cpp" />
     <ClCompile Include="..\Cpp\Player_Fire.cpp" />
     <ClCompile Include="..\Cpp\Player_Status.cpp" />
-    <ClCompile Include="..\Cpp\Player_Swap.cpp" />
-    <ClCompile Include="..\Cpp\Player_TestAttack.cpp" />
     <ClCompile Include="..\Cpp\Player_Idle.cpp" />
     <ClCompile Include="..\Cpp\Player_Move.cpp" />
     <ClCompile Include="..\Cpp\Player_Reload.cpp" />
-    <ClCompile Include="..\Cpp\Player_TestMove.cpp" />
+    <ClCompile Include="..\Cpp\Player_Swap.cpp" />
     <ClCompile Include="..\Cpp\StageScene.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\Weapon.cpp" />

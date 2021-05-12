@@ -36,9 +36,11 @@ void Camera_FPS::Look()
 {
 	int fMouseMoveX = MouseMove(KEY_STATE_MouseX);
 	int fMouseMoveY = MouseMove(KEY_STATE_MouseY);
-	
+
 	m_fRotX += fMouseMoveX * m_fSensitive * fTime;
 	m_fRotY += fMouseMoveY * m_fSensitive * fTime;
+
+	//m_fRotZ -= asinf(fMouseMoveX) * 2.f / 3.14159265f * 450 * dTime;
 
 	if (m_fRotY >= 70.f)
 	{
@@ -50,7 +52,18 @@ void Camera_FPS::Look()
 		m_fRotY = -70.f;
 	}
 
-	m_Transform->Set_Rotation(Vector3(m_fRotY, m_fRotX,0.f));
+	m_Transform->Set_Rotation(Vector3(m_fRotY, m_fRotX, m_fRotZ));
+
+
+
+	//int fMouseMoveX = MouseMove(KEY_STATE_MouseX);
+	//int fMouseMoveY = MouseMove(KEY_STATE_MouseY);
+	//
+	//m_fRotX = fMouseMoveX * m_fSensitive * fTime;
+	//m_fRotY = fMouseMoveY * m_fSensitive * fTime;
+
+	//m_Transform->RotateX(m_fRotY);
+	//m_Transform->RotateY(m_fRotX);
 
 	//if(fMouseMoveX != 0)
 	//{

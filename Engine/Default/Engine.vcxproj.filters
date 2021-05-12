@@ -164,9 +164,6 @@
     <Filter Include="06.Resource\00.VIBuffer\06.Terrain">
       <UniqueIdentifier>{ae07a05e-20d5-417b-8b6d-c649648a7b5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="06.Resource\01.Mesh\99.Olds\AnimationController_NO">
-      <UniqueIdentifier>{848b00bf-9598-4740-86a3-fbcdb3fc50d5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.Component\99.SaveInfo">
       <UniqueIdentifier>{c523da75-afbe-4128-a58a-c453ce374637}</UniqueIdentifier>
     </Filter>
@@ -400,12 +397,6 @@
     <ClCompile Include="..\Cpp\Line_VIBuffer_Grid.cpp">
       <Filter>06.Resource\00.VIBuffer\00.Line\Grid_Old</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\AnimationController.cpp">
-      <Filter>06.Resource\01.Mesh\99.Olds\AnimationController_NO</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Anim_Controller.cpp">
-      <Filter>04.Component\03.Animation_Controller</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\Hierarchy_Loader.cpp">
       <Filter>06.Resource\01.Mesh\Hierarchy_Loader</Filter>
     </ClCompile>
@@ -465,6 +456,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Sphere_VIBuffer.cpp">
       <Filter>06.Resource\00.VIBuffer\05.Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\AnimationController.cpp">
+      <Filter>04.Component\03.Animation_Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -612,12 +606,6 @@
     <ClInclude Include="..\Header\Line_VIBuffer_Grid.h">
       <Filter>06.Resource\00.VIBuffer\00.Line\Grid_Old</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\AnimationController.h">
-      <Filter>06.Resource\01.Mesh\99.Olds\AnimationController_NO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Anim_Controller.h">
-      <Filter>04.Component\03.Animation_Controller</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\Hierarchy_Loader.h">
       <Filter>06.Resource\01.Mesh\Hierarchy_Loader</Filter>
     </ClInclude>
@@ -677,6 +665,9 @@
     </ClInclude>
     <ClInclude Include="..\Header\Sphere_VIBuffer.h">
       <Filter>06.Resource\00.VIBuffer\05.Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\AnimationController.h">
+      <Filter>04.Component\03.Animation_Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@
 //#include "..\..\Engine\Header\Anim_Controller.h"
 #include "AnimationController.h"
 #include "..\..\Engine\Header\StateController.h"
-#include "Player_TestAttack.h"
+
 #include "Player_Attack.h"
 
 
@@ -27,40 +27,15 @@ void Player_Reload::EnterState()
 void Player_Reload::UpdateState()
 {
 
-	
+	DEBUG_LOG(L"Player Cur State : Reload");
+
+
 	int temp = m_GameObject->Get_Component<AnimationController>()->Get_CurAnimIndex();
 	
 	if (temp != 2)
 	{
 		m_GameObject->Get_Component<AnimationController>()->Play(2);
 	}
-
-
-	//switch (m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponIndex())
-	//{
-	//case 0:
-	//{
-	//
-
-	//	if (temp != 6)
-	//	{
-	//		m_GameObject->Get_Component<AnimationController>()->Play(6); 
-	//	}
-	//}
-	//break;
-
-	//case 1:
-	//{
-	//	if (temp != 0)
-	//	{
-	//		m_GameObject->Get_Component<AnimationController>()->Play(0);
-	//	}
-	//}
-	//break;
-
-	//default:
-	//	break;
-	//}
 
 	if (m_GameObject->Get_Component<AnimationController>()->IsEnd())
 	{

@@ -187,12 +187,6 @@
     <ClInclude Include="..\Header\TypeDef.h">
       <Filter>98.Header\TypeDef</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\TestScene.h">
-      <Filter>97.Test</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Camera_FreeMove.h">
-      <Filter>97.Test\CameraFreeMove</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\Camera_FPS.h">
       <Filter>03.Objects\00.Camera\01.FPSCamera</Filter>
     </ClInclude>
@@ -202,26 +196,14 @@
     <ClInclude Include="..\Header\Player_Idle.h">
       <Filter>03.Objects\01.Player\States\00.Idle</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Player_Att.h">
-      <Filter>03.Objects\01.Player\States\03.Fire</Filter>
-    </ClInclude>
     <ClInclude Include="..\Header\Player_Reload.h">
       <Filter>03.Objects\01.Player\States\02.Reload</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Player_TestMove.h">
-      <Filter>97.Test\PlayerTestMove</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Player_TestAttack.h">
-      <Filter>97.Test\PlayerTestAtt_Swap_Reload</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\MainMenuScene.h">
       <Filter>02.Scene\01.MainMenu</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\StageScene.h">
       <Filter>02.Scene\02.Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Player_Swap.h">
-      <Filter>03.Objects\01.Player\States\01.Swap</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\IntroScene.h">
       <Filter>02.Scene\00.Intro</Filter>
@@ -244,6 +226,16 @@
     <ClInclude Include="..\Header\Player_Fire.h">
       <Filter>03.Objects\01.Player\States\03.Fire</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\TestScene.h">
+      <Filter>97.Test\01.testScene1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Swap.h">
+      <Filter>03.Objects\01.Player\States\01.Swap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\BulletManager.h">
+      <Filter>03.Objects\Bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Bullet_Move.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -255,12 +247,6 @@
     <ClCompile Include="..\Cpp\MainGame.cpp">
       <Filter>01.MainGame</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\TestScene.cpp">
-      <Filter>97.Test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Camera_FreeMove.cpp">
-      <Filter>97.Test\CameraFreeMove</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\Camera_FPS.cpp">
       <Filter>03.Objects\00.Camera\01.FPSCamera</Filter>
     </ClCompile>
@@ -270,26 +256,14 @@
     <ClCompile Include="..\Cpp\Player_Idle.cpp">
       <Filter>03.Objects\01.Player\States\00.Idle</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\Player_Att.cpp">
-      <Filter>03.Objects\01.Player\States\03.Fire</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cpp\Player_Reload.cpp">
       <Filter>03.Objects\01.Player\States\02.Reload</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Player_TestMove.cpp">
-      <Filter>97.Test\PlayerTestMove</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Player_TestAttack.cpp">
-      <Filter>97.Test\PlayerTestAtt_Swap_Reload</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\MainMenuScene.cpp">
       <Filter>02.Scene\01.MainMenu</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\StageScene.cpp">
       <Filter>02.Scene\02.Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Player_Swap.cpp">
-      <Filter>03.Objects\01.Player\States\01.Swap</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\IntroScene.cpp">
       <Filter>02.Scene\00.Intro</Filter>
@@ -312,6 +286,16 @@
     <ClCompile Include="..\Cpp\Player_Fire.cpp">
       <Filter>03.Objects\01.Player\States\03.Fire</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\TestScene.cpp">
+      <Filter>97.Test\01.testScene1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Swap.cpp">
+      <Filter>03.Objects\01.Player\States\01.Swap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\BulletManager.cpp">
+      <Filter>03.Objects\Bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Bullet_Move.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">

@@ -4,6 +4,9 @@
 #define _PLAYER_SWAP_H_
 
 #include "CState.h"
+
+class Player_Attack;
+
 class Player_Swap : public CState
 {
 public:
@@ -17,7 +20,7 @@ public:
 	virtual void ExitState() override;
 	
 public:
-
+	Player_Attack*		m_pPlayerAttack = nullptr;
 };
 
 #endif //_PLAYER_SWAP_H_

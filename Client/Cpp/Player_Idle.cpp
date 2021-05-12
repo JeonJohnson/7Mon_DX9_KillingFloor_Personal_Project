@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "..\Header\Player_Idle.h"
-//#include "..\..\Engine\Header\Anim_Controller.h"
 #include "AnimationController.h"
-#include "Player_TestAttack.h"
 #include "Player_Attack.h"
 
 
@@ -31,45 +29,19 @@ void Player_Idle::EnterState()
 	{
 		m_pAnimCtrl = m_GameObject->Get_Component<AnimationController>();
 	}
-	//assert(L"AnimCtrl find failed" && m_pAnimCtrl);
 
-	//m_pWeapon = m_GameObject->Get_NewComponent<Player_Attack>();
 }
 
 void Player_Idle::UpdateState()
 {
+	DEBUG_LOG(L"Player Cur State : Idle");
 
 	if (m_pAnimCtrl->IsEnd() == true)
 	{
 		m_pAnimCtrl->Play(0);
 	}
 
-	//switch (m_pWeapon->Get_CurWeaponIndex())
-	//{
-	//case 0:
-	//{
-	//	if(m_pAnimCtrl->IsEnd() == true )
-	//	{m_pAnimCtrl->Play(2); }
-	//}
-	//break;
 
-	//case 1:
-	//{
-	//	if (m_pAnimCtrl->IsEnd() == true)
-	//	m_pAnimCtrl->Play(4); 
-	//}
-	//break;
-
-	//case 2:
-	//{
-	//	if (m_pAnimCtrl->IsEnd() == true)
-	//	m_pAnimCtrl->Play(2); 
-	//}
-	//break;
-
-	//default:
-	//	break;
-	//}
 }
 
 void Player_Idle::ExitState()

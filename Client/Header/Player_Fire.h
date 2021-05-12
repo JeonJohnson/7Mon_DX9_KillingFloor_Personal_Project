@@ -18,6 +18,9 @@ public:
 	virtual void UpdateState() override;
 	virtual void ExitState() override;
 
+public:
+	void Bullet_Test();
+
 private:
 	Weapon*		m_pCurWeapon = nullptr;
 };

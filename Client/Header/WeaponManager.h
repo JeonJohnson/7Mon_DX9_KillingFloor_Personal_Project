@@ -26,6 +26,7 @@ public:
 public:
 	void Load_WeaponData(const wstring& _szDataPath);
 	void Insert_Weapon(Weapon* _pWeapon);
+	void Nogada_Data();
 
 private:
 	unordered_map<wstring, Weapon*>	m_umALLWeapon;

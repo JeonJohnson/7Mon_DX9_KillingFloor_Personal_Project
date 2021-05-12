@@ -2,21 +2,22 @@
 #include "..\Header\TestScene.h"
 #include "Player_Move.h"
 #include "Text.h"
-#include "Camera_FreeMove.h"
+
 #include "Mesh_Renderer.h"
 #include "Camera_FPS.h"
-#include "Player_TestAttack.h"
+
 #include "AnimationController.h"
 #include "Line.h"
 #include "..\..\Engine\Header\StateController.h"
 #include "Player_Idle.h"
 #include "Player_Reload.h"
-#include "Player_Att.h"
+
 #include "..\..\Engine\Header\SphereCollider.h"
 #include "Player_Attack.h"
 #include "Player_Fire.h"
 #include "WeaponManager.h"
 #include "Weapon.h"
+#include "Player_Swap.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -32,20 +33,7 @@ TestScene::~TestScene()
 
 void TestScene::Initialize()
 {
-	//D3DXCOLOR	colorTemp = D3DCOLOR_RGBA(196, 220, 229, 255);
-	//D3DXCOLOR	colorTemp = D3DCOLOR_RGBA(253, 251, 211, 255);
-	//
-	//D3DLIGHT9*	Temp = new D3DLIGHT9;
-	//ZeroMemory(Temp, sizeof(D3DLIGHT9));
-	//Temp->Type = D3DLIGHT_DIRECTIONAL;
-	//Temp->Diffuse = colorTemp;
-	//Temp->Ambient = colorTemp * 0.05f;
-	//Temp->Specular = colorTemp * 0.8f;
-	//Vector3 vTemp = { 1.f, -1.f, 1.f };
-	//Temp->Direction = vTemp;
 
-	//EngineFunction->Insert_Light(Temp, L"HatBit");
-	//delete Temp;
 
 	//GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	//Grid_Test->Set_Position(Vector3(0, 30.f, 200));
@@ -69,11 +57,8 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
 
-	//EngineFunction->Load_Mesh(L"Mesh/DynamicMesh/FPPOV_Revolver.X", L"Hand_Revolver");
-	//EngineFunction->Load_Mesh(L"Mesh/Weapon/Rifle/M4.X", L"M4");
-	//EngineFunction->Load_Mesh(L"Mesh/Weapon/Secondary/BerettaM9.X", L"BerettaM9");
-	//EngineFunction->Load_Mesh(L"Mesh/Weapon/Melee/Knife_M9.X", L"Knife_M9");
-	{
+
+	{//weapon
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/AK47.X", L"AK47");
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/ShotGun.X", L"ShotGun");
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/M99.X", L"M99");
@@ -82,24 +67,14 @@ void TestScene::Initialize()
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Revolver.X", L"Revolver");
 
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Knife.X", L"Knife");
-
-		Weapon* AK47 = new Weapon;
-		AK47->m_bAuto = true;
-		AK47->m_iMaxBullet	=	30;
-		AK47->m_iCurBullet	=	30;
-		AK47->m_fMaxRapid = 0.1f;
-		AK47->m_szName = L"AK47";
-
-		WeaponManager::Get_Instance()->Insert_Weapon(AK47);
+		WeaponManager::Get_Instance()->Nogada_Data();
 
 	}
 
 
-	//EngineFunction->Load_Mesh(L"Mesh/Map/Temp/Map.X", L"Map");
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
 	EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
-	//EngineFunction->Load_Mesh(L"Test/StaticMesh/stone.X", L"Stone");
-	//EngineFunction->Load_Mesh(L"Test/StaticMesh/Boss_AgentSanwaMoney_000.X", L"Test_01");
+
 	
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
@@ -110,7 +85,7 @@ void TestScene::Initialize()
 		PlayerStateCtrl->Add_State<Player_Idle>(L"Player_Idle");
 		PlayerStateCtrl->Add_State<Player_Fire>(L"Player_Fire");
 		PlayerStateCtrl->Add_State<Player_Reload>(L"Player_Reload");
-		//PlayerStateCtrl->Add_State<Player_Swap>(L"Player_Swap");
+		PlayerStateCtrl->Add_State<Player_Swap>(L"Player_Swap");
 		PlayerStateCtrl->Set_InitState(L"Player_Idle");
 
 		Camera::Desc Cam_desc;
@@ -119,7 +94,7 @@ void TestScene::Initialize()
 		Player->Add_Component<Camera>(&Cam_desc);
 
 		Camera_FPS::Desc Fps_Desc;
-		Fps_Desc.fSensitive = 50.f;
+		Fps_Desc.fSensitive = 30.f;
 		Player->Add_Component<Camera_FPS>(&Fps_Desc);
 
 		Mesh_Renderer::Desc	Hand_Desc;
@@ -133,19 +108,10 @@ void TestScene::Initialize()
 		Anim_desc.bPlay = true;
 		Player->Add_Component<AnimationController>(&Anim_desc);
 
-		//Anim_Controller::Desc Anim_Desc;
-		//Anim_Desc.fAnimSpd = 1.f;
-		//Anim_Desc.iInitIndex = 6;
-		//Anim_Desc.bLoop = false;
-		//Anim_Desc.pGameObject = Player;
-		////Anim_Desc.pGameObject = AnimTest;
-		//Player->Add_Component<Anim_Controller>(&Anim_Desc);
-		////AnimTest->Add_Component<Anim_Controller>(&Anim_Desc);
-
 		
 		//playerAtt
 		Player_Attack::Desc playerAtt;
-		playerAtt.szInitPri = L"AK47";
+		playerAtt.szInitWeapon = L"AK47";
 		Player->Add_Component<Player_Attack>(&playerAtt);
 
 
@@ -155,16 +121,6 @@ void TestScene::Initialize()
 		player_Desc.fWalkSpd = 80.f;
 		player_Desc.fSprintSpd = 120.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
-
-		//Player_TestAttack::Desc Att_Desc;
-		//Att_Desc.pAnimCtrl = Player->Get_NewComponent<AnimationController>();
-		//Att_Desc.pMeshRenderer = Player->Get_NewComponent<Mesh_Renderer>();
-		////Att_Desc.pAnimCtrl = AnimTest->Get_NewComponent<Anim_Controller>();
-		////Att_Desc.pMeshRenderer = AnimTest->Get_NewComponent<Mesh_Renderer>();
-		//Att_Desc.szPrimary = L"M4";
-		//Att_Desc.szSecondary = L"BerettaM9";
-		//Att_Desc.szMelee = L"Knife_M9";
-		//Player->Add_Component<Player_TestAttack>(&Att_Desc);
 
 		SphereCollider::Desc  colDesc;
 		colDesc.fRadius = 50.f;
