@@ -33,4 +33,13 @@ typedef enum eCollisionTag
 }COLLISION_TAG;
 
 
+typedef enum eWeaponType
+{
+	Weapon_Primary,
+	Weapon_Secondary,
+	Weapon_Melee,
+	Weapon_End
+
+}WEAPON_TYPE;
+
 #endif //_ENUM_H_
