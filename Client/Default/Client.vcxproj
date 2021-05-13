@@ -213,6 +213,7 @@
     <ClInclude Include="..\Header\TypeDef.h" />
     <ClInclude Include="..\Header\Weapon.h" />
     <ClInclude Include="..\Header\WeaponManager.h" />
+    <ClInclude Include="..\Header\Zed_Status.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -237,6 +238,7 @@
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\Weapon.cpp" />
     <ClCompile Include="..\Cpp\WeaponManager.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Status.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

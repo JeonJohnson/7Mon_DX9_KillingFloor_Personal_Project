@@ -4,6 +4,7 @@
 #define _PLAYER_STATUS_H_
 
 #include "Component.h"
+
 class Player_Status : public Component
 {
 public:

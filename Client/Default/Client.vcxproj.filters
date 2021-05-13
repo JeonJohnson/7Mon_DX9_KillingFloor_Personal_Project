@@ -152,6 +152,9 @@
     <Filter Include="02.Scene\02.Stage\Stage_State\02.Stage_02">
       <UniqueIdentifier>{c3e76c56-ccd0-424e-842d-e45f6186021a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Objects\Bullets\Move">
+      <UniqueIdentifier>{c7ae2d04-0fbd-47f5-bb65-d3b0b71d0675}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -235,7 +238,12 @@
     <ClInclude Include="..\Header\BulletManager.h">
       <Filter>03.Objects\Bullets</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Bullet_Move.h" />
+    <ClInclude Include="..\Header\Zed_Status.h">
+      <Filter>03.Objects\Zeds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Bullet_Move.h">
+      <Filter>03.Objects\Bullets\Move</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -295,7 +303,12 @@
     <ClCompile Include="..\Cpp\BulletManager.cpp">
       <Filter>03.Objects\Bullets</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\Bullet_Move.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Status.cpp">
+      <Filter>03.Objects\Zeds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Bullet_Move.cpp">
+      <Filter>03.Objects\Bullets\Move</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">

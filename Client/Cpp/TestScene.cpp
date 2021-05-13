@@ -44,6 +44,7 @@ void TestScene::Initialize()
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
 	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
+	
 	EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Test.bin");
 		
@@ -56,6 +57,7 @@ void TestScene::Initialize()
 	EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
 	EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
+
 
 
 	{//weapon
@@ -74,7 +76,18 @@ void TestScene::Initialize()
 
 	EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
 	EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
+	EngineFunction->Load_Mesh(L"Mesh/SKyBox/SkyBox.X", L"SkyBox");
+	{
+		GameObject*	SkyBox = INSTANTIATE(OBJECT_TAG_TERRAIN, L"SkyBox");
+		SkyBox->Set_Scale(Vector3(20.f, 20.f, 20.f));
+		
 
+		Mesh_Renderer::Desc skybox;
+		skybox.szMeshName = L"SkyBox";
+		
+		SkyBox->Add_Component<Mesh_Renderer>(&skybox);
+
+	}
 	
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
