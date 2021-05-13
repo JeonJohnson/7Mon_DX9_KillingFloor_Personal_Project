@@ -31,10 +31,7 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 		m_pVIBuffer->Set_Texture(TexTemp);
 	}
 	
-	m_pShaderCom = new Shader;
-	m_pShaderCom->Ready_Shader(L"../../Reference/Shader/Shader_Sample.fx");
-	m_pEffectCom = m_pShaderCom->Get_EffectCom();
-	assert(L"EffectCom is Nullptr" && m_pEffectCom);
+	Create_Shader(_desc->szShaderName);
 
 }
 
@@ -146,6 +143,23 @@ HRESULT VIBuffer_Renderer::Binding_Stream_VIBuffer()
 	return S_OK;
 }
 
+HRESULT VIBuffer_Renderer::Create_Shader(const wstring & _szShaderName)
+{
+	m_pShaderCom = ResourceManager::Get_Instance()->Get_Resource<Shader>(_szShaderName);
+	assert(L"shader Load Failed at VIBufferRenderer"&& m_pShaderCom);
+
+	if (m_pShaderCom == nullptr)
+	{
+		return E_FAIL;
+	}
+
+	m_pEffectCom = m_pShaderCom->Get_EffectCom();
+	assert(L"EffectCom Load Failed at VIBufferRenderer"&& m_pEffectCom);
+
+	
+	return S_OK;
+}
+
 HRESULT VIBuffer_Renderer::Setup_ShaderTable()
 {
 	Matrix		matWorld, matView, matProj;
@@ -170,7 +184,7 @@ VIBuffer * VIBuffer_Renderer::Get_VIBuffer() const
 
 void VIBuffer_Renderer::Set_VIBuffer(const wstring & _wBufferName)
 {
-
+	
 }
 
 

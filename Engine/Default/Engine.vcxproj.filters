@@ -173,12 +173,6 @@
     <Filter Include="01.Manager\09.ShaderManager">
       <UniqueIdentifier>{601f95ca-5078-4987-83e0-f6ba267c04ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Component\05.Shader">
-      <UniqueIdentifier>{ca5e4240-cfbe-4302-a54a-f735f497682d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="04.Component\05.Shader\Fx">
-      <UniqueIdentifier>{47cae730-5b63-413a-905c-88a25a81e506}</UniqueIdentifier>
-    </Filter>
     <Filter Include="98.Headers">
       <UniqueIdentifier>{e5fe7f53-2f2c-417b-92bf-e22f5a7df445}</UniqueIdentifier>
     </Filter>
@@ -271,6 +265,12 @@
     </Filter>
     <Filter Include="06.Resource\02.Texture">
       <UniqueIdentifier>{930bd6be-7d46-4f4a-b929-428219d8df01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\05.Shader">
+      <UniqueIdentifier>{ca5e4240-cfbe-4302-a54a-f735f497682d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Resource\05.Shader\Fx">
+      <UniqueIdentifier>{47cae730-5b63-413a-905c-88a25a81e506}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -395,7 +395,7 @@
       <Filter>06.Resource\01.Mesh\Hierarchy_Loader</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Shader.cpp">
-      <Filter>04.Component\05.Shader</Filter>
+      <Filter>06.Resource\05.Shader</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Function_Math.cpp">
       <Filter>96.Utility\Math</Filter>
@@ -598,7 +598,7 @@
       <Filter>06.Resource\01.Mesh\Hierarchy_Loader</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Shader.h">
-      <Filter>04.Component\05.Shader</Filter>
+      <Filter>06.Resource\05.Shader</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Function_Math.h">
       <Filter>96.Utility\Math</Filter>
@@ -659,11 +659,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\Shader\Shader_Sample.fx">
-      <Filter>04.Component\05.Shader\Fx</Filter>
+    <FxCompile Include="..\..\Resource\Shader\Debug_VIBuffer.fx">
+      <Filter>06.Resource\05.Shader\Fx</Filter>
     </FxCompile>
-    <FxCompile Include="..\Shader\Shader_Mesh.fx">
-      <Filter>04.Component\05.Shader\Fx</Filter>
+    <FxCompile Include="..\..\Resource\Shader\Shader_Mesh.fx">
+      <Filter>06.Resource\05.Shader\Fx</Filter>
+    </FxCompile>
+    <FxCompile Include="..\..\Resource\Shader\Shader_Sample.fx">
+      <Filter>06.Resource\05.Shader\Fx</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

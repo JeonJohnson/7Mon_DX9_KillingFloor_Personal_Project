@@ -25,7 +25,9 @@ Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 	//}
 
 
-	Create_Shader();
+
+
+	Create_Shader(_desc->szShaderName);
 }
 
 Mesh_Renderer::~Mesh_Renderer()
@@ -153,11 +155,16 @@ void Mesh_Renderer::Release()
 
 }
 
-void Mesh_Renderer::Create_Shader()
+void Mesh_Renderer::Create_Shader(const wstring& _szShaderName)
 {
-	m_pShaderCom = new Shader;
-	m_pShaderCom->Ready_Shader(L"../../Reference/Shader/Shader_Mesh.fx");
-	//나중에 이거 desc로 바꿔주기(ViBuffer Renderer도 )
+	//m_pShaderCom = new Shader;
+	//m_pShaderCom->Ready_Shader(L"../../Reference/Shader/Shader_Mesh.fx");
+	////나중에 이거 desc로 바꿔주기(ViBuffer Renderer도 )
+	//m_pEffectCom = m_pShaderCom->Get_EffectCom();
+
+	//assert(L"EffectCom is Nullptr" && m_pEffectCom);
+
+	m_pShaderCom = ResourceManager::Get_Instance()->Get_Resource<Shader>(_szShaderName);
 	m_pEffectCom = m_pShaderCom->Get_EffectCom();
 
 	assert(L"EffectCom is Nullptr" && m_pEffectCom);

@@ -19,9 +19,9 @@ SphereCollider::SphereCollider(Desc * _desc)
 
 	//지금 총쏘면서 뜎뜎 끊키는 이유 얘임. 개 ㅡ 시발
 	//다른 버퍼로 그려도 똑같음 아 미치겠네 싯팔
-	//VIBuffer_Renderer::Desc colDesc;
-	//colDesc.wBufferName = L"Sphere_Debug";
-	//m_pDebuging->Add_Component<VIBuffer_Renderer>(&colDesc);
+	VIBuffer_Renderer::Desc colDesc;
+	colDesc.wBufferName = L"Sphere_Debug";
+	m_pDebuging->Add_Component<VIBuffer_Renderer>(&colDesc);
 #endif //_DEBUG
 
 }

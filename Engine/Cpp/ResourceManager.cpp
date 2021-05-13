@@ -9,14 +9,16 @@
 #include "Cube_VIBuffer_Texture.h"
 #include "Cube_VIBuffer_DDS.h"
 #include "Line_VIBuffer_Grid.h"
+#include "Sphere_VIBuffer.h"
 
 //Meshes
 //#include "StaticMesh.h"
 //#include "AnimMesh.h"
 #include "Mesh.h"
 #include "SphereCollider.h"
-#include "Sphere_VIBuffer.h"
 
+//shader
+#include "Shader.h"
 
 Implement_Singleton(ResourceManager)
 
@@ -35,6 +37,8 @@ void ResourceManager::Initialize(const wstring& _szResourceFolderPath)
 	m_wFolderPath = _szResourceFolderPath;
 	//m_wFolderPath = L"../../Resource/";
 	Insert_VIBuffers();
+	Insert_DefaultMeshes();
+	Insert_Shaders();
 }
 
 void ResourceManager::Update()
@@ -168,10 +172,16 @@ Mesh* ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _s
 	return MeshTemp;
 }
 
-//void ResourceManager::Load_TerrainLayout(const wstring & _szDataPath)
-//{
-//
-//}
+Shader * ResourceManager::Load_Shader(const wstring & _szShaderPath, const wstring & _szShaderName)
+{
+	Shader* ShaderTemp = Insert_Resource<Shader, Shader>(_szShaderName);
+
+	wstring szShaderFullPath = m_wFolderPath + _szShaderPath;
+
+	ShaderTemp->Insert_Shader(szShaderFullPath);
+
+	return ShaderTemp;
+}
 
 void ResourceManager::Insert_VIBuffers()
 {
@@ -200,6 +210,20 @@ void ResourceManager::Insert_VIBuffers()
 	}
 
 
+}
+
+void ResourceManager::Insert_DefaultMeshes()
+{
+	Load_Mesh(L"Test/StaticMesh/DebugSphere.X", L"DebugSphere");
+}
+
+void ResourceManager::Insert_Shaders()
+{
+	Load_Shader(L"Shader/Debug_VIBuffer.fx", L"Debug_VIBuffer");
+
+	Load_Shader(L"Shader/Shader_Mesh.fx", L"Shader_Mesh");
+
+	Load_Shader(L"Shader/Shader_Sample.fx", L"Shader_Sample");
 }
 
 wstring ResourceManager::EraseFolderPath(wstring _FullPath)

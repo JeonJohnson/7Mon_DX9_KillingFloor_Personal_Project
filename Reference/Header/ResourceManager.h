@@ -12,8 +12,8 @@ class Texture;
 //class StaticMesh;
 //class AnimMesh;
 class Mesh;
-
 class NaviMesh;
+class Shader;
 
 class DLL_STATE ResourceManager
 {
@@ -133,28 +133,35 @@ public:
 	void Load_AllResource();
 	void Delete_AllResource();
 	
+	//Font
 	void Load_Font();
 	void Load_AllFonts();
 	
+	//Texture
 	Texture*	Load_Texture(const wstring& _wPath, const wstring& _wName);
 	HRESULT		Add_Texture(Texture* _texture, 
 		const wstring& _wPath, const wstring& _wName = L"");
 
 	void Load_ALLTextures();
-	
 	void Load_DDS();
 	void Load_AllDDSs();
 	
-	
+	//Meshes
 	//StaticMesh* Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName = L"");
 	//AnimMesh*	Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName = L"");
 	Mesh*		Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
-	void		Load_AllMeshs();
-
+	void		Load_AllMeshes();
 	//void		Load_TerrainLayout(const wstring& _szDataPath);
 
+	//Shader
+	Shader*		Load_Shader(const wstring& _szShaderPath, const wstring& _szShaderName);
+
+	//Default Resources
 	void Insert_VIBuffers();
+	void Insert_DefaultMeshes();
+	void Insert_Shaders();
 	
+	//FilePath;
 	wstring			EraseFolderPath(wstring _FullPath);
 	wstring			EraseFileExtension(wstring _FileName);
 public: /* Get */

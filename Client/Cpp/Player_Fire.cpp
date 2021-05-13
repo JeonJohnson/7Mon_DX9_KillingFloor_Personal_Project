@@ -29,7 +29,7 @@ void Player_Fire::EnterState()
 	m_pCurWeapon->m_iCurBullet -= 1;
 
 	m_GameObject->Get_Component<AnimationController>()->Play(3);
-Bullet_Test();
+	Bullet_Test();
 	//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
 	m_pCurWeapon->m_fCurRapid = 0.f;
 
@@ -92,15 +92,13 @@ void Player_Fire::ExitState()
 void Player_Fire::Bullet_Test()
 {
 	GameObject* Bullet = INSTANTIATE(OBJECT_TAG_DEFAULT, L"TestBullet");
-	Vector3  vDir = m_Transform->Get_Position() + m_Transform->Get_Forward()*50.f;
+	Vector3  vDir = m_Transform->Get_Position() /*+ m_Transform->Get_Forward()*50.f*/;
 	Bullet->Set_Position(vDir);
 	Bullet->Set_Rotation(m_Transform->Get_Rotation());
 
 	//Mesh_Renderer::Desc bulletRenderer;
 	//bulletRenderer.szMeshName = L"DebugSphere";
 	//Bullet->Add_Component<Mesh_Renderer>(&bulletRenderer);
-
-	
 
 	SphereCollider::Desc ColDesc;
 	ColDesc.fRadius = 0.5f;

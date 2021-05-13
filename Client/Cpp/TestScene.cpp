@@ -87,6 +87,11 @@ void TestScene::Initialize()
 		PlayerStateCtrl->Add_State<Player_Reload>(L"Player_Reload");
 		PlayerStateCtrl->Add_State<Player_Swap>(L"Player_Swap");
 		PlayerStateCtrl->Set_InitState(L"Player_Idle");
+		
+		Mesh_Renderer::Desc	Hand_Desc;
+		Hand_Desc.szMeshName = L"AK47";
+		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
+		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 		Camera::Desc Cam_desc;
 		Cam_desc.fFov_Degree = 45.f;
@@ -97,10 +102,7 @@ void TestScene::Initialize()
 		Fps_Desc.fSensitive = 30.f;
 		Player->Add_Component<Camera_FPS>(&Fps_Desc);
 
-		Mesh_Renderer::Desc	Hand_Desc;
-		Hand_Desc.szMeshName = L"AK47";
-		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
-		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
+
 
 		AnimationController::Desc	Anim_desc;
 		Anim_desc.dAnimSpd = 1.0;

@@ -20,6 +20,9 @@ public:
 	{
 		wstring		wBufferName = L"Tri_Color";
 		wstring		wTextureName = L"Default";
+		
+		wstring		szShaderName = L"Debug_VIBuffer";
+
 		int			iLayer = 0;
 	};
 
@@ -39,7 +42,10 @@ public:
 
 public: /* functions */
 	HRESULT				Binding_Stream_VIBuffer();
+	
+	HRESULT				Create_Shader(const wstring& _szShaderName);
 	HRESULT				Setup_ShaderTable();
+
 
 public: /* Get */
 	VIBuffer*			Get_VIBuffer() const;

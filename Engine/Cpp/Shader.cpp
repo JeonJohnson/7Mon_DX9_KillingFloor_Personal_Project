@@ -1,15 +1,6 @@
 #include "..\Header\Shader.h"
 #include "DeviceManager.h"
 
-
-//Shader::Shader(Desc * _desc)
-//{
-//	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
-//	assert(L"Dx9 Device is null" && m_pDX9_Device);
-//
-//	Ready_Shader(_desc->pFilePath);
-//}
-
 Shader::Shader()
 {
 	m_pDX9_Device = DeviceManager::Get_Instance()->Get_DX9_Device();
@@ -21,28 +12,15 @@ Shader::~Shader()
 	Safe_Release(m_pEffect);
 }
 
-//void Shader::Initialize()
-//{
-//}
-//
-//void Shader::Update()
-//{
-//}
-//
-//void Shader::LateUpdate()
-//{
-//}
-//
-//void Shader::ReadyRender()
-//{
-//}
-//
-//void Shader::Release()
-//{
-//	
-//}
+void Shader::Initialize()
+{
+}
 
-HRESULT Shader::Ready_Shader(const wstring & _szShaderFilePath)
+void Shader::Release()
+{
+}
+
+HRESULT Shader::Insert_Shader(const wstring & _szShaderFilePath)
 {
 
 	// 에러 메세지에 따른 경우의 수
@@ -62,7 +40,6 @@ HRESULT Shader::Ready_Shader(const wstring & _szShaderFilePath)
 		MessageBoxA(NULL, (char*)m_pErrMsg->GetBufferPointer(), "Shader_Error", MB_OK);
 		return E_FAIL;
 	}
-
 	else if (nullptr != m_pErrMsg)
 	{
 		MessageBoxA(NULL, (char*)m_pErrMsg->GetBufferPointer(), "Shader_Warning", MB_OK);

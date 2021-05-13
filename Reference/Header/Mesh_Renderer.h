@@ -18,6 +18,7 @@ public:
 	struct Desc
 	{
 		wstring szMeshName = L"";
+		wstring szShaderName = L"Shader_Mesh";
 		//int		iAnimIndex = 1;
 		//wstring szTexturePath = L"";
 
@@ -38,7 +39,7 @@ public:
 	virtual void Release() override;
 	
 public:
-	void		Create_Shader();
+	void		Create_Shader(const wstring& _szShaderName);
 	void		Setup_ShaderTable();
 
 

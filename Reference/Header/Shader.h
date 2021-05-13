@@ -4,30 +4,20 @@
 
 #include "Engine_Include.h"
 
-#include "Component.h"
+#include "CResource.h"
 
-class DLL_STATE Shader /*: public Component*/
-{
-//public:
-//	struct Desc
-//	{
-//		wstring pFilePath = L"";
-//	};
-	
+class DLL_STATE Shader : public CResource
+{	
 public:
-	//explicit Shader(Desc* _desc);
 	explicit Shader();
 	 ~Shader();
 
 public:
-	//virtual void Initialize() override;
-	//virtual void Update() override;
-	//virtual void LateUpdate() override;
-	//virtual void ReadyRender() override;
-	//virtual void Release() override;
+	virtual void Initialize() override;
+	virtual void Release() override;
 
 public:
-	HRESULT					Ready_Shader(const wstring& _szShaderFilePath);
+	HRESULT					Insert_Shader(const wstring& _szShaderFilePath);
 
 public: /* Get */
 	LPD3DXEFFECT			Get_EffectCom() const;
@@ -40,6 +30,10 @@ private:
 
 	LPD3DXEFFECT			m_pEffect = nullptr; //쉐이더용 컴객체
 	LPD3DXBUFFER			m_pErrMsg = nullptr; //쉐이더 에러메시지 받아올 메모리
+
+
+										
+
 
 };
 

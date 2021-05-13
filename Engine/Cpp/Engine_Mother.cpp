@@ -437,7 +437,7 @@ void Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 	}
 	CloseHandle(hFile);
 
-	Load_Mesh(L"Test/StaticMesh/DebugSphere.X", L"DebugSphere");
+	
 
 	//Create Points
 	vector<NaviPoint*> vecPoint;
