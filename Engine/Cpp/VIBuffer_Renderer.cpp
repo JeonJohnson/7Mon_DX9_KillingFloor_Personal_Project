@@ -59,10 +59,6 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
-
-
-
-
 	Setup_ShaderTable();
 
 	//m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());

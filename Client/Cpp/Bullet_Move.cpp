@@ -25,7 +25,7 @@ void Bullet_Move::Update()
 		m_GameObject->Set_Alive(false);
 	}
 
-	Vector3	vDir = m_Transform->Get_Forward() * dTime * m_fSpd;
+	Vector3	vDir = m_Transform->Get_Forward() * fTime * m_fSpd;
 	m_Transform->Add_Position(vDir);
 }
 

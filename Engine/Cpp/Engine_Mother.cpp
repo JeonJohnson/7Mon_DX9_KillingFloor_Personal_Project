@@ -197,6 +197,16 @@ int Engine_Mother::GetMouseMove(int _MouseMove)
 	return m_pInputManager->Get_Instance()->GetMouseMove(_MouseMove);
 }
 
+LONG Engine_Mother::GetMouseMoveX()
+{
+	return m_pInputManager->Get_Instance()->GetMouseMoveX();
+}
+
+LONG Engine_Mother::GetMouseMoveY()
+{
+	return m_pInputManager->Get_Instance()->GetMouseMoveY();
+}
+
 POINT Engine_Mother::Get_MousePos()
 {
 	return m_pInputManager->Get_MousePos();

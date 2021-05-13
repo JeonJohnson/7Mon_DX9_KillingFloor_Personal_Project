@@ -257,7 +257,22 @@ bool InputManager::GetMousePress(int _MouseVal)
 
 int InputManager::GetMouseMove(int _MouseMove)
 {
+
+	//(&m_tMouse_State)
 	return (int)(*(((LONG*)&m_tMouse_State) + _MouseMove));
+}
+
+LONG InputManager::GetMouseMoveX()
+{
+	LONG tempX = m_tMouse_State.lX;
+
+	return tempX;
+}
+
+LONG InputManager::GetMouseMoveY()
+{
+	LONG tempY = m_tMouse_State.lY;
+	return tempY;
 }
 
 POINT InputManager::Get_MousePos()

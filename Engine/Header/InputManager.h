@@ -43,6 +43,9 @@ public:
 	bool	GetMousePress(int _MouseVal);
 	int		GetMouseMove(int _MouseMove);
 
+	LONG	GetMouseMoveX();
+	LONG	GetMouseMoveY();
+
 	POINT	Get_MousePos();
 	POINT	Get_MousePos(HWND _hWnd);
 	

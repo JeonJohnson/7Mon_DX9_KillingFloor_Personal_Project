@@ -4,8 +4,9 @@
 #include "StateController.h"
 #include "Player_Attack.h"
 #include "Weapon.h"
-#include "..\..\Engine\Header\SphereCollider.h"
+#include "SphereCollider.h"
 #include "Bullet_Move.h"
+#include "Mesh_Renderer.h"
 
 Player_Fire::Player_Fire()
 {
@@ -91,18 +92,24 @@ void Player_Fire::ExitState()
 void Player_Fire::Bullet_Test()
 {
 	GameObject* Bullet = INSTANTIATE(OBJECT_TAG_DEFAULT, L"TestBullet");
-	Vector3  vDir = m_Transform->Get_Position()/* + m_Transform->Get_Forward()*15.f*/;
-
+	Vector3  vDir = m_Transform->Get_Position() + m_Transform->Get_Forward()*50.f;
 	Bullet->Set_Position(vDir);
 	Bullet->Set_Rotation(m_Transform->Get_Rotation());
+
+	//Mesh_Renderer::Desc bulletRenderer;
+	//bulletRenderer.szMeshName = L"DebugSphere";
+	//Bullet->Add_Component<Mesh_Renderer>(&bulletRenderer);
+
+	
 
 	SphereCollider::Desc ColDesc;
 	ColDesc.fRadius = 0.5f;
 	ColDesc.szColName = L"bullet";
 	Bullet->Add_Component<SphereCollider>(&ColDesc);
 
-
 	Bullet_Move::Desc bulletmove;
 	bulletmove.Spd = 2000.f;
 	Bullet->Add_Component<Bullet_Move>(&bulletmove);
+
+
 }

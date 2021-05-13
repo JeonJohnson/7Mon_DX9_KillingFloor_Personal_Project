@@ -8,10 +8,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Client", "01.Client", "{FF4487F1-F889-4A16-A129-90CBDF3F196C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Tools", "02.Tools", "{BE168C49-B969-4761-8092-244FE268AB17}"
-	ProjectSection(SolutionItems) = preProject
-		Client\Cpp\Player_Fire.cpp = Client\Cpp\Player_Fire.cpp
-		Client\Header\Player_Fire.h = Client\Header\Player_Fire.h
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Default\Engine.vcxproj", "{DE05BC9D-03FF-48D5-A7A1-A2B1BA6ED44C}"
 EndProject

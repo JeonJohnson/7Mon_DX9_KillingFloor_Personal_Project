@@ -34,11 +34,41 @@ void Camera_FPS::Release()
 
 void Camera_FPS::Look()
 {
-	int fMouseMoveX = MouseMove(KEY_STATE_MouseX);
-	int fMouseMoveY = MouseMove(KEY_STATE_MouseY);
+	//int fMouseMoveX = MouseMove(KEY_STATE_MouseX);
+	//int fMouseMoveY = MouseMove(KEY_STATE_MouseY);
 
-	m_fRotX += fMouseMoveX * m_fSensitive * fTime;
-	m_fRotY += fMouseMoveY * m_fSensitive * fTime;
+	LONG	lMouseMoveX = Engine_Mother::Get_Instance()->GetMouseMoveX();
+	LONG	lMouseMoveY = Engine_Mother::Get_Instance()->GetMouseMoveY();
+	
+	DEBUG_LOG(L"MouseX : " + to_wstring(lMouseMoveX));
+	DEBUG_LOG(L"MouseY : " + to_wstring(lMouseMoveY));
+
+
+	m_fRotX += lMouseMoveX * m_fSensitive * fTime;
+	m_fRotY += lMouseMoveY * m_fSensitive * fTime;
+
+	DEBUG_LOG(L"RotX : " + to_wstring(m_fRotX));
+	DEBUG_LOG(L"RotY : " + to_wstring(m_fRotY));
+
+	
+	//if (KeyPress(KEY_STATE_Up))
+	//{
+	//	m_fRotY -= m_fSensitive * fTime * 2.f;
+	//}
+	//if (KeyPress(KEY_STATE_Down))
+	//{
+	//	m_fRotY += m_fSensitive * fTime * 2.f;
+	//}
+
+	//if (KeyPress(KEY_STATE_Right))
+	//{
+	//	m_fRotX+= m_fSensitive * fTime * 2.f;
+	//}
+	//if (KeyPress(KEY_STATE_Left))
+	//{
+	//	m_fRotX -= m_fSensitive * fTime* 2.f ;
+	//}
+
 
 	//m_fRotZ -= asinf(fMouseMoveX) * 2.f / 3.14159265f * 450 * dTime;
 
@@ -56,32 +86,6 @@ void Camera_FPS::Look()
 
 
 
-	//int fMouseMoveX = MouseMove(KEY_STATE_MouseX);
-	//int fMouseMoveY = MouseMove(KEY_STATE_MouseY);
-	//
-	//m_fRotX = fMouseMoveX * m_fSensitive * fTime;
-	//m_fRotY = fMouseMoveY * m_fSensitive * fTime;
 
-	//m_Transform->RotateX(m_fRotY);
-	//m_Transform->RotateY(m_fRotX);
-
-	//if(fMouseMoveX != 0)
-	//{
-	//	Vector3 vDir = { (float)fMouseMoveY , (float)fMouseMoveX, 0.f };
-	//	Vector3 vAngle = m_Transform->Get_Rotation_Euler();
-	//	vAngle += vDir * m_fSensitive * dTime;
-
-	//	m_Transform->Set_Rotation(vAngle);
-	//}
-	
-	////////////////////
-	//m_Transform->RotateY(fMouseMoveX * m_fSensitive * dTime);
-	//m_Transform->RotateX(fMouseMoveY *m_fSensitive * dTime);
-
-	///////////////////
-	//Vector3 vUp = m_Transform->Get_Up();
-	//Vector3 vRight = m_Transform->Get_Right();
-	//m_Transform->RotateAxis(vUp, D3DXToRadian(fMouseMoveX) * m_fSensitive * dTime);
-	//m_Transform->RotateAxis(vRight, D3DXToRadian(fMouseMoveY)* m_fSensitive * dTime);
 }
 

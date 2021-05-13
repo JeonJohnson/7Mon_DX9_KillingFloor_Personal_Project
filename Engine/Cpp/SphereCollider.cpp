@@ -13,12 +13,16 @@ SphereCollider::SphereCollider(Desc * _desc)
 
 	
 
+#ifdef _DEBUG
 	m_pDebuging = INSTANTIATE(0,L"SphereCollider");
 	m_pDebuging->Set_Scale(Vector3(m_fRadius*2, m_fRadius*2, m_fRadius*2));
 
+	//Áö±Ý ÃÑ½î¸é¼­ ‘‘ ²÷Å°´Â ÀÌÀ¯ ¾êÀÓ. °³ ¤Ñ ½Ã¹ß
+	//´Ù¸¥ ¹öÆÛ·Î ±×·Áµµ ¶È°°À½ ¾Æ ¹ÌÄ¡°Ú³× ½ËÆÈ
 	//VIBuffer_Renderer::Desc colDesc;
 	//colDesc.wBufferName = L"Sphere_Debug";
 	//m_pDebuging->Add_Component<VIBuffer_Renderer>(&colDesc);
+#endif //_DEBUG
 
 }
 
@@ -32,10 +36,11 @@ void SphereCollider::Initialize()
 
 void SphereCollider::Update()
 {
-	//Vector3 MotherPos = m_Transform->Get_Position();
-	//m_pDebuging->Set_Position(MotherPos + m_vOffset);
-
-	//m_vCenter = m_pDebuging->Get_Position();
+	//¾ê´Â ¹®Á¦ ¾Æ´Ô.
+	//¾ê ¾È ³Ö¾îµµ »ý¼º¸¸ ÇÏ´Â ÀÚÃ¼°¡ ²÷Å´ .
+	Vector3 MotherPos = m_Transform->Get_Position();
+	m_pDebuging->Set_Position(MotherPos + m_vOffset);
+	m_vCenter = m_pDebuging->Get_Position();
 }
 
 void SphereCollider::LateUpdate()
