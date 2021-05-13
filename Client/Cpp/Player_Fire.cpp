@@ -25,10 +25,13 @@ void Player_Fire::EnterState()
 	m_pCurWeapon = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeapon();
 	
 
+	m_pCurWeapon->m_iCurBullet -= 1;
+
 	m_GameObject->Get_Component<AnimationController>()->Play(3);
-	Bullet_Test();
+Bullet_Test();
 	//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
 	m_pCurWeapon->m_fCurRapid = 0.f;
+
 }
 
 void Player_Fire::UpdateState()
@@ -48,6 +51,12 @@ void Player_Fire::UpdateState()
 		{
 			if (MousePress(KEY_STATE_LMouse))
 			{
+				if (m_pCurWeapon->m_iCurBullet <= 0)
+				{
+					m_pStateController->Set_State(L"Player_Reload");
+					return;
+				}
+				m_pCurWeapon->m_iCurBullet -= 1;
 				m_GameObject->Get_Component<AnimationController>()->Play(3);
 				Bullet_Test();
 				m_pCurWeapon->m_fCurRapid = 0.f;
@@ -91,6 +100,7 @@ void Player_Fire::Bullet_Test()
 	ColDesc.fRadius = 0.5f;
 	ColDesc.szColName = L"bullet";
 	Bullet->Add_Component<SphereCollider>(&ColDesc);
+
 
 	Bullet_Move::Desc bulletmove;
 	bulletmove.Spd = 2000.f;

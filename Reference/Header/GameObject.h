@@ -159,7 +159,7 @@ public: /* Get */
 	Transform*			Get_Transform()		const;
 	const Vector3&		Get_Position()		const;
 	const Vector3&		Get_Scale()			const;
-	const Quaternion&	Get_Rotation()		const;
+	Quaternion	Get_Rotation()		const;
 	Vector3		Get_Rotation_Euler() const;
 #pragma endregion
 
@@ -191,7 +191,7 @@ public: /* Set */
 	void		Add_ScaleZ(float _z);
 
 	//rotation
-	void		Set_Rotation(const Quaternion& _qRot);
+	void		Set_Rotation(Quaternion _qRot);
 	void		Set_Rotation(float _eulerX, float _eulerY, float _eulerZ);
 	void		Set_Rotation(const Vector3 & _euluerVector);
 	void		Set_RotationX(float _eulerX);

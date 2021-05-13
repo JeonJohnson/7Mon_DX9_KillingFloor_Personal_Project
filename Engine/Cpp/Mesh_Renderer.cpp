@@ -1,13 +1,13 @@
 #include "..\Header\Mesh_Renderer.h"
 
-#include "StaticMesh.h"
-#include "AnimMesh.h"
+//#include "StaticMesh.h"
+//#include "AnimMesh.h"
 #include "Mesh.h"
 
 #include "GameObject.h"
 #include "ResourceManager.h"
 #include "Texture.h"
-#include "..\..\Reference\Header\Shader.h"
+#include "Shader.h"
 #include "LightManager.h"
 
 Mesh_Renderer::Mesh_Renderer(Desc * _desc)

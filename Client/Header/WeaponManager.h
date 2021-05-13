@@ -30,6 +30,7 @@ public:
 
 private:
 	unordered_map<wstring, Weapon*>	m_umALLWeapon;
+	list<Weapon*> m_listCloneWeapons;
 };
 
 #endif //_WEAPON_MANAGER_H_

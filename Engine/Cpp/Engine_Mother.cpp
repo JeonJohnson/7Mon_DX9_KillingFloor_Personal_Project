@@ -1,6 +1,6 @@
 #include "..\Header\Engine_Mother.h"
 #include "SaveInfo_NaviMesh.h"
-#include "..\..\Reference\Header\NaviPoint.h"
+#include "NaviPoint.h"
 #include "NaviMesh.h"
 #include "NaviCell.h"
 

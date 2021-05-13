@@ -79,14 +79,14 @@ public: /* Rotation */
 	/* Function */
 
 	/* Get */
-	const Quaternion&	Get_Rotation() const;
+	Quaternion			Get_Rotation() const;
 	Vector3				Get_Rotation_Euler();
 	void Get_RotationX(Vector3* _pOut, Vector3 _In);
 	void Get_RotationY(Vector3* _pOut, Vector3 _In);
 	void Get_RotationZ(Vector3* _pOut, Vector3 _In);
 	
 	/* Set */
-	void Set_Rotation(const Quaternion& _quaternion);
+	void Set_Rotation(Quaternion _quaternion);
 	void Set_Rotation(const Vector3& _eulerVector);
 	void Set_Rotation(float _eulerX, float _eulerY, float _eulerZ);
 	void Set_RotationX(float _eulerX);

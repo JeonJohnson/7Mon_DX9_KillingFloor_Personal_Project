@@ -1,5 +1,5 @@
 #include "..\Header\NaviMesh.h"
-#include "..\..\Reference\Header\DeviceManager.h"
+#include "DeviceManager.h"
 
 #include "NaviCell.h"
 

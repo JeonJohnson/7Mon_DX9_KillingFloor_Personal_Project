@@ -398,7 +398,7 @@ bool NaviMeshMaker::Picking_Ray2Sphere(GameObject** _PickingOjbect,
 		
 		return true;
 	}
-
+	return false;
 }
 
 void NaviMeshMaker::Create_Ray(const Vector2 & _ScreenPos)

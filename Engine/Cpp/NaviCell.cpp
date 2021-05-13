@@ -1,6 +1,6 @@
 #include "..\Header\NaviCell.h"
 #include "NaviPoint.h"
-#include "..\..\Reference\Header\DeviceManager.h"
+#include "DeviceManager.h"
 #include "LineManager.h"
 #include "Line.h"
 

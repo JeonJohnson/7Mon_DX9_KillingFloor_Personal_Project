@@ -37,7 +37,19 @@ Weapon * WeaponManager::Get_Weapon(const wstring & _szWeaponName)
 
 Weapon * WeaponManager::Get_CloneWeapon(const wstring & _szWeaponName)
 {
-	return nullptr;
+	auto iter_find = m_umALLWeapon.find(_szWeaponName);
+
+	if (iter_find == m_umALLWeapon.end())
+	{
+		return nullptr;
+	}
+
+	Weapon* CloneTemp = new Weapon;
+	memcpy(CloneTemp, ((*iter_find).second), sizeof(Weapon));
+
+	m_listCloneWeapons.emplace_back(CloneTemp);
+
+	return CloneTemp;
 }
 
 void WeaponManager::Load_WeaponData(const wstring & _szDataPath)

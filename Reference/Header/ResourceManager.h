@@ -9,8 +9,8 @@
 
 class Texture;
 
-class StaticMesh;
-class AnimMesh;
+//class StaticMesh;
+//class AnimMesh;
 class Mesh;
 
 class NaviMesh;

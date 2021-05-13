@@ -11,8 +11,8 @@
 #include "Line_VIBuffer_Grid.h"
 
 //Meshes
-#include "StaticMesh.h"
-#include "AnimMesh.h"
+//#include "StaticMesh.h"
+//#include "AnimMesh.h"
 #include "Mesh.h"
 #include "SphereCollider.h"
 #include "Sphere_VIBuffer.h"

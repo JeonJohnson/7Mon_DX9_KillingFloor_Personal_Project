@@ -226,7 +226,7 @@ void Transform::Add_ScaleZ(float _z)
 }
 
 
-const Quaternion & Transform::Get_Rotation() const
+Quaternion  Transform::Get_Rotation() const
 {
 	return m_qRotation;
 }
@@ -291,7 +291,7 @@ void Transform::Get_RotationZ(Vector3 * _pOut, Vector3 _In)
 	_pOut->y = _In.x * sinf(radian) + _In.y * cosf(radian);
 }
 
-void Transform::Set_Rotation(const Quaternion & _quaternion)
+void Transform::Set_Rotation(Quaternion _quaternion)
 {
 	m_qRotation = _quaternion;
 }

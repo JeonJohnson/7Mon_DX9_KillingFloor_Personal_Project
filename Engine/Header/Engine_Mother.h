@@ -3,7 +3,7 @@
 #ifndef _ENGINE_MOTHER_H_
 #define _ENGINE_MOTHER_H_
 
-#define DIRECTINPUT_VERSION 0x0800
+//#define DIRECTINPUT_VERSION 0x0800
 
 #include "Engine_Include.h"
 

@@ -154,7 +154,7 @@ const Vector3 & GameObject::Get_Scale() const
 	return m_Transform->Get_Scale();
 }
 
-const Quaternion & GameObject::Get_Rotation() const
+Quaternion GameObject::Get_Rotation() const
 {
 	return m_Transform->Get_Rotation();
 }
@@ -256,7 +256,7 @@ void GameObject::Add_ScaleZ(float _z)
 	m_Transform->Add_ScaleZ(_z);
 }
 
-void GameObject::Set_Rotation(const Quaternion & _qRot)
+void GameObject::Set_Rotation(Quaternion _qRot)
 {
 	m_Transform->Set_Rotation(_qRot);
 }

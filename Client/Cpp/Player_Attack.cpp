@@ -12,13 +12,13 @@
 Player_Attack::Player_Attack(Desc * _desc)
 {
 //Beretta
-	Weapon* Beretta = WeaponManager::Get_Instance()->Get_Weapon(L"Beretta");
+	Weapon* Beretta = WeaponManager::Get_Instance()->Get_CloneWeapon(L"Beretta");
 	assert(L"Beretta has't exist WeaponManager" && Beretta);
 
 	m_arrWeapons[1].emplace_back(Beretta);
 	
 	//Knife
-	Weapon* Knife = WeaponManager::Get_Instance()->Get_Weapon(L"Knife");
+	Weapon* Knife = WeaponManager::Get_Instance()->Get_CloneWeapon(L"Knife");
 	assert(L"Knife has't exist WeaponManager" && Knife);
 
 	m_arrWeapons[2].emplace_back(Knife);
@@ -30,7 +30,7 @@ Player_Attack::Player_Attack(Desc * _desc)
 	}
 	else 
 	{
-		Weapon* PrimaryWeapon = WeaponManager::Get_Instance()->Get_Weapon(_desc->szInitWeapon);
+		Weapon* PrimaryWeapon = WeaponManager::Get_Instance()->Get_CloneWeapon(_desc->szInitWeapon);
 		m_arrWeapons[0].emplace_back(PrimaryWeapon);
 		m_iNewWeaponIndex = 0;
 		m_pCurWeapon = PrimaryWeapon;
@@ -99,6 +99,11 @@ void Player_Attack::Fire()
 		&& m_pStateCtlr->Get_CurStateName() != L"Player_Fire"
 		&& m_pStateCtlr->Get_CurStateName() != L"Player_Swap")
 	{
+		if (m_pCurWeapon->m_iCurBullet <= 0)
+		{
+			m_pStateCtlr->Set_State(L"Player_Reload");
+			return;
+		}
 		m_pStateCtlr->Set_State(L"Player_Fire");
 	}
 }

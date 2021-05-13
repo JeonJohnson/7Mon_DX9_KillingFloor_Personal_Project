@@ -306,6 +306,10 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 
 HRESULT Hierarchy_Loader::DestroyFrame(LPD3DXFRAME pFrameToFree)
 {
+	if (pFrameToFree == nullptr)
+	{
+		return E_FAIL;
+	}
 	Safe_Delete_Arr(pFrameToFree->Name);
 
 	if (pFrameToFree->pMeshContainer != nullptr)
