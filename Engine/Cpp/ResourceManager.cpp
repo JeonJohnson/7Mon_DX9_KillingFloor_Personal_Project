@@ -214,7 +214,8 @@ void ResourceManager::Insert_VIBuffers()
 
 void ResourceManager::Insert_DefaultMeshes()
 {
-	Load_Mesh(L"Test/StaticMesh/DebugSphere.X", L"DebugSphere");
+	Load_Mesh(L"Mesh/Static/DebugSphere.X", L"DebugSphere");
+	Load_Mesh(L"Mesh/Static/DebugArrow.X", L"DebugArrow");
 }
 
 void ResourceManager::Insert_Shaders()

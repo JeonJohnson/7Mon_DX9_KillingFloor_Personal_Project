@@ -6,6 +6,7 @@
 #include "IntroScene.h"
 #include "MainMenuScene.h"
 #include "StageScene.h"
+#include "WeaponManager.h"
 
 
 
@@ -33,6 +34,7 @@ void MainGame::Initialize()
 
 void MainGame::Release()
 {
+	Client_Release();
 	m_pEngine->Release();
 	m_pEngine->Destroy_Instance();
 }
@@ -72,6 +74,11 @@ void MainGame::Scene_Setting()
 	m_pEngine->Add_Scene(L"Test_Scene", Scene::Instantiate<TestScene>());
 	m_pEngine->Add_Scene(L"Stage_Scene", Scene::Instantiate<StageScene>());
 	m_pEngine->Init_Scene(L"Test_Scene");
+}
+
+void MainGame::Client_Release()
+{
+	WeaponManager::Get_Instance()->Release();
 }
 
 void MainGame::FPS_RenderSetting()

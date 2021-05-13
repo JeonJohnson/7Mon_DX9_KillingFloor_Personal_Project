@@ -5,11 +5,10 @@
 
 #include "Include.h"
 
-class Weapon
+#include "Component.h"
+
+class Weapon : public Component
 {
-
-	friend class WeaponManager;
-
 
 public:
 	Weapon();

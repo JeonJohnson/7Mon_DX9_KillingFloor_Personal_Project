@@ -13,7 +13,7 @@
 
 /* define */
 #define INSTANTIATE	GameObject::Instantiate
-#define DESTROY		GameObject::Destroy
+#define DESTROY		GameObject::Destory
 
 class DLL_STATE GameObject : public Cycle
 {
@@ -100,6 +100,14 @@ public:
 			if (component.first == wName)
 			{
 				return (T*)component.second;
+			}
+		}
+
+		for (auto& newComponent : m_vecNewComponents)
+		{
+			if (newComponent.first == wName)
+			{
+				return (T*)newComponent.second;
 			}
 		}
 

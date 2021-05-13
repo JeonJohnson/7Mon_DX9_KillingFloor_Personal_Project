@@ -11,7 +11,7 @@
 class StateController;
 class Mesh_Renderer;
 class AnimationController;
-class Weapon;
+class Weapon_Status;
 
 class Player_Attack : public Component
 {
@@ -43,25 +43,28 @@ public: /* Func */
 	void			SetUp();
 
 public: /* Get */
-	Weapon*					Get_CurWeapon();
-	Mesh_Renderer*			Get_Renderer();
-	AnimationController*	Get_AnimCtrl();
-	int						Get_iCurIndex();
-	vector<Weapon*>*		Get_WeaponsArr();
+	GameObject*					Get_CurWeapon();
+	Weapon_Status*				Get_CurWeaponStatus();
+	Mesh_Renderer*				Get_Renderer();
+	AnimationController*		Get_AnimCtrl();
+	int							Get_iCurIndex();
+	vector<GameObject*>*		Get_WeaponsArr();
 
 public: /* Set  */
 	//void					Insert_Weapon();
-	void					Set_CurWeapon(Weapon* _pWeapon);
+	void					Set_CurWeapon(GameObject* _pWeapon);
+
 
 private:
-	StateController*	m_pStateCtlr = nullptr;
-	Mesh_Renderer*		m_pWeaponRenderer = nullptr;
-	AnimationController* m_pWeaponAnim = nullptr;
+	StateController*		m_pStateCtlr = nullptr;
+	Mesh_Renderer*			m_pWeaponRenderer = nullptr;
+	AnimationController*	m_pWeaponAnim = nullptr;
 
-	vector<Weapon*>		m_arrWeapons[WEAPON_PRIORITY::Weapon_Priority_End];
-	Weapon*				m_pCurWeapon;
-	int					m_iNewWeaponIndex = 0;
-	int					m_iCurWeaponIndex = -1;
+	vector<GameObject*>		m_arrWeapons[WEAPON_PRIORITY::Weapon_Priority_End];
+	GameObject*				m_pCurWeapon;
+	Weapon_Status*			m_pCurWeaponStatus;
+	int						m_iNewWeaponIndex = 0;
+	int						m_iCurWeaponIndex = -1;
 
 
 

@@ -5,7 +5,8 @@
 
 #include "CState.h"
 
-class Weapon;
+//class Weapon;
+class Weapon_Status;
 class Player_Fire : public CState
 {
 public:
@@ -22,7 +23,7 @@ public:
 	void Bullet_Test();
 
 private:
-	Weapon*		m_pCurWeapon = nullptr;
+	Weapon_Status*		m_pCurWeaponStatus = nullptr;
 };
 
 #endif //_PLAYER_FIRE_H_

@@ -20,8 +20,9 @@ typedef enum eGameObjectTag
 	OBJECT_TAG_DEFAULT,
 	OBJECT_TAG_TERRAIN,
 	OBJECT_TAG_MAINCAM,
+	OBJECT_TAG_WEAPON,
 	OBJECT_TAG_PLAYER,
-	OJBECT_TAG_UI,
+	OBJECT_TAG_UI,
 	OBJECT_TAG_NAVIPOINT,
 	OBJECT_TAG_END
 
@@ -39,6 +40,7 @@ typedef enum eWeaponPriority
 	Weapon_Secondary,
 	Weapon_Melee,
 	Weapon_Priority_End
+
 }WEAPON_PRIORITY;
 
 typedef enum eWeaponType

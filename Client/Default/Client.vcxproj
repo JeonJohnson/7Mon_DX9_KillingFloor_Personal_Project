@@ -195,6 +195,7 @@
     <ClInclude Include="..\Header\Define.h" />
     <ClInclude Include="..\Header\Enum.h" />
     <ClInclude Include="..\Header\Extern.h" />
+    <ClInclude Include="..\Header\HudManager.h" />
     <ClInclude Include="..\Header\Include.h" />
     <ClInclude Include="..\Header\IntroScene.h" />
     <ClInclude Include="..\Header\IntroSkipper.h" />
@@ -213,6 +214,7 @@
     <ClInclude Include="..\Header\TypeDef.h" />
     <ClInclude Include="..\Header\Weapon.h" />
     <ClInclude Include="..\Header\WeaponManager.h" />
+    <ClInclude Include="..\Header\Weapon_Status.h" />
     <ClInclude Include="..\Header\Zed_Status.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Resource.h" />
@@ -223,6 +225,7 @@
     <ClCompile Include="..\Cpp\BulletManager.cpp" />
     <ClCompile Include="..\Cpp\Bullet_Move.cpp" />
     <ClCompile Include="..\Cpp\Camera_FPS.cpp" />
+    <ClCompile Include="..\Cpp\HudManager.cpp" />
     <ClCompile Include="..\Cpp\IntroScene.cpp" />
     <ClCompile Include="..\Cpp\IntroSkipper.cpp" />
     <ClCompile Include="..\Cpp\MainGame.cpp" />
@@ -238,6 +241,7 @@
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\Weapon.cpp" />
     <ClCompile Include="..\Cpp\WeaponManager.cpp" />
+    <ClCompile Include="..\Cpp\Weapon_Status.cpp" />
     <ClCompile Include="..\Cpp\Zed_Status.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">

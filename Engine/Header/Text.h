@@ -18,7 +18,11 @@ public:
 	{
 		//D3DXFONT_DESC		
 		//INT Height; => 높이 
-		//UINT Width; => 너비 : 높이에 맞춰서 잘 나옴. 가끔 안나오는 폰트는 높이 /2 로 수정해주삼
+		//UINT Width; => 너비 : 높이에 맞춰서 잘 나옴. 
+				//=>가끔 안나오는 폰트는 가변형 글꼴임. 그런건 높이 /2 로 수정해주삼
+			//인생꿀팁 
+			//굴림 : 가변폭 글꼴
+			//굴림체 : 고정폭 글꼴
 		//UINT Weight; => 굵기 : Bold효과
 		//UINT MipLevels; => defualt 1
 		//BOOL Italic; => 기울임
@@ -27,6 +31,22 @@ public:
 		//BYTE Quality; => Default
 		//BYTE PitchAndFamily; => Defualt
 		//WCHAR FaceName[LF_FACESIZE]; => 폰트 이름.
+
+		//FW_DONTCARE	0
+		//FW_THIN	100
+		//FW_EXTRALIGHT	200
+		//FW_ULTRALIGHT	200
+		//FW_LIGHT	300
+		//FW_NORMAL	400
+		//FW_REGULAR	400
+		//FW_MEDIUM	500
+		//FW_SEMIBOLD	600
+		//FW_DEMIBOLD	600
+		//FW_BOLD	700
+		//FW_EXTRABOLD	800
+		//FW_ULTRABOLD	800
+		//FW_HEAVY	900
+		//FW_BLACK	900
 
 		//Color => D3DXCOLOR_ARGB(0~255);
 		//OPTION =>
@@ -49,16 +69,19 @@ public:
 
 		int iHeight = 12;
 		int	iWidth = 0;
-		UINT	iWeight = FW_REGULAR;
+		UINT	iWeight = FW_HEAVY;
 		bool bItalic = false;
 		bool bHanGul = true;
 		wstring szFontName = L"Default";
+		//짤막상식
 		
 		wstring	szScript;
+
 		D3DXCOLOR tColor = D3DCOLOR_ARGB(255, 255, 255, 255);
 
 		DWORD	ulOption = DT_NOCLIP | DT_CENTER | DT_VCENTER;
 
+		Vector2 vOffSet = { 0.f,0.f };
 		RECT	tRenderRect = { 0,0,1280,720 };
 	};
 public:
@@ -95,6 +118,8 @@ private:
 	UI_KIND					m_eUiKind = UI_KIND::UI_TEXT;
 
 	RECT					m_tRect;
+	Vector2					m_vOffSet;
+
 	wstring					m_szScript;
 	DWORD					m_Option;
 	D3DXCOLOR				m_Color;

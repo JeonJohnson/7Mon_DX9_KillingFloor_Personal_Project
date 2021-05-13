@@ -20,7 +20,7 @@ void Bullet_Move::Update()
 
 	m_fTime += fTime;
 	
-	if (m_fTime >= 15.f)
+	if (m_fTime >= 5.f)
 	{
 		m_GameObject->Set_Alive(false);
 	}

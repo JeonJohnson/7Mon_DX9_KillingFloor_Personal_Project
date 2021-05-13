@@ -5,6 +5,8 @@
 
 #include "CState.h"
 
+class Weapon_Status;
+
 class Player_Reload :	public CState
 {
 public:
@@ -20,6 +22,7 @@ public:
 public:
 
 private:
+	Weapon_Status* m_pCurWeaponStatus = nullptr;
 
 };
 

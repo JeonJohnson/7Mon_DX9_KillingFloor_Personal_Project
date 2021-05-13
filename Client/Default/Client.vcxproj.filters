@@ -155,6 +155,15 @@
     <Filter Include="03.Objects\Bullets\Move">
       <UniqueIdentifier>{c7ae2d04-0fbd-47f5-bb65-d3b0b71d0675}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Objects\01.Player\00.Manager">
+      <UniqueIdentifier>{f4dcc5e8-ed76-4940-beb5-9918064d8785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\Weapons\Status_Info">
+      <UniqueIdentifier>{8a5e797f-8f3f-4788-abf5-362fc34feb1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Ui\HudManager">
+      <UniqueIdentifier>{6c503db5-b0a7-4091-a93e-8fadbce448d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -244,6 +253,12 @@
     <ClInclude Include="..\Header\Bullet_Move.h">
       <Filter>03.Objects\Bullets\Move</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Weapon_Status.h">
+      <Filter>03.Objects\Weapons\Status_Info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\HudManager.h">
+      <Filter>06.Ui\HudManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -308,6 +323,12 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Bullet_Move.cpp">
       <Filter>03.Objects\Bullets\Move</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Weapon_Status.cpp">
+      <Filter>03.Objects\Weapons\Status_Info</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\HudManager.cpp">
+      <Filter>06.Ui\HudManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -3,10 +3,12 @@
 #include "AnimationController.h"
 #include "StateController.h"
 #include "Player_Attack.h"
-#include "Weapon.h"
+
 #include "SphereCollider.h"
 #include "Bullet_Move.h"
 #include "Mesh_Renderer.h"
+
+#include "Weapon_Status.h"
 
 Player_Fire::Player_Fire()
 {
@@ -23,15 +25,16 @@ void Player_Fire::Initialize()
 
 void Player_Fire::EnterState()
 {
-	m_pCurWeapon = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeapon();
+	//m_pCurWeapon = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeapon();
 	
+	m_pCurWeaponStatus = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponStatus();
 
-	m_pCurWeapon->m_iCurBullet -= 1;
+	m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
 
 	m_GameObject->Get_Component<AnimationController>()->Play(3);
 	Bullet_Test();
 	//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
-	m_pCurWeapon->m_fCurRapid = 0.f;
+	m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 
 }
 
@@ -39,28 +42,29 @@ void Player_Fire::UpdateState()
 {
 
 	DEBUG_LOG(L"Player Cur State : Fire");
-	DEBUG_LOG(L"Cur : " + to_wstring(m_pCurWeapon->m_fCurRapid)
-		+ L" / Max : " + to_wstring(m_pCurWeapon->m_fMaxRapid));
+	DEBUG_LOG(L"Cur : " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid)
+		+ L" / Max : " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_fMaxRapid));
 	
 
 
-	m_pCurWeapon->m_fCurRapid += fTime;
+	m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid += fTime;
 
-	if (m_pCurWeapon->m_fCurRapid >= m_pCurWeapon->m_fMaxRapid)
+	if (m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid 
+		>= m_pCurWeaponStatus->m_tWeaponInfo.m_fMaxRapid)
 	{
-		if (m_pCurWeapon->m_bAuto)
+		if (m_pCurWeaponStatus->m_tWeaponInfo.m_bAuto)
 		{
 			if (MousePress(KEY_STATE_LMouse))
 			{
-				if (m_pCurWeapon->m_iCurBullet <= 0)
+				if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet <= 0)
 				{
 					m_pStateController->Set_State(L"Player_Reload");
 					return;
 				}
-				m_pCurWeapon->m_iCurBullet -= 1;
+				m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
 				m_GameObject->Get_Component<AnimationController>()->Play(3);
 				Bullet_Test();
-				m_pCurWeapon->m_fCurRapid = 0.f;
+				m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 			}
 		}
 		//else
@@ -78,9 +82,9 @@ void Player_Fire::UpdateState()
 
 	
 	if (m_GameObject->Get_Component<AnimationController>()->IsEnd()
-		|| m_pCurWeapon->m_fCurRapid >= m_pCurWeapon->m_fMaxRapid)
+		|| m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid >= m_pCurWeaponStatus->m_tWeaponInfo.m_fMaxRapid)
 	{
-		m_pCurWeapon->m_fCurRapid = 0.f;
+		m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 		m_pStateController->Set_State(L"Player_Idle");
 	}
 }

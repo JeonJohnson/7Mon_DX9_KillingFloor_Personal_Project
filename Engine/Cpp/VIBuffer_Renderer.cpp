@@ -113,7 +113,7 @@ void VIBuffer_Renderer::Render()
 
 void VIBuffer_Renderer::Release()
 {
-	Safe_Delete(m_pShaderCom);
+	//Safe_Delete(m_pShaderCom);
 }
 
 HRESULT VIBuffer_Renderer::Binding_Stream_VIBuffer()

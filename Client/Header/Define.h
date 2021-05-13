@@ -56,6 +56,7 @@ void	Class::Destroy_Instance()				\
 	}											\
 }
 
+
 #define Safe_Delete(Class)						\
 if(Class)										\
 { delete Class; Class = nullptr; }

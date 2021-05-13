@@ -16,11 +16,12 @@ Text::Text(Desc * _desc)
 	ZeroMemory(&m_tFontDesc, sizeof(D3DXFONT_DESC));
 
 	m_tFontDesc.Height = (UINT)_desc->iHeight;
+	
 	if (_desc->iWidth != 0)
 	{
 		m_tFontDesc.Width = _desc->iWidth;
 	}
-	m_tFontDesc.Weight = (UINT)_desc->iWeight;
+	m_tFontDesc.Weight = _desc->iWeight;
 
 	m_tFontDesc.Italic = (BOOL)_desc->bItalic;
 
@@ -39,7 +40,9 @@ Text::Text(Desc * _desc)
 	m_Color = _desc->tColor;
 	m_Option = _desc->ulOption;
 
+
 	m_tRect = _desc->tRenderRect;
+	m_vOffSet = _desc->vOffSet;
 
 	//Initialize();
 
@@ -91,6 +94,10 @@ void Text::Render()
 		//m_pDX9_Sprite->SetTransform(&matWorld);
 
 		RECT	RectTemp = m_UiObject->Get_Rect();
+		RectTemp.left += (LONG)m_vOffSet.x;
+		RectTemp.right += (LONG)m_vOffSet.x;
+		RectTemp.top += (LONG)m_vOffSet.y;
+		RectTemp.bottom += (LONG)m_vOffSet.y;
 
 		m_pDx9_Font->DrawTextW(
 			/*m_pDX9_Sprite,*/

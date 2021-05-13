@@ -22,6 +22,8 @@ public:
 	void Engine_Load();
 	void Scene_Setting();
 	
+	void Client_Release();
+
 
 public:
 	void FPS_RenderSetting();

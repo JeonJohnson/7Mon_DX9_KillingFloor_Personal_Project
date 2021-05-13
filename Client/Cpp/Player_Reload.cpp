@@ -4,8 +4,9 @@
 #include "AnimationController.h"
 #include "..\..\Engine\Header\StateController.h"
 
-#include "Weapon.h"
+//#include "Weapon.h"
 #include "Player_Attack.h"
+#include "Weapon_Status.h"
 
 
 Player_Reload::Player_Reload()
@@ -23,6 +24,7 @@ void Player_Reload::Initialize()
 
 void Player_Reload::EnterState()
 {
+	m_pCurWeaponStatus = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponStatus();
 }
 
 void Player_Reload::UpdateState()
@@ -40,9 +42,9 @@ void Player_Reload::UpdateState()
 
 	if (m_GameObject->Get_Component<AnimationController>()->IsEnd())
 	{
-		Player_Attack* temp = m_GameObject->Get_Component<Player_Attack>();
+		
 
-		temp->Get_CurWeapon()->m_iCurBullet = temp->Get_CurWeapon()->m_iMaxBullet;
+		m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet = m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet;
 		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
 	}
 }
