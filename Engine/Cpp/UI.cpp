@@ -124,7 +124,6 @@ void UI::Update_UITransform()
 	m_tRect.right = (LONG)(m_vPosition.x + m_vCenter.x);
 	m_tRect.bottom= (LONG)(m_vPosition.y + m_vCenter.y);
 
-
 }
 
 const wstring & UI::Get_Name()const

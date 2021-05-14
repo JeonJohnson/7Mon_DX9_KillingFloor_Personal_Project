@@ -55,45 +55,46 @@ public:
 		}
 		else 
 		{
+			return nullptr;
+
 			//typedef unordered_map<wstring, CResource*> RESOURCE_LIST;
 			////wstring : Name(Rect_Texture, Triangle_color), Resource : 객체
 			//unordered_map<wstring, RESOURCE_LIST> m_umResourceList;
 			////wstring : 종류 (ex)Mesh, VIBuffer, Material, Texture, Font등등)
 
-			wstring temp = L"'" + _wName + L"' is already Exist.";
-			int iChoose = MessageBox(NULL,
-				L"Delete the existing resource and new one? = yes \nUse Existing resource = no" , 
-				temp.c_str() ,MB_ICONWARNING| MB_YESNO);
+			//wstring temp = L"'" + _wName + L"' is already Exist.";
+			//int iChoose = MessageBox(NULL,
+			//	L"Delete the existing resource and new one? = yes \nUse Existing resource = no" , 
+			//	temp.c_str() ,MB_ICONWARNING| MB_YESNO);
 
-			if (iChoose == IDYES)
-			{//새로 만들기
+			//if (iChoose == IDYES)
+			//{//새로 만들기
 
-				int Choose2 = MessageBox(NULL,
-					L"U Choose Delete Existing resource. \nIf u were delete existing resource,That may Affecting Existing Mesh or Other Resorce.",
-					L"R U Sure?", MB_ICONWARNING | MB_YESNO);
+			//	int Choose2 = MessageBox(NULL,
+			//		L"U Choose Delete Existing resource. \nIf u were delete existing resource,That may Affecting Existing Mesh or Other Resorce.",
+			//		L"R U Sure?", MB_ICONWARNING | MB_YESNO);
 
-				if (Choose2 == IDYES)
-				{
-					m_umResourceList[wKind][_wName]->Release();
-					Safe_Delete(m_umResourceList[wKind][_wName]);
-					m_umResourceList[wKind].erase(iter_find);
+			//	if (Choose2 == IDYES)
+			//	{
+			//		m_umResourceList[wKind][_wName]->Release();
+			//		Safe_Delete(m_umResourceList[wKind][_wName]);
+			//		m_umResourceList[wKind].erase(iter_find);
 
-					KIND* resource = new INSTANCE();
-					//resource->Initialize();
-					m_umResourceList[wKind][_wName] = resource;
+			//		KIND* resource = new INSTANCE();
+			//		//resource->Initialize();
+			//		m_umResourceList[wKind][_wName] = resource;
 
-					return resource;
-					//이거 지금 이렇게 되면 원래 쓰던 텍스쳐는 사라져벌임.
-				}
-				else { goto NO; }
-			}
-			else 
-			{//기존꺼 쓰기
-				NO:
-				return (KIND*)m_umResourceList[wKind][_wName];
-			}
-			
-			
+			//		return resource;
+			//		//이거 지금 이렇게 되면 원래 쓰던 텍스쳐는 사라져벌임.
+			//	}
+			//	else { goto NO; }
+			//}
+			//else 
+			//{//기존꺼 쓰기
+			//	NO:
+			//	return (KIND*)m_umResourceList[wKind][_wName];
+			//}
+			//
 		}
 	}
 

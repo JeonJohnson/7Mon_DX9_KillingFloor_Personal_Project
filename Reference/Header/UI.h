@@ -148,7 +148,8 @@ private:
 	wstring				m_wName;
 	UI_Component*		m_pSprite = nullptr;
 	UI_Component*		m_pText = nullptr;
-	//vector<UI_Component*>	m_vecUIComponents;
+
+	////vector<UI_Component*>	m_vecUIComponents;
 	
 
 	unordered_map<wstring, UI_Component*> m_umSprites;

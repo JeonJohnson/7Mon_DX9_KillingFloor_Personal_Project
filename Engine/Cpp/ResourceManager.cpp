@@ -96,6 +96,11 @@ Texture* ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _w
 {
 	Texture* TexTemp = Insert_Resource<Texture, Texture>(_wName);
 
+	if (!TexTemp)
+	{
+		return nullptr;
+	}
+
 	//뒤에 확장자만 빼서 dds면 CubeFromFile로 불러올라고 
 	wstring szFullPath = m_wFolderPath + _wPath;
 		
@@ -165,6 +170,11 @@ Mesh* ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _s
 {
 	Mesh* MeshTemp = Insert_Resource<Mesh, Mesh>(_szMeshName);
 
+	if (!MeshTemp)
+	{
+		return nullptr;
+	}
+
 	wstring szMeshFullPath = m_wFolderPath + _szMeshPath;
 	
 	MeshTemp->Insert_Mesh(szMeshFullPath, _szMeshName);
@@ -175,6 +185,11 @@ Mesh* ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _s
 Shader * ResourceManager::Load_Shader(const wstring & _szShaderPath, const wstring & _szShaderName)
 {
 	Shader* ShaderTemp = Insert_Resource<Shader, Shader>(_szShaderName);
+
+	if (!ShaderTemp)
+	{
+		return nullptr;
+	}
 
 	wstring szShaderFullPath = m_wFolderPath + _szShaderPath;
 
