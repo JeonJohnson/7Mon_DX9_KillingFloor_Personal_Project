@@ -1,29 +1,3 @@
-﻿  stdafx.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Client.cpp
-  Zed_Status.cpp
-  Weapon_Status.cpp
-  WeaponManager.cpp
-  Weapon.cpp
-  TestScene.cpp
-  StageScene.cpp
-  Player_Swap.cpp
-  Player_Status.cpp
-  Player_Reload.cpp
-  Player_Move.cpp
-  Player_Idle.cpp
-  Player_Fire.cpp
-  Player_Attack.cpp
-  MainMenuScene.cpp
-  MainGame.cpp
-  IntroSkipper.cpp
-  IntroScene.cpp
-  HudManager.cpp
-  Camera_FPS.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Bullet_Move.cpp
-  BulletManager.cpp
-  코드를 생성하고 있습니다...
-  Client.vcxproj -> C:\Users\Administrator.JUSIN-20201111F\Desktop\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
+﻿  TestScene.cpp
+  Client.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
   Client.vcxproj -> ../Bin/x64\Debug\Client.pdb (Full PDB)

@@ -159,7 +159,7 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 
 				//리소스매니저에서 붙여주는거는 ../../Resource/까지고
 				//여기서 내주는건 oooo.X 
-				//그럼 받아올껀 중간 파일 이름만 받아오면 되것다.
+				//그럼 받아올껀 중간 파일 이름만 O받아오면 되것다.
 				
 				//16:25 2021-05-14 금
 				//로드할 때 한번 검색해보고 있으면 그냥 있는거 쓰기.

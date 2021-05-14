@@ -50,7 +50,7 @@ void TestScene::Initialize()
 
 	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
 	
-	EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
+	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Test.bin");
 		
 	//EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
@@ -305,7 +305,7 @@ void TestScene::Initialize()
 	
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
-		Player->Set_Position(Vector3(0.f, 25.f, 200.f));
+		Player->Set_Position(Vector3(0.f, 15.f, 200.f));
 
 		Player->Add_Component<StateController>();
 		auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
