@@ -25,6 +25,10 @@ void Player_Reload::Initialize()
 void Player_Reload::EnterState()
 {
 	m_pCurWeaponStatus = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponStatus();
+	if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine <= 0)
+	{
+		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
+	}
 }
 
 void Player_Reload::UpdateState()
@@ -42,8 +46,8 @@ void Player_Reload::UpdateState()
 
 	if (m_GameObject->Get_Component<AnimationController>()->IsEnd())
 	{
-		
-
+	
+		--m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine;
 		m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet = m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet;
 		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
 	}

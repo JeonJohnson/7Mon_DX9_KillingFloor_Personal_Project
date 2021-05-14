@@ -3,6 +3,8 @@
 #ifndef _PLAYER_STATUS_H_
 #define _PLAYER_STATUS_H_
 
+#include "Include.h"
+
 #include "Component.h"
 
 class Player_Status : public Component
@@ -10,7 +12,7 @@ class Player_Status : public Component
 public:
 	struct Desc
 	{
-
+		PLAYER_INFO tPlayerStatus;
 
 	};
 
@@ -27,21 +29,26 @@ public:
 
 public:/* Func */
 
+
 public: /* Set */
 
+
 public: /* Get */
+	const PLAYER_INFO&	Get_PlayerStatus();
 
 private:
-	int			m_iCurHp;
-	int			m_iMaxHp;
+	PLAYER_INFO		m_tPlayerStatus;
 
-	int			m_iCurArmor;
-	int			m_iMaxArmor;
+	//int			m_iCurHp;
+	//int			m_iMaxHp;
 
-	int			m_iCurWeight;
-	int			m_iMaxWeight;
+	//int			m_iCurArmor;
+	//int			m_iMaxArmor;
 
-	int			m_iGold;
+	//int			m_iCurWeight;
+	//int			m_iMaxWeight;
+
+	//int			m_iGold;
 
 };
 #endif //_PLAYER_STATUS_H_

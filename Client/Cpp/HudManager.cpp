@@ -127,10 +127,10 @@ void HudManager::Set_TextWeaponName(const wstring & _szWeaponName)
 
 void HudManager::Set_TextClock(float _fClock)
 {
-
+	//Get_HudText(L"Clock")->Set_Script()
 }
 
 void HudManager::Set_TextZedCount(int _iZedCount)
 {
-
+	Get_HudText(L"EnemyCount")->Set_Script(to_wstring(_iZedCount));
 }

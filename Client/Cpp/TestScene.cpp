@@ -14,6 +14,7 @@
 
 #include "SphereCollider.h"
 #include "Player_Attack.h"
+#include "Player_Status.h"
 #include "Player_Fire.h"
 #include "WeaponManager.h"
 #include "Weapon.h"
@@ -26,6 +27,7 @@
  
 TestScene::TestScene()
 {
+
 }
  
 
@@ -318,6 +320,11 @@ void TestScene::Initialize()
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
+		Player_Move::Desc player_Desc;
+		player_Desc.fWalkSpd = 80.f;
+		player_Desc.fSprintSpd = 120.f;
+		Player->Add_Component<Player_Move>(&player_Desc);
+
 		Camera::Desc Cam_desc;
 		Cam_desc.fFov_Degree = 45.f;
 		Cam_desc.fzFar = 1200.f;
@@ -338,16 +345,14 @@ void TestScene::Initialize()
 		
 		//playerAtt
 		Player_Attack::Desc playerAtt;
-		playerAtt.szInitWeapon = L"ShotGun";
+		playerAtt.szInitWeapon = L"AK47";
 		Player->Add_Component<Player_Attack>(&playerAtt);
 
+		//PlayerStatus
+		Player_Status::Desc playerStat;
+		Player->Add_Component<Player_Status>(&playerStat);
 
-
-
-		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 80.f;
-		player_Desc.fSprintSpd = 120.f;
-		Player->Add_Component<Player_Move>(&player_Desc);
+		
 
 		SphereCollider::Desc  colDesc;
 		colDesc.fRadius = 50.f;
