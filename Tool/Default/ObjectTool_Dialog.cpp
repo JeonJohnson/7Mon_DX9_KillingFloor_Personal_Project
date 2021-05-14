@@ -194,8 +194,9 @@ void ObjectTool_Dialog::OnBnClickedButtonMeshload()
 		//szTextureName = szMeshName;
 		//szTextureName.replace(szMeshName.find(L".X"), 2, L".png");
 
+		szMeshName.erase(szMeshName.find(L".X"), szMeshName.length());
 		szObjName = szMeshName;
-		szObjName.erase(szObjName.find(L".X"), szObjName.length());
+		
 		//PathRemoveExtensionW((LPWSTR)szObjName.c_str());
 		//지금 이거 .자리에 \0을 넣는거지 그 뒤에걸 erase해주지는 않네... ㅁㅊ새기
 
@@ -212,11 +213,51 @@ void ObjectTool_Dialog::OnBnClickedButtonMeshload()
 			szMeshRelativePath.replace(iPos, 1, L"/");
 		}
 		//로드할때는 리소스밑에 있는 폴더명으로 넣 어줘야함.
-		Engine_Mother::Get_Instance()->Load_Mesh(szMeshRelativePath, szObjName);
+	//	Mesh*	MeshTemp = nullptr;
+		int		iSameMeshCount = 0;
+		//while (true)
+		//{
+
+		//	++iSameMeshCount;
+		//	if (MeshTemp)
+		//	{
+		//		break;
+		//	}
+
+		//	
+		//}
+
+		while (true)
+		{
+			
+			//MeshTemp = Engine_Mother::Get_Instance()->Load_Mesh(szMeshRelativePath, szObjName);
+			//if (!MeshTemp)
+			//{//똑같은 메쉬가 이미 로드 되어 있을 경우.
+			//	++iSameMeshCount;
+			//	szObjName += L"_" + to_wstring(iSameMeshCount);
+			//}
+			//else { break; }
+
+			GameObject* ObjTemp = EngineFunction->Get_GameObjectbyName(szObjName);
+
+			if (ObjTemp)
+			{
+				++iSameMeshCount;
+				szObjName += L"_" + to_wstring(iSameMeshCount);
+			}
+			else 
+			{
+				Engine_Mother::Get_Instance()->Load_Mesh(szMeshRelativePath, szMeshName);
+				break; 
+			}
+			
+		}
+
+
 		GameObject* pTempObject = INSTANTIATE(OBJECT_TAG_TERRAIN, szObjName);
 
 		Mesh_Renderer::Desc Mesh_desc;
-		Mesh_desc.szMeshName = szObjName;
+		Mesh_desc.szMeshName = szMeshName;
 		pTempObject->Add_Component<Mesh_Renderer>(&Mesh_desc);
 
 		SaveInfo::Desc Save_desc;

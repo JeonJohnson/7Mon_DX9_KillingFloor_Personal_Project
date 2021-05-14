@@ -55,6 +55,8 @@ public:
 		}
 		else 
 		{
+
+			//같은 종류에서 같은 이름의 리소스가 존재한다. 이거야.
 			return nullptr;
 
 			//typedef unordered_map<wstring, CResource*> RESOURCE_LIST;
@@ -167,7 +169,7 @@ public:
 	wstring			EraseFileExtension(wstring _FileName);
 public: /* Get */
 	const wstring&	Get_ResourceFolderPath() const;
-	NaviMesh* Get_NaviMesh()const;
+	NaviMesh*		Get_NaviMesh()const;
 
 public: /* Set */
 	void Set_ResourceFolderPath(const wstring& _wPath);

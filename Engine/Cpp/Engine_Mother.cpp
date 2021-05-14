@@ -289,9 +289,9 @@ void Engine_Mother::Insert_Light(D3DLIGHT9 * _pLight, const wstring & _Name)
 	m_pLightManager->Insert_Light(_pLight, _Name);
 }
 
-void Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)
+Texture* Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)
 {
-	m_pResourceManager->Load_Texture(_wPath, _wName);
+	return m_pResourceManager->Load_Texture(_wPath, _wName);
 }
 
 //void Engine_Mother::Load_StaticMesh(const wstring & _szMeshPath, const wstring & _szTexPath, const wstring & _szMeshName)
@@ -304,12 +304,12 @@ void Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)
 //	m_pResourceManager->Load_AnimMesh(_szMeshPath, _szMeshName);
 //}
 
-void Engine_Mother::Load_Mesh(const wstring & _szMeshPath, const wstring & _szMeshName)
+Mesh* Engine_Mother::Load_Mesh(const wstring & _szMeshPath, const wstring & _szMeshName)
 {
-	m_pResourceManager->Load_Mesh(_szMeshPath, _szMeshName);
+	return m_pResourceManager->Load_Mesh(_szMeshPath, _szMeshName);
 }
 
-void Engine_Mother::Load_TerrainLayout(const wstring & _szDataPath)
+HRESULT Engine_Mother::Load_TerrainLayout(const wstring & _szDataPath)
 {
 	wstring szDataFullpath = ResourceManager::Get_Instance()->Get_ResourceFolderPath() + _szDataPath;
 
@@ -324,6 +324,7 @@ void Engine_Mother::Load_TerrainLayout(const wstring & _szDataPath)
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
 		assert(0 && L"handle has error at TerrainLayout Load");
+		return E_FAIL;
 	}
 
 	DWORD	dwByte = 0;
@@ -365,9 +366,10 @@ void Engine_Mother::Load_TerrainLayout(const wstring & _szDataPath)
 
 	CloseHandle(hFile);
 
+	return S_OK;
 }
 
-void Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
+HRESULT Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 {
 	wstring szDataFullPath = m_pResourceManager->Get_ResourceFolderPath() + _szDataPath;
 
@@ -382,6 +384,7 @@ void Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
 		assert(0 && L"Handle Create failed to NaviMeshData");
+		return E_FAIL;
 	}
 
 	DWORD	dwByte = 0;
@@ -508,5 +511,5 @@ void Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 	MsgBox(L"Notice", L"NaviMesh Load Compelate");
 #endif
 
-
+	return S_OK;
 }

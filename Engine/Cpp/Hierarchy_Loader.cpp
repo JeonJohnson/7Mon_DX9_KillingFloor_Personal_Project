@@ -148,19 +148,34 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 			{
 				//wstring szFullTexturePath = L"../../Resource/Test/DynamicMesh/Reference/";
 				wstring szTexturePath;
+				wstring szTextureName;
 				string strFileName = pTempMesh->pMaterials[i].pTextureFilename;
 				wstring szFileName = L"";
 				szFileName.assign(strFileName.begin(), strFileName.end());
 				szTexturePath += m_szMiddleFolderPath + szFileName;
+				szTextureName = ResourceManager::Get_Instance()->
+					EraseFileExtension(szFileName)+ L"_Texture";
 				//여기서 파일 이름만 넘겨줌 지금.
 
 				//리소스매니저에서 붙여주는거는 ../../Resource/까지고
 				//여기서 내주는건 oooo.X 
 				//그럼 받아올껀 중간 파일 이름만 받아오면 되것다.
+				
+				//16:25 2021-05-14 금
+				//로드할 때 한번 검색해보고 있으면 그냥 있는거 쓰기.
+
 				if(MeshTextures == nullptr)
 				{
-					MeshTextures = ResourceManager::Get_Instance()->Load_Texture(szTexturePath, 
-						ResourceManager::Get_Instance()->EraseFileExtension(szFileName) + L"_Texture");
+					MeshTextures = ResourceManager::Get_Instance()->Get_Resource<Texture>(szTextureName);
+
+					if (MeshTextures == nullptr)
+					{
+						MeshTextures = ResourceManager::Get_Instance()->
+							Load_Texture(szTexturePath,	szTextureName);
+					}
+
+					//MeshTextures = ResourceManager::Get_Instance()->Load_Texture(szTexturePath, 
+					//	ResourceManager::Get_Instance()->EraseFileExtension(szFileName) + L"_Texture");
 				}
 				else
 				{
@@ -229,15 +244,26 @@ HRESULT Hierarchy_Loader::CreateMeshContainer(LPCSTR Name,
 			for (DWORD i = 0; i < pDerivedMeshContainer->NumMaterials; ++i)
 			{
 				wstring szTexturePath;
+				wstring szTextureName;
 				string strFileName = pDerivedMeshContainer->pMaterials[i].pTextureFilename;
 				wstring szFileName = L"";
 				szFileName.assign(strFileName.begin(), strFileName.end());
 				szTexturePath += m_szMiddleFolderPath + szFileName;
+				szTextureName = ResourceManager::Get_Instance()->
+					EraseFileExtension(szFileName) + L"_Texture";
 
 				if (MeshTextures == nullptr)
 				{
-					MeshTextures = ResourceManager::Get_Instance()->Load_Texture(szTexturePath,
-						ResourceManager::Get_Instance()->EraseFileExtension(szFileName) + L"_Texture");
+					MeshTextures = ResourceManager::Get_Instance()->Get_Resource<Texture>(szTextureName);
+
+					if (MeshTextures == nullptr)
+					{
+						MeshTextures = ResourceManager::Get_Instance()->
+							Load_Texture(szTexturePath, szTextureName);
+					}
+
+					//MeshTextures = ResourceManager::Get_Instance()->Load_Texture(szTexturePath, 
+					//	ResourceManager::Get_Instance()->EraseFileExtension(szFileName) + L"_Texture");
 				}
 				else
 				{

@@ -165,12 +165,12 @@ public: /* Render Manager */
 
 
 public: /* Resource Manager */
-	void Load_Texture(const wstring & _wPath, const wstring& _wName);
+	Texture* Load_Texture(const wstring & _wPath, const wstring& _wName);
 	//void Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName= L"");
 	//void Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName);
-	void Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
-	void Load_TerrainLayout(const wstring& _szDataPath);
-	void Load_NaviMeshData(const wstring& _szDataPath);
+	Mesh*	Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
+	HRESULT	Load_TerrainLayout(const wstring& _szDataPath);
+	HRESULT	Load_NaviMeshData(const wstring& _szDataPath);
 
 public:
 		
