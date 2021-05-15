@@ -6,6 +6,7 @@
 #include "NaviMeshMaker.h"
 #include "NaviMeshTestObj_Move.h"
 
+
 Tool_Scene::Tool_Scene()
 {
 }
@@ -46,5 +47,7 @@ void Tool_Scene::Initialize()
 	TestObj->Add_Component<NaviMeshTestObj_Move>(&MoveTest_Desc);
 
 	
+
+
 
 }

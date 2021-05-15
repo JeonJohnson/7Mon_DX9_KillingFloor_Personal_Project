@@ -208,6 +208,7 @@
     <ClInclude Include="..\Header\Player_Move.h" />
     <ClInclude Include="..\Header\Player_Reload.h" />
     <ClInclude Include="..\Header\Player_Swap.h" />
+    <ClInclude Include="..\Header\SkyBox.h" />
     <ClInclude Include="..\Header\StageScene.h" />
     <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\TestScene.h" />
@@ -237,6 +238,7 @@
     <ClCompile Include="..\Cpp\Player_Move.cpp" />
     <ClCompile Include="..\Cpp\Player_Reload.cpp" />
     <ClCompile Include="..\Cpp\Player_Swap.cpp" />
+    <ClCompile Include="..\Cpp\SkyBox.cpp" />
     <ClCompile Include="..\Cpp\StageScene.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\Weapon.cpp" />

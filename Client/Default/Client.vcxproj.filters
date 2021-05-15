@@ -164,6 +164,9 @@
     <Filter Include="06.Ui\HudManager">
       <UniqueIdentifier>{6c503db5-b0a7-4091-a93e-8fadbce448d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Objects\SkyBox">
+      <UniqueIdentifier>{df178300-0178-4be8-a3b1-35c5b218feea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -259,6 +262,7 @@
     <ClInclude Include="..\Header\HudManager.h">
       <Filter>06.Ui\HudManager</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\SkyBox.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -330,6 +334,7 @@
     <ClCompile Include="..\Cpp\HudManager.cpp">
       <Filter>06.Ui\HudManager</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cpp\SkyBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">

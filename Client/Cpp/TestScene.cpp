@@ -22,6 +22,7 @@
 #include "UI.h"
 #include "Sprite.h"
 #include "HudManager.h"
+#include "SkyBox.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -64,7 +65,7 @@ void TestScene::Initialize()
 	//EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
 
 	{
-		EngineFunction->Load_Mesh(L"Mesh/Map/WholeMap/WholeMap.X", L"WholeMap");
+		
 	}
 
 	{//UI Texture
@@ -307,9 +308,37 @@ void TestScene::Initialize()
 
 	}
 	
+	{//skybox
+		EngineFunction->Load_Mesh(L"Mesh/SkyBox/SkyBox.X", L"SkyBox");
+		
+		GameObject*	SkyBoxObj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"SkyBox");
+		SkyBoxObj->Set_Scale(Vector3(15.f, 15.f, 15.f));
+
+		Mesh_Renderer::Desc SkyBoxDesc;
+		SkyBoxDesc.szMeshName = L"SkyBox";
+		SkyBoxObj->Add_Component<Mesh_Renderer>(&SkyBoxDesc);
+
+		SkyBoxObj->Add_Component<SkyBox>();
+
+	}
+
+	{//map
+
+		EngineFunction->Load_Mesh(L"Mesh/Map/WholeMap/WholeMap.X", L"WholeMap");
+
+		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+		Map->Set_Position(Vector3(-100.f, 35.f, 170.f));
+		Map->Set_Scale(Vector3(0.4f, 0.4f, 0.4f));
+		Mesh_Renderer::Desc Map_desc;
+		Map_desc.szMeshName = L"WholeMap";
+		Map->Add_Component<Mesh_Renderer>(&Map_desc);
+	
+	}
+
+
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
-		Player->Set_Position(Vector3(0.f, 10.f, 0.f));
+		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
 
 		Player->Add_Component<StateController>();
 		auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
@@ -325,8 +354,8 @@ void TestScene::Initialize()
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 20.f;
-		player_Desc.fSprintSpd = 30.f;
+		player_Desc.fWalkSpd = 40.f;
+		player_Desc.fSprintSpd = 80.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Camera::Desc Cam_desc;
@@ -393,12 +422,7 @@ void TestScene::Initialize()
 			Map->Add_Component<Mesh_Renderer>(&Map_desc);
 			*/
 
-		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-		Map->Set_Position(Vector3(0.f, 10.f, 0.f));
-		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-		Mesh_Renderer::Desc Map_desc;
-		Map_desc.szMeshName = L"WholeMap";
-		Map->Add_Component<Mesh_Renderer>(&Map_desc);
+
 	}
 
 	//{
