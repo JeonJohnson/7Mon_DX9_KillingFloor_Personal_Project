@@ -49,10 +49,10 @@ void TestScene::Initialize()
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
 	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
-	
+
 	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Test.bin");
-		
+
 	//EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
 	//EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
 	//EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
@@ -62,6 +62,10 @@ void TestScene::Initialize()
 	//EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
 	//EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
 	//EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
+
+	{
+		EngineFunction->Load_Mesh(L"Mesh/Map/WholeMap/WholeMap.X", L"WholeMap");
+	}
 
 	{//UI Texture
 		//192x64
@@ -305,7 +309,7 @@ void TestScene::Initialize()
 	
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
-		Player->Set_Position(Vector3(0.f, 15.f, 200.f));
+		Player->Set_Position(Vector3(0.f, 10.f, 0.f));
 
 		Player->Add_Component<StateController>();
 		auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
@@ -321,8 +325,8 @@ void TestScene::Initialize()
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 80.f;
-		player_Desc.fSprintSpd = 120.f;
+		player_Desc.fWalkSpd = 20.f;
+		player_Desc.fSprintSpd = 30.f;
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Camera::Desc Cam_desc;
@@ -388,6 +392,13 @@ void TestScene::Initialize()
 			Map_desc.szMeshName = L"Map";
 			Map->Add_Component<Mesh_Renderer>(&Map_desc);
 			*/
+
+		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
+		Map->Set_Position(Vector3(0.f, 10.f, 0.f));
+		Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
+		Mesh_Renderer::Desc Map_desc;
+		Map_desc.szMeshName = L"WholeMap";
+		Map->Add_Component<Mesh_Renderer>(&Map_desc);
 	}
 
 	//{
