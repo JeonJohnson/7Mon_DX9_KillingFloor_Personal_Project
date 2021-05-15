@@ -216,6 +216,7 @@
     <ClInclude Include="..\Header\Weapon.h" />
     <ClInclude Include="..\Header\WeaponManager.h" />
     <ClInclude Include="..\Header\Weapon_Status.h" />
+    <ClInclude Include="..\Header\ZedManager.h" />
     <ClInclude Include="..\Header\Zed_Status.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Resource.h" />
@@ -244,6 +245,7 @@
     <ClCompile Include="..\Cpp\Weapon.cpp" />
     <ClCompile Include="..\Cpp\WeaponManager.cpp" />
     <ClCompile Include="..\Cpp\Weapon_Status.cpp" />
+    <ClCompile Include="..\Cpp\ZedManager.cpp" />
     <ClCompile Include="..\Cpp\Zed_Status.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">

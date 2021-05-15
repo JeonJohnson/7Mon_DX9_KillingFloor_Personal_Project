@@ -65,7 +65,7 @@ HRESULT AnimationController::SetUp_AnimCtrl()
 
 	if (Temp_MeshRenderer == nullptr)
 	{
-		Temp_MeshRenderer = m_GameObject->Get_NewComponent<Mesh_Renderer>();
+		Temp_MeshRenderer = m_GameObject->Get_Component<Mesh_Renderer>();
 	}
 
 	assert(L"Cant find MeshRenderer at AnimCtrler" && Temp_MeshRenderer);

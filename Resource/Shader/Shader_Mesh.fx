@@ -155,11 +155,11 @@ PS_OUT		PS_MAIN(PS_IN In)
 	//난반사 조명 적용
 	tOut.vColor = ((In.vShade * vColor) * (g_vLightDiffuse * g_vMtrlDiffuse));
 	//
-	//////엠비언트(환경광 적용)
-	//tOut.vColor += g_vLightAmbient * g_vMtrlAmbient;
+	////엠비언트(환경광 적용)
+	tOut.vColor += g_vLightAmbient * g_vMtrlAmbient;
 
-	//////정반사(스페큘러) 적용
-	//tOut.vColor += In.vSpecular * (g_vLightSpecular * g_vMtrlSpecular);
+	////정반사(스페큘러) 적용
+	tOut.vColor += In.vSpecular * (g_vLightSpecular * g_vMtrlSpecular);
 
 		//+ (g_vLightAmbient * g_vMtrlAmbient) 
 		//+ (In.vSpecular * (g_vLightSpecular * g_vMtrlSpecular));

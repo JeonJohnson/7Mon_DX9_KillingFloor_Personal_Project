@@ -21,7 +21,7 @@ void LightManager::Initialize()
 	ZeroMemory(Temp, sizeof(D3DLIGHT9));
 	Temp->Type = D3DLIGHT_DIRECTIONAL;
 	Temp->Diffuse = colorTemp;
-	Temp->Ambient = colorTemp * 0.5f;
+	Temp->Ambient = colorTemp * 0.05f;
 	Temp->Specular = colorTemp * 0.8f;
 	//Vector3 vTemp = { -0.2f, -1.f, 1.f };
 	//Vector3 vTemp = { -1.f, -1.f, .f };

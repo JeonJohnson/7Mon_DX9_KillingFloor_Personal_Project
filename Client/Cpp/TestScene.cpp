@@ -49,24 +49,7 @@ void TestScene::Initialize()
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp.bin");
-
-	//EngineFunction->Load_TerrainLayout(L"Data/Map_Temp2.bin");
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Test.bin");
-
-	//EngineFunction->Load_Texture(L"Test/box_diffuse.png", L"Image_Box");
-	//EngineFunction->Load_Texture(L"Test/boss.png", L"Image_Boss");
-	//EngineFunction->Load_Texture(L"Test/test_Cube.dds", L"dds_Test");
-	//EngineFunction->Load_Texture(L"Test/PangDongE.png", L"PangDongE");
-
-	//EngineFunction->Load_Texture(L"Test/HitEffect_size.png", L"HitEffect");
-	//EngineFunction->Load_Texture(L"Test/PangDongE_UI.png", L"PangDongE_UI");
-	//EngineFunction->Load_Texture(L"Test/PosTest.png", L"UI_Test");
-	//EngineFunction->Load_Texture(L"Test/PosTest2.png", L"UI_Test2");
-
-	{
-		
-	}
 
 	{//UI Texture
 		//192x64
@@ -83,8 +66,6 @@ void TestScene::Initialize()
 		EngineFunction->Load_Texture(L"Texture/UI/Hud_EnemyCount.png", L"Hud_EnemyCount");
 	}
 
-
-
 	{//weapon
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/AK47.X", L"AK47");
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/ShotGun.X", L"ShotGun");
@@ -95,13 +76,14 @@ void TestScene::Initialize()
 
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Knife.X", L"Knife");
 		WeaponManager::Get_Instance()->Nogada_Data();
-
 	}
 
-	{
-		EngineFunction->Load_Mesh(L"Test/StaticMesh/PoliceCar.X", L"PoliceCar");
-		EngineFunction->Load_Mesh(L"Mesh/Map/Objs/Statics/Taxi.X", L"Taxi");
-		//EngineFunction->Load_Mesh(L"Mesh/SKyBox/SkyBox.X", L"SkyBox");
+	{ //Zed Meshes
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/Clot/Clot.X", L"Clot");
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/GoreFast/GoreFast.X", L"GoreFast");
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/Scrake/Scrake.X", L"Scrake");
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/Patriarch/Patriarch.X", L"Patriarch");
+
 	}
 
 	{//Hud
@@ -295,18 +277,6 @@ void TestScene::Initialize()
 		}
 		
 	}
-
-	{
-		//GameObject*	SkyBox = INSTANTIATE(OBJECT_TAG_TERRAIN, L"SkyBox");
-		//SkyBox->Set_Scale(Vector3(20.f, 20.f, 20.f));
-		//
-
-		//Mesh_Renderer::Desc skybox;
-		//skybox.szMeshName = L"SkyBox";
-		//
-		//SkyBox->Add_Component<Mesh_Renderer>(&skybox);
-
-	}
 	
 	{//skybox
 		EngineFunction->Load_Mesh(L"Mesh/SkyBox/SkyBox.X", L"SkyBox");
@@ -319,7 +289,6 @@ void TestScene::Initialize()
 		SkyBoxObj->Add_Component<Mesh_Renderer>(&SkyBoxDesc);
 
 		SkyBoxObj->Add_Component<SkyBox>();
-
 	}
 
 	{//map
@@ -349,7 +318,7 @@ void TestScene::Initialize()
 		PlayerStateCtrl->Set_InitState(L"Player_Idle");
 		
 		Mesh_Renderer::Desc	Hand_Desc;
-		Hand_Desc.szMeshName = L"AK47";
+		Hand_Desc.szMeshName = L"M99";
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
@@ -366,8 +335,6 @@ void TestScene::Initialize()
 		Camera_FPS::Desc Fps_Desc;
 		Fps_Desc.fSensitive = 30.f;
 		Player->Add_Component<Camera_FPS>(&Fps_Desc);
-
-
 
 		AnimationController::Desc	Anim_desc;
 		Anim_desc.dAnimSpd = 1.0;
@@ -392,48 +359,41 @@ void TestScene::Initialize()
 		Player->Add_Component<SphereCollider>(&colDesc);
 	}
 	
+	{//Zeds
 
+	for(int i =0; i < 3; ++i)
 	{
+		float x = 50 * i;
+		
+		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot");
+		TestClot->Set_Position(Vector3(x, 0.f, 10.f));
+		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
 
-		GameObject*		PoliceCar = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PoliceCar");
-		PoliceCar->Set_Scale(Vector3(1.f, 1.f, 1.f));
-		PoliceCar->Set_Position(Vector3(-100.f, 0.f, -100.f));
-		Mesh_Renderer::Desc Policecar_desc;
-		Policecar_desc.szMeshName = L"PoliceCar";
-		PoliceCar->Add_Component<Mesh_Renderer>(&Policecar_desc);
+		Mesh_Renderer::Desc Clot_Test;
+		Clot_Test.szMeshName = L"Clot";
+		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
 
-		GameObject*		Taxi = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Taxi");
-		Taxi->Set_Scale(Vector3(1.f, 1.f, 1.f));
-		Taxi->Set_Position(Vector3(50.f, 0.f, 50.f));
-		Mesh_Renderer::Desc Taxi_Desc;
-		Taxi_Desc.szMeshName = L"Taxi";
-		Taxi->Add_Component<Mesh_Renderer>(&Taxi_Desc);
-
-		SphereCollider::Desc colDesc;
-		colDesc.fRadius = 20.f;
-		colDesc.vOffset = Vector3(0.f, 10.f, 0.f);
-		Taxi->Add_Component<SphereCollider>(&colDesc);
-
-		/*	GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-			Map->Set_Position(Vector3(0, 0, 0.f));
-			Map->Set_Scale(Vector3(0.1f, 0.1f, 0.1f));
-			Mesh_Renderer::Desc Map_desc;
-			Map_desc.szMeshName = L"Map";
-			Map->Add_Component<Mesh_Renderer>(&Map_desc);
-			*/
-
-
+		AnimationController::Desc Clot_Anim;
+		Clot_Anim.InitIndex = i;
+		Clot_Anim.bLoop = true;
+		TestClot->Add_Component<AnimationController>(&Clot_Anim);
 	}
+		
+	GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot");
+		TestClot->Set_Position(Vector3(50.f, 0.f, 10.f));
+		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
 
-	//{
-	//	EngineFunction->Load_Mesh(L"Test/DynamicMesh/Boss_CrystalSpider_000.X", L"Boss");
-	//	GameObject* TestMonster = INSTANTIATE();
-	//	
-	//	Mesh_Renderer::Desc TestMonsterDesc;
-	//	TestMonsterDesc.szMeshName = L"Boss";
+		Mesh_Renderer::Desc Clot_Test;
+		Clot_Test.szMeshName = L"Clot";
+		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
 
-	//	TestMonster->Add_Component<Mesh_Renderer>(&TestMonsterDesc);
-	//}
+		AnimationController::Desc Clot_Anim;
+		Clot_Anim.InitIndex = 0;
+		Clot_Anim.bLoop = true;
+		TestClot->Add_Component<AnimationController>(&Clot_Anim);
+
+	
+	}
 
 
 #pragma region Test

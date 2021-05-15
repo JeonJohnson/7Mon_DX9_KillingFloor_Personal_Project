@@ -83,12 +83,6 @@
     <Filter Include="03.Objects\00.Camera\01.FPSCamera">
       <UniqueIdentifier>{dd892190-7e80-447d-82c0-28b281818c00}</UniqueIdentifier>
     </Filter>
-    <Filter Include="03.Objects\Weapons">
-      <UniqueIdentifier>{c2cd6b66-c4f8-4ecc-b2a1-463ee5cb7e6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Objects\Zeds">
-      <UniqueIdentifier>{6ab682b0-4bc6-451f-aefb-6b9e1ba86dac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="04.Components">
       <UniqueIdentifier>{4f59d99f-da1e-4665-8e0d-96034d48f9e6}</UniqueIdentifier>
     </Filter>
@@ -119,12 +113,6 @@
     <Filter Include="03.Objects\01.Player\Attack">
       <UniqueIdentifier>{67ccbda1-1587-41e7-9e37-519668fe62b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="03.Objects\Bullets">
-      <UniqueIdentifier>{ec2e63de-b837-417d-9630-186af22a087b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Objects\Weapons\Manager">
-      <UniqueIdentifier>{44d1d4d0-b253-4f0d-800f-9ea7f033e467}</UniqueIdentifier>
-    </Filter>
     <Filter Include="03.Objects\01.Player\Status_Info">
       <UniqueIdentifier>{233c2143-ecda-40fe-9c78-aa88c545bcf9}</UniqueIdentifier>
     </Filter>
@@ -152,20 +140,65 @@
     <Filter Include="02.Scene\02.Stage\Stage_State\02.Stage_02">
       <UniqueIdentifier>{c3e76c56-ccd0-424e-842d-e45f6186021a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="03.Objects\Bullets\Move">
-      <UniqueIdentifier>{c7ae2d04-0fbd-47f5-bb65-d3b0b71d0675}</UniqueIdentifier>
-    </Filter>
     <Filter Include="03.Objects\01.Player\00.Manager">
       <UniqueIdentifier>{f4dcc5e8-ed76-4940-beb5-9918064d8785}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="03.Objects\Weapons\Status_Info">
-      <UniqueIdentifier>{8a5e797f-8f3f-4788-abf5-362fc34feb1e}</UniqueIdentifier>
     </Filter>
     <Filter Include="06.Ui\HudManager">
       <UniqueIdentifier>{6c503db5-b0a7-4091-a93e-8fadbce448d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="03.Objects\SkyBox">
+    <Filter Include="03.Objects\02.Weapons">
+      <UniqueIdentifier>{c2cd6b66-c4f8-4ecc-b2a1-463ee5cb7e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\02.Weapons\Manager">
+      <UniqueIdentifier>{44d1d4d0-b253-4f0d-800f-9ea7f033e467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\02.Weapons\Status_Info">
+      <UniqueIdentifier>{8a5e797f-8f3f-4788-abf5-362fc34feb1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\03.Bullets">
+      <UniqueIdentifier>{ec2e63de-b837-417d-9630-186af22a087b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\03.Bullets\Move">
+      <UniqueIdentifier>{c7ae2d04-0fbd-47f5-bb65-d3b0b71d0675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\00.SkyBox">
       <UniqueIdentifier>{df178300-0178-4be8-a3b1-35c5b218feea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds">
+      <UniqueIdentifier>{6ab682b0-4bc6-451f-aefb-6b9e1ba86dac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States">
+      <UniqueIdentifier>{b33d422a-061d-422e-bf6b-ecb099c0ecd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\00.Idle">
+      <UniqueIdentifier>{24777281-e6a4-404a-8c38-d4923e6d1742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\01.Walk">
+      <UniqueIdentifier>{a0e998fe-5146-4d62-8827-ca6ccc776c86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\02.Run">
+      <UniqueIdentifier>{cf6ab95a-5542-47e6-b2b8-ad7a23e021a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\03.Att">
+      <UniqueIdentifier>{ceee38da-657a-4c02-927f-b64ae3e6c7ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\04.Hit">
+      <UniqueIdentifier>{35223c3e-0c13-4482-8981-df232bdccfe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\05.Crit_Hit">
+      <UniqueIdentifier>{667362e4-127c-49a1-bfa1-b359dae606ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\06.Death">
+      <UniqueIdentifier>{98a94865-d427-459b-8934-1b46b94fdf85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\Status_Info">
+      <UniqueIdentifier>{abbba9fe-9ed2-4d26-aa08-36af4da6093f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\04.Zeds\00.Manager">
+      <UniqueIdentifier>{20cb20dc-4d58-40a9-9b51-0ac8e7949a1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss">
+      <UniqueIdentifier>{3873e5d8-eead-4575-b16a-bafaa0970024}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -227,13 +260,13 @@
       <Filter>02.Scene\00.Intro\Skipper</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Weapon.h">
-      <Filter>03.Objects\Weapons</Filter>
+      <Filter>03.Objects\02.Weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_Attack.h">
       <Filter>03.Objects\01.Player\Attack</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\WeaponManager.h">
-      <Filter>03.Objects\Weapons\Manager</Filter>
+      <Filter>03.Objects\02.Weapons\Manager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_Status.h">
       <Filter>03.Objects\01.Player\Status_Info</Filter>
@@ -248,21 +281,24 @@
       <Filter>03.Objects\01.Player\States\01.Swap</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\BulletManager.h">
-      <Filter>03.Objects\Bullets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Zed_Status.h">
-      <Filter>03.Objects\Zeds</Filter>
+      <Filter>03.Objects\03.Bullets</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Bullet_Move.h">
-      <Filter>03.Objects\Bullets\Move</Filter>
+      <Filter>03.Objects\03.Bullets\Move</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Weapon_Status.h">
-      <Filter>03.Objects\Weapons\Status_Info</Filter>
+      <Filter>03.Objects\02.Weapons\Status_Info</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\HudManager.h">
       <Filter>06.Ui\HudManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\SkyBox.h" />
+    <ClInclude Include="..\Header\Zed_Status.h">
+      <Filter>03.Objects\04.Zeds\Status_Info</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ZedManager.h">
+      <Filter>03.Objects\04.Zeds\00.Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -299,13 +335,13 @@
       <Filter>02.Scene\00.Intro\Skipper</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Weapon.cpp">
-      <Filter>03.Objects\Weapons</Filter>
+      <Filter>03.Objects\02.Weapons</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Attack.cpp">
       <Filter>03.Objects\01.Player\Attack</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\WeaponManager.cpp">
-      <Filter>03.Objects\Weapons\Manager</Filter>
+      <Filter>03.Objects\02.Weapons\Manager</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Status.cpp">
       <Filter>03.Objects\01.Player\Status_Info</Filter>
@@ -320,21 +356,24 @@
       <Filter>03.Objects\01.Player\States\01.Swap</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\BulletManager.cpp">
-      <Filter>03.Objects\Bullets</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Zed_Status.cpp">
-      <Filter>03.Objects\Zeds</Filter>
+      <Filter>03.Objects\03.Bullets</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Bullet_Move.cpp">
-      <Filter>03.Objects\Bullets\Move</Filter>
+      <Filter>03.Objects\03.Bullets\Move</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Weapon_Status.cpp">
-      <Filter>03.Objects\Weapons\Status_Info</Filter>
+      <Filter>03.Objects\02.Weapons\Status_Info</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\HudManager.cpp">
       <Filter>06.Ui\HudManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\SkyBox.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Status.cpp">
+      <Filter>03.Objects\04.Zeds\Status_Info</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\ZedManager.cpp">
+      <Filter>03.Objects\04.Zeds\00.Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">
