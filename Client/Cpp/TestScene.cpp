@@ -390,6 +390,16 @@ void TestScene::Initialize()
 			*/
 	}
 
+	//{
+	//	EngineFunction->Load_Mesh(L"Test/DynamicMesh/Boss_CrystalSpider_000.X", L"Boss");
+	//	GameObject* TestMonster = INSTANTIATE();
+	//	
+	//	Mesh_Renderer::Desc TestMonsterDesc;
+	//	TestMonsterDesc.szMeshName = L"Boss";
+
+	//	TestMonster->Add_Component<Mesh_Renderer>(&TestMonsterDesc);
+	//}
+
 
 #pragma region Test
 	{//Rect Color Test
