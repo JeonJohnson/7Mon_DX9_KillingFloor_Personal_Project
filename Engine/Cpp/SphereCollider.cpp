@@ -38,9 +38,14 @@ void SphereCollider::Update()
 {
 	//¾ê´Â ¹®Á¦ ¾Æ´Ô.
 	//¾ê ¾È ³Ö¾îµµ »ý¼º¸¸ ÇÏ´Â ÀÚÃ¼°¡ ²÷Å´ .
+	//ÇØ°á.
 	Vector3 MotherPos = m_Transform->Get_Position();
 	m_pDebuging->Set_Position(MotherPos + m_vOffset);
 	m_vCenter = m_pDebuging->Get_Position();
+
+
+	
+
 }
 
 void SphereCollider::LateUpdate()
@@ -53,7 +58,7 @@ void SphereCollider::ReadyRender()
 
 void SphereCollider::Release()
 {
-	m_pDebuging = nullptr;
+	m_pDebuging->Set_Alive(false);
 }
 
 bool SphereCollider::Sphere2Sphere(SphereCollider * _pStart, SphereCollider * _pDest)

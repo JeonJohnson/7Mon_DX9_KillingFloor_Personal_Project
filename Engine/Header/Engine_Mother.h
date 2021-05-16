@@ -158,7 +158,7 @@ public: /* Line Manager */
 
 	
 public: /* Light Manager */
-	void				Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name = L"Default_Light");
+	void			Insert_Light(D3DLIGHT9* _pLight, const wstring& _Name = L"Default_Light");
 	
 	 
 public: /* Render Manager */
@@ -171,6 +171,8 @@ public: /* Resource Manager */
 	Mesh*	Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	HRESULT	Load_TerrainLayout(const wstring& _szDataPath);
 	HRESULT	Load_NaviMeshData(const wstring& _szDataPath);
+	NaviMesh*	Get_NaviMesh(const wstring& _szNaviMeshName = L"");
+
 
 public:
 		

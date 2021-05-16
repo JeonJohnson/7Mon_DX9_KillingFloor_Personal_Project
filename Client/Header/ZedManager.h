@@ -49,8 +49,13 @@ public:
 
 public:
 
+
 public:
-	int		m_iZedCount = 0;
+	void	Set_ZedCount(int _Count);
+	void	Add_ZedCount(int _Count);
+
+private:
+	int		m_iZedCount = 1;
 
 
 	ZED_INFO	arrZedInfo[ZED_TYPE_END];

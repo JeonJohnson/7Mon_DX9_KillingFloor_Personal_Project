@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Header\Zed_Death.h"
 #include "AnimationController.h"
+#include "ZedManager.h"
 
 
 Zed_Death::Zed_Death()
@@ -34,6 +35,11 @@ void Zed_Death::UpdateState()
 	if (vRotate.z <= 90.f )
 	{
 		m_GameObject->Get_Transform()->RotateZ(fTime * 45.f);
+	}
+	else
+	{
+		ZedManager::Get_Instance()->Add_ZedCount(-1);
+		m_GameObject->Set_Alive(false);
 	}
 	
 

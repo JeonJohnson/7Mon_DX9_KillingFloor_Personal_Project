@@ -235,13 +235,15 @@ void Mesh_Renderer::Animating()
 		if (AnimCtrl->Get_Playing())
 		{
 			AnimCtrl->Animating();
+
+			if (m_pMesh)
+			{
+				m_pMesh->Update_BoneMatrix((D3DXFrame_Derived*)(m_pMesh->Get_RootFrame()), &m_matMeshTransform);
+			}
+
 		}
 	}
 
-	if (m_pMesh)
-	{
-		m_pMesh->Update_BoneMatrix((D3DXFrame_Derived*)(m_pMesh->Get_RootFrame()), &m_matMeshTransform);
-	}
 }
 
 Mesh * Mesh_Renderer::Get_Mesh()

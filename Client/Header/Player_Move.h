@@ -16,6 +16,7 @@ public:
 	{
 		float	fWalkSpd = 20.f;
 		float	fSprintSpd = 30.f;
+		NaviMesh*	pNaviMesh = nullptr;
 	};
 
 public:
@@ -34,12 +35,14 @@ public:
 public:
 
 public:
+	void	Set_NaviMesh(NaviMesh* _NaviMesh);
 
 private:
-	float	m_fCurSpd = 0.f;
-	float	m_fWalkSpd = 0.f;
-	float	m_fSprintSpd = 0.f;
+	float			m_fCurSpd = 0.f;
+	float			m_fWalkSpd = 0.f;
+	float			m_fSprintSpd = 0.f;
 
+	NaviMesh*		m_pNaviMesh = nullptr;
 	
 
 

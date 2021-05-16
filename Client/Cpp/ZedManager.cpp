@@ -55,8 +55,12 @@ void ZedManager::Update()
 
 	if (KeyDown(KEY_STATE_F1))
 	{
+		Generate_Clot(Vector3(0.f, 0.f, 100.f));
+	}
 
-		Generate_Clot(arrZedGenLocate[CHURCH]);
+	if (KeyDown(KEY_STATE_F2))
+	{
+		Generate_GoreFast(Vector3(50.f,0.f, 100.f)); 
 	}
 
 }
@@ -130,9 +134,11 @@ void ZedManager::Generate_Clot(const Vector3 & _vPos, const Quaternion & _qRot, 
 {
 
 		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" + to_wstring(m_iZedCount));
+		
+		//TestClot->Set_Position(Vector3(50.f,0.f,50.f));
 		TestClot->Set_Position(_vPos);
 		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
-		TestClot->Set_Rotation(_qRot);
+		//TestClot->Set_Rotation(_qRot);
 
 		TestClot->Add_Component<StateController>();
 		auto ZedStateCtrl = TestClot->Get_Component<StateController>();
@@ -146,7 +152,6 @@ void ZedManager::Generate_Clot(const Vector3 & _vPos, const Quaternion & _qRot, 
 
 		Mesh_Renderer::Desc Clot_Test;
 		Clot_Test.szMeshName = L"Clot";
-
 		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
 
 		AnimationController::Desc Clot_Anim;
@@ -175,7 +180,7 @@ void ZedManager::Generate_GoreFast(const Vector3 & _vPos, const Quaternion & _qR
 		GameObject* TestGoreFast = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" + to_wstring(m_iZedCount));
 		TestGoreFast->Set_Position(_vPos);
 		TestGoreFast->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
-		TestGoreFast->Set_Rotation(_qRot);
+		//TestGoreFast->Set_Rotation(_qRot);
 
 		TestGoreFast->Add_Component<StateController>();
 		auto ZedStateCtrl = TestGoreFast->Get_Component<StateController>();
@@ -219,7 +224,7 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 		GameObject* TestScrake = INSTANTIATE(OBJECT_TAG_ZED, L"Scrake" + to_wstring(m_iZedCount));
 		TestScrake->Set_Position(_vPos);
 		TestScrake->Set_Scale(Vector3(0.3f, 0.2f, 0.3f));
-		TestScrake->Set_Rotation(_qRot);
+		//TestScrake->Set_Rotation(_qRot);
 
 		TestScrake->Add_Component<StateController>();
 		auto ZedStateCtrl = TestScrake->Get_Component<StateController>();
@@ -261,7 +266,7 @@ void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _q
 		GameObject* TestPatriarch = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" + to_wstring(m_iZedCount));
 		TestPatriarch->Set_Position(_vPos);
 		TestPatriarch->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
-		TestPatriarch->Set_Rotation(_qRot);
+		//TestPatriarch->Set_Rotation(_qRot);
 
 		TestPatriarch->Add_Component<StateController>();
 		auto ZedStateCtrl = TestPatriarch->Get_Component<StateController>();
@@ -295,5 +300,15 @@ void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _q
 
 		++m_iZedCount;
 	
+}
+
+void ZedManager::Set_ZedCount(int _Count)
+{
+	m_iZedCount = _Count;
+}
+
+void ZedManager::Add_ZedCount(int _Count)
+{
+	m_iZedCount += _Count;
 }
 

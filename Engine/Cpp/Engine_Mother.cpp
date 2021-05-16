@@ -513,3 +513,8 @@ HRESULT Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 
 	return S_OK;
 }
+
+NaviMesh * Engine_Mother::Get_NaviMesh(const wstring & _szNaviMeshName)
+{
+	return m_pResourceManager->Get_Instance()->Get_NaviMesh();
+}
