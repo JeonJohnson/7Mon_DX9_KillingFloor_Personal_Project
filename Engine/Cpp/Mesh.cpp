@@ -21,7 +21,7 @@ void Mesh::Update()
 {
 	//Play_AnimationSet();
 
-	D3DXMatrixRotationY(&m_matMeshTransform, D3DXToRadian(-90.f));
+	//D3DXMatrixRotationY(&m_matMeshTransform, D3DXToRadian(-90.f));
 	//Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &m_matMeshTransform);
 }
 

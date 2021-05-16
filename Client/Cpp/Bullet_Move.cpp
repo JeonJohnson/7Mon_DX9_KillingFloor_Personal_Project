@@ -61,7 +61,10 @@ void Bullet_Move::ColCheck_Zeds()
 	{
 		if (m_pCol->Collision_Check(zed, L"Body"))
 		{
-			zed->Get_Component<Zed>()->Damaged(m_iDmg);
+			if (auto pStatus = zed->Get_Component<Zed>())
+			{
+				pStatus->Damaged(m_iDmg);
+			}
 			m_pCol->Set_Check(false);
 
 			m_GameObject->Set_Alive(false);

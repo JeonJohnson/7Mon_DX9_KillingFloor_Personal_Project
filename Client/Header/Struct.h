@@ -69,34 +69,35 @@ typedef struct tPlayerStatus
 
 typedef struct tZedStatus
 {
+	ZED_TYPE    m_eName;
 
-	ZED_TYPE    m_szName;
-
-	int			m_iCurHp = 100;
 	int			m_iMaxHp = 100;
+	int			m_iCurHp = 100;
 
-	float		m_fWalkSpd = 20.f;
 	float		m_fRunSpd = 40.f;
+	float		m_fWalkSpd = 20.f;
 
 
 	int			m_iDmg = 10;
-	int			m_iDmg2 = 20;
+	int			m_iStrongDmg = 20;
+	int			m_iMg42Dmg = 0;
+	int			m_iMissileDmg = 0;
 
 }ZED_INFO;
 
-typedef struct tBossStatus
-{
-	int			m_iCurHp;
-	int			m_iMaxHp;
-
-	float		m_fWalkSpd;
-	float		m_fRunSpd;
-
-	int			m_iDmg_Melee;
-	int			m_iDmg_StrongMelee;
-	int			m_iDmg_Mg42;
-	int			m_iDmg_Missile;
-
-}BOSS_INFO;
+//typedef struct tBossStatus
+//{
+//	int			m_iCurHp;
+//	int			m_iMaxHp;
+//
+//	float		m_fWalkSpd;
+//	float		m_fRunSpd;
+//
+//	int			m_iDmg_Melee;
+//	int			m_iDmg_StrongMelee;
+//	int			m_iDmg_Mg42;
+//	int			m_iDmg_Missile;
+//
+//}BOSS_INFO;
 
 #endif //_STRUCT_H_

@@ -18,6 +18,11 @@ void Player_Move::Initialize()
 void Player_Move::Update()
 {
 	Move();
+
+	DEBUG_LOG(L"Player Pos : "
+		+ to_wstring(m_Transform->Get_Position().x) + L"/"
+		+ to_wstring(m_Transform->Get_Position().y) + L"/"
+		+ to_wstring(m_Transform->Get_Position().z) + L"/");
 }
 
 void Player_Move::LateUpdate()

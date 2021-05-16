@@ -63,8 +63,17 @@ typedef	enum eZedType
 	ZED_Scrake,
 	ZED_Patriarch,
 	ZED_TYPE_END
+
 }ZED_TYPE;
 
+typedef enum eZedGenLocate
+{
+	CHURCH,
+	POLICE,
+	HOTEL_LEFT,
+	HOTEL_RIGHT,
+	ZED_GEN_END
+}ZED_LOCATE;
 
 
 #endif //_ENUM_H_

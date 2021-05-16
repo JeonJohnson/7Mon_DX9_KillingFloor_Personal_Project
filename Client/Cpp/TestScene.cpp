@@ -347,8 +347,11 @@ void TestScene::Initialize()
 		PlayerStateCtrl->Add_State<Player_Swap>(L"Player_Swap");
 		PlayerStateCtrl->Set_InitState(L"Player_Idle");
 		
+
+
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"M99";
+		Hand_Desc.vRot = Vector3{ 0.f, -90.f, 0.f };
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 

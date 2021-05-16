@@ -19,12 +19,15 @@ public:
 	{
 		wstring szMeshName = L"";
 		wstring szShaderName = L"Shader_Mesh";
+
+		
+		//Matrix	matMeshMatrix;
 		//int		iAnimIndex = 1;
 		//wstring szTexturePath = L"";
 
-		//Vector3		vPos = { 0.f,0.f,0.f };
-		//Vector3		vRot = { 0.f, 0.f, 0.f };
-		//Vector3		vScale = { 1.f,1.f,1.f };
+		Vector3		vPos = { 0.f,0.f,0.f };
+		Vector3		vRot = { 0.f, 0.f, 0.f };
+		Vector3		vScale = { 1.f,1.f,1.f };
 
 	};
 public:
@@ -55,6 +58,8 @@ private:
 	Mesh*			m_pMesh = nullptr;
 	Shader*			m_pShaderCom = nullptr;
 	LPD3DXEFFECT	m_pEffectCom = nullptr;
+
+	Matrix			m_matMeshTransform;
 	//Vector3			m_vPosition;
 	//Vector3			m_vRoation;
 	//Vector3			m_vScale;

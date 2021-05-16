@@ -20,13 +20,23 @@ Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 		assert(L"AnimMesh Loading Failed" && m_pMesh);
 	}
 
+	//크기 //회전 // 이동 순서
+
+	Matrix matScale, matRot, matTrans;
+	D3DXMatrixScaling(&matScale, _desc->vScale.x, _desc->vScale.y, _desc->vScale.z);
+	
+	D3DXMatrixRotationYawPitchRoll(&matRot,
+		D3DXToRadian(_desc->vRot.y), D3DXToRadian(_desc->vRot.x), D3DXToRadian(_desc->vRot.z));
+	
+	D3DXMatrixTranslation(&matTrans, _desc->vPos.x, _desc->vPos.y, _desc->vPos.z);
+
+	m_matMeshTransform = matScale * matRot * matTrans;
+
+	//m_matMeshMatrix = _desc->matMeshMatrix;
 	//if (m_pMesh->Get_AnimationController() != nullptr)
 	//{
 	//	m_pMesh->Set_AnimationSet(_desc->iAnimIndex);
 	//}
-
-
-
 
 	Create_Shader(_desc->szShaderName);
 }
@@ -230,7 +240,7 @@ void Mesh_Renderer::Animating()
 
 	if (m_pMesh)
 	{
-		m_pMesh->Update_BoneMatrix((D3DXFrame_Derived*)(m_pMesh->Get_RootFrame()), &m_pMesh->Get_MeshTransformMatrix());
+		m_pMesh->Update_BoneMatrix((D3DXFrame_Derived*)(m_pMesh->Get_RootFrame()), &m_matMeshTransform);
 	}
 }
 
