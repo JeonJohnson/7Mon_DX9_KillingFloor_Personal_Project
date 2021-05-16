@@ -87,6 +87,25 @@ void Player_Attack::Update()
 	HudManager::Get_Instance()->Set_TextMagazine(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine);
 	HudManager::Get_Instance()->Set_TextGranade(3);
 	
+
+	if (KeyDown(KEY_STATE_F1))
+	{
+		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" + to_wstring(m_iTest));
+		TestClot->Set_Position(Vector3(m_iTest * 10.f, 0.f, 50.f));
+		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
+
+		Mesh_Renderer::Desc Clot_Test;
+		Clot_Test.szMeshName = L"Clot";
+		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
+
+		AnimationController::Desc Clot_Anim;
+		Clot_Anim.InitIndex = m_iTest;
+		Clot_Anim.bLoop = true;
+		Clot_Anim.bClone = true;
+		TestClot->Add_Component<AnimationController>(&Clot_Anim);
+
+		++m_iTest;
+	}
 }
 
 void Player_Attack::LateUpdate()

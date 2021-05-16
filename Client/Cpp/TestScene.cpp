@@ -361,26 +361,12 @@ void TestScene::Initialize()
 	
 	{//Zeds
 
-	for(int i =0; i < 3; ++i)
-	{
-		float x = 50 * i;
-		
-		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot");
-		TestClot->Set_Position(Vector3(x, 0.f, 10.f));
-		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
-
-		Mesh_Renderer::Desc Clot_Test;
-		Clot_Test.szMeshName = L"Clot";
-		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
-
-		AnimationController::Desc Clot_Anim;
-		Clot_Anim.InitIndex = i;
-		Clot_Anim.bLoop = true;
-		TestClot->Add_Component<AnimationController>(&Clot_Anim);
-	}
-		
-	GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot");
-		TestClot->Set_Position(Vector3(50.f, 0.f, 10.f));
+	//for(int i =0; i < 3; ++i)
+	//{
+	//	float x = 50 * i;
+	//	
+		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" );
+		TestClot->Set_Position(Vector3(0, 0.f, 10.f));
 		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
 
 		Mesh_Renderer::Desc Clot_Test;
@@ -390,7 +376,30 @@ void TestScene::Initialize()
 		AnimationController::Desc Clot_Anim;
 		Clot_Anim.InitIndex = 0;
 		Clot_Anim.bLoop = true;
+		Clot_Anim.bClone = true;
 		TestClot->Add_Component<AnimationController>(&Clot_Anim);
+
+		SphereCollider::Desc Clot_Col;
+		Clot_Col.fRadius = 12.5f;
+		Clot_Col.vOffset = Vector3(0.f, 15.f, 0.f);
+		Clot_Col.szColName = L"Clot_Body";
+		TestClot->Add_Component<SphereCollider>(&Clot_Col);
+	
+		
+	//}
+		
+	//GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot");
+	//	TestClot->Set_Position(Vector3(50.f, 0.f, 10.f));
+	//	TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
+
+	//	Mesh_Renderer::Desc Clot_Test;
+	//	Clot_Test.szMeshName = L"Clot";
+	//	TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
+
+	//	AnimationController::Desc Clot_Anim;
+	//	Clot_Anim.InitIndex = 0;
+	//	Clot_Anim.bLoop = true;
+	//	TestClot->Add_Component<AnimationController>(&Clot_Anim);
 
 	
 	}

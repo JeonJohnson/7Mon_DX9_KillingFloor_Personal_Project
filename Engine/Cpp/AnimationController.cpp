@@ -16,6 +16,8 @@ AnimationController::AnimationController(Desc * _desc)
 
 	m_pCurTrackInfo = new D3DXTRACK_DESC;
 	ZeroMemory(m_pCurTrackInfo, sizeof(D3DXTRACK_DESC));
+
+	m_bClone = _desc->bClone;
 }
 
 AnimationController::~AnimationController()
@@ -33,10 +35,10 @@ void AnimationController::Update()
 {
 	m_dDeltaTime = TimeManager::Get_Instance()->Get_dTime();
 
-	if (m_bPlay)
-	{
-		Animating();
-	}
+	//if (m_bPlay)
+	//{
+	//	Animating();
+	//}
 }
 
 void AnimationController::LateUpdate()
@@ -53,6 +55,44 @@ void AnimationController::Release()
 {
 	Safe_Delete(m_pCurTrackInfo);
 }
+
+//HRESULT AnimationController::SetUp_Clone_AnimCtrl()
+//{
+//	if (m_GameObject == nullptr)
+//	{
+//		return E_FAIL;
+//	}
+//
+//	Mesh_Renderer* Temp_MeshRenderer = m_GameObject->Get_Component<Mesh_Renderer>();
+//
+//	if (Temp_MeshRenderer == nullptr)
+//	{
+//		Temp_MeshRenderer = m_GameObject->Get_Component<Mesh_Renderer>();
+//	}
+//
+//	assert(L"Cant find MeshRenderer at AnimCtrler" && Temp_MeshRenderer);
+//
+//	if (Temp_MeshRenderer->Get_Mesh() == nullptr)
+//	{
+//		return E_FAIL;
+//	}
+//
+//	LPD3DXANIMATIONCONTROLLER pTempAnimCtrl = Temp_MeshRenderer->Get_Mesh()->Get_AnimController();
+//
+//	if (pTempAnimCtrl != nullptr)
+//	{
+//		pTempAnimCtrl->CloneAnimationController(
+//			pTempAnimCtrl->GetMaxNumAnimationOutputs(),
+//			pTempAnimCtrl->GetMaxNumAnimationSets(),
+//			pTempAnimCtrl->GetMaxNumTracks(),
+//			pTempAnimCtrl->GetMaxNumEvents(),
+//			&m_pAnimCtrl);
+//
+//		m_iMaxIndex = m_pAnimCtrl->GetMaxNumAnimationSets();
+//	}
+//
+//	return S_OK;
+//}
 
 HRESULT AnimationController::SetUp_AnimCtrl()
 {
@@ -79,14 +119,21 @@ HRESULT AnimationController::SetUp_AnimCtrl()
 
 	if (pTempAnimCtrl != nullptr)
 	{
-		m_pAnimCtrl = pTempAnimCtrl;
+		if (m_bClone == false)
+		{
+			m_pAnimCtrl = pTempAnimCtrl;
+		}
+		else 
+		{
+			pTempAnimCtrl->CloneAnimationController(
+				pTempAnimCtrl->GetMaxNumAnimationOutputs(),
+				pTempAnimCtrl->GetMaxNumAnimationSets(),
+				pTempAnimCtrl->GetMaxNumTracks(),
+				pTempAnimCtrl->GetMaxNumEvents(),
+				&m_pAnimCtrl);
+		}
 
-		//pTempAnimCtrl->CloneAnimationController(
-		//	pTempAnimCtrl->GetMaxNumAnimationOutputs(),
-		//	pTempAnimCtrl->GetMaxNumAnimationSets(),
-		//	pTempAnimCtrl->GetMaxNumTracks(),
-		//	pTempAnimCtrl->GetMaxNumEvents(),
-		//	&m_pAnimCtrl);
+		
 
 		m_iMaxIndex = m_pAnimCtrl->GetMaxNumAnimationSets();
 	}
@@ -252,6 +299,11 @@ double AnimationController::Get_MaxFrame()
 double AnimationController::Get_AnimSpd()
 {
 	return m_dOffSet;
+}
+
+bool AnimationController::Get_Playing()
+{
+	return m_bPlay;
 }
 
 

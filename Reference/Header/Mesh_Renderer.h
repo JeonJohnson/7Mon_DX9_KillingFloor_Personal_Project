@@ -41,7 +41,7 @@ public:
 public:
 	void		Create_Shader(const wstring& _szShaderName);
 	void		Setup_ShaderTable();
-
+	void		Animating();
 
 public: /* Get */
 	Mesh*		Get_Mesh();

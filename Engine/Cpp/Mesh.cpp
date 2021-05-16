@@ -22,7 +22,7 @@ void Mesh::Update()
 	//Play_AnimationSet();
 
 	D3DXMatrixRotationY(&m_matMeshTransform, D3DXToRadian(-90.f));
-	Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &m_matMeshTransform);
+	//Update_BoneMatrix((D3DXFrame_Derived*)m_pRootFrame, &m_matMeshTransform);
 }
 
 void Mesh::Release()
@@ -199,7 +199,7 @@ MeshContainer_Derived * Mesh::Get_RootFrame_MeshContainer()
 	return (MeshContainer_Derived*)m_pRootFrame->pMeshContainer;
 }
 
-const Matrix & Mesh::Get_MeshTransformMatrix() const
+Matrix Mesh::Get_MeshTransformMatrix() const
 {
 	return m_matMeshTransform;
 }

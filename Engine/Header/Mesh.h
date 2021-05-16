@@ -41,7 +41,7 @@ public: /* Get */
 	D3DXFRAME*							Get_RootFrame();
 	MeshContainer_Derived*				Get_RootFrame_MeshContainer();
 
-	const Matrix&						Get_MeshTransformMatrix() const;
+	Matrix							Get_MeshTransformMatrix() const;
 
 public: /* Set */
 	void								Set_MeshTransformMatrix(const Matrix& _mat);

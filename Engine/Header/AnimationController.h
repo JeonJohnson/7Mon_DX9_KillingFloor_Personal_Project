@@ -16,6 +16,11 @@ public:
 
 		bool bLoop = false;
 		bool bPlay = true;
+		bool bClone = false;//하나의 매쉬가 여러 오브젝트에 공유 될 경우 
+		//LPD3DXANIMATIONCONTROLLER가 클론이 되야함.
+		//플레이어 경우 한 애니메이션 컨트롤러에
+		//여러 매쉬들이 필요하니까 클론 하지말고
+		//몬스터같은 경우 한 매쉬에 여러 오브젝트들이 들어오니까 Clone해줘 야함.
 	};
 
 public:
@@ -30,6 +35,7 @@ public:
 	virtual void Release() override;
 
 public: /* Func */
+	//HRESULT				SetUp_Clone_AnimCtrl();
 	HRESULT				SetUp_AnimCtrl();
 	void				Animating();
 	void				Play(int _iNewAnimIndex, bool _bBlending = false);
@@ -51,6 +57,9 @@ public: /* Get */
 
 	double							Get_AnimSpd();
 
+	bool							Get_Playing();
+
+
 
 	
 
@@ -64,6 +73,7 @@ public: /* Set */
 	void		Set_OffSet(double _dOffSet);
 
 private:
+	bool							m_bClone;
 	LPD3DXANIMATIONCONTROLLER		m_pAnimCtrl = nullptr;
 	LPD3DXANIMATIONSET				m_pAnimSet = nullptr;
 

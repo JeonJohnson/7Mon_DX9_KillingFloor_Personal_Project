@@ -72,6 +72,8 @@ private:
 
 
 
+	int					m_iTest = 1;
+
 };
 
 #endif //_PLAYER_ATTACK_H_

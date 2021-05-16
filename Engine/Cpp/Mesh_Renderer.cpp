@@ -9,6 +9,7 @@
 #include "Texture.h"
 #include "Shader.h"
 #include "LightManager.h"
+#include "AnimationController.h"
 
 Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 {
@@ -62,7 +63,6 @@ void Mesh_Renderer::Render()
 	//Render Function
 	if (m_pMesh->Get_AnimController() == nullptr)
 	{//StaticMesh Rendering
-
 #pragma region Olds
 	 //D3DXFRAME안의 메시컨테이너 안에 매쉬정보들 있음.
 		//for (int i = 0; i < (int)m_pStaticMesh->Get_MaterialCount(); ++i)
@@ -91,7 +91,6 @@ void Mesh_Renderer::Render()
 		//	}
 		//}
 #pragma	endregion
-
 		for (auto& iter : m_pMesh->Get_MeshContainerList())
 		{
 			D3DXMESHCONTAINER_DERIVED* pMeshContainer = iter;
@@ -117,7 +116,11 @@ void Mesh_Renderer::Render()
 		}
 	}
 	else
-	{
+	{//Dynamic Mesh
+		
+		Animating();
+		
+
 		for (auto& iter : m_pMesh->Get_MeshContainerList())
 		{
 			D3DXMESHCONTAINER_DERIVED*		pMeshContainer = iter;
@@ -211,6 +214,24 @@ void Mesh_Renderer::Setup_ShaderTable()
 	m_pEffectCom->SetFloat("g_fPower", tMtrlInfo.Power);
 
 
+}
+
+void Mesh_Renderer::Animating()
+{
+	auto AnimCtrl = m_GameObject->Get_Component<AnimationController>();
+
+	if(AnimCtrl)
+	{
+		if (AnimCtrl->Get_Playing())
+		{
+			AnimCtrl->Animating();
+		}
+	}
+
+	if (m_pMesh)
+	{
+		m_pMesh->Update_BoneMatrix((D3DXFrame_Derived*)(m_pMesh->Get_RootFrame()), &m_pMesh->Get_MeshTransformMatrix());
+	}
 }
 
 Mesh * Mesh_Renderer::Get_Mesh()
