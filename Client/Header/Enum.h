@@ -22,6 +22,7 @@ typedef enum eGameObjectTag
 	OBJECT_TAG_MAINCAM,
 	OBJECT_TAG_WEAPON,
 	OBJECT_TAG_PLAYER,
+	OBJECT_TAG_BULLET,
 	OBJECT_TAG_ZED,
 	OBJECT_TAG_UI,
 	OBJECT_TAG_NAVIPOINT,
@@ -54,5 +55,16 @@ typedef enum eWeaponType
 	Weapon_Type_End
 
 }WEAPON_TYPE;
+
+typedef	enum eZedType
+{
+	ZED_Clot,
+	ZED_GoreFast,
+	ZED_Scrake,
+	ZED_Patriarch,
+	ZED_TYPE_END
+}ZED_TYPE;
+
+
 
 #endif //_ENUM_H_

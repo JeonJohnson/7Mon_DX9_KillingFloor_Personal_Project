@@ -4,12 +4,16 @@
 #define _BULLET_MOVE_H_
 
 #include "Component.h"
+
+class SphereCollider;
+
 class Bullet_Move : public Component
 {
 public:
 	struct Desc
 	{
-		float Spd = 550.f;
+		int		Dmg = 10;
+		float Spd = 2000.f;
 	};
 public:
 	Bullet_Move(Desc* _desc);
@@ -23,14 +27,17 @@ public:
 	virtual void Release() override;
 
 public:
+	void ColCheck_Zeds();
 
 public:
 
 public:
 
 private:
-	float m_fTime = 0.f;
-	float m_fSpd = 150.f;
+	SphereCollider*		m_pCol;
+	float	m_fTime = 0.f;
+	int		m_iDmg = 0;
+	float	m_fSpd = 150.f;
 
 };
 

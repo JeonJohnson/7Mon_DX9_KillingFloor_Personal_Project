@@ -209,6 +209,7 @@
     <ClInclude Include="..\Header\Player_Reload.h" />
     <ClInclude Include="..\Header\Player_Swap.h" />
     <ClInclude Include="..\Header\SkyBox.h" />
+    <ClInclude Include="..\Header\StageManager.h" />
     <ClInclude Include="..\Header\StageScene.h" />
     <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\TestScene.h" />
@@ -216,8 +217,15 @@
     <ClInclude Include="..\Header\Weapon.h" />
     <ClInclude Include="..\Header\WeaponManager.h" />
     <ClInclude Include="..\Header\Weapon_Status.h" />
+    <ClInclude Include="..\Header\Zed.h" />
     <ClInclude Include="..\Header\ZedManager.h" />
+    <ClInclude Include="..\Header\Zed_Att.h" />
+    <ClInclude Include="..\Header\Zed_Death.h" />
+    <ClInclude Include="..\Header\Zed_Hit.h" />
+    <ClInclude Include="..\Header\Zed_Idle.h" />
+    <ClInclude Include="..\Header\Zed_Run.h" />
     <ClInclude Include="..\Header\Zed_Status.h" />
+    <ClInclude Include="..\Header\Zed_Walk.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -240,13 +248,21 @@
     <ClCompile Include="..\Cpp\Player_Reload.cpp" />
     <ClCompile Include="..\Cpp\Player_Swap.cpp" />
     <ClCompile Include="..\Cpp\SkyBox.cpp" />
+    <ClCompile Include="..\Cpp\StageManager.cpp" />
     <ClCompile Include="..\Cpp\StageScene.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\Weapon.cpp" />
     <ClCompile Include="..\Cpp\WeaponManager.cpp" />
     <ClCompile Include="..\Cpp\Weapon_Status.cpp" />
+    <ClCompile Include="..\Cpp\Zed.cpp" />
     <ClCompile Include="..\Cpp\ZedManager.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Att.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Death.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Hit.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Idle.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Run.cpp" />
     <ClCompile Include="..\Cpp\Zed_Status.cpp" />
+    <ClCompile Include="..\Cpp\Zed_Walk.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

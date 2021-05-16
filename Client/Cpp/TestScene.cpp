@@ -23,6 +23,15 @@
 #include "Sprite.h"
 #include "HudManager.h"
 #include "SkyBox.h"
+#include "ZedManager.h"
+#include "Zed_Status.h"
+#include "Zed_Idle.h"
+#include "Zed_Death.h"
+#include "Zed_Hit.h"
+#include "Zed_Att.h"
+#include "Zed_Run.h"
+#include "Zed_Walk.h"
+#include "Zed.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -260,6 +269,16 @@ void TestScene::Initialize()
 			ClockSprite.TextureName = L"Hud_Clock";
 			Hud_Clock->Add_UIComponent<Sprite>(&ClockSprite);
 
+			Text::Desc ClockText;
+			ClockText.szScript = L"Left Time";
+			ClockText.iHeight = 30;
+			ClockText.iWeight = FW_HEAVY;
+			ClockText.ulOption = DT_VCENTER | DT_CENTER | DT_NOCLIP;
+			ClockText.tColor = D3DCOLOR_RGBA(255, 0, 0, 255);
+			ClockText.vOffSet = Vector2(0.f, 0.f);
+			Hud_Clock->Add_UIComponent<Text>(&ClockText);
+
+
 			HudManager::Get_Instance()->Insert_Hud(L"Clock", Hud_Clock);
 		}
 
@@ -272,6 +291,17 @@ void TestScene::Initialize()
 			Sprite::Desc EnemyCountSprite;
 			EnemyCountSprite.TextureName = L"Hud_EnemyCount";
 			Hud_EnemyCount->Add_UIComponent<Sprite>(&EnemyCountSprite);
+
+
+			Text::Desc EnemyuCountText;
+			EnemyuCountText.szScript = L"EnemyCount : ";
+			EnemyuCountText.iHeight = 30;
+			EnemyuCountText.iWeight = FW_HEAVY;
+			EnemyuCountText.ulOption = DT_VCENTER | DT_CENTER | DT_NOCLIP;
+			EnemyuCountText.tColor = D3DCOLOR_RGBA(255, 0, 0, 255);
+			EnemyuCountText.vOffSet = Vector2(0.f, 0.f);
+			Hud_EnemyCount->Add_UIComponent<Text>(&EnemyuCountText);
+
 
 			HudManager::Get_Instance()->Insert_Hud(L"EnemyCount", Hud_EnemyCount);
 		}
@@ -355,7 +385,7 @@ void TestScene::Initialize()
 		
 
 		SphereCollider::Desc  colDesc;
-		colDesc.fRadius = 50.f;
+		colDesc.fRadius = 15.f;
 		Player->Add_Component<SphereCollider>(&colDesc);
 	}
 	
@@ -365,9 +395,21 @@ void TestScene::Initialize()
 	//{
 	//	float x = 50 * i;
 	//	
+		ZedManager::Get_Instance();
+
 		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" );
 		TestClot->Set_Position(Vector3(0, 0.f, 10.f));
 		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
+
+		TestClot->Add_Component<StateController>();
+		auto ZedStateCtrl = TestClot->Get_Component<StateController>();
+		ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
+		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Fire");
+		ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
+		ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
+		ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
+		ZedStateCtrl->Add_State<Zed_Death>(L"Zed_Death");
+		ZedStateCtrl->Set_InitState(L"Zed_Idle");
 
 		Mesh_Renderer::Desc Clot_Test;
 		Clot_Test.szMeshName = L"Clot";
@@ -382,10 +424,16 @@ void TestScene::Initialize()
 		SphereCollider::Desc Clot_Col;
 		Clot_Col.fRadius = 12.5f;
 		Clot_Col.vOffset = Vector3(0.f, 15.f, 0.f);
-		Clot_Col.szColName = L"Clot_Body";
+		Clot_Col.szColName = L"Body";
 		TestClot->Add_Component<SphereCollider>(&Clot_Col);
+
+		Zed::Desc Clot_Default;
+		TestClot->Add_Component<Zed>(&Clot_Default);
 	
-		
+		//Zed_Status::Desc Clot_Status;
+		//TestClot->Add_Component<Zed_Status>(&Clot_Status);
+
+
 	//}
 		
 	//GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot");

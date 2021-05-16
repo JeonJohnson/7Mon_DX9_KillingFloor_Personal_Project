@@ -52,7 +52,7 @@ typedef struct tWeaponStatus
 
 typedef struct tPlayerStatus
 {
-	int			m_iCurHp = 73;
+	int			m_iCurHp = 100;
 	int			m_iMaxHp = 100;
 
 	int			m_iCurArmor = 20;
@@ -61,7 +61,7 @@ typedef struct tPlayerStatus
 	int			m_iCurWeight = 1;
 	int			m_iMaxWeight = 15;
 
-	int			m_iGold = 123250;
+	int			m_iGold = 250;
 
 
 }PLAYER_INFO;
@@ -69,13 +69,34 @@ typedef struct tPlayerStatus
 
 typedef struct tZedStatus
 {
+
+	ZED_TYPE    m_szName;
+
+	int			m_iCurHp = 100;
+	int			m_iMaxHp = 100;
+
+	float		m_fWalkSpd = 20.f;
+	float		m_fRunSpd = 40.f;
+
+
+	int			m_iDmg = 10;
+	int			m_iDmg2 = 20;
+
+}ZED_INFO;
+
+typedef struct tBossStatus
+{
 	int			m_iCurHp;
 	int			m_iMaxHp;
 
-	int			m_iCurArmor;
-	int			m_iMaxArmor;
+	float		m_fWalkSpd;
+	float		m_fRunSpd;
 
+	int			m_iDmg_Melee;
+	int			m_iDmg_StrongMelee;
+	int			m_iDmg_Mg42;
+	int			m_iDmg_Missile;
 
-}ZED_INFO;
+}BOSS_INFO;
 
 #endif //_STRUCT_H_

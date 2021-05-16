@@ -95,7 +95,7 @@ void Player_Fire::ExitState()
 
 void Player_Fire::Bullet_Test()
 {
-	GameObject* Bullet = INSTANTIATE(OBJECT_TAG_DEFAULT, L"TestBullet");
+	GameObject* Bullet = INSTANTIATE(OBJECT_TAG_BULLET, L"TestBullet");
 	Vector3  vDir = m_Transform->Get_Position() /*+ m_Transform->Get_Forward()*50.f*/;
 	Bullet->Set_Position(vDir);
 	Bullet->Set_Rotation(m_Transform->Get_Rotation());
@@ -111,6 +111,7 @@ void Player_Fire::Bullet_Test()
 
 	Bullet_Move::Desc bulletmove;
 	bulletmove.Spd = 2000.f;
+	bulletmove.Dmg = m_pCurWeaponStatus->m_tWeaponInfo.m_iDmg;
 	Bullet->Add_Component<Bullet_Move>(&bulletmove);
 
 

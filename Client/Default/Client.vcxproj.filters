@@ -200,6 +200,9 @@
     <Filter Include="03.Objects\05.Boss">
       <UniqueIdentifier>{3873e5d8-eead-4575-b16a-bafaa0970024}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Scene\02.Stage\StageManager">
+      <UniqueIdentifier>{d0e297c1-f6a0-49b6-9b85-22003734a3bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -292,12 +295,38 @@
     <ClInclude Include="..\Header\HudManager.h">
       <Filter>06.Ui\HudManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\SkyBox.h" />
     <ClInclude Include="..\Header\Zed_Status.h">
       <Filter>03.Objects\04.Zeds\Status_Info</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\ZedManager.h">
       <Filter>03.Objects\04.Zeds\00.Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\StageManager.h">
+      <Filter>02.Scene\02.Stage\StageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\SkyBox.h">
+      <Filter>03.Objects\00.SkyBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Zed.h">
+      <Filter>03.Objects\04.Zeds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Zed_Idle.h">
+      <Filter>03.Objects\04.Zeds\States\00.Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Zed_Walk.h">
+      <Filter>03.Objects\04.Zeds\States\01.Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Zed_Run.h">
+      <Filter>03.Objects\04.Zeds\States\02.Run</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Zed_Att.h">
+      <Filter>03.Objects\04.Zeds\States\03.Att</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Zed_Hit.h">
+      <Filter>03.Objects\04.Zeds\States\04.Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Zed_Death.h">
+      <Filter>03.Objects\04.Zeds\States\06.Death</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -367,12 +396,38 @@
     <ClCompile Include="..\Cpp\HudManager.cpp">
       <Filter>06.Ui\HudManager</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cpp\SkyBox.cpp" />
     <ClCompile Include="..\Cpp\Zed_Status.cpp">
       <Filter>03.Objects\04.Zeds\Status_Info</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\ZedManager.cpp">
       <Filter>03.Objects\04.Zeds\00.Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\StageManager.cpp">
+      <Filter>02.Scene\02.Stage\StageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\SkyBox.cpp">
+      <Filter>03.Objects\00.SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed.cpp">
+      <Filter>03.Objects\04.Zeds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed_Idle.cpp">
+      <Filter>03.Objects\04.Zeds\States\00.Idle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed_Walk.cpp">
+      <Filter>03.Objects\04.Zeds\States\01.Walk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed_Run.cpp">
+      <Filter>03.Objects\04.Zeds\States\02.Run</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed_Att.cpp">
+      <Filter>03.Objects\04.Zeds\States\03.Att</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed_Hit.cpp">
+      <Filter>03.Objects\04.Zeds\States\04.Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed_Death.cpp">
+      <Filter>03.Objects\04.Zeds\States\06.Death</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

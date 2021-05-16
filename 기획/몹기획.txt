@@ -1,13 +1,63 @@
 몹 기획
+현재 체력
+맥스 체력
+걷기 스피드
+달리기 스피드
+기본 공격 데미지
 
-클롯 - 그냥 기본 공격
+일반 애니메이션 순서
+0 Idle
+1 Walk
+2 Run
+3 Att
+4 Hit
+5 Crit_Hit
+6 Death
+(Scrake는 4에 Att2있음.)
 
-블로트 - 우웩 가능
+보스 애니메이션 순서
+0 Entrance
+1 Idle
+2 Walk
+3 Run
+4 Hit
+5 Crit_Hit
+6 Att
+7 Att2
+8 WideAtt
+9 Pulling
+10 MG42_Pre
+11 MG42_Fire
+12 MG42_End
+13 Missile_Pre
+14 Missile_Fire
+15 Missile_End
+16 Death
 
-고어패스트 - 빠르게 달려오기
+클롯 - 그냥 기본 공격 Clot
+체력 : 100
+스피드 : 
+공격력 : 5
 
-스트라이크 - 짱 쌤
+//블로트 - 우웩 가능
 
-(이펙트가 된다면 사이렌)
+고어패스트 GoreFast
+체력 : 200
+스피드 : 
+공격력 : 10
 
-보스몹
+스트라이크 Scrake
+체력 : 400
+스피드 : 
+공격력 : 
+1. 휘두르기 : 20
+2. 갈갈갈갈갈갈 : 초당 얼마루다가
+
+보스몹 Patriarch
+체력 : 2000
+스피드 : 
+공격력 : 
+1.근접
+2. 근접씨게
+3. 라이플
+4. 폭퐐

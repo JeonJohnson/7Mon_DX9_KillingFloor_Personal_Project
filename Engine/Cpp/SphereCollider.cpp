@@ -76,18 +76,22 @@ bool SphereCollider::Sphere2Sphere(SphereCollider * _pStart, SphereCollider * _p
 
 bool SphereCollider::Collision_Check(GameObject * _pGameObejct, const wstring & _szColName)
 {
-	SphereCollider* TempSphereCol = _pGameObejct->Get_Component<SphereCollider>();
-
-	if (TempSphereCol == nullptr)
+	if (m_bCheck)
 	{
+		SphereCollider* TempSphereCol = _pGameObejct->Get_Component<SphereCollider>();
+
+		if (TempSphereCol == nullptr)
+		{
+			return false;
+		}
+
+		if (Sphere2Sphere(this, TempSphereCol))
+		{
+			return true;
+		}
+
 		return false;
 	}
-	
-	if (Sphere2Sphere(this, TempSphereCol))
-	{
-		return true;
-	}
-
 	return false;
 
 }
@@ -106,5 +110,15 @@ Vector3 SphereCollider::Get_Center()
 float SphereCollider::Get_Radius()
 {
 	return m_fRadius;
+}
+
+bool SphereCollider::Get_Check()
+{
+	return m_bCheck;
+}
+
+void SphereCollider::Set_Check(bool _bCheack)
+{
+	m_bCheck = _bCheack;
 }
 

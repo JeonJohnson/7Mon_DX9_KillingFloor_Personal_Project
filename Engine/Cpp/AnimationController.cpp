@@ -189,7 +189,7 @@ void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 		m_pAnimCtrl->UnkeyAllTrackEvents(m_iCurTrackIndex);
 
 		//1. 인덱스에 해당하는 애니메이션 세트 받아오기
-		m_pAnimCtrl->GetAnimationSet(_iNewAnimIndex, &m_pAnimSet);
+		//m_pAnimCtrl->GetAnimationSet(_iNewAnimIndex, &m_pAnimSet);
 
 		//2. 해당 애니메이션셑에서 필요한 정보 받아오기.
 		m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
@@ -220,16 +220,16 @@ void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 		//현재 재생되고 있는 애니메이션을 어디까지 재생할 것인가.
 		m_pAnimCtrl->KeyTrackEnable(m_iCurTrackIndex, FALSE, m_dCurKeyFrame + 0.1);
 		//해당 트랙이 해제되는 동안 현재 어떤 속도로 진행할 것인가.
-		m_pAnimCtrl->KeyTrackSpeed(m_iCurTrackIndex, 1.f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackSpeed(m_iCurTrackIndex, 1.f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 		//해당 트랙이 해제되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
-		m_pAnimCtrl->KeyTrackWeight(m_iCurTrackIndex, 0.2f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackWeight(m_iCurTrackIndex, 0.2f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 
 		//새 트랙 활성화.
 		m_pAnimCtrl->SetTrackEnable(m_iNewTrackIndex, TRUE);
 		//새 트랙이 시작되는 시간동안 새로운 애니메이션은 어떤 속도로 움직이게 할 것인가
-		m_pAnimCtrl->KeyTrackSpeed(m_iNewTrackIndex, 1.f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackSpeed(m_iNewTrackIndex, 1.f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 		//새 트랙이 시작되는 시간동안 새로운 애니메이션의 가중치를 어떻게 설정할 것인가 
-		m_pAnimCtrl->KeyTrackWeight(m_iNewTrackIndex, 0.8f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+		m_pAnimCtrl->KeyTrackWeight(m_iNewTrackIndex, 0.8f, m_dCurKeyFrame, 0.25, D3DXTRANSITION_LINEAR);
 
 		//값 정리.
 		m_pAnimCtrl->ResetTime();
@@ -241,6 +241,76 @@ void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 	}
 
 	m_pAnimCtrl->GetTrackDesc(m_iCurTrackIndex, m_pCurTrackInfo);
+}
+
+void AnimationController::Play(const wstring & _szNewAnimName, bool _bBlending)
+{
+	//if (m_pAnimCtrl == nullptr)
+	//{
+	//	return;
+	//}
+
+	//m_pAnimCtrl->GetAnimationSetByName(_szNewAnimName, &m_pAnimSet);
+	//m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
+
+	//if (!_bBlending)
+	//{//Do not Animation Blending for Animation change
+	// //0. 적용되어있는 이벤트 제거(먼지는 몰름 ㅋㅋ)
+	//	m_pAnimCtrl->UnkeyAllTrackEvents(m_iCurTrackIndex);
+
+	//	//1. 인덱스에 해당하는 애니메이션 세트 받아오기
+	//	m_pAnimCtrl->GetAnimationSet(_iNewAnimIndex, &m_pAnimSet);
+
+	//	//2. 해당 애니메이션셑에서 필요한 정보 받아오기.
+	//	m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
+
+	//	//3. 블랜딩 필요 없으니 그냥 현재 트랙에 애니메이션 세트올리기
+	//	m_pAnimCtrl->SetTrackAnimationSet(m_iCurTrackIndex, m_pAnimSet);
+
+	//	//4. 트랙 활성화
+	//	m_pAnimCtrl->SetTrackEnable(m_iCurTrackIndex, TRUE);
+
+	//	//5. 새로운 애니메이션을 시작하기 위해서 값 초기화.
+	//	m_pAnimCtrl->ResetTime();
+	//	m_pAnimCtrl->SetTrackPosition(m_iCurTrackIndex, 0.0);
+	//	m_dCurKeyFrame = 0.0;
+
+	//	m_iCurIndex = _iNewAnimIndex;
+	//}
+	//else
+	//{//Do Blending for Animation Change
+	// // track Index Check;
+	//	m_iNewTrackIndex = (m_iCurTrackIndex == 0) ? 1 : 0;
+
+	//	//트랙 세팅->해제
+	//	m_pAnimCtrl->SetTrackAnimationSet(m_iNewTrackIndex, m_pAnimSet);
+	//	m_pAnimCtrl->UnkeyAllTrackEvents(m_iCurTrackIndex);
+	//	m_pAnimCtrl->UnkeyAllTrackEvents(m_iNewTrackIndex);
+
+	//	//현재 재생되고 있는 애니메이션을 어디까지 재생할 것인가.
+	//	m_pAnimCtrl->KeyTrackEnable(m_iCurTrackIndex, FALSE, m_dCurKeyFrame + 0.1);
+	//	//해당 트랙이 해제되는 동안 현재 어떤 속도로 진행할 것인가.
+	//	m_pAnimCtrl->KeyTrackSpeed(m_iCurTrackIndex, 1.f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+	//	//해당 트랙이 해제되는 시간동안 현재 키 프레임의 가중치를 어떻게 설정할 것인가 
+	//	m_pAnimCtrl->KeyTrackWeight(m_iCurTrackIndex, 0.2f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+
+	//	//새 트랙 활성화.
+	//	m_pAnimCtrl->SetTrackEnable(m_iNewTrackIndex, TRUE);
+	//	//새 트랙이 시작되는 시간동안 새로운 애니메이션은 어떤 속도로 움직이게 할 것인가
+	//	m_pAnimCtrl->KeyTrackSpeed(m_iNewTrackIndex, 1.f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+	//	//새 트랙이 시작되는 시간동안 새로운 애니메이션의 가중치를 어떻게 설정할 것인가 
+	//	m_pAnimCtrl->KeyTrackWeight(m_iNewTrackIndex, 0.8f, m_dCurKeyFrame, 0.1, D3DXTRANSITION_LINEAR);
+
+	//	//값 정리.
+	//	m_pAnimCtrl->ResetTime();
+	//	m_pAnimCtrl->SetTrackPosition(m_iNewTrackIndex, 0.0);
+	//	m_dCurKeyFrame = 0.0;
+
+	//	m_iCurIndex = _iNewAnimIndex;
+	//	m_iCurTrackIndex = m_iNewTrackIndex;
+	//}
+
+	//m_pAnimCtrl->GetTrackDesc(m_iCurTrackIndex, m_pCurTrackInfo);
 }
 
 bool AnimationController::IsEnd()

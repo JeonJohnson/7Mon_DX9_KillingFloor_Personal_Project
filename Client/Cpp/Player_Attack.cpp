@@ -10,6 +10,7 @@
 #include "Mesh_Renderer.h"
 
 #include "HudManager.h"
+#include "SphereCollider.h"
 
 
 Player_Attack::Player_Attack(Desc * _desc)
@@ -91,7 +92,7 @@ void Player_Attack::Update()
 	if (KeyDown(KEY_STATE_F1))
 	{
 		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" + to_wstring(m_iTest));
-		TestClot->Set_Position(Vector3(m_iTest * 10.f, 0.f, 50.f));
+		TestClot->Set_Position(Vector3(m_iTest * 30.f, 0.f, 100.f));
 		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
 
 		Mesh_Renderer::Desc Clot_Test;
@@ -99,10 +100,16 @@ void Player_Attack::Update()
 		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
 
 		AnimationController::Desc Clot_Anim;
-		Clot_Anim.InitIndex = m_iTest;
+		Clot_Anim.InitIndex = 3;
 		Clot_Anim.bLoop = true;
 		Clot_Anim.bClone = true;
 		TestClot->Add_Component<AnimationController>(&Clot_Anim);
+
+		SphereCollider::Desc Clot_Col;
+		Clot_Col.fRadius = 12.5f;
+		Clot_Col.vOffset = Vector3(0.f, 15.f, 0.f);
+		Clot_Col.szColName = L"Clot_Body";
+		TestClot->Add_Component<SphereCollider>(&Clot_Col);
 
 		++m_iTest;
 	}

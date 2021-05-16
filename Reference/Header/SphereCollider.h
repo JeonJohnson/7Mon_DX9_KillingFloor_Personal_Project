@@ -36,15 +36,16 @@ public:
 	//bool	Collision(SphereCollider* )
 
 public: 
-
+	
 
 
 public: /* Get */
 	Vector3			Get_Center();
 	float			Get_Radius();
+	bool			Get_Check();
 	
 public : /* Set */
-
+	void			Set_Check(bool _bCheack);
 private:
 	float				m_fRadius = 0.f;
 	Vector3				m_vOffset = { 0.f,0.f,0.f };
@@ -53,7 +54,7 @@ private:
 	_collision_Layer	m_iCollisionLayer = -1;
 	wstring				m_szColName;
 
-	bool				m_bCheck = false;
+	bool				m_bCheck = true;
 
 
 

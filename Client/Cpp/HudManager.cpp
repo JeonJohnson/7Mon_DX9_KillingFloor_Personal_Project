@@ -132,5 +132,5 @@ void HudManager::Set_TextClock(float _fClock)
 
 void HudManager::Set_TextZedCount(int _iZedCount)
 {
-	Get_HudText(L"EnemyCount")->Set_Script(to_wstring(_iZedCount));
+	Get_HudText(L"EnemyCount")->Set_Script(L"Count\n" + to_wstring(_iZedCount));
 }

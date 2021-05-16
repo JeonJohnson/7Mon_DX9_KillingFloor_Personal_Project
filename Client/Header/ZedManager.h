@@ -34,11 +34,19 @@ public:
 	virtual void Release() override;
 
 public:
+	void	Generate_Clot(const Vector3& _vPos, 
+		const Quaternion& _qRot = Quaternion(), ZED_INFO _tStatus = ZED_INFO());
+	void	Generate_GoreFast(const Vector3& _vPos,
+		const Quaternion& _qRot= Quaternion(), ZED_INFO _tStatus = ZED_INFO());
+	void	Generate_Scrake(const Vector3& _vPos,
+		const Quaternion& _qRot = Quaternion(), ZED_INFO _tStatus = ZED_INFO());
+	void	Generate_Patriarch(const Vector3& _vPos,
+		const Quaternion& _qRot = Quaternion(), ZED_INFO _tStatus = ZED_INFO());
 
 public:
 
 public:
-
+	int		m_iZedCount = 0;
 };
 
 #endif //_ZED_MANAGER_H_

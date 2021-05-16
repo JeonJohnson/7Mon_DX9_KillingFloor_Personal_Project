@@ -39,6 +39,7 @@ public: /* Func */
 	HRESULT				SetUp_AnimCtrl();
 	void				Animating();
 	void				Play(int _iNewAnimIndex, bool _bBlending = false);
+	void				Play(const wstring& _szNewAnimName, bool _bBlending = false);
 	bool				IsEnd();
 	//void				Play(const wstring& _szAnimName, bool _bBlending = false);
 
