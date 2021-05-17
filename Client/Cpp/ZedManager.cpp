@@ -153,7 +153,7 @@ void ZedManager::Generate_Clot(const Vector3 & _vPos, const Quaternion & _qRot, 
 		TestClot->Add_Component<StateController>();
 		auto ZedStateCtrl = TestClot->Get_Component<StateController>();
 		ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
-		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Fire");
+		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Walk");
 		ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
 		ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
 		ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
@@ -162,6 +162,7 @@ void ZedManager::Generate_Clot(const Vector3 & _vPos, const Quaternion & _qRot, 
 
 		Mesh_Renderer::Desc Clot_Test;
 		Clot_Test.szMeshName = L"Clot";
+		Clot_Test.vRot = Vector3(0.f, 180.f, 0.f);
 		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
 
 		AnimationController::Desc Clot_Anim;
@@ -195,7 +196,7 @@ void ZedManager::Generate_GoreFast(const Vector3 & _vPos, const Quaternion & _qR
 		TestGoreFast->Add_Component<StateController>();
 		auto ZedStateCtrl = TestGoreFast->Get_Component<StateController>();
 		ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
-		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Fire");
+		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Walk");
 		ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
 		ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
 		ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
@@ -204,6 +205,7 @@ void ZedManager::Generate_GoreFast(const Vector3 & _vPos, const Quaternion & _qR
 
 		Mesh_Renderer::Desc GoreFast_Mesh;
 		GoreFast_Mesh.szMeshName = L"GoreFast";
+		GoreFast_Mesh.vRot = Vector3(0.f, 180.f, 0.f);
 		TestGoreFast->Add_Component<Mesh_Renderer>(&GoreFast_Mesh);
 
 		AnimationController::Desc GoreFast_Anim;
@@ -239,7 +241,7 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 		TestScrake->Add_Component<StateController>();
 		auto ZedStateCtrl = TestScrake->Get_Component<StateController>();
 		ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
-		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Fire");
+		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Walk");
 		ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
 		ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
 		ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
@@ -248,6 +250,7 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 
 		Mesh_Renderer::Desc Scrake_Mesh;
 		Scrake_Mesh.szMeshName = L"Scrake";
+		Scrake_Mesh.vRot = Vector3(0.f, 180.f, 0.f);
 		TestScrake->Add_Component<Mesh_Renderer>(&Scrake_Mesh);
 
 		AnimationController::Desc Scrake_Anim;
@@ -280,17 +283,19 @@ void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _q
 
 		TestPatriarch->Add_Component<StateController>();
 		auto ZedStateCtrl = TestPatriarch->Get_Component<StateController>();
-		ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
-		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Fire");
-		ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
-		ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
-		ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
-		ZedStateCtrl->Add_State<Zed_Death>(L"Zed_Death");
-		ZedStateCtrl->Set_InitState(L"Zed_Idle");
+		//보스용 스테이터스 만들꺼임
+		//ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
+		//ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Walk");
+		//ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
+		//ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
+		//ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
+		//ZedStateCtrl->Add_State<Zed_Death>(L"Zed_Death");
+		//ZedStateCtrl->Set_InitState(L"Zed_Idle");
 
-		Mesh_Renderer::Desc Patriarch_Test;
-		Patriarch_Test.szMeshName = L"Patriarch";
-		TestPatriarch->Add_Component<Mesh_Renderer>(&Patriarch_Test);
+		Mesh_Renderer::Desc Patriarch_Mesh;
+		Patriarch_Mesh.szMeshName = L"Patriarch";
+		Patriarch_Mesh.vRot = Vector3(0.f, 180.f, 0.f);
+		TestPatriarch->Add_Component<Mesh_Renderer>(&Patriarch_Mesh);
 
 		AnimationController::Desc Patriarch_Anim;
 		Patriarch_Anim.InitIndex = 1;

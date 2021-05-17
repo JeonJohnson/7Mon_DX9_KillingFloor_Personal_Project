@@ -130,26 +130,28 @@ void Camera_TestMove::Look()
 
 void Camera_TestMove::NaviMesh_Move()
 {
-	m_Transform->Set_RotationX(90.f);
-	m_Transform->Set_RotationY(0.f);
-	m_Transform->Set_RotationZ(0.f);
+	//m_Transform->Set_RotationY(178.f);
+	//m_Transform->Set_RotationX(90.Of);
+	//m_Transform->Set_RotationZ(0.f);
+
+	m_Transform->Set_Rotation(Vector3(90.f, 180.f, 0.f));
 
 
 	if (KeyPress(KEY_STATE_W))
 	{
-		m_Transform->Add_PosZ(dTime * m_fMoveSpd);
+		m_Transform->Add_PosZ(-1*dTime * m_fMoveSpd);
 	}
 	if (KeyPress(KEY_STATE_S))
 	{
-		m_Transform->Add_PosZ(-1 * dTime * m_fMoveSpd);
+		m_Transform->Add_PosZ(1 * dTime * m_fMoveSpd);
 	}
 	if (KeyPress(KEY_STATE_A))
 	{
-		m_Transform->Add_PosX(-1 * dTime * m_fMoveSpd);
+		m_Transform->Add_PosX(1 * dTime * m_fMoveSpd);
 	}
 	if (KeyPress(KEY_STATE_D))
 	{
-		m_Transform->Add_PosX(dTime * m_fMoveSpd);
+		m_Transform->Add_PosX(-1*dTime * m_fMoveSpd);
 	}
 
 	if (MousePress(KEY_STATE_RMouse))

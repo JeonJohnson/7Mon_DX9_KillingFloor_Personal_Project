@@ -36,12 +36,14 @@ public:
 	void	Run();
 	void	Attack();
 	void	Damaged(int _iDmg);
-	void	Death();
+	//void	Death();
 	
 
 public: /* Func */
 
 public: /* Get */
+	ZED_INFO				Get_ZedInfo();
+	float					Get_Distance();
 
 public: /* Set */
 
@@ -54,6 +56,14 @@ private:
 	SphereCollider*			m_pCollider = nullptr;
 
 	ZED_INFO				m_tZedStatus;
+	bool					m_bDeath = false;
+
+	NaviMesh*				m_pNaviMesh = nullptr;
+
+	//For Player
+	GameObject*				m_pPlayer = nullptr;
+	Vector3					m_vDirection;
+	float					m_fDistance;
 
 };
 #endif //_ZED_H_

@@ -165,7 +165,6 @@ HRESULT ResourceManager::Add_Texture(Texture * _texture, const wstring & _wPath,
 //}
 
 
-
 Mesh* ResourceManager::Load_Mesh(const wstring & _szMeshPath, const wstring & _szMeshName)
 {
 	Mesh* MeshTemp = Insert_Resource<Mesh, Mesh>(_szMeshName);

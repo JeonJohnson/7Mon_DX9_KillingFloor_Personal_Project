@@ -4,6 +4,10 @@
 #define _ZED_HIT_H_
 
 #include "CState.h"
+
+#include "Include.h"
+class AnimationController;
+class Zed;
 class Zed_Hit :	public CState
 {
 public:
@@ -23,7 +27,9 @@ public:
 public:
 
 private:
-
+	AnimationController*	m_pAnimCtrl = nullptr;
+	Zed*				m_pZedInfo = nullptr;
+	int		m_iHitAnimIndex = 4;
 };
 
 #endif //_ZED_HIT_H_

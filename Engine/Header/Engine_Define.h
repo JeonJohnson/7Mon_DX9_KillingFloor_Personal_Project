@@ -11,6 +11,9 @@
 #define DLL_STATE _declspec(dllimport)
 #endif //DLL_EXPORT
 
+#define fTime TimeManager::Get_Instance()->Get_fTime()
+
+
 #define	Declare_Singleton(Class)				\
 private:										\
 	static	Class*	m_Instance;					\

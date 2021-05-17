@@ -4,7 +4,9 @@
 #define _ZED_RUN_H_
 
 #include "CState.h"
-
+#include "Include.h"
+class AnimationController;
+class Zed;
 class Zed_Run :	public CState
 {
 public:
@@ -24,6 +26,12 @@ public:
 public:
 
 private:
+	AnimationController*	m_pAnimCtrl = nullptr;
+	Zed*				m_pZedInfo = nullptr;
+	int						m_iRunIndex = 2;
+
+	float					m_fRunFullTime = 0.f;
+	float					m_fRunCurTime = 0.f;
 };
 
 #endif//_ZED_RUN_H_

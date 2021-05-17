@@ -4,6 +4,10 @@
 #define _ZED_ATT_H_
 
 #include "CState.h"
+
+#include "Include.h"
+class AnimationController;
+class Zed;
 class Zed_Att :	public CState
 {
 public:
@@ -23,6 +27,11 @@ public:
 public:
 
 private:
+	AnimationController*	m_pAnimCtrl = nullptr;
+	Zed*				m_pZedInfo = nullptr;
+	int						m_iAttAnimIndex = 3;
+	int						m_iStrongAnimIndex;
+	
 };
 
 #endif //_ZED_ATT_H_

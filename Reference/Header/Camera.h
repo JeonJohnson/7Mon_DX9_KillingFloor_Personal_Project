@@ -20,6 +20,8 @@ public:
 		float		fAspect = 0.f;
 		float		fzNear = 0.01f;
 		float		fzFar = 1000.f;
+
+		Vector3		vOffsetPos;
 	};
 
 public:

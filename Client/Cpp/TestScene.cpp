@@ -353,7 +353,7 @@ void TestScene::Initialize()
 		EngineFunction->Load_Mesh(L"Mesh/Map/WholeMap/WholeMap.X", L"WholeMap");
 
 		GameObject*		Map = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Map");
-		Map->Set_Position(Vector3(-100.f, 35.f, 170.f));
+		Map->Set_Position(Vector3(-100.f, 35.f, 250.f));
 		Map->Set_Scale(Vector3(0.4f, 0.4f, 0.4f));
 		Mesh_Renderer::Desc Map_desc;
 		Map_desc.szMeshName = L"WholeMap";
@@ -379,13 +379,14 @@ void TestScene::Initialize()
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"M99";
 		Hand_Desc.vRot = Vector3{ 0.f, -90.f, 0.f };
+		//nd_Desc.vPos = Vector3{ 0.f, 20.f, 0.f };
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 		Player_Move::Desc player_Desc;
 		player_Desc.fWalkSpd = 40.f;
 		player_Desc.fSprintSpd = 80.f;
-		player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
+		//player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Camera::Desc Cam_desc;
@@ -428,38 +429,38 @@ void TestScene::Initialize()
 	//	
 		ZedManager::Get_Instance();
 
-		GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" );
-		TestClot->Set_Position(Vector3(0, 0.f, 10.f));
-		TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
+		//GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" );
+		//TestClot->Set_Position(Vector3(0, 0.f, 10.f));
+		//TestClot->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
 
-		TestClot->Add_Component<StateController>();
-		auto ZedStateCtrl = TestClot->Get_Component<StateController>();
-		ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
-		ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Fire");
-		ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
-		ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
-		ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
-		ZedStateCtrl->Add_State<Zed_Death>(L"Zed_Death");
-		ZedStateCtrl->Set_InitState(L"Zed_Idle");
+		//TestClot->Add_Component<StateController>();
+		//auto ZedStateCtrl = TestClot->Get_Component<StateController>();
+		//ZedStateCtrl->Add_State<Zed_Idle>(L"Zed_Idle");
+		//ZedStateCtrl->Add_State<Zed_Walk>(L"Zed_Walk");
+		//ZedStateCtrl->Add_State<Zed_Run>(L"Zed_Run");
+		//ZedStateCtrl->Add_State<Zed_Att>(L"Zed_Att");
+		//ZedStateCtrl->Add_State<Zed_Hit>(L"Zed_Hit");
+		//ZedStateCtrl->Add_State<Zed_Death>(L"Zed_Death");
+		//ZedStateCtrl->Set_InitState(L"Zed_Idle");
 
-		Mesh_Renderer::Desc Clot_Test;
-		Clot_Test.szMeshName = L"Clot";
-		TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
+		//Mesh_Renderer::Desc Clot_Test;
+		//Clot_Test.szMeshName = L"Clot";
+		//TestClot->Add_Component<Mesh_Renderer>(&Clot_Test);
 
-		AnimationController::Desc Clot_Anim;
-		Clot_Anim.InitIndex = 0;
-		Clot_Anim.bLoop = true;
-		Clot_Anim.bClone = true;
-		TestClot->Add_Component<AnimationController>(&Clot_Anim);
+		//AnimationController::Desc Clot_Anim;
+		//Clot_Anim.InitIndex = 0;
+		//Clot_Anim.bLoop = true;
+		//Clot_Anim.bClone = true;
+		//TestClot->Add_Component<AnimationController>(&Clot_Anim);
 
-		SphereCollider::Desc Clot_Col;
-		Clot_Col.fRadius = 12.5f;
-		Clot_Col.vOffset = Vector3(0.f, 15.f, 0.f);
-		Clot_Col.szColName = L"Body";
-		TestClot->Add_Component<SphereCollider>(&Clot_Col);
+		//SphereCollider::Desc Clot_Col;
+		//Clot_Col.fRadius = 12.5f;
+		//Clot_Col.vOffset = Vector3(0.f, 15.f, 0.f);
+		//Clot_Col.szColName = L"Body";
+		//TestClot->Add_Component<SphereCollider>(&Clot_Col);
 
-		Zed::Desc Clot_Default;
-		TestClot->Add_Component<Zed>(&Clot_Default);
+		//Zed::Desc Clot_Default;
+		//TestClot->Add_Component<Zed>(&Clot_Default);
 	
 		//Zed_Status::Desc Clot_Status;
 		//TestClot->Add_Component<Zed_Status>(&Clot_Status);

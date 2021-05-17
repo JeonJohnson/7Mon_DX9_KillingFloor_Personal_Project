@@ -34,7 +34,13 @@ public: /* General */
 	/* Function */
 	Vector3		QuaternionToEuler(Quaternion _quaternion);
 	Quaternion	EulerToQuternion(Vector3 _eulerVector);
+
+	//void		LookAt(GameObject* _pTarget, float _fSpd, Quaternion* _pOutRot = nullptr);
+	//void		LookAt(cosnt ve, float _fSpd, Quaternion* _pOutRot = nullptr);
+	void		LookAt(GameObject* _pTarget, float _fSpd, Quaternion* _pOutRot = nullptr);
+	void		LookAt(const Vector3& _pTargetPos, float _fSpd, Quaternion* _pOutRot = nullptr);
 	/* Get */
+
 
 
 	/* Set */
@@ -97,8 +103,8 @@ public: /* Rotation */
 	void RotateY(float _eulerY);
 	void RotateZ(float _eulerZ);
 	//void RotateRollPitchYaw(float _x, float _y, float _z);
-	void RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOut);
-	void RotateAxis(const Vector3& _axis, float _radian);
+	Quaternion RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOut);
+	Quaternion RotateAxis(const Vector3& _axis, float _radian);
 
 
 public: /* Transform(position) */

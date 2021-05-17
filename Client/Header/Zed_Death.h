@@ -5,8 +5,9 @@
 
 #include "CState.h"
 
+#include "Include.h"
 class AnimationController;
-
+class Zed;
 class Zed_Death : public CState
 {
 public:
@@ -24,7 +25,13 @@ public:
 public:
 
 private:
-	AnimationController*		m_pAnimCtrl = nullptr;
+	AnimationController*	m_pAnimCtrl = nullptr;
+	Zed*				m_pZedInfo = nullptr;
+	int						m_iDeathIndex = 6;
+
+	float					m_fDownAcc = 0.f;
+
+	Vector3 vRight;
 };
 
 #endif //_ZED_DEATH_H_

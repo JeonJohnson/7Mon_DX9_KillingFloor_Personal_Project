@@ -1,6 +1,7 @@
 #include "..\Header\Transform.h"
 #include "DeviceManager.h"
-
+#include "GameObject.h"
+#include "TimeManager.h"
 
 
 Transform::Transform(Desc * _desc)
@@ -70,6 +71,59 @@ Quaternion Transform::EulerToQuternion(Vector3 _eulerVector)
 {
 	return Quaternion();
 }
+
+void Transform::LookAt(GameObject * _pTarget, float _fSpd, Quaternion * _pOutRot)
+{
+	Vector3 vDir = _pTarget->Get_Transform()->Get_Position() - m_Transform->Get_Position();
+	D3DXVec3Normalize(&vDir, &vDir);
+
+	Vector3	 vForward = m_Transform->Get_Forward();
+
+	if (D3DXVec3Dot(&vDir, &vForward) > 0.999f)
+	{
+		return;
+	}
+
+	Vector3 vAxis = { 0.f, 0.f, 0.f };
+
+	D3DXVec3Cross(&vAxis, &vForward, &vDir);
+	D3DXVec3Normalize(&vAxis, &vAxis);
+
+	Quaternion QuatTemp = m_Transform->RotateAxis(vAxis, fTime*_fSpd);
+
+	if (_pOutRot != nullptr)
+	{
+		*_pOutRot = QuatTemp;
+	}
+}
+
+void Transform::LookAt(const Vector3 & _pTargetPos, float _fSpd, Quaternion * _pOutRot)
+{
+	Vector3 vDir = _pTargetPos- m_Transform->Get_Position();
+	D3DXVec3Normalize(&vDir, &vDir);
+
+	Vector3	 vForward = m_Transform->Get_Forward();
+
+	//Vector3	Dot
+
+	if (D3DXVec3Dot(&vDir, &vForward) > 0.999f)
+	{
+		return;
+	}
+
+	Vector3 vAxis = { 0.f, 0.f, 0.f };
+
+	D3DXVec3Cross(&vAxis, &vForward, &vDir);
+	D3DXVec3Normalize(&vAxis, &vAxis);
+
+	Quaternion QuatTemp = m_Transform->RotateAxis(vAxis, fTime*_fSpd);
+
+	if (_pOutRot != nullptr)
+	{
+		*_pOutRot = QuatTemp;
+	}
+}
+
 
 
 
@@ -363,20 +417,23 @@ void Transform::RotateZ(float _eulerZ)
 	m_qRotation *= rot;
 }
 
-void Transform::RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOut)
+Quaternion Transform::RotateAxis(const Vector3& _axis, float _radian, Quaternion* _pOut)
 {
 	Quaternion rot;
 	D3DXQuaternionRotationAxis(&rot, &_axis, _radian);
 	
 	*_pOut = rot;
+	m_qRotation *= rot;
+	return rot;
 }
 
-void Transform::RotateAxis(const Vector3 & _axis, float _radian)
+Quaternion Transform::RotateAxis(const Vector3 & _axis, float _radian)
 {
 	Quaternion rot;
 	D3DXQuaternionRotationAxis(&rot, &_axis, _radian);
 
 	m_qRotation *= rot;
+	return rot;
 }
 
 
