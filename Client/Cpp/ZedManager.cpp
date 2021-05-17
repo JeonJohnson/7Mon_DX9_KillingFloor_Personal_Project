@@ -60,7 +60,17 @@ void ZedManager::Update()
 
 	if (KeyDown(KEY_STATE_F2))
 	{
-		Generate_GoreFast(Vector3(50.f,0.f, 100.f)); 
+		Generate_GoreFast(Vector3(50.f, 0.f, 100.f));
+	}
+
+	if (KeyDown(KEY_STATE_F3))
+	{
+		Generate_Scrake(Vector3(100.f, 0.f, 100.f));
+	}
+
+	if (KeyDown(KEY_STATE_F4))
+	{
+		Generate_Patriarch(Vector3(150.f, 0.f, 100.f));
 	}
 
 }
@@ -205,7 +215,7 @@ void ZedManager::Generate_GoreFast(const Vector3 & _vPos, const Quaternion & _qR
 		SphereCollider::Desc GoreFast_Col;
 		GoreFast_Col.fRadius = 12.5f;
 		GoreFast_Col.vOffset = Vector3(0.f, 15.f, 0.f);
-		GoreFast_Col.szColName = L"GoreFast_Body";
+		GoreFast_Col.szColName = L"Body";
 		TestGoreFast->Add_Component<SphereCollider>(&GoreFast_Col);
 
 		Zed::Desc GoreFast_Default;
@@ -223,7 +233,7 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 	
 		GameObject* TestScrake = INSTANTIATE(OBJECT_TAG_ZED, L"Scrake" + to_wstring(m_iZedCount));
 		TestScrake->Set_Position(_vPos);
-		TestScrake->Set_Scale(Vector3(0.3f, 0.2f, 0.3f));
+		TestScrake->Set_Scale(Vector3(0.3f, 0.25f, 0.3f));
 		//TestScrake->Set_Rotation(_qRot);
 
 		TestScrake->Add_Component<StateController>();
@@ -249,7 +259,7 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 		SphereCollider::Desc Scrake_Col;
 		Scrake_Col.fRadius = 12.5f;
 		Scrake_Col.vOffset = Vector3(0.f, 15.f, 0.f);
-		Scrake_Col.szColName = L"Scrake_Body";
+		Scrake_Col.szColName = L"Body";
 		TestScrake->Add_Component<SphereCollider>(&Scrake_Col);
 
 		Zed::Desc Scrake_Default;
@@ -263,9 +273,9 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _qRot, ZED_INFO _tStatus)
 {
 	
-		GameObject* TestPatriarch = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" + to_wstring(m_iZedCount));
+		GameObject* TestPatriarch = INSTANTIATE(OBJECT_TAG_ZED, L"Patriarch" + to_wstring(m_iZedCount));
 		TestPatriarch->Set_Position(_vPos);
-		TestPatriarch->Set_Scale(Vector3(0.3f, 0.3f, 0.3f));
+		TestPatriarch->Set_Scale(Vector3(0.25f, 0.2f, 0.25f));
 		//TestPatriarch->Set_Rotation(_qRot);
 
 		TestPatriarch->Add_Component<StateController>();
@@ -279,11 +289,11 @@ void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _q
 		ZedStateCtrl->Set_InitState(L"Zed_Idle");
 
 		Mesh_Renderer::Desc Patriarch_Test;
-		Patriarch_Test.szMeshName = L"Clot";
+		Patriarch_Test.szMeshName = L"Patriarch";
 		TestPatriarch->Add_Component<Mesh_Renderer>(&Patriarch_Test);
 
 		AnimationController::Desc Patriarch_Anim;
-		Patriarch_Anim.InitIndex = 0;
+		Patriarch_Anim.InitIndex = 1;
 		Patriarch_Anim.bLoop = true;
 		Patriarch_Anim.bClone = true;
 		TestPatriarch->Add_Component<AnimationController>(&Patriarch_Anim);
@@ -291,7 +301,7 @@ void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _q
 		SphereCollider::Desc Patriarch_Col;
 		Patriarch_Col.fRadius = 12.5f;
 		Patriarch_Col.vOffset = Vector3(0.f, 15.f, 0.f);
-		Patriarch_Col.szColName = L"Clot_Body";
+		Patriarch_Col.szColName = L"Body";
 		TestPatriarch->Add_Component<SphereCollider>(&Patriarch_Col);
 
 		Zed::Desc Patriarch_Default;

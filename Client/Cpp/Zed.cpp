@@ -27,7 +27,7 @@ void Zed::Update()
 
 	
 	
-
+	DEBUG_LOG(L"HP : " + to_wstring(m_tZedStatus.m_iCurHp) + L"/" + to_wstring(m_tZedStatus.m_iMaxHp));
 }
 
 void Zed::LateUpdate()
