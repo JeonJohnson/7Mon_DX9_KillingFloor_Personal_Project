@@ -28,6 +28,11 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedDeletevertexButton();
+	afx_msg void OnBnClickedCheckPointcreate();
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedNavimeshsaveButton();
+	afx_msg void OnBnClickedNavimeshloadButton();
+	afx_msg void OnLbnSelchangeListNavipointlist();
 
 	void Update_Info();
 
@@ -45,27 +50,40 @@ public:
 	void		Create_NaviPoint_First();
 	
 	bool		Picking_Ray2Sphere(NaviPoint** _pOutNaviPoint);
-	NaviPoint*	m_pPickingPoint[2] = { nullptr };
+	NaviPoint*	m_pPickingPoint[3] = { nullptr };
 	void		Create_NaviPoint();
 
 	//void Pick_Sphere(int _index)
 	int		m_iNaviPointIndex = 0;
 	int		m_iCellIndex = 0;
 
-	afx_msg void OnBnClickedCheckPointcreate();
+
 
 	CButton m_checkPointCreate;
 	bool	m_bPointCreate;
-	CListBox m_PointList;
+	
+
 
 	NaviPoint*		m_pTempPoint= nullptr;
 	map<int, NaviPoint*>	m_mapPoint;
-
+	NaviPoint*		m_pSelectPoint = nullptr;
 	NaviCell*		m_pTempCell = nullptr;
 	//list<NaviCell>
-
 	NaviMesh*		m_pNaviMesh = nullptr;
-	afx_msg void OnBnClickedButton2();
-	afx_msg void OnBnClickedNavimeshsaveButton();
-	afx_msg void OnBnClickedNavimeshloadButton();
+
+	CListBox	m_PointList;
+	int			m_iCurIndex = -1;
+	
+	Vector3		m_vPointPostion;
+	CString		m_csPointPosX;
+	float		m_fPointPosX;
+	CString		m_csPointPosY;
+	float		m_fPointPosY;
+	CString		m_csPointPosZ;
+	float		m_fPointPosZ;
+
+	
+	afx_msg void OnEnChangeVerposxEdit();
+	afx_msg void OnEnChangeVerposyEdit();
+	afx_msg void OnEnChangeVerposzEdit();
 };

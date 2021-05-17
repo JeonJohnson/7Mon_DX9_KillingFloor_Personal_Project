@@ -43,6 +43,7 @@ int NaviPoint::Get_Index() const
 
 void NaviPoint::Set_Position(const Vector3 & _vPos)
 {
+	m_Transform->Set_Position(_vPos);
 	//m_vPosition = _vPos;
 }
 

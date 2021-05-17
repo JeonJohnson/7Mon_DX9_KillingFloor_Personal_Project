@@ -58,7 +58,7 @@ void TestScene::Initialize()
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Test3.bin");
+	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh.bin");
 
 	{//UI Texture
 		//192x64
@@ -386,7 +386,7 @@ void TestScene::Initialize()
 		Player_Move::Desc player_Desc;
 		player_Desc.fWalkSpd = 40.f;
 		player_Desc.fSprintSpd = 80.f;
-		//player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
+		player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Camera::Desc Cam_desc;

@@ -3,7 +3,6 @@
 
 #include "NaviCell.h"
 
-
 NaviMesh::NaviMesh()
 {
 
@@ -72,6 +71,7 @@ void NaviMesh::Link_Cells()
 
 }
 
+
 Vector3 NaviMesh::MoveOn(const Vector3 & _vTargetPos, const Vector3 & _vTargetDir)
 {
 	Vector3 vEndPos = _vTargetPos + _vTargetDir;
@@ -98,6 +98,14 @@ Vector3 NaviMesh::Add_Pos(const Vector3 & _vCurPos, const Vector3 & _vAddPos)
 		return vAddPos;
 	}
 	return vNone;
+}
+
+void NaviMesh::Cells_Update()
+{
+	for (auto& cell : m_vecNaviCells)
+	{
+		cell->Setup_Lines();
+	}
 }
 
 vector<NaviCell*> NaviMesh::Get_NaivCellList()

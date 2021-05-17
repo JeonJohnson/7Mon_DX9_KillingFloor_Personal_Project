@@ -54,18 +54,17 @@ public:
 	int					m_iMeshList_Index = 0;
 	CString				m_csSelMeshName;
 
-	CString m_PosX_Edit;
-	CString m_PosY_Edit;
-	CString m_PosZ_Edit;
+	CString		m_PosX_Edit;
+	CString		m_PosY_Edit;
+	CString		m_PosZ_Edit;
 
-	CString m_ScaleX_Edit;
-	CString m_ScaleY_Edit;
-	CString m_ScaleZ_Edit;
+	CString		m_ScaleX_Edit;
+	CString		m_ScaleY_Edit;
+	CString		m_ScaleZ_Edit;
 
-
-	CString m_RotX_Edit;
-	CString m_RotY_Edit;
-	CString m_RotZ_Edit;
+	CString		m_RotX_Edit;
+	CString		m_RotY_Edit;
+	CString		m_RotZ_Edit;
 
 	
 

@@ -20,6 +20,9 @@ IMPLEMENT_DYNAMIC(NaviMeshTool_Dialog, CDialogEx)
 NaviMeshTool_Dialog::NaviMeshTool_Dialog(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_NaviMesh_Dialog, pParent)
 
+	, m_csPointPosX(_T(""))
+	, m_csPointPosY(_T(""))
+	, m_csPointPosZ(_T(""))
 {
 	m_pNaviMesh = new NaviMesh;
 }
@@ -34,6 +37,9 @@ void NaviMeshTool_Dialog::DoDataExchange(CDataExchange* pDX)
 
 	DDX_Control(pDX, IDC_CHECK_PointCreate, m_checkPointCreate);
 	DDX_Control(pDX, IDC_LIST_NaviPointList, m_PointList);
+	DDX_Text(pDX, IDC_VerPosX_EDIT, m_csPointPosX);
+	DDX_Text(pDX, IDC_VerPosY_EDIT, m_csPointPosY);
+	DDX_Text(pDX, IDC_VerPosZ_EDIT, m_csPointPosZ);
 }
 
 
@@ -46,6 +52,10 @@ BEGIN_MESSAGE_MAP(NaviMeshTool_Dialog, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON2, &NaviMeshTool_Dialog::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_NaviMeshSave_Button, &NaviMeshTool_Dialog::OnBnClickedNavimeshsaveButton)
 	ON_BN_CLICKED(IDC_NaviMeshLoad_Button, &NaviMeshTool_Dialog::OnBnClickedNavimeshloadButton)
+	ON_LBN_SELCHANGE(IDC_LIST_NaviPointList, &NaviMeshTool_Dialog::OnLbnSelchangeListNavipointlist)
+	ON_EN_CHANGE(IDC_VerPosX_EDIT, &NaviMeshTool_Dialog::OnEnChangeVerposxEdit)
+	ON_EN_CHANGE(IDC_VerPosY_EDIT, &NaviMeshTool_Dialog::OnEnChangeVerposyEdit)
+	ON_EN_CHANGE(IDC_VerPosZ_EDIT, &NaviMeshTool_Dialog::OnEnChangeVerposzEdit)
 END_MESSAGE_MAP()
 
 
@@ -58,6 +68,8 @@ void NaviMeshTool_Dialog::OnBnClickedDeletevertexButton()
 
 void NaviMeshTool_Dialog::Update_Info()
 {
+	UpdateData(TRUE);
+
 	if (m_pMainCam == nullptr)
 	{
 		m_pMainCam = EngineFunction->Get_MainCamera();
@@ -100,8 +112,68 @@ void NaviMeshTool_Dialog::Update_Info()
 			}
 		}
 	}
+	else if (m_pPickingPoint[1] != nullptr
+		&& m_pPickingPoint[2] == nullptr)
+	{
+		NaviPoint * Temp = nullptr;
+		
+		if (Picking_Ray2Sphere(&Temp))
+		{
+			if (m_pPickingPoint[0] == Temp)
+			{
+				Notice(L"Plz Select Another Sphere");
+			}
+			else if (m_pPickingPoint[1] == Temp)
+			{
+				Notice(L"Plz Select Another Sphere");
+			}
+			else 
+			{
+				m_pPickingPoint[2] = Temp;
+				
+				//여기서 하나 Cell 새로 생성하면 될듯.
+				if (m_pTempCell == nullptr)
+				{
+					m_pTempCell = new NaviCell;
+					for (int i = 0; i < 3; ++i)
+					{
+						m_pTempCell->Insert_NaviPoint(m_pPickingPoint[i], i);
+					}
+					m_pTempCell->Setup_Lines();
+					m_pTempCell->Set_CellIndex(m_iCellIndex);
 
-	
+					if (m_pTempCell->Get_PointArraySize() >= 3)
+					{
+						m_pNaviMesh->Insert_NaviCell(m_pTempCell);
+						m_pNaviMesh->Link_Cells();
+						m_pTempCell = nullptr;
+						m_pTempPoint = nullptr;
+						for (int i = 0; i < 3; ++i)
+						{
+							m_pPickingPoint[i] = nullptr;
+						}
+					}
+					++m_iCellIndex;
+					
+
+				}
+
+
+			}
+		}
+	}
+
+	if (m_pSelectPoint != nullptr)
+	{
+		//Vector3 m_vPos = m_mapPoint[m_iCurIndex]->Get_Position();
+		m_vPointPostion = m_pSelectPoint->Get_Position();
+
+		m_csPointPosX.Format(L"%.2f", m_vPointPostion.x);
+		m_csPointPosY.Format(L"%.2f", m_vPointPostion.y);
+		m_csPointPosZ.Format(L"%.2f", m_vPointPostion.z);
+	}
+
+	UpdateData(FALSE);
 }
 
 //void NaviMeshTool_Dialog::Create_NaviPoint(const Vector3 & _WorldPos, GameObject* _PickingPoint)
@@ -484,8 +556,6 @@ void NaviMeshTool_Dialog::Create_NaviPoint()
 				++m_iNaviPointIndex;
 				++m_iCellIndex;
 			}
-
-
 		}
 	}
 }
@@ -821,6 +891,79 @@ void NaviMeshTool_Dialog::OnBnClickedNavimeshloadButton()
 	}
 
 
+
+	UpdateData(FALSE);
+}
+
+
+void NaviMeshTool_Dialog::OnLbnSelchangeListNavipointlist()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+	
+	m_iCurIndex = m_PointList.GetCurSel();
+	
+	m_pSelectPoint = m_mapPoint[m_iCurIndex];
+
+	m_vPointPostion = m_pSelectPoint->Get_Position();
+	
+
+
+
+	UpdateData(FALSE);
+}
+
+
+void NaviMeshTool_Dialog::OnEnChangeVerposxEdit()
+{
+	// TODO:  여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+	
+	//if (m_pSelectPoint != nullptr)
+	//{
+	//	m_vPointPostion.x = (float)atof((CStringA)m_csPointPosX);
+
+	//	m_pSelectPoint->Set_Position(m_vPointPostion);
+
+
+	//	//m_pNaviMesh->Cells_Update();
+	//}
+
+	UpdateData(FALSE);
+}
+
+
+void NaviMeshTool_Dialog::OnEnChangeVerposyEdit()
+{
+	// TODO:  여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+
+	//if (m_pSelectPoint != nullptr)
+	//{
+	//	m_vPointPostion.y = (float)atof((CStringA)m_csPointPosY);
+
+	//	m_pSelectPoint->Set_Position(m_vPointPostion);
+	//	
+	//	//m_pNaviMesh->Cells_Update();
+	//}
+
+	UpdateData(FALSE);
+}
+
+
+void NaviMeshTool_Dialog::OnEnChangeVerposzEdit()
+{
+	// TODO:  여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+
+	//if (m_pSelectPoint != nullptr)
+	//{
+	//	m_vPointPostion.z = (float)atof((CStringA)m_csPointPosZ);
+
+	//	m_pSelectPoint->Set_Position(m_vPointPostion);
+	//	
+	//	//m_pNaviMesh->Cells_Update();
+	//}
 
 	UpdateData(FALSE);
 }
