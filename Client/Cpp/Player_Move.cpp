@@ -55,40 +55,45 @@ void Player_Move::Move()
 	Vector3 vRight = m_Transform->Get_Right();
 	vRight.y = 0.f;
 
-	//if (KeyPress(KEY_STATE_W))
-	//{
-	//	m_Transform->Add_Position(vForward * m_fCurSpd * fTime);
-	//}
-	//if (KeyPress(KEY_STATE_S))
-	//{
-	//	m_Transform->Add_Position(vForward * m_fCurSpd * fTime * -1.f);
-	//}
-	//if (KeyPress(KEY_STATE_D))
-	//{
-	//	m_Transform->Add_Position(vRight* m_fCurSpd * fTime);
-	//}
-	//if (KeyPress(KEY_STATE_A))
-	//{
-	//	m_Transform->Add_Position(vRight* m_fCurSpd * fTime * -1.f);
-	//}
-
-
-	if (KeyPress(KEY_STATE_D))
+	if (!m_pNaviMesh) 
 	{
-		m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vRight * fTime * m_fCurSpd * 1));
-	}
-	else if (KeyPress(KEY_STATE_A))
-	{
-		m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vRight * fTime * m_fCurSpd * -1));
+		if (KeyPress(KEY_STATE_W))
+		{
+			m_Transform->Add_Position(vForward * m_fCurSpd * fTime);
+		}
+		if (KeyPress(KEY_STATE_S))
+		{
+			m_Transform->Add_Position(vForward * m_fCurSpd * fTime * -1.f);
+		}
+		if (KeyPress(KEY_STATE_D))
+		{
+			m_Transform->Add_Position(vRight* m_fCurSpd * fTime);
+		}
+		if (KeyPress(KEY_STATE_A))
+		{
+			m_Transform->Add_Position(vRight* m_fCurSpd * fTime * -1.f);
+		}
 	}
 
-	if (KeyPress(KEY_STATE_W))
+	if (m_pNaviMesh)
 	{
-		m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vForward * fTime * m_fCurSpd));
-	}
-	else if (KeyPress(KEY_STATE_S))
-	{
-		m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vForward * fTime * m_fCurSpd * -1));
+		if (KeyPress(KEY_STATE_D))
+		{
+			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vRight * fTime * m_fCurSpd * 1));
+		}
+		else if (KeyPress(KEY_STATE_A))
+		{
+			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vRight * fTime * m_fCurSpd * -1));
+		}
+
+		if (KeyPress(KEY_STATE_W))
+		{
+			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vForward * fTime * m_fCurSpd));
+		}
+		else if (KeyPress(KEY_STATE_S))
+		{
+			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vForward * fTime * m_fCurSpd * -1));
+		}
 	}
 
 }
