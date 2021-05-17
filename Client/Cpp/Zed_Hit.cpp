@@ -35,7 +35,7 @@ void Zed_Hit::EnterState()
 		m_iHitAnimIndex = 5;
 	}
 
-	m_pAnimCtrl->Play(m_iHitAnimIndex,true);
+	m_pAnimCtrl->Play(m_iHitAnimIndex);
 
 
 	//switch (m_pZedInfo->m_eName)

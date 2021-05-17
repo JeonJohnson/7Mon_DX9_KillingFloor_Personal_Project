@@ -3,6 +3,8 @@
 #include "Zed.h"
 #include "StateController.h"
 #include "AnimationController.h"
+#include "SphereCollider.h"
+#include "Player_Status.h"
 
 
 Zed_Att::Zed_Att()
@@ -30,10 +32,20 @@ void Zed_Att::EnterState()
 		m_pZedInfo = m_GameObject->Get_Component<Zed>();
 	}
 
+	if (m_pCol == nullptr)
+	{
+		m_pCol = m_GameObject->Get_Component<SphereCollider>();
+	}
+
+	if (m_pPlayer == nullptr)
+	{
+		m_pPlayer = EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER);
+	}
+
 	
 	if (m_pAnimCtrl->Get_CurAnimIndex() != m_iAttAnimIndex)
 	{
-		m_pAnimCtrl->Play(m_iAttAnimIndex,true);
+		m_pAnimCtrl->Play(m_iAttAnimIndex);
 	}
 }
 
@@ -41,8 +53,21 @@ void Zed_Att::UpdateState()
 {
 	DEBUG_LOG(L"Zed : Attack");
 
+	float curFrame = (float)m_pAnimCtrl->Get_CurFrame();
+	float maxFrame = (float)m_pAnimCtrl->Get_MaxFrame();
+
+	if (curFrame >= maxFrame / 2.f)
+	{
+		if (m_pCol->Collision_Check(m_pPlayer, L"Player"))
+		{
+			m_pPlayer->Get_Component<Player_Status>()->Damaged(m_pZedInfo->Get_ZedInfo().m_iDmg);
+			m_pCol->Set_Check(false);
+		}
+	}
+
 	if (m_pAnimCtrl->IsEnd())
 	{
+		m_pCol->Set_Check(true);
 		m_pStateController->Set_State(L"Zed_Idle");
 	}
 }

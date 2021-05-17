@@ -191,6 +191,7 @@ void AnimationController::Play(int _iNewAnimIndex, bool _bBlending)
 		//1. 인덱스에 해당하는 애니메이션 세트 받아오기
 		//m_pAnimCtrl->GetAnimationSet(_iNewAnimIndex, &m_pAnimSet);
 
+
 		//2. 해당 애니메이션셑에서 필요한 정보 받아오기.
 		m_dMaxKeyFrame = m_pAnimSet->GetPeriod();
 

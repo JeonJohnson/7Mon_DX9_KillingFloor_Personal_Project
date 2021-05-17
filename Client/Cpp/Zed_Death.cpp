@@ -42,8 +42,7 @@ void Zed_Death::EnterState()
 
 void Zed_Death::UpdateState()
 {
-	DEBUG_LOG(L"Zed : Death");
-	
+	DEBUG_LOG(L"Zed : Death");      
 	Vector3 vRotate = m_GameObject->Get_Transform()->Get_Rotation_Euler();
 	DEBUG_LOG(L"Rotate : " + to_wstring(vRotate.x) + L"/" + to_wstring(vRotate.y) + L"/" + to_wstring(vRotate.z));
 	

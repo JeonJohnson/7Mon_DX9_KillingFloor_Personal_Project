@@ -53,3 +53,35 @@ void Player_Status::ReadyRender()
 void Player_Status::Release()
 {
 }
+
+void Player_Status::Damaged(int _iDmg)
+{
+	int iHpDmg;
+
+	if (m_tPlayerStatus.m_iCurArmor > 0)
+	{
+		m_tPlayerStatus.m_iCurArmor -= _iDmg;
+
+		if (m_tPlayerStatus.m_iCurArmor < 0)
+		{
+			iHpDmg = m_tPlayerStatus.m_iCurArmor;
+			m_tPlayerStatus.m_iCurArmor = 0;
+
+			m_tPlayerStatus.m_iCurHp -= iHpDmg;
+
+			if (m_tPlayerStatus.m_iCurHp < 0)
+			{
+				m_tPlayerStatus.m_iCurHp = 0;
+			}
+		}
+	}
+	else 
+	{
+		m_tPlayerStatus.m_iCurHp -= _iDmg;
+
+		if (m_tPlayerStatus.m_iCurHp < 0)
+		{
+			m_tPlayerStatus.m_iCurHp = 0;
+		}
+	}
+}

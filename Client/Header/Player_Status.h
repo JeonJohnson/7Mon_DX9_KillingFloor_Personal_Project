@@ -28,7 +28,7 @@ public:
 	virtual void Release() override;
 
 public:/* Func */
-
+	void	Damaged(int _iDmg);
 
 public: /* Set */
 

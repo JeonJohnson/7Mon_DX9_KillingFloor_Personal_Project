@@ -418,6 +418,7 @@ void TestScene::Initialize()
 
 		SphereCollider::Desc  colDesc;
 		colDesc.fRadius = 15.f;
+		colDesc.szColName = L"Player";
 		Player->Add_Component<SphereCollider>(&colDesc);
 	}
 	

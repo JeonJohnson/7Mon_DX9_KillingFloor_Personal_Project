@@ -55,7 +55,7 @@ public:
 	void	Add_ZedCount(int _Count);
 
 private:
-	int		m_iZedCount = 1;
+	int		m_iZedCount = 0;
 
 
 	ZED_INFO	arrZedInfo[ZED_TYPE_END];

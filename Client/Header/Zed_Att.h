@@ -8,6 +8,8 @@
 #include "Include.h"
 class AnimationController;
 class Zed;
+class SphereCollider;
+
 class Zed_Att :	public CState
 {
 public:
@@ -28,10 +30,12 @@ public:
 
 private:
 	AnimationController*	m_pAnimCtrl = nullptr;
-	Zed*				m_pZedInfo = nullptr;
+	Zed*					m_pZedInfo = nullptr;
 	int						m_iAttAnimIndex = 3;
 	int						m_iStrongAnimIndex;
 	
+	SphereCollider*			m_pCol = nullptr;
+	GameObject*				m_pPlayer = nullptr;
 };
 
 #endif //_ZED_ATT_H_
