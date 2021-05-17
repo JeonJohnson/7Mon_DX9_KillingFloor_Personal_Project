@@ -1,13 +1,81 @@
 ﻿  stdafx.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  BulletManager.cpp
+  Bullet_Move.cpp
+  Camera_FPS.cpp
+..\Cpp\Camera_FPS.cpp(43): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+..\Cpp\Camera_FPS.cpp(44): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+..\Cpp\Camera_FPS.cpp(50): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+..\Cpp\Camera_FPS.cpp(51): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  HudManager.cpp
   IntroScene.cpp
+  IntroSkipper.cpp
+..\Cpp\IntroSkipper.cpp(21): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
   MainGame.cpp
+  MainMenuScene.cpp
+  Player_Attack.cpp
+..\Cpp\Player_Attack.cpp(82): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+..\Cpp\Player_Attack.cpp(84): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Player_Fire.cpp
+..\Cpp\Player_Fire.cpp(44): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+..\Cpp\Player_Fire.cpp(46): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Player_Status.cpp
+  Player_Idle.cpp
+..\Cpp\Player_Idle.cpp(37): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
   Player_Move.cpp
+..\Cpp\Player_Move.cpp(28): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Player_Reload.cpp
+..\Cpp\Player_Reload.cpp(37): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Player_Swap.cpp
+..\Cpp\Player_Swap.cpp(31): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  SkyBox.cpp
+  StageManager.cpp
+  StageScene.cpp
   TestScene.cpp
+  Weapon.cpp
+  컴파일하고 있습니다...
+  WeaponManager.cpp
+  Weapon_Status.cpp
+  Zed.cpp
+..\Cpp\Zed.cpp(30): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  ZedManager.cpp
+  Zed_Att.cpp
+..\Cpp\Zed_Att.cpp(24): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Zed_Death.cpp
+..\Cpp\Zed_Death.cpp(30): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+..\Cpp\Zed_Death.cpp(33): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+..\Cpp\Zed_Death.cpp(48): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Zed_Hit.cpp
+..\Cpp\Zed_Hit.cpp(24): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Zed_Idle.cpp
+..\Cpp\Zed_Idle.cpp(24): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Zed_Run.cpp
+..\Cpp\Zed_Run.cpp(24): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Zed_Status.cpp
+..\Cpp\Zed_Status.cpp(20): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
+  Zed_Walk.cpp
+..\Cpp\Zed_Walk.cpp(24): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
+  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Reference\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
   Client.cpp
-  코드를 생성하고 있습니다.
-  40 of 286 functions (14.0%) were compiled, the rest were copied from previous compilation.
-    18 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
-  Client.vcxproj -> ../Bin/x64\Release\Client.pdb (Full PDB)

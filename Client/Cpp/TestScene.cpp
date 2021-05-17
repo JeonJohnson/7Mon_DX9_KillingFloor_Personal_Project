@@ -75,6 +75,33 @@ void TestScene::Initialize()
 		EngineFunction->Load_Texture(L"Texture/UI/Hud_EnemyCount.png", L"Hud_EnemyCount");
 	}
 
+	{ //Effect
+
+		//trace
+		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace01.png", L"BulletTrace01");
+		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace02.png", L"BulletTrace02");
+		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace03.png", L"BulletTrace03");
+
+		//blood
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_001.png", L"Drip_001");
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_002.png", L"Drip_002");
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_003.png", L"Drip_003");
+
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_001.png", L"Splatter_001");
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_002.png", L"Splatter_002");
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_003.png", L"Splatter_003");
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_004.png", L"Splatter_004");
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_005.png", L"Splatter_005");
+		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_006.png", L"Splatter_006");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Fire/BulletTrace01.png", L"Fire");
+
+		//Fire
+
+		//Muzzle
+
+	}
+
+
 	{//weapon
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/AK47.X", L"AK47");
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/ShotGun.X", L"ShotGun");
@@ -358,7 +385,7 @@ void TestScene::Initialize()
 		Player_Move::Desc player_Desc;
 		player_Desc.fWalkSpd = 40.f;
 		player_Desc.fSprintSpd = 80.f;
-		//player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
+		player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Camera::Desc Cam_desc;

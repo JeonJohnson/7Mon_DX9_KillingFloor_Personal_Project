@@ -87,6 +87,19 @@ Vector3 NaviMesh::MoveOn(const Vector3 & _vTargetPos, const Vector3 & _vTargetDi
 
 }
 
+Vector3 NaviMesh::Add_Pos(const Vector3 & _vCurPos, const Vector3 & _vAddPos)
+{
+	Vector3 vAddPos = _vAddPos;
+	Vector3 vEndPos = _vCurPos + _vAddPos;
+	Vector3 vNone = { 0.f, 0.f, 0.f };
+
+	if (m_vecNaviCells[m_iCellIndex]->Compare(vEndPos, &m_iCellIndex) == CELL_MOVE)
+	{
+		return vAddPos;
+	}
+	return vNone;
+}
+
 vector<NaviCell*> NaviMesh::Get_NaivCellList()
 {
 	return m_vecNaviCells;

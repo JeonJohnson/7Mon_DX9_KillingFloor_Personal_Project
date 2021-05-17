@@ -26,6 +26,8 @@ public:
 public:
 	void		Link_Cells();
 	Vector3		MoveOn(const Vector3& _vTargetPos, const Vector3& _vTargetDir);
+	
+	Vector3		Add_Pos(const Vector3& _vCurPos, const Vector3&	_vAddPos);
 
 public: /* Get */
 	vector<NaviCell*>	Get_NaivCellList();

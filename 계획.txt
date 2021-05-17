@@ -933,3 +933,8 @@ ZedStateCtrl->Set_InitState(L"Zed_Idle");
 
 오후 1:41 2021-05-17 월
 테스트용 다시
+디버깅용애들은 ifdef _DEBUG 넣어주기
+
+오후 2:47 2021-05-17 월
+네비매쉬탈때 AddPos로 바꿔주기 성공!
+

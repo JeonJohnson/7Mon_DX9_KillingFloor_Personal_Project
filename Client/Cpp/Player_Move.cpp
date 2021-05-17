@@ -79,20 +79,20 @@ void Player_Move::Move()
 	{
 		if (KeyPress(KEY_STATE_D))
 		{
-			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vRight * fTime * m_fCurSpd * 1));
+			m_Transform->Add_Position(m_pNaviMesh->Add_Pos(vPos, vRight * fTime * m_fCurSpd * 1));
 		}
 		else if (KeyPress(KEY_STATE_A))
 		{
-			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vRight * fTime * m_fCurSpd * -1));
+			m_Transform->Add_Position(m_pNaviMesh->Add_Pos(vPos, vRight * fTime * m_fCurSpd * -1));
 		}
 
 		if (KeyPress(KEY_STATE_W))
 		{
-			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vForward * fTime * m_fCurSpd));
+			m_Transform->Add_Position(m_pNaviMesh->Add_Pos(vPos, vForward * fTime * m_fCurSpd));
 		}
 		else if (KeyPress(KEY_STATE_S))
 		{
-			m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, vForward * fTime * m_fCurSpd * -1));
+			m_Transform->Add_Position(m_pNaviMesh->Add_Pos(vPos, vForward * fTime * m_fCurSpd * -1));
 		}
 	}
 
