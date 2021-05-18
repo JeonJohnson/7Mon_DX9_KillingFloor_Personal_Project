@@ -18,6 +18,7 @@ NaviCell::NaviCell()
 
 NaviCell::~NaviCell()
 {
+	Release();
 }
 
 void NaviCell::Initialize()
@@ -64,6 +65,7 @@ void NaviCell::Initialize()
 
 void NaviCell::Release()
 {
+
 }
 
 void NaviCell::Setup_Lines()

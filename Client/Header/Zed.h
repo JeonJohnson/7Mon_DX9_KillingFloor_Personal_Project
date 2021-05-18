@@ -63,6 +63,7 @@ private:
 	bool					m_bDeath = false;
 
 	NaviMesh*				m_pNaviMesh = nullptr;
+	int						m_icurCellIndex = 0;
 
 	//For Player
 	GameObject*				m_pPlayer = nullptr;

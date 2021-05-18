@@ -30,6 +30,7 @@ private:
 	Zed*					m_pZedInfo = nullptr;
 	int						m_iWalknimIndex = 1;
 	NaviMesh*				m_pNaviMesh = nullptr;
+	int						m_icurCellIndex = 0;
 };
 
 #endif //_ZED_WALK_H_

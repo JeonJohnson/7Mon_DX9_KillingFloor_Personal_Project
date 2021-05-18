@@ -172,7 +172,7 @@ public: /* Resource Manager */
 	HRESULT	Load_TerrainLayout(const wstring& _szDataPath);
 	HRESULT	Load_NaviMeshData(const wstring& _szDataPath);
 	NaviMesh*	Get_NaviMesh(const wstring& _szNaviMeshName = L"");
-
+	NaviMesh*	Get_NaviMeshClone();
 
 public:
 		

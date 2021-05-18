@@ -44,7 +44,7 @@ void NaviMeshTestObj_Move::Move()
 		{
 			if (m_pNaviMesh != nullptr)
 			{
-				m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, (vForward * dTime * 50.f)));
+				m_Transform->Set_Position(m_pNaviMesh->MoveOn(vPos, (vForward * dTime * 50.f), &m_iCurCellIndex));
 			}
 			else 
 			{

@@ -55,7 +55,7 @@ void ZedManager::Update()
 
 	if (KeyDown(KEY_STATE_F1))
 	{
-		Generate_Clot(Vector3(0.f, 0.f, 100.f));
+		Generate_Clot(Vector3(0.f, 0.f,100.f));
 	}
 
 	if (KeyDown(KEY_STATE_F2))
@@ -176,7 +176,7 @@ void ZedManager::Generate_Clot(const Vector3 & _vPos, const Quaternion & _qRot, 
 		Clot_Col.vOffset = Vector3(0.f, 15.f, 0.f);
 		Clot_Col.szColName = L"Body";
 		TestClot->Add_Component<SphereCollider>(&Clot_Col);
-
+		 
 		Zed::Desc Clot_Default;
 		Clot_Default.tZed_Status = arrZedInfo[ZED_Clot];
 		Clot_Default.pNaviMesh = EngineFunction->Get_NaviMesh();

@@ -19,6 +19,7 @@
 
 //shader
 #include "Shader.h"
+#include "NaviMesh.h"
 
 Implement_Singleton(ResourceManager)
 
@@ -85,6 +86,9 @@ void ResourceManager::Delete_AllResource()
 
 
 	//font ∞¥√º «ÿ¡¶µÈ
+
+
+	//NaviMeshes;
 }
 
 void ResourceManager::Load_Font()
@@ -267,6 +271,13 @@ const wstring & ResourceManager::Get_ResourceFolderPath() const
 NaviMesh* ResourceManager::Get_NaviMesh() const
 {
 	return m_pNaviMesh;
+}
+
+NaviMesh * ResourceManager::Get_NaviMeshClone()
+{
+	NaviMesh*	CloneNaviMesh = new NaviMesh;
+
+	return CloneNaviMesh;
 }
 
 void ResourceManager::Set_ResourceFolderPath(const wstring & _wPath)

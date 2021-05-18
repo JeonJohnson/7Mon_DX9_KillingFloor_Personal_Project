@@ -43,7 +43,7 @@ private:
 	float			m_fSprintSpd = 0.f;
 
 	NaviMesh*		m_pNaviMesh = nullptr;
-	
+	int				m_icurCellIndex = 0;
 
 
 };

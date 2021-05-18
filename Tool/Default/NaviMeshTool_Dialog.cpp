@@ -850,7 +850,7 @@ void NaviMeshTool_Dialog::OnBnClickedNavimeshloadButton()
 		m_pNaviMesh = new NaviMesh;
 		for (int i = 0; i < LoadNaviMeshData.iCellCount; ++i)
 		{
-			NaviCell* Cell = new NaviCell;
+ 			NaviCell* Cell = new NaviCell;
 			Cell->Set_CellIndex(i);
 			Vector3		Index = LoadNaviMeshData.arrCellPointIndex[i];
 

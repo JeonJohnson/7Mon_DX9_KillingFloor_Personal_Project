@@ -37,4 +37,5 @@ public:
 
 private:
 	NaviMesh*		m_pNaviMesh = nullptr;
+	int				m_iCurCellIndex = 0;
 };

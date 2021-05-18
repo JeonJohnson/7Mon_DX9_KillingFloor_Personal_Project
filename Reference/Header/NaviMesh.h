@@ -26,11 +26,11 @@ public:
 public:
 	void		Link_Cells();
 
-	Vector3		MoveOn(const Vector3& _vTargetPos, const Vector3& _vTargetDir);
+	Vector3		MoveOn(const Vector3& _vTargetPos, const Vector3& _vTargetDir, int* _pOutCurCellIndex);
 	
-	Vector3		Add_Pos(const Vector3& _vCurPos, const Vector3&	_vAddPos);
+	Vector3		Add_Pos(const Vector3& _vCurPos, const Vector3&	_vAddPos, int* _pOutCurCellIndex);
 
-	void		Cells_Update();
+	//void		Cells_Update();
 
 public: /* Get */
 	vector<NaviCell*>	Get_NaivCellList();
@@ -40,7 +40,7 @@ public: /* Set */
 
 private:
 	vector<NaviCell*>		m_vecNaviCells;
-	int						m_iCellIndex = 0;//플레이어가 위치해 있는 인덱스?
+	//int						m_iCellIndex = 0;//플레이어가 위치해 있는 인덱스? => 각 오브젝트로 옮겨주기.
 };
 
 #endif //_NAVI_MESH_H_

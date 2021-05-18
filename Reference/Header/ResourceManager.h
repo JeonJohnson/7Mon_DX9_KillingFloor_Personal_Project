@@ -170,6 +170,7 @@ public:
 public: /* Get */
 	const wstring&	Get_ResourceFolderPath() const;
 	NaviMesh*		Get_NaviMesh()const;
+	NaviMesh*		Get_NaviMeshClone();
 
 public: /* Set */
 	void Set_ResourceFolderPath(const wstring& _wPath);
@@ -187,7 +188,11 @@ private:
 
 
 	NaviMesh*	m_pNaviMesh = nullptr;
-	
+	vector<NaviMesh*> m_pCloneNaviMesh;
+	int				m_iNaviPointCount;
+	Vector3*		m_arrNaviPointPosition;
+	Vector3*		m_arrCellPointIndex;
+
 
 };
 #endif //_RESOURCE_MANAGER_H_
