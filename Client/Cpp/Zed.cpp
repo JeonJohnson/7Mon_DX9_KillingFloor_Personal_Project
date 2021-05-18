@@ -8,7 +8,7 @@ Zed::Zed(Desc * _desc)
 {
 
 	m_tZedStatus = _desc->tZed_Status;
-
+	m_pNaviMesh = _desc->pNaviMesh;
 
 }
 
@@ -142,4 +142,14 @@ ZED_INFO Zed::Get_ZedInfo()
 float Zed::Get_Distance()
 {
 	return m_fDistance;
+}
+
+NaviMesh * Zed::Get_NaviMesh()
+{
+	return m_pNaviMesh;
+}
+
+void Zed::Set_NaviMesh(NaviMesh * _pNaviMesh)
+{
+	m_pNaviMesh = _pNaviMesh;
 }

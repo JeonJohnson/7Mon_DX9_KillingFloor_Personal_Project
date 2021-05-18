@@ -9,6 +9,7 @@ class StateController;
 class AnimationController;
 class SphereCollider;
 class Zed_Status;
+class NaviMesh;
 
 class Zed : public Component
 {
@@ -16,6 +17,7 @@ public:
 	struct Desc
 	{
 		ZED_INFO	tZed_Status;
+		NaviMesh*	pNaviMesh = nullptr;
 	};
 public:
 	Zed(Desc* _desc);
@@ -44,8 +46,10 @@ public: /* Func */
 public: /* Get */
 	ZED_INFO				Get_ZedInfo();
 	float					Get_Distance();
+	NaviMesh*				Get_NaviMesh();
 
 public: /* Set */
+	void					Set_NaviMesh(NaviMesh* _pNaviMesh);
 
 private:
 	StateController*		m_pStateCtrl = nullptr;

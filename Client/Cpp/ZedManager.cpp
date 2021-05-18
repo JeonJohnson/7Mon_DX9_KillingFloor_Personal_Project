@@ -179,6 +179,7 @@ void ZedManager::Generate_Clot(const Vector3 & _vPos, const Quaternion & _qRot, 
 
 		Zed::Desc Clot_Default;
 		Clot_Default.tZed_Status = arrZedInfo[ZED_Clot];
+		Clot_Default.pNaviMesh = EngineFunction->Get_NaviMesh();
 		TestClot->Add_Component<Zed>(&Clot_Default);
 
 		++m_iZedCount;
