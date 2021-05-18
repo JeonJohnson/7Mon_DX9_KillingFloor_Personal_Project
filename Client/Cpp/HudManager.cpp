@@ -39,10 +39,16 @@ void HudManager::Initialize()
 
 void HudManager::Update()
 {
+	m_umStageHuds[L"Hp"]->Set_Button(true);
+	if (m_umStageHuds[L"Hp"]->MouseOn())
+	{
+		DEBUG_LOG(L"MouseOn");
+	}
 }
 
 void HudManager::LateUpdate()
 {
+
 }
 
 void HudManager::ReadyRender()

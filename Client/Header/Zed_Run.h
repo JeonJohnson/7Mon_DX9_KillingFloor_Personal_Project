@@ -7,6 +7,7 @@
 #include "Include.h"
 class AnimationController;
 class Zed;
+class NaviMesh;
 class Zed_Run :	public CState
 {
 public:
@@ -32,6 +33,9 @@ private:
 
 	float					m_fRunFullTime = 0.f;
 	float					m_fRunCurTime = 0.f;
+
+	NaviMesh*				m_pNaviMesh = nullptr;
+	int						m_icurCellIndex = 0;
 };
 
 #endif//_ZED_RUN_H_

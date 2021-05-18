@@ -3,6 +3,7 @@
 #include "StateController.h"
 #include "AnimationController.h"
 #include "Zed.h"
+#include "NaviMesh.h"
 
 Zed_Run::Zed_Run()
 {
@@ -29,7 +30,10 @@ void Zed_Run::EnterState()
 		m_pZedInfo = m_GameObject->Get_Component<Zed>();
 	}
 
-	
+	if (m_pNaviMesh == nullptr)
+	{
+		m_pNaviMesh = m_pZedInfo->Get_NaviMesh();
+	}
 
 	if (m_pZedInfo->Get_ZedInfo().m_eName == 0)
 	{
@@ -52,7 +56,8 @@ void Zed_Run::UpdateState()
 	m_fRunCurTime += fTime;
 
 	Vector3 vForward = m_Transform->Get_Forward();
-	m_Transform->Add_Position(vForward * fTime * m_pZedInfo->Get_ZedInfo().m_fRunSpd);
+	//m_Transform->Add_Position(vForward * fTime * m_pZedInfo->Get_ZedInfo().m_fRunSpd);
+	m_Transform->Add_Position(m_pNaviMesh->Add_Pos(m_Transform->Get_Position(), vForward * fTime * m_pZedInfo->Get_ZedInfo().m_fWalkSpd, &m_icurCellIndex));
 
 	if (m_GameObject->Get_Component<Zed>()->Get_Distance() <= 30.f)
 	{

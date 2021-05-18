@@ -79,7 +79,7 @@ void Zed::Setting_Components()
 
 void Zed::LookAt()
 {
-	if (!m_bDeath)
+	if (!m_bDeath && !m_bDontLook)
 	{
 		Vector3 PlayerPos = m_pPlayer->Get_Position();
 		PlayerPos.y = 0;
@@ -149,7 +149,17 @@ NaviMesh * Zed::Get_NaviMesh()
 	return m_pNaviMesh;
 }
 
+bool Zed::Get_DontLook()
+{
+	return m_bDontLook;
+}
+
 void Zed::Set_NaviMesh(NaviMesh * _pNaviMesh)
 {
 	m_pNaviMesh = _pNaviMesh;
+}
+
+void Zed::Set_DontLook(bool _falseIsDontLook)
+{
+	m_bDontLook = _falseIsDontLook;
 }

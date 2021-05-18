@@ -223,6 +223,7 @@ void ZedManager::Generate_GoreFast(const Vector3 & _vPos, const Quaternion & _qR
 
 		Zed::Desc GoreFast_Default;
 		GoreFast_Default.tZed_Status = arrZedInfo[ZED_GoreFast];
+		GoreFast_Default.pNaviMesh = EngineFunction->Get_NaviMesh();
 		TestGoreFast->Add_Component<Zed>(&GoreFast_Default);
 		//////////////////////////////////////////////////////////////////////////
 
@@ -268,6 +269,7 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 
 		Zed::Desc Scrake_Default;
 		Scrake_Default.tZed_Status = arrZedInfo[ZED_Scrake];
+		Scrake_Default.pNaviMesh = EngineFunction->Get_NaviMesh();
 		TestScrake->Add_Component<Zed>(&Scrake_Default);
 
 		++m_iZedCount;

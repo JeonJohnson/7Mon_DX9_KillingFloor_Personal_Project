@@ -29,6 +29,7 @@ private:
 	AnimationController*	m_pAnimCtrl = nullptr;
 	Zed*					m_pZedInfo = nullptr;
 	int						m_iWalknimIndex = 1;
+
 	NaviMesh*				m_pNaviMesh = nullptr;
 	int						m_icurCellIndex = 0;
 };

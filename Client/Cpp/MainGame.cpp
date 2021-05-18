@@ -30,6 +30,7 @@ void MainGame::Initialize()
 	Scene_Setting();
 	FPS_RenderSetting();
 
+	srand((unsigned int)time(NULL));
 }
 
 void MainGame::Release()

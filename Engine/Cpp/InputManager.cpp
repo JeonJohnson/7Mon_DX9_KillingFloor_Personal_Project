@@ -135,7 +135,7 @@ HRESULT InputManager::Mouse_Create(HWND hWnd, bool _IsEngine)
 	//DISCL_BACKGROUND | DISCL_NONEXCLUSIVE : 반대
 	if (!_IsEngine)
 	{
-		if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_EXCLUSIVE)))
+		if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE)))
 		{
 			//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
 			return E_FAIL;

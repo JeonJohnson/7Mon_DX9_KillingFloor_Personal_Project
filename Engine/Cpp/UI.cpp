@@ -2,6 +2,7 @@
 
 #include "UIManager.h"
 #include "Sprite.h"
+#include "InputManager.h"
 
 void UI::Initialize()
 {
@@ -126,6 +127,40 @@ void UI::Update_UITransform()
 
 }
 
+bool UI::Clikced()
+{
+	if (m_bButton)
+	{
+		if (InputManager::Get_Instance()->GetMouseDown(KEY_STATE_LMouse))
+		{
+			POINT MousePos = InputManager::Get_Instance()->Get_MousePos();
+
+			if (MousePos.x >= m_tRect.left && MousePos.x <= m_tRect.right
+				&& MousePos.y >= m_tRect.top && MousePos.y <= m_tRect.bottom)
+			{
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+	return false;
+}
+
+bool UI::MouseOn()
+{
+	POINT MousePos = InputManager::Get_Instance()->Get_MousePos();
+
+	if (MousePos.x >= m_tRect.left && MousePos.x <= m_tRect.right
+		&& MousePos.y >= m_tRect.top && MousePos.y <= m_tRect.bottom)
+	{
+		return true;
+	}
+	else { return false; }
+
+	
+}
+
 const wstring & UI::Get_Name()const
 {
 	return m_wName;	
@@ -174,6 +209,11 @@ void UI::Set_Active(bool _onoff)
 void UI::Set_Alive(bool _FalseIsDead)
 {
 	m_bAlive = _FalseIsDead;
+}
+
+void UI::Set_Button(bool _bButton)
+{
+	m_bButton = _bButton;
 }
 
 void UI::Set_Position(const Vector3 & _vPos)

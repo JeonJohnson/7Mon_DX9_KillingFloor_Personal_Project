@@ -100,6 +100,8 @@ public: /* function */
 	void Delete_UiComponents();
 	void Update_UITransform();
 	
+	bool Clikced();
+	bool MouseOn();
 
 public: /* Get */
 	const wstring&	Get_Name() const;
@@ -111,11 +113,12 @@ public: /* Get */
 	const Vector3&	Get_Scale()	const;
 	const Vector3&	Get_Rotation() const;
 	const Vector3&	Get_Center() const;
-
+	
 
 public: /* Set */
 	void			Set_Active(bool _onoff);
 	void			Set_Alive(bool _FalseIsDead);
+	void			Set_Button(bool _bButton);
 
 	void			Set_Position(const Vector3& _vPos);
 	void			Add_Position(const Vector3& _vPos);
@@ -141,6 +144,7 @@ private:
 	Vector3				m_vCenter;
 	RECT				m_tRect;
 
+	bool				m_bButton;
 	bool				m_bActive;
 	bool				m_bAlive;
 	bool				m_bDontDestroy;
