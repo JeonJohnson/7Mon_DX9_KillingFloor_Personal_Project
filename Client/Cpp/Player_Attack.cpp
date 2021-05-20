@@ -134,11 +134,16 @@ void Player_Attack::Fire()
 		&& m_pStateCtlr->Get_CurStateName() != L"Player_Fire"
 		&& m_pStateCtlr->Get_CurStateName() != L"Player_Swap")
 	{
-		if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet <= 0)
+
+		if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType != Weapon_Knife)
 		{
-			m_pStateCtlr->Set_State(L"Player_Reload");
-			return;
+			if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet <= 0)
+			{
+				m_pStateCtlr->Set_State(L"Player_Reload");
+				return;
+			}
 		}
+		
 		m_pStateCtlr->Set_State(L"Player_Fire");
 	}
 }

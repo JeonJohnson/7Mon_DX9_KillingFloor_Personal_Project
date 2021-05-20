@@ -6,7 +6,7 @@
 #include "CState.h"
 
 class Player_Attack;
-
+class Weapon_Status;
 class Player_Swap : public CState
 {
 public:
@@ -21,6 +21,8 @@ public:
 	
 public:
 	Player_Attack*		m_pPlayerAttack = nullptr;
+	Weapon_Status*		m_pCurWeaponStatus = nullptr;
+
 };
 
 #endif //_PLAYER_SWAP_H_

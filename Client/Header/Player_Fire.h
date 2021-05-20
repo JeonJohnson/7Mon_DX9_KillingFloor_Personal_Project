@@ -7,6 +7,8 @@
 
 //class Weapon;
 class Weapon_Status;
+class SphereCollider;
+
 class Player_Fire : public CState
 {
 public:
@@ -24,6 +26,9 @@ public:
 
 private:
 	Weapon_Status*		m_pCurWeaponStatus = nullptr;
+
+	SphereCollider*		m_pPlayerCol = nullptr;
+
 };
 
 #endif //_PLAYER_FIRE_H_

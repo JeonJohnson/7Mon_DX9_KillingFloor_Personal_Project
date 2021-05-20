@@ -11,6 +11,10 @@
 #include "Weapon_Status.h"
 #include "VIBuffer_Renderer.h"
 
+#include "HudManager.h"
+#include "Zed.h"
+
+
 Player_Fire::Player_Fire()
 {
 }
@@ -30,12 +34,26 @@ void Player_Fire::EnterState()
 	
 	m_pCurWeaponStatus = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponStatus();
 
-	m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
+	if (m_pPlayerCol == nullptr)
+	{
+		m_pPlayerCol = m_GameObject->Get_Component<SphereCollider>();
+	}
 
-	m_GameObject->Get_Component<AnimationController>()->Play(3);
-	Bullet_Test();
-	//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
-	m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
+
+	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType != Weapon_Knife)
+	{
+		m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
+
+		m_GameObject->Get_Component<AnimationController>()->Play(3);
+		Bullet_Test();
+		//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
+		m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
+	}
+	else 
+	{
+		m_pPlayerCol->Set_Check(true);
+		m_GameObject->Get_Component<AnimationController>()->Play(3);
+	}
 
 }
 
@@ -46,38 +64,56 @@ void Player_Fire::UpdateState()
 	DEBUG_LOG(L"Cur : " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid)
 		+ L" / Max : " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_fMaxRapid));
 	
-
-
-	m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid += fTime;
-
-	if (m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid 
-		>= m_pCurWeaponStatus->m_tWeaponInfo.m_fMaxRapid)
+	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType != Weapon_Knife)
 	{
-		if (m_pCurWeaponStatus->m_tWeaponInfo.m_bAuto)
+		m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid += fTime;
+
+		if (m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid
+			>= m_pCurWeaponStatus->m_tWeaponInfo.m_fMaxRapid)
 		{
-			if (MousePress(KEY_STATE_LMouse))
+			if (m_pCurWeaponStatus->m_tWeaponInfo.m_bAuto)
 			{
-				if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet <= 0)
+				if (MousePress(KEY_STATE_LMouse))
 				{
-					m_pStateController->Set_State(L"Player_Reload");
-					return;
+					if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet <= 0)
+					{
+						m_pStateController->Set_State(L"Player_Reload");
+						return;
+					}
+					m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
+					m_GameObject->Get_Component<AnimationController>()->Play(3);
+					Bullet_Test();
+					m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 				}
-				m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
-				m_GameObject->Get_Component<AnimationController>()->Play(3);
-				Bullet_Test();
-				m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
+			}
+			//else
+			//{
+			//	if (MouseDown(KEY_STATE_LMouse))
+			//	{
+			//		m_GameObject->Get_Component<AnimationController>()->Play(3);
+			//		m_pCurWeapon->m_fCurRapid = 0.f;
+			//	}
+			//}
+		}
+	}
+	else 
+	{
+		auto pZeds = EngineFunction->Get_GameObjectListbyTag(OBJECT_TAG_ZED);
+
+
+		for (auto& zed : pZeds)
+		{
+			if (m_pPlayerCol->Collision_Check(zed, L"Body"))
+			{
+				if (auto pStatus = zed->Get_Component<Zed>())
+				{
+					pStatus->Damaged(m_pCurWeaponStatus->m_tWeaponInfo.m_iDmg);
+				}
+				m_pPlayerCol->Set_Check(false);
+
+				return;
 			}
 		}
-		//else
-		//{
-		//	if (MouseDown(KEY_STATE_LMouse))
-		//	{
-		//		m_GameObject->Get_Component<AnimationController>()->Play(3);
-		//		m_pCurWeapon->m_fCurRapid = 0.f;
-		//	}
-		//}
-
-		
 	}
 
 
