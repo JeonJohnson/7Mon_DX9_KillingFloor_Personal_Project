@@ -114,11 +114,11 @@ void TestScene::Initialize()
 			wstring FileName = L"Fire_";
 			if (i < 10)
 			{
-				FileName + L"0" + to_wstring(i) + L".png";
+				FileName += L"0" + to_wstring(i) + L".png";
 			}
 			else
 			{
-				FileName + to_wstring(i) + L".png";
+				FileName += to_wstring(i) + L".png";
 			}
 			EngineFunction->Add_Texture(FireEffect, L"Texture/Effect/Fire/" + FileName);
 		}
@@ -128,7 +128,7 @@ void TestScene::Initialize()
 		//Muzzle
 		for(int i = 0; i< 4; ++i)
 		{			
-			wstring FileName = L"Muzzle_0" + to_wstring(i);
+			wstring FileName = L"Muzzle_0" + to_wstring(i) + L".png";
 			EngineFunction->Load_Texture(L"Texture/Effect/Muzzle/" + FileName, FileName);
 		}
 	}

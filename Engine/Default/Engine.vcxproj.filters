@@ -668,5 +668,8 @@
     <FxCompile Include="..\..\Resource\Shader\Shader_Sample.fx">
       <Filter>06.Resource\05.Shader\Fx</Filter>
     </FxCompile>
+    <FxCompile Include="..\..\Resource\Shader\Effect_VIBuffer.fx">
+      <Filter>06.Resource\05.Shader\Fx</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

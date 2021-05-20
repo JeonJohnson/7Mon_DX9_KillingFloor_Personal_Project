@@ -47,7 +47,7 @@ void ShakeObject::Update()
 
 			Vector3	Offset_Normal;
 			D3DXVec3Normalize(&Offset_Normal, &Offset);
-			Offset =  Offset_Normal* m_fPower;
+ 			Offset =  Offset_Normal* m_fPower;
 
 			m_Transform->Add_Position(Offset);
 		}

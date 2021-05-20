@@ -9,6 +9,7 @@
 #include "Mesh_Renderer.h"
 
 #include "Weapon_Status.h"
+#include "VIBuffer_Renderer.h"
 
 Player_Fire::Player_Fire()
 {
@@ -104,10 +105,18 @@ void Player_Fire::Bullet_Test()
 	//bulletRenderer.szMeshName = L"DebugSphere";
 	//Bullet->Add_Component<Mesh_Renderer>(&bulletRenderer);
 
+#ifdef _DEBUG
 	SphereCollider::Desc ColDesc;
 	ColDesc.fRadius = 0.5f;
 	ColDesc.szColName = L"bullet";
 	Bullet->Add_Component<SphereCollider>(&ColDesc);
+#endif //_DEBUG
+
+	//VIBuffer_Renderer::Desc BulletTrace_Desc;
+	//BulletTrace_Desc.wBufferName = L"Rect_Texture";
+	//BulletTrace_Desc.wTextureName = L"BulletTrace01"; 
+	//BulletTrace_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Alpha;
+	//Bullet->Add_Component<VIBuffer_Renderer>(&BulletTrace_Desc);
 
 	Bullet_Move::Desc bulletmove;
 	bulletmove.Spd = 2000.f;
