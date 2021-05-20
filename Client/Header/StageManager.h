@@ -5,6 +5,8 @@
 
 #include "Component.h"
 
+class StateController;
+
 class StageManager : public Component
 {
 public:
@@ -33,11 +35,20 @@ public:
 
 public:
 
-public:
+public: /* Get */
+	
 
-public:
+
+public: /* Set */
 
 private:
+	StateController*		m_pStateCtrl = nullptr;
+	
+	int		m_iCurStage;
+	int		m_iMaxStage;
+
+
+
 };
 
 #endif //_STAGE_MANAGER_H_

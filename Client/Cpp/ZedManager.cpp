@@ -132,10 +132,10 @@ void ZedManager::Nogada_Datas()
 	}
 
 	{
-		arrZedGenLocate[CHURCH] = Vector3(350.f, 0.f, 135.f);
-		arrZedGenLocate[POLICE] = Vector3(400.f, 0.f, 610.f);
-		arrZedGenLocate[HOTEL_LEFT] = Vector3(-630.f, 0.f, 600.f);
-		arrZedGenLocate[HOTEL_RIGHT] = Vector3(-605.f, 0.f, 120);
+		arrZedGenLocate[CHURCH] = Vector3(330.f, 0.f, 250.f);
+		arrZedGenLocate[POLICE] = Vector3(380.f, 0.f, 700.f);
+		arrZedGenLocate[HOTEL_LEFT] = Vector3(-555.f, 0.f, 695.f);
+		arrZedGenLocate[HOTEL_RIGHT] = Vector3(-534.f, 0.f, 216.f);
 	}
 
 }
@@ -318,6 +318,21 @@ void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _q
 
 		++m_iZedCount;
 	
+}
+
+int ZedManager::Get_ZedCount()
+{
+	return m_iZedCount;
+}
+
+Vector3 ZedManager::Get_ZedGenLocate(eZedGenLocate _eZedGenLocate)
+{
+	return arrZedGenLocate[_eZedGenLocate];
+}
+
+Vector3 ZedManager::Get_ZedGenLocate(int _iZedGenLocate)
+{
+	return arrZedGenLocate[_iZedGenLocate];
 }
 
 void ZedManager::Set_ZedCount(int _Count)

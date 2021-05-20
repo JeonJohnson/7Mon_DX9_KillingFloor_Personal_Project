@@ -13,4 +13,10 @@ StageScene::~StageScene()
 
 void StageScene::Initialize()
 {
+	{ //Load
+	
+
+
+	}
+
 }

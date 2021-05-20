@@ -13,16 +13,20 @@ void UI::Update()
 {
 	//Update_UITransform();
 
-	if (m_pSprite)
+	if (m_bActive)
 	{
-		m_pSprite->Update();
-	}
+		if (m_pSprite)
+		{
+			m_pSprite->Update();
+		}
 
-	if (m_pText)
-	{
-		m_pText->Update();
+		if (m_pText)
+		{
+			m_pText->Update();
+		}
 	}
 }
+
 
 void UI::LateUpdate()
 {
@@ -36,16 +40,19 @@ void UI::ReadyRender()
 void UI::Render()
 {
 	//여기서 위치 정해주기, 넘겨주기/
-	Update_UITransform();
+	if (m_bActive)
+	{
+		Update_UITransform();
 
-	if (m_pSprite)
-	{
-		m_pSprite->Render();
-	}
-	
-	if (m_pText)
-	{
-		m_pText->Render();
+		if (m_pSprite)
+		{
+			m_pSprite->Render();
+		}
+
+		if (m_pText)
+		{
+			m_pText->Render();
+		}
 	}
 }
 
@@ -107,23 +114,26 @@ void UI::Update_UITransform()
 
 	if (m_pSprite == nullptr)
 	{
-		m_fWidth = 100.f;
-		m_fHeight = 100.f;
+		//m_fWidth = 0.f;
+		//m_fHeight = 0.f;
+	
+			
+		
 	}
 	else 
 	{
 		m_fWidth = (float)(static_cast<Sprite*>(m_pSprite)->Get_TextureInfo(0)->Width);
 		m_fHeight = (float)(static_cast<Sprite*>(m_pSprite)->Get_TextureInfo(0)->Height);
+
+		m_vCenter = { m_fWidth / 2.f , m_fHeight / 2.f , 0.f };
+		
+		m_tRect.left = (LONG)(m_vPosition.x - (m_vCenter.x * m_vScale.x));
+		m_tRect.top = (LONG)(m_vPosition.y - (m_vCenter.y * m_vScale.y));
+		m_tRect.right = (LONG)(m_vPosition.x + (m_vCenter.x	* m_vScale.x));
+		m_tRect.bottom = (LONG)(m_vPosition.y + (m_vCenter.y * m_vScale.x));
 	}
 
-	m_vCenter = { m_fWidth / 2.f , m_fHeight / 2.f , 0.f };
 
-	Vector3 Pos = m_vPosition;
-
-	m_tRect.left = (LONG)(m_vPosition.x - m_vCenter.x);
-	m_tRect.top = (LONG)(m_vPosition.y - m_vCenter.y);
-	m_tRect.right = (LONG)(m_vPosition.x + m_vCenter.x);
-	m_tRect.bottom= (LONG)(m_vPosition.y + m_vCenter.y);
 
 }
 
@@ -146,6 +156,47 @@ bool UI::Clikced()
 	}
 	return false;
 }
+
+bool UI::Pressed()
+{
+	if (m_bButton)
+	{
+		if (InputManager::Get_Instance()->GetMousePress(KEY_STATE_LMouse))
+		{
+			POINT MousePos = InputManager::Get_Instance()->Get_MousePos();
+
+			if (MousePos.x >= m_tRect.left && MousePos.x <= m_tRect.right
+				&& MousePos.y >= m_tRect.top && MousePos.y <= m_tRect.bottom)
+			{
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+	return false;
+}
+
+bool UI::ClickedUp()
+{
+	if (m_bButton)
+	{
+		if (InputManager::Get_Instance()->GetMouseUp(KEY_STATE_LMouse))
+		{
+			POINT MousePos = InputManager::Get_Instance()->Get_MousePos();
+
+			if (MousePos.x >= m_tRect.left && MousePos.x <= m_tRect.right
+				&& MousePos.y >= m_tRect.top && MousePos.y <= m_tRect.bottom)
+			{
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+	return false;
+}
+
 
 bool UI::MouseOn()
 {
@@ -244,6 +295,21 @@ void UI::Set_Rotate(const Vector3 & _vRot)
 void UI::Rotate(const Vector3 & _vRot)
 {
 	m_vRotation += _vRot;
+}
+
+void UI::Set_Rect(const RECT & _tRect)
+{
+	m_tRect = _tRect;
+}
+
+void UI::Set_Width(float _fWidth)
+{
+	m_fWidth = _fWidth;
+}
+
+void UI::Set_Height(float _fHeight)
+{
+	m_fHeight = _fHeight;
 }
 
 

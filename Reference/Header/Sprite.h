@@ -52,6 +52,10 @@ public: /* Set */
 	void			Set_Alpha(float _fAlpha);
 	void			Add_Alpha(float _fAlpha);
 
+	void			Set_Color(D3DXCOLOR _tColor);
+
+	void			Set_Texture(const wstring& _szTextureName);
+
 private:
 	UI_KIND				m_eUiKind = UI_KIND::UI_SPRITE;
 

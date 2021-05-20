@@ -30,7 +30,6 @@ void IntroSkipper::Update()
 		{
 			((Sprite*)m_pFade->Get_Sprite())->Add_Alpha(-1.f * fTime * 0.5f);
 		}
-		
 	}
 	else 
 	{
@@ -50,7 +49,8 @@ void IntroSkipper::Update()
 		}
 		else 
 		{
-			EngineFunction->Load_Scene(L"Test_Scene");
+			//EngineFunction->Load_Scene(L"Test_Scene");
+			EngineFunction->Load_Scene(L"MainMenu_Scene");
 		}
 		
 	}

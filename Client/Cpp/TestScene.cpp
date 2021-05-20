@@ -32,6 +32,13 @@
 #include "Zed_Run.h"
 #include "Zed_Walk.h"
 #include "Zed.h"
+#include "StageManager.h"
+#include "Stage_1.h"
+#include "..\..\Engine\Header\StateController.h"
+#include "Stage_Shop.h"
+#include "Stage_2.h"
+#include "Stage_Boss.h"
+#include "ShakeObject.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -49,7 +56,7 @@ TestScene::~TestScene()
 void TestScene::Initialize()
 {
 
-
+	EngineFunction->MouseLock();
 	//GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	//Grid_Test->Set_Position(Vector3(0, 30.f, 200));
 	//Grid_Test->Set_Scale(Vector3(10.f, 10.f, 10.f));
@@ -77,6 +84,10 @@ void TestScene::Initialize()
 
 	{ //Effect
 
+		//Screen
+		EngineFunction->Load_Texture(L"Texture/ScreenEffect/BluntSplash_GrayScale.png", L"HitEffect");
+		//EngineFunction->Load_Texture(L"Texture/ScreenEffect/BluntSplash.png", L"HitEffect");
+
 		//trace
 		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace01.png", L"BulletTrace01");
 		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace02.png", L"BulletTrace02");
@@ -96,9 +107,30 @@ void TestScene::Initialize()
 		//EngineFunction->Load_Texture(L"Texture/Effect/Fire/BulletTrace01.png", L"Fire");
 
 		//Fire
+		auto FireEffect = EngineFunction->Load_Texture(L"Texture/Effect/Fire/Fire_00.png", L"Fire_Effect");
+		
+		for (int i = 1; i < 16; ++i)
+		{
+			wstring FileName = L"Fire_";
+			if (i < 10)
+			{
+				FileName + L"0" + to_wstring(i) + L".png";
+			}
+			else
+			{
+				FileName + to_wstring(i) + L".png";
+			}
+			EngineFunction->Add_Texture(FireEffect, L"Texture/Effect/Fire/" + FileName);
+		}
+		
+		
 
 		//Muzzle
-
+		for(int i = 0; i< 4; ++i)
+		{			
+			wstring FileName = L"Muzzle_0" + to_wstring(i);
+			EngineFunction->Load_Texture(L"Texture/Effect/Muzzle/" + FileName, FileName);
+		}
 	}
 
 
@@ -121,6 +153,9 @@ void TestScene::Initialize()
 		EngineFunction->Load_Mesh(L"Mesh/Zeds/Patriarch/Patriarch.X", L"Patriarch");
 
 	}
+
+
+
 
 	{//Hud
 		HudManager::Get_Instance();
@@ -152,7 +187,7 @@ void TestScene::Initialize()
 			Hud_Armor->Set_Scale(Vector3(0.5f, 0.5f, 0.5f));
 
 			Sprite::Desc ArmorSprite;
-			ArmorSprite.TextureName = L"Hud_Armor";
+			ArmorSprite.TextureName = L"Hud_Armor"; 
 			Hud_Armor->Add_UIComponent<Sprite>(&ArmorSprite);
 
 			Text::Desc ArmorText;
@@ -289,8 +324,10 @@ void TestScene::Initialize()
 		{
 			//256x256
 			UI*	Hud_Clock = INSTANTIATE_UI(L"Clock");
-			Hud_Clock->Set_Position(Vector3(64 + 5.f, 64 + 5.f, 0.f));
+			//Hud_Clock->Set_Position(Vector3(64 + 5.f, 64 + 5.f, 0.f));
+			Hud_Clock->Set_Position(Vector3(1216 - 5.f, 64 + 5.f, 0.f));
 			Hud_Clock->Set_Scale(Vector3(0.5f, 0.5f, 0.5f));
+			Hud_Clock->Set_Active(false);
 
 			Sprite::Desc ClockSprite;
 			ClockSprite.TextureName = L"Hud_Clock";
@@ -331,6 +368,21 @@ void TestScene::Initialize()
 
 
 			HudManager::Get_Instance()->Insert_Hud(L"EnemyCount", Hud_EnemyCount);
+		}
+
+		{
+			
+			UI*	HitEffect = INSTANTIATE_UI(L"HitEffect");
+			HitEffect->Set_Position(Vector3(640.f,360.f, 0.f));
+			//HitEffect->Set_Scale(Vector3(0f, 0.5f, 0.5f));
+			HitEffect->Set_Active(false);
+
+			Sprite::Desc HitEffect_Sprite;
+			HitEffect_Sprite.TextureName = L"HitEffect";
+			HitEffect->Add_UIComponent<Sprite>(&HitEffect_Sprite);
+
+
+			HudManager::Get_Instance()->Insert_Hud(L"HitEffect", HitEffect);
 		}
 		
 	}
@@ -374,7 +426,7 @@ void TestScene::Initialize()
 		PlayerStateCtrl->Add_State<Player_Swap>(L"Player_Swap");
 		PlayerStateCtrl->Set_InitState(L"Player_Idle");
 		
-
+		Player->Add_Component<ShakeObject>();
 
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"M99";
@@ -384,8 +436,8 @@ void TestScene::Initialize()
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 
 		Player_Move::Desc player_Desc;
-		player_Desc.fWalkSpd = 40.f;
-		player_Desc.fSprintSpd = 80.f;
+		player_Desc.fWalkSpd = 60.f;
+		player_Desc.fSprintSpd = 70.f;
 		player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
 		Player->Add_Component<Player_Move>(&player_Desc);
 
@@ -479,10 +531,27 @@ void TestScene::Initialize()
 
 	//	AnimationController::Desc Clot_Anim;
 	//	Clot_Anim.InitIndex = 0;
-	//	Clot_Anim.bLoop = true;
+	//	aClot_Anim.bLoop = true;
 	//	TestClot->Add_Component<AnimationController>(&Clot_Anim);
 
 	
+	}
+
+	{ //StageState Setting
+
+		auto StageMgr = StageManager::Get_Instance();
+
+		auto gameObject = StageMgr->Get_GameObject();
+		gameObject->Add_Component<StateController>();
+
+		auto StageCtrl = gameObject->Get_Component<StateController>();
+
+		StageCtrl->Add_State<Stage_Shop>(L"Stage_Shop");
+		StageCtrl->Add_State<Stage_1>(L"Stage_1");
+		StageCtrl->Add_State<Stage_2>(L"Stage_2");
+		StageCtrl->Add_State<Stage_Boss>(L"Stage_Boss");
+
+		StageCtrl->Set_InitState(L"Stage_1");
 	}
 
 

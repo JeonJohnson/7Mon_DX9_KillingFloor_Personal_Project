@@ -86,9 +86,6 @@
     <Filter Include="04.Components">
       <UniqueIdentifier>{4f59d99f-da1e-4665-8e0d-96034d48f9e6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04.Components\ObjShaking">
-      <UniqueIdentifier>{5861f983-f1d9-419c-9af2-db731b9dc70e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="03.Objects\01.Player">
       <UniqueIdentifier>{441fd630-3198-4e91-8330-92e907c50c8e}</UniqueIdentifier>
     </Filter>
@@ -125,20 +122,11 @@
     <Filter Include="02.Scene\02.Stage\Stage_State">
       <UniqueIdentifier>{7a69c94e-fb46-48cd-ae94-d50c504c73e7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02.Scene\02.Stage\Stage_State\01.Stage_01">
-      <UniqueIdentifier>{43bba4d4-6cc9-4a75-8746-50d57556bcac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.Scene\02.Stage\Stage_State\00.Stage_Shop">
       <UniqueIdentifier>{764f0b92-fb78-45db-8a2f-35d42223c146}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.Scene\02.Stage\Stage_State\04.Stage_Boss">
       <UniqueIdentifier>{5a2127d8-bd03-4857-bf37-b140ec3ecdc4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.Scene\02.Stage\Stage_State\03.Stage_03">
-      <UniqueIdentifier>{9f1f1801-9ec5-48f6-b2b6-da8ce0488d70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02.Scene\02.Stage\Stage_State\02.Stage_02">
-      <UniqueIdentifier>{c3e76c56-ccd0-424e-842d-e45f6186021a}</UniqueIdentifier>
     </Filter>
     <Filter Include="03.Objects\01.Player\00.Manager">
       <UniqueIdentifier>{f4dcc5e8-ed76-4940-beb5-9918064d8785}</UniqueIdentifier>
@@ -200,8 +188,32 @@
     <Filter Include="03.Objects\05.Boss">
       <UniqueIdentifier>{3873e5d8-eead-4575-b16a-bafaa0970024}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.Ui\MainMenuSpriteAnim">
+      <UniqueIdentifier>{f9a0632a-150b-4a93-b82a-049fe174e583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\01.MainMenu\ZedChanger">
+      <UniqueIdentifier>{7181e0ee-6469-4d34-8fe7-538e085081c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\01.MainMenu\MenuSelector">
+      <UniqueIdentifier>{982c6b57-2aa8-4627-a8a5-fa3c84a2f592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\01.MainMenu\FilmGrain">
+      <UniqueIdentifier>{7e84d6ed-419a-4ea9-8b57-0bffc989c8c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Manager\StageManager">
+      <UniqueIdentifier>{dc7c9b8b-3f20-4af9-911f-b00910154533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\01.Stage_1">
+      <UniqueIdentifier>{43bba4d4-6cc9-4a75-8746-50d57556bcac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\02.Stage_2">
+      <UniqueIdentifier>{c3e76c56-ccd0-424e-842d-e45f6186021a}</UniqueIdentifier>
+    </Filter>
     <Filter Include="02.Scene\02.Stage\StageManager">
       <UniqueIdentifier>{d0e297c1-f6a0-49b6-9b85-22003734a3bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Components\ShakeObject">
+      <UniqueIdentifier>{5861f983-f1d9-419c-9af2-db731b9dc70e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +340,30 @@
     <ClInclude Include="..\Header\Zed_Death.h">
       <Filter>03.Objects\04.Zeds\States\06.Death</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\ZedChanger.h">
+      <Filter>02.Scene\01.MainMenu\ZedChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\MenuSelector.h">
+      <Filter>02.Scene\01.MainMenu\MenuSelector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\FilmGrainEffect.h">
+      <Filter>02.Scene\01.MainMenu\FilmGrain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Stage_Shop.h">
+      <Filter>02.Scene\02.Stage\Stage_State\00.Stage_Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Stage_1.h">
+      <Filter>02.Scene\02.Stage\Stage_State\01.Stage_1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Stage_2.h">
+      <Filter>02.Scene\02.Stage\Stage_State\02.Stage_2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Stage_Boss.h">
+      <Filter>02.Scene\02.Stage\Stage_State\04.Stage_Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ShakeObject.h">
+      <Filter>04.Components\ShakeObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -428,6 +464,30 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Zed_Death.cpp">
       <Filter>03.Objects\04.Zeds\States\06.Death</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\ZedChanger.cpp">
+      <Filter>02.Scene\01.MainMenu\ZedChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\MenuSelector.cpp">
+      <Filter>02.Scene\01.MainMenu\MenuSelector</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\FilmGrainEffect.cpp">
+      <Filter>02.Scene\01.MainMenu\FilmGrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Stage_Shop.cpp">
+      <Filter>02.Scene\02.Stage\Stage_State\00.Stage_Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Stage_1.cpp">
+      <Filter>02.Scene\02.Stage\Stage_State\01.Stage_1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Stage_2.cpp">
+      <Filter>02.Scene\02.Stage\Stage_State\02.Stage_2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Stage_Boss.cpp">
+      <Filter>02.Scene\02.Stage\Stage_State\04.Stage_Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\ShakeObject.cpp">
+      <Filter>04.Components\ShakeObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

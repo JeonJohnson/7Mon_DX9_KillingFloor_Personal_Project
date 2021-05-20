@@ -47,10 +47,12 @@ public:
 
 
 
-public:
+public: /* Get */
+	int		Get_ZedCount();
 
-
-public:
+	Vector3		Get_ZedGenLocate(eZedGenLocate _eZedGenLocate);
+	Vector3		Get_ZedGenLocate(int _iZedGenLocate);
+public: /* Set */
 	void	Set_ZedCount(int _Count);
 	void	Add_ZedCount(int _Count);
 

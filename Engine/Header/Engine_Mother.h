@@ -128,6 +128,8 @@ public: /* Input Manager */
 	POINT	Get_MousePos();
 	POINT	Get_MousePos(HWND _hWnd);
 
+	void	MouseLock();
+
 public: /* Scene Manager */
 	void Add_Scene(const wstring& _wName, Scene* _pScene);
 	void Load_Scene(const wstring& _wName);
@@ -165,12 +167,13 @@ public: /* Render Manager */
 
 
 public: /* Resource Manager */
-	Texture* Load_Texture(const wstring & _wPath, const wstring& _wName);
+	Texture*	Load_Texture(const wstring & _wPath, const wstring& _wName);
+	Texture*	Add_Texture(Texture* _pTexture, const wstring& _wPath);
 	//void Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName= L"");
 	//void Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName);
-	Mesh*	Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
-	HRESULT	Load_TerrainLayout(const wstring& _szDataPath);
-	HRESULT	Load_NaviMeshData(const wstring& _szDataPath);
+	Mesh*		Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
+	HRESULT		Load_TerrainLayout(const wstring& _szDataPath);
+	HRESULT		Load_NaviMeshData(const wstring& _szDataPath);
 	NaviMesh*	Get_NaviMesh(const wstring& _szNaviMeshName = L"");
 	NaviMesh*	Get_NaviMeshClone();
 

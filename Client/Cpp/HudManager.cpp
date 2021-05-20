@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "..\Header\HudManager.h"
+#include "Sprite.h"
 
 HudManager* HudManager::m_pInstance = nullptr;
 
@@ -39,11 +40,12 @@ void HudManager::Initialize()
 
 void HudManager::Update()
 {
-	m_umStageHuds[L"Hp"]->Set_Button(true);
-	if (m_umStageHuds[L"Hp"]->MouseOn())
-	{
-		DEBUG_LOG(L"MouseOn");
-	}
+	//m_umStageHuds[L"Hp"]->Set_Button(true);
+	//if (m_umStageHuds[L"Hp"]->MouseOn())
+	//{
+	//	DEBUG_LOG(L"MouseOn");
+	//}
+	Hit_EffectOff();
 }
 
 void HudManager::LateUpdate()
@@ -57,6 +59,35 @@ void HudManager::ReadyRender()
 
 void HudManager::Release()
 {
+}
+
+void HudManager::Hit_EffectOn()
+{
+
+	UI* uiTemp = Get_Hud(L"HitEffect");
+	uiTemp->Set_Active(true);
+	Sprite* hitEffect = (Sprite*)uiTemp->Get_Sprite();
+
+	//hitEffect->Set_Color(D3DCOLOR_RGBA(125, 255, 255, 255));
+	hitEffect->Set_Alpha(1.f);
+	m_bHitEffect = true;
+}
+
+void HudManager::Hit_EffectOff()
+{
+	if (m_bHitEffect)
+	{
+		UI* uiTemp = Get_Hud(L"HitEffect");
+		//uiTemp->Set_Active(true);
+		Sprite* hitEffect = (Sprite*)uiTemp->Get_Sprite();
+
+		hitEffect->Add_Alpha(fTime * -0.5f);
+
+		if (hitEffect->Get_Alpha() <= 0.f)
+		{
+			uiTemp->Set_Active(false);
+		}
+	}
 }
 
 UI * HudManager::Get_Hud(const wstring & _szName)

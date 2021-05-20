@@ -73,6 +73,7 @@ typedef enum eZedGenLocate
 	HOTEL_LEFT,
 	HOTEL_RIGHT,
 	ZED_GEN_END
+
 }ZED_LOCATE;
 
 

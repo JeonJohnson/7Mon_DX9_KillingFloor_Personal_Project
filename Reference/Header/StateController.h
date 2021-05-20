@@ -23,7 +23,7 @@ public:
 	};
 
 public:
-	explicit StateController(Desc* _desc);
+	StateController(Desc* _desc);
 	virtual ~StateController();
 
 public:

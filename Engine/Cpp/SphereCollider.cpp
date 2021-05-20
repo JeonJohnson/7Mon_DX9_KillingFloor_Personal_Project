@@ -68,7 +68,8 @@ bool SphereCollider::Sphere2Sphere(SphereCollider * _pStart, SphereCollider * _p
 
 	Vector3 vDist = vPosDest - vPosStart;
 	float vDistLength = D3DXVec3Length(&vDist);
-	Engine_Mother::Get_Instance()->DebugLog(to_wstring(vDistLength));
+
+	//Engine_Mother::Get_Instance()->DebugLog(L"Collider Test : " +to_wstring(vDistLength));
 
 	if (vDistLength <= _pStart->Get_Radius() + _pDest->Get_Radius())
 	{

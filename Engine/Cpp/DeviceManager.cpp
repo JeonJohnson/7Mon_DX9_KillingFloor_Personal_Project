@@ -16,6 +16,7 @@ void DeviceManager::Initialize(HWND _hWnd, UINT _wincx, UINT _wincy, bool _windo
 {
 	m_vWindowSize.x = (float)_wincx;
 	m_vWindowSize.y = (float)_wincy;
+	m_hWnd = _hWnd;
 
 	if (Ready_DX9_Device(_hWnd, _wincx, _wincy, _windowMode) == E_FAIL)
 	{
@@ -134,6 +135,11 @@ LPD3DXSPRITE DeviceManager::Get_DX9_Sprite() const
 const Vector2 & DeviceManager::Get_WindowSize() const
 {
 	return m_vWindowSize;
+}
+
+HWND DeviceManager::Get_HWND()
+{
+	return m_hWnd;
 }
 
 #ifdef _DEBUG

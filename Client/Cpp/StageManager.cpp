@@ -18,6 +18,8 @@ StageManager * StageManager::Get_Instance()
 	{
 		GameObject*	mgrObj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"StageManager");
 		mgrObj->Add_Component<StageManager>();
+		//mgrObj->Add_Component<StateController>();
+
 		m_pInstance = mgrObj->Get_NewComponent<StageManager>();
 
 		//m_pInstance->SetDontDestory(true);
@@ -31,6 +33,7 @@ void StageManager::Destory_Instance()
 	if (m_pInstance)
 	{
 		GameObject::Destory(m_pInstance->Get_GameObject());
+		m_pInstance = nullptr;
 	}
 }
 

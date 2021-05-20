@@ -217,6 +217,11 @@ POINT Engine_Mother::Get_MousePos(HWND _hWnd)
 	return m_pInputManager->Get_MousePos(_hWnd);
 }
 
+void Engine_Mother::MouseLock()
+{
+	m_pInputManager->MouseLock();
+}
+
 void Engine_Mother::Add_Scene(const wstring & _wName, Scene * _pScene)
 {
 	m_pSceneManager->Insert_Scene(_wName, _pScene);
@@ -292,6 +297,11 @@ void Engine_Mother::Insert_Light(D3DLIGHT9 * _pLight, const wstring & _Name)
 Texture* Engine_Mother::Load_Texture(const wstring & _wPath, const wstring & _wName)
 {
 	return m_pResourceManager->Load_Texture(_wPath, _wName);
+}
+
+Texture * Engine_Mother::Add_Texture(Texture* _pTexture, const wstring & _wPath)
+{
+	return m_pResourceManager->Add_Texture(_pTexture, _wPath);;
 }
 
 //void Engine_Mother::Load_StaticMesh(const wstring & _szMeshPath, const wstring & _szTexPath, const wstring & _szMeshName)

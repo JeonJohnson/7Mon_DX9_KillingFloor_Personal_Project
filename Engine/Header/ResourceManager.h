@@ -142,8 +142,7 @@ public:
 	
 	//Texture
 	Texture*	Load_Texture(const wstring& _wPath, const wstring& _wName);
-	HRESULT		Add_Texture(Texture* _texture, 
-		const wstring& _wPath, const wstring& _wName = L"");
+	Texture*	Add_Texture(Texture* _texture, const wstring& _wPath);
 
 	void Load_ALLTextures();
 	void Load_DDS();

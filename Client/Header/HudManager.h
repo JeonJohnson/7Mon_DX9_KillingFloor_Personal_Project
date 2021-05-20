@@ -34,7 +34,8 @@ public:
 	virtual void Release() override;
 
 public: /* Func */
-	
+	void		Hit_EffectOn();
+	void		Hit_EffectOff();
 	
 
 public: /* Get */
@@ -61,6 +62,7 @@ public: /* Set */
 private:
 
 	unordered_map<wstring, UI*>	m_umStageHuds;
+	bool		m_bHitEffect = false;
 	 
 	//UI*		m_pHp			= nullptr;
 	//UI*		m_pArmor		= nullptr;

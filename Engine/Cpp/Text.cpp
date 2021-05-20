@@ -93,11 +93,22 @@ void Text::Render()
 
 		//m_pDX9_Sprite->SetTransform(&matWorld);
 
-		RECT	RectTemp = m_UiObject->Get_Rect();
-		RectTemp.left += (LONG)m_vOffSet.x;
-		RectTemp.right += (LONG)m_vOffSet.x;
-		RectTemp.top += (LONG)m_vOffSet.y;
-		RectTemp.bottom += (LONG)m_vOffSet.y;
+		RECT	RectTemp;
+		//if (m_UiObject->Get_Sprite() != nullptr)
+		//{
+			RectTemp = m_UiObject->Get_Rect();
+
+			RectTemp.left += (LONG)m_vOffSet.x;
+			RectTemp.right += (LONG)m_vOffSet.x;
+			RectTemp.top += (LONG)m_vOffSet.y;
+			RectTemp.bottom += (LONG)m_vOffSet.y;
+		//}
+		//else 
+		//{
+		//	RectTemp = m_tRect;
+		//}
+		
+
 
 		m_pDx9_Font->DrawTextW(
 			/*m_pDX9_Sprite,*/

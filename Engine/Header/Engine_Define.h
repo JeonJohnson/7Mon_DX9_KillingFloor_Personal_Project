@@ -11,7 +11,7 @@
 #define DLL_STATE _declspec(dllimport)
 #endif //DLL_EXPORT
 
-#define fTime TimeManager::Get_Instance()->Get_fTime()
+#define Engine_fTime TimeManager::Get_Instance()->Get_fTime()
 
 
 #define	Declare_Singleton(Class)				\

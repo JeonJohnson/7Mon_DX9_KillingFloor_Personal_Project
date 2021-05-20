@@ -27,6 +27,9 @@ public:
 	void		Check_WindowFocus();
 
 public:
+	void		MouseLock();
+
+public:
 	//bool	GetKeyUp(const DWORD & _dwKey);
 	//bool	GetKeyDown(const DWORD & _dwKey);
 	//bool	GetKeyPress(const DWORD & _dwKey);

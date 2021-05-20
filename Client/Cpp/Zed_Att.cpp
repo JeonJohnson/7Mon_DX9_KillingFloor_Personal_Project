@@ -5,6 +5,8 @@
 #include "AnimationController.h"
 #include "SphereCollider.h"
 #include "Player_Status.h"
+#include "ShakeObject.h"
+#include "HudManager.h"
 
 
 Zed_Att::Zed_Att()
@@ -61,6 +63,8 @@ void Zed_Att::UpdateState()
 		if (m_pCol->Collision_Check(m_pPlayer, L"Player"))
 		{
 			m_pPlayer->Get_Component<Player_Status>()->Damaged(m_pZedInfo->Get_ZedInfo().m_iDmg);
+			m_pPlayer->Get_Component<ShakeObject>()->Shaking(0.5f, 10, 0.025f);
+			HudManager::Get_Instance()->Hit_EffectOn();
 			m_pCol->Set_Check(false);
 		}
 	}

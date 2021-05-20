@@ -101,6 +101,8 @@ public: /* function */
 	void Update_UITransform();
 	
 	bool Clikced();
+	bool Pressed();
+	bool ClickedUp();
 	bool MouseOn();
 
 public: /* Get */
@@ -131,22 +133,27 @@ public: /* Set */
 	//void			Set_Rotation(const Vector3& _vRot);
 	//void			Add_Rotation()
 
+	void			Set_Rect(const RECT& _tRect);
+	void			Set_Width(float _fWidth);
+	void			Set_Height(float _fHeight);
+
+
 private:
 	//tuple<wstring, Sprite*, Text*>	m_tupUIComponents;
 	//Transform* m_pTransform = nullptr;
 
-	Vector3				m_vPosition;
-	Vector3				m_vScale;
-	Vector3				m_vRotation;
+	Vector3				m_vPosition = { 720.f, 360.f,0.f };
+	Vector3				m_vScale = { 1.f, 1.f, 0.f };
+	Vector3				m_vRotation = { 0.f,0.f,0.f };
 	
 	float				m_fWidth;
 	float				m_fHeight;
 	Vector3				m_vCenter;
 	RECT				m_tRect;
 
-	bool				m_bButton;
-	bool				m_bActive;
-	bool				m_bAlive;
+	bool				m_bButton = false;
+	bool				m_bActive = true;
+	bool				m_bAlive = true;
 	bool				m_bDontDestroy;
 	
 	wstring				m_wName;

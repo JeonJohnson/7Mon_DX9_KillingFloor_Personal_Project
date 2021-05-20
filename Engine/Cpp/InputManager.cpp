@@ -1,4 +1,5 @@
 #include "..\Header\InputManager.h"
+#include "DeviceManager.h"
 
 Implement_Singleton(InputManager)
 
@@ -135,6 +136,7 @@ HRESULT InputManager::Mouse_Create(HWND hWnd, bool _IsEngine)
 	//DISCL_BACKGROUND | DISCL_NONEXCLUSIVE : 반대
 	if (!_IsEngine)
 	{
+		//클라이언트
 		if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE)))
 		{
 			//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
@@ -143,6 +145,7 @@ HRESULT InputManager::Mouse_Create(HWND hWnd, bool _IsEngine)
 	}
 	else 
 	{
+			//툴
 		if (FAILED(m_pDInput8_Mouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE)))
 		{
 			//=> 클라이언트에 포커싱 되어있을때만 입력받도록.
@@ -186,6 +189,16 @@ void InputManager::Check_WindowFocus()
 	{
 		m_pDInput8_Mouse->Acquire();
 	}
+}
+
+void InputManager::MouseLock()
+{
+	m_pDInput8_Mouse->Unacquire();
+
+	HRESULT temp = m_pDInput8_Mouse->SetCooperativeLevel(DeviceManager::Get_Instance()->Get_HWND(), 
+		DISCL_FOREGROUND | DISCL_EXCLUSIVE);
+
+	m_pDInput8_Mouse->Acquire();
 }
 
 bool InputManager::GetKeyUp(BYTE _KeyVal)

@@ -89,7 +89,7 @@ void Transform::LookAt(GameObject * _pTarget, float _fSpd, Quaternion * _pOutRot
 	D3DXVec3Cross(&vAxis, &vForward, &vDir);
 	D3DXVec3Normalize(&vAxis, &vAxis);
 
-	Quaternion QuatTemp = m_Transform->RotateAxis(vAxis, fTime*_fSpd);
+	Quaternion QuatTemp = m_Transform->RotateAxis(vAxis, Engine_fTime*_fSpd);
 
 	if (_pOutRot != nullptr)
 	{
@@ -116,7 +116,7 @@ void Transform::LookAt(const Vector3 & _pTargetPos, float _fSpd, Quaternion * _p
 	D3DXVec3Cross(&vAxis, &vForward, &vDir);
 	D3DXVec3Normalize(&vAxis, &vAxis);
 
-	Quaternion QuatTemp = m_Transform->RotateAxis(vAxis, fTime*_fSpd);
+	Quaternion QuatTemp = m_Transform->RotateAxis(vAxis, Engine_fTime*_fSpd);
 
 	if (_pOutRot != nullptr)
 	{

@@ -44,6 +44,8 @@ void Zed_Walk::EnterState()
 	{	
 		m_pAnimCtrl->Play(m_iWalknimIndex, true);
 	}
+	
+	m_fWalkOffset = (float)(rand() % 10);
 }
 
 void Zed_Walk::UpdateState()
@@ -55,7 +57,8 @@ void Zed_Walk::UpdateState()
 	Vector3 vForward = m_Transform->Get_Forward();
 	Vector3 vRight = m_Transform->Get_Right();
 	Vector3	vLeft = vRight * -1;
-	float fSpd = m_pZedInfo->Get_ZedInfo().m_fWalkSpd;
+
+	//float fSpd = m_pZedInfo->Get_ZedInfo().m_fWalkSpd + ;
 	//m_Transform->Add_Position(vForward * fTime * m_pZedInfo->Get_ZedInfo().m_fWalkSpd);
 
 
@@ -86,7 +89,8 @@ void Zed_Walk::UpdateState()
 	//else 
 	//{
 	//	m_pZedInfo->Set_DontLook(false);
-		m_Transform->Add_Position(m_pNaviMesh->Add_Pos(m_Transform->Get_Position(), vForward * fTime * m_pZedInfo->Get_ZedInfo().m_fWalkSpd, &m_icurCellIndex));
+
+		m_Transform->Add_Position(m_pNaviMesh->Add_Pos(m_Transform->Get_Position(), vForward * fTime * (m_pZedInfo->Get_ZedInfo().m_fWalkSpd + m_fWalkOffset), &m_icurCellIndex));
 	//}
 
 	

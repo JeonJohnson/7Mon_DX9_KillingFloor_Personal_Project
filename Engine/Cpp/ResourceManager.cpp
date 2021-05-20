@@ -133,16 +133,19 @@ Texture* ResourceManager::Load_Texture(const wstring & _wPath, const wstring& _w
 	return TexTemp;
 }
 
-HRESULT ResourceManager::Add_Texture(Texture * _texture, const wstring & _wPath, const wstring & _wName)
+Texture* ResourceManager::Add_Texture(Texture * _texture, const wstring & _wPath)
 {
 	wstring szFullPath = m_wFolderPath + _wPath;
 
-	if (FAILED(_texture->Insert_Texture(szFullPath, TEXTURE_KIND::Texture_Image)))
-	{
-		return E_FAIL;
-	}
+	HRESULT _result	=  _texture->Insert_Texture(szFullPath, TEXTURE_KIND::Texture_Image);
 
-	return S_OK;
+	if (_result == E_FAIL)
+	{
+		return nullptr;
+	}
+	
+	return _texture;
+		
 }
 
 //StaticMesh * ResourceManager::Load_StaticMesh(const wstring& _szMeshPath, const wstring& _szTexPath, const wstring& _szMeshName)

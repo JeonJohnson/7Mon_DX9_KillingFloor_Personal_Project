@@ -141,4 +141,16 @@ void Sprite::Add_Alpha(float _fAlpha)
 	m_tColor.a = fTemp;
 }
 
+void Sprite::Set_Color(D3DXCOLOR _tColor)
+{
+	m_tColor = _tColor;
+}
+
+void Sprite::Set_Texture(const wstring & _szTextureName)
+{
+	m_pTexture = ResourceManager::Get_Instance()->Get_Resource<Texture>(_szTextureName);
+	
+	assert(L"Texture Load Failed to Sprite" && m_pTexture);
+}
+
 
