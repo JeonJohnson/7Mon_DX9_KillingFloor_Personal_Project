@@ -49,7 +49,7 @@ void SoundManager::Play_Sound(TCHAR * _pSoundKey, _sound_channel _eID)
 
 	if (FMOD_Channel_IsPlaying(m_pChannelArr[_eID], &bPlay))
 	{
-		FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+		FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[_eID]);
 	}
 	//FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
 
