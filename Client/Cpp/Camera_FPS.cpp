@@ -84,8 +84,5 @@ void Camera_FPS::Look()
 
 	m_Transform->Set_Rotation(Vector3(m_fRotY, m_fRotX, m_fRotZ));
 
-
-
-
 }
 

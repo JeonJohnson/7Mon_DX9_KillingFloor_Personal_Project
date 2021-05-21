@@ -31,7 +31,10 @@ private:
 	map<TCHAR*, FMOD_SOUND*> m_mapSound;
 	// FMOD_CHANNEL : 재생하고 있는 사운드를 관리할 객체 
 	
-	FMOD_CHANNEL* m_pChannelArr[8]; //동적할당이나 STL로 바꿔주기
+	FMOD_CHANNEL* m_pChannelArr[32]; //동적할당이나 STL로 바꿔주기
+	//안됨. 구조체 직접 참조가 안되서 그냥 채널 많이 만들어 놓고 쓰장 ㅎㅎ;
+
+
 	// 사운드 ,채널 객체 및 장치를 관리하는 객체 
 	FMOD_SYSTEM* m_pSystem = nullptr;
 };

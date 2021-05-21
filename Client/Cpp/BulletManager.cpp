@@ -80,12 +80,10 @@ void BulletManager::Create_Bullet(GameObject* _pPlayer, const WEAPON_INFO& _tInf
 	Bullet->Add_Component<Bullet_Move>(&bulletmove);
 }
 
-void BulletManager::Create_Muzzle(GameObject* _pPlayer, Mesh* _pMesh)
+void BulletManager::Create_Muzzle(GameObject* _pPlayer, Mesh* _pMesh, const WEAPON_INFO& _tInfo)
 {
-	
 	GameObject* Muzzle = INSTANTIATE(OBJECT_TAG_DEFAULT, L"");
 	
-
 	int iRand = rand() % 4;
 	VIBuffer_Renderer::Desc sprite;
 	sprite.wBufferName = RECT_TEXTURE;
@@ -95,9 +93,10 @@ void BulletManager::Create_Muzzle(GameObject* _pPlayer, Mesh* _pMesh)
 	sprite.iLayer = RENDER_LAYER_Alpha;
 	Muzzle->Add_Component<VIBuffer_Renderer>(&sprite);
 
+
 	MuzzleEffect::Desc effect;
 	effect.pPlayer = _pPlayer;
 	effect.pMesh = _pMesh;
-
+	effect.fmaxsize = _tInfo.m_iDmg / 7.f;
 	Muzzle->Add_Component<MuzzleEffect>(&effect);
 }

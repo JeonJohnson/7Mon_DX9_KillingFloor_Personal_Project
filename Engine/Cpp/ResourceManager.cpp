@@ -273,9 +273,17 @@ const wstring & ResourceManager::Get_ResourceFolderPath() const
 	return m_wFolderPath;
 }
 
-NaviMesh* ResourceManager::Get_NaviMesh() const
+NaviMesh* ResourceManager::Get_NaviMesh(const wstring& _szName) const
 {
-	return m_pNaviMesh;
+
+	auto iter_find = m_pNaviMesh.find(_szName);
+
+	if (iter_find == m_pNaviMesh.end())
+	{
+		return nullptr;
+	}
+
+	return (*iter_find).second;
 }
 
 NaviMesh * ResourceManager::Get_NaviMeshClone()
@@ -290,9 +298,10 @@ void ResourceManager::Set_ResourceFolderPath(const wstring & _wPath)
 	m_wFolderPath = _wPath;
 }
 
-void ResourceManager::Set_NaviMesh(NaviMesh * _pNaviMesh)
+void ResourceManager::Set_NaviMesh(NaviMesh * _pNaviMesh, const wstring& _szName)
 {
 	assert(L"NaviMehs is Failed " && _pNaviMesh);
 
-	m_pNaviMesh = _pNaviMesh;
+	//m_pNaviMesh = _pNaviMesh;
+	m_pNaviMesh.emplace(_szName, _pNaviMesh);
 }

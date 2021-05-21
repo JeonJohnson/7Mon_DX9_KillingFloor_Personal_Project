@@ -168,12 +168,12 @@ public:
 	wstring			EraseFileExtension(wstring _FileName);
 public: /* Get */
 	const wstring&	Get_ResourceFolderPath() const;
-	NaviMesh*		Get_NaviMesh()const;
+	NaviMesh*		Get_NaviMesh(const wstring& _szName)const;
 	NaviMesh*		Get_NaviMeshClone();
 
 public: /* Set */
 	void Set_ResourceFolderPath(const wstring& _wPath);
-	void Set_NaviMesh(NaviMesh* _pNaviMesh);
+	void Set_NaviMesh(NaviMesh* _pNaviMesh, const wstring& _szName);
 	
 private:
 	typedef unordered_map<wstring, CResource*> RESOURCE_LIST;
@@ -186,8 +186,8 @@ private:
 	wstring		m_wFolderPath;
 
 
-	NaviMesh*	m_pNaviMesh = nullptr;
-	vector<NaviMesh*> m_pCloneNaviMesh;
+	map<wstring, NaviMesh*>	m_pNaviMesh;
+	//vector<NaviMesh*> m_pCloneNaviMesh;
 	int				m_iNaviPointCount;
 	Vector3*		m_arrNaviPointPosition;
 	Vector3*		m_arrCellPointIndex;

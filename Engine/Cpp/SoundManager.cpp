@@ -20,6 +20,12 @@ void SoundManager::Initialize(int _iChannelCount)
 
 	LoadSoundFile();
 
+	//for (int i = 0; i < _iChannelCount; ++i)
+	//{
+	//	FMOD_CHANNEL* temp = new FMOD_CHANNEL;
+	//	m_vecChannel.emplace_back();
+	//}
+
 }
 
 void SoundManager::Release()
@@ -157,5 +163,6 @@ void SoundManager::LoadSoundFile()
 		iResult = _findnext(handle, &fd);
 	}
 	FMOD_System_Update(m_pSystem);
+
 	_findclose(handle);
 }

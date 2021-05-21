@@ -80,7 +80,8 @@ HRESULT DeviceManager::Ready_DX9_Device(HWND _hWnd, UINT _wincx, UINT _wincy, bo
 #ifdef _DEBUG
 	d3dpp.Windowed = _windowMode;
 #else
-	d3dpp.Windowed = FALSE;
+	//d3dpp.Windowed = FALSE;
+	d3dpp.Windowed = TRUE;
 #endif //_DEUBG
 
 

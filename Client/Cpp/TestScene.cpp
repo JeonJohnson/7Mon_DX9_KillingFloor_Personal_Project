@@ -65,7 +65,8 @@ void TestScene::Initialize()
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
-	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh.bin");
+	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Player.bin", L"NaviMesh_Player");
+	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Zeds.bin", L"NaviMesh_Zeds");
 
 	{//UI Texture
 		//192x64
@@ -80,6 +81,9 @@ void TestScene::Initialize()
 
 		EngineFunction->Load_Texture(L"Texture/UI/Hud_Clock.png", L"Hud_Clock");
 		EngineFunction->Load_Texture(L"Texture/UI/Hud_EnemyCount.png", L"Hud_EnemyCount");
+
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_WeaponName.png", L"Hud_WeaponName");
+
 	}
 
 	{ //Effect
@@ -154,6 +158,8 @@ void TestScene::Initialize()
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Revolver.X", L"Revolver");
 
 		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Knife.X", L"Knife");
+
+
 		WeaponManager::Get_Instance()->Nogada_Data();
 	}
 
@@ -291,7 +297,7 @@ void TestScene::Initialize()
 
 		{//Money
 			UI*	Hud_Money = INSTANTIATE_UI(L"Money");
-			Hud_Money->Set_Position(Vector3(1155.f, 610.f, 0.f));
+			Hud_Money->Set_Position(Vector3(1155.f, 580.f, 0.f));
 			Hud_Money->Set_Scale(Vector3(0.75f, 0.75f, 0.75f));
 
 			Sprite::Desc MoneySprite;
@@ -313,14 +319,19 @@ void TestScene::Initialize()
 		{
 			//Weapon
 			UI*	Hud_WeaponName = INSTANTIATE_UI(L"WeaponName");
-			Hud_WeaponName->Set_Position(Vector3(1215.f, 650.f, 0.f));
-			Hud_WeaponName->Set_Scale(Vector3(1.f, 1.f, 1.f));
+			Hud_WeaponName->Set_Position(Vector3(1192.5f, 640.f, 0.f));
+			Hud_WeaponName->Set_Scale(Vector3(0.75f, 0.75f, 0.75f));
+
+			Sprite::Desc WeaponNameSprite;
+			WeaponNameSprite.TextureName = L"Hud_WeaponName";
+
+			Hud_WeaponName->Add_UIComponent<Sprite>(&WeaponNameSprite);
 
 			Text::Desc WeaponText;
 			WeaponText.szScript = L"가나다라마바사";
 			WeaponText.iHeight = 30;
 			WeaponText.iWeight = FW_HEAVY;
-			WeaponText.ulOption = DT_VCENTER | DT_RIGHT | DT_NOCLIP;
+			WeaponText.ulOption = DT_VCENTER | DT_CENTER | DT_NOCLIP;
 			WeaponText.tColor = D3DCOLOR_RGBA(255, 0, 0, 255);
 			WeaponText.vOffSet = Vector2(0.f, 0.f);
 			Hud_WeaponName->Add_UIComponent<Text>(&WeaponText);
@@ -425,7 +436,7 @@ void TestScene::Initialize()
 
 	{
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
-		Player->Set_Position(Vector3(0.f, 20.f, 0.f));
+		Player->Set_Position(Vector3(0.f, 20.f, 250.f));
 
 		Player->Add_Component<StateController>();
 		auto PlayerStateCtrl = Player->Get_NewComponent<StateController>();
@@ -447,7 +458,7 @@ void TestScene::Initialize()
 		Player_Move::Desc player_Desc;
 		player_Desc.fWalkSpd = 60.f;
 		player_Desc.fSprintSpd = 70.f;
-		player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh();
+		player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh(L"NaviMesh_Player");
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Camera::Desc Cam_desc;

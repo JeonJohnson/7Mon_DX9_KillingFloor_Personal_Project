@@ -68,6 +68,7 @@ public:
 		_object_Tag			Object_Tag_MaxCount = 1;
 		_render_Layer		Render_Layer_MaxCount = 1;
 		_collision_Layer	Collision_Layer_MaxCount = 1;
+		_sound_channel		Sound_Channel_MaxCount =1;
 
 #ifdef _DEBUG
 		HWND	hWnd_DEBUG = nullptr;
@@ -175,8 +176,8 @@ public: /* Resource Manager */
 	//void Load_AnimMesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	Mesh*		Load_Mesh(const wstring& _szMeshPath, const wstring& _szMeshName);
 	HRESULT		Load_TerrainLayout(const wstring& _szDataPath);
-	HRESULT		Load_NaviMeshData(const wstring& _szDataPath);
-	NaviMesh*	Get_NaviMesh(const wstring& _szNaviMeshName = L"");
+	HRESULT		Load_NaviMeshData(const wstring& _szDataPath, const wstring& _szNaviMeshName);
+	NaviMesh*	Get_NaviMesh(const wstring& _szNaviMeshName);
 	NaviMesh*	Get_NaviMeshClone();
 
 public: /* Sound Manager */

@@ -382,7 +382,7 @@ HRESULT Engine_Mother::Load_TerrainLayout(const wstring & _szDataPath)
 	return S_OK;
 }
 
-HRESULT Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
+HRESULT Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath, const wstring& _szNaviMeshName)
 {
 	wstring szDataFullPath = m_pResourceManager->Get_ResourceFolderPath() + _szDataPath;
 
@@ -520,7 +520,7 @@ HRESULT Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 		tempNaviMesh->Link_Cells();
 	}
 
-	m_pResourceManager->Set_NaviMesh(tempNaviMesh);
+	m_pResourceManager->Set_NaviMesh(tempNaviMesh, _szNaviMeshName);
 
 #ifdef _DEBUG	
 	MsgBox(L"Notice", L"NaviMesh Load Compelate");
@@ -531,7 +531,7 @@ HRESULT Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 
 NaviMesh * Engine_Mother::Get_NaviMesh(const wstring & _szNaviMeshName)
 {
-	return m_pResourceManager->Get_Instance()->Get_NaviMesh();
+	return m_pResourceManager->Get_Instance()->Get_NaviMesh(_szNaviMeshName);
 }
 
 NaviMesh * Engine_Mother::Get_NaviMeshClone()

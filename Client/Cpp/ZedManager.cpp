@@ -179,7 +179,7 @@ void ZedManager::Generate_Clot(const Vector3 & _vPos, const Quaternion & _qRot, 
 		 
 		Zed::Desc Clot_Default;
 		Clot_Default.tZed_Status = arrZedInfo[ZED_Clot];
-		Clot_Default.pNaviMesh = EngineFunction->Get_NaviMesh();
+		Clot_Default.pNaviMesh = EngineFunction->Get_NaviMesh(L"NaviMesh_Zeds");
 		TestClot->Add_Component<Zed>(&Clot_Default);
 
 		++m_iZedCount;
@@ -223,7 +223,7 @@ void ZedManager::Generate_GoreFast(const Vector3 & _vPos, const Quaternion & _qR
 
 		Zed::Desc GoreFast_Default;
 		GoreFast_Default.tZed_Status = arrZedInfo[ZED_GoreFast];
-		GoreFast_Default.pNaviMesh = EngineFunction->Get_NaviMesh();
+		GoreFast_Default.pNaviMesh = EngineFunction->Get_NaviMesh(L"NaviMesh_Zeds");
 		TestGoreFast->Add_Component<Zed>(&GoreFast_Default);
 		//////////////////////////////////////////////////////////////////////////
 
@@ -269,7 +269,7 @@ void ZedManager::Generate_Scrake(const Vector3 & _vPos, const Quaternion & _qRot
 
 		Zed::Desc Scrake_Default;
 		Scrake_Default.tZed_Status = arrZedInfo[ZED_Scrake];
-		Scrake_Default.pNaviMesh = EngineFunction->Get_NaviMesh();
+		Scrake_Default.pNaviMesh = EngineFunction->Get_NaviMesh(L"NaviMesh_Zeds");
 		TestScrake->Add_Component<Zed>(&Scrake_Default);
 
 		++m_iZedCount;
