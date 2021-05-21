@@ -31,7 +31,7 @@ public:
 	LPDIRECT3DDEVICE9	m_pDX9_Device = nullptr;
 
 protected:
-	int m_iRenderLayer = 0;
+	int m_iRenderLayer = 1;
 };
 
 #endif //_RENDERER_H_

@@ -84,38 +84,58 @@ void RenderManager::Release()
 
 void RenderManager::Render_Priority()
 {
-	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
-	//m_pDX9_Device->SetRenderState(D3DRS_AMBIENT, 0x00202020);
-	//도형에 색깔이 안나온다? 조명을 "꺼"줘야함.
-	
-	//m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
-	//WrieFrame으로 그려주는것.
+	//m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
+	////m_pDX9_Device->SetRenderState(D3DRS_AMBIENT, 0x00202020);
+	////도형에 색깔이 안나온다? 조명을 "꺼"줘야함.
+	//
+	////m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+	////WrieFrame으로 그려주는것.
 
-	//m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
-		
-	//m_pDX9_Device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
-	m_pDX9_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	////m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+	//	
+	////m_pDX9_Device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+	//
+	//m_pDX9_Device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	
+	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
+	m_pDX9_Device->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
 
 	for (auto& renderer : m_RenderingList[0])
 	{
 		renderer->Render();
+
 	}
+	m_pDX9_Device->SetRenderState(D3DRS_ZWRITEENABLE, TRUE);
+	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, TRUE);
+	
 }
+
 
 void RenderManager::Render_NonAlpha()
 {
+
 	for (auto& renderer : m_RenderingList[1])
 	{
 		renderer->Render();
 	}
+	
 }
 
 void RenderManager::Render_Alpha()
 {
+	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, FALSE);
+
+	m_pDX9_Device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+	//m_pDX9_Device->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP::D3DBLENDOP_ADD);
+	//m_pDX9_Device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND::D3DBLEND_ONE);
+	//m_pDX9_Device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND::D3DBLEND_ONE);
+
 	for (auto& renderer : m_RenderingList[2])
 	{
 		renderer->Render();
 	}
+
+	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, TRUE);
 }
 
 void RenderManager::Render_UI()
@@ -177,7 +197,9 @@ void RenderManager::Render_UI()
 #pragma endregion
 	m_pDX9_Sprite->End();
 
+
 	LineManager::Get_Instance()->Render();
+
 }
 
 void RenderManager::Clear_RenderingList()

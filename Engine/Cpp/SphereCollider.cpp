@@ -13,12 +13,13 @@ SphereCollider::SphereCollider(Desc * _desc)
 
 	
 
-#ifdef _DEBUG
 	m_pDebuging = INSTANTIATE(0,L"SphereCollider");
 	m_pDebuging->Set_Scale(Vector3(m_fRadius*2, m_fRadius*2, m_fRadius*2));
 
 	//지금 총쏘면서 뜎뜎 끊키는 이유 얘임. 개 ㅡ 시발
 	//다른 버퍼로 그려도 똑같음 아 미치겠네 싯팔
+
+#ifdef _DEBUG
 	VIBuffer_Renderer::Desc colDesc;
 	colDesc.wBufferName = L"Sphere_Debug";
 	m_pDebuging->Add_Component<VIBuffer_Renderer>(&colDesc);
@@ -42,7 +43,6 @@ void SphereCollider::Update()
 	Vector3 MotherPos = m_Transform->Get_Position();
 	m_pDebuging->Set_Position(MotherPos + m_vOffset);
 	m_vCenter = m_pDebuging->Get_Position();
-
 
 	
 

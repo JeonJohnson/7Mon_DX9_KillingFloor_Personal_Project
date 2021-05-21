@@ -21,7 +21,8 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 	//m_pVIBuffer = new Rect_VIBuffer_Color;
 	m_pVIBuffer = ResourceManager::Get_Instance()->Get_Resource<VIBuffer>(_desc->wBufferName);
 	assert(L"VIBufferRenderer is cant find Obj" && m_pVIBuffer);
-	m_pVIBuffer->Set_RenderLayer(_desc->iLayer);
+	//m_pVIBuffer->Set_RenderLayer(_desc->iLayer);
+	m_iRenderLayer = _desc->iLayer;
 	//거 Renderer에 있는 iLayer를 세팅해주고.
 	//Rednerer에서 알아서 RenderManager로 보내줌 ^^~
 
@@ -31,6 +32,8 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 		m_pVIBuffer->Set_Texture(TexTemp);
 	}
 	
+	m_bEffect = _desc->bEffect;
+
 	Create_Shader(_desc->szShaderName);
 
 }
@@ -56,6 +59,8 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
+
+
 	Setup_ShaderTable();
 
 	//m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
@@ -69,11 +74,29 @@ void VIBuffer_Renderer::Render()
 	//		두번째 인자 -> 시작하는 방식을 묻는 인자, 0 = default
 	m_pEffectCom->BeginPass(0);
 
+
 	//렌더링 부분
 	if (FAILED(Binding_Stream_VIBuffer()))
 	{
 		assert(0 && L"VIBuffer Binding Stream is Failed");
 	}
+
+	if (m_pVIBuffer->Get_Kind() == VIBUFFER_KIND::VIBuffer_Textrue)
+	{
+		m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+	}
+	else if (m_pVIBuffer->Get_Kind() == VIBUFFER_KIND::VIBuffer_Color)
+	{
+		m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+	}
+	
+	if (m_bEffect)
+	{
+		m_pDX9_Device->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP::D3DBLENDOP_ADD);
+		m_pDX9_Device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND::D3DBLEND_ONE);
+		m_pDX9_Device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND::D3DBLEND_ONE);
+	}
+
 
 	if (m_pVIBuffer->Get_IBuffer_Com() == nullptr)
 	{
@@ -88,8 +111,6 @@ void VIBuffer_Renderer::Render()
 	}
 	else 
 	{
-		m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
-
 		if (FAILED(m_pDX9_Device->DrawIndexedPrimitive(
 			m_pVIBuffer->Get_DrawType(), //그리고자하는 방식.
 			0, 0,
@@ -100,7 +121,7 @@ void VIBuffer_Renderer::Render()
 		{
 			assert(0 && L"Index Buffer Object Draw Failed");
 		}
-		m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+		
 	}
 
 	m_pEffectCom->EndPass();

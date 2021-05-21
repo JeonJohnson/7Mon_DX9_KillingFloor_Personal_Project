@@ -38,6 +38,8 @@ Mesh_Renderer::Mesh_Renderer(Desc * _desc)
 	//	m_pMesh->Set_AnimationSet(_desc->iAnimIndex);
 	//}
 
+	m_iRenderLayer = _desc->iRenderLayer;
+
 	Create_Shader(_desc->szShaderName);
 }
 
@@ -69,6 +71,9 @@ void Mesh_Renderer::Render()
 
 	m_pEffectCom->Begin(&uiMaxPass, 0);
 	m_pEffectCom->BeginPass(0);
+
+
+	m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 
 	//Render Function
 	if (m_pMesh->Get_AnimController() == nullptr)

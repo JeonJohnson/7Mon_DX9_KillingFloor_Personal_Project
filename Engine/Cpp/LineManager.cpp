@@ -29,6 +29,7 @@ void LineManager::Initialize()
 
 void LineManager::Render()
 {
+#ifdef _DEBUG
 	Vector3		vPos[2];
 	//D3DCOLOR	tColor;
 	//float		fWidth;
@@ -60,7 +61,7 @@ void LineManager::Render()
 		m_pDX9_LineCom->DrawTransform(vPos, 2, &matTemp, line->Get_Color());
 		m_pDX9_LineCom->End();
 	}
-
+#endif //_DEBUG
 }
 
 void LineManager::Release()

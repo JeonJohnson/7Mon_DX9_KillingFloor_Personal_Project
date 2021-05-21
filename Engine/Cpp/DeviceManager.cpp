@@ -77,7 +77,12 @@ HRESULT DeviceManager::Ready_DX9_Device(HWND _hWnd, UINT _wincx, UINT _wincy, bo
 	d3dpp.hDeviceWindow = _hWnd;
 
 	//창모드 유무
+#ifdef _DEBUG
 	d3dpp.Windowed = _windowMode;
+#else
+	d3dpp.Windowed = FALSE;
+#endif //_DEUBG
+
 
 	//멀티샘플링 사용 안하겠다 이거야
 	d3dpp.MultiSampleType = D3DMULTISAMPLE_NONE;
@@ -87,6 +92,7 @@ HRESULT DeviceManager::Ready_DX9_Device(HWND _hWnd, UINT _wincx, UINT _wincy, bo
 	d3dpp.EnableAutoDepthStencil = TRUE;
 	//d3dpp.EnableAutoDepthStencil = eMode;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
+	//d3dpp.AutoDepthStencilFormat = D3DFMT_D32;
 
 	//주사율 설정
 	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT; //화면
@@ -194,6 +200,7 @@ HRESULT DeviceManager::Ready_DX9_Device_DEBUG(HWND _hWnd, UINT _wincx, UINT _win
 	d3dpp.EnableAutoDepthStencil = TRUE;
 	//d3dpp.EnableAutoDepthStencil = eMode;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
+	//d3dpp.AutoDepthStencilFormat = D3DFMT_D32;
 
 	//주사율 설정
 	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT; //화면

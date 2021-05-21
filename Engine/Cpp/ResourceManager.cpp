@@ -246,6 +246,8 @@ void ResourceManager::Insert_Shaders()
 	Load_Shader(L"Shader/Shader_Mesh.fx", L"Shader_Mesh");
 
 	Load_Shader(L"Shader/Shader_Sample.fx", L"Shader_Sample");
+
+	Load_Shader(L"Shader/Effect_VIBuffer.fx", L"Effect_VIBuffer");
 }
 
 wstring ResourceManager::EraseFolderPath(wstring _FullPath)

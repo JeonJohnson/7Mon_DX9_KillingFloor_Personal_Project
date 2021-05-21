@@ -179,5 +179,6 @@ HRESULT Rect_VIBuffer_Texture::Render_Texture(int _iNum)
 
 HRESULT Rect_VIBuffer_Texture::Render_Texture(LPD3DXEFFECT _pEffect, const char* _ShaderTexName, int _iTexNum)
 {
-	return _pEffect->SetTexture(_ShaderTexName, m_pTexture->Get_Texture(_iTexNum));
+	HRESULT	Temp = _pEffect->SetTexture(_ShaderTexName, m_pTexture->Get_Texture(_iTexNum));
+	return Temp;
 }

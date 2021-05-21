@@ -14,8 +14,6 @@ public:
 	Weapon();
 	virtual ~Weapon();
 
-
-
 public:
 	wstring		m_szName = L"";
 	

@@ -23,7 +23,9 @@ public:
 		
 		wstring		szShaderName = L"Debug_VIBuffer";
 
-		int			iLayer = 0;
+		int			iLayer = 1;
+
+		bool		bEffect = false;
 	};
 
 public:
@@ -57,6 +59,7 @@ private:
 	VIBuffer*		m_pVIBuffer = nullptr;
 	Shader*			m_pShaderCom = nullptr;
 	LPD3DXEFFECT	m_pEffectCom = nullptr;
+	bool			m_bEffect;
 
 };
 

@@ -13,6 +13,7 @@
 
 #include "HudManager.h"
 #include "Zed.h"
+#include "BulletManager.h"
 
 
 Player_Fire::Player_Fire()
@@ -32,7 +33,12 @@ void Player_Fire::EnterState()
 {
 	//m_pCurWeapon = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeapon();
 	
-	m_pCurWeaponStatus = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponStatus();
+	if (m_pPlayerAttack == nullptr)
+	{
+		m_pPlayerAttack = m_GameObject->Get_Component<Player_Attack>();
+	}
+
+	m_pCurWeaponStatus = m_pPlayerAttack->Get_CurWeaponStatus();
 
 	if (m_pPlayerCol == nullptr)
 	{
@@ -40,13 +46,19 @@ void Player_Fire::EnterState()
 	}
 
 
+
+
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType != Weapon_Knife)
 	{
 		m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
 
 		m_GameObject->Get_Component<AnimationController>()->Play(3);
-		Bullet_Test();
+		
+		BulletManager::Get_Instance()->Create_Bullet(m_GameObject,m_pCurWeaponStatus->m_tWeaponInfo);
+		BulletManager::Get_Instance()->Create_Muzzle(m_GameObject,m_pPlayerAttack->Get_Renderer()->Get_Mesh());
+		//Bullet_Test();
 		//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
+
 		m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 	}
 	else 
@@ -82,7 +94,12 @@ void Player_Fire::UpdateState()
 					}
 					m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
 					m_GameObject->Get_Component<AnimationController>()->Play(3);
-					Bullet_Test();
+					
+					BulletManager::Get_Instance()->Create_Bullet(m_GameObject, m_pCurWeaponStatus->m_tWeaponInfo);
+					BulletManager::Get_Instance()->Create_Muzzle(m_GameObject, m_pPlayerAttack->Get_Renderer()->Get_Mesh());
+					
+					//Bullet_Test();
+					
 					m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 				}
 			}
@@ -130,34 +147,34 @@ void Player_Fire::ExitState()
 {
 }
 
-void Player_Fire::Bullet_Test()
-{
-	GameObject* Bullet = INSTANTIATE(OBJECT_TAG_BULLET, L"TestBullet");
-	Vector3  vDir = m_Transform->Get_Position() /*+ m_Transform->Get_Forward()*50.f*/;
-	Bullet->Set_Position(vDir);
-	Bullet->Set_Rotation(m_Transform->Get_Rotation());
-
-	//Mesh_Renderer::Desc bulletRenderer;
-	//bulletRenderer.szMeshName = L"DebugSphere";
-	//Bullet->Add_Component<Mesh_Renderer>(&bulletRenderer);
-
-#ifdef _DEBUG
-	SphereCollider::Desc ColDesc;
-	ColDesc.fRadius = 0.5f;
-	ColDesc.szColName = L"bullet";
-	Bullet->Add_Component<SphereCollider>(&ColDesc);
-#endif //_DEBUG
-
-	//VIBuffer_Renderer::Desc BulletTrace_Desc;
-	//BulletTrace_Desc.wBufferName = L"Rect_Texture";
-	//BulletTrace_Desc.wTextureName = L"BulletTrace01"; 
-	//BulletTrace_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Alpha;
-	//Bullet->Add_Component<VIBuffer_Renderer>(&BulletTrace_Desc);
-
-	Bullet_Move::Desc bulletmove;
-	bulletmove.Spd = 2000.f;
-	bulletmove.Dmg = m_pCurWeaponStatus->m_tWeaponInfo.m_iDmg;
-	Bullet->Add_Component<Bullet_Move>(&bulletmove);
-
-
-}
+//void Player_Fire::Bullet_Test()
+//{
+//	GameObject* Bullet = INSTANTIATE(OBJECT_TAG_BULLET, L"TestBullet");
+//	Vector3  vDir = m_Transform->Get_Position() /*+ m_Transform->Get_Forward()*50.f*/;
+//	Bullet->Set_Position(vDir);
+//	Bullet->Set_Rotation(m_Transform->Get_Rotation());
+//
+//	//Mesh_Renderer::Desc bulletRenderer;
+//	//bulletRenderer.szMeshName = L"DebugSphere";
+//	//Bullet->Add_Component<Mesh_Renderer>(&bulletRenderer);
+//
+//#ifdef _DEBUG
+//	SphereCollider::Desc ColDesc;
+//	ColDesc.fRadius = 0.5f;
+//	ColDesc.szColName = L"bullet";
+//	Bullet->Add_Component<SphereCollider>(&ColDesc);
+//#endif //_DEBUG
+//
+//	//VIBuffer_Renderer::Desc BulletTrace_Desc;
+//	//BulletTrace_Desc.wBufferName = L"Rect_Texture";
+//	//BulletTrace_Desc.wTextureName = L"BulletTrace01"; 
+//	//BulletTrace_Desc.iLayer = RENDER_LAYER::RENDER_LAYER_Alpha;
+//	//Bullet->Add_Component<VIBuffer_Renderer>(&BulletTrace_Desc);
+//
+//	Bullet_Move::Desc bulletmove;
+//	bulletmove.Spd = 2000.f;
+//	bulletmove.Dmg = m_pCurWeaponStatus->m_tWeaponInfo.m_iDmg;
+//	Bullet->Add_Component<Bullet_Move>(&bulletmove);
+//
+//
+//}

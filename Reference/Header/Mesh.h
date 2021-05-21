@@ -30,6 +30,7 @@ public:
 	void		Setup_MeshContainerForEachBones(D3DXFrame_Derived* pFrame);
 	void		Update_BoneMatrix(D3DXFrame_Derived* pBone, Matrix* pParentMatrix);
 
+
 	//void		Set_AnimationSet(int _AnimIndex);
 	//void		Play_AnimationSet();
 
@@ -41,7 +42,10 @@ public: /* Get */
 	D3DXFRAME*							Get_RootFrame();
 	MeshContainer_Derived*				Get_RootFrame_MeshContainer();
 
-	Matrix							Get_MeshTransformMatrix() const;
+	Matrix								Get_MeshTransformMatrix() const;
+		
+	Matrix								Get_BoneLocalPosByName(const wstring& _szBoneName);
+
 
 public: /* Set */
 	void								Set_MeshTransformMatrix(const Matrix& _mat);

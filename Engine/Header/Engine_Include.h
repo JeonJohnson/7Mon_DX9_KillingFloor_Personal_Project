@@ -45,6 +45,11 @@ using namespace std;
 #include <vector>
 #include <list>
 
+/* Fmod, for Sound*/
+#include <io.h>
+#include "fmod.h"
+#pragma comment (lib, "fmodex_vc.lib")
+
 
 /* Direct 9 */
 #include <d3d9.h>

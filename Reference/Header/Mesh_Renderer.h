@@ -20,6 +20,7 @@ public:
 		wstring szMeshName = L"";
 		wstring szShaderName = L"Shader_Mesh";
 
+		int		iRenderLayer = 1;
 		
 		//Matrix	matMeshMatrix;
 		//int		iAnimIndex = 1;

@@ -18,7 +18,7 @@ public:
 	{
 		float		fFov_Degree = 45.f;
 		float		fAspect = 0.f;
-		float		fzNear = 0.01f;
+		float		fzNear = 0.1f;
 		float		fzFar = 1000.f;
 
 		Vector3		vOffsetPos;

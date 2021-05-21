@@ -204,6 +204,18 @@ Matrix Mesh::Get_MeshTransformMatrix() const
 	return m_matMeshTransform;
 }
 
+Matrix Mesh::Get_BoneLocalPosByName(const wstring & _szBoneName)
+{
+	//ㄹㅇ 제대로 위치 잡을라면 월드 매트릭스 한번 곱해줘야함.
+	//tip
+	string sztemp;
+	sztemp.assign(_szBoneName.begin(), _szBoneName.end());
+	D3DXFRAME_DERIVED* temp = (D3DXFRAME_DERIVED*)D3DXFrameFind(m_pRootFrame, sztemp.c_str());
+	//D3DXFRAME_DERIVED* temp = (D3DXFRAME_DERIVED*)D3DXFrameFind(m_pRootFrame, "tip");
+
+	return temp->CombinedTransformMatrix;
+}
+
 void Mesh::Set_MeshTransformMatrix(const Matrix& _mat)
 {
 	m_matMeshTransform = _mat;

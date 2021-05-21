@@ -215,6 +215,12 @@
     <Filter Include="04.Components\ShakeObject">
       <UniqueIdentifier>{5861f983-f1d9-419c-9af2-db731b9dc70e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.Components\MuzzleEffect">
+      <UniqueIdentifier>{5337e9b4-0ab5-4818-a62d-2b96c0d65467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Components\Billboard_Bullet">
+      <UniqueIdentifier>{43a2a692-0eab-48d0-a2ed-df7fec0a34bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -273,9 +279,6 @@
     </ClInclude>
     <ClInclude Include="..\Header\IntroSkipper.h">
       <Filter>02.Scene\00.Intro\Skipper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Header\Weapon.h">
-      <Filter>03.Objects\02.Weapons</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_Attack.h">
       <Filter>03.Objects\01.Player\Attack</Filter>
@@ -364,6 +367,12 @@
     <ClInclude Include="..\Header\ShakeObject.h">
       <Filter>04.Components\ShakeObject</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\MuzzleEffect.h">
+      <Filter>04.Components\MuzzleEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Billboard_Bullet.h">
+      <Filter>04.Components\Billboard_Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -398,9 +407,6 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\IntroSkipper.cpp">
       <Filter>02.Scene\00.Intro\Skipper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cpp\Weapon.cpp">
-      <Filter>03.Objects\02.Weapons</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Attack.cpp">
       <Filter>03.Objects\01.Player\Attack</Filter>
@@ -488,6 +494,12 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\ShakeObject.cpp">
       <Filter>04.Components\ShakeObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\MuzzleEffect.cpp">
+      <Filter>04.Components\MuzzleEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Billboard_Bullet.cpp">
+      <Filter>04.Components\Billboard_Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

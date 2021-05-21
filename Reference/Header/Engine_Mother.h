@@ -152,11 +152,9 @@ public: /* Line Manager */
 		float _fWidth = 3.5f);
 	void			Insert_Line(Line* _pLine);
 
-#ifdef _DEBUG
 	public: /* DebugManager */
 		void		DebugLog(const wstring& _log);
 
-#endif //_DEBUG
 
 	
 public: /* Light Manager */

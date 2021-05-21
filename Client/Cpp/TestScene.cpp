@@ -83,7 +83,6 @@ void TestScene::Initialize()
 	}
 
 	{ //Effect
-
 		//Screen
 		EngineFunction->Load_Texture(L"Texture/ScreenEffect/BluntSplash_GrayScale.png", L"HitEffect");
 		//EngineFunction->Load_Texture(L"Texture/ScreenEffect/BluntSplash.png", L"HitEffect");
@@ -114,13 +113,13 @@ void TestScene::Initialize()
 			wstring FileName = L"Fire_";
 			if (i < 10)
 			{
-				FileName += L"0" + to_wstring(i) + L".png";
+				FileName += L"0" + to_wstring(i);
 			}
 			else
 			{
-				FileName += to_wstring(i) + L".png";
+				FileName += to_wstring(i);
 			}
-			EngineFunction->Add_Texture(FireEffect, L"Texture/Effect/Fire/" + FileName);
+			EngineFunction->Add_Texture(FireEffect, L"Texture/Effect/Fire/" + FileName + L".png");
 		}
 		
 		
@@ -128,9 +127,21 @@ void TestScene::Initialize()
 		//Muzzle
 		for(int i = 0; i< 4; ++i)
 		{			
-			wstring FileName = L"Muzzle_0" + to_wstring(i) + L".png";
-			EngineFunction->Load_Texture(L"Texture/Effect/Muzzle/" + FileName, FileName);
+			wstring FileName = L"Muzzle_0" + to_wstring(i);
+			EngineFunction->Load_Texture(L"Texture/Effect/Muzzle/" + FileName + L".png", FileName);
 		}
+
+		//GameObject* BulletTrace = INSTANTIATE();
+		//BulletTrace->Set_Position(Vector3(50.f, 20.f, 50.f));
+		//BulletTrace->Set_Scale(Vector3(5.f, 5.f, 5.f));
+
+		//VIBuffer_Renderer::Desc testDesc;
+		//testDesc.iLayer = RENDER_LAYER_Alpha;
+		//testDesc.wBufferName = RECT_TEXTURE;
+		//testDesc.bEffect = true;
+		//testDesc.szShaderName = EFFECT_SHADER;
+		//testDesc.wTextureName = L"Muzzle_00";
+		//BulletTrace->Add_Component<VIBuffer_Renderer>(&testDesc);
 	}
 
 
@@ -151,10 +162,7 @@ void TestScene::Initialize()
 		EngineFunction->Load_Mesh(L"Mesh/Zeds/GoreFast/GoreFast.X", L"GoreFast");
 		EngineFunction->Load_Mesh(L"Mesh/Zeds/Scrake/Scrake.X", L"Scrake");
 		EngineFunction->Load_Mesh(L"Mesh/Zeds/Patriarch/Patriarch.X", L"Patriarch");
-
 	}
-
-
 
 
 	{//Hud
@@ -394,6 +402,7 @@ void TestScene::Initialize()
 		SkyBoxObj->Set_Scale(Vector3(15.f, 15.f, 15.f));
 
 		Mesh_Renderer::Desc SkyBoxDesc;
+		SkyBoxDesc.iRenderLayer = RENDER_LAYER_Priority;
 		SkyBoxDesc.szMeshName = L"SkyBox";
 		SkyBoxObj->Add_Component<Mesh_Renderer>(&SkyBoxDesc);
 

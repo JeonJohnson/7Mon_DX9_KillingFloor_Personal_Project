@@ -17,6 +17,12 @@
 #define fTime Engine_Mother::Get_Instance()->Get_fDeltaTime()
 #define dTime Engine_Mother::Get_Instance()->Get_dDeltaTime()
 
+//Renders
+#define RECT_TEXTURE	L"Rect_Texture"
+
+//Shaders
+#define EFFECT_SHADER	L"Effect_VIBuffer"
+
 #define ON	true
 #define OFF	false
 

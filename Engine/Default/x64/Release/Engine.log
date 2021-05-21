@@ -1,130 +1,102 @@
-﻿  compilation object save succeeded; see C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Bin\Debug_VIBuffer.cso
-  compilation object save succeeded; see C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Bin\Shader_Mesh.cso
-  compilation object save succeeded; see C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Bin\Shader_Sample.cso
-  AnimationController.cpp
+﻿  DeviceManager.cpp
   C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Camera.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Collider.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Component.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Cube_VIBuffer_Color.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Cube_VIBuffer_DDS.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Cube_VIBuffer_Texture.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Cycle.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  DebugManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-..\Cpp\DebugManager.cpp(21): error C2039: 'Get_DX9_Device_DEBUG': 'DeviceManager'의 멤버가 아닙니다.
-  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Header\DeviceManager.h(8): note: 'DeviceManager' 선언을 참조하십시오.
-..\Cpp\DebugManager.cpp(29): error C2039: 'Get_WindowSize_DEBUG': 'DeviceManager'의 멤버가 아닙니다.
-  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Header\DeviceManager.h(8): note: 'DeviceManager' 선언을 참조하십시오.
-  DeviceManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Engine_Mother.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Function_Math.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Function_String.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  GameObject.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  GameObjectManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Hierarchy_Loader.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  InputManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Light.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  LightManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Line.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  컴파일하고 있습니다...
-  LineManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Line_Renderer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Line_VIBuffer_Gizmo.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Line_VIBuffer_Grid.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Mesh.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Mesh_Renderer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  NaviCell.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  NaviMesh.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  NaviPoint.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Rect_VIBuffer_Color.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Rect_VIBuffer_Texture.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Renderer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  RenderManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  CResource.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  ResourceManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  SaveInfo.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  SaveInfo_NaviMesh.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Scene.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  SceneManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Shader.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  컴파일하고 있습니다...
-  SkyBox_VIBuffer_DDS.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  SphereCollider.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-..\Cpp\SphereCollider.cpp(71): error C2039: 'DebugLog': 'Engine_Mother'의 멤버가 아닙니다.
-  C:\Users\Administrator\Desktop\7Mon_Personal_Project\Engine\Header\Engine_Mother.h(45): note: 'Engine_Mother' 선언을 참조하십시오.
-  Sphere_VIBuffer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Sprite.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  CState.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Sprite_Renderer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  StateController.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  SystemManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Text.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Texture.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Text_Renderer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  TimeManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Transform.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Triangle_VIBuffer_Color.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  UI.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  UIManager.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  UI_Component.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  UI_Renderer.cpp
-  VIBuffer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  VIBuffer_Renderer.cpp
-  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+  코드를 생성하고 있습니다.
+  74 of 3832 functions ( 1.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    25 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
+  Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
+  ..\Bin\Engine.lib
+  1개 파일이 복사되었습니다.
+  ..\Header\AnimationController.h
+  ..\Header\AnimMesh.h
+  ..\Header\Anim_Controller.h
+  ..\Header\Camera.h
+  ..\Header\Collider.h
+  ..\Header\Component.h
+  ..\Header\CResource.h
+  ..\Header\CState.h
+  ..\Header\Cube_VIBuffer_Color.h
+  ..\Header\Cube_VIBuffer_DDS.h
+  ..\Header\Cube_VIBuffer_Texture.h
+  ..\Header\Cycle.h
+  ..\Header\DebugManager.h
+  ..\Header\DeviceManager.h
+  ..\Header\Engine_Define.h
+  ..\Header\Engine_Enum.h
+  ..\Header\Engine_Extern.h
+  ..\Header\Engine_Include.h
+  ..\Header\Engine_KeyDefine.h
+  ..\Header\Engine_Mother.h
+  ..\Header\Engine_Struct.h
+  ..\Header\Engine_TypeDef.h
+  ..\Header\Function_Math.h
+  ..\Header\Function_String.h
+  ..\Header\GameObject.h
+  ..\Header\GameObjectManager.h
+  ..\Header\Hierarchy_Loader.h
+  ..\Header\InputManager.h
+  ..\Header\Light.h
+  ..\Header\LightManager.h
+  ..\Header\Line.h
+  ..\Header\LineManager.h
+  ..\Header\Line_Renderer.h
+  ..\Header\Line_VIBuffer_Gizmo.h
+  ..\Header\Line_VIBuffer_Grid.h
+  ..\Header\Mesh.h
+  ..\Header\Mesh_Renderer.h
+  ..\Header\NaviCell.h
+  ..\Header\NaviMesh.h
+  ..\Header\NaviPoint.h
+  ..\Header\Rect.h
+  ..\Header\Rect_VIBuffer_Color.h
+  ..\Header\Rect_VIBuffer_Texture.h
+  ..\Header\Renderer.h
+  ..\Header\RenderManager.h
+  ..\Header\ResourceManager.h
+  ..\Header\SaveInfo.h
+  ..\Header\SaveInfo_NaviMesh.h
+  ..\Header\Scene.h
+  ..\Header\SceneManager.h
+  ..\Header\Shader.h
+  ..\Header\SkyBox_VIBuffer_DDS.h
+  ..\Header\SphereCollider.h
+  ..\Header\Sphere_VIBuffer.h
+  ..\Header\Sprite.h
+  ..\Header\Sprite_Renderer.h
+  ..\Header\StateController.h
+  ..\Header\StaticMesh.h
+  ..\Header\SystemManager.h
+  ..\Header\Text.h
+  ..\Header\Texture.h
+  ..\Header\Text_Renderer.h
+  ..\Header\TimeManager.h
+  ..\Header\Transform.h
+  ..\Header\Triangle_VIBuffer_Color.h
+  ..\Header\UI.h
+  ..\Header\UIManager.h
+  ..\Header\UI_Component.h
+  ..\Header\UI_Renderer.h
+  ..\Header\VIBuffer.h
+  ..\Header\VIBuffer_Renderer.h
+  71개 파일이 복사되었습니다.
+  파일을 찾을 수 없습니다-*.fx
+  0개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.
+  ..\Bin\Engine.dll
+  1개 파일이 복사되었습니다.

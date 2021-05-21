@@ -65,7 +65,7 @@ PS_OUT		PS_MAIN(PS_IN _In)
 
 	tOut.vColor = tex2D(BaseSampler, _In.vTexUV);
 
-	//tOut.vColor.g = 1.f;
+	//tOut.vColor -= vector(1.f,1.f,1.f,0.f);
 
 	return tOut;
 }

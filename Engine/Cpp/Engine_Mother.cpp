@@ -282,12 +282,12 @@ void Engine_Mother::Insert_Line(Line * _pLine)
 	m_pLineManager->Insert_Line(_pLine);
 }
 
-#ifdef _DEBUG
 void Engine_Mother::DebugLog(const wstring & _log)
 {
+#ifdef _DEBUG
 	m_pDebugManager->DebugLog(_log);
+#endif //_DEBUG
 }
-#endif //_debug
 
 void Engine_Mother::Insert_Light(D3DLIGHT9 * _pLight, const wstring & _Name)
 {
@@ -461,9 +461,11 @@ HRESULT Engine_Mother::Load_NaviMeshData(const wstring & _szDataPath)
 		GameObject* pPointObj = INSTANTIATE(5, L"NaviPoint_" + to_wstring(i));
 		pPointObj->Set_Position(_WorldPos);
 
+#ifdef _DEBUG
 		Mesh_Renderer::Desc Render_Desc;
 		Render_Desc.szMeshName = L"DebugSphere";
 		pPointObj->Add_Component<Mesh_Renderer>(&Render_Desc);
+#endif //_DEBUG
 
 		NaviPoint::Desc NaviPoint_Desc;
 		NaviPoint_Desc.Pos = _WorldPos;
