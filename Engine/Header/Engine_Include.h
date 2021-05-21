@@ -48,7 +48,7 @@ using namespace std;
 /* Fmod, for Sound*/
 #include <io.h>
 #include "fmod.h"
-#pragma comment (lib, "fmodex_vc.lib")
+#pragma comment (lib, "fmodex64_vc.lib")
 
 
 /* Direct 9 */

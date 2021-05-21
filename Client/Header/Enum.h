@@ -79,18 +79,18 @@ typedef enum eZedGenLocate
 
 typedef enum eSoundChannel
 {
-	BGM,
+	SoundCH_BGM,
 	
-	PLAYER_FIRE,
-	PLAYER_WALK,
-	PLAYER_HIT,
+	SoundCH_PLAYER_FIRE,
+	SoundCH_PLAYER_WALK,
+	SoundCH_PLAYER_HIT,
 
-	ZED_IDLE,
-	ZED_ATT,
-	ZED_HIT,
+	SoundCH_ZED_IDLE,
+	SoundCH_ZED_ATT,
+	SoundCH_ZED_HIT,
 	
-	UI,
-	ID_END
+	SoundCH_UI,
+	SoundCH__END
 
 
 }SOUND_CHANNEL;

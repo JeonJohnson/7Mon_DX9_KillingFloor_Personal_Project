@@ -16,6 +16,8 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::Initialize()
 {
+	EngineFunction->PlayBGM(L"Menu.wav");
+
 	{//BackGround Sprites
 		EngineFunction->Load_Texture(L"Texture/Logo.png", L"GameTitle");
 		

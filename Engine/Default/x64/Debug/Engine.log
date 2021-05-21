@@ -1,9 +1,19 @@
-﻿  RenderManager.cpp
+﻿  SaveInfo.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Engine_Mother.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  SphereCollider.cpp
+  Function_String.cpp
+  AnimationController.cpp
+     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
+UI_Renderer.obj : warning LNK4099: 'vc140.pdb' PDB를 'UI_Renderer.obj' 또는 'E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex64_vc.lib
+  2개 파일이 복사되었습니다.
   ..\Header\AnimationController.h
   ..\Header\AnimMesh.h
   ..\Header\Anim_Controller.h
@@ -26,6 +36,12 @@
   ..\Header\Engine_Mother.h
   ..\Header\Engine_Struct.h
   ..\Header\Engine_TypeDef.h
+  ..\Header\fmod.h
+  ..\Header\fmod_codec.h
+  ..\Header\fmod_dsp.h
+  ..\Header\fmod_errors.h
+  ..\Header\fmod_memoryinfo.h
+  ..\Header\fmod_output.h
   ..\Header\Function_Math.h
   ..\Header\Function_String.h
   ..\Header\GameObject.h
@@ -56,6 +72,7 @@
   ..\Header\SceneManager.h
   ..\Header\Shader.h
   ..\Header\SkyBox_VIBuffer_DDS.h
+  ..\Header\SoundManager.h
   ..\Header\SphereCollider.h
   ..\Header\Sphere_VIBuffer.h
   ..\Header\Sprite.h
@@ -75,22 +92,46 @@
   ..\Header\UI_Renderer.h
   ..\Header\VIBuffer.h
   ..\Header\VIBuffer_Renderer.h
-  71개 파일이 복사되었습니다.
+  78개 파일이 복사되었습니다.
   파일을 찾을 수 없습니다-*.fx
   0개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.
   ..\Bin\Engine.dll
-  1개 파일이 복사되었습니다.
+  ..\Bin\fmodex.dll
+  ..\Bin\fmodex64.dll
+  ..\Bin\fmodexL.dll
+  4개 파일이 복사되었습니다.

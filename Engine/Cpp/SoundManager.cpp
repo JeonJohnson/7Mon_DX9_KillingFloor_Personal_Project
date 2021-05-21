@@ -9,6 +9,7 @@ SoundManager::SoundManager()
 
 SoundManager::~SoundManager()
 {
+	Release();
 }
 
 void SoundManager::Initialize(int _iChannelCount)
@@ -39,7 +40,7 @@ void SoundManager::Play_Sound(TCHAR * _pSoundKey, _sound_channel _eID)
 
 	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)
 	{
-		return !lstrcmp(pSoundKey, iter.first);
+		return !lstrcmp(_pSoundKey, iter.first);
 	});
 
 	if (iter == m_mapSound.end())
@@ -70,7 +71,7 @@ void SoundManager::Overlap_Play(TCHAR * _pSoundKey, _sound_channel _eID)
 
 	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)
 	{
-		return !lstrcmp(pSoundKey, iter.first);
+		return !lstrcmp(_pSoundKey, iter.first);
 	});
 
 	if (iter == m_mapSound.end())
@@ -94,7 +95,7 @@ void SoundManager::PlayBGM(TCHAR * _pSoundKey)
 
 	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)
 	{
-		return !lstrcmp(pSoundKey, iter.first);
+		return !lstrcmp(_pSoundKey, iter.first);
 	});
 
 	if (iter == m_mapSound.end())
@@ -125,14 +126,14 @@ void SoundManager::LoadSoundFile()
 {
 	_finddata_t fd;
 
-	long handle = _findfirst("../../Resource/Sound/*.*", &fd);
+	intptr_t handle = _findfirst("../../Resource/Sound/*.*", &fd);
 
 	if (handle == 0)
 		return;
 
 	int iResult = 0;
 
-	char szCurPath[128] = "../../Resource/Sound";
+	char szCurPath[128] = "../../Resource/Sound/";
 	char szFullPath[128] = "";
 
 	while (iResult != -1)
@@ -145,11 +146,11 @@ void SoundManager::LoadSoundFile()
 
 		if (eRes == FMOD_OK)
 		{
-			int iLength = strlen(fd.name) + 1;
+			size_t iLength = strlen(fd.name) + 1;
 
 			TCHAR* pSoundKey = new TCHAR[iLength];
 			ZeroMemory(pSoundKey, sizeof(TCHAR) * iLength);
-			MultiByteToWideChar(CP_ACP, 0, fd.name, iLength, pSoundKey, iLength);
+			MultiByteToWideChar(CP_ACP, 0, fd.name, (int)iLength, pSoundKey, (int)iLength);
 
 			m_mapSound.emplace(pSoundKey, pSound);
 		}

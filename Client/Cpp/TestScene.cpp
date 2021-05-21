@@ -696,6 +696,8 @@ void TestScene::Initialize()
 		//Test_Text->Add_UIComponent<Text>(&textInfo);
 	}
 #pragma endregion
+
+	
 }
 
 

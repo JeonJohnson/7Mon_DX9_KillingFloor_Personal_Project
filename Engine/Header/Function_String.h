@@ -37,7 +37,7 @@ public: /* to wstring */
 
 	static void	wstring2TCHAR(const wstring& _wstrIn, TCHAR* _tcharOut)
 	{
-			const TCHAR* pTemp = (wchar_t*)_wstrIn.c_str();
+		const TCHAR* pTemp = (wchar_t*)_wstrIn.c_str();
 		TCHAR arrTemp[255];
 		_tcscpy_s(arrTemp, pTemp);
 

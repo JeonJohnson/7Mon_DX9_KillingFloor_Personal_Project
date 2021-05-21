@@ -30,6 +30,7 @@ Engine_Mother::Engine_Mother()
 	m_pTimeManager			= TimeManager::Get_Instance();
 	m_pInputManager			= InputManager::Get_Instance();
 	m_pResourceManager		= ResourceManager::Get_Instance();
+	m_pSoundManager			= SoundManager::Get_Instance();
 
 	m_pGameObjectManager	= GameObjectManager::Get_Instance();
 	m_pUiManager			= UIManager::Get_Instance();
@@ -61,6 +62,7 @@ void Engine_Mother::Initialize(Desc * _desc)
 	m_pTimeManager->Time_Init();
 	m_pInputManager->Initialize(_desc->hInst, _desc->hWnd, false);
 	m_pResourceManager->Initialize();
+	m_pSoundManager->Initialize(_desc->Sound_Channel_MaxCount);
 
 	m_pGameObjectManager->Initailize(_desc->Object_Tag_MaxCount);
 	
@@ -111,6 +113,7 @@ void Engine_Mother::Release()
 	m_pInputManager->Destroy_Instance();
 	m_pTimeManager->Destroy_Instance();
 
+	m_pSoundManager->Destroy_Instance();
 	m_pResourceManager->Destroy_Instance();
 
 #ifdef _DEBUG
@@ -534,4 +537,36 @@ NaviMesh * Engine_Mother::Get_NaviMesh(const wstring & _szNaviMeshName)
 NaviMesh * Engine_Mother::Get_NaviMeshClone()
 {
 	return m_pResourceManager->Get_NaviMeshClone();
+}
+
+void Engine_Mother::Play_Sound(const wstring & _pSoundKey, _sound_channel _eID)
+{
+	//TCHAR* temp = L"";
+	//Function_String::wstring2TCHAR(_pSoundKey, temp);
+
+	m_pSoundManager->Play_Sound((wchar_t*)_pSoundKey.c_str(), _eID);
+}
+
+void Engine_Mother::OverlapPlay_Sound(const wstring & _pSoundKey, _sound_channel _eID)
+{
+	//TCHAR* temp = L"";
+	//Function_String::wstring2TCHAR(_pSoundKey, temp);
+
+	m_pSoundManager->Overlap_Play((wchar_t*)_pSoundKey.c_str(), _eID);
+}
+
+void Engine_Mother::PlayBGM(const wstring & _pSoundKey)
+{	
+	m_pSoundManager->PlayBGM((wchar_t*)_pSoundKey.c_str());
+}
+
+void Engine_Mother::Stop_Sound(_sound_channel _eID)
+{
+
+	m_pSoundManager->StopSound(_eID);
+}
+
+void Engine_Mother::StopAll_Sound()
+{
+	m_pSoundManager->StopAll();
 }

@@ -18,6 +18,7 @@ typedef unsigned int	_object_Tag;
 typedef unsigned int	_render_Layer;
 //typedef unsigned int	_render_Queue;
 typedef unsigned int	_collision_Layer;
+typedef unsigned int	_sound_channel;
 //typedef unsigned int	OBJECT_TAG;
 
 

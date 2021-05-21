@@ -11,8 +11,12 @@
 #include "DeviceManager.h"
 #include "TimeManager.h"
 #include "InputManager.h"
+#include "SoundManager.h"
+
 #include "SceneManager.h"
+
 #include "GameObjectManager.h"
+
 #include "UIManager.h"
 #include "ResourceManager.h"
 #include "RenderManager.h"
@@ -175,6 +179,14 @@ public: /* Resource Manager */
 	NaviMesh*	Get_NaviMesh(const wstring& _szNaviMeshName = L"");
 	NaviMesh*	Get_NaviMeshClone();
 
+public: /* Sound Manager */
+	void Play_Sound(const wstring& _pSoundKey, _sound_channel _eID);
+	void OverlapPlay_Sound(const wstring& _pSoundKey, _sound_channel _eID);
+	void PlayBGM(const wstring& _pSoundKey);
+	void Stop_Sound(_sound_channel _eID);
+	void StopAll_Sound();
+
+
 public:
 		
 private:
@@ -182,6 +194,7 @@ private:
 	TimeManager*			m_pTimeManager = nullptr;
 	InputManager*			m_pInputManager = nullptr;
 	ResourceManager*		m_pResourceManager = nullptr;
+	SoundManager*			m_pSoundManager = nullptr;
 
 	GameObjectManager*		m_pGameObjectManager = nullptr;
 	UIManager*				m_pUiManager = nullptr;
