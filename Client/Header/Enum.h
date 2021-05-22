@@ -68,13 +68,25 @@ typedef	enum eZedType
 
 typedef enum eZedGenLocate
 {
-	CHURCH,
-	POLICE,
-	HOTEL_LEFT,
-	HOTEL_RIGHT,
+	CHURCH_RIGHT,
+	CHURCH_LEFT,
+	POLICE_RIGHT,
+	POLICE_LEFT,
 	ZED_GEN_END
 
 }ZED_LOCATE;
+
+typedef enum eStageState
+{
+	STAGE_SHOP,
+	STAGE_1,
+	STAGE_2,
+	STAGE_BOSS,
+	STAGE_ENDING,
+
+	STAGE_END
+
+}STAGE_NAME;
 
 
 typedef enum eSoundChannel

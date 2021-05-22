@@ -38,7 +38,7 @@ public: /* General */
 	//void		LookAt(GameObject* _pTarget, float _fSpd, Quaternion* _pOutRot = nullptr);
 	//void		LookAt(cosnt ve, float _fSpd, Quaternion* _pOutRot = nullptr);
 	void		LookAt(GameObject* _pTarget, float _fSpd, Quaternion* _pOutRot = nullptr);
-	void		LookAt(const Vector3& _pTargetPos, float _fSpd, Quaternion* _pOutRot = nullptr);
+	void		LookAt(const Vector3& _pTargetPos, float _fSpd, float _fOffset = 0.f, Quaternion* _pOutRot = nullptr);
 	/* Get */
 
 

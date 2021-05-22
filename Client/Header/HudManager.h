@@ -45,7 +45,6 @@ public: /* Get */
 public: /* Set */
 	void		Insert_Hud(const wstring& _szName, UI* _pUI);
 
-
 	void		Set_TextHp(int _iHp);
 	void		Set_TextArmor(int _iArmor);
 	void		Set_TextWeight(int _iWeight);
@@ -59,11 +58,31 @@ public: /* Set */
 	void		Set_TextClock(float _fClock);
 	void		Set_TextZedCount(int _iZedCount);
 
+
+	void		Insert_ShopHud(const wstring& _szName, UI* _pUI);
+	
+
 private:
 
 	unordered_map<wstring, UI*>	m_umStageHuds;
 	bool		m_bHitEffect = false;
 	 
+	unordered_map<wstring, UI*> m_umShopHud;
+	vector<UI*>					m_vecHaveWeapon;
+	vector<UI*>					m_vecBuyWeapon;
+
+
+	//Hp
+	//Armor
+	//Weight
+	//Bullet
+	//Magazine
+	//Grande
+	//Money
+	//WeaponName
+	//Clock
+	//EnemyCount
+
 	//UI*		m_pHp			= nullptr;
 	//UI*		m_pArmor		= nullptr;
 	//UI*		m_pWeight		= nullptr;

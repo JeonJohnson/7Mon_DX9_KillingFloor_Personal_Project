@@ -75,5 +75,7 @@ private:
 	
 	bool					m_bDontLook = false;
 
+	float					m_fLookOffset = -0.1f;
+
 };
 #endif //_ZED_H_

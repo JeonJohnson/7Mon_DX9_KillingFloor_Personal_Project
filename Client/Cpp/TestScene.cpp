@@ -458,7 +458,7 @@ void TestScene::Initialize()
 		Player_Move::Desc player_Desc;
 		player_Desc.fWalkSpd = 60.f;
 		player_Desc.fSprintSpd = 70.f;
-		player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh(L"NaviMesh_Player");
+		//player_Desc.pNaviMesh = EngineFunction->Get_NaviMesh(L"NaviMesh_Player");
 		Player->Add_Component<Player_Move>(&player_Desc);
 
 		Camera::Desc Cam_desc;

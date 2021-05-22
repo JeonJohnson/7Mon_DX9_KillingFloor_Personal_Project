@@ -30,9 +30,12 @@ public:
 public:
 
 private:
-	float	m_fTime;
+	float	m_fTime = 0.f;
+	float	m_fGeneTime = 2.4f;
 	bool	m_arrPattern[4] = { false };
 	int		m_iCurPattern = 1;
+
+	int		m_iZedCount = 6;
 };
 
 #endif//_STAGE_1_H_

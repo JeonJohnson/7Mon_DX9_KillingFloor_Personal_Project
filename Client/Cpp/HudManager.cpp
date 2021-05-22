@@ -164,7 +164,10 @@ void HudManager::Set_TextWeaponName(const wstring & _szWeaponName)
 
 void HudManager::Set_TextClock(float _fClock)
 {
-	//Get_HudText(L"Clock")->Set_Script()
+	int Min = (int)_fClock / 60;
+	int Sec = (int)_fClock % 60;
+
+	Get_HudText(L"Clock")->Set_Script(to_wstring(Min) +L":" +to_wstring(Sec));
 }
 
 void HudManager::Set_TextZedCount(int _iZedCount)

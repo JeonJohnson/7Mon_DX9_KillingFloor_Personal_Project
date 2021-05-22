@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "..\Header\StageManager.h"
+#include "StateController.h"
+
 
 StageManager*	StageManager::m_pInstance = nullptr;
 
@@ -43,6 +45,27 @@ void StageManager::Initialize()
 
 void StageManager::Update()
 {
+	//wstring szCurStage = m_pStateCtrl->Get_CurStateName();
+	//
+	//if (szCurStage == L"Stage_1")
+	//{
+	//	m_eCurStage = STAGE_NAME::STAGE_1;
+	//}
+	//else if (szCurStage == L"Stage_2")
+	//{
+	//	m_eCurStage = STAGE_NAME::STAGE_2;
+	//}
+	//else if (szCurStage == L"Stage_Boss")
+	//{
+	//	m_eCurStage = STAGE_NAME::STAGE_BOSS;
+	//}
+	//else if (szCurStage == L"Stage_Shop")
+	//{
+	//	m_eCurStage = STAGE_NAME::STAGE_SHOP;
+	//}
+		
+
+
 }
 
 void StageManager::LateUpdate()
@@ -55,4 +78,14 @@ void StageManager::ReadyRender()
 
 void StageManager::Release()
 {
+}
+
+STAGE_NAME StageManager::Get_CurStageName()
+{
+	return m_eCurStage;
+}
+
+void StageManager::Set_CurStage(STAGE_NAME _eCurStageName)
+{
+	m_eCurStage = _eCurStageName;
 }

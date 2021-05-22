@@ -3,6 +3,7 @@
 
 #include "StateController.h"
 #include "ZedManager.h"
+#include "StageManager.h"
 
 Stage_1::Stage_1()
 {
@@ -19,32 +20,36 @@ void Stage_1::Initialize()
 
 void Stage_1::EnterState()
 {
-	Generate_Phase1();
+	StageManager::Get_Instance()->Set_CurStage(STAGE_NAME::STAGE_1);
 }
 
 void Stage_1::UpdateState()
 {
 	DEBUG_LOG(L"CurStage : Stage1_" + to_wstring(m_iCurPattern));
+	DEBUG_LOG(L"GeneTime : " + to_wstring(m_fGeneTime));
 
-	if (m_arrPattern[0] == true && m_arrPattern[1] == false
-		&& ZedManager::Get_Instance()->Get_ZedCount() == 2)
+	if (m_arrPattern[0] == false)
+	{
+		Generate_Phase1();
+	}
+
+
+	if (m_arrPattern[0] == true && m_arrPattern[1] == false)
 	{
 		Generate_Phase2();
 		m_iCurPattern = 2;
 	}
 
-	if (m_arrPattern[1] == true && m_arrPattern[2] == false
-		&& ZedManager::Get_Instance()->Get_ZedCount() == 2)
+	if (m_arrPattern[1] == true && m_arrPattern[2] == false)
 	{
 		Generate_Phase3();
-		m_iCurPattern = 2;
+		m_iCurPattern = 3;
 	}
 
-	if (m_arrPattern[2] == true && m_arrPattern[3] == false
-		&& ZedManager::Get_Instance()->Get_ZedCount() == 2)
+	if (m_arrPattern[2] == true && m_arrPattern[3] == false)
 	{
 		Generate_PhaseEnd();
-		m_iCurPattern = 3;
+		m_iCurPattern = 4;
 	}
 
 
@@ -61,77 +66,117 @@ void Stage_1::ExitState()
 void Stage_1::Generate_Phase1()
 {
 
-	for (int i = 0; i < 3; ++i)
+	m_fTime += fTime;
+
+	if (m_fTime >= m_fGeneTime)
 	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH));
+		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_RIGHT));
+
+		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_LEFT));
+		
+		m_fTime = 0.f;
+		m_iZedCount -= 2;
 	}
 
-	for (int i = 0; i < 2; ++i)
-	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(POLICE));
-	}
 
-	m_arrPattern[0] = true;
+	if (m_iZedCount <= 0)
+	{
+		m_arrPattern[0] = true;
+
+		m_fGeneTime = Function_Math::RandFloat(1.5f, 4.5f);
+		m_fTime = 0.f;
+		m_iZedCount = 6;
+	}
 }
 
 void Stage_1::Generate_Phase2()
 {
-	for (int i = 0; i < 2; ++i)
+	m_fTime += fTime;
+
+	if (m_fTime >= m_fGeneTime)
 	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(HOTEL_LEFT));
+		int iRand = rand() % 2 + 2;
+		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
+		m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
+		m_fTime = 0.f;
+		--m_iZedCount;
 	}
 
-	for (int i = 0; i < 2; ++i)
+	if (m_iZedCount <= 0)
 	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(HOTEL_RIGHT));
+		m_arrPattern[1] = true;
+
+		m_fGeneTime = Function_Math::RandFloat(1.5f, 4.5f);
+		m_iZedCount = 6;
+		m_fTime = 0.f;
 	}
 
-	for (int i = 0; i < 1; ++i)
-	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(POLICE));
-	}
 
-	m_arrPattern[1] = true;
+	
 }
 
 void Stage_1::Generate_Phase3()
 {
-	
-	ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(HOTEL_LEFT));
-	
-	ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(HOTEL_RIGHT));
+	m_fTime += fTime;
 
-	for (int i = 0; i < 2; ++i)
+	if (m_fTime >= m_fGeneTime)
 	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(POLICE));
-	}
-	
-	for (int i = 0; i < 2; ++i)
-	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH));
+		int iRand = rand() % 4;
+
+		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
+		
+		m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
+		m_fTime = 0.f;
+		--m_iZedCount;
 	}
 
-	m_arrPattern[2] = true;
+	if (m_iZedCount <= 0)
+	{
+		m_arrPattern[2] = true;
+
+		m_fGeneTime = Function_Math::RandFloat(1.5f, 4.5f);
+		m_fTime = 0.f;
+		m_iZedCount = 6;
+	}
+
+
+
+	//m_arrPattern[2] = true;
 }
 
 void Stage_1::Generate_PhaseEnd()
 {
+	m_fTime += fTime;
 
-	ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(HOTEL_LEFT));
-
-	ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(HOTEL_RIGHT));
-
-	for (int i = 0; i < 2; ++i)
+	if (m_fTime >= m_fGeneTime)
 	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(POLICE));
+		int iRand = rand() % 4;
+
+		int iRand2 = rand() % 2;
+
+		if (iRand2 == 0)
+		{
+			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
+		}
+		if (iRand2 == 1)
+		{
+			ZedManager::Get_Instance()->Generate_GoreFast(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
+		}
+
+
+		m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
+		m_fTime = 0.f;
+		--m_iZedCount;
 	}
 
-	for (int i = 0; i < 2; ++i)
+	if (m_iZedCount <= 0)
 	{
-		int k = rand() % 4;
-		ZedManager::Get_Instance()->Generate_GoreFast(ZedManager::Get_Instance()->Get_ZedGenLocate(k));
+		m_arrPattern[3] = true;
+
+		//m_fGeneTime = Function_Math::RandFloat(1.5f, 2.5f);
+		//m_fTime = 0.f;
+		//m_iZedCount = 6;
 	}
 
-	m_arrPattern[3] = true;
 
 }

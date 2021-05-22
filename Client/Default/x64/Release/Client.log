@@ -1,11 +1,52 @@
-﻿  BulletManager.cpp
+﻿  stdafx.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Billboard_Bullet.cpp
+  BulletManager.cpp
+  Bullet_Move.cpp
   Camera_FPS.cpp
+  FilmGrainEffect.cpp
+  HudManager.cpp
+  IntroScene.cpp
+  IntroSkipper.cpp
+  MainGame.cpp
+  MainMenuScene.cpp
+  MenuSelector.cpp
+  MuzzleEffect.cpp
+  Player_Attack.cpp
   Player_Fire.cpp
+  Player_Idle.cpp
   Player_Move.cpp
+  Player_Reload.cpp
+  Player_Status.cpp
+  Player_Swap.cpp
+  ShakeObject.cpp
+  컴파일하고 있습니다...
+  SkyBox.cpp
+  StageManager.cpp
+  StageScene.cpp
+  Stage_1.cpp
+  Stage_2.cpp
+  Stage_Boss.cpp
+  Stage_Shop.cpp
+  TestScene.cpp
+  WeaponManager.cpp
+  Weapon_Status.cpp
+  Zed.cpp
+  ZedChanger.cpp
+  ZedManager.cpp
+  Zed_Att.cpp
+  Zed_Death.cpp
+  Zed_Hit.cpp
+  Zed_Idle.cpp
+  Zed_Run.cpp
+  Zed_Status.cpp
+  Zed_Walk.cpp
+  컴파일하고 있습니다...
+  Client.cpp
   코드를 생성하고 있습니다.
   82 of 1582 functions ( 5.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    19 functions had inline decision re-evaluated but remain unchanged
+    20 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
   Client.vcxproj -> ../Bin/x64\Release\Client.pdb (Full PDB)

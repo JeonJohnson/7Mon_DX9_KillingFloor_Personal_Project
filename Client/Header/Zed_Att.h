@@ -36,6 +36,8 @@ private:
 	
 	SphereCollider*			m_pCol = nullptr;
 	GameObject*				m_pPlayer = nullptr;
+
+	float					m_fAttFrame = 0.f;
 };
 
 #endif //_ZED_ATT_H_

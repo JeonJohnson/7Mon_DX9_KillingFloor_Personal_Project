@@ -33,7 +33,9 @@ private:
 	NaviMesh*				m_pNaviMesh = nullptr;
 	int						m_icurCellIndex = 0;
 
-	float						m_fWalkOffset;
+	float					m_fWalkOffset;
+
+	float					m_fRandAttDist = 0.f;
 };
 
 #endif //_ZED_WALK_H_

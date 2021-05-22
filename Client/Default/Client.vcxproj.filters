@@ -221,6 +221,9 @@
     <Filter Include="04.Components\Billboard_Bullet">
       <UniqueIdentifier>{43a2a692-0eab-48d0-a2ed-df7fec0a34bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Objects\04.Zeds\States\InitWalk">
+      <UniqueIdentifier>{d4c38847-4620-4588-8531-9525871a3c55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -373,6 +376,9 @@
     <ClInclude Include="..\Header\Billboard_Bullet.h">
       <Filter>04.Components\Billboard_Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Zed_InitWalk.h">
+      <Filter>03.Objects\04.Zeds\States\InitWalk</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -500,6 +506,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Billboard_Bullet.cpp">
       <Filter>04.Components\Billboard_Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Zed_InitWalk.cpp">
+      <Filter>03.Objects\04.Zeds\States\InitWalk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

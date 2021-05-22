@@ -17,13 +17,18 @@ public:
 	virtual void ExitState() override;
 
 public:
+	void	Create_Arrow();
 
 public:
 
 public:
 
 private:
-	float	m_fLefTime = 0.f;
+	GameObject*		m_pPlayer = nullptr;
+	GameObject*		m_pShopArrow = nullptr;
+
+
+	float	m_fLeftTime = 120.f;
 
 };
 

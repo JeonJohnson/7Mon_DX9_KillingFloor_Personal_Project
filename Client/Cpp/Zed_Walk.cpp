@@ -45,18 +45,19 @@ void Zed_Walk::EnterState()
 		m_pAnimCtrl->Play(m_iWalknimIndex, true);
 	}
 	
-	m_fWalkOffset = (float)(rand() % 10);
+	m_fWalkOffset = Function_Math::RandFloat(0.f ,5.f);
+
+	m_fRandAttDist = Function_Math::RandFloat(0.f, 5.f);
 }
 
 void Zed_Walk::UpdateState()
 {
 	DEBUG_LOG(L"Zed : Walk");
 	
-
 	Vector3	vPos = m_Transform->Get_Position();
 	Vector3 vForward = m_Transform->Get_Forward();
-	Vector3 vRight = m_Transform->Get_Right();
-	Vector3	vLeft = vRight * -1;
+	//Vector3 vRight = m_Transform->Get_Right();
+	//Vector3	vLeft = vRight * -1;
 
 	//float fSpd = m_pZedInfo->Get_ZedInfo().m_fWalkSpd + ;
 	//m_Transform->Add_Position(vForward * fTime * m_pZedInfo->Get_ZedInfo().m_fWalkSpd);
@@ -90,12 +91,14 @@ void Zed_Walk::UpdateState()
 	//{
 	//	m_pZedInfo->Set_DontLook(false);
 
-		m_Transform->Add_Position(m_pNaviMesh->Add_Pos(m_Transform->Get_Position(), vForward * fTime * (m_pZedInfo->Get_ZedInfo().m_fWalkSpd + m_fWalkOffset), &m_icurCellIndex));
+		m_Transform->Add_Position(m_pNaviMesh->Add_Pos(m_Transform->Get_Position(), 
+			vForward * fTime * (m_pZedInfo->Get_ZedInfo().m_fWalkSpd + m_fWalkOffset), 
+			&m_icurCellIndex));
 	//}
 
 	
 	
-	if (m_GameObject->Get_Component<Zed>()->Get_Distance() <= 30.f)
+	if (m_GameObject->Get_Component<Zed>()->Get_Distance() <= 30.f + m_fRandAttDist)
 	{
 		m_pStateController->Set_State(L"Zed_Att");
 	}

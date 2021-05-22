@@ -79,7 +79,7 @@ void Transform::LookAt(GameObject * _pTarget, float _fSpd, Quaternion * _pOutRot
 
 	Vector3	 vForward = m_Transform->Get_Forward();
 
-	if (D3DXVec3Dot(&vDir, &vForward) > 0.999f)
+	if (D3DXVec3Dot(&vDir, &vForward) >= 0.9f)
 	{
 		return;
 	}
@@ -97,7 +97,7 @@ void Transform::LookAt(GameObject * _pTarget, float _fSpd, Quaternion * _pOutRot
 	}
 }
 
-void Transform::LookAt(const Vector3 & _pTargetPos, float _fSpd, Quaternion * _pOutRot)
+void Transform::LookAt(const Vector3 & _pTargetPos, float _fSpd, float _fOffset, Quaternion * _pOutRot) 
 {
 	Vector3 vDir = _pTargetPos- m_Transform->Get_Position();
 	D3DXVec3Normalize(&vDir, &vDir);
@@ -106,7 +106,7 @@ void Transform::LookAt(const Vector3 & _pTargetPos, float _fSpd, Quaternion * _p
 
 	//Vector3	Dot
 
-	if (D3DXVec3Dot(&vDir, &vForward) > 0.999f)
+	if (D3DXVec3Dot(&vDir, &vForward) >= 0.9f)
 	{
 		return;
 	}

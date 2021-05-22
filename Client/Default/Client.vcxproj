@@ -232,6 +232,7 @@
     <ClInclude Include="..\Header\Zed_Death.h" />
     <ClInclude Include="..\Header\Zed_Hit.h" />
     <ClInclude Include="..\Header\Zed_Idle.h" />
+    <ClInclude Include="..\Header\Zed_InitWalk.h" />
     <ClInclude Include="..\Header\Zed_Run.h" />
     <ClInclude Include="..\Header\Zed_Status.h" />
     <ClInclude Include="..\Header\Zed_Walk.h" />
@@ -278,6 +279,7 @@
     <ClCompile Include="..\Cpp\Zed_Death.cpp" />
     <ClCompile Include="..\Cpp\Zed_Hit.cpp" />
     <ClCompile Include="..\Cpp\Zed_Idle.cpp" />
+    <ClCompile Include="..\Cpp\Zed_InitWalk.cpp" />
     <ClCompile Include="..\Cpp\Zed_Run.cpp" />
     <ClCompile Include="..\Cpp\Zed_Status.cpp" />
     <ClCompile Include="..\Cpp\Zed_Walk.cpp" />

@@ -19,6 +19,8 @@ Zed::~Zed()
 void Zed::Initialize()
 {
 	m_pPlayer = EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER);
+
+	m_fLookOffset = (rand()%10 +1) / 100.f;
 }
 
 void Zed::Update()
@@ -83,7 +85,7 @@ void Zed::LookAt()
 	{
 		Vector3 PlayerPos = m_pPlayer->Get_Position();
 		PlayerPos.y = 0;
-		m_Transform->LookAt(PlayerPos, 50.f);
+		m_Transform->LookAt(PlayerPos, 50.f, m_fLookOffset);
 	}
 
 	//m_Transform->RotateAxis(Vector3(0, 1, 0), fTime);

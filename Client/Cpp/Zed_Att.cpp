@@ -49,6 +49,8 @@ void Zed_Att::EnterState()
 	{
 		m_pAnimCtrl->Play(m_iAttAnimIndex);
 	}
+
+	//m_fAttFrame = Function_Math::RandFloat(-0.5f, 0.5f);
 }
 
 void Zed_Att::UpdateState()
@@ -58,7 +60,7 @@ void Zed_Att::UpdateState()
 	float curFrame = (float)m_pAnimCtrl->Get_CurFrame();
 	float maxFrame = (float)m_pAnimCtrl->Get_MaxFrame();
 
-	if (curFrame >= maxFrame / 2.f)
+	if (curFrame >= maxFrame / 2.f + m_fAttFrame)
 	{
 		if (m_pCol->Collision_Check(m_pPlayer, L"Player"))
 		{

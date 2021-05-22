@@ -5,6 +5,8 @@
 
 #include "Component.h"
 
+#include "Include.h"
+
 class StateController;
 
 class StageManager : public Component
@@ -36,17 +38,17 @@ public:
 public:
 
 public: /* Get */
-	
+	STAGE_NAME		Get_CurStageName();
 
 
 public: /* Set */
+	void			Set_CurStage(STAGE_NAME _eCurStageName);
 
 private:
 	StateController*		m_pStateCtrl = nullptr;
 	
-	int		m_iCurStage;
-	int		m_iMaxStage;
-
+	STAGE_NAME				m_eCurStage;
+	bool					m_bClearStage[3] = { false };
 
 
 };

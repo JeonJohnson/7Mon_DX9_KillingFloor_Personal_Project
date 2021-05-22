@@ -132,10 +132,10 @@ void ZedManager::Nogada_Datas()
 	}
 
 	{
-		arrZedGenLocate[CHURCH] = Vector3(330.f, 0.f, 250.f);
-		arrZedGenLocate[POLICE] = Vector3(380.f, 0.f, 700.f);
-		arrZedGenLocate[HOTEL_LEFT] = Vector3(-555.f, 0.f, 695.f);
-		arrZedGenLocate[HOTEL_RIGHT] = Vector3(-534.f, 0.f, 216.f);
+		arrZedGenLocate[CHURCH_RIGHT] = Vector3(375.f, 0.f, 212.f);
+		arrZedGenLocate[CHURCH_LEFT] = Vector3(-104.f, 0.f, 212.f);
+		arrZedGenLocate[POLICE_RIGHT] = Vector3(285.f, 0.f, 715.f);
+		arrZedGenLocate[POLICE_LEFT] = Vector3(-15.f, 0.f, 715.f);
 	}
 
 }
