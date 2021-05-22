@@ -9,6 +9,7 @@
 class Weapon_Status;
 class SphereCollider;
 class Player_Attack;
+class Camera_FPS;
 
 class Player_Fire : public CState
 {
@@ -23,12 +24,13 @@ public:
 	virtual void ExitState() override;
 
 public:
-	//void Bullet_Test();
+
 
 private:
 	Weapon_Status*		m_pCurWeaponStatus = nullptr;
 	SphereCollider*		m_pPlayerCol = nullptr;
 	Player_Attack*		m_pPlayerAttack = nullptr;
+	Camera_FPS*			m_pCamera = nullptr;
 
 };
 

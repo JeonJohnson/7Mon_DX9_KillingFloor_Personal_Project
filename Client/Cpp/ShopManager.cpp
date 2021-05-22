@@ -61,7 +61,7 @@ void ShopManager::Initialize()
 
 		Text::Desc	LeftTimeText;
 		LeftTimeText.szScript = L"Left Time";
-		LeftTimeText.iHeight = 30.f;
+		LeftTimeText.iHeight = 30;
 		LeftTimeText.iWeight = FW_HEAVY;
 		LeftTimeText.ulOption = DT_VCENTER | DT_CENTER | DT_NOCLIP;
 		LeftTimeText.tColor = D3DCOLOR_RGBA(255, 0, 0, 255);
@@ -91,12 +91,14 @@ void ShopManager::Open_Shop()
 {
 	m_ShopFrame->Set_Active(true);
 	m_LeftTime->Set_Active(true);
+	m_bShopOn = true;
 }
 
 void ShopManager::Exit_Shop()
 {
 	m_ShopFrame->Set_Active(false);
 	m_LeftTime->Set_Active(false);
+	m_bShopOn = false;
 }
 
 void ShopManager::Buy_OneMag()
@@ -111,6 +113,11 @@ void ShopManager::Buy_Weapon()
 {
 }
 
+bool ShopManager::Get_ShopOn()
+{
+	return m_bShopOn;
+}
+
 void ShopManager::Set_LeftTime(float _fLeftTime)
 {
 	int Min = (int)_fLeftTime / 60;
@@ -119,4 +126,9 @@ void ShopManager::Set_LeftTime(float _fLeftTime)
 	((Text*)m_LeftTime->Get_Text())->Set_Script(
 		L"Left Shopping Time\n" +
 		to_wstring(Min) + L":" + to_wstring(Sec));
+}
+
+void ShopManager::Set_ShopOnOff(bool _OnOff)
+{
+	m_bShopOn = _OnOff;
 }

@@ -15,6 +15,7 @@
 #include "Zed.h"
 #include "BulletManager.h"
 
+#include "Camera_FPS.h"
 
 Player_Fire::Player_Fire()
 {
@@ -45,6 +46,10 @@ void Player_Fire::EnterState()
 		m_pPlayerCol = m_GameObject->Get_Component<SphereCollider>();
 	}
 
+	if (m_pCamera == nullptr)
+	{
+		m_pCamera = m_GameObject->Get_Component<Camera_FPS>();
+	}
 
 
 
@@ -59,6 +64,8 @@ void Player_Fire::EnterState()
 			m_pCurWeaponStatus->m_tWeaponInfo,
 			m_pCurWeaponStatus->m_tWeaponInfo.m_iBuck);
 		BulletManager::Get_Instance()->Create_Muzzle(m_GameObject,m_pPlayerAttack->Get_Renderer()->Get_Mesh(), m_pCurWeaponStatus->m_tWeaponInfo);
+		
+		m_pCamera->Recoil(m_pCurWeaponStatus->m_tWeaponInfo.m_fRecoilForce);
 		//Bullet_Test();
 		//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
 
@@ -98,6 +105,7 @@ void Player_Fire::UpdateState()
 					m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
 					m_GameObject->Get_Component<AnimationController>()->Play(3);
 					
+					m_pCamera->Recoil(m_pCurWeaponStatus->m_tWeaponInfo.m_fRecoilForce);
 					BulletManager::Get_Instance()->Create_Bullet(m_GameObject, m_pCurWeaponStatus->m_tWeaponInfo);
 					BulletManager::Get_Instance()->Create_Muzzle(m_GameObject, m_pPlayerAttack->Get_Renderer()->Get_Mesh(), m_pCurWeaponStatus->m_tWeaponInfo);
 					
@@ -141,6 +149,8 @@ void Player_Fire::UpdateState()
 void Player_Fire::ExitState()
 {
 }
+
+
 
 //void Player_Fire::Bullet_Test()
 //{

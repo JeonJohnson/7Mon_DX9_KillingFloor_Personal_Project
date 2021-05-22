@@ -96,6 +96,8 @@ void HudManager::All_HudOnOff(bool _OnOff)
 	{
 		hud.second->Set_Active(_OnOff);
 	}
+
+	Get_Hud(L"HitEffect")->Set_Active(false);
 }
 
 UI * HudManager::Get_Hud(const wstring & _szName)

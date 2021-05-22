@@ -25,12 +25,14 @@ public:
 
 public:
 	void Look();
+	void Recoil(float _fRecoilPower);
+
 public:
 
 public:
 
 private:
-	float m_fSensitive;
+	float	m_fSensitive;
 
 	float	m_fRotX = 0.f;
 	float	m_fRotY = 0.f;

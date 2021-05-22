@@ -40,9 +40,9 @@ public:
 	void		Buy_AllMag();
 	void		Buy_Weapon();
 
-
-public:
 	
+public:
+	bool		Get_ShopOn();
 
 
 public:
@@ -50,6 +50,7 @@ public:
 	void		Insert_ShopWeapon(GameObject* _Weapon);
 
 	void		Set_LeftTime(float _fLeftTime);
+	void		Set_ShopOnOff(bool _OnOff);
 private:
 	vector<UI*> m_vecHaveWeapon_Name;
 	vector<UI*> m_vecHaveWeapon_OneMag;
@@ -64,7 +65,7 @@ private:
 	UI*			m_ShopFrame = nullptr;
 	UI*			m_LeftTime = nullptr;
 
-
+	bool		m_bShopOn = false;
 
 
 };

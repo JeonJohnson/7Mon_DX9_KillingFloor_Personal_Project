@@ -11,6 +11,7 @@
 
 #include "HudManager.h"
 #include "SphereCollider.h"
+#include "ShopManager.h"
 
 
 Player_Attack::Player_Attack(Desc * _desc)
@@ -83,19 +84,21 @@ void Player_Attack::Initialize()
 
 void Player_Attack::Update()
 {
+	if (!ShopManager::Get_Instance()->Get_ShopOn())
+	{
+		Swap();
+		Reload();
+		Fire();
 
-	Swap();
-	Reload();
-	Fire();
+		DEBUG_LOG(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+		DEBUG_LOG(to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet)
+			+ L" / " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet));
 
-	DEBUG_LOG(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
-	DEBUG_LOG(to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet) 
-		+ L" / " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet));
-
-	HudManager::Get_Instance()->Set_TextWeaponName(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
-	HudManager::Get_Instance()->Set_TextBullet(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet);
-	HudManager::Get_Instance()->Set_TextMagazine(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine);
-	HudManager::Get_Instance()->Set_TextGranade(3);
+		HudManager::Get_Instance()->Set_TextWeaponName(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+		HudManager::Get_Instance()->Set_TextBullet(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet);
+		HudManager::Get_Instance()->Set_TextMagazine(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine);
+		HudManager::Get_Instance()->Set_TextGranade(3);
+	}
 	
 
 	//if (KeyDown(KEY_STATE_F1))
