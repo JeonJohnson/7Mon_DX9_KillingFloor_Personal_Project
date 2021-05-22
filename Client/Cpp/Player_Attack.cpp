@@ -271,23 +271,23 @@ void Player_Attack::ChangeWeapon()
 	{//같으면 저 거 같은 인덱스의 무기들중 지금말고 다음꺼 고를 수 있게.
 	 //없음말고 ㅋㅋ;
 
+		int arrSize = (int)m_arrWeapons[m_iNewWeaponKind].size();
+
 		if (m_arrWeapons[m_iNewWeaponKind].size() <= 1)
 		{
 			return;
 		}
 
+		++m_iCurKindIndex;
+
 		if (m_arrWeapons[m_iNewWeaponKind].size() <= m_iCurKindIndex)
 		{
-			m_iCurKindIndex -= 1;
+			m_iCurKindIndex -= arrSize;
 			
 			if (m_iCurKindIndex <= 0)
 			{
 				m_iCurKindIndex = 0;
 			}
-		}
-		else 
-		{
-			++m_iCurKindIndex;
 		}
 
 		Set_CurWeapon(m_arrWeapons[m_iNewWeaponKind][m_iCurKindIndex]);

@@ -13,7 +13,8 @@ public:
 	struct Desc
 	{
 		int		Dmg = 10;
-		float Spd = 2000.f;
+		float	Spd = 2000.f;
+		Vector3		vAcc = { 0.f,0.f,0.f };
 	};
 public:
 	Bullet_Move(Desc* _desc);
@@ -38,6 +39,7 @@ private:
 	float	m_fTime = 0.f;
 	int		m_iDmg = 0;
 	float	m_fSpd = 150.f;
+	Vector3	m_vAcc;
 
 };
 

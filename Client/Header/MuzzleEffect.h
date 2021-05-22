@@ -12,7 +12,7 @@ class MuzzleEffect : public Component
 public:
 	struct Desc
 	{
-		float fmaxsize = 3.5f;
+		float fmaxsize = 5.f;
 		float fSpd = 100.f;
 
 		GameObject* pPlayer = nullptr;

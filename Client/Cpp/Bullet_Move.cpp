@@ -9,6 +9,8 @@ Bullet_Move::Bullet_Move(Desc * _desc)
 {
 	m_fSpd = _desc->Spd;
 	m_iDmg = _desc->Dmg;
+
+	m_vAcc = _desc->vAcc;
 }
 
 Bullet_Move::~Bullet_Move()
@@ -37,8 +39,11 @@ void Bullet_Move::Update()
 		m_GameObject->Set_Alive(false);
 	}
 
-	Vector3	vDir = m_Transform->Get_Forward() * fTime * m_fSpd;
-	m_Transform->Add_Position(vDir);
+	
+	Vector3	vDir = m_Transform->Get_Forward() + m_vAcc;
+	D3DXVec3Normalize(&vDir, &vDir);
+
+	m_Transform->Add_Position(vDir* fTime * m_fSpd);
 }
 
 void Bullet_Move::LateUpdate()

@@ -78,8 +78,8 @@ void WeaponManager::Nogada_Data()
 		AK_INFO.m_iCurMagazine = 6;
 		AK_INFO.m_fMaxRapid = 0.1f;
 		AK_INFO.m_fCurRapid = 0.f;
-		AK_INFO.m_fAccuracy = 1.f;
-		AK_INFO.m_fRecoilForce = 10.f;
+		AK_INFO.m_fAccuracy = 0.9f;
+		AK_INFO.m_fRecoilForce = 20.f;
 		AK_INFO.m_iWeight = 6;
 		AK_INFO.m_iPrice = 1500;
 		AK_INFO.m_iMagazinePrice = 40;
@@ -107,8 +107,8 @@ void WeaponManager::Nogada_Data()
 		ShotGun_INFO.m_iCurMagazine = 60;
 		ShotGun_INFO.m_fMaxRapid = 1.f;
 		ShotGun_INFO.m_fCurRapid = 0.f;
-		ShotGun_INFO.m_fAccuracy = 1.f;
-		ShotGun_INFO.m_fRecoilForce = 10.f;
+		ShotGun_INFO.m_fAccuracy = 0.75f;
+		ShotGun_INFO.m_fRecoilForce = 40.f;
 		ShotGun_INFO.m_iWeight = 5;
 		ShotGun_INFO.m_iPrice = 1000;
 		ShotGun_INFO.m_iMagazinePrice = 30;
@@ -127,7 +127,7 @@ void WeaponManager::Nogada_Data()
 		M99_INFO.m_szName = L"M99";
 		M99_INFO.m_ePriority = WEAPON_PRIORITY::Weapon_Primary;
 		M99_INFO.m_eType = WEAPON_TYPE::Weapon_Sniper;
-		M99_INFO.m_iDmg = 150;
+		M99_INFO.m_iDmg = 200;
 		M99_INFO.m_iBuck = 1;
 		M99_INFO.m_bAuto = false;
 		M99_INFO.m_iMaxBullet = 1;
@@ -137,7 +137,7 @@ void WeaponManager::Nogada_Data()
 		M99_INFO.m_fMaxRapid = 2.f;
 		M99_INFO.m_fCurRapid = 0.f;
 		M99_INFO.m_fAccuracy = 1.f;
-		M99_INFO.m_fRecoilForce = 10.f;
+		M99_INFO.m_fRecoilForce = 50.f;
 		M99_INFO.m_iWeight = 12;
 		M99_INFO.m_iPrice = 2000;
 		M99_INFO.m_iMagazinePrice = 50;
@@ -165,7 +165,7 @@ void WeaponManager::Nogada_Data()
 		Beretta_INFO.m_iCurMagazine = 3;
 		Beretta_INFO.m_fMaxRapid = 0.2f;
 		Beretta_INFO.m_fCurRapid = 0.f;
-		Beretta_INFO.m_fAccuracy = 1.f;
+		Beretta_INFO.m_fAccuracy = 0.9f;
 		Beretta_INFO.m_fRecoilForce = 10.f;
 		Beretta_INFO.m_iWeight = 1;
 		Beretta_INFO.m_iPrice = 0;
@@ -195,7 +195,7 @@ void WeaponManager::Nogada_Data()
 		Revolver_INFO.m_fMaxRapid = 0.4f;
 		Revolver_INFO.m_fCurRapid = 0.f;
 		Revolver_INFO.m_fAccuracy = 1.f;
-		Revolver_INFO.m_fRecoilForce = 10.f;
+		Revolver_INFO.m_fRecoilForce = 20.f;
 		Revolver_INFO.m_iWeight = 3;
 		Revolver_INFO.m_iPrice = 750;
 		Revolver_INFO.m_iMagazinePrice = 50;

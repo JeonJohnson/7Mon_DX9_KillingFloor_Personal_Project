@@ -34,7 +34,9 @@ void Player_Reload::EnterState()
 		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
 	}
 
-	m_bReloadFin = false;
+	m_bFire			= false;
+	m_bReloadFin	= false;
+	m_fShotGunTime	= 0.f;
 }
 
 void Player_Reload::UpdateState()
@@ -44,12 +46,25 @@ void Player_Reload::UpdateState()
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType == WEAPON_TYPE::Weapon_Shotgun)
 	{
 		int temp = m_GameObject->Get_Component<AnimationController>()->Get_CurAnimIndex();
+
 		if (temp != 2)
 		{
 			m_GameObject->Get_Component<AnimationController>()->Play(2);
 		}
 		else 
 		{
+			if (MouseDown(KEY_STATE_LMouse) && !m_bFire 
+				&& m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet >0)
+			{
+				if (m_pAnimCtrl->Get_CurFrame() < 3.6f)
+				{
+					m_pAnimCtrl->Set_Frame(3.6f);
+				}
+				m_bReloadFin = true;
+				m_bFire = true;
+				//m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Fire");
+			}
+
 			if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine <= 0)
 			{
 				m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
@@ -57,15 +72,16 @@ void Player_Reload::UpdateState()
 			}
 
 			m_fShotGunTime += fTime;
-			float fCurFrame = m_pAnimCtrl->Get_CurFrame();
+			float fCurFrame = (float)m_pAnimCtrl->Get_CurFrame();
 			DEBUG_LOG(L"ShotGun Reload Frame : " + to_wstring(fCurFrame));
 			
 			if (m_fShotGunTime >= 0.6f && !m_bReloadFin)
 			{
 				--m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine;
 				++m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet;
-				
-				if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet >= 6
+
+				if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet 
+					>= m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet
 					&& !m_bReloadFin)
 				{
 					m_pAnimCtrl->Set_Frame(3.6f);
@@ -79,7 +95,14 @@ void Player_Reload::UpdateState()
 
 			if (m_GameObject->Get_Component<AnimationController>()->IsEnd())
 			{
-				m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
+				if (m_bFire)
+				{
+					m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Fire");
+				}
+				else
+				{
+					m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
+				}
 			}
 
 		}

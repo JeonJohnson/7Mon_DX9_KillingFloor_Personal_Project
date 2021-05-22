@@ -3,6 +3,7 @@
 #include "AnimationController.h"
 #include "ZedManager.h"
 #include "Zed.h"
+#include "..\..\Engine\Header\SphereCollider.h"
 
 
 Zed_Death::Zed_Death()
@@ -31,6 +32,7 @@ void Zed_Death::EnterState()
 		m_pZedInfo = m_GameObject->Get_Component<Zed>();
 	}
 
+	m_GameObject->Get_Component<SphereCollider>()->Set_Alive(false);
 
 	if (m_pAnimCtrl->Get_CurAnimIndex() != m_iDeathIndex)
 	{

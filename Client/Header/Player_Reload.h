@@ -23,10 +23,12 @@ public:
 public:
 
 private:
-	Weapon_Status* m_pCurWeaponStatus = nullptr;
+	Weapon_Status*			m_pCurWeaponStatus = nullptr;
 	AnimationController*	m_pAnimCtrl = nullptr;
-	float	m_fShotGunTime = 0.f;
-	bool	m_bReloadFin = false;
+	float					m_fShotGunTime = 0.f;
+	bool					m_bReloadFin = false;
+	bool					m_bFire = false;
+
 };
 
 #endif //_PLAYER_RELOAD_H_

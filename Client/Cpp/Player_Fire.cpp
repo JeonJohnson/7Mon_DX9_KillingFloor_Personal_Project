@@ -54,7 +54,10 @@ void Player_Fire::EnterState()
 
 		m_GameObject->Get_Component<AnimationController>()->Play(3);
 		
-		BulletManager::Get_Instance()->Create_Bullet(m_GameObject,m_pCurWeaponStatus->m_tWeaponInfo);
+		BulletManager::Get_Instance()->Create_Bullet(
+			m_GameObject,
+			m_pCurWeaponStatus->m_tWeaponInfo,
+			m_pCurWeaponStatus->m_tWeaponInfo.m_iBuck);
 		BulletManager::Get_Instance()->Create_Muzzle(m_GameObject,m_pPlayerAttack->Get_Renderer()->Get_Mesh(), m_pCurWeaponStatus->m_tWeaponInfo);
 		//Bullet_Test();
 		//m_pCurWeapon->m_fCurRapid = m_pCurWeapon->m_fMaxRapid;
@@ -103,14 +106,6 @@ void Player_Fire::UpdateState()
 					m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 				}
 			}
-			//else
-			//{
-			//	if (MouseDown(KEY_STATE_LMouse))
-			//	{
-			//		m_GameObject->Get_Component<AnimationController>()->Play(3);
-			//		m_pCurWeapon->m_fCurRapid = 0.f;
-			//	}
-			//}
 		}
 	}
 	else 
