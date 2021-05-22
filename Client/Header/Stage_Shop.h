@@ -19,6 +19,9 @@ public:
 public:
 	void	Create_Arrow();
 
+	void	Skip_Shop();
+	void	Open_Shop();
+	void	Exit_Shop();
 public:
 
 public:

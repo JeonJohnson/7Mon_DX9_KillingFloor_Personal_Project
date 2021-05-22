@@ -6,6 +6,7 @@
 #include "CState.h"
 
 class Weapon_Status;
+class AnimationController;
 
 class Player_Reload :	public CState
 {
@@ -23,7 +24,9 @@ public:
 
 private:
 	Weapon_Status* m_pCurWeaponStatus = nullptr;
-
+	AnimationController*	m_pAnimCtrl = nullptr;
+	float	m_fShotGunTime = 0.f;
+	bool	m_bReloadFin = false;
 };
 
 #endif //_PLAYER_RELOAD_H_

@@ -37,6 +37,8 @@ public: /* Func */
 	void		Hit_EffectOn();
 	void		Hit_EffectOff();
 	
+	void		All_HudOnOff(bool _OnOff);
+
 
 public: /* Get */
 	UI*			Get_Hud(const wstring& _szName);
@@ -59,7 +61,7 @@ public: /* Set */
 	void		Set_TextZedCount(int _iZedCount);
 
 
-	void		Insert_ShopHud(const wstring& _szName, UI* _pUI);
+	//void		Insert_ShopHud(const wstring& _szName, UI* _pUI);
 	
 
 private:
@@ -67,9 +69,9 @@ private:
 	unordered_map<wstring, UI*>	m_umStageHuds;
 	bool		m_bHitEffect = false;
 	 
-	unordered_map<wstring, UI*> m_umShopHud;
-	vector<UI*>					m_vecHaveWeapon;
-	vector<UI*>					m_vecBuyWeapon;
+	//unordered_map<wstring, UI*> m_umShopHud;
+	//vector<UI*>					m_vecHaveWeapon;
+	//vector<UI*>					m_vecBuyWeapon;
 
 
 	//Hp

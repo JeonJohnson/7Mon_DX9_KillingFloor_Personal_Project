@@ -40,6 +40,7 @@ public: /* Func */
 	void				Animating();
 	void				Play(int _iNewAnimIndex, bool _bBlending = false);
 	void				Play(const wstring& _szNewAnimName, bool _bBlending = false);
+	
 	bool				IsEnd();
 	//void				Play(const wstring& _szAnimName, bool _bBlending = false);
 
@@ -72,6 +73,8 @@ public: /* Set */
 	void		Set_Play(bool _OnOff);
 	void		Set_Loop(bool _OnOff);
 	void		Set_OffSet(double _dOffSet);
+
+	void		Set_Frame(float _fFrame);
 
 private:
 	bool							m_bClone;

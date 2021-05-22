@@ -85,7 +85,17 @@ STAGE_NAME StageManager::Get_CurStageName()
 	return m_eCurStage;
 }
 
+STAGE_NAME StageManager::Get_PastStageName()
+{
+	return m_ePastStage;
+}
+
 void StageManager::Set_CurStage(STAGE_NAME _eCurStageName)
 {
+	if (m_eCurStage == _eCurStageName)
+	{
+		return;
+	}
+	m_ePastStage = m_eCurStage;
 	m_eCurStage = _eCurStageName;
 }

@@ -39,6 +39,9 @@ public: /* Func */
 	void			IronSight();
 	void			Reload();
 	void			Swap();
+	void			ChangeWeapon();
+
+	void			Drop();
 
 	void			SetUp();
 
@@ -47,7 +50,7 @@ public: /* Get */
 	Weapon_Status*				Get_CurWeaponStatus();
 	Mesh_Renderer*				Get_Renderer();
 	AnimationController*		Get_AnimCtrl();
-	int							Get_iCurIndex();
+	int							Get_iCurKind();
 	vector<GameObject*>*		Get_WeaponsArr();
 
 public: /* Set  */
@@ -63,9 +66,10 @@ private:
 	vector<GameObject*>		m_arrWeapons[WEAPON_PRIORITY::Weapon_Priority_End];
 	GameObject*				m_pCurWeapon;
 	Weapon_Status*			m_pCurWeaponStatus;
-	int						m_iNewWeaponIndex = 0;
-	int						m_iCurWeaponIndex = -1;
+	int						m_iNewWeaponKind = 0;
+	int						m_iCurWeaponKind = -1;
 
+	int						m_iCurKindIndex = 0;
 
 
 	bool				m_bIronSight = false;

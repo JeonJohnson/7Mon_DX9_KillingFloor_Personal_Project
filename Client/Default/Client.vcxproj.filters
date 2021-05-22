@@ -41,24 +41,6 @@
     <Filter Include="02.Scene\01.MainMenu">
       <UniqueIdentifier>{a93ee90a-2a2b-4d63-aafa-59bbfccf0de6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="97.Test">
-      <UniqueIdentifier>{5b358ecb-96f3-4421-9fba-1103ddf02972}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="97.Test\CameraFreeMove">
-      <UniqueIdentifier>{e0acfa35-b7a1-4b6d-b984-5cb6a40293bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="97.Test\PlayerTestMove">
-      <UniqueIdentifier>{42b4af10-35c9-4a45-9861-192fa0b9cd37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="97.Test\PlayerTestAtt_Swap_Reload">
-      <UniqueIdentifier>{84357764-7194-47c4-8df0-b0f01c431224}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="97.Test\01.testScene1">
-      <UniqueIdentifier>{c2d87962-e616-468c-9c25-e138bea10f4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="97.Test\02.testScene2">
-      <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02.Scene\02.Stage">
       <UniqueIdentifier>{f9ce8cd3-1d80-4cb2-a36d-e20af87e79f0}</UniqueIdentifier>
     </Filter>
@@ -224,6 +206,27 @@
     <Filter Include="03.Objects\04.Zeds\States\InitWalk">
       <UniqueIdentifier>{d4c38847-4620-4588-8531-9525871a3c55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.Ui\97.Test">
+      <UniqueIdentifier>{5b358ecb-96f3-4421-9fba-1103ddf02972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Ui\97.Test\CameraFreeMove">
+      <UniqueIdentifier>{e0acfa35-b7a1-4b6d-b984-5cb6a40293bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Ui\97.Test\PlayerTestMove">
+      <UniqueIdentifier>{42b4af10-35c9-4a45-9861-192fa0b9cd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Ui\97.Test\PlayerTestAtt_Swap_Reload">
+      <UniqueIdentifier>{84357764-7194-47c4-8df0-b0f01c431224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Ui\97.Test\01.testScene1">
+      <UniqueIdentifier>{c2d87962-e616-468c-9c25-e138bea10f4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Ui\97.Test\02.testScene2">
+      <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.Ui\ShopManager">
+      <UniqueIdentifier>{1b8c2a68-7cf1-42c0-8a6c-ff9a3fa2fba1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -296,7 +299,7 @@
       <Filter>03.Objects\01.Player\States\03.Fire</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\TestScene.h">
-      <Filter>97.Test\01.testScene1</Filter>
+      <Filter>06.Ui\97.Test\01.testScene1</Filter>
     </ClInclude>
     <ClInclude Include="..\Header\Player_Swap.h">
       <Filter>03.Objects\01.Player\States\01.Swap</Filter>
@@ -379,6 +382,9 @@
     <ClInclude Include="..\Header\Zed_InitWalk.h">
       <Filter>03.Objects\04.Zeds\States\InitWalk</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\ShopManager.h">
+      <Filter>06.Ui\ShopManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -427,7 +433,7 @@
       <Filter>03.Objects\01.Player\States\03.Fire</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\TestScene.cpp">
-      <Filter>97.Test\01.testScene1</Filter>
+      <Filter>06.Ui\97.Test\01.testScene1</Filter>
     </ClCompile>
     <ClCompile Include="..\Cpp\Player_Swap.cpp">
       <Filter>03.Objects\01.Player\States\01.Swap</Filter>
@@ -509,6 +515,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Zed_InitWalk.cpp">
       <Filter>03.Objects\04.Zeds\States\InitWalk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\ShopManager.cpp">
+      <Filter>06.Ui\ShopManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -39,7 +39,7 @@ public:
 
 public: /* Get */
 	STAGE_NAME		Get_CurStageName();
-
+	STAGE_NAME		Get_PastStageName();
 
 public: /* Set */
 	void			Set_CurStage(STAGE_NAME _eCurStageName);
@@ -47,7 +47,8 @@ public: /* Set */
 private:
 	StateController*		m_pStateCtrl = nullptr;
 	
-	STAGE_NAME				m_eCurStage;
+	STAGE_NAME				m_ePastStage = STAGE_NAME::STAGE_END;
+	STAGE_NAME				m_eCurStage = STAGE_NAME::STAGE_END;
 	bool					m_bClearStage[3] = { false };
 
 

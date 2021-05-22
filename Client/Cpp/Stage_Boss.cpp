@@ -19,6 +19,8 @@ void Stage_Boss::Initialize()
 void Stage_Boss::EnterState()
 {
 	StageManager::Get_Instance()->Set_CurStage(STAGE_NAME::STAGE_BOSS);
+
+
 }
 
 void Stage_Boss::UpdateState()

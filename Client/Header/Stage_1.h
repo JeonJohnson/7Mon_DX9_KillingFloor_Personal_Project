@@ -26,6 +26,7 @@ public:
 	void	Generate_PhaseEnd();
 
 public:
+	void	Stage1_Skip();
 
 public:
 

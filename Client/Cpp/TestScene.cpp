@@ -39,6 +39,7 @@
 #include "Stage_2.h"
 #include "Stage_Boss.h"
 #include "ShakeObject.h"
+#include "ShopManager.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -405,10 +406,26 @@ void TestScene::Initialize()
 		}
 		
 	}
+
+	{ //Shop Hud
+		
+		EngineFunction->Load_Texture(L"Texture/Shop/ShopFrame.png", L"Shop_Frame");
+		
+		EngineFunction->Load_Texture(L"Texture/Shop/LeftTime.png", L"Shop_LeftTime");
+
+		EngineFunction->Load_Texture(L"Texture/Shop/Shop_WeaponName.png", L"Shop_WeaponName");
+		EngineFunction->Load_Texture(L"Texture/Shop/Shop_OneMag.png", L"Shop_OneMag");
+		EngineFunction->Load_Texture(L"Texture/Shop/Shop_AllMag.png", L"Shop_AllMag");
+		EngineFunction->Load_Texture(L"Texture/Shop/Shop_OneMag_MouseOn.png", L"Shop_OneMag_MouseOn");
+		EngineFunction->Load_Texture(L"Texture/Shop/Shop_AllMag_MouseOn.png", L"Shop_AllMag_MouseOn");
+		
+		ShopManager::Get_Instance();
+
+	}
 	
 	{//skybox
 		EngineFunction->Load_Mesh(L"Mesh/SkyBox/SkyBox.X", L"SkyBox");
-		
+	
 		GameObject*	SkyBoxObj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"SkyBox");
 		SkyBoxObj->Set_Scale(Vector3(15.f, 15.f, 15.f));
 

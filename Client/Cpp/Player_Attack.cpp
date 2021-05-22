@@ -29,15 +29,23 @@ Player_Attack::Player_Attack(Desc * _desc)
 		
 	if (_desc->szInitWeapon == L"")
 	{
-		m_iNewWeaponIndex = 1;
+		m_iNewWeaponKind = 1;
 		m_pCurWeapon = Beretta;
 	}
 	else 
 	{
 		GameObject* PrimaryWeapon = WeaponManager::Get_Instance()->Get_CloneWeapon(_desc->szInitWeapon);
 		m_arrWeapons[0].emplace_back(PrimaryWeapon);
-		m_iNewWeaponIndex = 0;
+		m_iNewWeaponKind = 0;
 		m_pCurWeapon = PrimaryWeapon;
+
+		GameObject* PrimaryWeapon2 = WeaponManager::Get_Instance()->Get_CloneWeapon(L"ShotGun");
+		m_arrWeapons[WEAPON_PRIORITY::Weapon_Primary].emplace_back(PrimaryWeapon2);
+		//m_iNewWeaponKind = 0;
+		//m_pCurWeapon = PrimaryWeapon;
+
+
+	
 	}
 
 
@@ -70,6 +78,7 @@ void Player_Attack::Initialize()
 	//m_pWeaponRenderer = m_GameObject->Get_NewComponent<Mesh_Renderer>();
 	//m_pWeaponAnim = m_GameObject->Get_NewComponent<AnimationController>();
 
+	ChangeWeapon();
 }
 
 void Player_Attack::Update()
@@ -170,44 +179,133 @@ void Player_Attack::Swap()
 	{
 		if (KeyDown(KEY_STATE_1))
 		{
-			m_iNewWeaponIndex = 0;
+			m_iNewWeaponKind = 0;
+			ChangeWeapon();
 		}
 		if (KeyDown(KEY_STATE_2))
 		{
-			m_iNewWeaponIndex = 1;
+			m_iNewWeaponKind = 1;
+			ChangeWeapon();
 		}
 		if (KeyDown(KEY_STATE_3))
 		{
-			m_iNewWeaponIndex = 2;
+			m_iNewWeaponKind = 2;
+			ChangeWeapon();
 		}
 
-		if (m_iCurWeaponIndex != m_iNewWeaponIndex)
-		{
-			if (m_arrWeapons[m_iNewWeaponIndex].size() <= 0)
-			{
-				return;
-			}
+		//if (m_iCurWeaponKind != m_iNewWeaponKind)
+		//{
+		//	if (m_arrWeapons[m_iNewWeaponKind].size() <= 0)
+		//	{
+		//		return;
+		//	}
 
-			Set_CurWeapon(m_arrWeapons[m_iNewWeaponIndex].front());
+		//	Set_CurWeapon(m_arrWeapons[m_iNewWeaponKind].front());
 
-			m_pWeaponRenderer->Set_Mesh(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
-			m_pWeaponAnim->SetUp_AnimCtrl();
+		//	m_pWeaponRenderer->Set_Mesh(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+		//	m_pWeaponAnim->SetUp_AnimCtrl();
 
-			m_pStateCtlr->Set_State(L"Player_Swap");
+		//	m_pStateCtlr->Set_State(L"Player_Swap");
 
-			//m_pWeaponAnim->Play(1);
+		//	//m_pWeaponAnim->Play(1);
 
-			m_iCurWeaponIndex = m_iNewWeaponIndex;
+		//	m_iCurWeaponKind = m_iNewWeaponKind;
 
-			return;
-		}
-		else
-		{//같으면 저 거 같은 인덱스의 무기들중 지금말고 다음꺼 고를 수 있게.
-			//없음말고 ㅋㅋ;
-		}
+		//	return;
+		//}
+		//else
+		//{//같으면 저 거 같은 인덱스의 무기들중 지금말고 다음꺼 고를 수 있게.
+		//	//없음말고 ㅋㅋ;
+		//	if (m_arrWeapons[m_iNewWeaponKind].size() >= m_iCurKindIndex)
+		//	{
+		//		--m_iCurKindIndex;
+		//		if (m_iCurKindIndex < 0)
+		//		{
+		//			m_iCurKindIndex == 0;
+		//		}
+		//	}
+		//	else {
+		//		++m_iCurKindIndex;
+		//	}
+
+		//	Set_CurWeapon(m_arrWeapons[m_iNewWeaponKind][m_iCurKindIndex]);
+
+		//	m_pWeaponRenderer->Set_Mesh(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+		//	m_pWeaponAnim->SetUp_AnimCtrl();
+
+		//	m_pStateCtlr->Set_State(L"Player_Swap");
+
+		//	//m_pWeaponAnim->Play(1);
+
+		//	m_iCurWeaponKind = m_iNewWeaponKind;
+		//	
+		//}
 
 	}
 
+}
+
+void Player_Attack::ChangeWeapon()
+{
+	if (m_iCurWeaponKind != m_iNewWeaponKind)
+	{
+		if (m_arrWeapons[m_iNewWeaponKind].size() <= 0)
+		{
+			return;
+		}
+
+		Set_CurWeapon(m_arrWeapons[m_iNewWeaponKind].front());
+
+		m_pWeaponRenderer->Set_Mesh(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+		m_pWeaponAnim->SetUp_AnimCtrl();
+
+		m_pStateCtlr->Set_State(L"Player_Swap");
+
+		//m_pWeaponAnim->Play(1);
+
+		m_iCurWeaponKind = m_iNewWeaponKind;
+
+		return;
+	}
+	else
+	{//같으면 저 거 같은 인덱스의 무기들중 지금말고 다음꺼 고를 수 있게.
+	 //없음말고 ㅋㅋ;
+
+		if (m_arrWeapons[m_iNewWeaponKind].size() <= 1)
+		{
+			return;
+		}
+
+		if (m_arrWeapons[m_iNewWeaponKind].size() <= m_iCurKindIndex)
+		{
+			m_iCurKindIndex -= 1;
+			
+			if (m_iCurKindIndex <= 0)
+			{
+				m_iCurKindIndex = 0;
+			}
+		}
+		else 
+		{
+			++m_iCurKindIndex;
+		}
+
+		Set_CurWeapon(m_arrWeapons[m_iNewWeaponKind][m_iCurKindIndex]);
+
+		m_pWeaponRenderer->Set_Mesh(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+		m_pWeaponAnim->SetUp_AnimCtrl();
+
+		m_pStateCtlr->Set_State(L"Player_Swap");
+
+		//m_pWeaponAnim->Play(1);
+
+		m_iCurWeaponKind = m_iNewWeaponKind;
+
+	}
+}
+
+void Player_Attack::Drop()
+{
 }
 
 void Player_Attack::SetUp()
@@ -235,9 +333,9 @@ AnimationController * Player_Attack::Get_AnimCtrl()
 	return m_pWeaponAnim;
 }
 
-int Player_Attack::Get_iCurIndex()
+int Player_Attack::Get_iCurKind()
 {
-	return m_iCurWeaponIndex;
+	return m_iCurWeaponKind;
 }
 
 vector<GameObject*>* Player_Attack::Get_WeaponsArr()

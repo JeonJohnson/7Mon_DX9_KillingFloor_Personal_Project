@@ -28,6 +28,9 @@ void Stage_1::UpdateState()
 	DEBUG_LOG(L"CurStage : Stage1_" + to_wstring(m_iCurPattern));
 	DEBUG_LOG(L"GeneTime : " + to_wstring(m_fGeneTime));
 
+
+	Stage1_Skip();
+
 	if (m_arrPattern[0] == false)
 	{
 		Generate_Phase1();
@@ -179,4 +182,12 @@ void Stage_1::Generate_PhaseEnd()
 	}
 
 
+}
+
+void Stage_1::Stage1_Skip()
+{
+	if (KeyPress(KEY_STATE_LCtrl) && KeyDown(KEY_STATE_F1))
+	{
+		m_pStateController->Set_State(L"Stage_Shop");
+	}
 }

@@ -403,3 +403,14 @@ void AnimationController::Set_OffSet(double _dOffSet)
 {
 	m_dOffSet = _dOffSet;
 }
+
+void AnimationController::Set_Frame(float _fFrame)
+{
+	if ((double)_fFrame >= m_dMaxKeyFrame)
+	{
+		_fFrame = (float)m_dMaxKeyFrame - 0.01f;
+	}
+
+	m_pAnimCtrl->SetTrackPosition(m_iCurTrackIndex, _fFrame);
+	m_dCurKeyFrame = _fFrame;
+}

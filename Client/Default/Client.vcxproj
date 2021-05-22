@@ -213,6 +213,7 @@
     <ClInclude Include="..\Header\Player_Reload.h" />
     <ClInclude Include="..\Header\Player_Swap.h" />
     <ClInclude Include="..\Header\ShakeObject.h" />
+    <ClInclude Include="..\Header\ShopManager.h" />
     <ClInclude Include="..\Header\SkyBox.h" />
     <ClInclude Include="..\Header\StageManager.h" />
     <ClInclude Include="..\Header\StageScene.h" />
@@ -262,6 +263,7 @@
     <ClCompile Include="..\Cpp\Player_Reload.cpp" />
     <ClCompile Include="..\Cpp\Player_Swap.cpp" />
     <ClCompile Include="..\Cpp\ShakeObject.cpp" />
+    <ClCompile Include="..\Cpp\ShopManager.cpp" />
     <ClCompile Include="..\Cpp\SkyBox.cpp" />
     <ClCompile Include="..\Cpp\StageManager.cpp" />
     <ClCompile Include="..\Cpp\StageScene.cpp" />

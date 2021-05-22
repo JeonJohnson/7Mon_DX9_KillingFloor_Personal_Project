@@ -90,6 +90,14 @@ void HudManager::Hit_EffectOff()
 	}
 }
 
+void HudManager::All_HudOnOff(bool _OnOff)
+{
+	for (auto& hud : m_umStageHuds)
+	{
+		hud.second->Set_Active(_OnOff);
+	}
+}
+
 UI * HudManager::Get_Hud(const wstring & _szName)
 {
 	auto iter_find = m_umStageHuds.find(_szName);
