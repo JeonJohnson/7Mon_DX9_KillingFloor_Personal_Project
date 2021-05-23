@@ -24,6 +24,8 @@ void Player_Status::Update()
 {
 	auto PlayerAttack = m_GameObject->Get_Component<Player_Attack>();
 	
+	Heal();
+
 	int weight = 0;
 
 	for (int i = 0; i < 3; ++i) 
@@ -84,4 +86,45 @@ void Player_Status::Damaged(int _iDmg)
 			m_tPlayerStatus.m_iCurHp = 0;
 		}
 	}
+}
+
+void Player_Status::Heal()
+{
+	if (m_bHeal)
+	{
+		if (m_tPlayerStatus.m_iCurHp <= 100)
+		{
+			m_fHealTime += fTime * 7.5f;
+
+			if (m_fHealTime >= 1.f)
+			{
+				++m_tPlayerStatus.m_iCurHp;
+				--m_iHealAmount;
+				m_fHealTime = 0.f;
+			}
+		}
+		
+		if (m_tPlayerStatus.m_iCurHp > 100 || m_iHealAmount <= 0)
+		{
+			if (m_tPlayerStatus.m_iCurHp > 100)
+			{
+				m_tPlayerStatus.m_iCurHp = 100;
+			}
+			Set_Heal(false);
+		}
+	}
+
+}
+
+void Player_Status::Set_Heal(bool _OnOff)
+{
+	m_fHealTime = 0.f;
+	m_iHealAmount = 50;
+	m_bHeal = _OnOff;
+}
+
+
+PLAYER_INFO Player_Status::Get_PlayerStatus()
+{
+	return m_tPlayerStatus;
 }

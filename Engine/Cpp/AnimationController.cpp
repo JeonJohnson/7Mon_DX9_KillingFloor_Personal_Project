@@ -369,7 +369,7 @@ double AnimationController::Get_MaxFrame()
 
 double AnimationController::Get_AnimSpd()
 {
-	return m_dOffSet;
+	return m_dAnimSpd;
 }
 
 bool AnimationController::Get_Playing()

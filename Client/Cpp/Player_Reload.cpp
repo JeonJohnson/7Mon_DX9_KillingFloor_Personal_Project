@@ -67,6 +67,7 @@ void Player_Reload::UpdateState()
 
 		if (temp != 2)
 		{
+			m_pAnimCtrl->Set_AnimSpd(1.25f);
 			m_GameObject->Get_Component<AnimationController>()->Play(2);
 		}
 		else 
@@ -89,6 +90,7 @@ void Player_Reload::UpdateState()
 				//{
 				//	m_pPlayerAttack->On_IronSight();
 				//}
+				m_pAnimCtrl->Set_AnimSpd(1.0);
 				m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
 				
 				return; 
@@ -129,6 +131,7 @@ void Player_Reload::UpdateState()
 				//{
 				//	m_pPlayerAttack->On_IronSight();
 				//}
+					m_pAnimCtrl->Set_AnimSpd(1.0);
 					m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
 				//}
 			}

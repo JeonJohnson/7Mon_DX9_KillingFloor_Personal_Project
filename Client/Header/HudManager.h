@@ -48,10 +48,12 @@ public: /* Set */
 	void		Insert_Hud(const wstring& _szName, UI* _pUI);
 
 	void		Set_TextHp(int _iHp);
+	void		Set_TextHeal(int _iHeal);
 	void		Set_TextArmor(int _iArmor);
 	void		Set_TextWeight(int _iWeight);
 	void		Set_TextBullet(int _iBullet);
 	void		Set_TextMagazine(int _iMagazine);
+	
 	void		Set_TextGranade(int _iGranade);
 
 	void		Set_TextMoney(int _iMoney);
@@ -60,7 +62,7 @@ public: /* Set */
 	void		Set_TextClock(float _fClock);
 	void		Set_TextZedCount(int _iZedCount);
 
-
+	
 	//void		Insert_ShopHud(const wstring& _szName, UI* _pUI);
 	
 

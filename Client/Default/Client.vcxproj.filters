@@ -227,6 +227,15 @@
     <Filter Include="06.Ui\ShopManager">
       <UniqueIdentifier>{1b8c2a68-7cf1-42c0-8a6c-ff9a3fa2fba1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Objects\01.Player\States\04.Heal">
+      <UniqueIdentifier>{bbc013f4-5aac-44cf-8337-6562f8ef80d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\01.Player\States\05.Bomb">
+      <UniqueIdentifier>{c83e6bf0-ccf0-4b0b-94e2-1a18d1d49c8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\01.Player\States\06.Death">
+      <UniqueIdentifier>{29a438f4-8519-4136-a23c-19df85207768}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -385,6 +394,15 @@
     <ClInclude Include="..\Header\ShopManager.h">
       <Filter>06.Ui\ShopManager</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Player_Heal.h">
+      <Filter>03.Objects\01.Player\States\04.Heal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Bomb.h">
+      <Filter>03.Objects\01.Player\States\05.Bomb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Player_Death.h">
+      <Filter>03.Objects\01.Player\States\06.Death</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -518,6 +536,15 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\ShopManager.cpp">
       <Filter>06.Ui\ShopManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Heal.cpp">
+      <Filter>03.Objects\01.Player\States\04.Heal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Bomb.cpp">
+      <Filter>03.Objects\01.Player\States\05.Bomb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Player_Death.cpp">
+      <Filter>03.Objects\01.Player\States\06.Death</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

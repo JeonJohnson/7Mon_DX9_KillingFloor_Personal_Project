@@ -41,6 +41,7 @@ typedef enum eWeaponPriority
 	Weapon_Primary,
 	Weapon_Secondary,
 	Weapon_Melee,
+	Weapon_Special,
 	Weapon_Priority_End
 
 }WEAPON_PRIORITY;
@@ -52,6 +53,8 @@ typedef enum eWeaponType
 	Weapon_Sniper,
 	Weapon_Pistol,
 	Weapon_Knife,
+	Weapon_Injector,
+	Weapon_Bomb,
 	Weapon_Type_End
 
 }WEAPON_TYPE;

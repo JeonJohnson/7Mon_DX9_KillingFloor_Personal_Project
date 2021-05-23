@@ -206,7 +206,10 @@
     <ClInclude Include="..\Header\MenuSelector.h" />
     <ClInclude Include="..\Header\MuzzleEffect.h" />
     <ClInclude Include="..\Header\Player_Attack.h" />
+    <ClInclude Include="..\Header\Player_Bomb.h" />
+    <ClInclude Include="..\Header\Player_Death.h" />
     <ClInclude Include="..\Header\Player_Fire.h" />
+    <ClInclude Include="..\Header\Player_Heal.h" />
     <ClInclude Include="..\Header\Player_Status.h" />
     <ClInclude Include="..\Header\Player_Idle.h" />
     <ClInclude Include="..\Header\Player_Move.h" />
@@ -256,7 +259,10 @@
     <ClCompile Include="..\Cpp\MenuSelector.cpp" />
     <ClCompile Include="..\Cpp\MuzzleEffect.cpp" />
     <ClCompile Include="..\Cpp\Player_Attack.cpp" />
+    <ClCompile Include="..\Cpp\Player_Bomb.cpp" />
+    <ClCompile Include="..\Cpp\Player_Death.cpp" />
     <ClCompile Include="..\Cpp\Player_Fire.cpp" />
+    <ClCompile Include="..\Cpp\Player_Heal.cpp" />
     <ClCompile Include="..\Cpp\Player_Status.cpp" />
     <ClCompile Include="..\Cpp\Player_Idle.cpp" />
     <ClCompile Include="..\Cpp\Player_Move.cpp" />

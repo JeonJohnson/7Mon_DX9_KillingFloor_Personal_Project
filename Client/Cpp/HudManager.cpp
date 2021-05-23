@@ -135,6 +135,11 @@ void HudManager::Set_TextHp(int _iHp)
 	Get_HudText(L"Hp")->Set_Script(to_wstring(_iHp));
 }
 
+void HudManager::Set_TextHeal(int _iHeal)
+{
+	Get_HudText(L"Heal")->Set_Script(to_wstring(_iHeal));
+}
+
 void HudManager::Set_TextArmor(int _iArmor)
 {
 	Get_HudText(L"Armor")->Set_Script(to_wstring(_iArmor));

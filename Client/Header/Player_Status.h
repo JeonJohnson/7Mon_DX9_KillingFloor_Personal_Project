@@ -29,15 +29,22 @@ public:
 
 public:/* Func */
 	void	Damaged(int _iDmg);
+	void	Heal();
 
 public: /* Set */
-
+	void	Set_Heal(bool _OnOff);
 
 public: /* Get */
-	const PLAYER_INFO&	Get_PlayerStatus();
+	PLAYER_INFO		Get_PlayerStatus();
 
 private:
 	PLAYER_INFO		m_tPlayerStatus;
+	
+	bool			m_bHeal = false;
+	int				m_iHealAmount = 50;
+	float			m_fHealTime = 0.f;
+	
+	//bool			m_bHeal = false;
 
 	//int			m_iCurHp;
 	//int			m_iMaxHp;

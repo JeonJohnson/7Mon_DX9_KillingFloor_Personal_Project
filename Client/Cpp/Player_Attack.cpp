@@ -12,6 +12,7 @@
 #include "HudManager.h"
 #include "SphereCollider.h"
 #include "ShopManager.h"
+#include "Player_Status.h"
 
 
 Player_Attack::Player_Attack(Desc * _desc)
@@ -19,15 +20,25 @@ Player_Attack::Player_Attack(Desc * _desc)
 //Beretta
 	GameObject* Beretta = WeaponManager::Get_Instance()->Get_CloneWeapon(L"Beretta");
 	assert(L"Beretta has't exist WeaponManager" && Beretta);
-
-	m_arrWeapons[1].emplace_back(Beretta);
+	m_arrWeapons[WEAPON_PRIORITY::Weapon_Secondary].emplace_back(Beretta);
 	
 	//Knife
 	GameObject* Knife = WeaponManager::Get_Instance()->Get_CloneWeapon(L"Knife");
 	assert(L"Knife has't exist WeaponManager" && Knife);
-
-	m_arrWeapons[2].emplace_back(Knife);
+	m_arrWeapons[Weapon_Melee].emplace_back(Knife);
 		
+	//Heal
+	GameObject* Injector = WeaponManager::Get_Instance()->Get_ProtoWeapon(L"Injector");
+	assert(L"Injector has't exist WeaponManager" && Injector);
+	m_pHealInjector = Injector;
+	m_pHealInjector_Status = m_pHealInjector->Get_Component<Weapon_Status>();
+
+	//Bomb
+	GameObject* Bomb = WeaponManager::Get_Instance()->Get_ProtoWeapon(L"Bomb");
+	assert(L"Bomb has't exist WeaponManager" && Bomb);
+	m_pBomb = Bomb;
+	m_pBomb_Status = m_pBomb->Get_Component<Weapon_Status>();
+
 	if (_desc->szInitWeapon == L"")
 	{
 		m_iNewWeaponKind = 1;
@@ -64,7 +75,7 @@ void Player_Attack::Initialize()
 	// m_pWeaponRenderer->Set_Mesh(m_pCurWeapon->m_szName);
 	m_pWeaponAnim = m_GameObject->Get_NewComponent<AnimationController>();
 	//m_pWeaponAnim->SetUp_AnimCtrl();
-
+	m_pPlayerStatus = m_GameObject->Get_Component<Player_Status>();
 
 	//Mesh_Renderer::Desc weaponMesh;
 	//weaponMesh.szMeshName = m_pCurWeapon->m_szName;
@@ -86,19 +97,27 @@ void Player_Attack::Update()
 {
 	if (!ShopManager::Get_Instance()->Get_ShopOn())
 	{
-		Swap();
-		Reload();
-		Fire();
-		IronSight();
+		if (m_pStateCtlr->Get_CurStateName() != L"Player_Heal")
+		{
+			Swap();
+			Reload();
+			Fire();
+			IronSight();
+		}
+		Heal();
 
 		DEBUG_LOG(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
 		DEBUG_LOG(to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet)
 			+ L" / " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet));
+		DEBUG_LOG(L"Anim Spd : " + to_wstring(m_pWeaponAnim->Get_AnimSpd()));
 
 		HudManager::Get_Instance()->Set_TextWeaponName(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
 		HudManager::Get_Instance()->Set_TextBullet(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet);
 		HudManager::Get_Instance()->Set_TextMagazine(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine);
-		HudManager::Get_Instance()->Set_TextGranade(3);
+		
+		HudManager::Get_Instance()->Set_TextHeal(m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet);
+		
+		HudManager::Get_Instance()->Set_TextGranade(m_pBomb_Status->m_tWeaponInfo.m_iCurBullet);
 	}
 	
 
@@ -164,7 +183,8 @@ void Player_Attack::Fire()
 void Player_Attack::IronSight()
 {
 	if (MouseDown(KEY_STATE_RMouse)
-		&& m_pStateCtlr->Get_CurStateName() != L"Player_Reload")
+		&& m_pStateCtlr->Get_CurStateName() != L"Player_Reload"
+		&& m_pCurWeaponStatus->m_tWeaponInfo.m_eType != WEAPON_TYPE::Weapon_Knife)
 	{
 		m_bIronSight ^= true;
 	}
@@ -258,6 +278,7 @@ void Player_Attack::Swap()
 {
 	if (m_pStateCtlr->Get_CurStateName() != L"Player_Swap")
 	{
+	
 		if (KeyDown(KEY_STATE_1))
 		{
 			m_iNewWeaponKind = 0;
@@ -339,12 +360,14 @@ void Player_Attack::ChangeWeapon()
 
 		m_pWeaponRenderer->Set_Mesh(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
 		m_pWeaponAnim->SetUp_AnimCtrl();
+		m_pWeaponAnim->Set_AnimSpd(1.f);
 
 		m_pStateCtlr->Set_State(L"Player_Swap");
 
 		//m_pWeaponAnim->Play(1);
 
 		m_iCurWeaponKind = m_iNewWeaponKind;
+		m_bIronSight = false;
 
 		return;
 	}
@@ -375,14 +398,44 @@ void Player_Attack::ChangeWeapon()
 
 		m_pWeaponRenderer->Set_Mesh(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
 		m_pWeaponAnim->SetUp_AnimCtrl();
+		m_pWeaponAnim->Set_AnimSpd(1.f);
 
 		m_pStateCtlr->Set_State(L"Player_Swap");
 
 		//m_pWeaponAnim->Play(1);
 
 		m_iCurWeaponKind = m_iNewWeaponKind;
-
+		m_bIronSight = false;
 	}
+
+}
+
+void Player_Attack::Heal()
+{
+	if (KeyDown(KEY_STATE_Q))
+	{
+		if (m_pPlayerStatus->Get_PlayerStatus().m_iCurHp < 100
+			&& m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet == 100)
+		{
+			m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet = 0;
+			m_pStateCtlr->Set_State(L"Player_Heal");
+
+		}
+	}
+
+	if (m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet < 100)
+	{
+		m_fHealTime += fTime * 12.5f;
+
+		if (m_fHealTime >= 1.f)
+		{
+			++m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet;
+			m_fHealTime = 0.f;
+		}
+		
+	}
+	else { m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet = 100; }
+
 }
 
 void Player_Attack::Drop()
@@ -422,6 +475,26 @@ int Player_Attack::Get_iCurKind()
 vector<GameObject*>* Player_Attack::Get_WeaponsArr()
 {
 	return m_arrWeapons;
+}
+
+GameObject * Player_Attack::Get_HealInjector()
+{
+	return m_pHealInjector;
+}
+
+Weapon_Status * Player_Attack::Get_HealInjector_Status()
+{
+	return m_pHealInjector_Status;
+}
+
+GameObject * Player_Attack::Get_PipeBomb()
+{
+	return m_pBomb;
+}
+
+Weapon_Status * Player_Attack::Get_PipeBomb_Status()
+{
+	return m_pBomb_Status;
 }
 
 bool Player_Attack::Get_IronSight()

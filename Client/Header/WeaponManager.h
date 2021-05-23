@@ -52,6 +52,7 @@ private:
 	unordered_map<wstring, GameObject*> m_umPrototypeWeapons;
 	list<GameObject*>					m_listCloneWeapons;
 
+
 //public:
 //	Weapon*		Get_Weapon(const wstring& _szWeaponName);
 //	Weapon*		Get_CloneWeapon(const wstring& _szWeaponName);

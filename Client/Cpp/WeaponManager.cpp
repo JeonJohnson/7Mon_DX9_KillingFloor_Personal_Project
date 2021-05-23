@@ -46,6 +46,7 @@ void WeaponManager::Initialize()
 
 void WeaponManager::Update()
 {
+	
 }
 
 void WeaponManager::LateUpdate()
@@ -234,6 +235,45 @@ void WeaponManager::Nogada_Data()
 		Knife_Obj->Add_Component<Weapon_Status>(&Knife_Desc);
 
 		Insert_Weapon(Knife_INFO.m_szName, Knife_Obj);
+	}
+
+	{
+		GameObject* Injector_Obj = INSTANTIATE(OBJECT_TAG_WEAPON, L"Injector");
+
+		WEAPON_INFO		Injector_INFO;
+		Injector_INFO.m_szName = L"Injector";
+		Injector_INFO.m_ePriority = WEAPON_PRIORITY::Weapon_Special;
+		Injector_INFO.m_eType = WEAPON_TYPE::Weapon_Injector;
+		Injector_INFO.m_iDmg = 50; //Heal Amount
+		Injector_INFO.m_iMaxBullet = 100; //최대치
+		Injector_INFO.m_iCurBullet = 100; //현재 수치
+		Injector_INFO.m_fMaxRapid = 2.5f; //충전 시간.
+		Injector_INFO.m_fCurRapid = 0.f;
+
+		Weapon_Status::Desc Injector_Desc;
+		Injector_Desc.tWeaponStatus = Injector_INFO;
+		Injector_Obj->Add_Component<Weapon_Status>(&Injector_Desc);
+
+		Insert_Weapon(Injector_INFO.m_szName, Injector_Obj);
+	}
+
+	{
+		GameObject* Bomb_Obj = INSTANTIATE(OBJECT_TAG_WEAPON, L"Bomb");
+
+		WEAPON_INFO		Bomb_INFO;
+		Bomb_INFO.m_szName = L"Bomb";
+		Bomb_INFO.m_ePriority = WEAPON_PRIORITY::Weapon_Special;
+		Bomb_INFO.m_eType = WEAPON_TYPE::Weapon_Bomb;
+		Bomb_INFO.m_iDmg = 500;
+		Bomb_INFO.m_iMaxBullet = 5;
+		Bomb_INFO.m_iCurBullet = 1;
+		Bomb_INFO.m_iMagazinePrice = 10;
+
+		Weapon_Status::Desc Bomb_Desc;
+		Bomb_Desc.tWeaponStatus = Bomb_INFO;
+		Bomb_Obj->Add_Component<Weapon_Status>(&Bomb_Desc);
+
+		Insert_Weapon(Bomb_INFO.m_szName, Bomb_Obj);
 	}
 }
 

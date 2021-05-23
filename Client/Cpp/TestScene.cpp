@@ -40,6 +40,9 @@
 #include "Stage_Boss.h"
 #include "ShakeObject.h"
 #include "ShopManager.h"
+#include "Player_Heal.h"
+#include "Player_Bomb.h"
+#include "Player_Death.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -69,22 +72,7 @@ void TestScene::Initialize()
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Player.bin", L"NaviMesh_Player");
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Zeds.bin", L"NaviMesh_Zeds");
 
-	{//UI Texture
-		//192x64
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Hp.png", L"Hud_Hp");
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Armor.png", L"Hud_Armor");
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Weight.png", L"Hud_Weight");
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Bullet.png", L"Hud_Bullet");
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Magazine.png", L"Hud_Magazine");
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Granade.png", L"Hud_Granade");
-
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Money.png", L"Hud_Money");
-
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_Clock.png", L"Hud_Clock");
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_EnemyCount.png", L"Hud_EnemyCount");
-
-		EngineFunction->Load_Texture(L"Texture/UI/Hud_WeaponName.png", L"Hud_WeaponName");
-
+	{
 	}
 
 	{ //Effect
@@ -96,6 +84,8 @@ void TestScene::Initialize()
 		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace01.png", L"BulletTrace01");
 		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace02.png", L"BulletTrace02");
 		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace03.png", L"BulletTrace03");
+
+		
 
 		//blood
 		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_001.png", L"Drip_001");
@@ -150,29 +140,27 @@ void TestScene::Initialize()
 	}
 
 
-	{//weapon
-		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/AK47.X", L"AK47");
-		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/ShotGun.X", L"ShotGun");
-		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/M99.X", L"M99");
-
-		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Beretta.X", L"Beretta");
-		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Revolver.X", L"Revolver");
-
-		EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Knife.X", L"Knife");
 
 
-		WeaponManager::Get_Instance()->Nogada_Data();
-	}
 
-	{ //Zed Meshes
-		EngineFunction->Load_Mesh(L"Mesh/Zeds/Clot/Clot.X", L"Clot");
-		EngineFunction->Load_Mesh(L"Mesh/Zeds/GoreFast/GoreFast.X", L"GoreFast");
-		EngineFunction->Load_Mesh(L"Mesh/Zeds/Scrake/Scrake.X", L"Scrake");
-		EngineFunction->Load_Mesh(L"Mesh/Zeds/Patriarch/Patriarch.X", L"Patriarch");
-	}
+	{//Hud//UI Texture
+		//192x64
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Hp.png", L"Hud_Hp");
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Heal.png", L"Hud_Heal");
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Armor.png", L"Hud_Armor");
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Weight.png", L"Hud_Weight");
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Bullet.png", L"Hud_Bullet");
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Magazine.png", L"Hud_Magazine");
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Granade.png", L"Hud_Granade");
 
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Money.png", L"Hud_Money");
 
-	{//Hud
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_Clock.png", L"Hud_Clock");
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_EnemyCount.png", L"Hud_EnemyCount");
+
+		EngineFunction->Load_Texture(L"Texture/UI/Hud_WeaponName.png", L"Hud_WeaponName");
+
+#pragma region HudUi
 		HudManager::Get_Instance();
 
 		//width = 96 | height = 32
@@ -195,6 +183,27 @@ void TestScene::Initialize()
 
 			HudManager::Get_Instance()->Insert_Hud(L"Hp", Hud_Hp);
 		}
+
+		{
+			UI*	Hud_Heal = INSTANTIATE_UI(L"Heal");
+			Hud_Heal->Set_Position(Vector3(64.f, 658.f, 0.f));
+			Hud_Heal->Set_Scale(Vector3(0.5f, 0.5f, 0.5f));
+
+			Sprite::Desc HealSprite;
+			HealSprite.TextureName = L"Hud_Heal";
+			Hud_Heal->Add_UIComponent<Sprite>(&HealSprite);
+
+			Text::Desc HealText;
+			HealText.szScript = L"100";
+			HealText.iHeight = 20;
+			HealText.iWeight = 1000;
+			HealText.tColor = D3DCOLOR_RGBA(255, 0, 0, 255);
+			HealText.vOffSet = Vector2(10.f, 0.f);
+			Hud_Heal->Add_UIComponent<Text>(&HealText);
+
+			HudManager::Get_Instance()->Insert_Hud(L"Heal", Hud_Heal);
+		}
+
 
 		{
 			UI*	Hud_Armor = INSTANTIATE_UI(L"Armor");
@@ -404,6 +413,8 @@ void TestScene::Initialize()
 
 			HudManager::Get_Instance()->Insert_Hud(L"HitEffect", HitEffect);
 		}
+
+#pragma endregion
 		
 	}
 
@@ -452,6 +463,23 @@ void TestScene::Initialize()
 
 
 	{
+
+		{//weapon
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/AK47.X", L"AK47");
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/ShotGun.X", L"ShotGun");
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/M99.X", L"M99");
+
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Beretta.X", L"Beretta");
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Revolver.X", L"Revolver");
+
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Knife.X", L"Knife");
+
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Injector.X", L"Injector");
+
+			WeaponManager::Get_Instance()->Nogada_Data();
+		}
+
+	
 		GameObject* Player = INSTANTIATE(OBJECT_TAG_PLAYER, L"Player");
 		Player->Set_Position(Vector3(0.f, 20.f, 250.f));
 
@@ -461,6 +489,10 @@ void TestScene::Initialize()
 		PlayerStateCtrl->Add_State<Player_Fire>(L"Player_Fire");
 		PlayerStateCtrl->Add_State<Player_Reload>(L"Player_Reload");
 		PlayerStateCtrl->Add_State<Player_Swap>(L"Player_Swap");
+		PlayerStateCtrl->Add_State<Player_Heal>(L"Player_Heal");
+		PlayerStateCtrl->Add_State<Player_Bomb>(L"Player_Bomb");
+		PlayerStateCtrl->Add_State<Player_Death>(L"Player_Death");
+
 		PlayerStateCtrl->Set_InitState(L"Player_Idle");
 		
 		Player->Add_Component<ShakeObject>();
@@ -506,7 +538,7 @@ void TestScene::Initialize()
 		
 
 		SphereCollider::Desc  colDesc;
-		colDesc.fRadius = 15.f;
+		colDesc.fRadius = 20.f;
 		colDesc.szColName = L"Player";
 		Player->Add_Component<SphereCollider>(&colDesc);
 	}
@@ -516,7 +548,12 @@ void TestScene::Initialize()
 	//for(int i =0; i < 3; ++i)
 	//{
 	//	float x = 50 * i;
-	//	
+	//		{ //Zed Meshes
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/Clot/Clot.X", L"Clot");
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/GoreFast/GoreFast.X", L"GoreFast");
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/Scrake/Scrake.X", L"Scrake");
+		EngineFunction->Load_Mesh(L"Mesh/Zeds/Patriarch/Patriarch.X", L"Patriarch");
+	
 		ZedManager::Get_Instance();
 
 		//GameObject* TestClot = INSTANTIATE(OBJECT_TAG_ZED, L"Clot" );

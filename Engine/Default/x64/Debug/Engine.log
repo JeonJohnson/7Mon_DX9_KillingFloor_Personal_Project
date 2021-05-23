@@ -1,7 +1,5 @@
-﻿  Mesh_Renderer.cpp
+﻿  AnimationController.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-     ../Bin/Engine.lib 라이브러리 및 ../Bin/Engine.exp 개체를 생성하고 있습니다.
-UI_Renderer.obj : warning LNK4099: 'vc140.pdb' PDB를 'UI_Renderer.obj' 또는 'E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Bin\vc140.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   Engine.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Engine\Default\../Bin/Engine.dll
   Engine.vcxproj -> ../Bin/Engine.pdb (Full PDB)
   ..\Bin\Engine.lib
