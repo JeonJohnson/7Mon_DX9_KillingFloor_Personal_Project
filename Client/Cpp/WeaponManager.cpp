@@ -258,16 +258,18 @@ void WeaponManager::Nogada_Data()
 	}
 
 	{
-		GameObject* Bomb_Obj = INSTANTIATE(OBJECT_TAG_WEAPON, L"Bomb");
+		GameObject* Bomb_Obj = INSTANTIATE(OBJECT_TAG_WEAPON, L"PipeBomb");
 
 		WEAPON_INFO		Bomb_INFO;
-		Bomb_INFO.m_szName = L"Bomb";
+		Bomb_INFO.m_szName = L"PipeBomb";
 		Bomb_INFO.m_ePriority = WEAPON_PRIORITY::Weapon_Special;
 		Bomb_INFO.m_eType = WEAPON_TYPE::Weapon_Bomb;
-		Bomb_INFO.m_iDmg = 500;
+		Bomb_INFO.m_iDmg = 200;
 		Bomb_INFO.m_iMaxBullet = 5;
 		Bomb_INFO.m_iCurBullet = 1;
-		Bomb_INFO.m_iMagazinePrice = 10;
+		Bomb_INFO.m_iMagazinePrice = 100;
+		Bomb_INFO.m_fMaxRapid = 2.5f; //터지는데 지연시간.
+		Bomb_INFO.m_fCurRapid = 0.f;
 
 		Weapon_Status::Desc Bomb_Desc;
 		Bomb_Desc.tWeaponStatus = Bomb_INFO;

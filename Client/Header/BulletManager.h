@@ -40,6 +40,8 @@ public:
 	void	Create_Muzzle(GameObject* _pPlayer, Mesh* _pMesh, const WEAPON_INFO& _tInfo);
 	void	Create_Tracer(GameObject* _pPlayer, Mesh* _pMesh, const WEAPON_INFO& _tInfo);
 
+	void	Create_PipeBomb(GameObject* _pPlayer, const WEAPON_INFO& _tInfo);
+	void	Create_Explosion(const Vector3 _vPos, int _iDmg, float _fRadius);
 public:
 	
 public:

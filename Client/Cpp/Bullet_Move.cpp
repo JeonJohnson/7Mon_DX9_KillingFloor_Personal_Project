@@ -3,6 +3,7 @@
 #include "SphereCollider.h"
 #include "Zed_Status.h"
 #include "Zed.h"
+#include "..\..\Engine\Header\Mesh_Renderer.h"
 
 
 Bullet_Move::Bullet_Move(Desc * _desc)
@@ -34,11 +35,23 @@ void Bullet_Move::Update()
 
 	m_fTime += fTime;
 	
+	if (m_fTime >= 0.1f && !m_bTrace)
+	{
+		Mesh_Renderer::Desc Trace;
+		Trace.iRenderLayer = RENDER_LAYER_Alpha;
+		Trace.szMeshName = L"BulletTrace";
+		Trace.szShaderName = EFFECT_SHADER;
+		//Trace.vRot = Vector3(0.f, 0.f, 90.f);
+		m_GameObject->Add_Component<Mesh_Renderer>(&Trace);
+		m_bTrace = true;
+	}
+
 	if (m_fTime >= 2.f)
 	{
 		m_GameObject->Set_Alive(false);
 	}
 
+	m_Transform->RotateAxis(m_Transform->Get_Forward(),fTime*100.f);
 	
 	Vector3	vDir = m_Transform->Get_Forward() + m_vAcc;
 	D3DXVec3Normalize(&vDir, &vDir);

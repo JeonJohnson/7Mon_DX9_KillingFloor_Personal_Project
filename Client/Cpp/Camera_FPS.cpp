@@ -19,6 +19,12 @@ void Camera_FPS::Initialize()
 void Camera_FPS::Update()
 {
 	Look();
+
+	Vector3 vforward = m_Transform->Get_Forward();
+		DEBUG_LOG(L"Player Forward : " + to_wstring(vforward.x) + L", "
+			+ to_wstring(vforward.y) + L", "
+			+ to_wstring(vforward.z));
+
 }
 
 void Camera_FPS::LateUpdate()

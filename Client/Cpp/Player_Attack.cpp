@@ -34,7 +34,7 @@ Player_Attack::Player_Attack(Desc * _desc)
 	m_pHealInjector_Status = m_pHealInjector->Get_Component<Weapon_Status>();
 
 	//Bomb
-	GameObject* Bomb = WeaponManager::Get_Instance()->Get_ProtoWeapon(L"Bomb");
+	GameObject* Bomb = WeaponManager::Get_Instance()->Get_ProtoWeapon(L"PipeBomb");
 	assert(L"Bomb has't exist WeaponManager" && Bomb);
 	m_pBomb = Bomb;
 	m_pBomb_Status = m_pBomb->Get_Component<Weapon_Status>();
@@ -55,9 +55,6 @@ Player_Attack::Player_Attack(Desc * _desc)
 		m_arrWeapons[WEAPON_PRIORITY::Weapon_Primary].emplace_back(PrimaryWeapon2);
 		//m_iNewWeaponKind = 0;
 		//m_pCurWeapon = PrimaryWeapon;
-
-
-	
 	}
 
 
@@ -97,12 +94,14 @@ void Player_Attack::Update()
 {
 	if (!ShopManager::Get_Instance()->Get_ShopOn())
 	{
-		if (m_pStateCtlr->Get_CurStateName() != L"Player_Heal")
+		if (m_pStateCtlr->Get_CurStateName() != L"Player_Heal"
+			 && m_pStateCtlr->Get_CurStateName() != L"Player_Bomb")
 		{
 			Swap();
 			Reload();
 			Fire();
 			IronSight();
+			Bomb_Drop();
 		}
 		Heal();
 
@@ -412,7 +411,7 @@ void Player_Attack::ChangeWeapon()
 
 void Player_Attack::Heal()
 {
-	if (KeyDown(KEY_STATE_Q))
+	if (KeyDown(KEY_STATE_Q) && m_pStateCtlr->Get_CurStateName() != L"Player_Bomb")
 	{
 		if (m_pPlayerStatus->Get_PlayerStatus().m_iCurHp < 100
 			&& m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet == 100)
@@ -436,6 +435,17 @@ void Player_Attack::Heal()
 	}
 	else { m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet = 100; }
 
+}
+
+void Player_Attack::Bomb_Drop()
+{
+	if(KeyDown(KEY_STATE_G))
+	{
+		if (m_pBomb_Status->m_tWeaponInfo.m_iCurBullet > 0)
+		{
+			m_pStateCtlr->Set_State(L"Player_Bomb");
+		}
+	}
 }
 
 void Player_Attack::Drop()

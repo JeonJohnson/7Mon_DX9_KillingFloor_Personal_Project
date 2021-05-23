@@ -1,3 +1,5 @@
-﻿  Player_Status.cpp
+﻿  Bullet_Move.cpp
+  BulletManager.cpp
+  코드를 생성하고 있습니다...
   Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
   Client.vcxproj -> ../Bin/x64\Debug\Client.pdb (Full PDB)

@@ -43,6 +43,7 @@
 #include "Player_Heal.h"
 #include "Player_Bomb.h"
 #include "Player_Death.h"
+#include "..\..\Engine\Header\SoundManager.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -59,6 +60,7 @@ TestScene::~TestScene()
 
 void TestScene::Initialize()
 {
+
 
 	EngineFunction->MouseLock();
 	//GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
@@ -81,10 +83,11 @@ void TestScene::Initialize()
 		//EngineFunction->Load_Texture(L"Texture/ScreenEffect/BluntSplash.png", L"HitEffect");
 
 		//trace
-		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace01.png", L"BulletTrace01");
-		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace02.png", L"BulletTrace02");
-		EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace03.png", L"BulletTrace03");
-
+		//EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace01.png", L"BulletTrace01");
+		//EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace02.png", L"BulletTrace02");
+		//EngineFunction->Load_Texture(L"Texture/Effect/BulletTrace/BulletTrace03.png", L"BulletTrace03");
+	
+		EngineFunction->Load_Mesh(L"Mesh/Effect/BulletTrace04.X", L"BulletTrace");
 		
 
 		//blood
@@ -476,6 +479,9 @@ void TestScene::Initialize()
 
 			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/Injector.X", L"Injector");
 
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Dynamic/PipeBomb.X", L"PipeBomb");
+			EngineFunction->Load_Mesh(L"Mesh/Weapon/Static/PipeBomb_Static.X", L"PipeBomb_Static");
+
 			WeaponManager::Get_Instance()->Nogada_Data();
 		}
 
@@ -762,6 +768,7 @@ void TestScene::Initialize()
 	}
 #pragma endregion
 
+	EngineFunction->Stop_Sound(SOUND_CHANNEL::SoundCH_BGM);
 	
 }
 

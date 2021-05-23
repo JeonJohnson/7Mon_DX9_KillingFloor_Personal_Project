@@ -6,6 +6,7 @@
 #include "MuzzleEffect.h"
 #include "Mesh_Renderer.h"
 #include "..\..\Engine\Header\Mesh.h"
+#include "Weapon_PipeBomb_Static.h"
 
 BulletManager* BulletManager::m_pInstance = nullptr;
 
@@ -91,10 +92,18 @@ void BulletManager::Create_Bullet(GameObject* _pPlayer, const WEAPON_INFO& _tInf
 		//Rot.z += (float)((rand() % (int)(Acc * 2 + 1)) - Acc) / 10.f;
 
 		Bullet_Move::Desc bulletmove;
-		bulletmove.Spd = 2000.f;
+		bulletmove.Spd = 1000.f;
 		bulletmove.Dmg = _tInfo.m_iDmg;
 		bulletmove.vAcc = vSpread;
 		Bullet->Add_Component<Bullet_Move>(&bulletmove);
+
+		//Mesh_Renderer::Desc Trace;
+		//Trace.iRenderLayer = RENDER_LAYER_Alpha;
+		//Trace.szMeshName = L"BulletTrace";
+		//Trace.szShaderName = EFFECT_SHADER;
+		////Trace.vRot = Vector3(0.f, 0.f, 90.f);
+		//Bullet->Add_Component<Mesh_Renderer>(&Trace);
+
 	}
 }
 
@@ -126,4 +135,45 @@ void BulletManager::Create_Muzzle(GameObject* _pPlayer, Mesh* _pMesh, const WEAP
 	
 	
 	Muzzle->Add_Component<MuzzleEffect>(&effect);
+}
+
+void BulletManager::Create_Tracer(GameObject * _pPlayer, Mesh * _pMesh, const WEAPON_INFO & _tInfo)
+{
+	
+}
+
+void BulletManager::Create_PipeBomb(GameObject* _pPlayer, const WEAPON_INFO& _tInfo)
+{
+	GameObject*	PipeBomb = INSTANTIATE(OBJECT_TAG_DEFAULT, L"PipeBomb_Static");
+	PipeBomb->Set_Position(_pPlayer->Get_Position());
+
+	//PipeBomb->Set_RotationY(_pPlayer->Get_Rotation().y);
+	PipeBomb->Set_Rotation(_pPlayer->Get_Rotation());
+	//PipeBomb->Set_RotationY(0.f);
+	//PipeBomb->Set_RotationX(0.f);
+	//PipeBomb->Set_RotationZ(0.f);
+
+	Mesh_Renderer::Desc PipeBomb_Renderer;
+	PipeBomb_Renderer.iRenderLayer = RENDER_LAYER_NonAlpha;
+	PipeBomb_Renderer.szMeshName = L"PipeBomb_Static";
+	PipeBomb->Add_Component<Mesh_Renderer>(&PipeBomb_Renderer);
+
+	Vector3		Pos = _pPlayer->Get_Position();
+	Vector3		Forward = _pPlayer->Get_Transform()->Get_Forward();
+	Vector3		Down = _pPlayer->Get_Transform()->Get_Up() * -1.f;
+
+	Weapon_PipeBomb_Static::Desc  PipeBomb_Desc;
+	PipeBomb_Desc.vPlayerPos = Pos;
+	PipeBomb_Desc.vPlayerForward = Forward;
+	PipeBomb_Desc.vPlayerDown = Down;
+
+
+	PipeBomb->Add_Component<Weapon_PipeBomb_Static>(&PipeBomb_Desc);
+
+
+}
+
+void BulletManager::Create_Explosion(const Vector3 _vPos, int _iDmg, float _fRadius)
+{
+	
 }

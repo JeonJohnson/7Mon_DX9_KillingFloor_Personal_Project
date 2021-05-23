@@ -46,10 +46,12 @@ void Player_Heal::EnterState()
 
 	m_pCurWeapon = m_pPlayerAttack->Get_CurWeaponStatus();
 
+
 	m_pWeaponRenderer->Set_Mesh(m_pPlayerAttack->Get_HealInjector_Status()->m_tWeaponInfo.m_szName);
 	m_pAnimCtrl->SetUp_AnimCtrl();
 	m_pAnimCtrl->Set_AnimSpd(1.f);
 	m_pAnimCtrl->Play(0);
+	m_pPlayerAttack->Set_IronSight(false);
 
 	m_pPlayerStatus->Set_Heal(true);
 

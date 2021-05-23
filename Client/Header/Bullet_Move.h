@@ -41,6 +41,7 @@ private:
 	float	m_fSpd = 150.f;
 	Vector3	m_vAcc;
 
+	bool m_bTrace = false;
 };
 
 #endif //_BULLET_MOVE_H_

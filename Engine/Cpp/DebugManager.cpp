@@ -18,6 +18,7 @@ DebugManager::~DebugManager()
 
 void DebugManager::Initialize()
 {
+
 #ifdef _DEBUG
 	m_pDx9_Device_Debug = DeviceManager::Get_Instance()->Get_DX9_Device_DEBUG();
 
@@ -32,7 +33,7 @@ void DebugManager::Initialize()
 
 	D3DXCreateFontIndirect(m_pDx9_Device_Debug, &m_tFontDesc, &m_pDx9_Font);
 
-	assert(L"Debuging Font is nullptr" && m_pDx9_Font);
+	//assert(L"Debuging Font is nullptr" && m_pDx9_Font);
 #endif //_DEBUG
 }
 

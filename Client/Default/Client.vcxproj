@@ -190,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\Billboard_Bullet.h" />
+    <ClInclude Include="..\Header\BombEffect.h" />
     <ClInclude Include="..\Header\BulletManager.h" />
     <ClInclude Include="..\Header\Bullet_Move.h" />
     <ClInclude Include="..\Header\Camera_FPS.h" />
@@ -228,6 +229,7 @@
     <ClInclude Include="..\Header\TestScene.h" />
     <ClInclude Include="..\Header\TypeDef.h" />
     <ClInclude Include="..\Header\WeaponManager.h" />
+    <ClInclude Include="..\Header\Weapon_PipeBomb_Static.h" />
     <ClInclude Include="..\Header\Weapon_Status.h" />
     <ClInclude Include="..\Header\Zed.h" />
     <ClInclude Include="..\Header\ZedChanger.h" />
@@ -247,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\Billboard_Bullet.cpp" />
+    <ClCompile Include="..\Cpp\BombEffect.cpp" />
     <ClCompile Include="..\Cpp\BulletManager.cpp" />
     <ClCompile Include="..\Cpp\Bullet_Move.cpp" />
     <ClCompile Include="..\Cpp\Camera_FPS.cpp" />
@@ -279,6 +282,7 @@
     <ClCompile Include="..\Cpp\Stage_Shop.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\WeaponManager.cpp" />
+    <ClCompile Include="..\Cpp\Weapon_PipeBomb_Static.cpp" />
     <ClCompile Include="..\Cpp\Weapon_Status.cpp" />
     <ClCompile Include="..\Cpp\Zed.cpp" />
     <ClCompile Include="..\Cpp\ZedChanger.cpp" />
