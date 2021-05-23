@@ -47,12 +47,32 @@ public:
 	void		Setup_ShaderTable();
 	void		Animating();
 
+	void		Update_MeshTransform();
 public: /* Get */
 	Mesh*		Get_Mesh();
+
+	Vector3		Get_MeshPos();
+	Vector3		Get_MeshScale();
+	Vector3		Get_MeshRot();
 
 public: /* Set */
 	void		Set_Mesh(Mesh* _pMesh);
 	void		Set_Mesh(const wstring& _pMeshName);
+
+	void		Set_MeshMatrix(const Matrix& _Mat);
+	void		Set_MeshPos(const Vector3& _vPos);
+	void		Set_MeshRot(const Vector3& _vRot);
+
+	void		Add_MeshPos(const Vector3& _vPos);
+
+	
+	void		Add_MeshPosX(float _x);
+	void		Add_MeshPosY(float _y);
+	void		Add_MeshPosZ(float _z);
+	
+	void		Set_MeshPosX(float _x);
+	void		Set_MeshPosY(float _y);
+	void		Set_MeshPosZ(float _z);
 
 
 private:
@@ -60,11 +80,13 @@ private:
 	Shader*			m_pShaderCom = nullptr;
 	LPD3DXEFFECT	m_pEffectCom = nullptr;
 
+
+
+	Vector3			m_vPosition;
+	Vector3			m_vRotation;
+	Vector3			m_vScale;
 	Matrix			m_matMeshTransform;
-	//Vector3			m_vPosition;
-	//Vector3			m_vRoation;
-	//Vector3			m_vScale;
-	//Matrix			m_matWorld;
+
 };
 
 #endif//_MESH_RENDERER_H_

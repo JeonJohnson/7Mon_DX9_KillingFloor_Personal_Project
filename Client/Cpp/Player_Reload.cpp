@@ -24,15 +24,26 @@ void Player_Reload::Initialize()
 
 void Player_Reload::EnterState()
 {
-	m_pCurWeaponStatus = m_GameObject->Get_Component<Player_Attack>()->Get_CurWeaponStatus();
+
+	if (m_pPlayerAttack == nullptr)
+	{
+		m_pPlayerAttack = m_GameObject->Get_Component<Player_Attack>();
+	}
+
+	m_pCurWeaponStatus = m_pPlayerAttack->Get_CurWeaponStatus();
 	m_pAnimCtrl = m_GameObject->Get_Component<AnimationController>();
 	
 
-
-	if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine <= 0)
+	if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine <= 0
+		|| m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet 
+		>= m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet)
 	{
 		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
+		return;
 	}
+
+	m_bIronSight = m_pPlayerAttack ->Get_IronSight();
+	m_pPlayerAttack->Set_IronSight(false);
 
 	m_bFire			= false;
 	m_bReloadFin	= false;
@@ -45,6 +56,13 @@ void Player_Reload::UpdateState()
 
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType == WEAPON_TYPE::Weapon_Shotgun)
 	{
+		//if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet >=
+		//	m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet)
+		//{
+		//	m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
+		//	return;
+		//}
+
 		int temp = m_GameObject->Get_Component<AnimationController>()->Get_CurAnimIndex();
 
 		if (temp != 2)
@@ -67,8 +85,13 @@ void Player_Reload::UpdateState()
 
 			if (m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine <= 0)
 			{
+				//if (m_bIronSight)
+				//{
+				//	m_pPlayerAttack->On_IronSight();
+				//}
 				m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
-				return;
+				
+				return; 
 			}
 
 			m_fShotGunTime += fTime;
@@ -95,14 +118,19 @@ void Player_Reload::UpdateState()
 
 			if (m_GameObject->Get_Component<AnimationController>()->IsEnd())
 			{
-				if (m_bFire)
-				{
-					m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Fire");
-				}
-				else
-				{
+				//if (m_bFire)
+				//{
+				//	m_pPlayerAttack->Set_IronSight(m_bIronSight);
+				//	m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Fire");
+				//}
+				//else
+				//{
+				//if (m_bIronSight)
+				//{
+				//	m_pPlayerAttack->On_IronSight();
+				//}
 					m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
-				}
+				//}
 			}
 
 		}
@@ -122,6 +150,11 @@ void Player_Reload::UpdateState()
 
 			--m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine;
 			m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet = m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet;
+
+			//if (m_bIronSight)
+			//{
+			//	m_pPlayerAttack->On_IronSight();
+			//}
 			m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
 		}
 	

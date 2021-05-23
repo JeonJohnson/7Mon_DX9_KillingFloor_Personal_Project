@@ -89,6 +89,7 @@ void Player_Attack::Update()
 		Swap();
 		Reload();
 		Fire();
+		IronSight();
 
 		DEBUG_LOG(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
 		DEBUG_LOG(to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet)
@@ -162,8 +163,85 @@ void Player_Attack::Fire()
 
 void Player_Attack::IronSight()
 {
+	if (MouseDown(KEY_STATE_RMouse)
+		&& m_pStateCtlr->Get_CurStateName() != L"Player_Reload")
+	{
+		m_bIronSight ^= true;
+	}
 
+	//float fSpd = fTime * 15.f;
+
+	if (!m_bIronSight)
+	{//견착 상태
+		//Vector 2.5f, 0.f, 0.5f
+		
+		if (m_fIronSpdX <= 2.5f)
+		{
+			m_fIronSpdX += fTime * 15.f;
+		}
+		
+		if(m_fIronSpdX > 2.5f) 
+		{ m_fIronSpdX = 2.5f; }
+
+		if (m_fIronSpdZ <= 0.5f)
+		{
+			m_fIronSpdZ += fTime * 15.f;
+		}
+		
+		if(m_fIronSpdZ > 0.5f) 
+		{ m_fIronSpdZ = 0.5f; }
+
+		m_pWeaponRenderer->Set_MeshPos(Vector3(m_fIronSpdX, 0.f, m_fIronSpdZ));
+
+		//Vector3 MeshPos = m_pWeaponRenderer->Get_MeshPos();
+		
+		//if (m_pWeaponRenderer->Get_MeshPos().x <= 0.f)
+		//{
+		//	m_pWeaponRenderer->Set_MeshPosX(0.f);
+		//}
+
+		//if (m_pWeaponRenderer->Get_MeshPos().z >= 0.5f)
+		//{
+		//	m_pWeaponRenderer->Set_MeshPosZ(0.5f);
+		//}
+	}
+	else 
+	{//정조준 상태
+		//vector 0.f,0.f,-2.5f
+
+		if (m_fIronSpdX >= 0.f)
+		{
+			m_fIronSpdX -= fTime * 15.f;
+		}
+		if(m_fIronSpdX < 0.f)
+		{ m_fIronSpdX = 0.f; }
+
+		if (m_fIronSpdZ >= -2.5f)
+		{
+			m_fIronSpdZ -= fTime * 15.f;
+		}
+		if (m_fIronSpdZ < -2.5f)
+		{
+			m_fIronSpdZ = -2.5f;
+		}
+
+		m_pWeaponRenderer->Set_MeshPos(Vector3(m_fIronSpdX, 0.f, m_fIronSpdZ));
+
+		//m_pWeaponRenderer->Add_MeshPos(Vector3(fSpd, 0.f, -fSpd));
+
+		//if (m_pWeaponRenderer->Get_MeshPos().x >= 2.5f)
+		//{
+		//	m_pWeaponRenderer->Set_MeshPosX(2.5f);
+		//}
+
+		//if (m_pWeaponRenderer->Get_MeshPos().z  <= -5.f)
+		//{
+		//	m_pWeaponRenderer->Set_MeshPosZ(-5.f);
+		//}
+	}
 }
+
+
 
 void Player_Attack::Reload()
 {
@@ -346,10 +424,28 @@ vector<GameObject*>* Player_Attack::Get_WeaponsArr()
 	return m_arrWeapons;
 }
 
+bool Player_Attack::Get_IronSight()
+{
+	return m_bIronSight;
+}
+
 void Player_Attack::Set_CurWeapon(GameObject * _pWeapon)
 {
 	m_pCurWeapon = _pWeapon;
 	m_pCurWeaponStatus = _pWeapon->Get_Component<Weapon_Status>();
+}
+
+void Player_Attack::Set_IronSight(bool _OnOff)
+{
+	m_bIronSight = _OnOff;
+}
+
+void Player_Attack::On_IronSight()
+{
+	m_bIronSight = true;
+	m_fIronSpdX = 0.f;
+	m_fIronSpdZ = -2.5f;
+	//m_pWeaponRenderer->Set_MeshPos(Vector3(0.f, 0.f, -2.5f));
 }
 
 

@@ -468,7 +468,7 @@ void TestScene::Initialize()
 		Mesh_Renderer::Desc	Hand_Desc;
 		Hand_Desc.szMeshName = L"M99";
 		Hand_Desc.vRot = Vector3{ 0.f, -90.f, 0.f };
-		//nd_Desc.vPos = Vector3{ 0.f, 20.f, 0.f };
+		Hand_Desc.vPos = Vector3{ 0.f, 0.f, -2.5f };
 		Player->Add_Component<Mesh_Renderer>(&Hand_Desc);
 		//AnimTest->Add_Component<Mesh_Renderer>(&Hand_Desc);
 

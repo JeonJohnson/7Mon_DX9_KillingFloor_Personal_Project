@@ -32,6 +32,8 @@ private:
 	Player_Attack*		m_pPlayerAttack = nullptr;
 	Camera_FPS*			m_pCamera = nullptr;
 
+	bool				m_bIronSight = false;
+
 };
 
 #endif //_PLAYER_FIRE_H_

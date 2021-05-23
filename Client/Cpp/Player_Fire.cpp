@@ -77,6 +77,12 @@ void Player_Fire::EnterState()
 		m_GameObject->Get_Component<AnimationController>()->Play(3);
 	}
 
+	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType == Weapon_Shotgun)
+	{
+		m_bIronSight = m_pPlayerAttack->Get_IronSight();
+		m_pPlayerAttack->Set_IronSight(false);
+	}
+
 }
 
 void Player_Fire::UpdateState()
@@ -143,6 +149,14 @@ void Player_Fire::UpdateState()
 	{
 		m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid = 0.f;
 		m_pStateController->Set_State(L"Player_Idle");
+
+		if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType == Weapon_Shotgun)
+		{
+			//if (m_bIronSight)
+			//{
+			//	m_pPlayerAttack->On_IronSight();
+			//}
+		}
 	}
 }
 

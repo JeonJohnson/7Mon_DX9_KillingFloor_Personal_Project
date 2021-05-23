@@ -36,6 +36,7 @@ public:
 
 public: /* Func */
 	void			Fire();
+
 	void			IronSight();
 	void			Reload();
 	void			Swap();
@@ -45,6 +46,7 @@ public: /* Func */
 
 	void			SetUp();
 
+
 public: /* Get */
 	GameObject*					Get_CurWeapon();
 	Weapon_Status*				Get_CurWeaponStatus();
@@ -53,12 +55,15 @@ public: /* Get */
 	int							Get_iCurKind();
 	vector<GameObject*>*		Get_WeaponsArr();
 
+	bool						Get_IronSight();
 public: /* Set  */
 	//void					Insert_Weapon();
 	void					Set_CurWeapon(GameObject* _pWeapon);
+	void					Set_IronSight(bool _OnOff);
 
-
+	void					On_IronSight();
 private:
+
 	StateController*		m_pStateCtlr = nullptr;
 	Mesh_Renderer*			m_pWeaponRenderer = nullptr;
 	AnimationController*	m_pWeaponAnim = nullptr;
@@ -73,9 +78,10 @@ private:
 
 
 	bool				m_bIronSight = false;
+	float				m_fIronSpdX = 0.f;
+	float				m_fIronSpdZ = 0.f;
 
-
-
+	
 	int					m_iTest = 1;
 
 };

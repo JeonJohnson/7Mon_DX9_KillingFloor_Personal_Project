@@ -7,6 +7,7 @@
 
 class Weapon_Status;
 class AnimationController;
+class Player_Attack;
 
 class Player_Reload :	public CState
 {
@@ -25,9 +26,13 @@ public:
 private:
 	Weapon_Status*			m_pCurWeaponStatus = nullptr;
 	AnimationController*	m_pAnimCtrl = nullptr;
+	Player_Attack*			m_pPlayerAttack = nullptr;
+	
 	float					m_fShotGunTime = 0.f;
 	bool					m_bReloadFin = false;
 	bool					m_bFire = false;
+
+	bool					m_bIronSight = false;
 
 };
 
