@@ -195,6 +195,7 @@
     <ClInclude Include="..\Header\Bullet_Move.h" />
     <ClInclude Include="..\Header\Camera_FPS.h" />
     <ClInclude Include="..\Header\Define.h" />
+    <ClInclude Include="..\Header\Effect_Fire.h" />
     <ClInclude Include="..\Header\Enum.h" />
     <ClInclude Include="..\Header\Extern.h" />
     <ClInclude Include="..\Header\FilmGrainEffect.h" />
@@ -253,6 +254,7 @@
     <ClCompile Include="..\Cpp\BulletManager.cpp" />
     <ClCompile Include="..\Cpp\Bullet_Move.cpp" />
     <ClCompile Include="..\Cpp\Camera_FPS.cpp" />
+    <ClCompile Include="..\Cpp\Effect_Fire.cpp" />
     <ClCompile Include="..\Cpp\FilmGrainEffect.cpp" />
     <ClCompile Include="..\Cpp\HudManager.cpp" />
     <ClCompile Include="..\Cpp\IntroScene.cpp" />

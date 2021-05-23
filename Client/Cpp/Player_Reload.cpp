@@ -96,7 +96,7 @@ void Player_Reload::UpdateState()
 				return; 
 			}
 
-			m_fShotGunTime += fTime;
+			m_fShotGunTime += fTime * m_pAnimCtrl->Get_AnimSpd();
 			float fCurFrame = (float)m_pAnimCtrl->Get_CurFrame();
 			DEBUG_LOG(L"ShotGun Reload Frame : " + to_wstring(fCurFrame));
 			

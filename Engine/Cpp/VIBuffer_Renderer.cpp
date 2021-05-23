@@ -28,7 +28,8 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 
 	if (m_pVIBuffer->Get_Kind() == VIBUFFER_KIND::VIBuffer_Textrue)
 	{
-		Texture* TexTemp = ResourceManager::Get_Instance()->Get_Resource<Texture>(_desc->wTextureName);
+		m_pTextureName = _desc->wTextureName;
+		Texture* TexTemp = ResourceManager::Get_Instance()->Get_Resource<Texture>(m_pTextureName);
 		m_pVIBuffer->Set_Texture(TexTemp);
 	}
 	
@@ -59,6 +60,13 @@ void VIBuffer_Renderer::LateUpdate()
 
 void VIBuffer_Renderer::Render()
 {
+
+
+	if (m_pVIBuffer->Get_Kind() == VIBUFFER_KIND::VIBuffer_Textrue)
+	{
+		Texture* TexTemp = ResourceManager::Get_Instance()->Get_Resource<Texture>(m_pTextureName);
+		m_pVIBuffer->Set_Texture(TexTemp);
+	}
 
 
 	Setup_ShaderTable();
@@ -193,7 +201,7 @@ HRESULT VIBuffer_Renderer::Setup_ShaderTable()
 	m_pEffectCom->SetMatrix("g_matView", &matView);
 	m_pEffectCom->SetMatrix("g_matProjection", &matProj);
 
-	m_pVIBuffer->Render_Texture(m_pEffectCom, "g_texBaseTexture", 0);
+	m_pVIBuffer->Render_Texture(m_pEffectCom, "g_texBaseTexture", m_iTextureIndex);
 
 	return S_OK;
 }
@@ -203,9 +211,23 @@ VIBuffer * VIBuffer_Renderer::Get_VIBuffer() const
 	return m_pVIBuffer;
 }
 
+int VIBuffer_Renderer::Get_TextureCount()
+{
+	return 0;
+}
+
 void VIBuffer_Renderer::Set_VIBuffer(const wstring & _wBufferName)
 {
 	
+}
+
+//void VIBuffer_Renderer::Set_Texture(Texture * _pTexture)
+//{
+//}
+
+void VIBuffer_Renderer::Set_TextureIndex(int _iIndex)
+{
+	m_iTextureIndex = _iIndex;
 }
 
 

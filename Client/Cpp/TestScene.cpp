@@ -44,6 +44,7 @@
 #include "Player_Bomb.h"
 #include "Player_Death.h"
 #include "..\..\Engine\Header\SoundManager.h"
+#include "Effect_Fire.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -120,7 +121,24 @@ void TestScene::Initialize()
 			EngineFunction->Add_Texture(FireEffect, L"Texture/Effect/Fire/" + FileName + L".png");
 		}
 		
-		
+		GameObject* Fire_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Fire");
+		Fire_Obj->Set_Position(Vector3(100.f, 5.f, 200.f));
+		Fire_Obj->Set_Scale(Vector3(10.f, 10.f, 10.f));
+
+		VIBuffer_Renderer::Desc temp;
+		temp.iLayer = RENDER_LAYER_Alpha;
+		temp.szShaderName = L"Effect_Fire";
+		temp.bEffect = true;
+		//Insert_Resource<VIBuffer, Rect_VIBuffer_Texture>(L"Rect_Texture");
+		temp.wBufferName  = RECT_TEXTURE;
+		temp.wTextureName = L"Fire_Effect";
+		Fire_Obj->Add_Component<VIBuffer_Renderer>(&temp);
+
+		Effect_Fire::Desc temp2;
+		temp2.pVibufferRenderer = Fire_Obj->Get_Component<VIBuffer_Renderer>();
+		Fire_Obj->Add_Component<Effect_Fire>(&temp2);
+
+
 
 		//Muzzle
 		for(int i = 0; i< 4; ++i)

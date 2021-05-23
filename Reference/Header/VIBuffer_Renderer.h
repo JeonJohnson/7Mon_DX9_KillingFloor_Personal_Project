@@ -51,15 +51,21 @@ public: /* functions */
 
 public: /* Get */
 	VIBuffer*			Get_VIBuffer() const;
+	int					Get_TextureCount();
 
 public: /* Set */
 	void				Set_VIBuffer(const wstring& _wBufferName);
+	void				Set_Texture(Texture* _pTexture);
+	void				Set_TextureIndex(int _iIndex);
 
 private:
 	VIBuffer*		m_pVIBuffer = nullptr;
+	wstring			m_pTextureName;
 	Shader*			m_pShaderCom = nullptr;
 	LPD3DXEFFECT	m_pEffectCom = nullptr;
 	bool			m_bEffect;
+
+	int				m_iTextureIndex = 0;
 
 };
 

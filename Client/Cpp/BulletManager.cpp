@@ -92,7 +92,7 @@ void BulletManager::Create_Bullet(GameObject* _pPlayer, const WEAPON_INFO& _tInf
 		//Rot.z += (float)((rand() % (int)(Acc * 2 + 1)) - Acc) / 10.f;
 
 		Bullet_Move::Desc bulletmove;
-		bulletmove.Spd = 1000.f;
+		bulletmove.Spd = 1500.f;
 		bulletmove.Dmg = _tInfo.m_iDmg;
 		bulletmove.vAcc = vSpread;
 		Bullet->Add_Component<Bullet_Move>(&bulletmove);
@@ -137,10 +137,10 @@ void BulletManager::Create_Muzzle(GameObject* _pPlayer, Mesh* _pMesh, const WEAP
 	Muzzle->Add_Component<MuzzleEffect>(&effect);
 }
 
-void BulletManager::Create_Tracer(GameObject * _pPlayer, Mesh * _pMesh, const WEAPON_INFO & _tInfo)
-{
-	
-}
+//void BulletManager::Create_Tracer(GameObject * _pPlayer, Mesh * _pMesh, const WEAPON_INFO & _tInfo)
+//{
+//	
+//}
 
 void BulletManager::Create_PipeBomb(GameObject* _pPlayer, const WEAPON_INFO& _tInfo)
 {

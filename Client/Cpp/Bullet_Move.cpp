@@ -42,6 +42,7 @@ void Bullet_Move::Update()
 		Trace.szMeshName = L"BulletTrace";
 		Trace.szShaderName = EFFECT_SHADER;
 		//Trace.vRot = Vector3(0.f, 0.f, 90.f);
+		Trace.vScale = Vector3(0.5f, 0.5f, 0.5f);
 		m_GameObject->Add_Component<Mesh_Renderer>(&Trace);
 		m_bTrace = true;
 	}
