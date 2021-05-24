@@ -52,7 +52,7 @@ typedef struct tWeaponStatus
 
 typedef struct tPlayerStatus
 {
-	int			m_iCurHp = 100;
+	int			m_iCurHp = 30;
 	int			m_iMaxHp = 100;
 
 	int			m_iCurArmor = 20;

@@ -35,6 +35,8 @@ private:
 	Mesh_Renderer*			m_pWeaponRenderer = nullptr;
 	AnimationController*	m_pAnimCtrl = nullptr;
 
+
+	bool m_bHeal = false;
 };
 
 #endif //_PLAYER_HEAL_H_

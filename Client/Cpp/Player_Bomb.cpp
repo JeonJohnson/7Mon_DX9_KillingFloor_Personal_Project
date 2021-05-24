@@ -53,11 +53,24 @@ void Player_Bomb::EnterState()
 	m_pAnimCtrl->Set_AnimSpd(1.f);
 	m_pAnimCtrl->Play(0);
 
+	EngineFunction->OverlapPlay_Sound(L"Weapon_Select.wav", SoundCH_PLAYER_FIRE);
 	//m_pPlayerStatus->Set_Heal(true);
+	m_bThrow = false;
 }
 
 void Player_Bomb::UpdateState()
 {
+	double curFrame = m_pAnimCtrl->Get_CurFrame();
+
+	//DEBUG_LOG(L"CurFrame : " + to_wstring(curFrame));
+
+	if (curFrame >= 0.8 && !m_bThrow)
+	{
+		EngineFunction->OverlapPlay_Sound(L"Bomb_Throw.wav", SoundCH_PLAYER_FIRE);
+		m_bThrow = true;
+	}
+
+
 	if (m_pAnimCtrl->IsEnd())
 	{
 		m_pWeaponRenderer->Set_Mesh(m_pCurWeapon->m_tWeaponInfo.m_szName);

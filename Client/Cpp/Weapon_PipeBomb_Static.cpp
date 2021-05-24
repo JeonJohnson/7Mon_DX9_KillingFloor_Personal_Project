@@ -72,6 +72,7 @@ void Weapon_PipeBomb_Static::Bomb()
 
 		if (m_fBombTime >= m_fMaxTime)
 		{
+			EngineFunction->OverlapPlay_Sound(L"Bomb_Explosion.wav", SoundCH_PLAYER_FIRE);
 			BulletManager::Get_Instance()->Create_Explosion(m_Transform->Get_Position(), m_iDmg, 0.f);
 			m_GameObject->Set_Alive(false);
 		}

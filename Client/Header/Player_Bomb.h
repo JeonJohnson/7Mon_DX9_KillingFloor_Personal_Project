@@ -39,6 +39,8 @@ private:
 	Weapon_Status*			m_pCurWeapon = nullptr;
 	Mesh_Renderer*			m_pWeaponRenderer = nullptr;
 	AnimationController*	m_pAnimCtrl = nullptr;
+
+	bool m_bThrow = false;
 };
 
 #endif //_PlAYER_BOMB_H_

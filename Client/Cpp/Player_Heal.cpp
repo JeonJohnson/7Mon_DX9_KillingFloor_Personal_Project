@@ -55,10 +55,23 @@ void Player_Heal::EnterState()
 
 	m_pPlayerStatus->Set_Heal(true);
 
+	EngineFunction->OverlapPlay_Sound(L"Weapon_Select.wav", SoundCH_PLAYER_FIRE);
+
+	m_bHeal = false;
 }
 
 void Player_Heal::UpdateState()
 {
+	double curFrame = m_pAnimCtrl->Get_CurFrame();
+
+	DEBUG_LOG(L"CurFrame : " + to_wstring(curFrame));
+
+	if (curFrame >= 0.6 && !m_bHeal)
+	{
+		EngineFunction->OverlapPlay_Sound(L"Injector_Fire.wav", SoundCH_PLAYER_FIRE);
+		m_bHeal = true;
+	}
+
 	if (m_pAnimCtrl->IsEnd())
 	{
 		m_pWeaponRenderer->Set_Mesh(m_pCurWeapon->m_tWeaponInfo.m_szName);
