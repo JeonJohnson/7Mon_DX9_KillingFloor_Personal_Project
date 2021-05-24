@@ -191,14 +191,26 @@ void InputManager::Check_WindowFocus()
 	}
 }
 
-void InputManager::MouseLock()
+void InputManager::MouseLock_OnOff(bool _OnOff)
 {
-	m_pDInput8_Mouse->Unacquire();
+	if (_OnOff == true)
+	{//마우스 락
+		m_pDInput8_Mouse->Unacquire();
 
-	HRESULT temp = m_pDInput8_Mouse->SetCooperativeLevel(DeviceManager::Get_Instance()->Get_HWND(), 
-		DISCL_FOREGROUND | DISCL_EXCLUSIVE);
+		HRESULT temp = m_pDInput8_Mouse->SetCooperativeLevel(DeviceManager::Get_Instance()->Get_HWND(),
+			DISCL_FOREGROUND | DISCL_EXCLUSIVE);
 
-	m_pDInput8_Mouse->Acquire();
+		m_pDInput8_Mouse->Acquire();
+	}
+	else
+	{
+		m_pDInput8_Mouse->Unacquire();
+
+		HRESULT temp = m_pDInput8_Mouse->SetCooperativeLevel(DeviceManager::Get_Instance()->Get_HWND(),
+			DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
+
+		m_pDInput8_Mouse->Acquire();
+	}
 }
 
 bool InputManager::GetKeyUp(BYTE _KeyVal)

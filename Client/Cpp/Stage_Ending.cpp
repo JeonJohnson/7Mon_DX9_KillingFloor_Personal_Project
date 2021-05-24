@@ -55,6 +55,8 @@ void Stage_Ending::EnterState()
 	temp->Player_Ending();
 	auto temp2 = m_pPlayer->Get_Component<Camera_FPS>();
 	temp2->Disable_Mouse(OFF);
+
+	m_pPlayer->Set_Position(Vector3(255.f, 20.f, 600.f));
 }
 
 void Stage_Ending::UpdateState()

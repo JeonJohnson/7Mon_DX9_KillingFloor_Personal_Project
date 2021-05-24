@@ -133,7 +133,7 @@ public: /* Input Manager */
 	POINT	Get_MousePos();
 	POINT	Get_MousePos(HWND _hWnd);
 
-	void	MouseLock();
+	void	MouseLock_OnOff(bool _OnOff);
 
 public: /* Scene Manager */
 	void Add_Scene(const wstring& _wName, Scene* _pScene);

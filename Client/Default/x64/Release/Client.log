@@ -6,7 +6,6 @@
   Bullet_Move.cpp
   Camera_FPS.cpp
   Effect_Fire.cpp
-..\Cpp\Effect_Fire.cpp(30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   FilmGrainEffect.cpp
   HudManager.cpp
   IntroScene.cpp
@@ -25,7 +24,6 @@
   Player_Idle.cpp
   Player_Move.cpp
   Player_Reload.cpp
-..\Cpp\Player_Reload.cpp(99): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Player_Swap.cpp
   ShakeObject.cpp
   ShopManager.cpp
@@ -35,6 +33,7 @@
   Stage_1.cpp
   Stage_2.cpp
   Stage_Boss.cpp
+  Stage_Ending.cpp
   Stage_Shop.cpp
   TestScene.cpp
   WeaponManager.cpp
@@ -42,8 +41,8 @@
   Weapon_Status.cpp
   Zed.cpp
   ZedChanger.cpp
-  ZedManager.cpp
   컴파일하고 있습니다...
+  ZedManager.cpp
   Zed_Att.cpp
   Zed_Death.cpp
   Zed_Hit.cpp
@@ -54,9 +53,9 @@
   Zed_Walk.cpp
   Client.cpp
   코드를 생성하고 있습니다.
-  135 of 1717 functions ( 7.9%) were compiled, the rest were copied from previous compilation.
-    12 functions were new in current compilation
-    89 functions had inline decision re-evaluated but remain unchanged
+  1735 of 1737 functions (99.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
+  Client.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
   Client.vcxproj -> ../Bin/x64\Release\Client.pdb (Full PDB)

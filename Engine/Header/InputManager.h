@@ -27,7 +27,7 @@ public:
 	void		Check_WindowFocus();
 
 public:
-	void		MouseLock();
+	void		MouseLock_OnOff(bool _OnOff);
 
 public:
 	//bool	GetKeyUp(const DWORD & _dwKey);

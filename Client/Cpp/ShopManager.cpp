@@ -89,6 +89,7 @@ void ShopManager::Release()
 
 void ShopManager::Open_Shop()
 {
+	EngineFunction->MouseLock_OnOff(OFF);
 	m_ShopFrame->Set_Active(true);
 	m_LeftTime->Set_Active(true);
 	m_bShopOn = true;
@@ -96,6 +97,7 @@ void ShopManager::Open_Shop()
 
 void ShopManager::Exit_Shop()
 {
+	EngineFunction->MouseLock_OnOff(ON);
 	m_ShopFrame->Set_Active(false);
 	m_LeftTime->Set_Active(false);
 	m_bShopOn = false;

@@ -220,9 +220,9 @@ POINT Engine_Mother::Get_MousePos(HWND _hWnd)
 	return m_pInputManager->Get_MousePos(_hWnd);
 }
 
-void Engine_Mother::MouseLock()
+void Engine_Mother::MouseLock_OnOff(bool _OnOff)
 {
-	m_pInputManager->MouseLock();
+	m_pInputManager->MouseLock_OnOff(_OnOff);
 }
 
 void Engine_Mother::Add_Scene(const wstring & _wName, Scene * _pScene)

@@ -24,6 +24,6 @@ public:
 
 	GameObject*	m_pPlayer = nullptr;
 	float	m_fEndingTime = 0.f;
-	float	m_f연출용Time = 0.f;
+	//float	m_f연출용Time = 0.f;
 };
 

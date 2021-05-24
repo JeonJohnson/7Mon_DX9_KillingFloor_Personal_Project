@@ -27,10 +27,13 @@ public:
 
 public:
 	void	Stage1_Skip();
-
+	void	Stage1_Start();
 public:
 
 private:
+
+	bool	m_bStart = false;
+
 	float	m_fTime = 0.f;
 	float	m_fGeneTime = 2.4f;
 	bool	m_arrPattern[4] = { false };

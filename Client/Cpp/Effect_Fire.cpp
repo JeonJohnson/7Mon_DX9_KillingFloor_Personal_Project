@@ -28,7 +28,7 @@ void Effect_Fire::Update()
 	}
 
 	
-	m_pRenderer->Set_TextureIndex(m_fIndex);
+	m_pRenderer->Set_TextureIndex((int)m_fIndex);
 
 
 	//m_Transform->Set_Rotation()

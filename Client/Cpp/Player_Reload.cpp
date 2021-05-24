@@ -115,7 +115,7 @@ void Player_Reload::UpdateState()
 				return; 
 			}
 
-			m_fShotGunTime += fTime * m_pAnimCtrl->Get_AnimSpd();
+			m_fShotGunTime += fTime * (float)m_pAnimCtrl->Get_AnimSpd();
 			float fCurFrame = (float)m_pAnimCtrl->Get_CurFrame();
 			DEBUG_LOG(L"ShotGun Reload Frame : " + to_wstring(fCurFrame));
 			
@@ -198,7 +198,7 @@ void Player_Reload::AK47_Reload_Sound()
 {
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_szName == L"AK47")
 	{
-		float curFrame = m_pAnimCtrl->Get_CurFrame();
+		float curFrame = (float)m_pAnimCtrl->Get_CurFrame();
 
 		if(curFrame >= 0.6f && !m_bAK_Sound[0])
 		{ 
@@ -226,7 +226,7 @@ void Player_Reload::Beretta_Reload_Sound()
 {
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_szName == L"Beretta")
 	{
-		float curFrame = m_pAnimCtrl->Get_CurFrame();
+		float curFrame = (float)m_pAnimCtrl->Get_CurFrame();
 
 		if (curFrame >= 0.0f && !m_bBeretta_Sound[0])
 		{
@@ -259,7 +259,7 @@ void Player_Reload::ShotGun_Reload_Sound()
 
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_szName == L"ShotGun")
 	{
-		float curFrame = m_pAnimCtrl->Get_CurFrame();
+		float curFrame = (float)m_pAnimCtrl->Get_CurFrame();
 
 		if (curFrame >= 3.8f && !m_bShotGun_Sound)
 		{

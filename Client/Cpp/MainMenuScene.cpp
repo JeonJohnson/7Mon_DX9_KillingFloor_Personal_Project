@@ -16,6 +16,8 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::Initialize()
 {
+	EngineFunction->MouseLock_OnOff(OFF);
+
 	EngineFunction->PlayBGM(L"BGM_Menu.wav");
 
 	{//BackGround Sprites

@@ -64,7 +64,7 @@ void TestScene::Initialize()
 {
 
 
-	EngineFunction->MouseLock();
+	EngineFunction->MouseLock_OnOff(ON);
 	//GameObject* Grid_Test = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Test_Grid");
 	//Grid_Test->Set_Position(Vector3(0, 30.f, 200));
 	//Grid_Test->Set_Scale(Vector3(10.f, 10.f, 10.f));

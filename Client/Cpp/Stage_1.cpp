@@ -28,37 +28,41 @@ void Stage_1::UpdateState()
 	DEBUG_LOG(L"CurStage : Stage1_" + to_wstring(m_iCurPattern));
 	DEBUG_LOG(L"GeneTime : " + to_wstring(m_fGeneTime));
 
+	Stage1_Start();
 
-	Stage1_Skip();
-
-	if (m_arrPattern[0] == false)
+	if (m_bStart)
 	{
-		Generate_Phase1();
-	}
+		Stage1_Skip();
+
+		if (m_arrPattern[0] == false)
+		{
+			Generate_Phase1();
+		}
 
 
-	if (m_arrPattern[0] == true && m_arrPattern[1] == false)
-	{
-		Generate_Phase2();
-		m_iCurPattern = 2;
-	}
+		if (m_arrPattern[0] == true && m_arrPattern[1] == false)
+		{
+			Generate_Phase2();
+			m_iCurPattern = 2;
+		}
 
-	if (m_arrPattern[1] == true && m_arrPattern[2] == false)
-	{
-		Generate_Phase3();
-		m_iCurPattern = 3;
-	}
+		if (m_arrPattern[1] == true && m_arrPattern[2] == false)
+		{
+			Generate_Phase3();
+			m_iCurPattern = 3;
+		}
 
-	if (m_arrPattern[2] == true && m_arrPattern[3] == false)
-	{
-		Generate_PhaseEnd();
-		m_iCurPattern = 4;
-	}
+		if (m_arrPattern[2] == true && m_arrPattern[3] == false)
+		{
+			Generate_PhaseEnd();
+			m_iCurPattern = 4;
+		}
 
 
-	if (m_arrPattern[3] == true && ZedManager::Get_Instance()->Get_ZedCount() <= 0)
-	{
-		m_pStateController->Set_State(L"Stage_Shop");
+		if (m_arrPattern[3] == true && ZedManager::Get_Instance()->Get_ZedCount() <= 0)
+		{
+			m_pStateController->Set_State(L"Stage_Shop");
+		}
 	}
 }
 
@@ -198,3 +202,12 @@ void Stage_1::Stage1_Skip()
 		m_pStateController->Set_State(L"Stage_Shop");
 	}
 }
+
+void Stage_1::Stage1_Start()
+{
+	if (KeyDown(KEY_STATE_ENTER) )
+	{
+		m_bStart = true;
+	}
+}
+
