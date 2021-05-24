@@ -456,6 +456,13 @@ void Player_Attack::SetUp()
 {
 }
 
+void Player_Attack::Player_Ending()
+{
+	m_pWeaponRenderer->Set_MeshScale(Vector3(0.f, 0.f, 0.f));
+}
+
+
+
 GameObject * Player_Attack::Get_CurWeapon()
 {
 	return m_pCurWeapon;

@@ -50,7 +50,7 @@ public: /* Func */
 
 	void			SetUp();
 
-
+	void			Player_Ending();
 public: /* Get */
 	GameObject*					Get_CurWeapon();
 	Weapon_Status*				Get_CurWeaponStatus();

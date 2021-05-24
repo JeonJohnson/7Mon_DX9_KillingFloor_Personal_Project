@@ -788,6 +788,28 @@ void TestScene::Initialize()
 	}
 #pragma endregion
 
+	{//For Ending
+		
+		EngineFunction->Load_Mesh(L"Mesh/Dynamic/Chooper.X", L"Chopper");
+
+		//GameObject*	Chopper = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Chopper");
+		//Chopper->Set_Position(137.f, 0.f, 472.f);
+		//Chopper->Set_Scale(Vector3(50.f, 50.f, 50.f));
+		////Chopper->Set_Active(false);
+
+		//Mesh_Renderer::Desc ChopperRender;
+		//ChopperRender.iRenderLayer = RENDER_LAYER_NonAlpha;
+		//ChopperRender.szMeshName = L"Chopper";
+		//Chopper->Add_Component<Mesh_Renderer>(&ChopperRender);
+
+		//AnimationController::Desc ChopperAnim;
+		//ChopperAnim.InitIndex = 0;
+		//ChopperAnim.bPlay = true;
+		//ChopperAnim.bLoop = true;
+		//Chopper->Add_Component<AnimationController>(&ChopperAnim);
+	
+	}
+
 	EngineFunction->Stop_Sound(SOUND_CHANNEL::SoundCH_BGM);
 	
 }

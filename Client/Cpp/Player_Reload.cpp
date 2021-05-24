@@ -38,6 +38,7 @@ void Player_Reload::EnterState()
 		|| m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet 
 		>= m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet)
 	{
+		EngineFunction->OverlapPlay_Sound(L"Weapon_DryFire.wav", SoundCH_PLAYER_FIRE);
 		m_GameObject->Get_Component<StateController>()->Set_State(L"Player_Idle");
 		return;
 	}

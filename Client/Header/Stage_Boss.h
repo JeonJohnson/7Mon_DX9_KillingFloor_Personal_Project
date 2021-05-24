@@ -17,7 +17,7 @@ public:
 	virtual void ExitState() override;
 
 public:
-
+	void	StageBoss_Skip();
 public:
 
 public:

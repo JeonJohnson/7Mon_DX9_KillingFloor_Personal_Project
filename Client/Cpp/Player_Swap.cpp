@@ -40,6 +40,7 @@ void Player_Swap::EnterState()
 		HudManager::Get_Instance()->Get_Hud(L"Magazine")->Set_Active(false);
 	}
 
+	EngineFunction->OverlapPlay_Sound(L"Weapon_Select.wav", SoundCH_PLAYER_FIRE);
 }
 
 void Player_Swap::UpdateState()

@@ -18,12 +18,15 @@ void Camera_FPS::Initialize()
 
 void Camera_FPS::Update()
 {
-	Look();
+	if (m_bMouse)
+	{
+		Look();
+	}
 
-	Vector3 vforward = m_Transform->Get_Forward();
-		DEBUG_LOG(L"Player Forward : " + to_wstring(vforward.x) + L", "
-			+ to_wstring(vforward.y) + L", "
-			+ to_wstring(vforward.z));
+	//Vector3 vforward = m_Transform->Get_Forward();
+	//	DEBUG_LOG(L"Player Forward : " + to_wstring(vforward.x) + L", "
+	//		+ to_wstring(vforward.y) + L", "
+	//		+ to_wstring(vforward.z));
 
 }
 
@@ -134,5 +137,10 @@ void Camera_FPS::Recoil(float _fRecoilPower)
 	}
 
 	m_Transform->Set_Rotation(Vector3(m_fRotY, m_fRotX, m_fRotZ));
+}
+
+void Camera_FPS::Disable_Mouse(bool _OnOff)
+{
+	m_bMouse = _OnOff;
 }
 

@@ -19,6 +19,11 @@ public:
 public:
 	
 public:
-	GameObject*	m_pChopper = nullptr;
+	GameObject*			m_pChopper = nullptr;
+	Mesh_Renderer*		m_pChopperRender = nullptr;
+
+	GameObject*	m_pPlayer = nullptr;
+	float	m_fEndingTime = 0.f;
+	float	m_fø¨√‚øÎTime = 0.f;
 };
 

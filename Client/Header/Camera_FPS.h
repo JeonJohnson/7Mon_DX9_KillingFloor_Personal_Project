@@ -26,12 +26,17 @@ public:
 public:
 	void Look();
 	void Recoil(float _fRecoilPower);
+	
 
 public:
 
-public:
+public: 
+	void  Disable_Mouse(bool _OnOff);
+
 
 private:
+	bool	m_bMouse = true;
+
 	float	m_fSensitive;
 
 	float	m_fRotX = 0.f;

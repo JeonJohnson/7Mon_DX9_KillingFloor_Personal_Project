@@ -62,6 +62,7 @@ public: /* Set */
 	void		Set_MeshMatrix(const Matrix& _Mat);
 	void		Set_MeshPos(const Vector3& _vPos);
 	void		Set_MeshRot(const Vector3& _vRot);
+	void		Set_MeshScale(const Vector3& _vScale);
 
 	void		Add_MeshPos(const Vector3& _vPos);
 

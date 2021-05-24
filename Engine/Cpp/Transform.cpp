@@ -106,7 +106,7 @@ void Transform::LookAt(const Vector3 & _pTargetPos, float _fSpd, float _fOffset,
 
 	//Vector3	Dot
 
-	if (D3DXVec3Dot(&vDir, &vForward) >= 0.9f)
+	if (D3DXVec3Dot(&vDir, &vForward) >= 0.999f)
 	{
 		return;
 	}
