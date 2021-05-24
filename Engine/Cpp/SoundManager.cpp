@@ -95,6 +95,37 @@ void SoundManager::Overlap_Play(TCHAR * _pSoundKey, _sound_channel _eID)
 	FMOD_System_Update(m_pSystem);
 }
 
+void SoundManager::Play_Loop(TCHAR * _pSoundKey, _sound_channel _eID)
+{
+	map<TCHAR*, FMOD_SOUND*>::iterator iter;
+
+	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)
+	{
+		return !lstrcmp(_pSoundKey, iter.first);
+	});
+
+	if (iter == m_mapSound.end())
+		return;
+
+	FMOD_BOOL bPlay = FALSE;
+
+	if (FMOD_Channel_IsPlaying(m_pChannelArr[_eID], &bPlay))
+	{
+		FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[_eID]);
+	}
+	//FMOD_System_PlaySound(m_pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &m_pChannelArr[eID]);
+
+	//FMOD_Channel_SetVolume(m_pChannelArr[SOUNDCHANNEL::BGM], 0.5f);
+
+	//FMOD_Channel_SetVolume(m_pChannelArr[SOUNDCHANNEL::HERO_ATT], 0.8f);
+	//FMOD_Channel_SetVolume(m_pChannelArr[SOUNDCHANNEL::HERO_HIT], 0.7f);
+	//FMOD_Channel_SetVolume(m_pChannelArr[SOUNDCHANNEL::MONSTER_ATT], 0.7f);
+	//FMOD_Channel_SetVolume(m_pChannelArr[SOUNDCHANNEL::MONSTER_HIT], 0.7f);
+	//FMOD_Channel_SetVolume(m_pChannelArr[SOUNDCHANNEL::NARRATION], 0.4f);
+
+	FMOD_System_Update(m_pSystem);
+}
+
 void SoundManager::PlayBGM(TCHAR * _pSoundKey)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter;

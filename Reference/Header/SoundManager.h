@@ -19,6 +19,7 @@ public:
 public:
 	void Play_Sound(TCHAR* _pSoundKey, _sound_channel _eID);
 	void Overlap_Play(TCHAR* _pSoundKey, _sound_channel _eID);
+	void Play_Loop(TCHAR* _pSoundKey, _sound_channel _eID);
 	void PlayBGM(TCHAR* _pSoundKey);
 	void StopSound(_sound_channel _eID);
 	void StopAll();

@@ -131,6 +131,14 @@ void MainMenuScene::Initialize()
 			Loading->Add_UIComponent<Sprite>(&LoadingDesc);
 
 
+			UI* Fade = INSTANTIATE_UI(L"Fade");
+			Fade->Set_Position(Vector3(640.f, 360.f, 0.f));
+			Fade->Set_Active(false);
+
+			Sprite::Desc FadeSprite;
+			FadeSprite.TextureName = L"Fade";
+			Fade->Add_UIComponent<Sprite>(&FadeSprite);
+
 
 			GameObject* Selector_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"MenuButtonSelector");
 			
@@ -138,6 +146,7 @@ void MainMenuScene::Initialize()
 			SelectorDesc.StartButton = StartButton;
 			SelectorDesc.ExitButton = ExitButton;
 			SelectorDesc.Loading = Loading;
+			SelectorDesc.Fade = Fade;
 			Selector_Obj->Add_Component<MenuSelector>(&SelectorDesc);
 		}
 
