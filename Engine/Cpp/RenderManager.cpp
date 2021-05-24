@@ -55,9 +55,15 @@ void RenderManager::Initialize()
 
 void RenderManager::Render()
 {
+#ifdef _DEBUG
 	m_pDX9_Device->Clear(
 		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
 		D3DCOLOR_ARGB(255, 255, 222, 222), 1.f, 0);
+#else
+	m_pDX9_Device->Clear(
+		0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL,
+		D3DCOLOR_ARGB(255, 0, 0, 0), 1.f, 0);
+#endif //_DEBUG
 
 	m_pDX9_Device->BeginScene();
 

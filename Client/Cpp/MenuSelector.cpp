@@ -8,6 +8,7 @@ MenuSelector::MenuSelector(Desc * _desc)
 {
 	m_vecButtons[0] = _desc->StartButton;
 	m_vecButtons[1] = _desc->ExitButton;
+	m_pLoading = _desc->Loading;
 }
 
 MenuSelector::~MenuSelector()
@@ -45,6 +46,11 @@ void MenuSelector::Update()
 			{
 			case 0:
 			{
+				for (int i = 0; i < 2; ++i)
+				{
+					m_vecButtons[i]->Set_Active(false);
+				}
+				m_pLoading->Set_Active(true);
 				EngineFunction->Load_Scene(L"Test_Scene"); 
 			}
 			break;

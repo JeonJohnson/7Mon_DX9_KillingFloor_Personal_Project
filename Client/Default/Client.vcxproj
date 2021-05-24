@@ -225,6 +225,7 @@
     <ClInclude Include="..\Header\Stage_1.h" />
     <ClInclude Include="..\Header\Stage_2.h" />
     <ClInclude Include="..\Header\Stage_Boss.h" />
+    <ClInclude Include="..\Header\Stage_Ending.h" />
     <ClInclude Include="..\Header\Stage_Shop.h" />
     <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\TestScene.h" />
@@ -281,6 +282,7 @@
     <ClCompile Include="..\Cpp\Stage_1.cpp" />
     <ClCompile Include="..\Cpp\Stage_2.cpp" />
     <ClCompile Include="..\Cpp\Stage_Boss.cpp" />
+    <ClCompile Include="..\Cpp\Stage_Ending.cpp" />
     <ClCompile Include="..\Cpp\Stage_Shop.cpp" />
     <ClCompile Include="..\Cpp\TestScene.cpp" />
     <ClCompile Include="..\Cpp\WeaponManager.cpp" />

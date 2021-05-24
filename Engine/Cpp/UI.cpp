@@ -3,6 +3,7 @@
 #include "UIManager.h"
 #include "Sprite.h"
 #include "InputManager.h"
+#include "SoundManager.h"
 
 void UI::Initialize()
 {
@@ -148,8 +149,10 @@ bool UI::Clikced()
 			if (MousePos.x >= m_tRect.left && MousePos.x <= m_tRect.right
 				&& MousePos.y >= m_tRect.top && MousePos.y <= m_tRect.bottom)
 			{
+				SoundManager::Get_Instance()->Overlap_Play(L"UI_MouseClick.wav", 7);
 				return true;
-			}
+
+			} 
 			return false;
 		}
 		return false;
@@ -205,9 +208,18 @@ bool UI::MouseOn()
 	if (MousePos.x >= m_tRect.left && MousePos.x <= m_tRect.right
 		&& MousePos.y >= m_tRect.top && MousePos.y <= m_tRect.bottom)
 	{
+		if (!m_bMouseOver)
+		{
+			SoundManager::Get_Instance()->Overlap_Play(L"UI_MouseOver.wav", 7);
+		}
+		m_bMouseOver = true;
 		return true;
 	}
-	else { return false; }
+	else { 
+		m_bMouseOver = false;
+		return false; 
+	
+	}
 
 	
 }

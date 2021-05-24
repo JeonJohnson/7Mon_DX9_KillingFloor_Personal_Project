@@ -1,4 +1,7 @@
-﻿  Effect_Fire.cpp
-e:\학업\7mon_personal\7mon_personal_project\client\cpp\effect_fire.cpp(31): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Player_Swap.cpp
+  MainMenuScene.cpp
+  코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  TestScene.cpp
   Client.vcxproj -> E:\학업\7mon_personal\7Mon_Personal_Project\Client\Default\../Bin/x64\Debug\Client.exe
   Client.vcxproj -> ../Bin/x64\Debug\Client.pdb (Full PDB)

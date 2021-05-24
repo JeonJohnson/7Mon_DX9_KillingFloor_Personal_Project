@@ -73,16 +73,19 @@ void Stage_1::Generate_Phase1()
 
 	if (m_fTime >= m_fGeneTime)
 	{
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_RIGHT));
+		if (m_iZedCount >= 2)
+		{
+			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_RIGHT));
 
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_LEFT));
+			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_LEFT));
+		}
 		
 		m_fTime = 0.f;
 		m_iZedCount -= 2;
 	}
 
 
-	if (m_iZedCount <= 0)
+	if (m_iZedCount <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
 	{
 		m_arrPattern[0] = true;
 
@@ -98,14 +101,16 @@ void Stage_1::Generate_Phase2()
 
 	if (m_fTime >= m_fGeneTime)
 	{
-		int iRand = rand() % 2 + 2;
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
-		m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
-		m_fTime = 0.f;
-		--m_iZedCount;
+		if (m_iZedCount > 0) {
+			int iRand = rand() % 2 + 2;
+			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
+			m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
+			m_fTime = 0.f;
+			--m_iZedCount;
+		}
 	}
 
-	if (m_iZedCount <= 0)
+	if (m_iZedCount <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
 	{
 		m_arrPattern[1] = true;
 
@@ -121,19 +126,21 @@ void Stage_1::Generate_Phase2()
 void Stage_1::Generate_Phase3()
 {
 	m_fTime += fTime;
-
-	if (m_fTime >= m_fGeneTime)
+	
 	{
-		int iRand = rand() % 4;
+		if (m_iZedCount > 0)
+		{
+			int iRand = rand() % 4;
 
-		ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
-		
-		m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
-		m_fTime = 0.f;
-		--m_iZedCount;
+			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
+
+			m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
+			m_fTime = 0.f;
+			--m_iZedCount;
+		}
 	}
 
-	if (m_iZedCount <= 0)
+	if (m_iZedCount <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
 	{
 		m_arrPattern[2] = true;
 

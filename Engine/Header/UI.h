@@ -152,6 +152,9 @@ private:
 	RECT				m_tRect;
 
 	bool				m_bButton = false;
+
+	bool				m_bMouseOver = false; //for sound
+
 	bool				m_bActive = true;
 	bool				m_bAlive = true;
 	bool				m_bDontDestroy;

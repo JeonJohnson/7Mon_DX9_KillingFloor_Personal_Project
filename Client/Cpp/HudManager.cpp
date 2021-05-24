@@ -182,7 +182,13 @@ void HudManager::Set_TextClock(float _fClock)
 	int Min = (int)_fClock / 60;
 	int Sec = (int)_fClock % 60;
 
-	Get_HudText(L"Clock")->Set_Script(to_wstring(Min) +L":" +to_wstring(Sec));
+	if (Sec >= 10)
+	{
+		Get_HudText(L"Clock")->Set_Script(to_wstring(Min) + L":" + to_wstring(Sec));
+	}
+	else {
+		Get_HudText(L"Clock")->Set_Script(to_wstring(Min) + L":0" + to_wstring(Sec));
+	}
 }
 
 void HudManager::Set_TextZedCount(int _iZedCount)

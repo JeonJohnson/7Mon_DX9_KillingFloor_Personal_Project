@@ -51,13 +51,19 @@ void Player_Fire::EnterState()
 		m_pCamera = m_GameObject->Get_Component<Camera_FPS>();
 	}
 
+	if (m_pAnimCtrl == nullptr)
+	{
+		m_pAnimCtrl = m_GameObject->Get_Component<AnimationController>();
+
+	}
+
 
 
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType != Weapon_Knife)
 	{
 		m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
 
-		m_GameObject->Get_Component<AnimationController>()->Play(3);
+		m_pAnimCtrl->Play(3);
 		
 		BulletManager::Get_Instance()->Create_Bullet(
 			m_GameObject,
@@ -74,7 +80,7 @@ void Player_Fire::EnterState()
 	else 
 	{
 		m_pPlayerCol->Set_Check(true);
-		m_GameObject->Get_Component<AnimationController>()->Play(3);
+		m_pAnimCtrl->Play(3);
 	}
 
 	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType == Weapon_Shotgun)
@@ -83,12 +89,46 @@ void Player_Fire::EnterState()
 		m_pPlayerAttack->Set_IronSight(false);
 	}
 
+	switch (m_pCurWeaponStatus->m_tWeaponInfo.m_eType)
+	{
+	case 0: //Rifle
+	{
+		EngineFunction->OverlapPlay_Sound(L"AK47_Fire.wav", SoundCH_PLAYER_FIRE); 
+	}
+	break;
+
+	case 1: //Shotgun
+	{
+		EngineFunction->OverlapPlay_Sound(L"ShotGun_Fire.wav", SoundCH_PLAYER_FIRE);
+	}
+	break;
+
+	case 3: //Pistol
+	{
+		EngineFunction->OverlapPlay_Sound(L"Beretta_Fire.wav", SoundCH_PLAYER_FIRE);
+	}
+	break;
+
+	case 4: //Knife
+	{
+		EngineFunction->OverlapPlay_Sound(L"Knife_Fire.wav", SoundCH_PLAYER_FIRE);
+	}
+	break;
+
+	default:
+		break;
+	}
+
+	m_bShotGunForward = false;
 }
 
 void Player_Fire::UpdateState()
 {
 
 	DEBUG_LOG(L"Player Cur State : Fire");
+	DEBUG_LOG(L"Cur Frame: " + to_wstring(m_pAnimCtrl->Get_CurFrame())
+		+ L" / Max Frame : " + to_wstring(m_pAnimCtrl->Get_MaxFrame()));
+
 	DEBUG_LOG(L"Cur : " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_fCurRapid)
 		+ L" / Max : " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_fMaxRapid));
 	
@@ -109,7 +149,8 @@ void Player_Fire::UpdateState()
 						return;
 					}
 					m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet -= 1;
-					m_GameObject->Get_Component<AnimationController>()->Play(3);
+					EngineFunction->OverlapPlay_Sound(L"AK47_Fire.wav", SoundCH_PLAYER_FIRE);
+					m_pAnimCtrl->Play(3);
 					
 					m_pCamera->Recoil(m_pCurWeaponStatus->m_tWeaponInfo.m_fRecoilForce);
 					BulletManager::Get_Instance()->Create_Bullet(m_GameObject, m_pCurWeaponStatus->m_tWeaponInfo);
@@ -123,7 +164,7 @@ void Player_Fire::UpdateState()
 		}
 	}
 	else 
-	{
+	{//Į �浹
 		auto pZeds = EngineFunction->Get_GameObjectListbyTag(OBJECT_TAG_ZED);
 
 
@@ -141,6 +182,9 @@ void Player_Fire::UpdateState()
 			}
 		}
 	}
+
+
+	ShotGun_Pump();
 
 
 	
@@ -162,6 +206,19 @@ void Player_Fire::UpdateState()
 
 void Player_Fire::ExitState()
 {
+}
+
+void Player_Fire::ShotGun_Pump()
+{
+	if (m_pCurWeaponStatus->m_tWeaponInfo.m_eType == WEAPON_TYPE::Weapon_Shotgun)
+	{
+		if (m_pAnimCtrl->Get_CurFrame() >= 0.6f && !m_bShotGunForward)
+		{
+			EngineFunction->OverlapPlay_Sound(L"ShotGun_Pump.wav", SoundCH_PLAYER_FIRE);
+			m_bShotGunForward = true;
+		}
+
+	}
 }
 
 

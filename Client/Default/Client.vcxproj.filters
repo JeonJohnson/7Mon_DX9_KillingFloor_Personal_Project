@@ -245,6 +245,48 @@
     <Filter Include="97.Test\02.testScene2">
       <UniqueIdentifier>{1871fb94-622a-4a30-a37a-81db871a072a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.Objects\05.Boss\00.Enterance">
+      <UniqueIdentifier>{9fbbb33d-0078-46d5-8e9a-6f36cbba0010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\01.Idle">
+      <UniqueIdentifier>{99ed8d56-7eab-46e1-9062-98e3cf445686}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\02.Walk">
+      <UniqueIdentifier>{a48b70e5-9f09-4196-b6e0-7620b660737b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\03.Run">
+      <UniqueIdentifier>{e6b60468-e064-482f-bc8e-a6626f7a0de3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\04.Hit">
+      <UniqueIdentifier>{d03279c3-8ff6-447c-8279-2a699fd0a388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\05.Crit_Hit">
+      <UniqueIdentifier>{5c85b130-4e5f-46fa-8c4f-932c2d43c62b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\06.Att">
+      <UniqueIdentifier>{3a15c87c-d82d-447a-816a-f9e8e7f79d1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\07.Att2">
+      <UniqueIdentifier>{38606acf-c370-4399-ba8a-06948ef099c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\08.WideAtt">
+      <UniqueIdentifier>{4285e318-2449-4b9c-8086-61fbfc1c4bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\09.Pulling">
+      <UniqueIdentifier>{9ab596e0-2af7-443c-8e76-6616615e915b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\10.MG42">
+      <UniqueIdentifier>{90dbd661-5528-4205-bbb6-286d97684f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\12.Death">
+      <UniqueIdentifier>{272dd04f-fff5-46c2-99af-a3d32a9af49d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\05.Boss\11.Missile">
+      <UniqueIdentifier>{ae003b48-f722-443d-9e13-a00ab93d81e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene\02.Stage\Stage_State\05.Ending">
+      <UniqueIdentifier>{bf49c84b-fe72-409c-960b-2ee2a72e2a1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -421,6 +463,9 @@
     <ClInclude Include="..\Header\Effect_Fire.h">
       <Filter>04.Components\Fire</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\Stage_Ending.h">
+      <Filter>02.Scene\02.Stage\Stage_State\05.Ending</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -572,6 +617,9 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Effect_Fire.cpp">
       <Filter>04.Components\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\Stage_Ending.cpp">
+      <Filter>02.Scene\02.Stage\Stage_State\05.Ending</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

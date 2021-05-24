@@ -45,6 +45,7 @@
 #include "Player_Death.h"
 #include "..\..\Engine\Header\SoundManager.h"
 #include "Effect_Fire.h"
+#include "Stage_Ending.h"
 //#include "Anim_Controller.h"
 //#include "../../Reference/Header/Camera.h"
  
@@ -648,6 +649,7 @@ void TestScene::Initialize()
 		StageCtrl->Add_State<Stage_1>(L"Stage_1");
 		StageCtrl->Add_State<Stage_2>(L"Stage_2");
 		StageCtrl->Add_State<Stage_Boss>(L"Stage_Boss");
+		StageCtrl->Add_State<Stage_Ending>(L"Stage_Ending");
 
 		StageCtrl->Set_InitState(L"Stage_1");
 	}

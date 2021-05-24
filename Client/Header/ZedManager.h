@@ -45,7 +45,7 @@ public:
 	void	Generate_Patriarch(const Vector3& _vPos,
 		const Quaternion& _qRot = Quaternion(), ZED_INFO _tStatus = ZED_INFO());
 
-
+	void	KillThemAll();
 
 public: /* Get */
 	int		Get_ZedCount();

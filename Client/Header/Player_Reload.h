@@ -23,6 +23,10 @@ public:
 
 public:
 
+	void AK47_Reload_Sound();
+	void Beretta_Reload_Sound();
+	void ShotGun_Reload_Sound();
+
 private:
 	Weapon_Status*			m_pCurWeaponStatus = nullptr;
 	AnimationController*	m_pAnimCtrl = nullptr;
@@ -34,6 +38,10 @@ private:
 
 	bool					m_bIronSight = false;
 
+
+	bool					m_bAK_Sound[3] = { false };
+	bool					m_bBeretta_Sound[4] = { false };
+	bool					m_bShotGun_Sound = false;
 };
 
 #endif //_PLAYER_RELOAD_H_

@@ -10,6 +10,7 @@ class Weapon_Status;
 class SphereCollider;
 class Player_Attack;
 class Camera_FPS;
+class AnimationController;
 
 class Player_Fire : public CState
 {
@@ -24,15 +25,20 @@ public:
 	virtual void ExitState() override;
 
 public:
-
+	void ShotGun_Pump();
 
 private:
 	Weapon_Status*		m_pCurWeaponStatus = nullptr;
 	SphereCollider*		m_pPlayerCol = nullptr;
 	Player_Attack*		m_pPlayerAttack = nullptr;
+	AnimationController*	m_pAnimCtrl = nullptr;
+
 	Camera_FPS*			m_pCamera = nullptr;
 
 	bool				m_bIronSight = false;
+
+	bool				m_bShotGunForward = false;
+
 
 };
 

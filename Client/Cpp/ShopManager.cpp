@@ -123,9 +123,18 @@ void ShopManager::Set_LeftTime(float _fLeftTime)
 	int Min = (int)_fLeftTime / 60;
 	int Sec = (int)_fLeftTime % 60;
 
-	((Text*)m_LeftTime->Get_Text())->Set_Script(
-		L"Left Shopping Time\n" +
-		to_wstring(Min) + L":" + to_wstring(Sec));
+	if (Sec < 10)
+	{
+		((Text*)m_LeftTime->Get_Text())->Set_Script(
+			L"Left Shopping Time\n" +
+			to_wstring(Min) + L":0" + to_wstring(Sec));
+	}
+	else {
+		((Text*)m_LeftTime->Get_Text())->Set_Script(
+			L"Left Shopping Time\n" +
+			to_wstring(Min) + L":" + to_wstring(Sec));
+	}
+	
 }
 
 void ShopManager::Set_ShopOnOff(bool _OnOff)

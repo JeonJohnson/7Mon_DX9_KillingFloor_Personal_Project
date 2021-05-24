@@ -13,7 +13,7 @@ public:
 	{
 		UI*		StartButton = nullptr;
 		UI*		ExitButton = nullptr;
-
+		UI*		Loading = nullptr;
 	};
 
 public:
@@ -36,6 +36,7 @@ public: /* Set */
 private:
 	UI*			m_vecButtons[2];
 
+	UI*			m_pLoading = nullptr;
 
 };
 

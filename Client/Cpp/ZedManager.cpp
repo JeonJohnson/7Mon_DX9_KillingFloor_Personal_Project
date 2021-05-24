@@ -53,25 +53,25 @@ void ZedManager::Update()
 {
 	HudManager::Get_Instance()->Set_TextZedCount(m_iZedCount);
 
-	if (KeyDown(KEY_STATE_F1))
-	{
-		Generate_Clot(Vector3(0.f, 0.f,100.f));
-	}
+	//if (KeyDown(KEY_STATE_F1))
+	//{
+	//	Generate_Clot(Vector3(0.f, 0.f,100.f));
+	//}
 
-	if (KeyDown(KEY_STATE_F2))
-	{
-		Generate_GoreFast(Vector3(50.f, 0.f, 100.f));
-	}
+	//if (KeyDown(KEY_STATE_F2))
+	//{
+	//	Generate_GoreFast(Vector3(50.f, 0.f, 100.f));
+	//}
 
-	if (KeyDown(KEY_STATE_F3))
-	{
-		Generate_Scrake(Vector3(100.f, 0.f, 100.f));
-	}
+	//if (KeyDown(KEY_STATE_F3))
+	//{
+	//	Generate_Scrake(Vector3(100.f, 0.f, 100.f));
+	//}
 
-	if (KeyDown(KEY_STATE_F4))
-	{
-		Generate_Patriarch(Vector3(150.f, 0.f, 100.f));
-	}
+	//if (KeyDown(KEY_STATE_F4))
+	//{
+	//	Generate_Patriarch(Vector3(150.f, 0.f, 100.f));
+	//}
 
 }
 
@@ -132,8 +132,13 @@ void ZedManager::Nogada_Datas()
 	}
 
 	{
-		arrZedGenLocate[CHURCH_RIGHT] = Vector3(375.f, 0.f, 212.f);
-		arrZedGenLocate[CHURCH_LEFT] = Vector3(-104.f, 0.f, 212.f);
+		//arrZedGenLocate[CHURCH_RIGHT] = Vector3(375.f, 0.f, 212.f);
+		//arrZedGenLocate[CHURCH_LEFT] = Vector3(-104.f, 0.f, 212.f);
+		//arrZedGenLocate[CHURCH_RIGHT] = Vector3(320.f, 0.f, 200.f);
+		//arrZedGenLocate[CHURCH_LEFT] = Vector3(-70.f, 0.f, 200.f);
+
+		arrZedGenLocate[CHURCH_RIGHT] = Vector3(300.f, 0.f, 200.f);
+		arrZedGenLocate[CHURCH_LEFT] = Vector3(-50.f, 0.f, 200.f);
 		arrZedGenLocate[POLICE_RIGHT] = Vector3(285.f, 0.f, 715.f);
 		arrZedGenLocate[POLICE_LEFT] = Vector3(-15.f, 0.f, 715.f);
 	}
@@ -318,6 +323,16 @@ void ZedManager::Generate_Patriarch(const Vector3 & _vPos, const Quaternion & _q
 
 		++m_iZedCount;
 	
+}
+
+void ZedManager::KillThemAll()
+{
+	for (auto& zed : EngineFunction->Get_GameObjectListbyTag(OBJECT_TAG_ZED))
+	{
+		zed->Set_Alive(false);
+	}
+
+	m_iZedCount = 0;
 }
 
 int ZedManager::Get_ZedCount()

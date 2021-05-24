@@ -19,16 +19,21 @@ public:
 public:
 
 public:
+	void	Generate_Phase1();
+	void	Generate_Phase2();
+	void	Generate_PhaseEnd();
 
 public:
+	void	Stage2_Skip();
+
 
 private:
 	float	m_fTime = 0.f;
 	float	m_fGeneTime = 2.4f;
-	bool	m_arrPattern[4] = { false };
+	bool	m_arrPattern[3] = { false };
 	int		m_iCurPattern = 1;
 
-	int		m_iZedCount = 6;
+	int		m_iZedCount = 4;
 };
 
 #endif //_STAGE_2_H_

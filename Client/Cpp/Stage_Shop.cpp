@@ -26,6 +26,7 @@ void Stage_Shop::EnterState()
 	HudManager::Get_Instance()->Get_Hud(L"Clock")->Set_Active(true);
 	StageManager::Get_Instance()->Set_CurStage(STAGE_NAME::STAGE_SHOP);
 
+	m_fLeftTime = 120.f;
 }
 
 void Stage_Shop::UpdateState()
@@ -39,6 +40,7 @@ void Stage_Shop::UpdateState()
 
 	HudManager::Get_Instance()->Set_TextClock(m_fLeftTime);
 	ShopManager::Get_Instance()->Set_LeftTime(m_fLeftTime);
+	
 	if (m_fLeftTime <= 0.f)
 	{
 		STAGE_NAME PastStage = StageManager::Get_Instance()->Get_PastStageName();

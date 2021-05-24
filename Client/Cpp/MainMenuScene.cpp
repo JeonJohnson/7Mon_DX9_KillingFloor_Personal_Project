@@ -16,7 +16,7 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::Initialize()
 {
-	EngineFunction->PlayBGM(L"Menu.wav");
+	EngineFunction->PlayBGM(L"BGM_Menu.wav");
 
 	{//BackGround Sprites
 		EngineFunction->Load_Texture(L"Texture/Logo.png", L"GameTitle");
@@ -34,6 +34,10 @@ void MainMenuScene::Initialize()
 		EngineFunction->Load_Texture(L"Texture/MainMenu/Pressed.png", L"Pressed");
 
 		EngineFunction->Load_Texture(L"Texture/ScreenEffect/LightFilterTex.png", L"Film_Grain");
+
+		EngineFunction->Load_Texture(L"Texture/Loading.png", L"Loading");
+
+
 
 	}
 
@@ -114,12 +118,24 @@ void MainMenuScene::Initialize()
 			Exit_Text.tColor = D3DCOLOR_RGBA(255, 255, 255, 255);
 			ExitButton->Add_UIComponent<Text>(&Exit_Text);
 
+			UI* Loading = INSTANTIATE_UI(L"Loading");
+			Loading->Set_Position(Vector3(640.f, 360.f, 0.f));
+			Loading->Set_Scale(Vector3(1.f, 1.f, 0.f));
+			Loading->Set_Active(false);
+
+			Sprite::Desc LoadingDesc;
+			LoadingDesc.TextureName = L"Loading";
+			//BackGroundDesc.tColor = D3DCOLOR_RGBA(255, 255, 255, 255);
+			Loading->Add_UIComponent<Sprite>(&LoadingDesc);
+
+
 
 			GameObject* Selector_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"MenuButtonSelector");
 			
 			MenuSelector::Desc	SelectorDesc;
 			SelectorDesc.StartButton = StartButton;
 			SelectorDesc.ExitButton = ExitButton;
+			SelectorDesc.Loading = Loading;
 			Selector_Obj->Add_Component<MenuSelector>(&SelectorDesc);
 		}
 
