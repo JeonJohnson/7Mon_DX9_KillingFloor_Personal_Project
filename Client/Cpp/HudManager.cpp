@@ -246,6 +246,11 @@ void HudManager::Set_TextZedCount(int _iZedCount)
 	Get_HudText(L"EnemyCount")->Set_Script(L"Count\n" + to_wstring(_iZedCount));
 }
 
+void HudManager::Set_TextZedCount(const wstring & _szScript)
+{
+	Get_HudText(L"EnemyCount")->Set_Script(_szScript);
+}
+
 void HudManager::Set_Fade(UI * _pFade)
 {
 	m_pFade = _pFade;

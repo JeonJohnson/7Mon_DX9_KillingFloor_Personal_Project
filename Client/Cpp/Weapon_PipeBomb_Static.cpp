@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Header\Weapon_PipeBomb_Static.h"
 #include "BulletManager.h"
+#include "ShakeObject.h"
 
 
 Weapon_PipeBomb_Static::Weapon_PipeBomb_Static(Desc * _desc)
@@ -73,7 +74,11 @@ void Weapon_PipeBomb_Static::Bomb()
 		if (m_fBombTime >= m_fMaxTime)
 		{
 			EngineFunction->OverlapPlay_Sound(L"Bomb_Explosion.wav", SoundCH_PLAYER_FIRE);
+			
 			BulletManager::Get_Instance()->Create_Explosion(m_Transform->Get_Position(), m_iDmg, 0.f);
+
+			EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER)->
+				Get_Component<ShakeObject>()->Shaking(5.f, 15, 0.025f);
 			m_GameObject->Set_Alive(false);
 		}
 	}

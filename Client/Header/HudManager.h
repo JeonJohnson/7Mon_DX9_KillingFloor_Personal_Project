@@ -66,6 +66,7 @@ public: /* Set */
 	
 	void		Set_TextClock(float _fClock);
 	void		Set_TextZedCount(int _iZedCount);
+	void		Set_TextZedCount(const wstring& _szScript);
 
 	void		Set_Fade(UI* _pFade);
 	

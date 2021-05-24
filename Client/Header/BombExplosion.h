@@ -1,19 +1,20 @@
 #pragma once
 
-#ifndef _BOMB_EFFECT_H_
-#define _BOMB_EFFECT_H_
-
 #include "Component.h"
-class BombEffect : 	public Component
+
+class SphereCollider;
+class BombExplosion : public Component
 {
 public:
 	struct Desc
 	{
-		
+		Vector3 vPos;
+		int iDmg;
+		float fLiveTime;
 	};
 public:
-	BombEffect(Desc* _desc);
-	virtual ~BombEffect();
+	BombExplosion(Desc* _desc);
+	virtual ~BombExplosion();
 
 public:
 	virtual void Initialize() override;
@@ -23,16 +24,10 @@ public:
 	virtual void Release() override;
 
 public:
+	SphereCollider*		m_pCol = nullptr;
+	int			m_iDmg = 0;
 
-public:
-
-public:
-
-private:
-	GameObject*		m_pExplosionObj = nullptr;
-
-	GameObject*		m_pBigSmokeObj = nullptr;
-
+	float m_fTime = 0.f;
+	float m_fMaxTime;
 };
 
-#endif //_BOMB_EFFECT_H_

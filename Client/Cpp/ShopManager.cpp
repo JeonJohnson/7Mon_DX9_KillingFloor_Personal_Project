@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "..\Header\ShopManager.h"
 #include "UI.h"
+#include "Weapon_Status.h"
 
 ShopManager* ShopManager::m_pInstance = nullptr;
 
@@ -118,6 +119,35 @@ void ShopManager::Buy_Weapon()
 bool ShopManager::Get_ShopOn()
 {
 	return m_bShopOn;
+}
+
+void ShopManager::Insert_HaveWeapon(Weapon_Status * _Weapon)
+{
+	size_t temp = m_vecHaveWeapon_Name.size();
+	wstring szName = _Weapon->m_tWeaponInfo.m_szName;
+	int		curMag = _Weapon->m_tWeaponInfo.m_iCurMagazine;
+	int		MaxMag = _Weapon->m_tWeaponInfo.m_iMaxMagazine;
+
+	UI* Name = INSTANTIATE_UI(szName);
+	Name->Set_Position(Vector3(640.f, 360.f, 1.f));
+
+	Sprite::Desc NameSprite;
+	NameSprite.TextureName = L"Shop_WeaponName";
+	Name->Add_UIComponent<Sprite>(&NameSprite);
+
+	Text::Desc NameText;
+	wstring script;
+	script = szName + L" (" + to_wstring(curMag) + L"/" + to_wstring(MaxMag) + L")";
+	NameText.szScript = script;
+	NameText.iHeight = 25;
+	NameText.iWeight = FW_HEAVY;
+	NameText.ulOption = DT_VCENTER | DT_CENTER | DT_NOCLIP;
+	NameText.tColor = D3DCOLOR_RGBA(255, 255, 255, 255);
+	NameText.vOffSet = Vector2(0.f, 0.f);
+	Name->Add_UIComponent<Text>(&NameText);
+
+
+
 }
 
 void ShopManager::Set_LeftTime(float _fLeftTime)

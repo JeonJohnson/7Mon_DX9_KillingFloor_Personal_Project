@@ -7,6 +7,8 @@
 #include "Mesh_Renderer.h"
 #include "..\..\Engine\Header\Mesh.h"
 #include "Weapon_PipeBomb_Static.h"
+#include "BombEffect.h"
+#include "BombExplosion.h"
 
 BulletManager* BulletManager::m_pInstance = nullptr;
 
@@ -149,6 +151,7 @@ void BulletManager::Create_PipeBomb(GameObject* _pPlayer, const WEAPON_INFO& _tI
 
 	//PipeBomb->Set_RotationY(_pPlayer->Get_Rotation().y);
 	PipeBomb->Set_Rotation(_pPlayer->Get_Rotation());
+	PipeBomb->Set_Scale(Vector3(0.75f, 0.75f, 0.75f));
 	//PipeBomb->Set_RotationY(0.f);
 	//PipeBomb->Set_RotationX(0.f);
 	//PipeBomb->Set_RotationZ(0.f);
@@ -175,5 +178,25 @@ void BulletManager::Create_PipeBomb(GameObject* _pPlayer, const WEAPON_INFO& _tI
 
 void BulletManager::Create_Explosion(const Vector3 _vPos, int _iDmg, float _fRadius)
 {
+	//충돌체 생성,
+	GameObject* ExplosionCol = INSTANTIATE(OBJECT_TAG_BULLET, L"Bomb_Col");
+	ExplosionCol->Set_Position(_vPos);
+
+	SphereCollider::Desc ColDesc;
+	ColDesc.fRadius = 75.f;
+	ColDesc.szColName = L"Bomb";
+	ExplosionCol->Add_Component<SphereCollider>(&ColDesc);
+
+	BombExplosion::Desc ColComponent;
 	
+	ExplosionCol->Add_Component<BombExplosion>(&ColComponent);
+	//Bullet->Add_Component<SphereCollider>(&ColDesc);
+
+
+	//이펙트 추가
+	GameObject*	ExplosionEffect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Bomb_Effect");
+	ExplosionEffect->Set_Position(_vPos);
+
+	//BombEffect::Desc 
+
 }

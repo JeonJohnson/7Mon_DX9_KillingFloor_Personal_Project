@@ -11,6 +11,7 @@ BombEffect::~BombEffect()
 
 void BombEffect::Initialize()
 {
+	//m_pExplosionObj = INSTANTIATE
 }
 
 void BombEffect::Update()

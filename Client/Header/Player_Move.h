@@ -32,6 +32,7 @@ public:
 
 public:
 	void Move();
+	void Reset();
 public:
 
 public:

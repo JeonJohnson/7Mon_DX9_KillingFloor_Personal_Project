@@ -22,6 +22,7 @@ void Player_Move::Initialize()
 void Player_Move::Update()
 {
 	Move();
+	Reset();
 
 	DEBUG_LOG(L"Player Pos : "
 		+ to_wstring(m_Transform->Get_Position().x) + L"/"
@@ -63,6 +64,7 @@ void Player_Move::Move()
 			if (KeyPress(KEY_STATE_W))
 			{
 				m_Transform->Add_Position(vForward * m_fCurSpd * fTime);
+				
 			}
 			if (KeyPress(KEY_STATE_S))
 			{
@@ -100,6 +102,18 @@ void Player_Move::Move()
 		}
 	}
 
+}
+
+void Player_Move::Reset()
+{
+	if (KeyDown(KEY_STATE_Space))
+	{
+		Vector3 Pos = m_Transform->Get_Position();
+		Pos.y = 20.f;
+
+		m_Transform->Set_Position(Pos);
+
+	}
 }
 
 void Player_Move::Set_NaviMesh(NaviMesh * _NaviMesh)

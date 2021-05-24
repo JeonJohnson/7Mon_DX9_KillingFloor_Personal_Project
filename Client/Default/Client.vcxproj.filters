@@ -287,6 +287,12 @@
     <Filter Include="02.Scene\02.Stage\Stage_State\05.Ending">
       <UniqueIdentifier>{bf49c84b-fe72-409c-960b-2ee2a72e2a1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.Components\BloodEffect">
+      <UniqueIdentifier>{d891cbff-dde7-4b86-a1ff-d82dc8977a5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Objects\03.Bullets\BombExplosion">
+      <UniqueIdentifier>{abf79a0e-d139-4060-9567-5f5bf4d0a2df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -466,6 +472,12 @@
     <ClInclude Include="..\Header\Stage_Ending.h">
       <Filter>02.Scene\02.Stage\Stage_State\05.Ending</Filter>
     </ClInclude>
+    <ClInclude Include="..\Header\BloodEffect.h">
+      <Filter>04.Components\BloodEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\BombExplosion.h">
+      <Filter>03.Objects\03.Bullets\BombExplosion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -620,6 +632,12 @@
     </ClCompile>
     <ClCompile Include="..\Cpp\Stage_Ending.cpp">
       <Filter>02.Scene\02.Stage\Stage_State\05.Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\BloodEffect.cpp">
+      <Filter>04.Components\BloodEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cpp\BombExplosion.cpp">
+      <Filter>03.Objects\03.Bullets\BombExplosion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

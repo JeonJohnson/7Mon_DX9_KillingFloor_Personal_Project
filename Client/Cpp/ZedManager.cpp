@@ -58,15 +58,15 @@ void ZedManager::Update()
 	//	Generate_Clot(Vector3(0.f, 0.f,100.f));
 	//}
 
-	//if (KeyDown(KEY_STATE_F2))
-	//{
-	//	Generate_GoreFast(Vector3(50.f, 0.f, 100.f));
-	//}
+	if (KeyDown(KEY_STATE_F2))
+	{
+		Generate_GoreFast(Vector3(50.f, 0.f, 100.f));
+	}
 
-	//if (KeyDown(KEY_STATE_F3))
-	//{
-	//	Generate_Scrake(Vector3(100.f, 0.f, 100.f));
-	//}
+	if (KeyDown(KEY_STATE_F3))
+	{
+		Generate_Scrake(Vector3(100.f, 0.f, 100.f));
+	}
 
 	//if (KeyDown(KEY_STATE_F4))
 	//{

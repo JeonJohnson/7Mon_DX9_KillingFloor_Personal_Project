@@ -190,7 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\Billboard_Bullet.h" />
+    <ClInclude Include="..\Header\BloodEffect.h" />
     <ClInclude Include="..\Header\BombEffect.h" />
+    <ClInclude Include="..\Header\BombExplosion.h" />
     <ClInclude Include="..\Header\BulletManager.h" />
     <ClInclude Include="..\Header\Bullet_Move.h" />
     <ClInclude Include="..\Header\Camera_FPS.h" />
@@ -251,7 +253,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Cpp\Billboard_Bullet.cpp" />
+    <ClCompile Include="..\Cpp\BloodEffect.cpp" />
     <ClCompile Include="..\Cpp\BombEffect.cpp" />
+    <ClCompile Include="..\Cpp\BombExplosion.cpp" />
     <ClCompile Include="..\Cpp\BulletManager.cpp" />
     <ClCompile Include="..\Cpp\Bullet_Move.cpp" />
     <ClCompile Include="..\Cpp\Camera_FPS.cpp" />

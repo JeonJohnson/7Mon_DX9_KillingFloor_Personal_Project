@@ -21,6 +21,7 @@ void Stage_Boss::EnterState()
 {
 
 	HudManager::Get_Instance()->Get_Hud(L"EnemyCount")->Set_Active(true);
+	HudManager::Get_Instance()->Set_TextZedCount(L"Press\nEnter!");
 	HudManager::Get_Instance()->Get_Hud(L"Clock")->Set_Active(false);
 
 	StageManager::Get_Instance()->Set_CurStage(STAGE_NAME::STAGE_BOSS);
@@ -57,7 +58,8 @@ void Stage_Boss::ExitState()
 
 void Stage_Boss::StageBoss_Skip()
 {
-	if (KeyPress(KEY_STATE_LCtrl) && KeyDown(KEY_STATE_F1))
+	//if (KeyPress(KEY_STATE_LCtrl) && KeyDown(KEY_STATE_F1))
+	if(KeyDown(KEY_STATE_ENTER))
 	{
 		HudManager::Get_Instance()->All_HudOnOff(OFF);
 		HudManager::Get_Instance()->Setting_FadeOut();

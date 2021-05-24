@@ -5,6 +5,8 @@
 
 #include "Component.h"
 
+
+class Weapon_Status;
 class UI;
 
 class ShopManager :	public Component
@@ -46,8 +48,11 @@ public:
 
 
 public:
-	void		Insert_HaveWeapon(GameObject* _Weapon);
-	void		Insert_ShopWeapon(GameObject* _Weapon);
+	void		Insert_HaveWeapon(Weapon_Status* _Weapon);
+	//void		Insert_ShopWeapon(GameObject* _Weapon);
+	void		Insert_Vest(int _iVest);
+	void		Insert_Granade(Weapon_Status* _Granade);
+
 
 	void		Set_LeftTime(float _fLeftTime);
 	void		Set_ShopOnOff(bool _OnOff);
@@ -58,9 +63,9 @@ private:
 	vector<UI*> m_vecHaveWeapon_AllMag;
 	vector<UI*> m_vecHaveWeapon_AllMag_MouseOn;
 
-	vector<UI*> m_vecShopWeapon_Name;
-	vector<UI*> m_vecShopWeapon_Buy;
-	vector<UI*> m_vecShopWeapon_Buy_MouseOn;
+	//vector<UI*> m_vecShopWeapon_Name;
+	//vector<UI*> m_vecShopWeapon_Buy;
+	//vector<UI*> m_vecShopWeapon_Buy_MouseOn;
 
 	UI*			m_ShopFrame = nullptr;
 	UI*			m_LeftTime = nullptr;
