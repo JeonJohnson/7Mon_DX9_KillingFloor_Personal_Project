@@ -23,6 +23,9 @@ public:
 public:
 
 private:
+	
+	bool	m_bFadeOut = false;
+	bool	m_bNextScene = false;
 };
 
 

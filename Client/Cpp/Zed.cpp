@@ -119,6 +119,12 @@ void Zed::Damaged(int _iDmg)
 {
 	m_tZedStatus.m_iCurHp -= _iDmg;
 
+	int	iRand = rand() % 16;
+	//24~32
+	int Channel = rand() % 8 + 24;
+
+	EngineFunction->OverlapPlay_Sound(L"All_Hit" + to_wstring(iRand) + L".wav", Channel);
+
 	if (m_tZedStatus.m_iCurHp <= 0)
 	{
 		m_tZedStatus.m_iCurHp = 0;

@@ -90,6 +90,56 @@ void HudManager::Hit_EffectOff()
 	}
 }
 
+void HudManager::Setting_FadeIn()
+{
+	m_pFade->Set_Active(true);
+	m_pFadeSprite->Set_Alpha(1.f);
+}
+
+void HudManager::Setting_FadeOut()
+{
+	m_pFade->Set_Active(true);
+	m_pFadeSprite->Set_Alpha(0.f);
+}
+
+bool HudManager::Fade_In()
+{
+	//if (m_bFadeIn)
+	//{//밝아지기 (로딩씬 넘어가기 전)
+		if (m_pFadeSprite->Get_Alpha() <= 0.f)
+		{
+			m_bFadeIn = false;
+			return true;
+		}
+		else
+		{
+			m_pFadeSprite->Add_Alpha(-1.f * fTime * 0.5f);
+			return false;
+		}
+	//}
+	//return false;
+}
+
+bool HudManager::Fade_Out()
+{
+	//if (m_bFadeOut)
+	//{//어두워지기.
+		if (m_pFadeSprite->Get_Alpha() >= 1.f)
+		{
+			return true;
+		}
+		else
+		{
+			m_pFadeSprite->Add_Alpha(1.f * fTime * 0.5f);
+			return false;
+		}
+
+	//}
+	//return false;
+}
+
+
+
 void HudManager::All_HudOnOff(bool _OnOff)
 {
 	for (auto& hud : m_umStageHuds)
@@ -194,4 +244,11 @@ void HudManager::Set_TextClock(float _fClock)
 void HudManager::Set_TextZedCount(int _iZedCount)
 {
 	Get_HudText(L"EnemyCount")->Set_Script(L"Count\n" + to_wstring(_iZedCount));
+}
+
+void HudManager::Set_Fade(UI * _pFade)
+{
+	m_pFade = _pFade;
+
+	m_pFadeSprite = (Sprite*)(m_pFade->Get_Sprite());
 }

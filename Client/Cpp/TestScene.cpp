@@ -83,6 +83,7 @@ void TestScene::Initialize()
 	{ //Effect
 		//Screen
 		EngineFunction->Load_Texture(L"Texture/ScreenEffect/BluntSplash_GrayScale.png", L"HitEffect");
+		EngineFunction->Load_Texture(L"Texture/Fade.png", L"Fade");
 		//EngineFunction->Load_Texture(L"Texture/ScreenEffect/BluntSplash.png", L"HitEffect");
 
 		//trace
@@ -435,6 +436,21 @@ void TestScene::Initialize()
 
 
 			HudManager::Get_Instance()->Insert_Hud(L"HitEffect", HitEffect);
+		}
+
+		{
+
+			UI*	Fade = INSTANTIATE_UI(L"Fade");
+			Fade->Set_Position(Vector3(640.f, 360.f, 0.f));
+			//HitEffect->Set_Scale(Vector3(0f, 0.5f, 0.5f));
+			Fade->Set_Active(false);
+
+			Sprite::Desc Fade_Sprite;
+			Fade_Sprite.TextureName = L"Fade";
+			Fade->Add_UIComponent<Sprite>(&Fade_Sprite);
+
+
+			HudManager::Get_Instance()->Set_Fade(Fade);
 		}
 
 #pragma endregion

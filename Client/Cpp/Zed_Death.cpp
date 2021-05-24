@@ -62,6 +62,44 @@ void Zed_Death::UpdateState()
 	else
 	{
 		ZedManager::Get_Instance()->Add_ZedCount(-1);
+		
+
+		switch (m_pZedInfo->Get_ZedInfo().m_eName)
+		{
+		case 0: //clot
+		{ //9~12
+			for (int i = 9; i < 13; ++i)
+			{
+				EngineFunction->Stop_Sound(i);
+			}
+		}
+		break;
+
+		case 1: //goreFast
+		{ //13 ~17
+			for (int i = 13; i < 18; ++i)
+			{
+				EngineFunction->Stop_Sound(i);
+			}
+
+		}
+		break;
+
+		case 2: //Scrake
+		{
+			//18~23
+			for (int i = 18; i < 24; ++i)
+			{
+				EngineFunction->Stop_Sound(i);
+			}
+		}
+		break;
+
+
+		default:
+			break;
+		}
+
 		m_GameObject->Set_Alive(false);
 	}
 	

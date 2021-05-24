@@ -37,6 +37,11 @@ public: /* Func */
 	void		Hit_EffectOn();
 	void		Hit_EffectOff();
 	
+	void		Setting_FadeIn();
+	void		Setting_FadeOut();
+	bool		Fade_In();
+	bool		Fade_Out();
+
 	void		All_HudOnOff(bool _OnOff);
 
 
@@ -62,6 +67,7 @@ public: /* Set */
 	void		Set_TextClock(float _fClock);
 	void		Set_TextZedCount(int _iZedCount);
 
+	void		Set_Fade(UI* _pFade);
 	
 	//void		Insert_ShopHud(const wstring& _szName, UI* _pUI);
 	
@@ -71,6 +77,10 @@ private:
 	unordered_map<wstring, UI*>	m_umStageHuds;
 	bool		m_bHitEffect = false;
 	 
+	UI*			m_pFade = nullptr;
+	Sprite*		m_pFadeSprite = nullptr;
+	bool		m_bFadeIn = false;
+	bool		m_bFadeOut = false;
 	//unordered_map<wstring, UI*> m_umShopHud;
 	//vector<UI*>					m_vecHaveWeapon;
 	//vector<UI*>					m_vecBuyWeapon;

@@ -60,6 +60,15 @@ void Player_Status::Damaged(int _iDmg)
 {
 	int iHpDmg;
 
+	int	iRand = rand() % 16;
+	//24~32
+	int Channel = rand() % 8 + 24;
+	EngineFunction->OverlapPlay_Sound(L"All_Hit" + to_wstring(iRand) + L".wav", Channel);
+
+	iRand = rand() % 12;
+	//PlayerHit0~12
+	EngineFunction->Play_Sound(L"PlayerHit" + to_wstring(iRand) + L".wav", SoundCH_PLAYER_HIT);
+
 	if (m_tPlayerStatus.m_iCurArmor > 0)
 	{
 		m_tPlayerStatus.m_iCurArmor -= _iDmg;

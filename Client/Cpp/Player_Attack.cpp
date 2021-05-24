@@ -92,7 +92,8 @@ void Player_Attack::Initialize()
 
 void Player_Attack::Update()
 {
-	if (!ShopManager::Get_Instance()->Get_ShopOn())
+
+	if (!ShopManager::Get_Instance()->Get_ShopOn() || !m_bEnding)
 	{
 		if (m_pStateCtlr->Get_CurStateName() != L"Player_Heal"
 			 && m_pStateCtlr->Get_CurStateName() != L"Player_Bomb")
@@ -458,6 +459,7 @@ void Player_Attack::SetUp()
 
 void Player_Attack::Player_Ending()
 {
+	m_bEnding = true;
 	m_pWeaponRenderer->Set_MeshScale(Vector3(0.f, 0.f, 0.f));
 }
 

@@ -123,6 +123,7 @@ typedef enum eSoundChannel
 	SoundCH_Scrake_Hit,
 	SoundCH_Scrake_Death,
 	
+	
 
 	SoundCH_END
 

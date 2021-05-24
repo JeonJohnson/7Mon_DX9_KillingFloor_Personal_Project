@@ -62,12 +62,17 @@ void Stage_Ending::EnterState()
 
 	m_pPlayer->Set_Position(Vector3(255.f, 20.f, 600.f));
 
+	m_pPlayer->Set_Rotation(Vector3(0.f, 210.f, 0.f));
 	EngineFunction->PlayBGM(L"BGM_Ending.wav");
+
+
 }
 
 void Stage_Ending::UpdateState()
 {
 	DEBUG_LOG(L"CurStage : Stage_Ending");
+
+	HudManager::Get_Instance()->Fade_In();
 
 	Matrix ChopperMat = m_pChopperRender->Get_Mesh()->Get_BoneLocalPosByName(L"Helicopter");
 	Matrix WorldMat =  m_pChopper->Get_Transform()->Get_WorldMatrix();
@@ -82,7 +87,7 @@ void Stage_Ending::UpdateState()
 
 	m_fEndingTime += fTime;
 
-	if (m_fEndingTime >= 15.f)
+	if (m_fEndingTime >= 25.f)
 	{
 		EngineFunction->Load_Scene(L"MainMenu_Scene");
 	}

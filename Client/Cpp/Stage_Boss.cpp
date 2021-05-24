@@ -34,6 +34,21 @@ void Stage_Boss::UpdateState()
 	DEBUG_LOG(L"CurStage : Stage_Boss");
 
 	StageBoss_Skip();
+
+	if (m_bFadeOut)
+	{
+		if (HudManager::Get_Instance()->Fade_Out())
+		{
+			m_bNextScene = true;
+			m_bFadeOut = false;
+		}
+	}
+
+	if (m_bNextScene)
+	{
+		m_bNextScene = false;
+		m_pStateController->Set_State(L"Stage_Ending");
+	}
 }
 
 void Stage_Boss::ExitState()
@@ -44,7 +59,9 @@ void Stage_Boss::StageBoss_Skip()
 {
 	if (KeyPress(KEY_STATE_LCtrl) && KeyDown(KEY_STATE_F1))
 	{
-		m_pStateController->Set_State(L"Stage_Ending");
+		HudManager::Get_Instance()->All_HudOnOff(OFF);
+		HudManager::Get_Instance()->Setting_FadeOut();
+		m_bFadeOut = true;
 	}
 }
 

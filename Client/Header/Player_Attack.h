@@ -102,6 +102,8 @@ private:
 	
 	int					m_iTest = 1;
 
+	bool				m_bEnding = false;
+
 };
 
 #endif //_PLAYER_ATTACK_H_
