@@ -23,7 +23,7 @@ public:
 public:
 
 public:
-
+	void Hit_Sound();
 public:
 
 private:

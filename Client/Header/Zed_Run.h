@@ -25,7 +25,7 @@ public:
 public:
 
 public:
-
+	void Run_Sound();
 private:
 	AnimationController*	m_pAnimCtrl = nullptr;
 	Zed*				m_pZedInfo = nullptr;
@@ -36,6 +36,9 @@ private:
 
 	NaviMesh*				m_pNaviMesh = nullptr;
 	int						m_icurCellIndex = 0;
+
+	
+
 };
 
 #endif//_ZED_RUN_H_

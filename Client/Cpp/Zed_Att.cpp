@@ -51,6 +51,7 @@ void Zed_Att::EnterState()
 	}
 
 	//m_fAttFrame = Function_Math::RandFloat(-0.5f, 0.5f);
+	Attack_Sound();
 }
 
 void Zed_Att::UpdateState()
@@ -76,8 +77,49 @@ void Zed_Att::UpdateState()
 		m_pCol->Set_Check(true);
 		m_pStateController->Set_State(L"Zed_Idle");
 	}
+
+
 }
 
 void Zed_Att::ExitState()
 {
+}
+
+void Zed_Att::Attack_Sound()
+{
+	wstring SoundName;
+
+	int iRand = 0;
+	switch (m_pZedInfo->Get_ZedInfo().m_eName)
+	{
+		case 0: //clot
+		{
+			iRand = rand() % 4;
+
+			SoundName = L"Zed_Clot_Attack" + to_wstring(iRand) + L".wav";
+			EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Clot_ATT);
+		}
+		break;
+
+	case 1: //goreFast
+	{
+		iRand = rand() % 2;
+		SoundName = L"Zed_Gorefast_Attack" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_GoreFast_Att);
+
+	}
+	break;
+
+	case 2: //Scrake
+	{
+		iRand = rand() % 2;
+		SoundName = L"Zed_Scrake_Att" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Scrake_Att);
+	}
+	break;
+
+
+	default:
+		break;
+	}
 }

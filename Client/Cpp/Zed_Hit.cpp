@@ -35,10 +35,16 @@ void Zed_Hit::EnterState()
 		m_iHitAnimIndex = 5;
 	}
 
+
+	if (m_pAnimCtrl->Get_CurAnimIndex() == m_iHitAnimIndex)
+	{
+		return;
+	}
+
 	//m_pAnimCtrl->SEt
 	m_pAnimCtrl->Play(m_iHitAnimIndex);
 
-
+	Hit_Sound();
 	//switch (m_pZedInfo->m_eName)
 	//{
 	//case 0:
@@ -79,4 +85,45 @@ void Zed_Hit::UpdateState()
 
 void Zed_Hit::ExitState()
 {
+}
+
+void Zed_Hit::Hit_Sound()
+{
+	wstring SoundName;
+
+	int iRand = 0;
+	switch (m_pZedInfo->Get_ZedInfo().m_eName)
+	{
+	case 0: //clot
+	{
+		iRand = rand() % 4;
+
+		SoundName = L"Zed_Clot_Pain" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Clot_HIT);
+	}
+	break;
+
+	case 1: //goreFast
+	{
+		iRand = rand() % 4;
+
+		SoundName = L"Zed_Clot_Pain" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_GoreFast_Hit);
+
+	}
+	break;
+
+	case 2: //Scrake
+	{
+		iRand = rand() % 4;
+
+		SoundName = L"Zed_Clot_Pain" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Scrake_Hit);
+	}
+	break;
+
+
+	default:
+		break;
+	}
 }

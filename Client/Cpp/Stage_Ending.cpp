@@ -7,6 +7,7 @@
 #include "Player_Attack.h"
 #include "Camera_FPS.h"
 #include "Mesh.h"
+#include "StageManager.h"
 
 
 Stage_Ending::Stage_Ending()
@@ -50,6 +51,9 @@ void Stage_Ending::EnterState()
 
 	HudManager::Get_Instance()->All_HudOnOff(OFF);
 
+
+	StageManager::Get_Instance()->Set_CurStage(STAGE_ENDING);
+
 	m_pPlayer = EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER);
 	auto temp = m_pPlayer->Get_Component<Player_Attack>();
 	temp->Player_Ending();
@@ -57,6 +61,8 @@ void Stage_Ending::EnterState()
 	temp2->Disable_Mouse(OFF);
 
 	m_pPlayer->Set_Position(Vector3(255.f, 20.f, 600.f));
+
+	EngineFunction->PlayBGM(L"BGM_Ending.wav");
 }
 
 void Stage_Ending::UpdateState()

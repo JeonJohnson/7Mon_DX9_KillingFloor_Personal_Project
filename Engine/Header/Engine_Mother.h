@@ -181,12 +181,12 @@ public: /* Resource Manager */
 	NaviMesh*	Get_NaviMeshClone();
 
 public: /* Sound Manager */
-	void Play_Sound(const wstring& _pSoundKey, _sound_channel _eID);
-	void OverlapPlay_Sound(const wstring& _pSoundKey, _sound_channel _eID);
-	void PlayBGM(const wstring& _pSoundKey);
-	void Stop_Sound(_sound_channel _eID);
-	void StopAll_Sound();
-
+	void	Play_Sound(const wstring& _pSoundKey, _sound_channel _eID);
+	void	OverlapPlay_Sound(const wstring& _pSoundKey, _sound_channel _eID);
+	void	PlayBGM(const wstring& _pSoundKey);
+	void	Stop_Sound(_sound_channel _eID);
+	void	StopAll_Sound();
+	void	Set_Volume(_sound_channel _eCH, float _fVolume);
 
 public:
 		

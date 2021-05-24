@@ -40,6 +40,8 @@ void Zed_Death::EnterState()
 	}
 
 	vRight = m_GameObject->Get_Transform()->Get_Right();
+
+	Death_Sound();
 }
 
 void Zed_Death::UpdateState()
@@ -77,4 +79,47 @@ void Zed_Death::UpdateState()
 }
 void Zed_Death::ExitState()
 {
+}
+
+void Zed_Death::Death_Sound()
+{
+
+	wstring SoundName;
+
+	int iRand = 0;
+
+	switch (m_pZedInfo->Get_ZedInfo().m_eName)
+	{
+	case 0: //clot
+	{
+		iRand = rand() % 3;
+
+		SoundName = L"Zed_Clot_Death" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Clot_Death);
+	}
+	break;
+
+	case 1: //goreFast
+	{
+		iRand = rand() % 4;
+
+		SoundName = L"Zed_Gorefast_Death" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_GoreFast_Death);
+
+	}
+	break;
+
+	case 2: //Scrake
+	{
+		iRand = rand() % 4;
+
+		SoundName = L"Zed_Scrake_Death" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Scrake_Death);
+	}
+	break;
+
+
+	default:
+		break;
+	}
 }

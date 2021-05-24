@@ -45,6 +45,15 @@ void StageManager::Initialize()
 
 void StageManager::Update()
 {
+
+	if (m_eCurStage == STAGE_ENDING)
+	{
+		Play_Ending();
+	}
+	else 
+	{
+		Play_Wind();
+	}
 	//wstring szCurStage = m_pStateCtrl->Get_CurStateName();
 	//
 	//if (szCurStage == L"Stage_1")
@@ -78,6 +87,17 @@ void StageManager::ReadyRender()
 
 void StageManager::Release()
 {
+}
+
+void StageManager::Play_Wind()
+{
+	EngineFunction->PlayBGM(L"BGM_wind1");
+}
+
+void StageManager::Play_Ending()
+{
+	EngineFunction->Play_Sound(L"CutScene_Chopper_Fly.wav", SoundCH_FX0);
+
 }
 
 STAGE_NAME StageManager::Get_CurStageName()

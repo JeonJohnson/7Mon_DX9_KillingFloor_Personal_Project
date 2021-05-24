@@ -95,17 +95,36 @@ typedef enum eStageState
 typedef enum eSoundChannel
 {
 	SoundCH_BGM,
-	
+	SoundCH_UI,
+	SoundCH_FX0,
+	SoundCH_FX1,
+	SoundCH_FX2,
+
 	SoundCH_PLAYER_FIRE,
+	SoundCH_PLAYER_Reload,
 	SoundCH_PLAYER_WALK,
 	SoundCH_PLAYER_HIT,
 
-	SoundCH_ZED_IDLE,
-	SoundCH_ZED_ATT,
-	SoundCH_ZED_HIT,
+	SoundCH_Clot_IDLE, //idle == walk
+	SoundCH_Clot_ATT,
+	SoundCH_Clot_HIT,
+	SoundCH_Clot_Death,
+
+	SoundCH_GoreFast_Idle,
+	SoundCH_GoreFast_Run,
+	SoundCH_GoreFast_Att,
+	SoundCH_GoreFast_Hit,
+	SoundCH_GoreFast_Death,
+
+	SoundCH_Scrake_Init,
+	SoundCH_Scrake_Idle,
+	SoundCH_Scrake_Run,
+	SoundCH_Scrake_Att,
+	SoundCH_Scrake_Hit,
+	SoundCH_Scrake_Death,
 	
-	SoundCH_UI,
-	SoundCH__END
+
+	SoundCH_END
 
 
 }SOUND_CHANNEL;

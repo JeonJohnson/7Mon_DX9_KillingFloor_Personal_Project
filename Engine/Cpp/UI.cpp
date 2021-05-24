@@ -149,7 +149,7 @@ bool UI::Clikced()
 			if (MousePos.x >= m_tRect.left && MousePos.x <= m_tRect.right
 				&& MousePos.y >= m_tRect.top && MousePos.y <= m_tRect.bottom)
 			{
-				SoundManager::Get_Instance()->Overlap_Play(L"UI_MouseClick.wav", 7);
+				SoundManager::Get_Instance()->Overlap_Play(L"UI_MouseClick.wav", 1);
 				return true;
 
 			} 
@@ -210,7 +210,7 @@ bool UI::MouseOn()
 	{
 		if (!m_bMouseOver)
 		{
-			SoundManager::Get_Instance()->Overlap_Play(L"UI_MouseOver.wav", 7);
+			SoundManager::Get_Instance()->Overlap_Play(L"UI_MouseOver.wav", 1);
 		}
 		m_bMouseOver = true;
 		return true;

@@ -34,6 +34,8 @@ public:
 	virtual void Release() override;
 
 public:
+	void Play_Wind();
+	void Play_Ending();
 
 public:
 

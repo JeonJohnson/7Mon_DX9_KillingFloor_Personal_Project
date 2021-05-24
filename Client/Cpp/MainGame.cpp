@@ -60,7 +60,7 @@ void MainGame::Engine_Load()
 
 	Engine_desc.Object_Tag_MaxCount = OBJECT_TAG::OBJECT_TAG_END;
 	Engine_desc.Render_Layer_MaxCount = RENDER_LAYER::RENDER_LAYER_End;
-	Engine_desc.Sound_Channel_MaxCount = SOUND_CHANNEL::SoundCH__END;
+	Engine_desc.Sound_Channel_MaxCount = SOUND_CHANNEL::SoundCH_END;
 
 	m_pEngine->Initialize(&Engine_desc);
 }

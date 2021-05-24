@@ -24,6 +24,7 @@ public:
 public:
 
 public:
+	void Walk_Sound();
 
 private:
 	AnimationController*	m_pAnimCtrl = nullptr;
@@ -36,6 +37,10 @@ private:
 	float					m_fWalkOffset;
 
 	float					m_fRandAttDist = 0.f;
+
+
+	float					m_fSound_CurTime = 0.f;
+	float					m_fSound_MaxTime = 0.f;
 };
 
 #endif //_ZED_WALK_H_

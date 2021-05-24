@@ -23,6 +23,7 @@ public:
 public:
 
 public:
+	void Death_Sound();
 
 private:
 	AnimationController*	m_pAnimCtrl = nullptr;

@@ -159,6 +159,11 @@ void SoundManager::StopAll()
 	}
 }
 
+void SoundManager::Set_Volume_CH(_sound_channel _eID, float _fVolume)
+{
+	FMOD_Channel_SetVolume(m_pChannelArr[_eID], _fVolume);
+}
+
 void SoundManager::LoadSoundFile()
 {
 	_finddata_t fd;

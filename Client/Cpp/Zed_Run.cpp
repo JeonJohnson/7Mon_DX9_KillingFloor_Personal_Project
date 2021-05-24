@@ -47,6 +47,8 @@ void Zed_Run::EnterState()
 
 	m_fRunCurTime = 0.f;
 	m_fRunFullTime = (rand() % 6) + 1.5f;
+
+	Run_Sound();
 }
 
 void Zed_Run::UpdateState()
@@ -76,4 +78,44 @@ void Zed_Run::UpdateState()
 
 void Zed_Run::ExitState()
 {
+}
+
+void Zed_Run::Run_Sound()
+{
+	wstring SoundName;
+
+	int iRand = 0;
+	switch (m_pZedInfo->Get_ZedInfo().m_eName)
+	{
+	//case 0: //clot
+	//{
+	//	iRand = rand() % 4;
+
+	//	SoundName = L"Zed_Clot_Attack" + to_wstring(iRand) + L".wav";
+	//	EngineFunction->Play_Sound(SoundName, SoundCH_Clot_IDLE);
+	//}
+	//break;
+
+	case 1: //goreFast
+	{
+		iRand = rand() % 2;
+		SoundName = L"Zed_Gorefast_Sprint" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_GoreFast_Run);
+
+	}
+	break;
+
+	case 2: //Scrake
+	{
+		iRand = rand() % 2;
+		SoundName = L"Zed_Scrake_Sprint" + to_wstring(iRand) + L".wav";
+		EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Scrake_Run);
+	}
+	break;
+
+
+	default:
+		break;
+	}
+
 }

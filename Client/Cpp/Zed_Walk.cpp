@@ -48,12 +48,19 @@ void Zed_Walk::EnterState()
 	m_fWalkOffset = Function_Math::RandFloat(0.f ,5.f);
 
 	m_fRandAttDist = Function_Math::RandFloat(0.f, 5.f);
+
+	m_fSound_MaxTime = (float)(rand() % 5 + 3);
 }
 
 void Zed_Walk::UpdateState()
 {
 	DEBUG_LOG(L"Zed : Walk");
 	
+
+	Walk_Sound();
+
+
+
 	Vector3	vPos = m_Transform->Get_Position();
 	Vector3 vForward = m_Transform->Get_Forward();
 	//Vector3 vRight = m_Transform->Get_Right();
@@ -107,4 +114,54 @@ void Zed_Walk::UpdateState()
 
 void Zed_Walk::ExitState()
 {
+}
+
+void Zed_Walk::Walk_Sound()
+{
+	m_fSound_CurTime += fTime;
+
+	if (m_fSound_CurTime >= m_fSound_MaxTime)
+	{
+		wstring SoundName;
+
+		int iRand = 0;
+		switch (m_pZedInfo->Get_ZedInfo().m_eName)
+		{
+		case 0: //clot
+		{
+			iRand = rand() % 4;
+
+			SoundName = L"Zed_Clot_Attack" + to_wstring(iRand) + L".wav";
+			EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Clot_IDLE);
+		}
+		break;
+
+		case 1: //goreFast
+		{
+			iRand = rand() % 5;
+			SoundName = L"Zed_Gorefast_Idle" + to_wstring(iRand) + L".wav";
+			EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_GoreFast_Idle);
+			
+		}
+		break;
+
+		case 2: //Scrake
+		{
+			SoundName = L"Zed_Scrake_Idle.wav";
+			EngineFunction->OverlapPlay_Sound(SoundName, SoundCH_Scrake_Idle);
+		}
+		break;
+
+
+		default:
+			break;
+		}
+
+	
+		m_fSound_CurTime = 0.f;
+	}
+
+
+
+
 }

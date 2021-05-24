@@ -570,3 +570,8 @@ void Engine_Mother::StopAll_Sound()
 {
 	m_pSoundManager->StopAll();
 }
+
+void Engine_Mother::Set_Volume(_sound_channel _eCH, float _fVolume)
+{
+	m_pSoundManager->Set_Volume_CH(_eCH, _fVolume);
+}

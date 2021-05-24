@@ -83,6 +83,7 @@ void Bullet_Move::ColCheck_Zeds()
 			if (auto pStatus = zed->Get_Component<Zed>())
 			{
 				pStatus->Damaged(m_iDmg);
+
 			}
 			m_pCol->Set_Check(false);
 

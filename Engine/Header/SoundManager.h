@@ -24,6 +24,8 @@ public:
 	void StopSound(_sound_channel _eID);
 	void StopAll();
 
+	void Set_Volume_CH(_sound_channel _eID, float _fVolume);
+
 private:
 	void LoadSoundFile();
 

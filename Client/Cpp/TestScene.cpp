@@ -73,6 +73,7 @@ void TestScene::Initialize()
 	//Grid_Desc.wBufferName = L"Line_VIBuffer_Grid";
 	//Grid_Test->Add_Component<VIBuffer_Renderer>(&Grid_Desc);
 
+
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Player.bin", L"NaviMesh_Player");
 	EngineFunction->Load_NaviMeshData(L"Data/NaviMesh_Zeds.bin", L"NaviMesh_Zeds");
 

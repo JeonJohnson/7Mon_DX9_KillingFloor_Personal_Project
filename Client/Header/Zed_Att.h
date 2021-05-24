@@ -27,6 +27,7 @@ public:
 public:
 
 public:
+	void Attack_Sound();
 
 private:
 	AnimationController*	m_pAnimCtrl = nullptr;
