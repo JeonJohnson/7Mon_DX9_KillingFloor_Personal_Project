@@ -33,6 +33,7 @@ private:
 	bool	m_arrPattern[3] = { false };
 	int		m_iCurPattern = 1;
 
+	int		m_iTotalZedCount;
 	int		m_iZedCount = 4;
 };
 

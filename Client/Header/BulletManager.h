@@ -42,6 +42,9 @@ public:
 
 	void	Create_PipeBomb(GameObject* _pPlayer, const WEAPON_INFO& _tInfo);
 	void	Create_Explosion(const Vector3 _vPos, int _iDmg, float _fRadius);
+
+	void	Create_Blood(const Vector3 _vPos);
+	void	Create_BombBlood(const Vector3 _vPos);
 public:
 	
 public:

@@ -2,6 +2,7 @@
 #include "..\Header\Zed.h"
 #include "StateController.h"
 #include "AnimationController.h"
+#include "BulletManager.h"
 
 
 Zed::Zed(Desc * _desc)
@@ -124,6 +125,7 @@ void Zed::Damaged(int _iDmg)
 	int Channel = rand() % 8 + 24;
 
 	EngineFunction->OverlapPlay_Sound(L"All_Hit" + to_wstring(iRand) + L".wav", Channel);
+	BulletManager::Get_Instance()->Create_Blood(m_Transform->Get_Position());
 
 	if (m_tZedStatus.m_iCurHp <= 0)
 	{

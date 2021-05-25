@@ -86,6 +86,8 @@ void SceneManager::CurrentSceneCheck()
 
 void SceneManager::Insert_Scene(const wstring & _wName, Scene* _pScene)
 {
+	int i = 0;
+
 	if (m_mapSceneList[_wName])
 	{
 		assert(0&&L"Scene Name is already Exist");

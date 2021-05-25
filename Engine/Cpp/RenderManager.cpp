@@ -140,6 +140,7 @@ void RenderManager::Render_Alpha()
 	{
 		renderer->Render();
 	}
+	m_pDX9_Device->SetRenderState(D3DRS_ALPHABLENDENABLE, FALSE);
 
 	m_pDX9_Device->SetRenderState(D3DRS_LIGHTING, TRUE);
 }

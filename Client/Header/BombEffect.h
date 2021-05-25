@@ -39,6 +39,7 @@ private:
 
 	GameObject*		m_pBigSmokeObj = nullptr;
 	VIBuffer_Renderer*	m_pSmokeBuffer = nullptr;
+
 	float	m_fSmokeScale;
 	float	m_fSmokeSpd = 50.f;
 	float	m_fSmokeTime;

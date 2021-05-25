@@ -25,9 +25,11 @@ public:
 
 		int			iLayer = 1;
 
-		bool		bEffect = false;
 		bool		bFade = false;
 		float		fFadeSpd = 1.f;
+
+		bool		bAlpha_Add = false;
+		bool		bEffect_Min = false;
 	};
 
 public:
@@ -65,7 +67,8 @@ private:
 	wstring			m_pTextureName;
 	Shader*			m_pShaderCom = nullptr;
 	LPD3DXEFFECT	m_pEffectCom = nullptr;
-	bool			m_bEffect;
+	bool			m_bAlpha_Add = false;
+	bool			m_bAlpha_Min = false;
 
 	float			m_fAlpha = 0.0f;
 	bool			m_bFade = false;

@@ -33,7 +33,8 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 		m_pVIBuffer->Set_Texture(TexTemp);
 	}
 	
-	m_bEffect = _desc->bEffect;
+	m_bAlpha_Add = _desc->bAlpha_Add;
+	m_bAlpha_Min = _desc->bEffect_Min;
 
 	m_bFade = _desc->bFade;
 	m_fFadeSpd = _desc->fFadeSpd;
@@ -103,13 +104,27 @@ void VIBuffer_Renderer::Render()
 		m_pDX9_Device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	}
 	
-	if (m_bEffect)
+	if (m_bAlpha_Add)
 	{
 		m_pDX9_Device->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP::D3DBLENDOP_ADD);
 		m_pDX9_Device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND::D3DBLEND_ONE);
 		m_pDX9_Device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND::D3DBLEND_ONE);
 	}
+	else if (m_bAlpha_Min)
+	{
+		m_pDX9_Device->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP::D3DBLENDOP_MIN);
 
+		m_pDX9_Device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND::D3DBLEND_SRCCOLOR);
+		m_pDX9_Device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND::D3DBLEND_DESTCOLOR);
+		//m_pDX9_Device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND::D3DBLEND_ONE);
+		//m_pDX9_Device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND::D3DBLEND_ONE);
+	}
+	else 
+	{
+		m_pDX9_Device->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP::D3DBLENDOP_ADD);
+		m_pDX9_Device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND::D3DBLEND_SRCALPHA);
+		m_pDX9_Device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND::D3DBLEND_INVSRCALPHA);
+	}
 
 	if (m_pVIBuffer->Get_IBuffer_Com() == nullptr)
 	{
@@ -136,6 +151,11 @@ void VIBuffer_Renderer::Render()
 		}
 		
 	}
+
+
+	m_pDX9_Device->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP::D3DBLENDOP_ADD);
+	m_pDX9_Device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND::D3DBLEND_SRCALPHA);
+	m_pDX9_Device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND::D3DBLEND_INVSRCALPHA);
 
 	m_pEffectCom->EndPass();
 	m_pEffectCom->End();

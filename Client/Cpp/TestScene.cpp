@@ -95,16 +95,24 @@ void TestScene::Initialize()
 		
 
 		//blood
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_001.png", L"Drip_001");
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_002.png", L"Drip_002");
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_003.png", L"Drip_003");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_001.png", L"Drip_001");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_002.png", L"Drip_002");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Drip_003.png", L"Drip_003");
 
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_001.png", L"Splatter_001");
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_002.png", L"Splatter_002");
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_003.png", L"Splatter_003");
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_004.png", L"Splatter_004");
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_005.png", L"Splatter_005");
-		EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_006.png", L"Splatter_006");
+		{
+			for (int i = 0; i < 9; ++i)
+			{
+				wstring Name = L"Blood" + to_wstring(i);
+				EngineFunction->Load_Texture(L"Texture/Effect/Blood/"+Name +L".png", Name);
+			}
+		
+		}
+		
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_002.png", L"Splatter_002");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_003.png", L"Splatter_003");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_004.png", L"Splatter_004");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_005.png", L"Splatter_005");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Blood/Splatter_006.png", L"Splatter_006");
 		//EngineFunction->Load_Texture(L"Texture/Effect/Fire/BulletTrace01.png", L"Fire");
 
 		//Fire
@@ -138,7 +146,7 @@ void TestScene::Initialize()
 		VIBuffer_Renderer::Desc temp;
 		temp.iLayer = RENDER_LAYER_Alpha;
 		temp.szShaderName = L"Effect_Fire";
-		temp.bEffect = true;
+		temp.bAlpha_Add = true;
 		//Insert_Resource<VIBuffer, Rect_VIBuffer_Texture>(L"Rect_Texture");
 		temp.wBufferName  = RECT_TEXTURE;
 		temp.wTextureName = L"Fire_Effect";

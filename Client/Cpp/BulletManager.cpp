@@ -2,13 +2,14 @@
 #include "..\Header\BulletManager.h"
 #include "SphereCollider.h"
 #include "Bullet_Move.h"
-#include "..\..\Engine\Header\VIBuffer_Renderer.h"
+#include "VIBuffer_Renderer.h"
 #include "MuzzleEffect.h"
 #include "Mesh_Renderer.h"
-#include "..\..\Engine\Header\Mesh.h"
+#include "Mesh.h"
 #include "Weapon_PipeBomb_Static.h"
 #include "BombEffect.h"
 #include "BombExplosion.h"
+#include "BloodEffect.h"
 
 BulletManager* BulletManager::m_pInstance = nullptr;
 
@@ -118,7 +119,7 @@ void BulletManager::Create_Muzzle(GameObject* _pPlayer, Mesh* _pMesh, const WEAP
 	sprite.wBufferName = RECT_TEXTURE;
 	sprite.szShaderName = EFFECT_SHADER;
 	sprite.wTextureName = L"Muzzle_0" + to_wstring(iRand);
-	sprite.bEffect = true;
+	sprite.bAlpha_Add = true;
 	sprite.iLayer = RENDER_LAYER_Alpha;
 	Muzzle->Add_Component<VIBuffer_Renderer>(&sprite);
 
@@ -200,4 +201,22 @@ void BulletManager::Create_Explosion(const Vector3 _vPos, int _iDmg, float _fRad
 	BombEffect::Desc EffectDesc;
 	ExplosionEffect->Add_Component<BombEffect>();
 
+}
+
+void BulletManager::Create_Blood(const Vector3 _vPos)
+{
+	GameObject*	BloodObj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Blood_Effect");
+	BloodObj->Set_Position(_vPos);
+
+	BloodEffect::Desc EffectDesc;
+	BloodObj->Add_Component<BloodEffect>();
+}
+
+void BulletManager::Create_BombBlood(const Vector3 _vPos)
+{
+	GameObject*	BloodObj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Blood_Effect");
+	BloodObj->Set_Position(_vPos);
+
+	BloodEffect::Desc EffectDesc;
+	BloodObj->Add_Component<BloodEffect>();
 }
