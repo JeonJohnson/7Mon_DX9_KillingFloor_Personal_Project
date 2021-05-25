@@ -34,6 +34,8 @@ public:
 	virtual void Release() override;
 
 public:
+	void Setting_Ending(const Vector3& _vPos);
+
 	void Nogada_Datas();
 	
 	void	Generate_Clot(const Vector3& _vPos, 
@@ -52,13 +54,17 @@ public: /* Get */
 
 	Vector3		Get_ZedGenLocate(eZedGenLocate _eZedGenLocate);
 	Vector3		Get_ZedGenLocate(int _iZedGenLocate);
+
+	int		 Get_CurZedCount();
 public: /* Set */
 	void	Set_ZedCount(int _Count);
 	void	Add_ZedCount(int _Count);
 
+	void	Set_CurZedCount(int _curZed);
+	void	Add_CurZedCount(int _curZed);
 private:
 	int		m_iZedCount = 0;
-
+	int		m_iCurZed = 0;
 
 	ZED_INFO	arrZedInfo[ZED_TYPE_END];
 

@@ -19,11 +19,12 @@ public:
 public:
 	void	StageBoss_Skip();
 public:
-
+	void	Generate_Rand();
 public:
 
 private:
-	
+	float	m_fTime = 10.f;
+	float	m_fGeneTime = 0.f;
 	bool	m_bFadeOut = false;
 	bool	m_bNextScene = false;
 };

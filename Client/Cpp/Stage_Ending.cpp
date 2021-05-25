@@ -8,6 +8,8 @@
 #include "Camera_FPS.h"
 #include "Mesh.h"
 #include "StageManager.h"
+#include "ZedManager.h"
+#include "ShopManager.h"
 
 
 Stage_Ending::Stage_Ending()
@@ -25,8 +27,12 @@ void Stage_Ending::Initialize()
 
 void Stage_Ending::EnterState()
 {
+	EngineFunction->StopAll_Sound();
+
+	StageManager::Get_Instance()->Set_CurStage(STAGE_ENDING);
+
 	m_pChopper = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Chopper");
-	m_pChopper->Set_Position(137.f, 0.f, 472.f);
+	m_pChopper->Set_Position(Vector3(137.f, 0.f, 472.f));
 	m_pChopper->Set_Scale(Vector3(0.25f, 0.25f, 0.25f));
 	//Chopper->Set_Active(false);
 
@@ -52,11 +58,12 @@ void Stage_Ending::EnterState()
 	HudManager::Get_Instance()->All_HudOnOff(OFF);
 
 
-	StageManager::Get_Instance()->Set_CurStage(STAGE_ENDING);
+
 
 	m_pPlayer = EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER);
 	auto temp = m_pPlayer->Get_Component<Player_Attack>();
 	temp->Player_Ending();
+	//ShopManager::Get_Instance()->Exit_Shop();
 	auto temp2 = m_pPlayer->Get_Component<Camera_FPS>();
 	temp2->Disable_Mouse(OFF);
 
@@ -65,7 +72,9 @@ void Stage_Ending::EnterState()
 	m_pPlayer->Set_Rotation(Vector3(0.f, 210.f, 0.f));
 	EngineFunction->PlayBGM(L"BGM_Ending.wav");
 
-
+	//ZedManager::Get_Instance()->Setting_Ending(Vector3(137.f, 0.f, 472.f));
+	//ZedManager::Get_Instance()->Setting_Ending(Vector3(-42.f, 0.f, 436.f));
+	ZedManager::Get_Instance()->KillThemAll();
 }
 
 void Stage_Ending::UpdateState()

@@ -153,7 +153,7 @@ void SoundManager::StopSound(_sound_channel _eID)
 
 void SoundManager::StopAll()
 {
-	for (int i = 0; i < 8; ++i)
+	for (int i = 0; i < 32; ++i)
 	{		
 		FMOD_Channel_Stop(m_pChannelArr[i]);	
 	}

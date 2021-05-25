@@ -43,6 +43,7 @@ public:
 
 public: /* Func */
 
+
 public: /* Get */
 	ZED_INFO				Get_ZedInfo();
 	float					Get_Distance();
@@ -54,6 +55,7 @@ public: /* Set */
 	void					Set_NaviMesh(NaviMesh* _pNaviMesh);
 	void					Set_DontLook(bool _trueIsDontLook);
 
+	void					Setting_Ending(const Vector3& _vPos);
 private:
 	StateController*		m_pStateCtrl = nullptr;
 	AnimationController*	m_pAnimCtrl = nullptr;
@@ -69,13 +71,16 @@ private:
 	int						m_icurCellIndex = 0;
 
 	//For Player
-	GameObject*				m_pPlayer = nullptr;
+	GameObject*				m_pTarget = nullptr;
 	Vector3					m_vDirection;
 	float					m_fDistance;
 	
 	bool					m_bDontLook = false;
 
 	float					m_fLookOffset = -0.1f;
+
+	Vector3					m_vEndingPos;
+	bool					m_bEnding = false;
 
 };
 #endif //_ZED_H_

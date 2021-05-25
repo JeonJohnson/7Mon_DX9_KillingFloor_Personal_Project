@@ -51,7 +51,7 @@ void ZedManager::Initialize()
 
 void ZedManager::Update()
 {
-	HudManager::Get_Instance()->Set_TextZedCount(m_iZedCount);
+	//HudManager::Get_Instance()->Set_TextZedCount(m_iZedCount);
 
 	//if (KeyDown(KEY_STATE_F1))
 	//{
@@ -85,6 +85,14 @@ void ZedManager::ReadyRender()
 
 void ZedManager::Release()
 {
+}
+
+void ZedManager::Setting_Ending(const Vector3 & _vPos)
+{
+	for (auto& zed : EngineFunction->Get_GameObjectListbyTag(OBJECT_TAG_ZED))
+	{
+		zed->Get_Component<Zed>()->Setting_Ending(_vPos);
+	}
 }
 
 void ZedManager::Nogada_Datas()
@@ -350,6 +358,11 @@ Vector3 ZedManager::Get_ZedGenLocate(int _iZedGenLocate)
 	return arrZedGenLocate[_iZedGenLocate];
 }
 
+int ZedManager::Get_CurZedCount()
+{
+	return m_iCurZed;
+}
+
 void ZedManager::Set_ZedCount(int _Count)
 {
 	m_iZedCount = _Count;
@@ -358,5 +371,15 @@ void ZedManager::Set_ZedCount(int _Count)
 void ZedManager::Add_ZedCount(int _Count)
 {
 	m_iZedCount += _Count;
+}
+
+void ZedManager::Set_CurZedCount(int _curZed)
+{
+	m_iCurZed = _curZed;
+}
+
+void ZedManager::Add_CurZedCount(int _curZed)
+{
+	m_iCurZed += _curZed;
 }
 

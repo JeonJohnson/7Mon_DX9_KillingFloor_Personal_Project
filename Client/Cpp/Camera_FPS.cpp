@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "..\Header\Camera_FPS.h"
 #include "ShopManager.h"
+#include "StageManager.h"
 
 Camera_FPS::Camera_FPS(Desc * _desc)
 {
@@ -18,9 +19,12 @@ void Camera_FPS::Initialize()
 
 void Camera_FPS::Update()
 {
-	if (m_bMouse || !ShopManager::Get_Instance()->Get_ShopOn())
+	if (StageManager::Get_Instance()->Get_CurStageName() != STAGE_ENDING)
 	{
-		Look();
+		if (!ShopManager::Get_Instance()->Get_ShopOn())
+		{
+			Look();
+		}
 	}
 
 	//Vector3 vforward = m_Transform->Get_Forward();

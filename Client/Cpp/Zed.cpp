@@ -19,7 +19,7 @@ Zed::~Zed()
 
 void Zed::Initialize()
 {
-	m_pPlayer = EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER);
+	m_pTarget = EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER);
 
 	m_fLookOffset = (rand()%10 +1) / 100.f;
 }
@@ -28,13 +28,24 @@ void Zed::Update()
 {
 
 	Setting_Components();
+	
+	if (!m_bEnding)
+	{
+		m_vDirection = m_pTarget->Get_Position() - m_Transform->Get_Position();
+		m_fDistance = D3DXVec3Length(&m_vDirection);
 
-	m_vDirection = m_pPlayer->Get_Position() - m_Transform->Get_Position();
-	m_fDistance = D3DXVec3Length(&m_vDirection);
+		DEBUG_LOG(L"Zed to player Distance : " + to_wstring(m_fDistance));
 
-	DEBUG_LOG(L"Zed to player Distance : " + to_wstring(m_fDistance));
 
-	LookAt();
+		LookAt();
+	}
+	else
+	{
+		m_vDirection = m_vEndingPos - m_Transform->Get_Position();
+		m_fDistance = D3DXVec3Length(&m_vDirection);
+
+		m_Transform->LookAt(m_vEndingPos, 50.f, m_fLookOffset);
+	}
 
 	//if (m_fDistance > 30.f)
 	//{		
@@ -84,7 +95,7 @@ void Zed::LookAt()
 {
 	if (!m_bDeath && !m_bDontLook)
 	{
-		Vector3 PlayerPos = m_pPlayer->Get_Position();
+		Vector3 PlayerPos = m_pTarget->Get_Position();
 		PlayerPos.y = 0;
 		m_Transform->LookAt(PlayerPos, 50.f, m_fLookOffset);
 	}
@@ -144,6 +155,10 @@ void Zed::Damaged(int _iDmg)
 
 }
 
+//void Zed::Change_Target(Vector3 Pos)
+//{
+//}
+
 ZED_INFO Zed::Get_ZedInfo()
 {
 	return m_tZedStatus;
@@ -172,4 +187,16 @@ void Zed::Set_NaviMesh(NaviMesh * _pNaviMesh)
 void Zed::Set_DontLook(bool _falseIsDontLook)
 {
 	m_bDontLook = _falseIsDontLook;
+}
+
+void Zed::Setting_Ending(const Vector3& _vPos)
+{
+	if(!m_bEnding)
+	{
+		m_bEnding = true;
+	
+		Vector3 Pos = _vPos;
+		Pos.y = 20.f;
+		m_vEndingPos = Pos;
+	}
 }

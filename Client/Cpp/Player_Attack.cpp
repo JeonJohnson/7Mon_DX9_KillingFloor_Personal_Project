@@ -13,6 +13,7 @@
 #include "SphereCollider.h"
 #include "ShopManager.h"
 #include "Player_Status.h"
+#include "StageManager.h"
 
 
 Player_Attack::Player_Attack(Desc * _desc)
@@ -98,31 +99,36 @@ void Player_Attack::Initialize()
 void Player_Attack::Update()
 {
 
-	if (ShopManager::Get_Instance()->Get_ShopOn() == false && !m_bEnding)
+	if (StageManager::Get_Instance()->Get_CurStageName() != STAGE_ENDING)
 	{
-		if (m_pStateCtlr->Get_CurStateName() != L"Player_Heal"
-			 && m_pStateCtlr->Get_CurStateName() != L"Player_Bomb")
+		if (ShopManager::Get_Instance()->Get_ShopOn() == false)
 		{
-			Swap();
-			Reload();
-			Fire();
-			IronSight();
-			Bomb_Drop();
+			if (m_pStateCtlr->Get_CurStateName() != L"Player_Heal"
+				&& m_pStateCtlr->Get_CurStateName() != L"Player_Bomb")
+			{
+				Swap();
+				Reload();
+				Fire();
+				IronSight();
+				Bomb_Drop();
+			}
+			Heal();
+
+			DEBUG_LOG(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+			DEBUG_LOG(to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet)
+				+ L" / " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet));
+			DEBUG_LOG(L"Anim Spd : " + to_wstring(m_pWeaponAnim->Get_AnimSpd()));
+
+			HudManager::Get_Instance()->Set_TextWeaponName(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
+			HudManager::Get_Instance()->Set_TextBullet(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet);
+			HudManager::Get_Instance()->Set_TextMagazine(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine);
+
+			HudManager::Get_Instance()->Set_TextHeal(m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet);
+
+			HudManager::Get_Instance()->Set_TextGranade(m_pBomb_Status->m_tWeaponInfo.m_iCurMagazine);
 		}
-		Heal();
-
-		DEBUG_LOG(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
-		DEBUG_LOG(to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet)
-			+ L" / " + to_wstring(m_pCurWeaponStatus->m_tWeaponInfo.m_iMaxBullet));
-		DEBUG_LOG(L"Anim Spd : " + to_wstring(m_pWeaponAnim->Get_AnimSpd()));
-
-		HudManager::Get_Instance()->Set_TextWeaponName(m_pCurWeaponStatus->m_tWeaponInfo.m_szName);
-		HudManager::Get_Instance()->Set_TextBullet(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurBullet);
-		HudManager::Get_Instance()->Set_TextMagazine(m_pCurWeaponStatus->m_tWeaponInfo.m_iCurMagazine);
-		
-		HudManager::Get_Instance()->Set_TextHeal(m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet);
-		
-		HudManager::Get_Instance()->Set_TextGranade(m_pBomb_Status->m_tWeaponInfo.m_iCurMagazine);
+	}
+	else { //m_pWeaponRenderer->Set_MeshScale(Vector3(0.1f, 0.1f, 0.1f)); 
 	}
 	
 
@@ -466,6 +472,7 @@ void Player_Attack::SetUp()
 void Player_Attack::Player_Ending()
 {
 	m_bEnding = true;
+	//m_pWeaponRenderer->Set_MeshRot(Vector3(0.f, 90.f, 0.f));
 	m_pWeaponRenderer->Set_MeshScale(Vector3(0.f, 0.f, 0.f));
 }
 

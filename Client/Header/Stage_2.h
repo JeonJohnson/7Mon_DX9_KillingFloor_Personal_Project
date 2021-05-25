@@ -29,12 +29,13 @@ public:
 
 private:
 	float	m_fTime = 0.f;
-	float	m_fGeneTime = 2.4f;
+	float	m_fGeneTime = 1.4f;
 	bool	m_arrPattern[3] = { false };
 	int		m_iCurPattern = 1;
 
-	int		m_iTotalZedCount;
-	int		m_iZedCount = 4;
+	int		m_iZedTotalCount = 30;
+	int		m_iZedCurCount = 0;
+	int		m_iZedCount[3] = {10,10,10};
 };
 
 #endif //_STAGE_2_H_

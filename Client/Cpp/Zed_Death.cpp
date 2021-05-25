@@ -62,7 +62,7 @@ void Zed_Death::UpdateState()
 	else
 	{
 		ZedManager::Get_Instance()->Add_ZedCount(-1);
-		
+		ZedManager::Get_Instance()->Add_CurZedCount(-1);
 
 		switch (m_pZedInfo->Get_ZedInfo().m_eName)
 		{

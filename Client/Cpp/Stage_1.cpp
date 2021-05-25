@@ -4,6 +4,7 @@
 #include "StateController.h"
 #include "ZedManager.h"
 #include "StageManager.h"
+#include "HudManager.h"
 
 Stage_1::Stage_1()
 {
@@ -21,12 +22,19 @@ void Stage_1::Initialize()
 void Stage_1::EnterState()
 {
 	StageManager::Get_Instance()->Set_CurStage(STAGE_NAME::STAGE_1);
+	ZedManager::Get_Instance()->Set_CurZedCount(m_iZedTotalCount);
 }
 
 void Stage_1::UpdateState()
 {
 	DEBUG_LOG(L"CurStage : Stage1_" + to_wstring(m_iCurPattern));
 	DEBUG_LOG(L"GeneTime : " + to_wstring(m_fGeneTime));
+	
+
+	m_iZedCurCount = ZedManager::Get_Instance()->Get_CurZedCount();
+	wstring zeds;
+	zeds = L"Zeds\n" + to_wstring(m_iZedCurCount) + L"/" + to_wstring(m_iZedTotalCount);
+	HudManager::Get_Instance()->Set_TextZedCount(zeds);
 
 	Stage1_Start();
 
@@ -77,25 +85,25 @@ void Stage_1::Generate_Phase1()
 
 	if (m_fTime >= m_fGeneTime)
 	{
-		if (m_iZedCount >= 2)
+		if (m_iZedCount[0] > 0)
 		{
 			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_RIGHT));
 
 			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(CHURCH_LEFT));
+
+			m_fTime = 0.f;
+			//m_iZedTotalCount -= 2;
+			m_iZedCount[0] -= 2;
 		}
-		
-		m_fTime = 0.f;
-		m_iZedCount -= 2;
 	}
 
 
-	if (m_iZedCount <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
+	if (m_iZedCount[0] <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
 	{
 		m_arrPattern[0] = true;
 
 		m_fGeneTime = Function_Math::RandFloat(1.5f, 4.5f);
 		m_fTime = 0.f;
-		m_iZedCount = 6;
 	}
 }
 
@@ -105,21 +113,22 @@ void Stage_1::Generate_Phase2()
 
 	if (m_fTime >= m_fGeneTime)
 	{
-		if (m_iZedCount > 0) {
+		if (m_iZedCount[1] > 0) 
+		{
 			int iRand = rand() % 2 + 2;
 			ZedManager::Get_Instance()->Generate_Clot(ZedManager::Get_Instance()->Get_ZedGenLocate(iRand));
 			m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
 			m_fTime = 0.f;
-			--m_iZedCount;
+			//--m_iZedTotalCount;
+			--m_iZedCount[1];
 		}
 	}
 
-	if (m_iZedCount <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
+	if (m_iZedCount[1] <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
 	{
 		m_arrPattern[1] = true;
 
 		m_fGeneTime = Function_Math::RandFloat(1.5f, 4.5f);
-		m_iZedCount = 6;
 		m_fTime = 0.f;
 	}
 
@@ -132,7 +141,7 @@ void Stage_1::Generate_Phase3()
 	m_fTime += fTime;
 	
 	{
-		if (m_iZedCount > 0)
+		if (m_iZedCount[2] > 0)
 		{
 			int iRand = rand() % 4;
 
@@ -140,17 +149,17 @@ void Stage_1::Generate_Phase3()
 
 			m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
 			m_fTime = 0.f;
-			--m_iZedCount;
+			//--m_iZedTotalCount;
+			--m_iZedCount[2];
 		}
 	}
 
-	if (m_iZedCount <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
+	if (m_iZedCount[2] <= 0 && ZedManager::Get_Instance()->Get_ZedCount() <= 2)
 	{
 		m_arrPattern[2] = true;
 
 		m_fGeneTime = Function_Math::RandFloat(1.5f, 4.5f);
 		m_fTime = 0.f;
-		m_iZedCount = 6;
 	}
 
 
@@ -180,10 +189,11 @@ void Stage_1::Generate_PhaseEnd()
 
 		m_fGeneTime = Function_Math::RandFloat(1.f, 4.5f);
 		m_fTime = 0.f;
-		--m_iZedCount;
+		//--m_iZedTotalCount;
+		--m_iZedCount[3];
 	}
 
-	if (m_iZedCount <= 0)
+	if (m_iZedCount[3] <= 0)
 	{
 		m_arrPattern[3] = true;
 

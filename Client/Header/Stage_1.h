@@ -39,8 +39,9 @@ private:
 	bool	m_arrPattern[4] = { false };
 	int		m_iCurPattern = 1;
 
-	int		m_iZedTotalCount;
-	int		m_iZedCount = 6;
+	int		m_iZedTotalCount = 24;
+	int		m_iZedCurCount = 0;
+	int		m_iZedCount[4] = {6,6,6,6};
 };
 
 #endif//_STAGE_1_H_

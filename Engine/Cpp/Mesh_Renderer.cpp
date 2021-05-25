@@ -324,6 +324,7 @@ void Mesh_Renderer::Set_MeshRot(const Vector3 & _vRot)
 void Mesh_Renderer::Set_MeshScale(const Vector3 & _vScale)
 {
 	m_vScale = _vScale;
+	Update_MeshTransform();
 }
 
 void Mesh_Renderer::Add_MeshPos(const Vector3 & _vPos)
