@@ -70,7 +70,7 @@ void WeaponManager::Nogada_Data()
 		AK_INFO.m_szName = L"AK47";
 		AK_INFO.m_ePriority = WEAPON_PRIORITY::Weapon_Primary;
 		AK_INFO.m_eType = WEAPON_TYPE::Weapon_Rifle;
-		AK_INFO.m_iDmg = 40;
+		AK_INFO.m_iDmg = 50;
 		AK_INFO.m_iBuck = 1;
 		AK_INFO.m_bAuto = true;
 		AK_INFO.m_iMaxBullet = 30;
@@ -104,8 +104,8 @@ void WeaponManager::Nogada_Data()
 		ShotGun_INFO.m_bAuto = false;
 		ShotGun_INFO.m_iMaxBullet = 6;
 		ShotGun_INFO.m_iCurBullet = 6;
-		ShotGun_INFO.m_iMaxMagazine = 60;
-		ShotGun_INFO.m_iCurMagazine = 60;
+		ShotGun_INFO.m_iMaxMagazine = 42;
+		ShotGun_INFO.m_iCurMagazine = 42;
 		ShotGun_INFO.m_fMaxRapid = 1.f;
 		ShotGun_INFO.m_fCurRapid = 0.f;
 		ShotGun_INFO.m_fAccuracy = 0.75f;
@@ -162,7 +162,7 @@ void WeaponManager::Nogada_Data()
 		Beretta_INFO.m_bAuto = false;
 		Beretta_INFO.m_iMaxBullet = 15;
 		Beretta_INFO.m_iCurBullet = 15;
-		Beretta_INFO.m_iMaxMagazine = 3;
+		Beretta_INFO.m_iMaxMagazine = 5;
 		Beretta_INFO.m_iCurMagazine = 3;
 		Beretta_INFO.m_fMaxRapid = 0.2f;
 		Beretta_INFO.m_fCurRapid = 0.f;
@@ -215,7 +215,7 @@ void WeaponManager::Nogada_Data()
 		Knife_INFO.m_szName = L"Knife";
 		Knife_INFO.m_ePriority = WEAPON_PRIORITY::Weapon_Melee;
 		Knife_INFO.m_eType = WEAPON_TYPE::Weapon_Knife;
-		Knife_INFO.m_iDmg = 35;
+		Knife_INFO.m_iDmg = 40;
 		Knife_INFO.m_iBuck = 1;
 		Knife_INFO.m_bAuto = false;
 		Knife_INFO.m_iMaxBullet = 0;
@@ -264,11 +264,13 @@ void WeaponManager::Nogada_Data()
 		Bomb_INFO.m_szName = L"PipeBomb";
 		Bomb_INFO.m_ePriority = WEAPON_PRIORITY::Weapon_Special;
 		Bomb_INFO.m_eType = WEAPON_TYPE::Weapon_Bomb;
-		Bomb_INFO.m_iDmg = 200;
-		Bomb_INFO.m_iMaxBullet = 5;
-		Bomb_INFO.m_iCurBullet = 1;
+		Bomb_INFO.m_iDmg = 500;
+		//Bomb_INFO.m_iMaxBullet = 10;
+		//Bomb_INFO.m_iCurBullet = 1;
+		Bomb_INFO.m_iCurMagazine = 1;
+		Bomb_INFO.m_iMaxMagazine = 10;
 		Bomb_INFO.m_iMagazinePrice = 100;
-		Bomb_INFO.m_fMaxRapid = 2.5f; //터지는데 지연시간.
+		Bomb_INFO.m_fMaxRapid = 1.5f; //터지는데 지연시간.
 		Bomb_INFO.m_fCurRapid = 0.f;
 
 		Weapon_Status::Desc Bomb_Desc;

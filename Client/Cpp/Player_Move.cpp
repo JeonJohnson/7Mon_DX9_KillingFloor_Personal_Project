@@ -21,8 +21,11 @@ void Player_Move::Initialize()
 
 void Player_Move::Update()
 {
-	Move();
-	Reset();
+	if (!ShopManager::Get_Instance()->Get_ShopOn())
+	{
+		Move();
+		Reset();
+	}
 
 	DEBUG_LOG(L"Player Pos : "
 		+ to_wstring(m_Transform->Get_Position().x) + L"/"
@@ -44,8 +47,7 @@ void Player_Move::Release()
 
 void Player_Move::Move()
 {
-	if (!ShopManager::Get_Instance()->Get_ShopOn())
-	{
+	
 		m_fCurSpd = m_fWalkSpd;
 
 		if (KeyPress(KEY_STATE_Lshift))
@@ -102,7 +104,7 @@ void Player_Move::Move()
 		}
 	}
 
-}
+
 
 void Player_Move::Reset()
 {

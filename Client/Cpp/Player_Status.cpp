@@ -5,6 +5,7 @@
 #include "Weapon_Status.h"
 
 #include "HudManager.h"
+#include "ShopManager.h"
 
 Player_Status::Player_Status(Desc * _desc)
 {
@@ -41,7 +42,9 @@ void Player_Status::Update()
 	HudManager::Get_Instance()->Set_TextHp(m_tPlayerStatus.m_iCurHp);
 	HudManager::Get_Instance()->Set_TextArmor(m_tPlayerStatus.m_iCurArmor);
 	HudManager::Get_Instance()->Set_TextWeight(m_tPlayerStatus.m_iCurWeight);
-	HudManager::Get_Instance()->Set_TextMoney(m_tPlayerStatus.m_iGold);
+	//HudManager::Get_Instance()->Set_TextMoney(m_tPlayerStatus.m_iGold);
+
+	ShopManager::Get_Instance()->Set_VestValue(m_tPlayerStatus.m_iCurArmor);
 }
 
 void Player_Status::LateUpdate()
@@ -123,6 +126,11 @@ void Player_Status::Heal()
 		}
 	}
 
+}
+
+void Player_Status::Buy_Vest()
+{
+	m_tPlayerStatus.m_iCurArmor = 100;
 }
 
 void Player_Status::Set_Heal(bool _OnOff)

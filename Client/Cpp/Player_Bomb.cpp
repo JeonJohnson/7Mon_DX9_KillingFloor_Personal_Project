@@ -47,12 +47,13 @@ void Player_Bomb::EnterState()
 
 	m_pCurWeapon = m_pPlayerAttack->Get_CurWeaponStatus();
 
+
 	m_pWeaponRenderer->Set_Mesh(m_pPlayerAttack->Get_PipeBomb_Status()->m_tWeaponInfo.m_szName);
 	m_pAnimCtrl->SetUp_AnimCtrl();
 	m_pBombStatus = m_pPlayerAttack->Get_PipeBomb_Status();
 	m_pAnimCtrl->Set_AnimSpd(1.f);
 	m_pAnimCtrl->Play(0);
-
+	--m_pBombStatus->m_tWeaponInfo.m_iCurMagazine;
 	EngineFunction->OverlapPlay_Sound(L"Weapon_Select.wav", SoundCH_PLAYER_FIRE);
 	//m_pPlayerStatus->Set_Heal(true);
 	m_bThrow = false;

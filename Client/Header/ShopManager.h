@@ -38,31 +38,49 @@ public:
 public:
 	void		Open_Shop();
 	void		Exit_Shop();
-	void		Buy_OneMag();
-	void		Buy_AllMag();
-	void		Buy_Weapon();
+	//void		Buy_OneMag();
+	//void		Buy_AllMag();
+	//void		Buy_Weapon();
 
 	
+	void	Maintenance();
 public:
 	bool		Get_ShopOn();
+	//bool		Get_ShopOff();
 
 
 public:
 	void		Insert_HaveWeapon(Weapon_Status* _Weapon);
+	void		Set_VestValue(int _iCurVest);
 	//void		Insert_ShopWeapon(GameObject* _Weapon);
-	void		Insert_Vest(int _iVest);
-	void		Insert_Granade(Weapon_Status* _Granade);
+	//void		Insert_Vest(int _iVest);
+	//void		Insert_Granade(Weapon_Status* _Granade);
+	
+	void		Create_ItemUI();
 
+	void		Update_ItemInfo();
+	
 
 	void		Set_LeftTime(float _fLeftTime);
 	void		Set_ShopOnOff(bool _OnOff);
-private:
-	vector<UI*> m_vecHaveWeapon_Name;
-	vector<UI*> m_vecHaveWeapon_OneMag;
-	vector<UI*> m_vecHaveWeapon_OneMag_MouseOn;
-	vector<UI*> m_vecHaveWeapon_AllMag;
-	vector<UI*> m_vecHaveWeapon_AllMag_MouseOn;
 
+	void		Buy_AllAmmo();
+private:
+	
+	
+	vector<Weapon_Status*> m_vecHaveItems;
+	int		m_iVest;
+
+	vector<UI*> m_vecHaveWeapon_Name;
+
+	//UI*		m_Vest;
+
+	//vector<UI*> m_vecHaveWeapon_OneMag;
+	//vector<UI*> m_vecHaveWeapon_OneMag_MouseOn;
+	//vector<UI*> m_vecHaveWeapon_AllMag;
+	//vector<UI*> m_vecHaveWeapon_AllMag_MouseOn;
+
+	UI*		m_pBuyButton = nullptr;
 	//vector<UI*> m_vecShopWeapon_Name;
 	//vector<UI*> m_vecShopWeapon_Buy;
 	//vector<UI*> m_vecShopWeapon_Buy_MouseOn;

@@ -61,7 +61,7 @@ public: /* Set */
 	
 	void		Set_TextGranade(int _iGranade);
 
-	void		Set_TextMoney(int _iMoney);
+	//void		Set_TextMoney(int _iMoney);
 	void		Set_TextWeaponName(const wstring& _szWeaponName);
 	
 	void		Set_TextClock(float _fClock);

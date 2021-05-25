@@ -31,12 +31,14 @@ Player_Attack::Player_Attack(Desc * _desc)
 	GameObject* Injector = WeaponManager::Get_Instance()->Get_ProtoWeapon(L"Injector");
 	assert(L"Injector has't exist WeaponManager" && Injector);
 	m_pHealInjector = Injector;
+	//m_arrWeapons[Weapon_Special].emplace_back(Injector);
 	m_pHealInjector_Status = m_pHealInjector->Get_Component<Weapon_Status>();
 
 	//Bomb
 	GameObject* Bomb = WeaponManager::Get_Instance()->Get_ProtoWeapon(L"PipeBomb");
 	assert(L"Bomb has't exist WeaponManager" && Bomb);
 	m_pBomb = Bomb;
+	m_arrWeapons[Weapon_Special].emplace_back(Bomb);
 	m_pBomb_Status = m_pBomb->Get_Component<Weapon_Status>();
 
 	if (_desc->szInitWeapon == L"")
@@ -57,7 +59,9 @@ Player_Attack::Player_Attack(Desc * _desc)
 		//m_pCurWeapon = PrimaryWeapon;
 	}
 
-
+	
+	Shop_ItempSetting();
+	ShopManager::Get_Instance()->Create_ItemUI();
 }
 
 Player_Attack::~Player_Attack()
@@ -66,6 +70,7 @@ Player_Attack::~Player_Attack()
 
 void Player_Attack::Initialize()
 {
+
 
 	m_pStateCtlr = m_GameObject->Get_NewComponent<StateController>();
 	m_pWeaponRenderer = m_GameObject->Get_NewComponent<Mesh_Renderer>();
@@ -93,7 +98,7 @@ void Player_Attack::Initialize()
 void Player_Attack::Update()
 {
 
-	if (!ShopManager::Get_Instance()->Get_ShopOn() || !m_bEnding)
+	if (ShopManager::Get_Instance()->Get_ShopOn() == false && !m_bEnding)
 	{
 		if (m_pStateCtlr->Get_CurStateName() != L"Player_Heal"
 			 && m_pStateCtlr->Get_CurStateName() != L"Player_Bomb")
@@ -117,7 +122,7 @@ void Player_Attack::Update()
 		
 		HudManager::Get_Instance()->Set_TextHeal(m_pHealInjector_Status->m_tWeaponInfo.m_iCurBullet);
 		
-		HudManager::Get_Instance()->Set_TextGranade(m_pBomb_Status->m_tWeaponInfo.m_iCurBullet);
+		HudManager::Get_Instance()->Set_TextGranade(m_pBomb_Status->m_tWeaponInfo.m_iCurMagazine);
 	}
 	
 
@@ -442,8 +447,9 @@ void Player_Attack::Bomb_Drop()
 {
 	if(KeyDown(KEY_STATE_G))
 	{
-		if (m_pBomb_Status->m_tWeaponInfo.m_iCurBullet > 0)
+		if (m_pBomb_Status->m_tWeaponInfo.m_iCurMagazine > 0)
 		{
+			
 			m_pStateCtlr->Set_State(L"Player_Bomb");
 		}
 	}
@@ -461,6 +467,34 @@ void Player_Attack::Player_Ending()
 {
 	m_bEnding = true;
 	m_pWeaponRenderer->Set_MeshScale(Vector3(0.f, 0.f, 0.f));
+}
+
+void Player_Attack::Shop_ItempSetting()
+{
+	for (int i = 0; i < WEAPON_PRIORITY::Weapon_Priority_End; ++i)
+	{
+		for (auto& weapon : m_arrWeapons[i])
+		{
+			ShopManager::Get_Instance()->Insert_HaveWeapon(weapon->Get_Component<Weapon_Status>());
+		}
+	}
+
+
+}
+
+void Player_Attack::All_Ammo()
+{
+	for (int i = 0; i < WEAPON_PRIORITY::Weapon_Priority_End; ++i)
+	{
+		for (auto& weapon : m_arrWeapons[i])
+		{
+			Weapon_Status* temp = weapon->Get_Component<Weapon_Status>();
+
+			temp->m_tWeaponInfo.m_iCurMagazine = temp->m_tWeaponInfo.m_iMaxMagazine;
+
+			//ShopManager::Get_Instance()->Insert_HaveWeapon(weapon->Get_Component<Weapon_Status>());
+		}
+	}
 }
 
 

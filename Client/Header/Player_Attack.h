@@ -51,6 +51,9 @@ public: /* Func */
 	void			SetUp();
 
 	void			Player_Ending();
+
+	void			Shop_ItempSetting();
+	void			All_Ammo();
 public: /* Get */
 	GameObject*					Get_CurWeapon();
 	Weapon_Status*				Get_CurWeaponStatus();
@@ -85,6 +88,8 @@ private:
 	float					m_fHealTime = 0.f;
 	GameObject*				m_pBomb = nullptr;
 	Weapon_Status*			m_pBomb_Status = nullptr;
+	
+
 
 	vector<GameObject*>		m_arrWeapons[WEAPON_PRIORITY::Weapon_Priority_End];
 	GameObject*				m_pCurWeapon;

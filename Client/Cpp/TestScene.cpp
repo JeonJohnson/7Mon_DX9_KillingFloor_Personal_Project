@@ -337,24 +337,24 @@ void TestScene::Initialize()
 		}
 
 		{//Money
-			UI*	Hud_Money = INSTANTIATE_UI(L"Money");
-			Hud_Money->Set_Position(Vector3(1155.f, 580.f, 0.f));
-			Hud_Money->Set_Scale(Vector3(0.75f, 0.75f, 0.75f));
+			//UI*	Hud_Money = INSTANTIATE_UI(L"Money");
+			//Hud_Money->Set_Position(Vector3(1155.f, 580.f, 0.f));
+			//Hud_Money->Set_Scale(Vector3(0.75f, 0.75f, 0.75f));
 
-			Sprite::Desc MoneySprite;
-			MoneySprite.TextureName = L"Hud_Money";
-			Hud_Money->Add_UIComponent<Sprite>(&MoneySprite);
+			//Sprite::Desc MoneySprite;
+			//MoneySprite.TextureName = L"Hud_Money";
+			//Hud_Money->Add_UIComponent<Sprite>(&MoneySprite);
 
-			Text::Desc MoneyText;
-			MoneyText.szScript = L"1200";
-			MoneyText.iHeight = 30;
-			MoneyText.iWeight = FW_HEAVY;
-			MoneyText.ulOption = DT_VCENTER | DT_RIGHT | DT_NOCLIP;
-			MoneyText.tColor = D3DCOLOR_RGBA(255, 0, 0, 255);
-			MoneyText.vOffSet = Vector2(75.f, 0.f);
-			Hud_Money->Add_UIComponent<Text>(&MoneyText);
+			//Text::Desc MoneyText;
+			//MoneyText.szScript = L"1200";
+			//MoneyText.iHeight = 30;
+			//MoneyText.iWeight = FW_HEAVY;
+			//MoneyText.ulOption = DT_VCENTER | DT_RIGHT | DT_NOCLIP;
+			//MoneyText.tColor = D3DCOLOR_RGBA(255, 0, 0, 255);
+			//MoneyText.vOffSet = Vector2(75.f, 0.f);
+			//Hud_Money->Add_UIComponent<Text>(&MoneyText);
 
-			HudManager::Get_Instance()->Insert_Hud(L"Money", Hud_Money);
+			//HudManager::Get_Instance()->Insert_Hud(L"Money", Hud_Money);
 		}
 		
 		{

@@ -217,10 +217,10 @@ void HudManager::Set_TextGranade(int _iGranade)
 	Get_HudText(L"Granade")->Set_Script(to_wstring(_iGranade));
 }
 
-void HudManager::Set_TextMoney(int _iMoney)
-{
-	Get_HudText(L"Money")->Set_Script(to_wstring(_iMoney));
-}
+//void HudManager::Set_TextMoney(int _iMoney)
+//{
+//	Get_HudText(L"Money")->Set_Script(to_wstring(_iMoney));
+//}
 
 void HudManager::Set_TextWeaponName(const wstring & _szWeaponName)
 {

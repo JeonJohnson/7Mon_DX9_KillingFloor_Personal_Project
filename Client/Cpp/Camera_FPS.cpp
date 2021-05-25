@@ -18,7 +18,7 @@ void Camera_FPS::Initialize()
 
 void Camera_FPS::Update()
 {
-	if (m_bMouse)
+	if (m_bMouse || !ShopManager::Get_Instance()->Get_ShopOn())
 	{
 		Look();
 	}

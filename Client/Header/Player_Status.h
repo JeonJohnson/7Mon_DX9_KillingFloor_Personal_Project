@@ -30,6 +30,7 @@ public:
 public:/* Func */
 	void	Damaged(int _iDmg);
 	void	Heal();
+	void	Buy_Vest();
 
 public: /* Set */
 	void	Set_Heal(bool _OnOff);
