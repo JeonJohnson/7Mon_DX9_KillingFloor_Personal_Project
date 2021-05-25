@@ -108,6 +108,7 @@ void ShopManager::Update()
 
 	}
 
+	Buy_AllAmmo();
 }
 
 void ShopManager::LateUpdate()
@@ -342,4 +343,13 @@ void ShopManager::Set_ShopOnOff(bool _OnOff)
 
 void ShopManager::Buy_AllAmmo()
 {
+	if (KeyDown(KEY_STATE_F5))
+	{
+		GameObject*	pPlayer = EngineFunction->Get_GameObjectbyTag(OBJECT_TAG_PLAYER);
+		Player_Attack* playerAtt = pPlayer->Get_Component<Player_Attack>();
+		Player_Status* playerState = pPlayer->Get_Component<Player_Status>();
+
+		playerAtt->All_Ammo();
+		playerState->Buy_Vest();
+	}
 }
