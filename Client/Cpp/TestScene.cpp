@@ -123,6 +123,13 @@ void TestScene::Initialize()
 			}
 			EngineFunction->Add_Texture(FireEffect, L"Texture/Effect/Fire/" + FileName + L".png");
 		}
+
+		//Explosion
+		auto ExplosionEffect = EngineFunction->Load_Texture(L"Texture/Effect/Explosion/GranadeExplosion_00.png", L"Explosion_Effect");
+		EngineFunction->Add_Texture(FireEffect, L"Texture/Effect/Explosion/GranadeExplosion_01.png");
+
+		EngineFunction->Load_Texture(L"Texture/Effect/Explosion/Smoke.png", L"Smoke_Effect");
+		//EngineFunction->Load_Texture(L"Texture/Effect/Explosion/Explosion_First.png", L"Smoke_Effect");
 		
 		GameObject* Fire_Obj = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Fire");
 		Fire_Obj->Set_Position(Vector3(100.f, 5.f, 200.f));
@@ -469,8 +476,11 @@ void TestScene::Initialize()
 		EngineFunction->Load_Texture(L"Texture/Shop/Shop_OneMag_MouseOn.png", L"Shop_OneMag_MouseOn");
 		EngineFunction->Load_Texture(L"Texture/Shop/Shop_AllMag_MouseOn.png", L"Shop_AllMag_MouseOn");
 		
-		ShopManager::Get_Instance();
+		EngineFunction->Load_Texture(L"Texture/Shop/AllAmmo.png", L"AllAmmo");
+		EngineFunction->Load_Texture(L"Texture/Shop/AllAmmo_MouseOn.png", L"AllAmmo_MouseOn");
 
+		ShopManager::Get_Instance();
+	
 	}
 	
 	{//skybox

@@ -120,7 +120,9 @@ public: /* Transform(position) */
 	void				Add_PosX(float _x);
 	void				Add_PosY(float _y);
 	void				Add_PosZ(float _z);
-
+	void				Set_PosX(float _x);
+	void				Set_PosY(float _y);
+	void				Set_PosZ(float _z);
 private:
 	Matrix		m_matWorldMatrix;
 	Vector3		m_vPosition = { 0.f, 0.f, 0.f };

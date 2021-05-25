@@ -250,6 +250,8 @@ void ResourceManager::Insert_Shaders()
 	Load_Shader(L"Shader/Effect_VIBuffer.fx", L"Effect_VIBuffer");
 
 	Load_Shader(L"Shader/Effect_Fire.fx", L"Effect_Fire");
+
+	Load_Shader(L"Shader/Effect_Trace.fx", L"Effect_Trace");
 }
 
 wstring ResourceManager::EraseFolderPath(wstring _FullPath)

@@ -4,7 +4,7 @@
 #include "GameObject.h"
 #include "Texture.h"
 #include "DeviceManager.h"
-
+#include "TimeManager.h"
 //#include "Triangle_VIBuffer_Color.h"
 //#include "Rect_VIBuffer_Color.h"
 
@@ -35,6 +35,8 @@ VIBuffer_Renderer::VIBuffer_Renderer(Desc * _desc)
 	
 	m_bEffect = _desc->bEffect;
 
+	m_bFade = _desc->bFade;
+	m_fFadeSpd = _desc->fFadeSpd;
 	Create_Shader(_desc->szShaderName);
 
 }
@@ -68,7 +70,10 @@ void VIBuffer_Renderer::Render()
 		m_pVIBuffer->Set_Texture(TexTemp);
 	}
 
-
+	if (m_bFade)
+	{
+		m_fAlpha += Engine_fTime * m_fFadeSpd;
+	}
 	Setup_ShaderTable();
 
 	//m_pDX9_Device->SetTransform(D3DTS_WORLD, &m_GameObject->Get_Transform()->Get_WorldMatrix());
@@ -201,6 +206,11 @@ HRESULT VIBuffer_Renderer::Setup_ShaderTable()
 	m_pEffectCom->SetMatrix("g_matView", &matView);
 	m_pEffectCom->SetMatrix("g_matProjection", &matProj);
 
+	if (m_bFade)
+	{
+		m_pEffectCom->SetFloat("g_fAlpha", m_fAlpha);
+	}
+	
 	m_pVIBuffer->Render_Texture(m_pEffectCom, "g_texBaseTexture", m_iTextureIndex);
 
 	return S_OK;

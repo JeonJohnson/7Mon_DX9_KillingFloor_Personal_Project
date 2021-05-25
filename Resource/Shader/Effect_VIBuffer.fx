@@ -4,6 +4,7 @@ matrix	g_matProjection;
 
 texture	g_texBaseTexture;
 
+float	g_fAlpha = 0;
 
 sampler BaseSampler = sampler_state
 {
@@ -52,6 +53,7 @@ VS_OUT		VS_MAIN(VS_IN _In)
 struct PS_IN
 {//Pixel Shading Input
 	float2		vTexUV : TEXCOORD0;
+	//float		fAlpha : FOG;
 };
 
 struct PS_OUT
@@ -63,9 +65,11 @@ PS_OUT		PS_MAIN(PS_IN _In)
 {
 	PS_OUT		tOut = (PS_OUT)0;
 
+	
 	tOut.vColor = tex2D(BaseSampler, _In.vTexUV);
 
-	//tOut.vColor -= vector(1.f,1.f,1.f,0.f);
+	tOut.vColor.a -= g_fAlpha;
+
 
 	return tOut;
 }
@@ -78,6 +82,7 @@ technique Default_Device
 		alphablendenable = true;	//알파 블랜딩 하겠다.
 		srcblend = srcalpha;		//
 		destblend = invsrcalpha;	//
+		cullmode = none;
 
 
 		vertexshader = compile vs_3_0 VS_MAIN();

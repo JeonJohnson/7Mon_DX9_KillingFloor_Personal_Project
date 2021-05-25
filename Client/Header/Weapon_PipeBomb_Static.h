@@ -14,7 +14,7 @@ public:
 		Vector3		vPlayerForward;
 		Vector3		vPlayerDown;
 		float		fSpd = 50;
-		float		fMaxTime = 2.f;
+		float		fMaxTime = 1.f;
 		int			iDmg = 200;
 
 	};

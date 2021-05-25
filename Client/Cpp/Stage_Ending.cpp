@@ -71,8 +71,10 @@ void Stage_Ending::EnterState()
 void Stage_Ending::UpdateState()
 {
 	DEBUG_LOG(L"CurStage : Stage_Ending");
-
-	HudManager::Get_Instance()->Fade_In();
+	if (m_fEndingTime <= 10.f)
+	{
+		HudManager::Get_Instance()->Fade_In();
+	}
 
 	Matrix ChopperMat = m_pChopperRender->Get_Mesh()->Get_BoneLocalPosByName(L"Helicopter");
 	Matrix WorldMat =  m_pChopper->Get_Transform()->Get_WorldMatrix();
@@ -86,6 +88,13 @@ void Stage_Ending::UpdateState()
 	m_pPlayer->Get_Transform()->LookAt(ChooperPos, 1.f);
 
 	m_fEndingTime += fTime;
+	
+	if (m_fEndingTime >= 20.f)
+	{
+		HudManager::Get_Instance()->Fade_Out();
+	}
+
+
 
 	if (m_fEndingTime >= 25.f)
 	{

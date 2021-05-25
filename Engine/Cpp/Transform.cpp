@@ -467,5 +467,21 @@ void Transform::Add_PosZ(float _z)
 	m_vPosition.z += _z;
 }
 
+void Transform::Set_PosX(float _x)
+{
+	m_vPosition.x = _x;
+
+}
+
+void Transform::Set_PosY(float _y)
+{
+	m_vPosition.y = _y;
+}
+
+void Transform::Set_PosZ(float _z)
+{
+	m_vPosition.z = _z;
+}
+
 
 

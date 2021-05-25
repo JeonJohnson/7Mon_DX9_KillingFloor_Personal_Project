@@ -197,6 +197,7 @@ void BulletManager::Create_Explosion(const Vector3 _vPos, int _iDmg, float _fRad
 	GameObject*	ExplosionEffect = INSTANTIATE(OBJECT_TAG_DEFAULT, L"Bomb_Effect");
 	ExplosionEffect->Set_Position(_vPos);
 
-	//BombEffect::Desc 
+	BombEffect::Desc EffectDesc;
+	ExplosionEffect->Add_Component<BombEffect>();
 
 }
