@@ -1,8 +1,63 @@
-﻿  ShopManager.cpp
+﻿  stdafx.cpp
+  C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Billboard_Bullet.cpp
+  BloodEffect.cpp
+  BombEffect.cpp
+  BombExplosion.cpp
+  BulletManager.cpp
+  Bullet_Move.cpp
+  Camera_FPS.cpp
+  Effect_Fire.cpp
+  FilmGrainEffect.cpp
+  HudManager.cpp
+  IntroScene.cpp
+  IntroSkipper.cpp
+  MainGame.cpp
+  MainMenuScene.cpp
+  MenuSelector.cpp
+  MuzzleEffect.cpp
+  Player_Attack.cpp
+  Player_Bomb.cpp
+  Player_Death.cpp
+  Player_Fire.cpp
+  컴파일하고 있습니다...
+  Player_Heal.cpp
+  Player_Status.cpp
+  Player_Idle.cpp
+  Player_Move.cpp
+  Player_Reload.cpp
+  Player_Swap.cpp
+  ShakeObject.cpp
+  ShopManager.cpp
+  SkyBox.cpp
+  StageManager.cpp
+  StageScene.cpp
+  Stage_1.cpp
+  Stage_2.cpp
+  Stage_Boss.cpp
+  Stage_Ending.cpp
+  Stage_Shop.cpp
+  TestScene.cpp
+  WeaponManager.cpp
+  Weapon_PipeBomb_Static.cpp
+  Weapon_Status.cpp
+  컴파일하고 있습니다...
+  Zed.cpp
+  ZedChanger.cpp
+  ZedManager.cpp
+  Zed_Att.cpp
+  Zed_Death.cpp
+  Zed_Hit.cpp
+  Zed_Idle.cpp
+  Zed_InitWalk.cpp
+  Zed_Run.cpp
+  Zed_Status.cpp
+  Zed_Walk.cpp
+  Client.cpp
   코드를 생성하고 있습니다.
-  166 of 1901 functions ( 8.7%) were compiled, the rest were copied from previous compilation.
+  1899 of 1901 functions (99.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    30 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  Client.vcxproj -> C:\Users\weidi\Desktop\공부\쥬신\05)프로젝트\08)7mon_Personal_KillingFloor\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
+  Client.vcxproj -> C:\Users\weidi\Desktop\Study\Jusin\Projects\03)7mon_Personal_KillingFloor\7Mon_Personal_Project\Client\Default\../Bin/x64\Release\Client.exe
   Client.vcxproj -> ../Bin/x64\Release\Client.pdb (Full PDB)
